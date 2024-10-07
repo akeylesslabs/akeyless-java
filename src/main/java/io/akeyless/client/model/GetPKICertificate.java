@@ -179,11 +179,11 @@ public class GetPKICertificate {
   }
 
    /**
-   * A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: &#39;clientauth&#39;, &#39;serverauth&#39;.
+   * A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: &#39;clientauth&#39;, &#39;serverauth&#39;. If critical is present the extension will be marked as critical
    * @return extendedKeyUsage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'.")
+  @ApiModelProperty(value = "A comma-separated list of extended key usage requests which will be used for certificate issuance. Supported values: 'clientauth', 'serverauth'. If critical is present the extension will be marked as critical")
 
   public String getExtendedKeyUsage() {
     return extendedKeyUsage;

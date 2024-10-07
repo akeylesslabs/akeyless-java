@@ -25,26 +25,21 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateClassicKeyCertificate is a command that updates the certificate for a classic key
+ * ChangeAdminAccountPassword
  */
-@ApiModel(description = "UpdateClassicKeyCertificate is a command that updates the certificate for a classic key")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class UpdateClassicKeyCertificate {
-  public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
-  @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
-  private String certFileData;
-
-  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
-  private String certificateFormat;
+public class ChangeAdminAccountPassword {
+  public static final String SERIALIZED_NAME_CURRENT_PASSWORD = "current-password";
+  @SerializedName(SERIALIZED_NAME_CURRENT_PASSWORD)
+  private String currentPassword;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_NEW_PASSWORD = "new-password";
+  @SerializedName(SERIALIZED_NAME_NEW_PASSWORD)
+  private String newPassword;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -54,56 +49,33 @@ public class UpdateClassicKeyCertificate {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public UpdateClassicKeyCertificate() { 
+  public ChangeAdminAccountPassword() { 
   }
 
-  public UpdateClassicKeyCertificate certFileData(String certFileData) {
+  public ChangeAdminAccountPassword currentPassword(String currentPassword) {
     
-    this.certFileData = certFileData;
+    this.currentPassword = currentPassword;
     return this;
   }
 
    /**
-   * PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates.
-   * @return certFileData
+   * Current password
+   * @return currentPassword
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Current password")
 
-  public String getCertFileData() {
-    return certFileData;
+  public String getCurrentPassword() {
+    return currentPassword;
   }
 
 
-  public void setCertFileData(String certFileData) {
-    this.certFileData = certFileData;
+  public void setCurrentPassword(String currentPassword) {
+    this.currentPassword = currentPassword;
   }
 
 
-  public UpdateClassicKeyCertificate certificateFormat(String certificateFormat) {
-    
-    this.certificateFormat = certificateFormat;
-    return this;
-  }
-
-   /**
-   * Get certificateFormat
-   * @return certificateFormat
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getCertificateFormat() {
-    return certificateFormat;
-  }
-
-
-  public void setCertificateFormat(String certificateFormat) {
-    this.certificateFormat = certificateFormat;
-  }
-
-
-  public UpdateClassicKeyCertificate json(Boolean json) {
+  public ChangeAdminAccountPassword json(Boolean json) {
     
     this.json = json;
     return this;
@@ -126,30 +98,30 @@ public class UpdateClassicKeyCertificate {
   }
 
 
-  public UpdateClassicKeyCertificate name(String name) {
+  public ChangeAdminAccountPassword newPassword(String newPassword) {
     
-    this.name = name;
+    this.newPassword = newPassword;
     return this;
   }
 
    /**
-   * ClassicKey name
-   * @return name
+   * New password
+   * @return newPassword
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ClassicKey name")
+  @ApiModelProperty(required = true, value = "New password")
 
-  public String getName() {
-    return name;
+  public String getNewPassword() {
+    return newPassword;
   }
 
 
-  public void setName(String name) {
-    this.name = name;
+  public void setNewPassword(String newPassword) {
+    this.newPassword = newPassword;
   }
 
 
-  public UpdateClassicKeyCertificate token(String token) {
+  public ChangeAdminAccountPassword token(String token) {
     
     this.token = token;
     return this;
@@ -172,7 +144,7 @@ public class UpdateClassicKeyCertificate {
   }
 
 
-  public UpdateClassicKeyCertificate uidToken(String uidToken) {
+  public ChangeAdminAccountPassword uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -203,28 +175,26 @@ public class UpdateClassicKeyCertificate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateClassicKeyCertificate updateClassicKeyCertificate = (UpdateClassicKeyCertificate) o;
-    return Objects.equals(this.certFileData, updateClassicKeyCertificate.certFileData) &&
-        Objects.equals(this.certificateFormat, updateClassicKeyCertificate.certificateFormat) &&
-        Objects.equals(this.json, updateClassicKeyCertificate.json) &&
-        Objects.equals(this.name, updateClassicKeyCertificate.name) &&
-        Objects.equals(this.token, updateClassicKeyCertificate.token) &&
-        Objects.equals(this.uidToken, updateClassicKeyCertificate.uidToken);
+    ChangeAdminAccountPassword changeAdminAccountPassword = (ChangeAdminAccountPassword) o;
+    return Objects.equals(this.currentPassword, changeAdminAccountPassword.currentPassword) &&
+        Objects.equals(this.json, changeAdminAccountPassword.json) &&
+        Objects.equals(this.newPassword, changeAdminAccountPassword.newPassword) &&
+        Objects.equals(this.token, changeAdminAccountPassword.token) &&
+        Objects.equals(this.uidToken, changeAdminAccountPassword.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certFileData, certificateFormat, json, name, token, uidToken);
+    return Objects.hash(currentPassword, json, newPassword, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateClassicKeyCertificate {\n");
-    sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
-    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
+    sb.append("class ChangeAdminAccountPassword {\n");
+    sb.append("    currentPassword: ").append(toIndentedString(currentPassword)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    newPassword: ").append(toIndentedString(newPassword)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");

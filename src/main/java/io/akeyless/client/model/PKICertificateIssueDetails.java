@@ -34,6 +34,10 @@ import java.util.Map;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PKICertificateIssueDetails {
+  public static final String SERIALIZED_NAME_ACME_ENABLED = "acme_enabled";
+  @SerializedName(SERIALIZED_NAME_ACME_ENABLED)
+  private Boolean acmeEnabled;
+
   public static final String SERIALIZED_NAME_ALLOW_ANY_NAME = "allow_any_name";
   @SerializedName(SERIALIZED_NAME_ALLOW_ANY_NAME)
   private Boolean allowAnyName;
@@ -126,6 +130,10 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_LOCALITY)
   private List<String> locality = null;
 
+  public static final String SERIALIZED_NAME_NON_CRITICAL_KEY_USAGE = "non_critical_key_usage";
+  @SerializedName(SERIALIZED_NAME_NON_CRITICAL_KEY_USAGE)
+  private Boolean nonCriticalKeyUsage;
+
   public static final String SERIALIZED_NAME_NOT_BEFORE_DURATION = "not_before_duration";
   @SerializedName(SERIALIZED_NAME_NOT_BEFORE_DURATION)
   private Long notBeforeDuration;
@@ -164,6 +172,29 @@ public class PKICertificateIssueDetails {
 
   public PKICertificateIssueDetails() { 
   }
+
+  public PKICertificateIssueDetails acmeEnabled(Boolean acmeEnabled) {
+    
+    this.acmeEnabled = acmeEnabled;
+    return this;
+  }
+
+   /**
+   * Get acmeEnabled
+   * @return acmeEnabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAcmeEnabled() {
+    return acmeEnabled;
+  }
+
+
+  public void setAcmeEnabled(Boolean acmeEnabled) {
+    this.acmeEnabled = acmeEnabled;
+  }
+
 
   public PKICertificateIssueDetails allowAnyName(Boolean allowAnyName) {
     
@@ -750,6 +781,29 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails nonCriticalKeyUsage(Boolean nonCriticalKeyUsage) {
+    
+    this.nonCriticalKeyUsage = nonCriticalKeyUsage;
+    return this;
+  }
+
+   /**
+   * Get nonCriticalKeyUsage
+   * @return nonCriticalKeyUsage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getNonCriticalKeyUsage() {
+    return nonCriticalKeyUsage;
+  }
+
+
+  public void setNonCriticalKeyUsage(Boolean nonCriticalKeyUsage) {
+    this.nonCriticalKeyUsage = nonCriticalKeyUsage;
+  }
+
+
   public PKICertificateIssueDetails notBeforeDuration(Long notBeforeDuration) {
     
     this.notBeforeDuration = notBeforeDuration;
@@ -1006,7 +1060,8 @@ public class PKICertificateIssueDetails {
       return false;
     }
     PKICertificateIssueDetails pkICertificateIssueDetails = (PKICertificateIssueDetails) o;
-    return Objects.equals(this.allowAnyName, pkICertificateIssueDetails.allowAnyName) &&
+    return Objects.equals(this.acmeEnabled, pkICertificateIssueDetails.acmeEnabled) &&
+        Objects.equals(this.allowAnyName, pkICertificateIssueDetails.allowAnyName) &&
         Objects.equals(this.allowCopyExtFromCsr, pkICertificateIssueDetails.allowCopyExtFromCsr) &&
         Objects.equals(this.allowSubdomains, pkICertificateIssueDetails.allowSubdomains) &&
         Objects.equals(this.allowedDomainsList, pkICertificateIssueDetails.allowedDomainsList) &&
@@ -1029,6 +1084,7 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.keyType, pkICertificateIssueDetails.keyType) &&
         Objects.equals(this.keyUsageList, pkICertificateIssueDetails.keyUsageList) &&
         Objects.equals(this.locality, pkICertificateIssueDetails.locality) &&
+        Objects.equals(this.nonCriticalKeyUsage, pkICertificateIssueDetails.nonCriticalKeyUsage) &&
         Objects.equals(this.notBeforeDuration, pkICertificateIssueDetails.notBeforeDuration) &&
         Objects.equals(this.organizationList, pkICertificateIssueDetails.organizationList) &&
         Objects.equals(this.organizationUnitList, pkICertificateIssueDetails.organizationUnitList) &&
@@ -1042,13 +1098,14 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, destinationPath, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
+    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, destinationPath, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, nonCriticalKeyUsage, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PKICertificateIssueDetails {\n");
+    sb.append("    acmeEnabled: ").append(toIndentedString(acmeEnabled)).append("\n");
     sb.append("    allowAnyName: ").append(toIndentedString(allowAnyName)).append("\n");
     sb.append("    allowCopyExtFromCsr: ").append(toIndentedString(allowCopyExtFromCsr)).append("\n");
     sb.append("    allowSubdomains: ").append(toIndentedString(allowSubdomains)).append("\n");
@@ -1072,6 +1129,7 @@ public class PKICertificateIssueDetails {
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
     sb.append("    keyUsageList: ").append(toIndentedString(keyUsageList)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
+    sb.append("    nonCriticalKeyUsage: ").append(toIndentedString(nonCriticalKeyUsage)).append("\n");
     sb.append("    notBeforeDuration: ").append(toIndentedString(notBeforeDuration)).append("\n");
     sb.append("    organizationList: ").append(toIndentedString(organizationList)).append("\n");
     sb.append("    organizationUnitList: ").append(toIndentedString(organizationUnitList)).append("\n");

@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**acmeEnabled** | **Boolean** |  |  [optional]
 **allowAnyName** | **Boolean** |  |  [optional]
 **allowCopyExtFromCsr** | **Boolean** |  |  [optional]
 **allowSubdomains** | **Boolean** |  |  [optional]
@@ -30,6 +31,7 @@ Name | Type | Description | Notes
 **keyType** | **String** |  |  [optional]
 **keyUsageList** | **List&lt;String&gt;** |  |  [optional]
 **locality** | **List&lt;String&gt;** |  |  [optional]
+**nonCriticalKeyUsage** | **Boolean** |  |  [optional]
 **notBeforeDuration** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional]
 **organizationList** | **List&lt;String&gt;** |  |  [optional]
 **organizationUnitList** | **List&lt;String&gt;** |  |  [optional]

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **authMethodAccessId** | **String** |  |  [optional]
 **authMethodName** | **String** |  |  [optional]
 **authMethodSubClaims** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
+**isSubclaimsWithOperator** | **Boolean** |  |  [optional]
 **subClaimsCaseSensitive** | **Boolean** |  |  [optional]
 
 

@@ -51,6 +51,10 @@ public class AuthMethodRoleAssociation {
   @SerializedName(SERIALIZED_NAME_IS_SUB_CLAIMS_CASE_SENSITIVE)
   private Boolean isSubClaimsCaseSensitive;
 
+  public static final String SERIALIZED_NAME_IS_SUBCLAIMS_WITH_OPERATOR = "is_subclaims_with_operator";
+  @SerializedName(SERIALIZED_NAME_IS_SUBCLAIMS_WITH_OPERATOR)
+  private Boolean isSubclaimsWithOperator;
+
   public static final String SERIALIZED_NAME_ROLE_NAME = "role_name";
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)
   private String roleName;
@@ -170,6 +174,29 @@ public class AuthMethodRoleAssociation {
   }
 
 
+  public AuthMethodRoleAssociation isSubclaimsWithOperator(Boolean isSubclaimsWithOperator) {
+    
+    this.isSubclaimsWithOperator = isSubclaimsWithOperator;
+    return this;
+  }
+
+   /**
+   * Get isSubclaimsWithOperator
+   * @return isSubclaimsWithOperator
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIsSubclaimsWithOperator() {
+    return isSubclaimsWithOperator;
+  }
+
+
+  public void setIsSubclaimsWithOperator(Boolean isSubclaimsWithOperator) {
+    this.isSubclaimsWithOperator = isSubclaimsWithOperator;
+  }
+
+
   public AuthMethodRoleAssociation roleName(String roleName) {
     
     this.roleName = roleName;
@@ -229,13 +256,14 @@ public class AuthMethodRoleAssociation {
         Objects.equals(this.assocId, authMethodRoleAssociation.assocId) &&
         Objects.equals(this.authMethodSubClaims, authMethodRoleAssociation.authMethodSubClaims) &&
         Objects.equals(this.isSubClaimsCaseSensitive, authMethodRoleAssociation.isSubClaimsCaseSensitive) &&
+        Objects.equals(this.isSubclaimsWithOperator, authMethodRoleAssociation.isSubclaimsWithOperator) &&
         Objects.equals(this.roleName, authMethodRoleAssociation.roleName) &&
         Objects.equals(this.rules, authMethodRoleAssociation.rules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedOps, assocId, authMethodSubClaims, isSubClaimsCaseSensitive, roleName, rules);
+    return Objects.hash(allowedOps, assocId, authMethodSubClaims, isSubClaimsCaseSensitive, isSubclaimsWithOperator, roleName, rules);
   }
 
   @Override
@@ -246,6 +274,7 @@ public class AuthMethodRoleAssociation {
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    authMethodSubClaims: ").append(toIndentedString(authMethodSubClaims)).append("\n");
     sb.append("    isSubClaimsCaseSensitive: ").append(toIndentedString(isSubClaimsCaseSensitive)).append("\n");
+    sb.append("    isSubclaimsWithOperator: ").append(toIndentedString(isSubclaimsWithOperator)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");

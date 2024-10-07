@@ -138,6 +138,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**authMethodUpdateOauth2**](docs/V2Api.md#authMethodUpdateOauth2) | **POST** /auth-method-update-oauth2 | 
 *V2Api* | [**authMethodUpdateSAML**](docs/V2Api.md#authMethodUpdateSAML) | **POST** /auth-method-update-saml | 
 *V2Api* | [**authMethodUpdateUniversalIdentity**](docs/V2Api.md#authMethodUpdateUniversalIdentity) | **POST** /auth-method-update-universal-identity | 
+*V2Api* | [**changeAdminAccountPassword**](docs/V2Api.md#changeAdminAccountPassword) | **POST** /change-admin-account-password | 
 *V2Api* | [**configure**](docs/V2Api.md#configure) | **POST** /configure | 
 *V2Api* | [**connect**](docs/V2Api.md#connect) | **POST** /connect | 
 *V2Api* | [**createAWSTarget**](docs/V2Api.md#createAWSTarget) | **POST** /create-aws-target | 
@@ -195,6 +196,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createWindowsTarget**](docs/V2Api.md#createWindowsTarget) | **POST** /create-windows-target | 
 *V2Api* | [**createZeroSSLTarget**](docs/V2Api.md#createZeroSSLTarget) | **POST** /create-zerossl-target | 
 *V2Api* | [**createldapTarget**](docs/V2Api.md#createldapTarget) | **POST** /create-ldap-target | 
+*V2Api* | [**deactivateAcmeAccount**](docs/V2Api.md#deactivateAcmeAccount) | **POST** /deactivate-acme-account | 
 *V2Api* | [**decrypt**](docs/V2Api.md#decrypt) | **POST** /decrypt | 
 *V2Api* | [**decryptBatch**](docs/V2Api.md#decryptBatch) | **POST** /decrypt-batch | 
 *V2Api* | [**decryptGPG**](docs/V2Api.md#decryptGPG) | **POST** /decrypt-gpg | 
@@ -407,6 +409,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateRemoteAccessRdpRecordings**](docs/V2Api.md#gatewayUpdateRemoteAccessRdpRecordings) | **POST** /gateway-update-remote-access-rdp-recording | 
 *V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
+*V2Api* | [**generateAcmeEab**](docs/V2Api.md#generateAcmeEab) | **POST** /generate-acme-eab | 
 *V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
 *V2Api* | [**getAccountLogo**](docs/V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 *V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
@@ -453,6 +456,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**kmipRenewServerCertificate**](docs/V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment | 
 *V2Api* | [**kmipServerSetup**](docs/V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
 *V2Api* | [**kmipSetServerState**](docs/V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
+*V2Api* | [**listAcmeAccounts**](docs/V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts | 
 *V2Api* | [**listAuthMethods**](docs/V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
 *V2Api* | [**listGateways**](docs/V2Api.md#listGateways) | **POST** /list-gateways | 
 *V2Api* | [**listGroups**](docs/V2Api.md#listGroups) | **POST** /list-group | 
@@ -670,6 +674,7 @@ Class | Method | HTTP request | Description
  - [AccessPermissionAssignment](docs/AccessPermissionAssignment.md)
  - [AccountGeneralSettings](docs/AccountGeneralSettings.md)
  - [AccountObjectVersionSettingsOutput](docs/AccountObjectVersionSettingsOutput.md)
+ - [AcmeAccount](docs/AcmeAccount.md)
  - [ActiveDirectoryMigration](docs/ActiveDirectoryMigration.md)
  - [ActiveDirectoryPayload](docs/ActiveDirectoryPayload.md)
  - [AddGatewayAllowedAccessId](docs/AddGatewayAllowedAccessId.md)
@@ -749,6 +754,7 @@ Class | Method | HTTP request | Description
  - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
  - [CertificateVersionInfo](docs/CertificateVersionInfo.md)
  - [CfInfo](docs/CfInfo.md)
+ - [ChangeAdminAccountPassword](docs/ChangeAdminAccountPassword.md)
  - [ChefTargetDetails](docs/ChefTargetDetails.md)
  - [ClassicKeyDetailsInfo](docs/ClassicKeyDetailsInfo.md)
  - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
@@ -879,6 +885,7 @@ Class | Method | HTTP request | Description
  - [DataProtectionSection](docs/DataProtectionSection.md)
  - [DatadogForwardingConfig](docs/DatadogForwardingConfig.md)
  - [DbTargetDetails](docs/DbTargetDetails.md)
+ - [DeactivateAcmeAccount](docs/DeactivateAcmeAccount.md)
  - [Decrypt](docs/Decrypt.md)
  - [DecryptFile](docs/DecryptFile.md)
  - [DecryptFileOutput](docs/DecryptFileOutput.md)
@@ -1222,6 +1229,8 @@ Class | Method | HTTP request | Description
  - [GcpTargetDetails](docs/GcpTargetDetails.md)
  - [GenCustomerFragment](docs/GenCustomerFragment.md)
  - [GeneralConfigPart](docs/GeneralConfigPart.md)
+ - [GenerateAcmeEab](docs/GenerateAcmeEab.md)
+ - [GenerateAcmeEabOutput](docs/GenerateAcmeEabOutput.md)
  - [GenerateCsr](docs/GenerateCsr.md)
  - [GenerateCsrOutput](docs/GenerateCsrOutput.md)
  - [GetAccountSettings](docs/GetAccountSettings.md)
@@ -1327,6 +1336,8 @@ Class | Method | HTTP request | Description
  - [LeadershipConfigPart](docs/LeadershipConfigPart.md)
  - [LinkedDetails](docs/LinkedDetails.md)
  - [LinkedTargetDetails](docs/LinkedTargetDetails.md)
+ - [ListAcmeAccounts](docs/ListAcmeAccounts.md)
+ - [ListAcmeAccountsOutput](docs/ListAcmeAccountsOutput.md)
  - [ListAuthMethods](docs/ListAuthMethods.md)
  - [ListAuthMethodsOutput](docs/ListAuthMethodsOutput.md)
  - [ListGateways](docs/ListGateways.md)

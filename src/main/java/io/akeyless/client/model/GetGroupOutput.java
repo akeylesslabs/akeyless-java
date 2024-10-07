@@ -57,6 +57,10 @@ public class GetGroupOutput {
   @SerializedName(SERIALIZED_NAME_GROUP_NAME)
   private String groupName;
 
+  public static final String SERIALIZED_NAME_IS_SUBCLAIMS_WITH_OPERATOR = "is_subclaims_with_operator";
+  @SerializedName(SERIALIZED_NAME_IS_SUBCLAIMS_WITH_OPERATOR)
+  private Boolean isSubclaimsWithOperator;
+
   public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
   private OffsetDateTime modificationDate;
@@ -206,6 +210,29 @@ public class GetGroupOutput {
   }
 
 
+  public GetGroupOutput isSubclaimsWithOperator(Boolean isSubclaimsWithOperator) {
+    
+    this.isSubclaimsWithOperator = isSubclaimsWithOperator;
+    return this;
+  }
+
+   /**
+   * Get isSubclaimsWithOperator
+   * @return isSubclaimsWithOperator
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getIsSubclaimsWithOperator() {
+    return isSubclaimsWithOperator;
+  }
+
+
+  public void setIsSubclaimsWithOperator(Boolean isSubclaimsWithOperator) {
+    this.isSubclaimsWithOperator = isSubclaimsWithOperator;
+  }
+
+
   public GetGroupOutput modificationDate(OffsetDateTime modificationDate) {
     
     this.modificationDate = modificationDate;
@@ -275,13 +302,14 @@ public class GetGroupOutput {
         Objects.equals(this.groupAlias, getGroupOutput.groupAlias) &&
         Objects.equals(this.groupId, getGroupOutput.groupId) &&
         Objects.equals(this.groupName, getGroupOutput.groupName) &&
+        Objects.equals(this.isSubclaimsWithOperator, getGroupOutput.isSubclaimsWithOperator) &&
         Objects.equals(this.modificationDate, getGroupOutput.modificationDate) &&
         Objects.equals(this.userAssignments, getGroupOutput.userAssignments);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationDate, description, groupAlias, groupId, groupName, modificationDate, userAssignments);
+    return Objects.hash(accountId, creationDate, description, groupAlias, groupId, groupName, isSubclaimsWithOperator, modificationDate, userAssignments);
   }
 
   @Override
@@ -294,6 +322,7 @@ public class GetGroupOutput {
     sb.append("    groupAlias: ").append(toIndentedString(groupAlias)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
+    sb.append("    isSubclaimsWithOperator: ").append(toIndentedString(isSubclaimsWithOperator)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    userAssignments: ").append(toIndentedString(userAssignments)).append("\n");
     sb.append("}");

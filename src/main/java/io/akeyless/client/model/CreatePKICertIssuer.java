@@ -79,6 +79,10 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_CRL)
   private Boolean createPublicCrl;
 
+  public static final String SERIALIZED_NAME_CRITICAL_KEY_USAGE = "critical-key-usage";
+  @SerializedName(SERIALIZED_NAME_CRITICAL_KEY_USAGE)
+  private String criticalKeyUsage = "true";
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   private String deleteProtection;
@@ -90,6 +94,10 @@ public class CreatePKICertIssuer {
   public static final String SERIALIZED_NAME_DESTINATION_PATH = "destination-path";
   @SerializedName(SERIALIZED_NAME_DESTINATION_PATH)
   private String destinationPath;
+
+  public static final String SERIALIZED_NAME_ENABLE_ACME = "enable-acme";
+  @SerializedName(SERIALIZED_NAME_ENABLE_ACME)
+  private Boolean enableAcme;
 
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
@@ -458,6 +466,29 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer criticalKeyUsage(String criticalKeyUsage) {
+    
+    this.criticalKeyUsage = criticalKeyUsage;
+    return this;
+  }
+
+   /**
+   * Mark key usage as critical [true/false]
+   * @return criticalKeyUsage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Mark key usage as critical [true/false]")
+
+  public String getCriticalKeyUsage() {
+    return criticalKeyUsage;
+  }
+
+
+  public void setCriticalKeyUsage(String criticalKeyUsage) {
+    this.criticalKeyUsage = criticalKeyUsage;
+  }
+
+
   public CreatePKICertIssuer deleteProtection(String deleteProtection) {
     
     this.deleteProtection = deleteProtection;
@@ -527,6 +558,29 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer enableAcme(Boolean enableAcme) {
+    
+    this.enableAcme = enableAcme;
+    return this;
+  }
+
+   /**
+   * If set, the cert issuer will support the acme protocol
+   * @return enableAcme
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "If set, the cert issuer will support the acme protocol")
+
+  public Boolean getEnableAcme() {
+    return enableAcme;
+  }
+
+
+  public void setEnableAcme(Boolean enableAcme) {
+    this.enableAcme = enableAcme;
+  }
+
+
   public CreatePKICertIssuer expirationEventIn(List<String> expirationEventIn) {
     
     this.expirationEventIn = expirationEventIn;
@@ -565,11 +619,11 @@ public class CreatePKICertIssuer {
   }
 
    /**
-   * The GW cluster URL to issue the certificate from, required in Public CA mode or to allow CRLs on private CA
+   * The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME
    * @return gwClusterUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "The GW cluster URL to issue the certificate from, required in Public CA mode or to allow CRLs on private CA")
+  @ApiModelProperty(value = "The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME")
 
   public String getGwClusterUrl() {
     return gwClusterUrl;
@@ -1070,9 +1124,11 @@ public class CreatePKICertIssuer {
         Objects.equals(this.country, createPKICertIssuer.country) &&
         Objects.equals(this.createPrivateCrl, createPKICertIssuer.createPrivateCrl) &&
         Objects.equals(this.createPublicCrl, createPKICertIssuer.createPublicCrl) &&
+        Objects.equals(this.criticalKeyUsage, createPKICertIssuer.criticalKeyUsage) &&
         Objects.equals(this.deleteProtection, createPKICertIssuer.deleteProtection) &&
         Objects.equals(this.description, createPKICertIssuer.description) &&
         Objects.equals(this.destinationPath, createPKICertIssuer.destinationPath) &&
+        Objects.equals(this.enableAcme, createPKICertIssuer.enableAcme) &&
         Objects.equals(this.expirationEventIn, createPKICertIssuer.expirationEventIn) &&
         Objects.equals(this.gwClusterUrl, createPKICertIssuer.gwClusterUrl) &&
         Objects.equals(this.isCa, createPKICertIssuer.isCa) &&
@@ -1099,7 +1155,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, deleteProtection, description, destinationPath, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, criticalKeyUsage, deleteProtection, description, destinationPath, enableAcme, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1118,9 +1174,11 @@ public class CreatePKICertIssuer {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    createPrivateCrl: ").append(toIndentedString(createPrivateCrl)).append("\n");
     sb.append("    createPublicCrl: ").append(toIndentedString(createPublicCrl)).append("\n");
+    sb.append("    criticalKeyUsage: ").append(toIndentedString(criticalKeyUsage)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
+    sb.append("    enableAcme: ").append(toIndentedString(enableAcme)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    isCa: ").append(toIndentedString(isCa)).append("\n");

@@ -47,6 +47,10 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   private String certFileData;
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  private String certificateFormat;
+
   public static final String SERIALIZED_NAME_CHANGE_EVENT = "change-event";
   @SerializedName(SERIALIZED_NAME_CHANGE_EVENT)
   private String changeEvent;
@@ -303,6 +307,29 @@ public class UpdateItem {
 
   public void setCertFileData(String certFileData) {
     this.certFileData = certFileData;
+  }
+
+
+  public UpdateItem certificateFormat(String certificateFormat) {
+    
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+   /**
+   * Get certificateFormat
+   * @return certificateFormat
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+
+  public void setCertificateFormat(String certificateFormat) {
+    this.certificateFormat = certificateFormat;
   }
 
 
@@ -1256,6 +1283,7 @@ public class UpdateItem {
         Objects.equals(this.accessibility, updateItem.accessibility) &&
         Objects.equals(this.addTag, updateItem.addTag) &&
         Objects.equals(this.certFileData, updateItem.certFileData) &&
+        Objects.equals(this.certificateFormat, updateItem.certificateFormat) &&
         Objects.equals(this.changeEvent, updateItem.changeEvent) &&
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
         Objects.equals(this.description, updateItem.description) &&
@@ -1299,7 +1327,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, certFileData, changeEvent, deleteProtection, description, expirationEventIn, hostProvider, json, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, hostProvider, json, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
   @Override
@@ -1310,6 +1338,7 @@ public class UpdateItem {
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

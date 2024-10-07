@@ -25,26 +25,17 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * UpdateClassicKeyCertificate is a command that updates the certificate for a classic key
+ * GenerateAcmeEab
  */
-@ApiModel(description = "UpdateClassicKeyCertificate is a command that updates the certificate for a classic key")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class UpdateClassicKeyCertificate {
-  public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
-  @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
-  private String certFileData;
-
-  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
-  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
-  private String certificateFormat;
+public class GenerateAcmeEab {
+  public static final String SERIALIZED_NAME_CERT_ISSUER_NAME = "cert-issuer-name";
+  @SerializedName(SERIALIZED_NAME_CERT_ISSUER_NAME)
+  private String certIssuerName;
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   private Boolean json = false;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -54,56 +45,33 @@ public class UpdateClassicKeyCertificate {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   private String uidToken;
 
-  public UpdateClassicKeyCertificate() { 
+  public GenerateAcmeEab() { 
   }
 
-  public UpdateClassicKeyCertificate certFileData(String certFileData) {
+  public GenerateAcmeEab certIssuerName(String certIssuerName) {
     
-    this.certFileData = certFileData;
+    this.certIssuerName = certIssuerName;
     return this;
   }
 
    /**
-   * PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates.
-   * @return certFileData
+   * The name of the PKI certificate issuer
+   * @return certIssuerName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "PEM Certificate in a Base64 format. Used for updating RSA keys' certificates.")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "The name of the PKI certificate issuer")
 
-  public String getCertFileData() {
-    return certFileData;
+  public String getCertIssuerName() {
+    return certIssuerName;
   }
 
 
-  public void setCertFileData(String certFileData) {
-    this.certFileData = certFileData;
+  public void setCertIssuerName(String certIssuerName) {
+    this.certIssuerName = certIssuerName;
   }
 
 
-  public UpdateClassicKeyCertificate certificateFormat(String certificateFormat) {
-    
-    this.certificateFormat = certificateFormat;
-    return this;
-  }
-
-   /**
-   * Get certificateFormat
-   * @return certificateFormat
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
-  public String getCertificateFormat() {
-    return certificateFormat;
-  }
-
-
-  public void setCertificateFormat(String certificateFormat) {
-    this.certificateFormat = certificateFormat;
-  }
-
-
-  public UpdateClassicKeyCertificate json(Boolean json) {
+  public GenerateAcmeEab json(Boolean json) {
     
     this.json = json;
     return this;
@@ -126,30 +94,7 @@ public class UpdateClassicKeyCertificate {
   }
 
 
-  public UpdateClassicKeyCertificate name(String name) {
-    
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * ClassicKey name
-   * @return name
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "ClassicKey name")
-
-  public String getName() {
-    return name;
-  }
-
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public UpdateClassicKeyCertificate token(String token) {
+  public GenerateAcmeEab token(String token) {
     
     this.token = token;
     return this;
@@ -172,7 +117,7 @@ public class UpdateClassicKeyCertificate {
   }
 
 
-  public UpdateClassicKeyCertificate uidToken(String uidToken) {
+  public GenerateAcmeEab uidToken(String uidToken) {
     
     this.uidToken = uidToken;
     return this;
@@ -203,28 +148,24 @@ public class UpdateClassicKeyCertificate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateClassicKeyCertificate updateClassicKeyCertificate = (UpdateClassicKeyCertificate) o;
-    return Objects.equals(this.certFileData, updateClassicKeyCertificate.certFileData) &&
-        Objects.equals(this.certificateFormat, updateClassicKeyCertificate.certificateFormat) &&
-        Objects.equals(this.json, updateClassicKeyCertificate.json) &&
-        Objects.equals(this.name, updateClassicKeyCertificate.name) &&
-        Objects.equals(this.token, updateClassicKeyCertificate.token) &&
-        Objects.equals(this.uidToken, updateClassicKeyCertificate.uidToken);
+    GenerateAcmeEab generateAcmeEab = (GenerateAcmeEab) o;
+    return Objects.equals(this.certIssuerName, generateAcmeEab.certIssuerName) &&
+        Objects.equals(this.json, generateAcmeEab.json) &&
+        Objects.equals(this.token, generateAcmeEab.token) &&
+        Objects.equals(this.uidToken, generateAcmeEab.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certFileData, certificateFormat, json, name, token, uidToken);
+    return Objects.hash(certIssuerName, json, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateClassicKeyCertificate {\n");
-    sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
-    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
+    sb.append("class GenerateAcmeEab {\n");
+    sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
