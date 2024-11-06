@@ -28,6 +28,7 @@ import io.akeyless.client.model.GatewayMessageQueueInfo;
 import io.akeyless.client.model.GeneralConfigPart;
 import io.akeyless.client.model.K8SAuthsConfigPart;
 import io.akeyless.client.model.KMIPConfigPart;
+import io.akeyless.client.model.KerberosConfigPart;
 import io.akeyless.client.model.LdapConfigPart;
 import io.akeyless.client.model.LeadershipConfigPart;
 import io.akeyless.client.model.LogForwardingConfigPart;
@@ -66,6 +67,10 @@ public class AkeylessGatewayConfig {
   public static final String SERIALIZED_NAME_K8S_AUTHS = "k8s_auths";
   @SerializedName(SERIALIZED_NAME_K8S_AUTHS)
   private K8SAuthsConfigPart k8sAuths;
+
+  public static final String SERIALIZED_NAME_KERBEROS = "kerberos";
+  @SerializedName(SERIALIZED_NAME_KERBEROS)
+  private KerberosConfigPart kerberos;
 
   public static final String SERIALIZED_NAME_KMIP_CLIENTS = "kmip_clients";
   @SerializedName(SERIALIZED_NAME_KMIP_CLIENTS)
@@ -245,6 +250,29 @@ public class AkeylessGatewayConfig {
 
   public void setK8sAuths(K8SAuthsConfigPart k8sAuths) {
     this.k8sAuths = k8sAuths;
+  }
+
+
+  public AkeylessGatewayConfig kerberos(KerberosConfigPart kerberos) {
+    
+    this.kerberos = kerberos;
+    return this;
+  }
+
+   /**
+   * Get kerberos
+   * @return kerberos
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public KerberosConfigPart getKerberos() {
+    return kerberos;
+  }
+
+
+  public void setKerberos(KerberosConfigPart kerberos) {
+    this.kerberos = kerberos;
   }
 
 
@@ -493,6 +521,7 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.configProtectionKeyName, akeylessGatewayConfig.configProtectionKeyName) &&
         Objects.equals(this.general, akeylessGatewayConfig.general) &&
         Objects.equals(this.k8sAuths, akeylessGatewayConfig.k8sAuths) &&
+        Objects.equals(this.kerberos, akeylessGatewayConfig.kerberos) &&
         Objects.equals(this.kmipClients, akeylessGatewayConfig.kmipClients) &&
         Objects.equals(this.ldap, akeylessGatewayConfig.ldap) &&
         Objects.equals(this.leadership, akeylessGatewayConfig.leadership) &&
@@ -507,7 +536,7 @@ public class AkeylessGatewayConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
+    return Objects.hash(admins, cache, cf, configProtectionKeyName, general, k8sAuths, kerberos, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
   }
 
   @Override
@@ -520,6 +549,7 @@ public class AkeylessGatewayConfig {
     sb.append("    configProtectionKeyName: ").append(toIndentedString(configProtectionKeyName)).append("\n");
     sb.append("    general: ").append(toIndentedString(general)).append("\n");
     sb.append("    k8sAuths: ").append(toIndentedString(k8sAuths)).append("\n");
+    sb.append("    kerberos: ").append(toIndentedString(kerberos)).append("\n");
     sb.append("    kmipClients: ").append(toIndentedString(kmipClients)).append("\n");
     sb.append("    ldap: ").append(toIndentedString(ldap)).append("\n");
     sb.append("    leadership: ").append(toIndentedString(leadership)).append("\n");

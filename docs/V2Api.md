@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**authMethodCreateEmail**](V2Api.md#authMethodCreateEmail) | **POST** /auth-method-create-email | 
 [**authMethodCreateGcp**](V2Api.md#authMethodCreateGcp) | **POST** /auth-method-create-gcp | 
 [**authMethodCreateK8s**](V2Api.md#authMethodCreateK8s) | **POST** /auth-method-create-k8s | 
+[**authMethodCreateKerberos**](V2Api.md#authMethodCreateKerberos) | **POST** /auth-method-create-kerberos | 
 [**authMethodCreateLdap**](V2Api.md#authMethodCreateLdap) | **POST** /auth-method-create-ldap | 
 [**authMethodCreateOCI**](V2Api.md#authMethodCreateOCI) | **POST** /auth-method-create-oci | 
 [**authMethodCreateOIDC**](V2Api.md#authMethodCreateOIDC) | **POST** /auth-method-create-oidc | 
@@ -31,6 +32,7 @@ Method | HTTP request | Description
 [**authMethodUpdateEmail**](V2Api.md#authMethodUpdateEmail) | **POST** /auth-method-update-email | 
 [**authMethodUpdateGcp**](V2Api.md#authMethodUpdateGcp) | **POST** /auth-method-update-gcp | 
 [**authMethodUpdateK8s**](V2Api.md#authMethodUpdateK8s) | **POST** /auth-method-update-k8s | 
+[**authMethodUpdateKerberos**](V2Api.md#authMethodUpdateKerberos) | **POST** /auth-method-update-kerberos | 
 [**authMethodUpdateLdap**](V2Api.md#authMethodUpdateLdap) | **POST** /auth-method-update-ldap | 
 [**authMethodUpdateOCI**](V2Api.md#authMethodUpdateOCI) | **POST** /auth-method-update-oci | 
 [**authMethodUpdateOIDC**](V2Api.md#authMethodUpdateOIDC) | **POST** /auth-method-update-oidc | 
@@ -80,6 +82,7 @@ Method | HTTP request | Description
 [**createNativeK8STarget**](V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
 [**createOidcApp**](V2Api.md#createOidcApp) | **POST** /create-oidc-app | 
 [**createPKICertIssuer**](V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
+[**createPasskey**](V2Api.md#createPasskey) | **POST** /create-passkey | 
 [**createPingTarget**](V2Api.md#createPingTarget) | **POST** /create-ping-target | 
 [**createRabbitMQTarget**](V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitmq-target | 
 [**createRole**](V2Api.md#createRole) | **POST** /create-role | 
@@ -355,6 +358,7 @@ Method | HTTP request | Description
 [**kmipRenewServerCertificate**](V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment | 
 [**kmipServerSetup**](V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
 [**kmipSetServerState**](V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
+[**kubeconfigGenerate**](V2Api.md#kubeconfigGenerate) | **POST** /kubeconfig-generate | 
 [**listAcmeAccounts**](V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts | 
 [**listAuthMethods**](V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
 [**listGateways**](V2Api.md#listGateways) | **POST** /list-gateways | 
@@ -362,6 +366,7 @@ Method | HTTP request | Description
 [**listItems**](V2Api.md#listItems) | **POST** /list-items | 
 [**listRoles**](V2Api.md#listRoles) | **POST** /list-roles | 
 [**listSRABastions**](V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
+[**listSRASessions**](V2Api.md#listSRASessions) | **POST** /list-sra-sessions | 
 [**listSharedItems**](V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 [**listTargets**](V2Api.md#listTargets) | **POST** /list-targets | 
 [**moveObjects**](V2Api.md#moveObjects) | **POST** /move-objects | 
@@ -370,6 +375,7 @@ Method | HTTP request | Description
 [**refreshKey**](V2Api.md#refreshKey) | **POST** /refresh-key | 
 [**renewCertificate**](V2Api.md#renewCertificate) | **POST** /renew-certificate | 
 [**requestAccess**](V2Api.md#requestAccess) | **POST** /request-access | 
+[**resetAccessKey**](V2Api.md#resetAccessKey) | **POST** /reset-access-key | 
 [**reverseRBAC**](V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
 [**revokeCertificate**](V2Api.md#revokeCertificate) | **POST** /revoke-certificate | 
 [**revokeCreds**](V2Api.md#revokeCreds) | **POST** /revoke-creds | 
@@ -1234,6 +1240,67 @@ No authorization required
 **201** | authMethodCreateK8sResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="authMethodCreateKerberos"></a>
+# **authMethodCreateKerberos**
+> AuthMethodCreateOutput authMethodCreateKerberos(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AuthMethodCreateKerberos body = new AuthMethodCreateKerberos(); // AuthMethodCreateKerberos | 
+    try {
+      AuthMethodCreateOutput result = apiInstance.authMethodCreateKerberos(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#authMethodCreateKerberos");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AuthMethodCreateKerberos**](AuthMethodCreateKerberos.md)|  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="authMethodCreateLdap"></a>
 # **authMethodCreateLdap**
 > AuthMethodCreateOutput authMethodCreateLdap(body)
@@ -1597,7 +1664,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | authMethodCreateUniversalIdentityResponse wraps response body. |  -  |
+**201** |  |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="authMethodDelete"></a>
@@ -2208,6 +2275,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | authMethodUpdateK8sResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="authMethodUpdateKerberos"></a>
+# **authMethodUpdateKerberos**
+> AuthMethodCreateOutput authMethodUpdateKerberos(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AuthMethodUpdateKerberos body = new AuthMethodUpdateKerberos(); // AuthMethodUpdateKerberos | 
+    try {
+      AuthMethodCreateOutput result = apiInstance.authMethodUpdateKerberos(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#authMethodUpdateKerberos");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AuthMethodUpdateKerberos**](AuthMethodUpdateKerberos.md)|  |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="authMethodUpdateLdap"></a>
@@ -5197,6 +5325,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | createPKICertIssuerResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="createPasskey"></a>
+# **createPasskey**
+> CreatePasskeyOutput createPasskey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreatePasskey body = new CreatePasskey(); // CreatePasskey | 
+    try {
+      CreatePasskeyOutput result = apiInstance.createPasskey(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createPasskey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreatePasskey**](CreatePasskey.md)|  |
+
+### Return type
+
+[**CreatePasskeyOutput**](CreatePasskeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | CreatePasskeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="createPingTarget"></a>
@@ -18863,7 +19052,7 @@ No authorization required
 
 <a name="gatewayUpdateRemoteAccess"></a>
 # **gatewayUpdateRemoteAccess**
-> Object gatewayUpdateRemoteAccess()
+> Object gatewayUpdateRemoteAccess(body)
 
 
 
@@ -18882,8 +19071,9 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateRemoteAccess body = new GatewayUpdateRemoteAccess(); // GatewayUpdateRemoteAccess | 
     try {
-      Object result = apiInstance.gatewayUpdateRemoteAccess();
+      Object result = apiInstance.gatewayUpdateRemoteAccess(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#gatewayUpdateRemoteAccess");
@@ -18897,7 +19087,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**GatewayUpdateRemoteAccess**](GatewayUpdateRemoteAccess.md)|  |
 
 ### Return type
 
@@ -18909,7 +19102,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -21963,6 +22156,63 @@ No authorization required
 **200** | kmipSetServerStateResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a name="kubeconfigGenerate"></a>
+# **kubeconfigGenerate**
+> KubeconfigGenerateOutput kubeconfigGenerate()
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    try {
+      KubeconfigGenerateOutput result = apiInstance.kubeconfigGenerate();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kubeconfigGenerate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**KubeconfigGenerateOutput**](KubeconfigGenerateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | kubeconfigGenerateResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a name="listAcmeAccounts"></a>
 # **listAcmeAccounts**
 > ListAcmeAccountsOutput listAcmeAccounts(body)
@@ -22388,6 +22638,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | listSRABastionsResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="listSRASessions"></a>
+# **listSRASessions**
+> ListSraSessionsOutput listSRASessions(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ListSRASessions body = new ListSRASessions(); // ListSRASessions | 
+    try {
+      ListSraSessionsOutput result = apiInstance.listSRASessions(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#listSRASessions");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ListSRASessions**](ListSRASessions.md)|  |
+
+### Return type
+
+[**ListSraSessionsOutput**](ListSraSessionsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | listSRASessionsResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="listSharedItems"></a>
@@ -22875,6 +23186,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | requestAccessResponse wraps response body. |  -  |
+**0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a name="resetAccessKey"></a>
+# **resetAccessKey**
+> ResetAuthMethodAccessKeyOutput resetAccessKey(body)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ResetAccessKey body = new ResetAccessKey(); // ResetAccessKey | 
+    try {
+      ResetAuthMethodAccessKeyOutput result = apiInstance.resetAccessKey(body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#resetAccessKey");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ResetAccessKey**](ResetAccessKey.md)|  |
+
+### Return type
+
+[**ResetAuthMethodAccessKeyOutput**](ResetAuthMethodAccessKeyOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | resetAccessKeyResponse wraps response body. |  -  |
 **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a name="reverseRBAC"></a>

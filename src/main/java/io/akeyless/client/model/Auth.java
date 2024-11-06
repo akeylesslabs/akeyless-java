@@ -67,6 +67,14 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_DEBUG)
   private Boolean debug;
 
+  public static final String SERIALIZED_NAME_DISABLE_PAFXFAST = "disable-pafxfast";
+  @SerializedName(SERIALIZED_NAME_DISABLE_PAFXFAST)
+  private String disablePafxfast;
+
+  public static final String SERIALIZED_NAME_GATEWAY_SPN = "gateway-spn";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_SPN)
+  private String gatewaySpn;
+
   public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
   @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
   private String gatewayUrl;
@@ -91,9 +99,21 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_K8S_SERVICE_ACCOUNT_TOKEN)
   private String k8sServiceAccountToken;
 
+  public static final String SERIALIZED_NAME_KERBEROS_USERNAME = "kerberos-username";
+  @SerializedName(SERIALIZED_NAME_KERBEROS_USERNAME)
+  private String kerberosUsername;
+
   public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
+
+  public static final String SERIALIZED_NAME_KEYTAB_DATA = "keytab-data";
+  @SerializedName(SERIALIZED_NAME_KEYTAB_DATA)
+  private String keytabData;
+
+  public static final String SERIALIZED_NAME_KRB5_CONF_DATA = "krb5-conf-data";
+  @SerializedName(SERIALIZED_NAME_KRB5_CONF_DATA)
+  private String krb5ConfData;
 
   public static final String SERIALIZED_NAME_LDAP_PASSWORD = "ldap_password";
   @SerializedName(SERIALIZED_NAME_LDAP_PASSWORD)
@@ -329,6 +349,52 @@ public class Auth {
   }
 
 
+  public Auth disablePafxfast(String disablePafxfast) {
+    
+    this.disablePafxfast = disablePafxfast;
+    return this;
+  }
+
+   /**
+   * Disable the FAST negotiation in the Kerberos authentication method
+   * @return disablePafxfast
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Disable the FAST negotiation in the Kerberos authentication method")
+
+  public String getDisablePafxfast() {
+    return disablePafxfast;
+  }
+
+
+  public void setDisablePafxfast(String disablePafxfast) {
+    this.disablePafxfast = disablePafxfast;
+  }
+
+
+  public Auth gatewaySpn(String gatewaySpn) {
+    
+    this.gatewaySpn = gatewaySpn;
+    return this;
+  }
+
+   /**
+   * The service principal name of the gateway as registered in LDAP (i.e., HTTP/gateway)
+   * @return gatewaySpn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The service principal name of the gateway as registered in LDAP (i.e., HTTP/gateway)")
+
+  public String getGatewaySpn() {
+    return gatewaySpn;
+  }
+
+
+  public void setGatewaySpn(String gatewaySpn) {
+    this.gatewaySpn = gatewaySpn;
+  }
+
+
   public Auth gatewayUrl(String gatewayUrl) {
     
     this.gatewayUrl = gatewayUrl;
@@ -467,6 +533,29 @@ public class Auth {
   }
 
 
+  public Auth kerberosUsername(String kerberosUsername) {
+    
+    this.kerberosUsername = kerberosUsername;
+    return this;
+  }
+
+   /**
+   * TThe username for the entry within the keytab to authenticate via Kerberos
+   * @return kerberosUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TThe username for the entry within the keytab to authenticate via Kerberos")
+
+  public String getKerberosUsername() {
+    return kerberosUsername;
+  }
+
+
+  public void setKerberosUsername(String kerberosUsername) {
+    this.kerberosUsername = kerberosUsername;
+  }
+
+
   public Auth keyData(String keyData) {
     
     this.keyData = keyData;
@@ -487,6 +576,52 @@ public class Auth {
 
   public void setKeyData(String keyData) {
     this.keyData = keyData;
+  }
+
+
+  public Auth keytabData(String keytabData) {
+    
+    this.keytabData = keytabData;
+    return this;
+  }
+
+   /**
+   * Base64-encoded content of a valid keytab file, containing the service account&#39;s entry.
+   * @return keytabData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded content of a valid keytab file, containing the service account's entry.")
+
+  public String getKeytabData() {
+    return keytabData;
+  }
+
+
+  public void setKeytabData(String keytabData) {
+    this.keytabData = keytabData;
+  }
+
+
+  public Auth krb5ConfData(String krb5ConfData) {
+    
+    this.krb5ConfData = krb5ConfData;
+    return this;
+  }
+
+   /**
+   * Base64-encoded content of a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication.
+   * @return krb5ConfData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded content of a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication.")
+
+  public String getKrb5ConfData() {
+    return krb5ConfData;
+  }
+
+
+  public void setKrb5ConfData(String krb5ConfData) {
+    this.krb5ConfData = krb5ConfData;
   }
 
 
@@ -654,13 +789,18 @@ public class Auth {
         Objects.equals(this.certData, auth.certData) &&
         Objects.equals(this.cloudId, auth.cloudId) &&
         Objects.equals(this.debug, auth.debug) &&
+        Objects.equals(this.disablePafxfast, auth.disablePafxfast) &&
+        Objects.equals(this.gatewaySpn, auth.gatewaySpn) &&
         Objects.equals(this.gatewayUrl, auth.gatewayUrl) &&
         Objects.equals(this.gcpAudience, auth.gcpAudience) &&
         Objects.equals(this.json, auth.json) &&
         Objects.equals(this.jwt, auth.jwt) &&
         Objects.equals(this.k8sAuthConfigName, auth.k8sAuthConfigName) &&
         Objects.equals(this.k8sServiceAccountToken, auth.k8sServiceAccountToken) &&
+        Objects.equals(this.kerberosUsername, auth.kerberosUsername) &&
         Objects.equals(this.keyData, auth.keyData) &&
+        Objects.equals(this.keytabData, auth.keytabData) &&
+        Objects.equals(this.krb5ConfData, auth.krb5ConfData) &&
         Objects.equals(this.ldapPassword, auth.ldapPassword) &&
         Objects.equals(this.ldapUsername, auth.ldapUsername) &&
         Objects.equals(this.ociAuthType, auth.ociAuthType) &&
@@ -671,7 +811,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certData, cloudId, debug, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, keyData, ldapPassword, ldapUsername, ociAuthType, ociGroupOcid, uidToken, useRemoteBrowser);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certData, cloudId, debug, disablePafxfast, gatewaySpn, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, kerberosUsername, keyData, keytabData, krb5ConfData, ldapPassword, ldapUsername, ociAuthType, ociGroupOcid, uidToken, useRemoteBrowser);
   }
 
   @Override
@@ -687,13 +827,18 @@ public class Auth {
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("    disablePafxfast: ").append(toIndentedString(disablePafxfast)).append("\n");
+    sb.append("    gatewaySpn: ").append(toIndentedString(gatewaySpn)).append("\n");
     sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwt: ").append(toIndentedString(jwt)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
     sb.append("    k8sServiceAccountToken: ").append(toIndentedString(k8sServiceAccountToken)).append("\n");
+    sb.append("    kerberosUsername: ").append(toIndentedString(kerberosUsername)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
+    sb.append("    keytabData: ").append(toIndentedString(keytabData)).append("\n");
+    sb.append("    krb5ConfData: ").append(toIndentedString(krb5ConfData)).append("\n");
     sb.append("    ldapPassword: ").append(toIndentedString(ldapPassword)).append("\n");
     sb.append("    ldapUsername: ").append(toIndentedString(ldapUsername)).append("\n");
     sb.append("    ociAuthType: ").append(toIndentedString(ociAuthType)).append("\n");

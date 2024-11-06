@@ -62,6 +62,10 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_ALLOWED_URI_SANS)
   private List<String> allowedUriSans = null;
 
+  public static final String SERIALIZED_NAME_AUTO_RENEW_CERTIFICATE = "auto_renew_certificate";
+  @SerializedName(SERIALIZED_NAME_AUTO_RENEW_CERTIFICATE)
+  private Boolean autoRenewCertificate;
+
   public static final String SERIALIZED_NAME_BASIC_CONSTRAINTS_VALID_FOR_NON_CA = "basic_constraints_valid_for_non_ca";
   @SerializedName(SERIALIZED_NAME_BASIC_CONSTRAINTS_VALID_FOR_NON_CA)
   private Boolean basicConstraintsValidForNonCa;
@@ -157,6 +161,10 @@ public class PKICertificateIssueDetails {
   public static final String SERIALIZED_NAME_PROVINCE = "province";
   @SerializedName(SERIALIZED_NAME_PROVINCE)
   private List<String> province = null;
+
+  public static final String SERIALIZED_NAME_RENEW_BEFORE_EXPIRATION_IN_DAYS = "renew_before_expiration_in_days";
+  @SerializedName(SERIALIZED_NAME_RENEW_BEFORE_EXPIRATION_IN_DAYS)
+  private Long renewBeforeExpirationInDays;
 
   public static final String SERIALIZED_NAME_REQUIRE_CN = "require_cn";
   @SerializedName(SERIALIZED_NAME_REQUIRE_CN)
@@ -355,6 +363,29 @@ public class PKICertificateIssueDetails {
 
   public void setAllowedUriSans(List<String> allowedUriSans) {
     this.allowedUriSans = allowedUriSans;
+  }
+
+
+  public PKICertificateIssueDetails autoRenewCertificate(Boolean autoRenewCertificate) {
+    
+    this.autoRenewCertificate = autoRenewCertificate;
+    return this;
+  }
+
+   /**
+   * Get autoRenewCertificate
+   * @return autoRenewCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAutoRenewCertificate() {
+    return autoRenewCertificate;
+  }
+
+
+  public void setAutoRenewCertificate(Boolean autoRenewCertificate) {
+    this.autoRenewCertificate = autoRenewCertificate;
   }
 
 
@@ -974,6 +1005,29 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails renewBeforeExpirationInDays(Long renewBeforeExpirationInDays) {
+    
+    this.renewBeforeExpirationInDays = renewBeforeExpirationInDays;
+    return this;
+  }
+
+   /**
+   * Get renewBeforeExpirationInDays
+   * @return renewBeforeExpirationInDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getRenewBeforeExpirationInDays() {
+    return renewBeforeExpirationInDays;
+  }
+
+
+  public void setRenewBeforeExpirationInDays(Long renewBeforeExpirationInDays) {
+    this.renewBeforeExpirationInDays = renewBeforeExpirationInDays;
+  }
+
+
   public PKICertificateIssueDetails requireCn(Boolean requireCn) {
     
     this.requireCn = requireCn;
@@ -1067,6 +1121,7 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.allowedDomainsList, pkICertificateIssueDetails.allowedDomainsList) &&
         Objects.equals(this.allowedExtraExtensions, pkICertificateIssueDetails.allowedExtraExtensions) &&
         Objects.equals(this.allowedUriSans, pkICertificateIssueDetails.allowedUriSans) &&
+        Objects.equals(this.autoRenewCertificate, pkICertificateIssueDetails.autoRenewCertificate) &&
         Objects.equals(this.basicConstraintsValidForNonCa, pkICertificateIssueDetails.basicConstraintsValidForNonCa) &&
         Objects.equals(this.certificateAuthorityMode, pkICertificateIssueDetails.certificateAuthorityMode) &&
         Objects.equals(this.clientFlag, pkICertificateIssueDetails.clientFlag) &&
@@ -1091,6 +1146,7 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.postalCode, pkICertificateIssueDetails.postalCode) &&
         Objects.equals(this.protectGeneratedCertificates, pkICertificateIssueDetails.protectGeneratedCertificates) &&
         Objects.equals(this.province, pkICertificateIssueDetails.province) &&
+        Objects.equals(this.renewBeforeExpirationInDays, pkICertificateIssueDetails.renewBeforeExpirationInDays) &&
         Objects.equals(this.requireCn, pkICertificateIssueDetails.requireCn) &&
         Objects.equals(this.serverFlag, pkICertificateIssueDetails.serverFlag) &&
         Objects.equals(this.streetAddress, pkICertificateIssueDetails.streetAddress);
@@ -1098,7 +1154,7 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, destinationPath, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, nonCriticalKeyUsage, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, requireCn, serverFlag, streetAddress);
+    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedUriSans, autoRenewCertificate, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, destinationPath, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, nonCriticalKeyUsage, notBeforeDuration, organizationList, organizationUnitList, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, streetAddress);
   }
 
   @Override
@@ -1112,6 +1168,7 @@ public class PKICertificateIssueDetails {
     sb.append("    allowedDomainsList: ").append(toIndentedString(allowedDomainsList)).append("\n");
     sb.append("    allowedExtraExtensions: ").append(toIndentedString(allowedExtraExtensions)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
+    sb.append("    autoRenewCertificate: ").append(toIndentedString(autoRenewCertificate)).append("\n");
     sb.append("    basicConstraintsValidForNonCa: ").append(toIndentedString(basicConstraintsValidForNonCa)).append("\n");
     sb.append("    certificateAuthorityMode: ").append(toIndentedString(certificateAuthorityMode)).append("\n");
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
@@ -1136,6 +1193,7 @@ public class PKICertificateIssueDetails {
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    protectGeneratedCertificates: ").append(toIndentedString(protectGeneratedCertificates)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
+    sb.append("    renewBeforeExpirationInDays: ").append(toIndentedString(renewBeforeExpirationInDays)).append("\n");
     sb.append("    requireCn: ").append(toIndentedString(requireCn)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");

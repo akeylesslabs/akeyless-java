@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "signEcDsa Calculates the signature of a given message using ECDSA and a sha hash algorithm matching the key size")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SignEcDsa {
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility = "regular";
+
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   private String displayId;
@@ -68,6 +72,29 @@ public class SignEcDsa {
 
   public SignEcDsa() { 
   }
+
+  public SignEcDsa accessibility(String accessibility) {
+    
+    this.accessibility = accessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return accessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getAccessibility() {
+    return accessibility;
+  }
+
+
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
+  }
+
 
   public SignEcDsa displayId(String displayId) {
     
@@ -285,7 +312,8 @@ public class SignEcDsa {
       return false;
     }
     SignEcDsa signEcDsa = (SignEcDsa) o;
-    return Objects.equals(this.displayId, signEcDsa.displayId) &&
+    return Objects.equals(this.accessibility, signEcDsa.accessibility) &&
+        Objects.equals(this.displayId, signEcDsa.displayId) &&
         Objects.equals(this.itemId, signEcDsa.itemId) &&
         Objects.equals(this.json, signEcDsa.json) &&
         Objects.equals(this.keyName, signEcDsa.keyName) &&
@@ -298,13 +326,14 @@ public class SignEcDsa {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, itemId, json, keyName, message, prehashed, token, uidToken, version);
+    return Objects.hash(accessibility, displayId, itemId, json, keyName, message, prehashed, token, uidToken, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SignEcDsa {\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

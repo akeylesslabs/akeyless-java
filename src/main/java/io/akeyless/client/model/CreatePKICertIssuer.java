@@ -55,6 +55,10 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_ALLOWED_URI_SANS)
   private String allowedUriSans;
 
+  public static final String SERIALIZED_NAME_AUTO_RENEW = "auto-renew";
+  @SerializedName(SERIALIZED_NAME_AUTO_RENEW)
+  private Boolean autoRenew;
+
   public static final String SERIALIZED_NAME_CA_TARGET = "ca-target";
   @SerializedName(SERIALIZED_NAME_CA_TARGET)
   private String caTarget;
@@ -158,6 +162,10 @@ public class CreatePKICertIssuer {
   public static final String SERIALIZED_NAME_PROVINCE = "province";
   @SerializedName(SERIALIZED_NAME_PROVINCE)
   private String province;
+
+  public static final String SERIALIZED_NAME_SCHEDULED_RENEW = "scheduled-renew";
+  @SerializedName(SERIALIZED_NAME_SCHEDULED_RENEW)
+  private Long scheduledRenew;
 
   public static final String SERIALIZED_NAME_SERVER_FLAG = "server-flag";
   @SerializedName(SERIALIZED_NAME_SERVER_FLAG)
@@ -325,6 +333,29 @@ public class CreatePKICertIssuer {
 
   public void setAllowedUriSans(String allowedUriSans) {
     this.allowedUriSans = allowedUriSans;
+  }
+
+
+  public CreatePKICertIssuer autoRenew(Boolean autoRenew) {
+    
+    this.autoRenew = autoRenew;
+    return this;
+  }
+
+   /**
+   * Automatically renew certificates before expiration
+   * @return autoRenew
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Automatically renew certificates before expiration")
+
+  public Boolean getAutoRenew() {
+    return autoRenew;
+  }
+
+
+  public void setAutoRenew(Boolean autoRenew) {
+    this.autoRenew = autoRenew;
   }
 
 
@@ -934,6 +965,29 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer scheduledRenew(Long scheduledRenew) {
+    
+    this.scheduledRenew = scheduledRenew;
+    return this;
+  }
+
+   /**
+   * Number of days before expiration to renew certificates
+   * @return scheduledRenew
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Number of days before expiration to renew certificates")
+
+  public Long getScheduledRenew() {
+    return scheduledRenew;
+  }
+
+
+  public void setScheduledRenew(Long scheduledRenew) {
+    this.scheduledRenew = scheduledRenew;
+  }
+
+
   public CreatePKICertIssuer serverFlag(Boolean serverFlag) {
     
     this.serverFlag = serverFlag;
@@ -1118,6 +1172,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.allowedDomains, createPKICertIssuer.allowedDomains) &&
         Objects.equals(this.allowedExtraExtensions, createPKICertIssuer.allowedExtraExtensions) &&
         Objects.equals(this.allowedUriSans, createPKICertIssuer.allowedUriSans) &&
+        Objects.equals(this.autoRenew, createPKICertIssuer.autoRenew) &&
         Objects.equals(this.caTarget, createPKICertIssuer.caTarget) &&
         Objects.equals(this.clientFlag, createPKICertIssuer.clientFlag) &&
         Objects.equals(this.codeSigningFlag, createPKICertIssuer.codeSigningFlag) &&
@@ -1144,6 +1199,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.postalCode, createPKICertIssuer.postalCode) &&
         Objects.equals(this.protectCertificates, createPKICertIssuer.protectCertificates) &&
         Objects.equals(this.province, createPKICertIssuer.province) &&
+        Objects.equals(this.scheduledRenew, createPKICertIssuer.scheduledRenew) &&
         Objects.equals(this.serverFlag, createPKICertIssuer.serverFlag) &&
         Objects.equals(this.signerKeyName, createPKICertIssuer.signerKeyName) &&
         Objects.equals(this.streetAddress, createPKICertIssuer.streetAddress) &&
@@ -1155,7 +1211,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, criticalKeyUsage, deleteProtection, description, destinationPath, enableAcme, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedUriSans, autoRenew, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, criticalKeyUsage, deleteProtection, description, destinationPath, enableAcme, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1168,6 +1224,7 @@ public class CreatePKICertIssuer {
     sb.append("    allowedDomains: ").append(toIndentedString(allowedDomains)).append("\n");
     sb.append("    allowedExtraExtensions: ").append(toIndentedString(allowedExtraExtensions)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
+    sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
     sb.append("    caTarget: ").append(toIndentedString(caTarget)).append("\n");
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
@@ -1194,6 +1251,7 @@ public class CreatePKICertIssuer {
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    protectCertificates: ").append(toIndentedString(protectCertificates)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
+    sb.append("    scheduledRenew: ").append(toIndentedString(scheduledRenew)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");

@@ -30,6 +30,10 @@ import java.io.IOException;
 @ApiModel(description = "ExportClassicKey is a command that returns the classic key material")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ExportClassicKey {
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
+  private String accessibility = "regular";
+
   public static final String SERIALIZED_NAME_EXPORT_PUBLIC_KEY = "export-public-key";
   @SerializedName(SERIALIZED_NAME_EXPORT_PUBLIC_KEY)
   private Boolean exportPublicKey = false;
@@ -60,6 +64,29 @@ public class ExportClassicKey {
 
   public ExportClassicKey() { 
   }
+
+  public ExportClassicKey accessibility(String accessibility) {
+    
+    this.accessibility = accessibility;
+    return this;
+  }
+
+   /**
+   * for personal password manager
+   * @return accessibility
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "for personal password manager")
+
+  public String getAccessibility() {
+    return accessibility;
+  }
+
+
+  public void setAccessibility(String accessibility) {
+    this.accessibility = accessibility;
+  }
+
 
   public ExportClassicKey exportPublicKey(Boolean exportPublicKey) {
     
@@ -231,7 +258,8 @@ public class ExportClassicKey {
       return false;
     }
     ExportClassicKey exportClassicKey = (ExportClassicKey) o;
-    return Objects.equals(this.exportPublicKey, exportClassicKey.exportPublicKey) &&
+    return Objects.equals(this.accessibility, exportClassicKey.accessibility) &&
+        Objects.equals(this.exportPublicKey, exportClassicKey.exportPublicKey) &&
         Objects.equals(this.ignoreCache, exportClassicKey.ignoreCache) &&
         Objects.equals(this.json, exportClassicKey.json) &&
         Objects.equals(this.name, exportClassicKey.name) &&
@@ -242,13 +270,14 @@ public class ExportClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(exportPublicKey, ignoreCache, json, name, token, uidToken, version);
+    return Objects.hash(accessibility, exportPublicKey, ignoreCache, json, name, token, uidToken, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ExportClassicKey {\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    exportPublicKey: ").append(toIndentedString(exportPublicKey)).append("\n");
     sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **configProtectionKeyName** | **String** |  |  [optional]
 **general** | [**GeneralConfigPart**](GeneralConfigPart.md) |  |  [optional]
 **k8sAuths** | [**K8SAuthsConfigPart**](K8SAuthsConfigPart.md) |  |  [optional]
+**kerberos** | [**KerberosConfigPart**](KerberosConfigPart.md) |  |  [optional]
 **kmipClients** | [**KMIPConfigPart**](KMIPConfigPart.md) |  |  [optional]
 **ldap** | [**LdapConfigPart**](LdapConfigPart.md) |  |  [optional]
 **leadership** | [**LeadershipConfigPart**](LeadershipConfigPart.md) |  |  [optional]

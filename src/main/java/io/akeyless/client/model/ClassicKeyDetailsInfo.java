@@ -42,6 +42,10 @@ public class ClassicKeyDetailsInfo {
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ID)
   private String classicKeyId;
 
+  public static final String SERIALIZED_NAME_CREDENTIAL_ID = "credential_id";
+  @SerializedName(SERIALIZED_NAME_CREDENTIAL_ID)
+  private String credentialId;
+
   public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   private Long gwClusterId;
@@ -85,6 +89,14 @@ public class ClassicKeyDetailsInfo {
   public static final String SERIALIZED_NAME_TARGETS = "targets";
   @SerializedName(SERIALIZED_NAME_TARGETS)
   private List<ClassicKeyTargetInfo> targets = null;
+
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  private String username;
+
+  public static final String SERIALIZED_NAME_WEBSITES = "websites";
+  @SerializedName(SERIALIZED_NAME_WEBSITES)
+  private List<String> websites = null;
 
   public ClassicKeyDetailsInfo() { 
   }
@@ -140,6 +152,29 @@ public class ClassicKeyDetailsInfo {
 
   public void setClassicKeyId(String classicKeyId) {
     this.classicKeyId = classicKeyId;
+  }
+
+
+  public ClassicKeyDetailsInfo credentialId(String credentialId) {
+    
+    this.credentialId = credentialId;
+    return this;
+  }
+
+   /**
+   * Get credentialId
+   * @return credentialId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCredentialId() {
+    return credentialId;
+  }
+
+
+  public void setCredentialId(String credentialId) {
+    this.credentialId = credentialId;
   }
 
 
@@ -412,6 +447,60 @@ public class ClassicKeyDetailsInfo {
   }
 
 
+  public ClassicKeyDetailsInfo username(String username) {
+    
+    this.username = username;
+    return this;
+  }
+
+   /**
+   * Get username
+   * @return username
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getUsername() {
+    return username;
+  }
+
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
+  public ClassicKeyDetailsInfo websites(List<String> websites) {
+    
+    this.websites = websites;
+    return this;
+  }
+
+  public ClassicKeyDetailsInfo addWebsitesItem(String websitesItem) {
+    if (this.websites == null) {
+      this.websites = new ArrayList<String>();
+    }
+    this.websites.add(websitesItem);
+    return this;
+  }
+
+   /**
+   * Get websites
+   * @return websites
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public List<String> getWebsites() {
+    return websites;
+  }
+
+
+  public void setWebsites(List<String> websites) {
+    this.websites = websites;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -423,6 +512,7 @@ public class ClassicKeyDetailsInfo {
     ClassicKeyDetailsInfo classicKeyDetailsInfo = (ClassicKeyDetailsInfo) o;
     return Objects.equals(this.classicKeyAttributes, classicKeyDetailsInfo.classicKeyAttributes) &&
         Objects.equals(this.classicKeyId, classicKeyDetailsInfo.classicKeyId) &&
+        Objects.equals(this.credentialId, classicKeyDetailsInfo.credentialId) &&
         Objects.equals(this.gwClusterId, classicKeyDetailsInfo.gwClusterId) &&
         Objects.equals(this.hasCertificate, classicKeyDetailsInfo.hasCertificate) &&
         Objects.equals(this.isProvidedByUser, classicKeyDetailsInfo.isProvidedByUser) &&
@@ -433,12 +523,14 @@ public class ClassicKeyDetailsInfo {
         Objects.equals(this.publicKey, classicKeyDetailsInfo.publicKey) &&
         Objects.equals(this.targetAliasHelper, classicKeyDetailsInfo.targetAliasHelper) &&
         Objects.equals(this.targetTypes, classicKeyDetailsInfo.targetTypes) &&
-        Objects.equals(this.targets, classicKeyDetailsInfo.targets);
+        Objects.equals(this.targets, classicKeyDetailsInfo.targets) &&
+        Objects.equals(this.username, classicKeyDetailsInfo.username) &&
+        Objects.equals(this.websites, classicKeyDetailsInfo.websites);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(classicKeyAttributes, classicKeyId, gwClusterId, hasCertificate, isProvidedByUser, isUnexportable, keyState, keyType, lastError, publicKey, targetAliasHelper, targetTypes, targets);
+    return Objects.hash(classicKeyAttributes, classicKeyId, credentialId, gwClusterId, hasCertificate, isProvidedByUser, isUnexportable, keyState, keyType, lastError, publicKey, targetAliasHelper, targetTypes, targets, username, websites);
   }
 
   @Override
@@ -447,6 +539,7 @@ public class ClassicKeyDetailsInfo {
     sb.append("class ClassicKeyDetailsInfo {\n");
     sb.append("    classicKeyAttributes: ").append(toIndentedString(classicKeyAttributes)).append("\n");
     sb.append("    classicKeyId: ").append(toIndentedString(classicKeyId)).append("\n");
+    sb.append("    credentialId: ").append(toIndentedString(credentialId)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    hasCertificate: ").append(toIndentedString(hasCertificate)).append("\n");
     sb.append("    isProvidedByUser: ").append(toIndentedString(isProvidedByUser)).append("\n");
@@ -458,6 +551,8 @@ public class ClassicKeyDetailsInfo {
     sb.append("    targetAliasHelper: ").append(toIndentedString(targetAliasHelper)).append("\n");
     sb.append("    targetTypes: ").append(toIndentedString(targetTypes)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
+    sb.append("    websites: ").append(toIndentedString(websites)).append("\n");
     sb.append("}");
     return sb.toString();
   }

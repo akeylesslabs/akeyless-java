@@ -75,6 +75,14 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_DEFAULT_LOCATION_PREFIX)
   private String defaultLocationPrefix;
 
+  public static final String SERIALIZED_NAME_DISABLE_PAFXFAST = "disable-pafxfast";
+  @SerializedName(SERIALIZED_NAME_DISABLE_PAFXFAST)
+  private String disablePafxfast;
+
+  public static final String SERIALIZED_NAME_GATEWAY_SPN = "gateway-spn";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_SPN)
+  private String gatewaySpn;
+
   public static final String SERIALIZED_NAME_GCP_AUDIENCE = "gcp-audience";
   @SerializedName(SERIALIZED_NAME_GCP_AUDIENCE)
   private String gcpAudience = "akeyless.io";
@@ -87,9 +95,21 @@ public class Configure {
   @SerializedName(SERIALIZED_NAME_K8S_AUTH_CONFIG_NAME)
   private String k8sAuthConfigName;
 
+  public static final String SERIALIZED_NAME_KERBEROS_USERNAME = "kerberos-username";
+  @SerializedName(SERIALIZED_NAME_KERBEROS_USERNAME)
+  private String kerberosUsername;
+
   public static final String SERIALIZED_NAME_KEY_DATA = "key-data";
   @SerializedName(SERIALIZED_NAME_KEY_DATA)
   private String keyData;
+
+  public static final String SERIALIZED_NAME_KEYTAB_DATA = "keytab-data";
+  @SerializedName(SERIALIZED_NAME_KEYTAB_DATA)
+  private String keytabData;
+
+  public static final String SERIALIZED_NAME_KRB5_CONF_DATA = "krb5-conf-data";
+  @SerializedName(SERIALIZED_NAME_KRB5_CONF_DATA)
+  private String krb5ConfData;
 
   public static final String SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME = "legacy-signing-alg-name";
   @SerializedName(SERIALIZED_NAME_LEGACY_SIGNING_ALG_NAME)
@@ -359,6 +379,52 @@ public class Configure {
   }
 
 
+  public Configure disablePafxfast(String disablePafxfast) {
+    
+    this.disablePafxfast = disablePafxfast;
+    return this;
+  }
+
+   /**
+   * Disable the FAST negotiation in the Kerberos authentication method
+   * @return disablePafxfast
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Disable the FAST negotiation in the Kerberos authentication method")
+
+  public String getDisablePafxfast() {
+    return disablePafxfast;
+  }
+
+
+  public void setDisablePafxfast(String disablePafxfast) {
+    this.disablePafxfast = disablePafxfast;
+  }
+
+
+  public Configure gatewaySpn(String gatewaySpn) {
+    
+    this.gatewaySpn = gatewaySpn;
+    return this;
+  }
+
+   /**
+   * The service principal name of the gateway as registered in LDAP (i.e., HTTP/gateway)
+   * @return gatewaySpn
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The service principal name of the gateway as registered in LDAP (i.e., HTTP/gateway)")
+
+  public String getGatewaySpn() {
+    return gatewaySpn;
+  }
+
+
+  public void setGatewaySpn(String gatewaySpn) {
+    this.gatewaySpn = gatewaySpn;
+  }
+
+
   public Configure gcpAudience(String gcpAudience) {
     
     this.gcpAudience = gcpAudience;
@@ -428,6 +494,29 @@ public class Configure {
   }
 
 
+  public Configure kerberosUsername(String kerberosUsername) {
+    
+    this.kerberosUsername = kerberosUsername;
+    return this;
+  }
+
+   /**
+   * TThe username for the entry within the keytab to authenticate via Kerberos
+   * @return kerberosUsername
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TThe username for the entry within the keytab to authenticate via Kerberos")
+
+  public String getKerberosUsername() {
+    return kerberosUsername;
+  }
+
+
+  public void setKerberosUsername(String kerberosUsername) {
+    this.kerberosUsername = kerberosUsername;
+  }
+
+
   public Configure keyData(String keyData) {
     
     this.keyData = keyData;
@@ -448,6 +537,52 @@ public class Configure {
 
   public void setKeyData(String keyData) {
     this.keyData = keyData;
+  }
+
+
+  public Configure keytabData(String keytabData) {
+    
+    this.keytabData = keytabData;
+    return this;
+  }
+
+   /**
+   * Base64-encoded content of a valid keytab file, containing the service account&#39;s entry.
+   * @return keytabData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded content of a valid keytab file, containing the service account's entry.")
+
+  public String getKeytabData() {
+    return keytabData;
+  }
+
+
+  public void setKeytabData(String keytabData) {
+    this.keytabData = keytabData;
+  }
+
+
+  public Configure krb5ConfData(String krb5ConfData) {
+    
+    this.krb5ConfData = krb5ConfData;
+    return this;
+  }
+
+   /**
+   * Base64-encoded content of a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication.
+   * @return krb5ConfData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Base64-encoded content of a valid krb5.conf file, specifying the settings and parameters required for Kerberos authentication.")
+
+  public String getKrb5ConfData() {
+    return krb5ConfData;
+  }
+
+
+  public void setKrb5ConfData(String krb5ConfData) {
+    this.krb5ConfData = krb5ConfData;
   }
 
 
@@ -548,10 +683,15 @@ public class Configure {
         Objects.equals(this.certIssuerName, configure.certIssuerName) &&
         Objects.equals(this.certUsername, configure.certUsername) &&
         Objects.equals(this.defaultLocationPrefix, configure.defaultLocationPrefix) &&
+        Objects.equals(this.disablePafxfast, configure.disablePafxfast) &&
+        Objects.equals(this.gatewaySpn, configure.gatewaySpn) &&
         Objects.equals(this.gcpAudience, configure.gcpAudience) &&
         Objects.equals(this.json, configure.json) &&
         Objects.equals(this.k8sAuthConfigName, configure.k8sAuthConfigName) &&
+        Objects.equals(this.kerberosUsername, configure.kerberosUsername) &&
         Objects.equals(this.keyData, configure.keyData) &&
+        Objects.equals(this.keytabData, configure.keytabData) &&
+        Objects.equals(this.krb5ConfData, configure.krb5ConfData) &&
         Objects.equals(this.legacySigningAlgName, configure.legacySigningAlgName) &&
         Objects.equals(this.ociAuthType, configure.ociAuthType) &&
         Objects.equals(this.ociGroupOcid, configure.ociGroupOcid);
@@ -559,7 +699,7 @@ public class Configure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, certIssuerName, certUsername, defaultLocationPrefix, gcpAudience, json, k8sAuthConfigName, keyData, legacySigningAlgName, ociAuthType, ociGroupOcid);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, certIssuerName, certUsername, defaultLocationPrefix, disablePafxfast, gatewaySpn, gcpAudience, json, k8sAuthConfigName, kerberosUsername, keyData, keytabData, krb5ConfData, legacySigningAlgName, ociAuthType, ociGroupOcid);
   }
 
   @Override
@@ -577,10 +717,15 @@ public class Configure {
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    certUsername: ").append(toIndentedString(certUsername)).append("\n");
     sb.append("    defaultLocationPrefix: ").append(toIndentedString(defaultLocationPrefix)).append("\n");
+    sb.append("    disablePafxfast: ").append(toIndentedString(disablePafxfast)).append("\n");
+    sb.append("    gatewaySpn: ").append(toIndentedString(gatewaySpn)).append("\n");
     sb.append("    gcpAudience: ").append(toIndentedString(gcpAudience)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAuthConfigName: ").append(toIndentedString(k8sAuthConfigName)).append("\n");
+    sb.append("    kerberosUsername: ").append(toIndentedString(kerberosUsername)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
+    sb.append("    keytabData: ").append(toIndentedString(keytabData)).append("\n");
+    sb.append("    krb5ConfData: ").append(toIndentedString(krb5ConfData)).append("\n");
     sb.append("    legacySigningAlgName: ").append(toIndentedString(legacySigningAlgName)).append("\n");
     sb.append("    ociAuthType: ").append(toIndentedString(ociAuthType)).append("\n");
     sb.append("    ociGroupOcid: ").append(toIndentedString(ociGroupOcid)).append("\n");

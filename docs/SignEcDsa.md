@@ -8,6 +8,7 @@ signEcDsa Calculates the signature of a given message using ECDSA and a sha hash
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**accessibility** | **String** | for personal password manager |  [optional]
 **displayId** | **String** | The display id of the EC key to use for the signing process |  [optional]
 **itemId** | **Long** | The item id of the EC key to use for the signing process |  [optional]
 **json** | **Boolean** | Set output format to JSON |  [optional]

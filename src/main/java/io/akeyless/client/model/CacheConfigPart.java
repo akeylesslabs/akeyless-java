@@ -33,6 +33,10 @@ public class CacheConfigPart {
   @SerializedName(SERIALIZED_NAME_CACHE_ENABLE)
   private Boolean cacheEnable;
 
+  public static final String SERIALIZED_NAME_CACHE_ENCRYPTION_KEY = "cache_encryption_key";
+  @SerializedName(SERIALIZED_NAME_CACHE_ENCRYPTION_KEY)
+  private String cacheEncryptionKey;
+
   public static final String SERIALIZED_NAME_CACHE_TTL = "cache_ttl";
   @SerializedName(SERIALIZED_NAME_CACHE_TTL)
   private String cacheTtl;
@@ -76,6 +80,29 @@ public class CacheConfigPart {
 
   public void setCacheEnable(Boolean cacheEnable) {
     this.cacheEnable = cacheEnable;
+  }
+
+
+  public CacheConfigPart cacheEncryptionKey(String cacheEncryptionKey) {
+    
+    this.cacheEncryptionKey = cacheEncryptionKey;
+    return this;
+  }
+
+   /**
+   * Get cacheEncryptionKey
+   * @return cacheEncryptionKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getCacheEncryptionKey() {
+    return cacheEncryptionKey;
+  }
+
+
+  public void setCacheEncryptionKey(String cacheEncryptionKey) {
+    this.cacheEncryptionKey = cacheEncryptionKey;
   }
 
 
@@ -204,6 +231,7 @@ public class CacheConfigPart {
     }
     CacheConfigPart cacheConfigPart = (CacheConfigPart) o;
     return Objects.equals(this.cacheEnable, cacheConfigPart.cacheEnable) &&
+        Objects.equals(this.cacheEncryptionKey, cacheConfigPart.cacheEncryptionKey) &&
         Objects.equals(this.cacheTtl, cacheConfigPart.cacheTtl) &&
         Objects.equals(this.newProactiveCacheEnable, cacheConfigPart.newProactiveCacheEnable) &&
         Objects.equals(this.proactiveCacheDumpInterval, cacheConfigPart.proactiveCacheDumpInterval) &&
@@ -213,7 +241,7 @@ public class CacheConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheEnable, cacheTtl, newProactiveCacheEnable, proactiveCacheDumpInterval, proactiveCacheEnable, proactiveCacheMinimumFetchingTime);
+    return Objects.hash(cacheEnable, cacheEncryptionKey, cacheTtl, newProactiveCacheEnable, proactiveCacheDumpInterval, proactiveCacheEnable, proactiveCacheMinimumFetchingTime);
   }
 
   @Override
@@ -221,6 +249,7 @@ public class CacheConfigPart {
     StringBuilder sb = new StringBuilder();
     sb.append("class CacheConfigPart {\n");
     sb.append("    cacheEnable: ").append(toIndentedString(cacheEnable)).append("\n");
+    sb.append("    cacheEncryptionKey: ").append(toIndentedString(cacheEncryptionKey)).append("\n");
     sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
     sb.append("    newProactiveCacheEnable: ").append(toIndentedString(newProactiveCacheEnable)).append("\n");
     sb.append("    proactiveCacheDumpInterval: ").append(toIndentedString(proactiveCacheDumpInterval)).append("\n");

@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**authMethodCreateEmail**](docs/V2Api.md#authMethodCreateEmail) | **POST** /auth-method-create-email | 
 *V2Api* | [**authMethodCreateGcp**](docs/V2Api.md#authMethodCreateGcp) | **POST** /auth-method-create-gcp | 
 *V2Api* | [**authMethodCreateK8s**](docs/V2Api.md#authMethodCreateK8s) | **POST** /auth-method-create-k8s | 
+*V2Api* | [**authMethodCreateKerberos**](docs/V2Api.md#authMethodCreateKerberos) | **POST** /auth-method-create-kerberos | 
 *V2Api* | [**authMethodCreateLdap**](docs/V2Api.md#authMethodCreateLdap) | **POST** /auth-method-create-ldap | 
 *V2Api* | [**authMethodCreateOCI**](docs/V2Api.md#authMethodCreateOCI) | **POST** /auth-method-create-oci | 
 *V2Api* | [**authMethodCreateOIDC**](docs/V2Api.md#authMethodCreateOIDC) | **POST** /auth-method-create-oidc | 
@@ -132,6 +133,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**authMethodUpdateEmail**](docs/V2Api.md#authMethodUpdateEmail) | **POST** /auth-method-update-email | 
 *V2Api* | [**authMethodUpdateGcp**](docs/V2Api.md#authMethodUpdateGcp) | **POST** /auth-method-update-gcp | 
 *V2Api* | [**authMethodUpdateK8s**](docs/V2Api.md#authMethodUpdateK8s) | **POST** /auth-method-update-k8s | 
+*V2Api* | [**authMethodUpdateKerberos**](docs/V2Api.md#authMethodUpdateKerberos) | **POST** /auth-method-update-kerberos | 
 *V2Api* | [**authMethodUpdateLdap**](docs/V2Api.md#authMethodUpdateLdap) | **POST** /auth-method-update-ldap | 
 *V2Api* | [**authMethodUpdateOCI**](docs/V2Api.md#authMethodUpdateOCI) | **POST** /auth-method-update-oci | 
 *V2Api* | [**authMethodUpdateOIDC**](docs/V2Api.md#authMethodUpdateOIDC) | **POST** /auth-method-update-oidc | 
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createNativeK8STarget**](docs/V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
 *V2Api* | [**createOidcApp**](docs/V2Api.md#createOidcApp) | **POST** /create-oidc-app | 
 *V2Api* | [**createPKICertIssuer**](docs/V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
+*V2Api* | [**createPasskey**](docs/V2Api.md#createPasskey) | **POST** /create-passkey | 
 *V2Api* | [**createPingTarget**](docs/V2Api.md#createPingTarget) | **POST** /create-ping-target | 
 *V2Api* | [**createRabbitMQTarget**](docs/V2Api.md#createRabbitMQTarget) | **POST** /create-rabbitmq-target | 
 *V2Api* | [**createRole**](docs/V2Api.md#createRole) | **POST** /create-role | 
@@ -456,6 +459,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**kmipRenewServerCertificate**](docs/V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment | 
 *V2Api* | [**kmipServerSetup**](docs/V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
 *V2Api* | [**kmipSetServerState**](docs/V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
+*V2Api* | [**kubeconfigGenerate**](docs/V2Api.md#kubeconfigGenerate) | **POST** /kubeconfig-generate | 
 *V2Api* | [**listAcmeAccounts**](docs/V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts | 
 *V2Api* | [**listAuthMethods**](docs/V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
 *V2Api* | [**listGateways**](docs/V2Api.md#listGateways) | **POST** /list-gateways | 
@@ -463,6 +467,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**listItems**](docs/V2Api.md#listItems) | **POST** /list-items | 
 *V2Api* | [**listRoles**](docs/V2Api.md#listRoles) | **POST** /list-roles | 
 *V2Api* | [**listSRABastions**](docs/V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
+*V2Api* | [**listSRASessions**](docs/V2Api.md#listSRASessions) | **POST** /list-sra-sessions | 
 *V2Api* | [**listSharedItems**](docs/V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 *V2Api* | [**listTargets**](docs/V2Api.md#listTargets) | **POST** /list-targets | 
 *V2Api* | [**moveObjects**](docs/V2Api.md#moveObjects) | **POST** /move-objects | 
@@ -471,6 +476,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**refreshKey**](docs/V2Api.md#refreshKey) | **POST** /refresh-key | 
 *V2Api* | [**renewCertificate**](docs/V2Api.md#renewCertificate) | **POST** /renew-certificate | 
 *V2Api* | [**requestAccess**](docs/V2Api.md#requestAccess) | **POST** /request-access | 
+*V2Api* | [**resetAccessKey**](docs/V2Api.md#resetAccessKey) | **POST** /reset-access-key | 
 *V2Api* | [**reverseRBAC**](docs/V2Api.md#reverseRBAC) | **POST** /reverse-rbac | 
 *V2Api* | [**revokeCertificate**](docs/V2Api.md#revokeCertificate) | **POST** /revoke-certificate | 
 *V2Api* | [**revokeCreds**](docs/V2Api.md#revokeCreds) | **POST** /revoke-creds | 
@@ -693,6 +699,7 @@ Class | Method | HTTP request | Description
  - [Auth](docs/Auth.md)
  - [AuthMethod](docs/AuthMethod.md)
  - [AuthMethodAccessInfo](docs/AuthMethodAccessInfo.md)
+ - [AuthMethodAdditionalData](docs/AuthMethodAdditionalData.md)
  - [AuthMethodCreateApiKey](docs/AuthMethodCreateApiKey.md)
  - [AuthMethodCreateAwsIam](docs/AuthMethodCreateAwsIam.md)
  - [AuthMethodCreateAzureAD](docs/AuthMethodCreateAzureAD.md)
@@ -700,6 +707,7 @@ Class | Method | HTTP request | Description
  - [AuthMethodCreateEmail](docs/AuthMethodCreateEmail.md)
  - [AuthMethodCreateGcp](docs/AuthMethodCreateGcp.md)
  - [AuthMethodCreateK8s](docs/AuthMethodCreateK8s.md)
+ - [AuthMethodCreateKerberos](docs/AuthMethodCreateKerberos.md)
  - [AuthMethodCreateLdap](docs/AuthMethodCreateLdap.md)
  - [AuthMethodCreateOCI](docs/AuthMethodCreateOCI.md)
  - [AuthMethodCreateOIDC](docs/AuthMethodCreateOIDC.md)
@@ -719,6 +727,7 @@ Class | Method | HTTP request | Description
  - [AuthMethodUpdateEmail](docs/AuthMethodUpdateEmail.md)
  - [AuthMethodUpdateGcp](docs/AuthMethodUpdateGcp.md)
  - [AuthMethodUpdateK8s](docs/AuthMethodUpdateK8s.md)
+ - [AuthMethodUpdateKerberos](docs/AuthMethodUpdateKerberos.md)
  - [AuthMethodUpdateLdap](docs/AuthMethodUpdateLdap.md)
  - [AuthMethodUpdateOCI](docs/AuthMethodUpdateOCI.md)
  - [AuthMethodUpdateOIDC](docs/AuthMethodUpdateOIDC.md)
@@ -848,6 +857,8 @@ Class | Method | HTTP request | Description
  - [CreateOidcAppOutput](docs/CreateOidcAppOutput.md)
  - [CreatePKICertIssuer](docs/CreatePKICertIssuer.md)
  - [CreatePKICertIssuerOutput](docs/CreatePKICertIssuerOutput.md)
+ - [CreatePasskey](docs/CreatePasskey.md)
+ - [CreatePasskeyOutput](docs/CreatePasskeyOutput.md)
  - [CreatePingTarget](docs/CreatePingTarget.md)
  - [CreatePingTargetOutput](docs/CreatePingTargetOutput.md)
  - [CreateRabbitMQTarget](docs/CreateRabbitMQTarget.md)
@@ -1308,6 +1319,9 @@ Class | Method | HTTP request | Description
  - [KMIPConfigPart](docs/KMIPConfigPart.md)
  - [KMIPEnvironmentCreateResponse](docs/KMIPEnvironmentCreateResponse.md)
  - [KMIPServer](docs/KMIPServer.md)
+ - [KerberosAccessRules](docs/KerberosAccessRules.md)
+ - [KerberosAuthMethodInfo](docs/KerberosAuthMethodInfo.md)
+ - [KerberosConfigPart](docs/KerberosConfigPart.md)
  - [KmipClientDeleteRule](docs/KmipClientDeleteRule.md)
  - [KmipClientSetRule](docs/KmipClientSetRule.md)
  - [KmipCreateClient](docs/KmipCreateClient.md)
@@ -1327,6 +1341,15 @@ Class | Method | HTTP request | Description
  - [KmipServerSetup](docs/KmipServerSetup.md)
  - [KmipSetServerState](docs/KmipSetServerState.md)
  - [KmipSetServerStateOutput](docs/KmipSetServerStateOutput.md)
+ - [KubeConfigValue](docs/KubeConfigValue.md)
+ - [KubeconfigCluster](docs/KubeconfigCluster.md)
+ - [KubeconfigContext](docs/KubeconfigContext.md)
+ - [KubeconfigExec](docs/KubeconfigExec.md)
+ - [KubeconfigGenerateOutput](docs/KubeconfigGenerateOutput.md)
+ - [KubeconfigNamedCluster](docs/KubeconfigNamedCluster.md)
+ - [KubeconfigNamedContext](docs/KubeconfigNamedContext.md)
+ - [KubeconfigUser](docs/KubeconfigUser.md)
+ - [KubeconfigUserExec](docs/KubeconfigUserExec.md)
  - [KubernetesAccessRules](docs/KubernetesAccessRules.md)
  - [LDAPAccessRules](docs/LDAPAccessRules.md)
  - [LastConfigChange](docs/LastConfigChange.md)
@@ -1349,7 +1372,9 @@ Class | Method | HTTP request | Description
  - [ListRoles](docs/ListRoles.md)
  - [ListRolesOutput](docs/ListRolesOutput.md)
  - [ListSRABastions](docs/ListSRABastions.md)
+ - [ListSRASessions](docs/ListSRASessions.md)
  - [ListSharedItems](docs/ListSharedItems.md)
+ - [ListSraSessionsOutput](docs/ListSraSessionsOutput.md)
  - [ListTargets](docs/ListTargets.md)
  - [ListTargetsOutput](docs/ListTargetsOutput.md)
  - [LogForwardingConfigPart](docs/LogForwardingConfigPart.md)
@@ -1492,6 +1517,7 @@ Class | Method | HTTP request | Description
  - [SmInfo](docs/SmInfo.md)
  - [SplunkLogForwardingConfig](docs/SplunkLogForwardingConfig.md)
  - [SraInfo](docs/SraInfo.md)
+ - [SraSessionEntryOut](docs/SraSessionEntryOut.md)
  - [SshBastionConf](docs/SshBastionConf.md)
  - [SshBastionSessionTermination](docs/SshBastionSessionTermination.md)
  - [StaticCredsAuth](docs/StaticCredsAuth.md)

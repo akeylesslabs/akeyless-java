@@ -33,6 +33,10 @@ import java.util.List;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CertificateChainInfo {
+  public static final String SERIALIZED_NAME_AUTO_RENEW_CERTIFICATE = "auto_renew_certificate";
+  @SerializedName(SERIALIZED_NAME_AUTO_RENEW_CERTIFICATE)
+  private Boolean autoRenewCertificate;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_CHAIN = "certificate_chain";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_CHAIN)
   private List<CertificateInfo> certificateChain = null;
@@ -65,12 +69,43 @@ public class CertificateChainInfo {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_STATUS)
   private String certificateStatus;
 
+  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
+  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
+  private String errorMessage;
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
   private List<CertificateExpirationEvent> expirationEvents = null;
 
+  public static final String SERIALIZED_NAME_RENEW_BEFORE_EXPIRATION_IN_DAYS = "renew_before_expiration_in_days";
+  @SerializedName(SERIALIZED_NAME_RENEW_BEFORE_EXPIRATION_IN_DAYS)
+  private Long renewBeforeExpirationInDays;
+
   public CertificateChainInfo() { 
   }
+
+  public CertificateChainInfo autoRenewCertificate(Boolean autoRenewCertificate) {
+    
+    this.autoRenewCertificate = autoRenewCertificate;
+    return this;
+  }
+
+   /**
+   * Get autoRenewCertificate
+   * @return autoRenewCertificate
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Boolean getAutoRenewCertificate() {
+    return autoRenewCertificate;
+  }
+
+
+  public void setAutoRenewCertificate(Boolean autoRenewCertificate) {
+    this.autoRenewCertificate = autoRenewCertificate;
+  }
+
 
   public CertificateChainInfo certificateChain(List<CertificateInfo> certificateChain) {
     
@@ -264,6 +299,29 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo errorMessage(String errorMessage) {
+    
+    this.errorMessage = errorMessage;
+    return this;
+  }
+
+   /**
+   * Get errorMessage
+   * @return errorMessage
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getErrorMessage() {
+    return errorMessage;
+  }
+
+
+  public void setErrorMessage(String errorMessage) {
+    this.errorMessage = errorMessage;
+  }
+
+
   public CertificateChainInfo expirationEvents(List<CertificateExpirationEvent> expirationEvents) {
     
     this.expirationEvents = expirationEvents;
@@ -295,6 +353,29 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo renewBeforeExpirationInDays(Long renewBeforeExpirationInDays) {
+    
+    this.renewBeforeExpirationInDays = renewBeforeExpirationInDays;
+    return this;
+  }
+
+   /**
+   * Get renewBeforeExpirationInDays
+   * @return renewBeforeExpirationInDays
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getRenewBeforeExpirationInDays() {
+    return renewBeforeExpirationInDays;
+  }
+
+
+  public void setRenewBeforeExpirationInDays(Long renewBeforeExpirationInDays) {
+    this.renewBeforeExpirationInDays = renewBeforeExpirationInDays;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -304,7 +385,8 @@ public class CertificateChainInfo {
       return false;
     }
     CertificateChainInfo certificateChainInfo = (CertificateChainInfo) o;
-    return Objects.equals(this.certificateChain, certificateChainInfo.certificateChain) &&
+    return Objects.equals(this.autoRenewCertificate, certificateChainInfo.autoRenewCertificate) &&
+        Objects.equals(this.certificateChain, certificateChainInfo.certificateChain) &&
         Objects.equals(this.certificateFormat, certificateChainInfo.certificateFormat) &&
         Objects.equals(this.certificateHasPrivateKey, certificateChainInfo.certificateHasPrivateKey) &&
         Objects.equals(this.certificateIssuerGwClusterUrl, certificateChainInfo.certificateIssuerGwClusterUrl) &&
@@ -312,18 +394,21 @@ public class CertificateChainInfo {
         Objects.equals(this.certificateIssuerName, certificateChainInfo.certificateIssuerName) &&
         Objects.equals(this.certificatePem, certificateChainInfo.certificatePem) &&
         Objects.equals(this.certificateStatus, certificateChainInfo.certificateStatus) &&
-        Objects.equals(this.expirationEvents, certificateChainInfo.expirationEvents);
+        Objects.equals(this.errorMessage, certificateChainInfo.errorMessage) &&
+        Objects.equals(this.expirationEvents, certificateChainInfo.expirationEvents) &&
+        Objects.equals(this.renewBeforeExpirationInDays, certificateChainInfo.renewBeforeExpirationInDays);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, expirationEvents);
+    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, errorMessage, expirationEvents, renewBeforeExpirationInDays);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CertificateChainInfo {\n");
+    sb.append("    autoRenewCertificate: ").append(toIndentedString(autoRenewCertificate)).append("\n");
     sb.append("    certificateChain: ").append(toIndentedString(certificateChain)).append("\n");
     sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    certificateHasPrivateKey: ").append(toIndentedString(certificateHasPrivateKey)).append("\n");
@@ -332,7 +417,9 @@ public class CertificateChainInfo {
     sb.append("    certificateIssuerName: ").append(toIndentedString(certificateIssuerName)).append("\n");
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
     sb.append("    certificateStatus: ").append(toIndentedString(certificateStatus)).append("\n");
+    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
+    sb.append("    renewBeforeExpirationInDays: ").append(toIndentedString(renewBeforeExpirationInDays)).append("\n");
     sb.append("}");
     return sb.toString();
   }

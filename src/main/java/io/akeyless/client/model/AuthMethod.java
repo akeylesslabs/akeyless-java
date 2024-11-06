@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AuthMethodAccessInfo;
+import io.akeyless.client.model.AuthMethodAdditionalData;
 import io.akeyless.client.model.AuthMethodRoleAssociation;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -57,6 +58,10 @@ public class AuthMethod {
   public static final String SERIALIZED_NAME_AUTH_METHOD_ACCESS_ID = "auth_method_access_id";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_ACCESS_ID)
   private String authMethodAccessId;
+
+  public static final String SERIALIZED_NAME_AUTH_METHOD_ADDITIONAL_DATA = "auth_method_additional_data";
+  @SerializedName(SERIALIZED_NAME_AUTH_METHOD_ADDITIONAL_DATA)
+  private AuthMethodAdditionalData authMethodAdditionalData;
 
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth_method_name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
@@ -236,6 +241,29 @@ public class AuthMethod {
 
   public void setAuthMethodAccessId(String authMethodAccessId) {
     this.authMethodAccessId = authMethodAccessId;
+  }
+
+
+  public AuthMethod authMethodAdditionalData(AuthMethodAdditionalData authMethodAdditionalData) {
+    
+    this.authMethodAdditionalData = authMethodAdditionalData;
+    return this;
+  }
+
+   /**
+   * Get authMethodAdditionalData
+   * @return authMethodAdditionalData
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public AuthMethodAdditionalData getAuthMethodAdditionalData() {
+    return authMethodAdditionalData;
+  }
+
+
+  public void setAuthMethodAdditionalData(AuthMethodAdditionalData authMethodAdditionalData) {
+    this.authMethodAdditionalData = authMethodAdditionalData;
   }
 
 
@@ -454,6 +482,7 @@ public class AuthMethod {
         Objects.equals(this.accountId, authMethod.accountId) &&
         Objects.equals(this.associatedGwIds, authMethod.associatedGwIds) &&
         Objects.equals(this.authMethodAccessId, authMethod.authMethodAccessId) &&
+        Objects.equals(this.authMethodAdditionalData, authMethod.authMethodAdditionalData) &&
         Objects.equals(this.authMethodName, authMethod.authMethodName) &&
         Objects.equals(this.authMethodRolesAssoc, authMethod.authMethodRolesAssoc) &&
         Objects.equals(this.clientPermissions, authMethod.clientPermissions) &&
@@ -466,7 +495,7 @@ public class AuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, deleteProtection, description, isApproved, modificationDate);
+    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, deleteProtection, description, isApproved, modificationDate);
   }
 
   @Override
@@ -479,6 +508,7 @@ public class AuthMethod {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    associatedGwIds: ").append(toIndentedString(associatedGwIds)).append("\n");
     sb.append("    authMethodAccessId: ").append(toIndentedString(authMethodAccessId)).append("\n");
+    sb.append("    authMethodAdditionalData: ").append(toIndentedString(authMethodAdditionalData)).append("\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
     sb.append("    authMethodRolesAssoc: ").append(toIndentedString(authMethodRolesAssoc)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");

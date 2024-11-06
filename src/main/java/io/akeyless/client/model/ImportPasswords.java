@@ -99,11 +99,11 @@ public class ImportPasswords {
   }
 
    /**
-   * Password format type [LastPass/Chrome/Firefox]
+   * Password format type [LastPass/Chrome/Firefox/1password/keeper/bitwarden/dashlane]
    * @return format
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Password format type [LastPass/Chrome/Firefox]")
+  @ApiModelProperty(value = "Password format type [LastPass/Chrome/Firefox/1password/keeper/bitwarden/dashlane]")
 
   public String getFormat() {
     return format;

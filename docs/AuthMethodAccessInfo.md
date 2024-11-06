@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **huaweiAccessRules** | [**HuaweiAccessRules**](HuaweiAccessRules.md) |  |  [optional]
 **jwtTtl** | **Long** |  |  [optional]
 **k8sAccessRules** | [**KubernetesAccessRules**](KubernetesAccessRules.md) |  |  [optional]
+**kerberosAccessRules** | [**KerberosAccessRules**](KerberosAccessRules.md) |  |  [optional]
 **ldapAccessRules** | [**LDAPAccessRules**](LDAPAccessRules.md) |  |  [optional]
 **oauth2AccessRules** | [**OAuth2AccessRules**](OAuth2AccessRules.md) |  |  [optional]
 **ociAccessRules** | [**OCIAccessRules**](OCIAccessRules.md) |  |  [optional]
