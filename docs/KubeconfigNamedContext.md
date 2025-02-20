@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**context** | [**KubeconfigContext**](KubeconfigContext.md) |  |  [optional]
-**name** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**context** | [**KubeconfigContext**](KubeconfigContext.md) |  |  [optional] |
+|**name** | **String** |  |  [optional] |
 
 
 

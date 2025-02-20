@@ -6,11 +6,11 @@ SystemAccessCredsSettings describes system access credential settings for accoun
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**jwtTtlDefault** | **Long** |  |  [optional]
-**jwtTtlMaximum** | **Long** |  |  [optional]
-**jwtTtlMinimum** | **Long** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**jwtTtlDefault** | **Long** |  |  [optional] |
+|**jwtTtlMaximum** | **Long** |  |  [optional] |
+|**jwtTtlMinimum** | **Long** |  |  [optional] |
 
 
 

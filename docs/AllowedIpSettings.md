@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**cidrWhitelist** | **String** |  |  [optional]
-**lock** | **Boolean** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**cidrWhitelist** | **String** |  |  [optional] |
+|**lock** | **Boolean** |  |  [optional] |
 
 
 

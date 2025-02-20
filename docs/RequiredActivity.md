@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**migrationsRequiredActivity** | **Map&lt;String, Boolean&gt;** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**migrationsRequiredActivity** | **Map&lt;String, Boolean&gt;** |  |  [optional] |
 
 
 

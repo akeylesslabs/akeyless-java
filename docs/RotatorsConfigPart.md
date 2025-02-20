@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**rotators** | [**List&lt;Rotator&gt;**](Rotator.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**rotators** | [**List&lt;Rotator&gt;**](Rotator.md) |  |  [optional] |
 
 
 

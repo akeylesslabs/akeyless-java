@@ -6,10 +6,10 @@ OCIAccessRules contains access rules specific to Oracle cloud instance / user au
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**groupOcids** | **List&lt;String&gt;** |  |  [optional]
-**tenantOcid** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**groupOcids** | **List&lt;String&gt;** |  |  [optional] |
+|**tenantOcid** | **String** |  |  [optional] |
 
 
 

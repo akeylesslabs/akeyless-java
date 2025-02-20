@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**universalSecretsConnectorId** | **Long** |  |  [optional]
-**universalSecretsConnectorName** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**universalSecretsConnectorId** | **Long** |  |  [optional] |
+|**universalSecretsConnectorName** | **String** |  |  [optional] |
 
 
 

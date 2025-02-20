@@ -6,14 +6,14 @@ GKETargetDetails defines details related to connecting to a GKE (Google Kubernet
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**gkeClusterCaCertificate** | **String** |  |  [optional]
-**gkeClusterEndpoint** | **String** |  |  [optional]
-**gkeClusterName** | **String** |  |  [optional]
-**gkeServiceAccountKey** | **String** |  |  [optional]
-**gkeServiceAccountName** | **String** |  |  [optional]
-**useGwCloudIdentity** | **Boolean** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**gkeClusterCaCertificate** | **String** |  |  [optional] |
+|**gkeClusterEndpoint** | **String** |  |  [optional] |
+|**gkeClusterName** | **String** |  |  [optional] |
+|**gkeServiceAccountKey** | **String** |  |  [optional] |
+|**gkeServiceAccountName** | **String** |  |  [optional] |
+|**useGwCloudIdentity** | **Boolean** |  |  [optional] |
 
 
 

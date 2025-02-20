@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**keyId** | **String** |  |  [optional]
-**keyReference** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**keyId** | **String** |  |  [optional] |
+|**keyReference** | **String** |  |  [optional] |
 
 
 

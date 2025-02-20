@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**enable** | **Boolean** |  |  [optional]
-**maxIntervalByDays** | **Integer** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**enable** | **Boolean** |  |  [optional] |
+|**maxIntervalByDays** | **Integer** |  |  [optional] |
 
 
 

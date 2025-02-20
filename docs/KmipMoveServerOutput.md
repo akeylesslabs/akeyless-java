@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**newRoot** | **String** |  |  [optional]
-**oldRoot** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**newRoot** | **String** |  |  [optional] |
+|**oldRoot** | **String** |  |  [optional] |
 
 
 

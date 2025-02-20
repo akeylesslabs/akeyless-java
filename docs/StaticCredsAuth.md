@@ -6,12 +6,12 @@ staticCredsAuth is a command that creates a temporary access profile using the p
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**accessId** | **String** | Akeyless JWT token |  [optional]
-**adminEmail** | **String** | Akeyless JWT token |  [optional]
-**creds** | **String** | Akeyless JWT token |  [optional]
-**json** | **Boolean** | Set output format to JSON |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**accessId** | **String** | Akeyless JWT token |  [optional] |
+|**adminEmail** | **String** | Akeyless JWT token |  [optional] |
+|**creds** | **String** | Akeyless JWT token |  [optional] |
+|**json** | **Boolean** | Set output format to JSON |  [optional] |
 
 
 

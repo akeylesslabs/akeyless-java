@@ -5,19 +5,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**created** | **OffsetDateTime** |  |  [optional]
-**description** | **String** |  |  [optional]
-**expiration** | **OffsetDateTime** |  |  [optional]
-**lastRetrieved** | **OffsetDateTime** |  |  [optional]
-**location** | **Object** |  |  [optional]
-**name** | **String** |  |  [optional]
-**secretId** | **String** |  |  [optional]
-**status** | **Boolean** |  |  [optional]
-**tags** | **Map&lt;String, String&gt;** |  |  [optional]
-**type** | **String** |  |  [optional]
-**version** | **Long** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**created** | **OffsetDateTime** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
+|**expiration** | **OffsetDateTime** |  |  [optional] |
+|**lastRetrieved** | **OffsetDateTime** |  |  [optional] |
+|**location** | **Object** |  |  [optional] |
+|**name** | **String** |  |  [optional] |
+|**secretId** | **String** |  |  [optional] |
+|**status** | **Boolean** |  |  [optional] |
+|**tags** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**type** | **String** |  |  [optional] |
+|**version** | **Long** |  |  [optional] |
 
 
 

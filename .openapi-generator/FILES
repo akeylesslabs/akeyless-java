@@ -1,3 +1,4 @@
+.github/workflows/maven.yml
 .gitignore
 .travis.yml
 README.md
@@ -30,6 +31,7 @@ docs/AssocRoleAuthMethod.md
 docs/AssocTargetItem.md
 docs/AttributeTypeAndValue.md
 docs/Auth.md
+docs/AuthExpirationEvent.md
 docs/AuthMethod.md
 docs/AuthMethodAccessInfo.md
 docs/AuthMethodAdditionalData.md
@@ -87,6 +89,7 @@ docs/BatchTokenizationRequestLine.md
 docs/BatchTokenizationResponseLine.md
 docs/CFConfigPart.md
 docs/CacheConfigPart.md
+docs/CalcPasswordSecurityInfo.md
 docs/CertAccessRules.md
 docs/CertificateAnalyticAggregation.md
 docs/CertificateChainInfo.md
@@ -344,6 +347,7 @@ docs/DynamicSecretUpdateVenafi.md
 docs/EKSTargetDetails.md
 docs/ElasticsearchLogForwardingConfig.md
 docs/EmailEntry.md
+docs/EmailError.md
 docs/EmailPassAccessRules.md
 docs/EmailTokenizerInfo.md
 docs/Encrypt.md
@@ -480,6 +484,7 @@ docs/GatewayMigrationGetOutput.md
 docs/GatewayMigrationListOutput.md
 docs/GatewayMigrationSyncOutput.md
 docs/GatewayMigrationUpdateOutput.md
+docs/GatewayNameInfo.md
 docs/GatewayPartialUpdateK8SAuthConfig.md
 docs/GatewayPartialUpdateK8SAuthConfigOutput.md
 docs/GatewayRevokeTmpUsers.md
@@ -575,6 +580,8 @@ docs/GenCustomerFragment.md
 docs/GeneralConfigPart.md
 docs/GenerateAcmeEab.md
 docs/GenerateAcmeEabOutput.md
+docs/GenerateCA.md
+docs/GenerateCAOutput.md
 docs/GenerateCsr.md
 docs/GenerateCsrOutput.md
 docs/GetAccountSettings.md
@@ -638,6 +645,7 @@ docs/Item.md
 docs/ItemGeneralInfo.md
 docs/ItemSraStatus.md
 docs/ItemTargetAssociation.md
+docs/ItemUSCSyncAssociation.md
 docs/ItemVersion.md
 docs/JSONError.md
 docs/K8SAuth.md
@@ -737,8 +745,12 @@ docs/OidcClientInfo.md
 docs/OnePasswordMigration.md
 docs/OnePasswordPayload.md
 docs/PKICertificateIssueDetails.md
+docs/PasswordBreachInfo.md
 docs/PasswordExpirationInfo.md
 docs/PasswordPolicyInfo.md
+docs/PasswordScoreInfo.md
+docs/PasswordScoreSetting.md
+docs/PasswordSecurityInfo.md
 docs/PathRule.md
 docs/PingTargetDetails.md
 docs/Producer.md
@@ -750,6 +762,7 @@ docs/RawCreds.md
 docs/RefreshKey.md
 docs/RefreshKeyOutput.md
 docs/RegexpTokenizerInfo.md
+docs/RemoteSecretInfo.md
 docs/RenewCertificate.md
 docs/RenewCertificateOutput.md
 docs/RequestAccess.md
@@ -757,6 +770,7 @@ docs/RequestAccessOutput.md
 docs/RequiredActivity.md
 docs/ResetAccessKey.md
 docs/ResetAuthMethodAccessKeyOutput.md
+docs/ResponseStopShareItem.md
 docs/ReverseRBAC.md
 docs/ReverseRBACClient.md
 docs/ReverseRBACOutput.md
@@ -791,10 +805,13 @@ docs/RotatedSecretCreateRedshift.md
 docs/RotatedSecretCreateSnowflake.md
 docs/RotatedSecretCreateSsh.md
 docs/RotatedSecretCreateWindows.md
+docs/RotatedSecretDelete.md
+docs/RotatedSecretDeleteSync.md
 docs/RotatedSecretDetailsInfo.md
 docs/RotatedSecretGetValue.md
 docs/RotatedSecretList.md
 docs/RotatedSecretOutput.md
+docs/RotatedSecretSync.md
 docs/RotatedSecretUpdateAws.md
 docs/RotatedSecretUpdateAzure.md
 docs/RotatedSecretUpdateCassandra.md
@@ -832,6 +849,8 @@ docs/ServerInventoryPayload.md
 docs/SetItemState.md
 docs/SetRoleRule.md
 docs/ShareItem.md
+docs/ShareItemOutput.md
+docs/SharingItemFullInfo.md
 docs/SharingPolicyInfo.md
 docs/SignDataWithClassicKey.md
 docs/SignEcDsa.md
@@ -937,6 +956,8 @@ docs/UidRotateTokenOutput.md
 docs/Unconfigure.md
 docs/UniversalIdentityAccessRules.md
 docs/UniversalIdentityDetails.md
+docs/UnwrapToken.md
+docs/UnwrapTokenOutput.md
 docs/Update.md
 docs/UpdateAWSTarget.md
 docs/UpdateAWSTargetDetails.md
@@ -1062,6 +1083,7 @@ docs/VerifyPKCS1.md
 docs/VerifyPKICertOutput.md
 docs/VerifyPKICertWithClassicKey.md
 docs/VerifyRsaSsaPss.md
+docs/WalletDetails.md
 docs/WebBastionConf.md
 docs/WebBastionGuacamole.md
 docs/WebBastionRdpRecord.md
@@ -1103,6 +1125,7 @@ src/main/java/io/akeyless/client/model/AWSIAMAccessRules.java
 src/main/java/io/akeyless/client/model/AWSPayload.java
 src/main/java/io/akeyless/client/model/AWSSecretsMigration.java
 src/main/java/io/akeyless/client/model/AWSTargetDetails.java
+src/main/java/io/akeyless/client/model/AbstractOpenApiSchema.java
 src/main/java/io/akeyless/client/model/AccessOrGroupPermissionAssignment.java
 src/main/java/io/akeyless/client/model/AccessPermissionAssignment.java
 src/main/java/io/akeyless/client/model/AccountGeneralSettings.java
@@ -1124,6 +1147,7 @@ src/main/java/io/akeyless/client/model/AssocRoleAuthMethod.java
 src/main/java/io/akeyless/client/model/AssocTargetItem.java
 src/main/java/io/akeyless/client/model/AttributeTypeAndValue.java
 src/main/java/io/akeyless/client/model/Auth.java
+src/main/java/io/akeyless/client/model/AuthExpirationEvent.java
 src/main/java/io/akeyless/client/model/AuthMethod.java
 src/main/java/io/akeyless/client/model/AuthMethodAccessInfo.java
 src/main/java/io/akeyless/client/model/AuthMethodAdditionalData.java
@@ -1181,6 +1205,7 @@ src/main/java/io/akeyless/client/model/BatchTokenizationRequestLine.java
 src/main/java/io/akeyless/client/model/BatchTokenizationResponseLine.java
 src/main/java/io/akeyless/client/model/CFConfigPart.java
 src/main/java/io/akeyless/client/model/CacheConfigPart.java
+src/main/java/io/akeyless/client/model/CalcPasswordSecurityInfo.java
 src/main/java/io/akeyless/client/model/CertAccessRules.java
 src/main/java/io/akeyless/client/model/CertificateAnalyticAggregation.java
 src/main/java/io/akeyless/client/model/CertificateChainInfo.java
@@ -1438,6 +1463,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretUpdateVenafi.java
 src/main/java/io/akeyless/client/model/EKSTargetDetails.java
 src/main/java/io/akeyless/client/model/ElasticsearchLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/EmailEntry.java
+src/main/java/io/akeyless/client/model/EmailError.java
 src/main/java/io/akeyless/client/model/EmailPassAccessRules.java
 src/main/java/io/akeyless/client/model/EmailTokenizerInfo.java
 src/main/java/io/akeyless/client/model/Encrypt.java
@@ -1574,6 +1600,7 @@ src/main/java/io/akeyless/client/model/GatewayMigrationGetOutput.java
 src/main/java/io/akeyless/client/model/GatewayMigrationListOutput.java
 src/main/java/io/akeyless/client/model/GatewayMigrationSyncOutput.java
 src/main/java/io/akeyless/client/model/GatewayMigrationUpdateOutput.java
+src/main/java/io/akeyless/client/model/GatewayNameInfo.java
 src/main/java/io/akeyless/client/model/GatewayPartialUpdateK8SAuthConfig.java
 src/main/java/io/akeyless/client/model/GatewayPartialUpdateK8SAuthConfigOutput.java
 src/main/java/io/akeyless/client/model/GatewayRevokeTmpUsers.java
@@ -1669,6 +1696,8 @@ src/main/java/io/akeyless/client/model/GenCustomerFragment.java
 src/main/java/io/akeyless/client/model/GeneralConfigPart.java
 src/main/java/io/akeyless/client/model/GenerateAcmeEab.java
 src/main/java/io/akeyless/client/model/GenerateAcmeEabOutput.java
+src/main/java/io/akeyless/client/model/GenerateCA.java
+src/main/java/io/akeyless/client/model/GenerateCAOutput.java
 src/main/java/io/akeyless/client/model/GenerateCsr.java
 src/main/java/io/akeyless/client/model/GenerateCsrOutput.java
 src/main/java/io/akeyless/client/model/GetAccountSettings.java
@@ -1732,6 +1761,7 @@ src/main/java/io/akeyless/client/model/Item.java
 src/main/java/io/akeyless/client/model/ItemGeneralInfo.java
 src/main/java/io/akeyless/client/model/ItemSraStatus.java
 src/main/java/io/akeyless/client/model/ItemTargetAssociation.java
+src/main/java/io/akeyless/client/model/ItemUSCSyncAssociation.java
 src/main/java/io/akeyless/client/model/ItemVersion.java
 src/main/java/io/akeyless/client/model/JSONError.java
 src/main/java/io/akeyless/client/model/K8SAuth.java
@@ -1831,8 +1861,12 @@ src/main/java/io/akeyless/client/model/OidcClientInfo.java
 src/main/java/io/akeyless/client/model/OnePasswordMigration.java
 src/main/java/io/akeyless/client/model/OnePasswordPayload.java
 src/main/java/io/akeyless/client/model/PKICertificateIssueDetails.java
+src/main/java/io/akeyless/client/model/PasswordBreachInfo.java
 src/main/java/io/akeyless/client/model/PasswordExpirationInfo.java
 src/main/java/io/akeyless/client/model/PasswordPolicyInfo.java
+src/main/java/io/akeyless/client/model/PasswordScoreInfo.java
+src/main/java/io/akeyless/client/model/PasswordScoreSetting.java
+src/main/java/io/akeyless/client/model/PasswordSecurityInfo.java
 src/main/java/io/akeyless/client/model/PathRule.java
 src/main/java/io/akeyless/client/model/PingTargetDetails.java
 src/main/java/io/akeyless/client/model/Producer.java
@@ -1844,6 +1878,7 @@ src/main/java/io/akeyless/client/model/RawCreds.java
 src/main/java/io/akeyless/client/model/RefreshKey.java
 src/main/java/io/akeyless/client/model/RefreshKeyOutput.java
 src/main/java/io/akeyless/client/model/RegexpTokenizerInfo.java
+src/main/java/io/akeyless/client/model/RemoteSecretInfo.java
 src/main/java/io/akeyless/client/model/RenewCertificate.java
 src/main/java/io/akeyless/client/model/RenewCertificateOutput.java
 src/main/java/io/akeyless/client/model/RequestAccess.java
@@ -1851,6 +1886,7 @@ src/main/java/io/akeyless/client/model/RequestAccessOutput.java
 src/main/java/io/akeyless/client/model/RequiredActivity.java
 src/main/java/io/akeyless/client/model/ResetAccessKey.java
 src/main/java/io/akeyless/client/model/ResetAuthMethodAccessKeyOutput.java
+src/main/java/io/akeyless/client/model/ResponseStopShareItem.java
 src/main/java/io/akeyless/client/model/ReverseRBAC.java
 src/main/java/io/akeyless/client/model/ReverseRBACClient.java
 src/main/java/io/akeyless/client/model/ReverseRBACOutput.java
@@ -1885,10 +1921,13 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreateRedshift.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateSnowflake.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateSsh.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateWindows.java
+src/main/java/io/akeyless/client/model/RotatedSecretDelete.java
+src/main/java/io/akeyless/client/model/RotatedSecretDeleteSync.java
 src/main/java/io/akeyless/client/model/RotatedSecretDetailsInfo.java
 src/main/java/io/akeyless/client/model/RotatedSecretGetValue.java
 src/main/java/io/akeyless/client/model/RotatedSecretList.java
 src/main/java/io/akeyless/client/model/RotatedSecretOutput.java
+src/main/java/io/akeyless/client/model/RotatedSecretSync.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAws.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAzure.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateCassandra.java
@@ -1926,6 +1965,8 @@ src/main/java/io/akeyless/client/model/ServerInventoryPayload.java
 src/main/java/io/akeyless/client/model/SetItemState.java
 src/main/java/io/akeyless/client/model/SetRoleRule.java
 src/main/java/io/akeyless/client/model/ShareItem.java
+src/main/java/io/akeyless/client/model/ShareItemOutput.java
+src/main/java/io/akeyless/client/model/SharingItemFullInfo.java
 src/main/java/io/akeyless/client/model/SharingPolicyInfo.java
 src/main/java/io/akeyless/client/model/SignDataWithClassicKey.java
 src/main/java/io/akeyless/client/model/SignEcDsa.java
@@ -2031,6 +2072,8 @@ src/main/java/io/akeyless/client/model/UidRotateTokenOutput.java
 src/main/java/io/akeyless/client/model/Unconfigure.java
 src/main/java/io/akeyless/client/model/UniversalIdentityAccessRules.java
 src/main/java/io/akeyless/client/model/UniversalIdentityDetails.java
+src/main/java/io/akeyless/client/model/UnwrapToken.java
+src/main/java/io/akeyless/client/model/UnwrapTokenOutput.java
 src/main/java/io/akeyless/client/model/Update.java
 src/main/java/io/akeyless/client/model/UpdateAWSTarget.java
 src/main/java/io/akeyless/client/model/UpdateAWSTargetDetails.java
@@ -2155,6 +2198,7 @@ src/main/java/io/akeyless/client/model/VerifyPKCS1.java
 src/main/java/io/akeyless/client/model/VerifyPKICertOutput.java
 src/main/java/io/akeyless/client/model/VerifyPKICertWithClassicKey.java
 src/main/java/io/akeyless/client/model/VerifyRsaSsaPss.java
+src/main/java/io/akeyless/client/model/WalletDetails.java
 src/main/java/io/akeyless/client/model/WebBastionConf.java
 src/main/java/io/akeyless/client/model/WebBastionGuacamole.java
 src/main/java/io/akeyless/client/model/WebBastionRdpRecord.java
@@ -2164,23 +2208,24 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AuthMethodAdditionalDataTest.java
-src/test/java/io/akeyless/client/model/AuthMethodCreateKerberosTest.java
-src/test/java/io/akeyless/client/model/AuthMethodUpdateKerberosTest.java
-src/test/java/io/akeyless/client/model/CreatePasskeyOutputTest.java
-src/test/java/io/akeyless/client/model/CreatePasskeyTest.java
-src/test/java/io/akeyless/client/model/KerberosAccessRulesTest.java
-src/test/java/io/akeyless/client/model/KerberosAuthMethodInfoTest.java
-src/test/java/io/akeyless/client/model/KerberosConfigPartTest.java
-src/test/java/io/akeyless/client/model/KubeConfigValueTest.java
-src/test/java/io/akeyless/client/model/KubeconfigClusterTest.java
-src/test/java/io/akeyless/client/model/KubeconfigContextTest.java
-src/test/java/io/akeyless/client/model/KubeconfigExecTest.java
-src/test/java/io/akeyless/client/model/KubeconfigGenerateOutputTest.java
-src/test/java/io/akeyless/client/model/KubeconfigNamedClusterTest.java
-src/test/java/io/akeyless/client/model/KubeconfigNamedContextTest.java
-src/test/java/io/akeyless/client/model/KubeconfigUserExecTest.java
-src/test/java/io/akeyless/client/model/KubeconfigUserTest.java
-src/test/java/io/akeyless/client/model/ListSRASessionsTest.java
-src/test/java/io/akeyless/client/model/ListSraSessionsOutputTest.java
-src/test/java/io/akeyless/client/model/SraSessionEntryOutTest.java
+src/test/java/io/akeyless/client/model/AuthExpirationEventTest.java
+src/test/java/io/akeyless/client/model/CalcPasswordSecurityInfoTest.java
+src/test/java/io/akeyless/client/model/EmailErrorTest.java
+src/test/java/io/akeyless/client/model/GatewayNameInfoTest.java
+src/test/java/io/akeyless/client/model/GenerateCAOutputTest.java
+src/test/java/io/akeyless/client/model/GenerateCATest.java
+src/test/java/io/akeyless/client/model/ItemUSCSyncAssociationTest.java
+src/test/java/io/akeyless/client/model/PasswordBreachInfoTest.java
+src/test/java/io/akeyless/client/model/PasswordScoreInfoTest.java
+src/test/java/io/akeyless/client/model/PasswordScoreSettingTest.java
+src/test/java/io/akeyless/client/model/PasswordSecurityInfoTest.java
+src/test/java/io/akeyless/client/model/RemoteSecretInfoTest.java
+src/test/java/io/akeyless/client/model/ResponseStopShareItemTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretDeleteSyncTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretDeleteTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretSyncTest.java
+src/test/java/io/akeyless/client/model/ShareItemOutputTest.java
+src/test/java/io/akeyless/client/model/SharingItemFullInfoTest.java
+src/test/java/io/akeyless/client/model/UnwrapTokenOutputTest.java
+src/test/java/io/akeyless/client/model/UnwrapTokenTest.java
+src/test/java/io/akeyless/client/model/WalletDetailsTest.java

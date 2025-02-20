@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**clients** | [**List&lt;KMIPClient&gt;**](KMIPClient.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**clients** | [**List&lt;KMIPClient&gt;**](KMIPClient.md) |  |  [optional] |
 
 
 

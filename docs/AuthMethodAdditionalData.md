@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**kerberosData** | [**KerberosAuthMethodInfo**](KerberosAuthMethodInfo.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**kerberosData** | [**KerberosAuthMethodInfo**](KerberosAuthMethodInfo.md) |  |  [optional] |
 
 
 

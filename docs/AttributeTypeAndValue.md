@@ -6,10 +6,10 @@ AttributeTypeAndValue mirrors the ASN.1 structure of the same name in RFC 5280, 
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **List&lt;Long&gt;** |  |  [optional]
-**value** | **Object** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**type** | **List&lt;Long&gt;** |  |  [optional] |
+|**value** | **Object** |  |  [optional] |
 
 
 

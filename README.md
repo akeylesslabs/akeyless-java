@@ -1,7 +1,8 @@
 # akeyless-java
 
 Akeyless API
-- API version: 2.0
+- API version: 3.0
+  - Generator version: 7.10.0
 
 The purpose of this application is to provide access to Akeyless API.
 
@@ -13,7 +14,7 @@ The purpose of this application is to provide access to Akeyless API.
 ## Requirements
 
 Building the API client library requires:
-1. Java 1.7+
+1. Java 1.8+
 2. Maven (3.8.3+)/Gradle (7.2+)
 
 ## Installation
@@ -140,6 +141,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**authMethodUpdateOauth2**](docs/V2Api.md#authMethodUpdateOauth2) | **POST** /auth-method-update-oauth2 | 
 *V2Api* | [**authMethodUpdateSAML**](docs/V2Api.md#authMethodUpdateSAML) | **POST** /auth-method-update-saml | 
 *V2Api* | [**authMethodUpdateUniversalIdentity**](docs/V2Api.md#authMethodUpdateUniversalIdentity) | **POST** /auth-method-update-universal-identity | 
+*V2Api* | [**calcPasswordSecurityInfo**](docs/V2Api.md#calcPasswordSecurityInfo) | **POST** /calc-password-security-info | 
 *V2Api* | [**changeAdminAccountPassword**](docs/V2Api.md#changeAdminAccountPassword) | **POST** /change-admin-account-password | 
 *V2Api* | [**configure**](docs/V2Api.md#configure) | **POST** /configure | 
 *V2Api* | [**connect**](docs/V2Api.md#connect) | **POST** /connect | 
@@ -242,7 +244,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretCreateHanaDb**](docs/V2Api.md#dynamicSecretCreateHanaDb) | **POST** /dynamic-secret-create-hanadb | 
 *V2Api* | [**dynamicSecretCreateK8s**](docs/V2Api.md#dynamicSecretCreateK8s) | **POST** /dynamic-secret-create-k8s | 
 *V2Api* | [**dynamicSecretCreateLdap**](docs/V2Api.md#dynamicSecretCreateLdap) | **POST** /dynamic-secret-create-ldap | 
-*V2Api* | [**dynamicSecretCreateMongoDb**](docs/V2Api.md#dynamicSecretCreateMongoDb) | **POST** /dynamic-secret-create-mongo | 
+*V2Api* | [**dynamicSecretCreateMongoDb**](docs/V2Api.md#dynamicSecretCreateMongoDb) | **POST** /dynamic-secret-create-mongodb | 
 *V2Api* | [**dynamicSecretCreateMsSql**](docs/V2Api.md#dynamicSecretCreateMsSql) | **POST** /dynamic-secret-create-mssql | 
 *V2Api* | [**dynamicSecretCreateMySql**](docs/V2Api.md#dynamicSecretCreateMySql) | **POST** /dynamic-secret-create-mysql | 
 *V2Api* | [**dynamicSecretCreateOracleDb**](docs/V2Api.md#dynamicSecretCreateOracleDb) | **POST** /dynamic-secret-create-oracle | 
@@ -413,6 +415,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
 *V2Api* | [**generateAcmeEab**](docs/V2Api.md#generateAcmeEab) | **POST** /generate-acme-eab | 
+*V2Api* | [**generateCA**](docs/V2Api.md#generateCA) | **POST** /generate-ca | 
 *V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
 *V2Api* | [**getAccountLogo**](docs/V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 *V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
@@ -502,8 +505,11 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretCreateSnowflake**](docs/V2Api.md#rotatedSecretCreateSnowflake) | **POST** /rotated-secret-create-snowflake | 
 *V2Api* | [**rotatedSecretCreateSsh**](docs/V2Api.md#rotatedSecretCreateSsh) | **POST** /rotated-secret-create-ssh | 
 *V2Api* | [**rotatedSecretCreateWindows**](docs/V2Api.md#rotatedSecretCreateWindows) | **POST** /rotated-secret-create-windows | 
+*V2Api* | [**rotatedSecretDelete**](docs/V2Api.md#rotatedSecretDelete) | **POST** /rotated-secret-delete | 
+*V2Api* | [**rotatedSecretDeleteSync**](docs/V2Api.md#rotatedSecretDeleteSync) | **POST** /rotated-secret-delete-sync | 
 *V2Api* | [**rotatedSecretGetValue**](docs/V2Api.md#rotatedSecretGetValue) | **POST** /rotated-secret-get-value | 
 *V2Api* | [**rotatedSecretList**](docs/V2Api.md#rotatedSecretList) | **POST** /rotated-secret-list | 
+*V2Api* | [**rotatedSecretSync**](docs/V2Api.md#rotatedSecretSync) | **POST** /rotated-secret-sync | 
 *V2Api* | [**rotatedSecretUpdateAws**](docs/V2Api.md#rotatedSecretUpdateAws) | **POST** /rotated-secret-update-aws | 
 *V2Api* | [**rotatedSecretUpdateAzure**](docs/V2Api.md#rotatedSecretUpdateAzure) | **POST** /rotated-secret-update-azure | 
 *V2Api* | [**rotatedSecretUpdateCassandra**](docs/V2Api.md#rotatedSecretUpdateCassandra) | **POST** /rotated-secret-update-cassandra | 
@@ -594,6 +600,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**uidListChildren**](docs/V2Api.md#uidListChildren) | **POST** /uid-list-children | 
 *V2Api* | [**uidRevokeToken**](docs/V2Api.md#uidRevokeToken) | **POST** /uid-revoke-token | 
 *V2Api* | [**uidRotateToken**](docs/V2Api.md#uidRotateToken) | **POST** /uid-rotate-token | 
+*V2Api* | [**unwrapToken**](docs/V2Api.md#unwrapToken) | **POST** /unwrap-token | 
 *V2Api* | [**updateAWSTarget**](docs/V2Api.md#updateAWSTarget) | **POST** /update-aws-target | 
 *V2Api* | [**updateAWSTargetDetails**](docs/V2Api.md#updateAWSTargetDetails) | **POST** /update-aws-target-details | 
 *V2Api* | [**updateAccountSettings**](docs/V2Api.md#updateAccountSettings) | **POST** /update-account-settings | 
@@ -697,6 +704,7 @@ Class | Method | HTTP request | Description
  - [AssocTargetItem](docs/AssocTargetItem.md)
  - [AttributeTypeAndValue](docs/AttributeTypeAndValue.md)
  - [Auth](docs/Auth.md)
+ - [AuthExpirationEvent](docs/AuthExpirationEvent.md)
  - [AuthMethod](docs/AuthMethod.md)
  - [AuthMethodAccessInfo](docs/AuthMethodAccessInfo.md)
  - [AuthMethodAdditionalData](docs/AuthMethodAdditionalData.md)
@@ -754,6 +762,7 @@ Class | Method | HTTP request | Description
  - [BatchTokenizationResponseLine](docs/BatchTokenizationResponseLine.md)
  - [CFConfigPart](docs/CFConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
+ - [CalcPasswordSecurityInfo](docs/CalcPasswordSecurityInfo.md)
  - [CertAccessRules](docs/CertAccessRules.md)
  - [CertificateAnalyticAggregation](docs/CertificateAnalyticAggregation.md)
  - [CertificateChainInfo](docs/CertificateChainInfo.md)
@@ -1011,6 +1020,7 @@ Class | Method | HTTP request | Description
  - [EKSTargetDetails](docs/EKSTargetDetails.md)
  - [ElasticsearchLogForwardingConfig](docs/ElasticsearchLogForwardingConfig.md)
  - [EmailEntry](docs/EmailEntry.md)
+ - [EmailError](docs/EmailError.md)
  - [EmailPassAccessRules](docs/EmailPassAccessRules.md)
  - [EmailTokenizerInfo](docs/EmailTokenizerInfo.md)
  - [Encrypt](docs/Encrypt.md)
@@ -1147,6 +1157,7 @@ Class | Method | HTTP request | Description
  - [GatewayMigrationListOutput](docs/GatewayMigrationListOutput.md)
  - [GatewayMigrationSyncOutput](docs/GatewayMigrationSyncOutput.md)
  - [GatewayMigrationUpdateOutput](docs/GatewayMigrationUpdateOutput.md)
+ - [GatewayNameInfo](docs/GatewayNameInfo.md)
  - [GatewayPartialUpdateK8SAuthConfig](docs/GatewayPartialUpdateK8SAuthConfig.md)
  - [GatewayPartialUpdateK8SAuthConfigOutput](docs/GatewayPartialUpdateK8SAuthConfigOutput.md)
  - [GatewayRevokeTmpUsers](docs/GatewayRevokeTmpUsers.md)
@@ -1242,6 +1253,8 @@ Class | Method | HTTP request | Description
  - [GeneralConfigPart](docs/GeneralConfigPart.md)
  - [GenerateAcmeEab](docs/GenerateAcmeEab.md)
  - [GenerateAcmeEabOutput](docs/GenerateAcmeEabOutput.md)
+ - [GenerateCA](docs/GenerateCA.md)
+ - [GenerateCAOutput](docs/GenerateCAOutput.md)
  - [GenerateCsr](docs/GenerateCsr.md)
  - [GenerateCsrOutput](docs/GenerateCsrOutput.md)
  - [GetAccountSettings](docs/GetAccountSettings.md)
@@ -1305,6 +1318,7 @@ Class | Method | HTTP request | Description
  - [ItemGeneralInfo](docs/ItemGeneralInfo.md)
  - [ItemSraStatus](docs/ItemSraStatus.md)
  - [ItemTargetAssociation](docs/ItemTargetAssociation.md)
+ - [ItemUSCSyncAssociation](docs/ItemUSCSyncAssociation.md)
  - [ItemVersion](docs/ItemVersion.md)
  - [JSONError](docs/JSONError.md)
  - [K8SAuth](docs/K8SAuth.md)
@@ -1404,8 +1418,12 @@ Class | Method | HTTP request | Description
  - [OnePasswordMigration](docs/OnePasswordMigration.md)
  - [OnePasswordPayload](docs/OnePasswordPayload.md)
  - [PKICertificateIssueDetails](docs/PKICertificateIssueDetails.md)
+ - [PasswordBreachInfo](docs/PasswordBreachInfo.md)
  - [PasswordExpirationInfo](docs/PasswordExpirationInfo.md)
  - [PasswordPolicyInfo](docs/PasswordPolicyInfo.md)
+ - [PasswordScoreInfo](docs/PasswordScoreInfo.md)
+ - [PasswordScoreSetting](docs/PasswordScoreSetting.md)
+ - [PasswordSecurityInfo](docs/PasswordSecurityInfo.md)
  - [PathRule](docs/PathRule.md)
  - [PingTargetDetails](docs/PingTargetDetails.md)
  - [Producer](docs/Producer.md)
@@ -1417,6 +1435,7 @@ Class | Method | HTTP request | Description
  - [RefreshKey](docs/RefreshKey.md)
  - [RefreshKeyOutput](docs/RefreshKeyOutput.md)
  - [RegexpTokenizerInfo](docs/RegexpTokenizerInfo.md)
+ - [RemoteSecretInfo](docs/RemoteSecretInfo.md)
  - [RenewCertificate](docs/RenewCertificate.md)
  - [RenewCertificateOutput](docs/RenewCertificateOutput.md)
  - [RequestAccess](docs/RequestAccess.md)
@@ -1424,6 +1443,7 @@ Class | Method | HTTP request | Description
  - [RequiredActivity](docs/RequiredActivity.md)
  - [ResetAccessKey](docs/ResetAccessKey.md)
  - [ResetAuthMethodAccessKeyOutput](docs/ResetAuthMethodAccessKeyOutput.md)
+ - [ResponseStopShareItem](docs/ResponseStopShareItem.md)
  - [ReverseRBAC](docs/ReverseRBAC.md)
  - [ReverseRBACClient](docs/ReverseRBACClient.md)
  - [ReverseRBACOutput](docs/ReverseRBACOutput.md)
@@ -1458,10 +1478,13 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateSnowflake](docs/RotatedSecretCreateSnowflake.md)
  - [RotatedSecretCreateSsh](docs/RotatedSecretCreateSsh.md)
  - [RotatedSecretCreateWindows](docs/RotatedSecretCreateWindows.md)
+ - [RotatedSecretDelete](docs/RotatedSecretDelete.md)
+ - [RotatedSecretDeleteSync](docs/RotatedSecretDeleteSync.md)
  - [RotatedSecretDetailsInfo](docs/RotatedSecretDetailsInfo.md)
  - [RotatedSecretGetValue](docs/RotatedSecretGetValue.md)
  - [RotatedSecretList](docs/RotatedSecretList.md)
  - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
+ - [RotatedSecretSync](docs/RotatedSecretSync.md)
  - [RotatedSecretUpdateAws](docs/RotatedSecretUpdateAws.md)
  - [RotatedSecretUpdateAzure](docs/RotatedSecretUpdateAzure.md)
  - [RotatedSecretUpdateCassandra](docs/RotatedSecretUpdateCassandra.md)
@@ -1499,6 +1522,8 @@ Class | Method | HTTP request | Description
  - [SetItemState](docs/SetItemState.md)
  - [SetRoleRule](docs/SetRoleRule.md)
  - [ShareItem](docs/ShareItem.md)
+ - [ShareItemOutput](docs/ShareItemOutput.md)
+ - [SharingItemFullInfo](docs/SharingItemFullInfo.md)
  - [SharingPolicyInfo](docs/SharingPolicyInfo.md)
  - [SignDataWithClassicKey](docs/SignDataWithClassicKey.md)
  - [SignEcDsa](docs/SignEcDsa.md)
@@ -1604,6 +1629,8 @@ Class | Method | HTTP request | Description
  - [Unconfigure](docs/Unconfigure.md)
  - [UniversalIdentityAccessRules](docs/UniversalIdentityAccessRules.md)
  - [UniversalIdentityDetails](docs/UniversalIdentityDetails.md)
+ - [UnwrapToken](docs/UnwrapToken.md)
+ - [UnwrapTokenOutput](docs/UnwrapTokenOutput.md)
  - [Update](docs/Update.md)
  - [UpdateAWSTarget](docs/UpdateAWSTarget.md)
  - [UpdateAWSTargetDetails](docs/UpdateAWSTargetDetails.md)
@@ -1728,6 +1755,7 @@ Class | Method | HTTP request | Description
  - [VerifyPKICertOutput](docs/VerifyPKICertOutput.md)
  - [VerifyPKICertWithClassicKey](docs/VerifyPKICertWithClassicKey.md)
  - [VerifyRsaSsaPss](docs/VerifyRsaSsaPss.md)
+ - [WalletDetails](docs/WalletDetails.md)
  - [WebBastionConf](docs/WebBastionConf.md)
  - [WebBastionGuacamole](docs/WebBastionGuacamole.md)
  - [WebBastionRdpRecord](docs/WebBastionRdpRecord.md)
@@ -1739,10 +1767,11 @@ Class | Method | HTTP request | Description
  - [ZeroSSLTargetDetails](docs/ZeroSSLTargetDetails.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
+Endpoints do not require authorization.
+
 
 ## Recommendation
 

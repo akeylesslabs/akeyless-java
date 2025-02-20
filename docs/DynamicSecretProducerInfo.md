@@ -6,17 +6,17 @@ DynamicSecretProducerInfo The dynamic secret producer info This parameter releva
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**failureMessage** | **String** |  |  [optional]
-**gwClusterId** | **Long** |  |  [optional]
-**k8sAllowedNamespaces** | **String** | Relevant only for generic k8s producer |  [optional]
-**k8sDynamicMode** | **Boolean** | Relevant only for generic k8s producer |  [optional]
-**producerLastKeepAlive** | **String** |  |  [optional]
-**producerMetadata** | **String** |  |  [optional]
-**producerStatus** | **String** | RotationStatus defines types of rotation Status |  [optional]
-**producerType** | **String** |  |  [optional]
-**userTtl** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**failureMessage** | **String** |  |  [optional] |
+|**gwClusterId** | **Long** |  |  [optional] |
+|**k8sAllowedNamespaces** | **String** | Relevant only for generic k8s producer |  [optional] |
+|**k8sDynamicMode** | **Boolean** | Relevant only for generic k8s producer |  [optional] |
+|**producerLastKeepAlive** | **String** |  |  [optional] |
+|**producerMetadata** | **String** |  |  [optional] |
+|**producerStatus** | **String** | RotationStatus defines types of rotation Status |  [optional] |
+|**producerType** | **String** |  |  [optional] |
+|**userTtl** | **String** |  |  [optional] |
 
 
 

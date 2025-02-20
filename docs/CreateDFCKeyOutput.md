@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**fragmentResults** | **List&lt;Long&gt;** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**fragmentResults** | **List&lt;Long&gt;** |  |  [optional] |
 
 
 

@@ -6,9 +6,9 @@ ResetAuthMethodAccessKeyOutput defines output of ResetAuthMethodAccessKey operat
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**accessKey** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**accessKey** | **String** |  |  [optional] |
 
 
 

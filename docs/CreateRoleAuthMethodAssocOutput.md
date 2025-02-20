@@ -6,9 +6,9 @@ CreateRoleAuthMethodAssocOutput defines output of CreateRoleAuthMethodAssoc oper
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**assocId** | **String** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**assocId** | **String** |  |  [optional] |
 
 
 

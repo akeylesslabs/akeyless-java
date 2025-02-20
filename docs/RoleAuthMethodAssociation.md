@@ -6,14 +6,14 @@ RoleAuthMethodAssociation includes details of an association between a role and 
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**assocId** | **String** |  |  [optional]
-**authMethodAccessId** | **String** |  |  [optional]
-**authMethodName** | **String** |  |  [optional]
-**authMethodSubClaims** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
-**isSubclaimsWithOperator** | **Boolean** |  |  [optional]
-**subClaimsCaseSensitive** | **Boolean** |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**assocId** | **String** |  |  [optional] |
+|**authMethodAccessId** | **String** |  |  [optional] |
+|**authMethodName** | **String** |  |  [optional] |
+|**authMethodSubClaims** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional] |
+|**isSubclaimsWithOperator** | **Boolean** |  |  [optional] |
+|**subClaimsCaseSensitive** | **Boolean** |  |  [optional] |
 
 
 
