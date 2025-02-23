@@ -318,6 +318,12 @@
             <version>${junit-platform-runner.version}</version>
             <scope>test</scope>
         </dependency>
+    <!-- https://mvnrepository.com/artifact/io.swagger/swagger-annotations -->
+    <dependency>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-annotations</artifactId>
+        <version>1.6.15</version>
+    </dependency>
     </dependencies>
     <properties>
         <java.version>1.8</java.version>
