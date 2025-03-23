@@ -8,14 +8,13 @@ createDBTarget is a command that creates a new target. [Deprecated: Use target-c
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dbDefinedConnectionType** | **String** |  |  [optional] |
 |**azureClientId** | **String** | (Optional) Client id (relevant for \&quot;cloud-service-provider\&quot; only) |  [optional] |
 |**azureClientSecret** | **String** | (Optional) Client secret (relevant for \&quot;cloud-service-provider\&quot; only) |  [optional] |
 |**azureTenantId** | **String** | (Optional) Tenant id (relevant for \&quot;cloud-service-provider\&quot; only) |  [optional] |
 |**cloudServiceProvider** | **String** | (Optional) Cloud service provider (currently only supports Azure) |  [optional] |
 |**clusterMode** | **Boolean** | Cluster Mode |  [optional] |
 |**comment** | **String** | Deprecated - use description |  [optional] |
-|**connectionType** | **String** | Type of connection to mssql/oracle database [credentials/cloud-identity/wallet] |  |
+|**connectionType** | **String** | Type of connection to mssql database [credentials/cloud-identity/wallet/parent-target] |  |
 |**dbName** | **String** |  |  [optional] |
 |**dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional] |
 |**dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional] |
@@ -36,6 +35,7 @@ createDBTarget is a command that creates a new target. [Deprecated: Use target-c
 |**oracleWalletLoginType** | **String** | Oracle Wallet login type (password/mtls) |  [optional] |
 |**oracleWalletP12FileData** | **String** | Oracle wallet p12 file data in base64 |  [optional] |
 |**oracleWalletSsoFileData** | **String** | Oracle wallet sso file data in base64 |  [optional] |
+|**parentTargetName** | **String** | Name of the parent target, relevant only when connection-type is parent-target |  [optional] |
 |**port** | **String** |  |  [optional] |
 |**pwd** | **String** |  |  [optional] |
 |**snowflakeAccount** | **String** |  |  [optional] |

@@ -1,7 +1,7 @@
 # akeyless-java
 
 Akeyless API
-- API version: 3.0
+- API version: 2.0
   - Generator version: 7.10.0
 
 The purpose of this application is to provide access to Akeyless API.
@@ -761,6 +761,7 @@ Class | Method | HTTP request | Description
  - [BatchTokenizationRequestLine](docs/BatchTokenizationRequestLine.md)
  - [BatchTokenizationResponseLine](docs/BatchTokenizationResponseLine.md)
  - [CFConfigPart](docs/CFConfigPart.md)
+ - [CaCertificatesConfigPart](docs/CaCertificatesConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
  - [CalcPasswordSecurityInfo](docs/CalcPasswordSecurityInfo.md)
  - [CertAccessRules](docs/CertAccessRules.md)
@@ -769,6 +770,7 @@ Class | Method | HTTP request | Description
  - [CertificateExpirationEvent](docs/CertificateExpirationEvent.md)
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
+ - [CertificateStore](docs/CertificateStore.md)
  - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
  - [CertificateVersionInfo](docs/CertificateVersionInfo.md)
  - [CfInfo](docs/CfInfo.md)
@@ -917,6 +919,7 @@ Class | Method | HTTP request | Description
  - [DecryptWithClassicKey](docs/DecryptWithClassicKey.md)
  - [DecryptWithClassicKeyOutput](docs/DecryptWithClassicKeyOutput.md)
  - [DefaultConfigPart](docs/DefaultConfigPart.md)
+ - [DefaultHomePage](docs/DefaultHomePage.md)
  - [DeleteAuthMethod](docs/DeleteAuthMethod.md)
  - [DeleteAuthMethodOutput](docs/DeleteAuthMethodOutput.md)
  - [DeleteAuthMethods](docs/DeleteAuthMethods.md)

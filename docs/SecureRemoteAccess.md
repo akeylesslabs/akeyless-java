@@ -24,6 +24,7 @@
 |**enable** | **Boolean** |  |  [optional] |
 |**endpoint** | **String** |  |  [optional] |
 |**enforceHostsRestriction** | **Boolean** |  |  [optional] |
+|**gwClusterId** | **Long** |  |  [optional] |
 |**host** | **List&lt;String&gt;** |  |  [optional] |
 |**hostProviderType** | **String** |  |  [optional] |
 |**isCli** | **Boolean** |  |  [optional] |

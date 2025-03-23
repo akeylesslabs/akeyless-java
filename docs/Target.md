@@ -14,10 +14,10 @@
 |**clientPermissions** | **List&lt;String&gt;** |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
-|**credentialsLess** | **Boolean** |  |  [optional] |
 |**isAccessRequestEnabled** | **Boolean** |  |  [optional] |
 |**lastVersion** | **Integer** |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
+|**parentTargetName** | **String** |  |  [optional] |
 |**protectionKeyName** | **String** |  |  [optional] |
 |**targetDetails** | **String** |  |  [optional] |
 |**targetId** | **Long** |  |  [optional] |

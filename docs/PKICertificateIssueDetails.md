@@ -13,6 +13,7 @@
 |**allowSubdomains** | **Boolean** |  |  [optional] |
 |**allowedDomainsList** | **List&lt;String&gt;** |  |  [optional] |
 |**allowedExtraExtensions** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional] |
+|**allowedIpSans** | **List&lt;String&gt;** |  |  [optional] |
 |**allowedUriSans** | **List&lt;String&gt;** |  |  [optional] |
 |**autoRenewCertificate** | **Boolean** |  |  [optional] |
 |**basicConstraintsValidForNonCa** | **Boolean** |  |  [optional] |

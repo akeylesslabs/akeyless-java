@@ -11,6 +11,7 @@ createAzureTarget is a command that creates a new target. [Deprecated: Use targe
 |**clientId** | **String** | Azure client/application id |  [optional] |
 |**clientSecret** | **String** | Azure client secret |  [optional] |
 |**comment** | **String** | Deprecated - use description |  [optional] |
+|**connectionType** | **String** | Type of connection [credentials/cloud-identity] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |

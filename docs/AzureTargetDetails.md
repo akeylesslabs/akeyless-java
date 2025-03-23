@@ -14,6 +14,7 @@
 |**azureSubscriptionId** | **String** |  |  [optional] |
 |**azureTenantId** | **String** |  |  [optional] |
 |**azureUsername** | **String** |  |  [optional] |
+|**connectionType** | **String** |  |  [optional] |
 |**expirationDate** | **OffsetDateTime** |  |  [optional] |
 |**useGwCloudIdentity** | **Boolean** |  |  [optional] |
 

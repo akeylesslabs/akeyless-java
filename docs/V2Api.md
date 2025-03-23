@@ -34416,7 +34416,7 @@ No authorization required
 
 <a id="uscCreate"></a>
 # **uscCreate**
-> UscCreateSecretOutput uscCreate(uscUpdate)
+> UscCreateSecretOutput uscCreate(uscCreate)
 
 
 
@@ -34435,9 +34435,9 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
-    UscUpdate uscUpdate = new UscUpdate(); // UscUpdate | 
+    UscCreate uscCreate = new UscCreate(); // UscCreate | 
     try {
-      UscCreateSecretOutput result = apiInstance.uscCreate(uscUpdate);
+      UscCreateSecretOutput result = apiInstance.uscCreate(uscCreate);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#uscCreate");
@@ -34454,7 +34454,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **uscUpdate** | [**UscUpdate**](UscUpdate.md)|  | |
+| **uscCreate** | [**UscCreate**](UscCreate.md)|  | |
 
 ### Return type
 
@@ -34660,7 +34660,7 @@ No authorization required
 
 <a id="uscUpdate"></a>
 # **uscUpdate**
-> UscUpdateSecretOutput uscUpdate()
+> UscUpdateSecretOutput uscUpdate(uscUpdate)
 
 
 
@@ -34679,8 +34679,9 @@ public class Example {
     defaultClient.setBasePath("https://api.akeyless.io");
 
     V2Api apiInstance = new V2Api(defaultClient);
+    UscUpdate uscUpdate = new UscUpdate(); // UscUpdate | 
     try {
-      UscUpdateSecretOutput result = apiInstance.uscUpdate();
+      UscUpdateSecretOutput result = apiInstance.uscUpdate(uscUpdate);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#uscUpdate");
@@ -34694,7 +34695,10 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **uscUpdate** | [**UscUpdate**](UscUpdate.md)|  | |
 
 ### Return type
 
@@ -34706,7 +34710,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

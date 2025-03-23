@@ -15,6 +15,7 @@
 |**deleteProtection** | **Boolean** |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**roleAuthMethodsAssoc** | [**List&lt;RoleAuthMethodAssociation&gt;**](RoleAuthMethodAssociation.md) |  |  [optional] |
+|**roleId** | **Long** |  |  [optional] |
 |**roleName** | **String** |  |  [optional] |
 |**rules** | [**Rules**](Rules.md) |  |  [optional] |
 

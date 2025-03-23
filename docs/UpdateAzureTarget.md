@@ -11,6 +11,7 @@ updateAzureTarget is a command that updates an existing target. [Deprecated: Use
 |**clientId** | **String** | Azure client/application id |  [optional] |
 |**clientSecret** | **String** | Azure client secret |  [optional] |
 |**comment** | **String** | Deprecated - use description |  [optional] |
+|**connectionType** | **String** | Type of connection [credentials/cloud-identity] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |

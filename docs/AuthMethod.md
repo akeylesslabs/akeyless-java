@@ -14,6 +14,7 @@
 |**associatedGwIds** | **List&lt;Long&gt;** |  |  [optional] |
 |**authMethodAccessId** | **String** |  |  [optional] |
 |**authMethodAdditionalData** | [**AuthMethodAdditionalData**](AuthMethodAdditionalData.md) |  |  [optional] |
+|**authMethodId** | **Long** |  |  [optional] |
 |**authMethodName** | **String** |  |  [optional] |
 |**authMethodRolesAssoc** | [**List&lt;AuthMethodRoleAssociation&gt;**](AuthMethodRoleAssociation.md) |  |  [optional] |
 |**clientPermissions** | **List&lt;String&gt;** |  |  [optional] |

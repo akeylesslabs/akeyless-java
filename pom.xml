@@ -5,7 +5,7 @@
     <artifactId>akeyless-java</artifactId>
     <packaging>jar</packaging>
     <name>akeyless-java</name>
-    <version>5.0.0</version>
+    <version>5.0.1</version>
     <url>https://github.com/akeylesslabs/akeyless-java</url>
     <description>Akeyless Java SDK</description>
     <scm>
@@ -324,6 +324,13 @@
         <artifactId>swagger-annotations</artifactId>
         <version>1.6.15</version>
     </dependency>
+	<dependency>
+		<groupId>org.threeten</groupId>
+        <artifactId>threetenbp</artifactId>
+        <version>1.7.0</version>
+        <scope>test</scope>
+    </dependency>
+
     </dependencies>
     <properties>
         <java.version>1.8</java.version>

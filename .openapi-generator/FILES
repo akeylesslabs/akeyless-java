@@ -88,6 +88,7 @@ docs/BatchEncryptionResponseLine.md
 docs/BatchTokenizationRequestLine.md
 docs/BatchTokenizationResponseLine.md
 docs/CFConfigPart.md
+docs/CaCertificatesConfigPart.md
 docs/CacheConfigPart.md
 docs/CalcPasswordSecurityInfo.md
 docs/CertAccessRules.md
@@ -96,6 +97,7 @@ docs/CertificateChainInfo.md
 docs/CertificateExpirationEvent.md
 docs/CertificateInfo.md
 docs/CertificateIssueInfo.md
+docs/CertificateStore.md
 docs/CertificateTemplateInfo.md
 docs/CertificateVersionInfo.md
 docs/CfInfo.md
@@ -244,6 +246,7 @@ docs/DecryptPKCS1Output.md
 docs/DecryptWithClassicKey.md
 docs/DecryptWithClassicKeyOutput.md
 docs/DefaultConfigPart.md
+docs/DefaultHomePage.md
 docs/DeleteAuthMethod.md
 docs/DeleteAuthMethodOutput.md
 docs/DeleteAuthMethods.md
@@ -1204,6 +1207,7 @@ src/main/java/io/akeyless/client/model/BatchEncryptionResponseLine.java
 src/main/java/io/akeyless/client/model/BatchTokenizationRequestLine.java
 src/main/java/io/akeyless/client/model/BatchTokenizationResponseLine.java
 src/main/java/io/akeyless/client/model/CFConfigPart.java
+src/main/java/io/akeyless/client/model/CaCertificatesConfigPart.java
 src/main/java/io/akeyless/client/model/CacheConfigPart.java
 src/main/java/io/akeyless/client/model/CalcPasswordSecurityInfo.java
 src/main/java/io/akeyless/client/model/CertAccessRules.java
@@ -1212,6 +1216,7 @@ src/main/java/io/akeyless/client/model/CertificateChainInfo.java
 src/main/java/io/akeyless/client/model/CertificateExpirationEvent.java
 src/main/java/io/akeyless/client/model/CertificateInfo.java
 src/main/java/io/akeyless/client/model/CertificateIssueInfo.java
+src/main/java/io/akeyless/client/model/CertificateStore.java
 src/main/java/io/akeyless/client/model/CertificateTemplateInfo.java
 src/main/java/io/akeyless/client/model/CertificateVersionInfo.java
 src/main/java/io/akeyless/client/model/CfInfo.java
@@ -1360,6 +1365,7 @@ src/main/java/io/akeyless/client/model/DecryptPKCS1Output.java
 src/main/java/io/akeyless/client/model/DecryptWithClassicKey.java
 src/main/java/io/akeyless/client/model/DecryptWithClassicKeyOutput.java
 src/main/java/io/akeyless/client/model/DefaultConfigPart.java
+src/main/java/io/akeyless/client/model/DefaultHomePage.java
 src/main/java/io/akeyless/client/model/DeleteAuthMethod.java
 src/main/java/io/akeyless/client/model/DeleteAuthMethodOutput.java
 src/main/java/io/akeyless/client/model/DeleteAuthMethods.java
@@ -2208,3 +2214,6 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/CaCertificatesConfigPartTest.java
+src/test/java/io/akeyless/client/model/CertificateStoreTest.java
+src/test/java/io/akeyless/client/model/DefaultHomePageTest.java
