@@ -33,6 +33,7 @@
 |**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional] |
 |**secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional] |
 |**secureAccessSshUser** | **String** | Override the SSH username as indicated in SSH Certificate Issuer |  [optional] |
+|**secureAccessTargetType** | **String** | Specify target type. Options are ssh or rdp |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | Target name |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

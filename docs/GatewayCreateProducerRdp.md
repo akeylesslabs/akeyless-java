@@ -22,6 +22,8 @@ gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use
 |**rdpHostPort** | **String** | Port |  [optional] |
 |**rdpUserGroups** | **String** | Groups |  [optional] |
 |**secureAccessAllowExternalUser** | **Boolean** | Allow providing external user for a domain users |  [optional] |
+|**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |
+|**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessDelay** | **Long** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |

@@ -30,7 +30,7 @@ Connect is a command that performs secure remote access
 |**target** | **String** | The target |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
-|**useSshAgent** | **Boolean** | Enable ssh-agent |  [optional] |
+|**useSshAgent** | **Boolean** | Deprecated |  [optional] |
 |**viaBastion** | **String** | Deprecated. Use via-sra |  [optional] |
 |**viaSra** | **String** | The jump box server |  [optional] |
 

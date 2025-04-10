@@ -55,6 +55,11 @@ public class UscList {
   @javax.annotation.Nullable
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_OBJECT_TYPE = "object-type";
+  @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
+  @javax.annotation.Nullable
+  private String objectType;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -89,6 +94,25 @@ public class UscList {
 
   public void setJson(@javax.annotation.Nullable Boolean json) {
     this.json = json;
+  }
+
+
+  public UscList objectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+  /**
+   * Get objectType
+   * @return objectType
+   */
+  @javax.annotation.Nullable
+  public String getObjectType() {
+    return objectType;
+  }
+
+  public void setObjectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
   }
 
 
@@ -160,6 +184,7 @@ public class UscList {
     }
     UscList uscList = (UscList) o;
     return Objects.equals(this.json, uscList.json) &&
+        Objects.equals(this.objectType, uscList.objectType) &&
         Objects.equals(this.token, uscList.token) &&
         Objects.equals(this.uidToken, uscList.uidToken) &&
         Objects.equals(this.uscName, uscList.uscName);
@@ -167,7 +192,7 @@ public class UscList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, token, uidToken, uscName);
+    return Objects.hash(json, objectType, token, uidToken, uscName);
   }
 
   @Override
@@ -175,6 +200,7 @@ public class UscList {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscList {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
@@ -201,6 +227,7 @@ public class UscList {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("json");
+    openapiFields.add("object-type");
     openapiFields.add("token");
     openapiFields.add("uid-token");
     openapiFields.add("usc-name");
@@ -238,6 +265,9 @@ public class UscList {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
+      }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }

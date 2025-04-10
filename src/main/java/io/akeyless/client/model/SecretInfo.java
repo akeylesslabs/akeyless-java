@@ -99,6 +99,11 @@ public class SecretInfo {
   @javax.annotation.Nullable
   private Map<String, String> tags = new HashMap<>();
 
+  public static final String SERIALIZED_NAME_THUMBPRINT = "thumbprint";
+  @SerializedName(SERIALIZED_NAME_THUMBPRINT)
+  @javax.annotation.Nullable
+  private String thumbprint;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   @javax.annotation.Nullable
@@ -291,6 +296,25 @@ public class SecretInfo {
   }
 
 
+  public SecretInfo thumbprint(@javax.annotation.Nullable String thumbprint) {
+    this.thumbprint = thumbprint;
+    return this;
+  }
+
+  /**
+   * Get thumbprint
+   * @return thumbprint
+   */
+  @javax.annotation.Nullable
+  public String getThumbprint() {
+    return thumbprint;
+  }
+
+  public void setThumbprint(@javax.annotation.Nullable String thumbprint) {
+    this.thumbprint = thumbprint;
+  }
+
+
   public SecretInfo type(@javax.annotation.Nullable String type) {
     this.type = type;
     return this;
@@ -348,6 +372,7 @@ public class SecretInfo {
         Objects.equals(this.secretId, secretInfo.secretId) &&
         Objects.equals(this.status, secretInfo.status) &&
         Objects.equals(this.tags, secretInfo.tags) &&
+        Objects.equals(this.thumbprint, secretInfo.thumbprint) &&
         Objects.equals(this.type, secretInfo.type) &&
         Objects.equals(this.version, secretInfo.version);
   }
@@ -358,7 +383,7 @@ public class SecretInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, description, expiration, lastRetrieved, location, name, secretId, status, tags, type, version);
+    return Objects.hash(created, description, expiration, lastRetrieved, location, name, secretId, status, tags, thumbprint, type, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -381,6 +406,7 @@ public class SecretInfo {
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    thumbprint: ").append(toIndentedString(thumbprint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
@@ -414,6 +440,7 @@ public class SecretInfo {
     openapiFields.add("secret_id");
     openapiFields.add("status");
     openapiFields.add("tags");
+    openapiFields.add("thumbprint");
     openapiFields.add("type");
     openapiFields.add("version");
 
@@ -450,6 +477,9 @@ public class SecretInfo {
       }
       if ((jsonObj.get("secret_id") != null && !jsonObj.get("secret_id").isJsonNull()) && !jsonObj.get("secret_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
+      }
+      if ((jsonObj.get("thumbprint") != null && !jsonObj.get("thumbprint").isJsonNull()) && !jsonObj.get("thumbprint").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `thumbprint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbprint").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

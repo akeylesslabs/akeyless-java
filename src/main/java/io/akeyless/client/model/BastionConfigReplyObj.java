@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.BastionGlobalConf;
+import io.akeyless.client.model.SraDesktopAppConf;
 import io.akeyless.client.model.SshBastionConf;
 import io.akeyless.client.model.WebBastionConf;
 import java.io.IOException;
@@ -53,15 +54,15 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class BastionConfigReplyObj {
-  public static final String SERIALIZED_NAME_API_GATEWAY_URL = "api_gateway_url";
-  @SerializedName(SERIALIZED_NAME_API_GATEWAY_URL)
-  @javax.annotation.Nullable
-  private String apiGatewayUrl;
-
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
   @javax.annotation.Nullable
   private String clusterId;
+
+  public static final String SERIALIZED_NAME_DESKTOP_APP = "desktop_app";
+  @SerializedName(SERIALIZED_NAME_DESKTOP_APP)
+  @javax.annotation.Nullable
+  private SraDesktopAppConf desktopApp;
 
   public static final String SERIALIZED_NAME_GATOR_CLUSTER_ID = "gator_cluster_id";
   @SerializedName(SERIALIZED_NAME_GATOR_CLUSTER_ID)
@@ -86,25 +87,6 @@ public class BastionConfigReplyObj {
   public BastionConfigReplyObj() {
   }
 
-  public BastionConfigReplyObj apiGatewayUrl(@javax.annotation.Nullable String apiGatewayUrl) {
-    this.apiGatewayUrl = apiGatewayUrl;
-    return this;
-  }
-
-  /**
-   * Get apiGatewayUrl
-   * @return apiGatewayUrl
-   */
-  @javax.annotation.Nullable
-  public String getApiGatewayUrl() {
-    return apiGatewayUrl;
-  }
-
-  public void setApiGatewayUrl(@javax.annotation.Nullable String apiGatewayUrl) {
-    this.apiGatewayUrl = apiGatewayUrl;
-  }
-
-
   public BastionConfigReplyObj clusterId(@javax.annotation.Nullable String clusterId) {
     this.clusterId = clusterId;
     return this;
@@ -121,6 +103,25 @@ public class BastionConfigReplyObj {
 
   public void setClusterId(@javax.annotation.Nullable String clusterId) {
     this.clusterId = clusterId;
+  }
+
+
+  public BastionConfigReplyObj desktopApp(@javax.annotation.Nullable SraDesktopAppConf desktopApp) {
+    this.desktopApp = desktopApp;
+    return this;
+  }
+
+  /**
+   * Get desktopApp
+   * @return desktopApp
+   */
+  @javax.annotation.Nullable
+  public SraDesktopAppConf getDesktopApp() {
+    return desktopApp;
+  }
+
+  public void setDesktopApp(@javax.annotation.Nullable SraDesktopAppConf desktopApp) {
+    this.desktopApp = desktopApp;
   }
 
 
@@ -210,8 +211,8 @@ public class BastionConfigReplyObj {
       return false;
     }
     BastionConfigReplyObj bastionConfigReplyObj = (BastionConfigReplyObj) o;
-    return Objects.equals(this.apiGatewayUrl, bastionConfigReplyObj.apiGatewayUrl) &&
-        Objects.equals(this.clusterId, bastionConfigReplyObj.clusterId) &&
+    return Objects.equals(this.clusterId, bastionConfigReplyObj.clusterId) &&
+        Objects.equals(this.desktopApp, bastionConfigReplyObj.desktopApp) &&
         Objects.equals(this.gatorClusterId, bastionConfigReplyObj.gatorClusterId) &&
         Objects.equals(this.global, bastionConfigReplyObj.global) &&
         Objects.equals(this.sshBastion, bastionConfigReplyObj.sshBastion) &&
@@ -220,15 +221,15 @@ public class BastionConfigReplyObj {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiGatewayUrl, clusterId, gatorClusterId, global, sshBastion, webBastion);
+    return Objects.hash(clusterId, desktopApp, gatorClusterId, global, sshBastion, webBastion);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class BastionConfigReplyObj {\n");
-    sb.append("    apiGatewayUrl: ").append(toIndentedString(apiGatewayUrl)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    desktopApp: ").append(toIndentedString(desktopApp)).append("\n");
     sb.append("    gatorClusterId: ").append(toIndentedString(gatorClusterId)).append("\n");
     sb.append("    global: ").append(toIndentedString(global)).append("\n");
     sb.append("    sshBastion: ").append(toIndentedString(sshBastion)).append("\n");
@@ -255,8 +256,8 @@ public class BastionConfigReplyObj {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("api_gateway_url");
     openapiFields.add("cluster_id");
+    openapiFields.add("desktop_app");
     openapiFields.add("gator_cluster_id");
     openapiFields.add("global");
     openapiFields.add("ssh_bastion");
@@ -287,11 +288,12 @@ public class BastionConfigReplyObj {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("api_gateway_url") != null && !jsonObj.get("api_gateway_url").isJsonNull()) && !jsonObj.get("api_gateway_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_gateway_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_gateway_url").toString()));
-      }
       if ((jsonObj.get("cluster_id") != null && !jsonObj.get("cluster_id").isJsonNull()) && !jsonObj.get("cluster_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cluster_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_id").toString()));
+      }
+      // validate the optional field `desktop_app`
+      if (jsonObj.get("desktop_app") != null && !jsonObj.get("desktop_app").isJsonNull()) {
+        SraDesktopAppConf.validateJsonElement(jsonObj.get("desktop_app"));
       }
       // validate the optional field `global`
       if (jsonObj.get("global") != null && !jsonObj.get("global").isJsonNull()) {

@@ -21,7 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.BastionsList;
 import io.akeyless.client.model.CertificateIssueInfo;
-import io.akeyless.client.model.GatewayBasicInfo;
+import io.akeyless.client.model.GatewayDetailsForItemReplyObj;
 import io.akeyless.client.model.ItemGeneralInfo;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemUSCSyncAssociation;
@@ -136,7 +136,7 @@ public class Item {
   public static final String SERIALIZED_NAME_GATEWAY_DETAILS = "gateway_details";
   @SerializedName(SERIALIZED_NAME_GATEWAY_DETAILS)
   @javax.annotation.Nullable
-  private List<GatewayBasicInfo> gatewayDetails = new ArrayList<>();
+  private List<GatewayDetailsForItemReplyObj> gatewayDetails = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED = "is_access_request_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED)
@@ -550,12 +550,12 @@ public class Item {
   }
 
 
-  public Item gatewayDetails(@javax.annotation.Nullable List<GatewayBasicInfo> gatewayDetails) {
+  public Item gatewayDetails(@javax.annotation.Nullable List<GatewayDetailsForItemReplyObj> gatewayDetails) {
     this.gatewayDetails = gatewayDetails;
     return this;
   }
 
-  public Item addGatewayDetailsItem(GatewayBasicInfo gatewayDetailsItem) {
+  public Item addGatewayDetailsItem(GatewayDetailsForItemReplyObj gatewayDetailsItem) {
     if (this.gatewayDetails == null) {
       this.gatewayDetails = new ArrayList<>();
     }
@@ -568,11 +568,11 @@ public class Item {
    * @return gatewayDetails
    */
   @javax.annotation.Nullable
-  public List<GatewayBasicInfo> getGatewayDetails() {
+  public List<GatewayDetailsForItemReplyObj> getGatewayDetails() {
     return gatewayDetails;
   }
 
-  public void setGatewayDetails(@javax.annotation.Nullable List<GatewayBasicInfo> gatewayDetails) {
+  public void setGatewayDetails(@javax.annotation.Nullable List<GatewayDetailsForItemReplyObj> gatewayDetails) {
     this.gatewayDetails = gatewayDetails;
   }
 
@@ -1365,7 +1365,7 @@ public class Item {
 
           // validate the optional field `gateway_details` (array)
           for (int i = 0; i < jsonArraygatewayDetails.size(); i++) {
-            GatewayBasicInfo.validateJsonElement(jsonArraygatewayDetails.get(i));
+            GatewayDetailsForItemReplyObj.validateJsonElement(jsonArraygatewayDetails.get(i));
           };
         }
       }

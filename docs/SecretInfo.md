@@ -16,6 +16,7 @@
 |**secretId** | **String** |  |  [optional] |
 |**status** | **Boolean** |  |  [optional] |
 |**tags** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**thumbprint** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**version** | **Long** |  |  [optional] |
 

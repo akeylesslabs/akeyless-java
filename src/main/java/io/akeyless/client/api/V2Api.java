@@ -502,6 +502,7 @@ import io.akeyless.client.model.GatewayUpdateProducerSnowflakeOutput;
 import io.akeyless.client.model.GatewayUpdateProducerVenafi;
 import io.akeyless.client.model.GatewayUpdateProducerVenafiOutput;
 import io.akeyless.client.model.GatewayUpdateRemoteAccess;
+import io.akeyless.client.model.GatewayUpdateRemoteAccessDesktopApp;
 import io.akeyless.client.model.GatewayUpdateRemoteAccessRdpRecordings;
 import io.akeyless.client.model.GatewayUpdateTlsCert;
 import io.akeyless.client.model.GatewayUpdateTlsCertOutput;
@@ -40846,6 +40847,137 @@ public class V2Api {
     public okhttp3.Call gatewayUpdateRemoteAccessAsync(GatewayUpdateRemoteAccess gatewayUpdateRemoteAccess, final ApiCallback<Object> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = gatewayUpdateRemoteAccessValidateBeforeCall(gatewayUpdateRemoteAccess, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for gatewayUpdateRemoteAccessDesktopApp
+     * @param gatewayUpdateRemoteAccessDesktopApp  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayUpdateRemoteAccessDesktopAppResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayUpdateRemoteAccessDesktopAppCall(GatewayUpdateRemoteAccessDesktopApp gatewayUpdateRemoteAccessDesktopApp, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = gatewayUpdateRemoteAccessDesktopApp;
+
+        // create path and map variables
+        String localVarPath = "/gateway-update-remote-access-desktop-app";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call gatewayUpdateRemoteAccessDesktopAppValidateBeforeCall(GatewayUpdateRemoteAccessDesktopApp gatewayUpdateRemoteAccessDesktopApp, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'gatewayUpdateRemoteAccessDesktopApp' is set
+        if (gatewayUpdateRemoteAccessDesktopApp == null) {
+            throw new ApiException("Missing the required parameter 'gatewayUpdateRemoteAccessDesktopApp' when calling gatewayUpdateRemoteAccessDesktopApp(Async)");
+        }
+
+        return gatewayUpdateRemoteAccessDesktopAppCall(gatewayUpdateRemoteAccessDesktopApp, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param gatewayUpdateRemoteAccessDesktopApp  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayUpdateRemoteAccessDesktopAppResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object gatewayUpdateRemoteAccessDesktopApp(GatewayUpdateRemoteAccessDesktopApp gatewayUpdateRemoteAccessDesktopApp) throws ApiException {
+        ApiResponse<Object> localVarResp = gatewayUpdateRemoteAccessDesktopAppWithHttpInfo(gatewayUpdateRemoteAccessDesktopApp);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param gatewayUpdateRemoteAccessDesktopApp  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayUpdateRemoteAccessDesktopAppResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> gatewayUpdateRemoteAccessDesktopAppWithHttpInfo(GatewayUpdateRemoteAccessDesktopApp gatewayUpdateRemoteAccessDesktopApp) throws ApiException {
+        okhttp3.Call localVarCall = gatewayUpdateRemoteAccessDesktopAppValidateBeforeCall(gatewayUpdateRemoteAccessDesktopApp, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param gatewayUpdateRemoteAccessDesktopApp  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> gatewayUpdateRemoteAccessDesktopAppResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call gatewayUpdateRemoteAccessDesktopAppAsync(GatewayUpdateRemoteAccessDesktopApp gatewayUpdateRemoteAccessDesktopApp, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = gatewayUpdateRemoteAccessDesktopAppValidateBeforeCall(gatewayUpdateRemoteAccessDesktopApp, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

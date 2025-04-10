@@ -411,6 +411,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**gatewayUpdateProducerSnowflake**](docs/V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake | 
 *V2Api* | [**gatewayUpdateProducerVenafi**](docs/V2Api.md#gatewayUpdateProducerVenafi) | **POST** /gateway-update-producer-certificate-automation | 
 *V2Api* | [**gatewayUpdateRemoteAccess**](docs/V2Api.md#gatewayUpdateRemoteAccess) | **POST** /gateway-update-remote-access | 
+*V2Api* | [**gatewayUpdateRemoteAccessDesktopApp**](docs/V2Api.md#gatewayUpdateRemoteAccessDesktopApp) | **POST** /gateway-update-remote-access-desktop-app | 
 *V2Api* | [**gatewayUpdateRemoteAccessRdpRecordings**](docs/V2Api.md#gatewayUpdateRemoteAccessRdpRecordings) | **POST** /gateway-update-remote-access-rdp-recording | 
 *V2Api* | [**gatewayUpdateTlsCert**](docs/V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert | 
 *V2Api* | [**gatewayUpdateTmpUsers**](docs/V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds | 
@@ -949,6 +950,7 @@ Class | Method | HTTP request | Description
  - [DescribePermissionsOutput](docs/DescribePermissionsOutput.md)
  - [DescribeSubClaims](docs/DescribeSubClaims.md)
  - [DescribeSubClaimsOutput](docs/DescribeSubClaimsOutput.md)
+ - [DesktopAppConf](docs/DesktopAppConf.md)
  - [Detokenize](docs/Detokenize.md)
  - [DetokenizeOutput](docs/DetokenizeOutput.md)
  - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
@@ -1066,7 +1068,6 @@ Class | Method | HTTP request | Description
  - [GCPPayload](docs/GCPPayload.md)
  - [GCPSecretsMigration](docs/GCPSecretsMigration.md)
  - [GKETargetDetails](docs/GKETargetDetails.md)
- - [GatewayBasicInfo](docs/GatewayBasicInfo.md)
  - [GatewayCreateAllowedAccess](docs/GatewayCreateAllowedAccess.md)
  - [GatewayCreateK8SAuthConfig](docs/GatewayCreateK8SAuthConfig.md)
  - [GatewayCreateK8SAuthConfigOutput](docs/GatewayCreateK8SAuthConfigOutput.md)
@@ -1131,6 +1132,7 @@ Class | Method | HTTP request | Description
  - [GatewayDeleteMigration](docs/GatewayDeleteMigration.md)
  - [GatewayDeleteProducer](docs/GatewayDeleteProducer.md)
  - [GatewayDeleteProducerOutput](docs/GatewayDeleteProducerOutput.md)
+ - [GatewayDetailsForItemReplyObj](docs/GatewayDetailsForItemReplyObj.md)
  - [GatewayDownloadCustomerFragments](docs/GatewayDownloadCustomerFragments.md)
  - [GatewayDownloadCustomerFragmentsOutput](docs/GatewayDownloadCustomerFragmentsOutput.md)
  - [GatewayGetAllowedAccess](docs/GatewayGetAllowedAccess.md)
@@ -1246,6 +1248,7 @@ Class | Method | HTTP request | Description
  - [GatewayUpdateProducerVenafi](docs/GatewayUpdateProducerVenafi.md)
  - [GatewayUpdateProducerVenafiOutput](docs/GatewayUpdateProducerVenafiOutput.md)
  - [GatewayUpdateRemoteAccess](docs/GatewayUpdateRemoteAccess.md)
+ - [GatewayUpdateRemoteAccessDesktopApp](docs/GatewayUpdateRemoteAccessDesktopApp.md)
  - [GatewayUpdateRemoteAccessRdpRecordings](docs/GatewayUpdateRemoteAccessRdpRecordings.md)
  - [GatewayUpdateTlsCert](docs/GatewayUpdateTlsCert.md)
  - [GatewayUpdateTlsCertOutput](docs/GatewayUpdateTlsCertOutput.md)
@@ -1544,6 +1547,7 @@ Class | Method | HTTP request | Description
  - [SignRsaSsaPssOutput](docs/SignRsaSsaPssOutput.md)
  - [SmInfo](docs/SmInfo.md)
  - [SplunkLogForwardingConfig](docs/SplunkLogForwardingConfig.md)
+ - [SraDesktopAppConf](docs/SraDesktopAppConf.md)
  - [SraInfo](docs/SraInfo.md)
  - [SraSessionEntryOut](docs/SraSessionEntryOut.md)
  - [SshBastionConf](docs/SshBastionConf.md)

@@ -127,6 +127,16 @@ public class GatewayUpdateProducerRdp {
   @javax.annotation.Nullable
   private Boolean secureAccessAllowExternalUser = false;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  @javax.annotation.Nullable
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_CERTIFICATE_ISSUER = "secure-access-certificate-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_CERTIFICATE_ISSUER)
+  @javax.annotation.Nullable
+  private String secureAccessCertificateIssuer;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_DELAY = "secure-access-delay";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DELAY)
   @javax.annotation.Nullable
@@ -475,6 +485,44 @@ public class GatewayUpdateProducerRdp {
   }
 
 
+  public GatewayUpdateProducerRdp secureAccessBastionIssuer(@javax.annotation.Nullable String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+  /**
+   * Deprecated. use secure-access-certificate-issuer
+   * @return secureAccessBastionIssuer
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+  public void setSecureAccessBastionIssuer(@javax.annotation.Nullable String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public GatewayUpdateProducerRdp secureAccessCertificateIssuer(@javax.annotation.Nullable String secureAccessCertificateIssuer) {
+    this.secureAccessCertificateIssuer = secureAccessCertificateIssuer;
+    return this;
+  }
+
+  /**
+   * Path to the SSH Certificate Issuer for your Akeyless Secure Access
+   * @return secureAccessCertificateIssuer
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessCertificateIssuer() {
+    return secureAccessCertificateIssuer;
+  }
+
+  public void setSecureAccessCertificateIssuer(@javax.annotation.Nullable String secureAccessCertificateIssuer) {
+    this.secureAccessCertificateIssuer = secureAccessCertificateIssuer;
+  }
+
+
   public GatewayUpdateProducerRdp secureAccessDelay(@javax.annotation.Nullable Long secureAccessDelay) {
     this.secureAccessDelay = secureAccessDelay;
     return this;
@@ -744,6 +792,8 @@ public class GatewayUpdateProducerRdp {
         Objects.equals(this.rdpHostPort, gatewayUpdateProducerRdp.rdpHostPort) &&
         Objects.equals(this.rdpUserGroups, gatewayUpdateProducerRdp.rdpUserGroups) &&
         Objects.equals(this.secureAccessAllowExternalUser, gatewayUpdateProducerRdp.secureAccessAllowExternalUser) &&
+        Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerRdp.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessCertificateIssuer, gatewayUpdateProducerRdp.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessDelay, gatewayUpdateProducerRdp.secureAccessDelay) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerRdp.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerRdp.secureAccessHost) &&
@@ -760,7 +810,7 @@ public class GatewayUpdateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -782,6 +832,8 @@ public class GatewayUpdateProducerRdp {
     sb.append("    rdpHostPort: ").append(toIndentedString(rdpHostPort)).append("\n");
     sb.append("    rdpUserGroups: ").append(toIndentedString(rdpUserGroups)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessDelay: ").append(toIndentedString(secureAccessDelay)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
@@ -831,6 +883,8 @@ public class GatewayUpdateProducerRdp {
     openapiFields.add("rdp-host-port");
     openapiFields.add("rdp-user-groups");
     openapiFields.add("secure-access-allow-external-user");
+    openapiFields.add("secure-access-bastion-issuer");
+    openapiFields.add("secure-access-certificate-issuer");
     openapiFields.add("secure-access-delay");
     openapiFields.add("secure-access-enable");
     openapiFields.add("secure-access-host");
@@ -912,6 +966,12 @@ public class GatewayUpdateProducerRdp {
       }
       if ((jsonObj.get("rdp-user-groups") != null && !jsonObj.get("rdp-user-groups").isJsonNull()) && !jsonObj.get("rdp-user-groups").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rdp-user-groups` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-user-groups").toString()));
+      }
+      if ((jsonObj.get("secure-access-bastion-issuer") != null && !jsonObj.get("secure-access-bastion-issuer").isJsonNull()) && !jsonObj.get("secure-access-bastion-issuer").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-bastion-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-bastion-issuer").toString()));
+      }
+      if ((jsonObj.get("secure-access-certificate-issuer") != null && !jsonObj.get("secure-access-certificate-issuer").isJsonNull()) && !jsonObj.get("secure-access-certificate-issuer").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-certificate-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-certificate-issuer").toString()));
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));

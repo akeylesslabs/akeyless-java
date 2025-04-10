@@ -29,6 +29,8 @@
 |**rotatorType** | **String** | The rotator type. options: [target/password] |  |
 |**samePassword** | **String** | Rotate same password for each host from the Linked Target (relevant only for Linked Target) |  [optional] |
 |**secureAccessAllowExternalUser** | **Boolean** | Allow providing external user for a domain users |  [optional] |
+|**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |
+|**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional] |

@@ -276,6 +276,7 @@ docs/DescribePermissions.md
 docs/DescribePermissionsOutput.md
 docs/DescribeSubClaims.md
 docs/DescribeSubClaimsOutput.md
+docs/DesktopAppConf.md
 docs/Detokenize.md
 docs/DetokenizeOutput.md
 docs/DockerhubTargetDetails.md
@@ -393,7 +394,6 @@ docs/GCPAccessRules.md
 docs/GCPPayload.md
 docs/GCPSecretsMigration.md
 docs/GKETargetDetails.md
-docs/GatewayBasicInfo.md
 docs/GatewayCreateAllowedAccess.md
 docs/GatewayCreateK8SAuthConfig.md
 docs/GatewayCreateK8SAuthConfigOutput.md
@@ -458,6 +458,7 @@ docs/GatewayDeleteK8SAuthConfigOutput.md
 docs/GatewayDeleteMigration.md
 docs/GatewayDeleteProducer.md
 docs/GatewayDeleteProducerOutput.md
+docs/GatewayDetailsForItemReplyObj.md
 docs/GatewayDownloadCustomerFragments.md
 docs/GatewayDownloadCustomerFragmentsOutput.md
 docs/GatewayGetAllowedAccess.md
@@ -573,6 +574,7 @@ docs/GatewayUpdateProducerSnowflakeOutput.md
 docs/GatewayUpdateProducerVenafi.md
 docs/GatewayUpdateProducerVenafiOutput.md
 docs/GatewayUpdateRemoteAccess.md
+docs/GatewayUpdateRemoteAccessDesktopApp.md
 docs/GatewayUpdateRemoteAccessRdpRecordings.md
 docs/GatewayUpdateTlsCert.md
 docs/GatewayUpdateTlsCertOutput.md
@@ -871,6 +873,7 @@ docs/SignRsaSsaPss.md
 docs/SignRsaSsaPssOutput.md
 docs/SmInfo.md
 docs/SplunkLogForwardingConfig.md
+docs/SraDesktopAppConf.md
 docs/SraInfo.md
 docs/SraSessionEntryOut.md
 docs/SshBastionConf.md
@@ -1395,6 +1398,7 @@ src/main/java/io/akeyless/client/model/DescribePermissions.java
 src/main/java/io/akeyless/client/model/DescribePermissionsOutput.java
 src/main/java/io/akeyless/client/model/DescribeSubClaims.java
 src/main/java/io/akeyless/client/model/DescribeSubClaimsOutput.java
+src/main/java/io/akeyless/client/model/DesktopAppConf.java
 src/main/java/io/akeyless/client/model/Detokenize.java
 src/main/java/io/akeyless/client/model/DetokenizeOutput.java
 src/main/java/io/akeyless/client/model/DockerhubTargetDetails.java
@@ -1512,7 +1516,6 @@ src/main/java/io/akeyless/client/model/GCPAccessRules.java
 src/main/java/io/akeyless/client/model/GCPPayload.java
 src/main/java/io/akeyless/client/model/GCPSecretsMigration.java
 src/main/java/io/akeyless/client/model/GKETargetDetails.java
-src/main/java/io/akeyless/client/model/GatewayBasicInfo.java
 src/main/java/io/akeyless/client/model/GatewayCreateAllowedAccess.java
 src/main/java/io/akeyless/client/model/GatewayCreateK8SAuthConfig.java
 src/main/java/io/akeyless/client/model/GatewayCreateK8SAuthConfigOutput.java
@@ -1577,6 +1580,7 @@ src/main/java/io/akeyless/client/model/GatewayDeleteK8SAuthConfigOutput.java
 src/main/java/io/akeyless/client/model/GatewayDeleteMigration.java
 src/main/java/io/akeyless/client/model/GatewayDeleteProducer.java
 src/main/java/io/akeyless/client/model/GatewayDeleteProducerOutput.java
+src/main/java/io/akeyless/client/model/GatewayDetailsForItemReplyObj.java
 src/main/java/io/akeyless/client/model/GatewayDownloadCustomerFragments.java
 src/main/java/io/akeyless/client/model/GatewayDownloadCustomerFragmentsOutput.java
 src/main/java/io/akeyless/client/model/GatewayGetAllowedAccess.java
@@ -1692,6 +1696,7 @@ src/main/java/io/akeyless/client/model/GatewayUpdateProducerSnowflakeOutput.java
 src/main/java/io/akeyless/client/model/GatewayUpdateProducerVenafi.java
 src/main/java/io/akeyless/client/model/GatewayUpdateProducerVenafiOutput.java
 src/main/java/io/akeyless/client/model/GatewayUpdateRemoteAccess.java
+src/main/java/io/akeyless/client/model/GatewayUpdateRemoteAccessDesktopApp.java
 src/main/java/io/akeyless/client/model/GatewayUpdateRemoteAccessRdpRecordings.java
 src/main/java/io/akeyless/client/model/GatewayUpdateTlsCert.java
 src/main/java/io/akeyless/client/model/GatewayUpdateTlsCertOutput.java
@@ -1990,6 +1995,7 @@ src/main/java/io/akeyless/client/model/SignRsaSsaPss.java
 src/main/java/io/akeyless/client/model/SignRsaSsaPssOutput.java
 src/main/java/io/akeyless/client/model/SmInfo.java
 src/main/java/io/akeyless/client/model/SplunkLogForwardingConfig.java
+src/main/java/io/akeyless/client/model/SraDesktopAppConf.java
 src/main/java/io/akeyless/client/model/SraInfo.java
 src/main/java/io/akeyless/client/model/SraSessionEntryOut.java
 src/main/java/io/akeyless/client/model/SshBastionConf.java
@@ -2214,6 +2220,7 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/CaCertificatesConfigPartTest.java
-src/test/java/io/akeyless/client/model/CertificateStoreTest.java
-src/test/java/io/akeyless/client/model/DefaultHomePageTest.java
+src/test/java/io/akeyless/client/model/DesktopAppConfTest.java
+src/test/java/io/akeyless/client/model/GatewayDetailsForItemReplyObjTest.java
+src/test/java/io/akeyless/client/model/GatewayUpdateRemoteAccessDesktopAppTest.java
+src/test/java/io/akeyless/client/model/SraDesktopAppConfTest.java

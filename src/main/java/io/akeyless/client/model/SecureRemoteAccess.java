@@ -159,6 +159,11 @@ public class SecureRemoteAccess {
   @javax.annotation.Nullable
   private Boolean isCli;
 
+  public static final String SERIALIZED_NAME_IS_DESKTOP_APP = "is_desktop_app";
+  @SerializedName(SERIALIZED_NAME_IS_DESKTOP_APP)
+  @javax.annotation.Nullable
+  private Boolean isDesktopApp;
+
   public static final String SERIALIZED_NAME_IS_WEB = "is_web";
   @SerializedName(SERIALIZED_NAME_IS_WEB)
   @javax.annotation.Nullable
@@ -654,6 +659,25 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess isDesktopApp(@javax.annotation.Nullable Boolean isDesktopApp) {
+    this.isDesktopApp = isDesktopApp;
+    return this;
+  }
+
+  /**
+   * Get isDesktopApp
+   * @return isDesktopApp
+   */
+  @javax.annotation.Nullable
+  public Boolean getIsDesktopApp() {
+    return isDesktopApp;
+  }
+
+  public void setIsDesktopApp(@javax.annotation.Nullable Boolean isDesktopApp) {
+    this.isDesktopApp = isDesktopApp;
+  }
+
+
   public SecureRemoteAccess isWeb(@javax.annotation.Nullable Boolean isWeb) {
     this.isWeb = isWeb;
     return this;
@@ -1024,6 +1048,7 @@ public class SecureRemoteAccess {
         Objects.equals(this.host, secureRemoteAccess.host) &&
         Objects.equals(this.hostProviderType, secureRemoteAccess.hostProviderType) &&
         Objects.equals(this.isCli, secureRemoteAccess.isCli) &&
+        Objects.equals(this.isDesktopApp, secureRemoteAccess.isDesktopApp) &&
         Objects.equals(this.isWeb, secureRemoteAccess.isWeb) &&
         Objects.equals(this.isolated, secureRemoteAccess.isolated) &&
         Objects.equals(this._native, secureRemoteAccess._native) &&
@@ -1045,7 +1070,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, connectionDelaySeconds, dashboardUrl, dbName, domain, enable, endpoint, enforceHostsRestriction, gwClusterId, host, hostProviderType, isCli, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, connectionDelaySeconds, dashboardUrl, dbName, domain, enable, endpoint, enforceHostsRestriction, gwClusterId, host, hostProviderType, isCli, isDesktopApp, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -1073,6 +1098,7 @@ public class SecureRemoteAccess {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    hostProviderType: ").append(toIndentedString(hostProviderType)).append("\n");
     sb.append("    isCli: ").append(toIndentedString(isCli)).append("\n");
+    sb.append("    isDesktopApp: ").append(toIndentedString(isDesktopApp)).append("\n");
     sb.append("    isWeb: ").append(toIndentedString(isWeb)).append("\n");
     sb.append("    isolated: ").append(toIndentedString(isolated)).append("\n");
     sb.append("    _native: ").append(toIndentedString(_native)).append("\n");
@@ -1133,6 +1159,7 @@ public class SecureRemoteAccess {
     openapiFields.add("host");
     openapiFields.add("host_provider_type");
     openapiFields.add("is_cli");
+    openapiFields.add("is_desktop_app");
     openapiFields.add("is_web");
     openapiFields.add("isolated");
     openapiFields.add("native");

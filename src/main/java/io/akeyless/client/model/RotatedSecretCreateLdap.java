@@ -142,6 +142,16 @@ public class RotatedSecretCreateLdap {
   @javax.annotation.Nonnull
   private String rotatorType;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
+  @javax.annotation.Nullable
+  private String secureAccessBastionIssuer;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_CERTIFICATE_ISSUER = "secure-access-certificate-issuer";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_CERTIFICATE_ISSUER)
+  @javax.annotation.Nullable
+  private String secureAccessCertificateIssuer;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   @javax.annotation.Nullable
@@ -565,6 +575,44 @@ public class RotatedSecretCreateLdap {
   }
 
 
+  public RotatedSecretCreateLdap secureAccessBastionIssuer(@javax.annotation.Nullable String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+    return this;
+  }
+
+  /**
+   * Deprecated. use secure-access-certificate-issuer
+   * @return secureAccessBastionIssuer
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessBastionIssuer() {
+    return secureAccessBastionIssuer;
+  }
+
+  public void setSecureAccessBastionIssuer(@javax.annotation.Nullable String secureAccessBastionIssuer) {
+    this.secureAccessBastionIssuer = secureAccessBastionIssuer;
+  }
+
+
+  public RotatedSecretCreateLdap secureAccessCertificateIssuer(@javax.annotation.Nullable String secureAccessCertificateIssuer) {
+    this.secureAccessCertificateIssuer = secureAccessCertificateIssuer;
+    return this;
+  }
+
+  /**
+   * Path to the SSH Certificate Issuer for your Akeyless Secure Access
+   * @return secureAccessCertificateIssuer
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessCertificateIssuer() {
+    return secureAccessCertificateIssuer;
+  }
+
+  public void setSecureAccessCertificateIssuer(@javax.annotation.Nullable String secureAccessCertificateIssuer) {
+    this.secureAccessCertificateIssuer = secureAccessCertificateIssuer;
+  }
+
+
   public RotatedSecretCreateLdap secureAccessEnable(@javax.annotation.Nullable String secureAccessEnable) {
     this.secureAccessEnable = secureAccessEnable;
     return this;
@@ -883,6 +931,8 @@ public class RotatedSecretCreateLdap {
         Objects.equals(this.rotationHour, rotatedSecretCreateLdap.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateLdap.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretCreateLdap.rotatorType) &&
+        Objects.equals(this.secureAccessBastionIssuer, rotatedSecretCreateLdap.secureAccessBastionIssuer) &&
+        Objects.equals(this.secureAccessCertificateIssuer, rotatedSecretCreateLdap.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretCreateLdap.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, rotatedSecretCreateLdap.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretCreateLdap.secureAccessRdpDomain) &&
@@ -901,7 +951,7 @@ public class RotatedSecretCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -926,6 +976,8 @@ public class RotatedSecretCreateLdap {
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
+    sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
@@ -980,6 +1032,8 @@ public class RotatedSecretCreateLdap {
     openapiFields.add("rotation-hour");
     openapiFields.add("rotation-interval");
     openapiFields.add("rotator-type");
+    openapiFields.add("secure-access-bastion-issuer");
+    openapiFields.add("secure-access-certificate-issuer");
     openapiFields.add("secure-access-enable");
     openapiFields.add("secure-access-host");
     openapiFields.add("secure-access-rdp-domain");
@@ -1078,6 +1132,12 @@ public class RotatedSecretCreateLdap {
       }
       if (!jsonObj.get("rotator-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rotator-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator-type").toString()));
+      }
+      if ((jsonObj.get("secure-access-bastion-issuer") != null && !jsonObj.get("secure-access-bastion-issuer").isJsonNull()) && !jsonObj.get("secure-access-bastion-issuer").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-bastion-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-bastion-issuer").toString()));
+      }
+      if ((jsonObj.get("secure-access-certificate-issuer") != null && !jsonObj.get("secure-access-certificate-issuer").isJsonNull()) && !jsonObj.get("secure-access-certificate-issuer").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-certificate-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-certificate-issuer").toString()));
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));

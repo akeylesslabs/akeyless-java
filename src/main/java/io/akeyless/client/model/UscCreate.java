@@ -72,6 +72,11 @@ public class UscCreate {
   @javax.annotation.Nullable
   private String namespace;
 
+  public static final String SERIALIZED_NAME_OBJECT_TYPE = "object-type";
+  @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
+  @javax.annotation.Nullable
+  private String objectType;
+
   public static final String SERIALIZED_NAME_SECRET_NAME = "secret-name";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
   @javax.annotation.Nonnull
@@ -178,6 +183,25 @@ public class UscCreate {
 
   public void setNamespace(@javax.annotation.Nullable String namespace) {
     this.namespace = namespace;
+  }
+
+
+  public UscCreate objectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+  /**
+   * Get objectType
+   * @return objectType
+   */
+  @javax.annotation.Nullable
+  public String getObjectType() {
+    return objectType;
+  }
+
+  public void setObjectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
   }
 
 
@@ -317,6 +341,7 @@ public class UscCreate {
         Objects.equals(this.description, uscCreate.description) &&
         Objects.equals(this.json, uscCreate.json) &&
         Objects.equals(this.namespace, uscCreate.namespace) &&
+        Objects.equals(this.objectType, uscCreate.objectType) &&
         Objects.equals(this.secretName, uscCreate.secretName) &&
         Objects.equals(this.tags, uscCreate.tags) &&
         Objects.equals(this.token, uscCreate.token) &&
@@ -327,7 +352,7 @@ public class UscCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, secretName, tags, token, uidToken, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, objectType, secretName, tags, token, uidToken, uscName, value);
   }
 
   @Override
@@ -338,6 +363,7 @@ public class UscCreate {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -370,6 +396,7 @@ public class UscCreate {
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("namespace");
+    openapiFields.add("object-type");
     openapiFields.add("secret-name");
     openapiFields.add("tags");
     openapiFields.add("token");
@@ -417,6 +444,9 @@ public class UscCreate {
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+      }
+      if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
       }
       if (!jsonObj.get("secret-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-name").toString()));

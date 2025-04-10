@@ -202,6 +202,11 @@ public class RotatedSecretUpdateSsh {
   @javax.annotation.Nullable
   private String secureAccessSshUser;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_TARGET_TYPE = "secure-access-target-type";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_TARGET_TYPE)
+  @javax.annotation.Nullable
+  private String secureAccessTargetType = "false";
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -817,6 +822,25 @@ public class RotatedSecretUpdateSsh {
   }
 
 
+  public RotatedSecretUpdateSsh secureAccessTargetType(@javax.annotation.Nullable String secureAccessTargetType) {
+    this.secureAccessTargetType = secureAccessTargetType;
+    return this;
+  }
+
+  /**
+   * Specify target type. Options are ssh or rdp
+   * @return secureAccessTargetType
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessTargetType() {
+    return secureAccessTargetType;
+  }
+
+  public void setSecureAccessTargetType(@javax.annotation.Nullable String secureAccessTargetType) {
+    this.secureAccessTargetType = secureAccessTargetType;
+  }
+
+
   public RotatedSecretUpdateSsh token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -895,13 +919,14 @@ public class RotatedSecretUpdateSsh {
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretUpdateSsh.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, rotatedSecretUpdateSsh.secureAccessRdpUser) &&
         Objects.equals(this.secureAccessSshUser, rotatedSecretUpdateSsh.secureAccessSshUser) &&
+        Objects.equals(this.secureAccessTargetType, rotatedSecretUpdateSsh.secureAccessTargetType) &&
         Objects.equals(this.token, rotatedSecretUpdateSsh.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateSsh.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, token, uidToken);
   }
 
   @Override
@@ -938,6 +963,7 @@ public class RotatedSecretUpdateSsh {
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    secureAccessSshUser: ").append(toIndentedString(secureAccessSshUser)).append("\n");
+    sb.append("    secureAccessTargetType: ").append(toIndentedString(secureAccessTargetType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
@@ -992,6 +1018,7 @@ public class RotatedSecretUpdateSsh {
     openapiFields.add("secure-access-rdp-domain");
     openapiFields.add("secure-access-rdp-user");
     openapiFields.add("secure-access-ssh-user");
+    openapiFields.add("secure-access-target-type");
     openapiFields.add("token");
     openapiFields.add("uid-token");
 
@@ -1113,6 +1140,9 @@ public class RotatedSecretUpdateSsh {
       }
       if ((jsonObj.get("secure-access-ssh-user") != null && !jsonObj.get("secure-access-ssh-user").isJsonNull()) && !jsonObj.get("secure-access-ssh-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secure-access-ssh-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-ssh-user").toString()));
+      }
+      if ((jsonObj.get("secure-access-target-type") != null && !jsonObj.get("secure-access-target-type").isJsonNull()) && !jsonObj.get("secure-access-target-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-target-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-target-type").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

@@ -182,6 +182,11 @@ public class RotatedSecretCreateSsh {
   @javax.annotation.Nullable
   private String secureAccessSshUser;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_TARGET_TYPE = "secure-access-target-type";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_TARGET_TYPE)
+  @javax.annotation.Nullable
+  private String secureAccessTargetType = "false";
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -715,6 +720,25 @@ public class RotatedSecretCreateSsh {
   }
 
 
+  public RotatedSecretCreateSsh secureAccessTargetType(@javax.annotation.Nullable String secureAccessTargetType) {
+    this.secureAccessTargetType = secureAccessTargetType;
+    return this;
+  }
+
+  /**
+   * Specify target type. Options are ssh or rdp
+   * @return secureAccessTargetType
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessTargetType() {
+    return secureAccessTargetType;
+  }
+
+  public void setSecureAccessTargetType(@javax.annotation.Nullable String secureAccessTargetType) {
+    this.secureAccessTargetType = secureAccessTargetType;
+  }
+
+
   public RotatedSecretCreateSsh tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -835,6 +859,7 @@ public class RotatedSecretCreateSsh {
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretCreateSsh.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, rotatedSecretCreateSsh.secureAccessRdpUser) &&
         Objects.equals(this.secureAccessSshUser, rotatedSecretCreateSsh.secureAccessSshUser) &&
+        Objects.equals(this.secureAccessTargetType, rotatedSecretCreateSsh.secureAccessTargetType) &&
         Objects.equals(this.tags, rotatedSecretCreateSsh.tags) &&
         Objects.equals(this.targetName, rotatedSecretCreateSsh.targetName) &&
         Objects.equals(this.token, rotatedSecretCreateSsh.token) &&
@@ -843,7 +868,7 @@ public class RotatedSecretCreateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -876,6 +901,7 @@ public class RotatedSecretCreateSsh {
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    secureAccessSshUser: ").append(toIndentedString(secureAccessSshUser)).append("\n");
+    sb.append("    secureAccessTargetType: ").append(toIndentedString(secureAccessTargetType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -928,6 +954,7 @@ public class RotatedSecretCreateSsh {
     openapiFields.add("secure-access-rdp-domain");
     openapiFields.add("secure-access-rdp-user");
     openapiFields.add("secure-access-ssh-user");
+    openapiFields.add("secure-access-target-type");
     openapiFields.add("tags");
     openapiFields.add("target-name");
     openapiFields.add("token");
@@ -1038,6 +1065,9 @@ public class RotatedSecretCreateSsh {
       }
       if ((jsonObj.get("secure-access-ssh-user") != null && !jsonObj.get("secure-access-ssh-user").isJsonNull()) && !jsonObj.get("secure-access-ssh-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secure-access-ssh-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-ssh-user").toString()));
+      }
+      if ((jsonObj.get("secure-access-target-type") != null && !jsonObj.get("secure-access-target-type").isJsonNull()) && !jsonObj.get("secure-access-target-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-target-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-target-type").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

@@ -309,6 +309,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**gatewayUpdateProducerSnowflake**](V2Api.md#gatewayUpdateProducerSnowflake) | **POST** /gateway-update-producer-snowflake |  |
 | [**gatewayUpdateProducerVenafi**](V2Api.md#gatewayUpdateProducerVenafi) | **POST** /gateway-update-producer-certificate-automation |  |
 | [**gatewayUpdateRemoteAccess**](V2Api.md#gatewayUpdateRemoteAccess) | **POST** /gateway-update-remote-access |  |
+| [**gatewayUpdateRemoteAccessDesktopApp**](V2Api.md#gatewayUpdateRemoteAccessDesktopApp) | **POST** /gateway-update-remote-access-desktop-app |  |
 | [**gatewayUpdateRemoteAccessRdpRecordings**](V2Api.md#gatewayUpdateRemoteAccessRdpRecordings) | **POST** /gateway-update-remote-access-rdp-recording |  |
 | [**gatewayUpdateTlsCert**](V2Api.md#gatewayUpdateTlsCert) | **POST** /gateway-update-tls-cert |  |
 | [**gatewayUpdateTmpUsers**](V2Api.md#gatewayUpdateTmpUsers) | **POST** /gateway-update-producer-tmp-creds |  |
@@ -19176,6 +19177,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | gatewayUpdateRemoteAccessResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="gatewayUpdateRemoteAccessDesktopApp"></a>
+# **gatewayUpdateRemoteAccessDesktopApp**
+> Object gatewayUpdateRemoteAccessDesktopApp(gatewayUpdateRemoteAccessDesktopApp)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GatewayUpdateRemoteAccessDesktopApp gatewayUpdateRemoteAccessDesktopApp = new GatewayUpdateRemoteAccessDesktopApp(); // GatewayUpdateRemoteAccessDesktopApp | 
+    try {
+      Object result = apiInstance.gatewayUpdateRemoteAccessDesktopApp(gatewayUpdateRemoteAccessDesktopApp);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#gatewayUpdateRemoteAccessDesktopApp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **gatewayUpdateRemoteAccessDesktopApp** | [**GatewayUpdateRemoteAccessDesktopApp**](GatewayUpdateRemoteAccessDesktopApp.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | gatewayUpdateRemoteAccessDesktopAppResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="gatewayUpdateRemoteAccessRdpRecordings"></a>

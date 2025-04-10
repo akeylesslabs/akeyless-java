@@ -28,6 +28,7 @@
 |**host** | **List&lt;String&gt;** |  |  [optional] |
 |**hostProviderType** | **String** |  |  [optional] |
 |**isCli** | **Boolean** |  |  [optional] |
+|**isDesktopApp** | **Boolean** |  |  [optional] |
 |**isWeb** | **Boolean** |  |  [optional] |
 |**isolated** | **Boolean** |  |  [optional] |
 |**_native** | **Boolean** |  |  [optional] |

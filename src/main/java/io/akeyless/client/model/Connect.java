@@ -602,7 +602,7 @@ public class Connect {
   }
 
   /**
-   * Enable ssh-agent
+   * Deprecated
    * @return useSshAgent
    */
   @javax.annotation.Nullable

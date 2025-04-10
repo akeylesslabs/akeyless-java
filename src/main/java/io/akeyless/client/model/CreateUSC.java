@@ -102,6 +102,16 @@ public class CreateUSC {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USC_PREFIX = "usc-prefix";
+  @SerializedName(SERIALIZED_NAME_USC_PREFIX)
+  @javax.annotation.Nullable
+  private String uscPrefix;
+
+  public static final String SERIALIZED_NAME_USE_PREFIX_AS_FILTER = "use-prefix-as-filter";
+  @SerializedName(SERIALIZED_NAME_USE_PREFIX_AS_FILTER)
+  @javax.annotation.Nullable
+  private String usePrefixAsFilter = "false";
+
   public CreateUSC() {
   }
 
@@ -303,6 +313,44 @@ public class CreateUSC {
   }
 
 
+  public CreateUSC uscPrefix(@javax.annotation.Nullable String uscPrefix) {
+    this.uscPrefix = uscPrefix;
+    return this;
+  }
+
+  /**
+   * Prefix for all secrets created in AWS Secrets Manager
+   * @return uscPrefix
+   */
+  @javax.annotation.Nullable
+  public String getUscPrefix() {
+    return uscPrefix;
+  }
+
+  public void setUscPrefix(@javax.annotation.Nullable String uscPrefix) {
+    this.uscPrefix = uscPrefix;
+  }
+
+
+  public CreateUSC usePrefixAsFilter(@javax.annotation.Nullable String usePrefixAsFilter) {
+    this.usePrefixAsFilter = usePrefixAsFilter;
+    return this;
+  }
+
+  /**
+   * Whether to filter the USC secret list using the specified usc-prefix [true/false]
+   * @return usePrefixAsFilter
+   */
+  @javax.annotation.Nullable
+  public String getUsePrefixAsFilter() {
+    return usePrefixAsFilter;
+  }
+
+  public void setUsePrefixAsFilter(@javax.annotation.Nullable String usePrefixAsFilter) {
+    this.usePrefixAsFilter = usePrefixAsFilter;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -322,12 +370,14 @@ public class CreateUSC {
         Objects.equals(this.tags, createUSC.tags) &&
         Objects.equals(this.targetToAssociate, createUSC.targetToAssociate) &&
         Objects.equals(this.token, createUSC.token) &&
-        Objects.equals(this.uidToken, createUSC.uidToken);
+        Objects.equals(this.uidToken, createUSC.uidToken) &&
+        Objects.equals(this.uscPrefix, createUSC.uscPrefix) &&
+        Objects.equals(this.usePrefixAsFilter, createUSC.usePrefixAsFilter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken);
+    return Objects.hash(azureKvName, deleteProtection, description, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
   }
 
   @Override
@@ -344,6 +394,8 @@ public class CreateUSC {
     sb.append("    targetToAssociate: ").append(toIndentedString(targetToAssociate)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uscPrefix: ").append(toIndentedString(uscPrefix)).append("\n");
+    sb.append("    usePrefixAsFilter: ").append(toIndentedString(usePrefixAsFilter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -376,6 +428,8 @@ public class CreateUSC {
     openapiFields.add("target-to-associate");
     openapiFields.add("token");
     openapiFields.add("uid-token");
+    openapiFields.add("usc-prefix");
+    openapiFields.add("use-prefix-as-filter");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -438,6 +492,12 @@ public class CreateUSC {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("usc-prefix") != null && !jsonObj.get("usc-prefix").isJsonNull()) && !jsonObj.get("usc-prefix").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usc-prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-prefix").toString()));
+      }
+      if ((jsonObj.get("use-prefix-as-filter") != null && !jsonObj.get("use-prefix-as-filter").isJsonNull()) && !jsonObj.get("use-prefix-as-filter").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use-prefix-as-filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-prefix-as-filter").toString()));
       }
   }
 

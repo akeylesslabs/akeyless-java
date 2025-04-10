@@ -28,6 +28,8 @@
 |**rotationEventIn** | **List&lt;String&gt;** | How many days before the rotation of the item would you like to be notified |  [optional] |
 |**rotationHour** | **Integer** | The Hour of the rotation in UTC |  [optional] |
 |**rotationInterval** | **String** | The number of days to wait between every automatic key rotation (1-365) |  [optional] |
+|**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |
+|**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional] |
