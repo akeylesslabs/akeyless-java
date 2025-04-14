@@ -17,8 +17,13 @@
 |**certificateIssuerName** | **String** |  |  [optional] |
 |**certificatePem** | **String** |  |  [optional] |
 |**certificateStatus** | **String** |  |  [optional] |
+|**commonName** | **String** |  |  [optional] |
 |**errorMessage** | **String** |  |  [optional] |
+|**expirationDate** | **OffsetDateTime** |  |  [optional] |
 |**expirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
+|**externalCaId** | [**NullString**](NullString.md) |  |  [optional] |
+|**issuanceStatus** | **String** |  |  [optional] |
+|**notBefore** | **OffsetDateTime** |  |  [optional] |
 |**renewBeforeExpirationInDays** | **Long** |  |  [optional] |
 
 

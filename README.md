@@ -1,7 +1,7 @@
 # akeyless-java
 
 Akeyless API
-- API version: 2.0
+- API version: 3.0
   - Generator version: 7.10.0
 
 The purpose of this application is to provide access to Akeyless API.
@@ -1414,6 +1414,7 @@ Class | Method | HTTP request | Description
  - [NativeK8sTargetDetails](docs/NativeK8sTargetDetails.md)
  - [NextAutoRotationEvent](docs/NextAutoRotationEvent.md)
  - [NotiForwarder](docs/NotiForwarder.md)
+ - [NullString](docs/NullString.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
  - [OCIAccessRules](docs/OCIAccessRules.md)

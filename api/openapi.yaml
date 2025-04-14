@@ -6,7 +6,7 @@ info:
     url: http://akeyless.io
   description: The purpose of this application is to provide access to Akeyless API.
   title: Akeyless API
-  version: "2.0"
+  version: "3.0"
 servers:
 - url: https://api.akeyless.io
 paths:
@@ -23854,8 +23854,10 @@ components:
         - seconds_before: 1
         - seconds_before: 1
         certificate_pem: certificate_pem
+        not_before: 2000-01-23T04:56:07.000+00:00
         renew_before_expiration_in_days: 4
         auto_renew_certificate: true
+        expiration_date: 2000-01-23T04:56:07.000+00:00
         certificate_chain:
         - email_addresses:
           - email_addresses
@@ -24068,6 +24070,11 @@ components:
         certificate_has_private_key: true
         certificate_issuer_gw_cluster_id: 7
         certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+        issuance_status: issuance_status
+        external_ca_id:
+          Valid: true
+          String: String
+        common_name: common_name
       properties:
         auto_renew_certificate:
           type: boolean
@@ -24103,14 +24110,30 @@ components:
         certificate_status:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        common_name:
+          type: string
+          x-go-name: CommonName
         error_message:
           type: string
           x-go-name: ErrorMessage
+        expiration_date:
+          format: date-time
+          type: string
+          x-go-name: ExpirationDate
         expiration_events:
           items:
             $ref: '#/components/schemas/CertificateExpirationEvent'
           type: array
           x-go-name: ExpirationEvents
+        external_ca_id:
+          $ref: '#/components/schemas/NullString'
+        issuance_status:
+          type: string
+          x-go-name: IssuanceStatus
+        not_before:
+          format: date-time
+          type: string
+          x-go-name: NotBefore
         renew_before_expiration_in_days:
           format: int64
           type: integer
@@ -30422,8 +30445,10 @@ components:
             - seconds_before: 1
             - seconds_before: 1
             certificate_pem: certificate_pem
+            not_before: 2000-01-23T04:56:07.000+00:00
             renew_before_expiration_in_days: 4
             auto_renew_certificate: true
+            expiration_date: 2000-01-23T04:56:07.000+00:00
             certificate_chain:
             - email_addresses:
               - email_addresses
@@ -30636,6 +30661,11 @@ components:
             certificate_has_private_key: true
             certificate_issuer_gw_cluster_id: 7
             certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+            issuance_status: issuance_status
+            external_ca_id:
+              Valid: true
+              String: String
+            common_name: common_name
           certificates_template_info:
             country: country
             province: province
@@ -31205,8 +31235,10 @@ components:
           - seconds_before: 1
           - seconds_before: 1
           certificate_pem: certificate_pem
+          not_before: 2000-01-23T04:56:07.000+00:00
           renew_before_expiration_in_days: 4
           auto_renew_certificate: true
+          expiration_date: 2000-01-23T04:56:07.000+00:00
           certificate_chain:
           - email_addresses:
             - email_addresses
@@ -31419,6 +31451,11 @@ components:
           certificate_has_private_key: true
           certificate_issuer_gw_cluster_id: 7
           certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+          issuance_status: issuance_status
+          external_ca_id:
+            Valid: true
+            String: String
+          common_name: common_name
         certificates_template_info:
           country: country
           province: province
@@ -34422,8 +34459,10 @@ components:
               - seconds_before: 1
               - seconds_before: 1
               certificate_pem: certificate_pem
+              not_before: 2000-01-23T04:56:07.000+00:00
               renew_before_expiration_in_days: 4
               auto_renew_certificate: true
+              expiration_date: 2000-01-23T04:56:07.000+00:00
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -34636,6 +34675,11 @@ components:
               certificate_has_private_key: true
               certificate_issuer_gw_cluster_id: 7
               certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+              issuance_status: issuance_status
+              external_ca_id:
+                Valid: true
+                String: String
+              common_name: common_name
             certificates_template_info:
               country: country
               province: province
@@ -35272,8 +35316,10 @@ components:
               - seconds_before: 1
               - seconds_before: 1
               certificate_pem: certificate_pem
+              not_before: 2000-01-23T04:56:07.000+00:00
               renew_before_expiration_in_days: 4
               auto_renew_certificate: true
+              expiration_date: 2000-01-23T04:56:07.000+00:00
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -35486,6 +35532,11 @@ components:
               certificate_has_private_key: true
               certificate_issuer_gw_cluster_id: 7
               certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+              issuance_status: issuance_status
+              external_ca_id:
+                Valid: true
+                String: String
+              common_name: common_name
             certificates_template_info:
               country: country
               province: province
@@ -36144,8 +36195,10 @@ components:
               - seconds_before: 1
               - seconds_before: 1
               certificate_pem: certificate_pem
+              not_before: 2000-01-23T04:56:07.000+00:00
               renew_before_expiration_in_days: 4
               auto_renew_certificate: true
+              expiration_date: 2000-01-23T04:56:07.000+00:00
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -36358,6 +36411,11 @@ components:
               certificate_has_private_key: true
               certificate_issuer_gw_cluster_id: 7
               certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+              issuance_status: issuance_status
+              external_ca_id:
+                Valid: true
+                String: String
+              common_name: common_name
             certificates_template_info:
               country: country
               province: province
@@ -36994,8 +37052,10 @@ components:
               - seconds_before: 1
               - seconds_before: 1
               certificate_pem: certificate_pem
+              not_before: 2000-01-23T04:56:07.000+00:00
               renew_before_expiration_in_days: 4
               auto_renew_certificate: true
+              expiration_date: 2000-01-23T04:56:07.000+00:00
               certificate_chain:
               - email_addresses:
                 - email_addresses
@@ -37208,6 +37268,11 @@ components:
               certificate_has_private_key: true
               certificate_issuer_gw_cluster_id: 7
               certificate_issuer_gw_cluster_url: certificate_issuer_gw_cluster_url
+              issuance_status: issuance_status
+              external_ca_id:
+                Valid: true
+                String: String
+              common_name: common_name
             certificates_template_info:
               country: country
               province: province
@@ -38941,6 +39006,30 @@ components:
     NotiForwarderType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    NullString:
+      description: |-
+        var s NullString
+        err := db.QueryRow("SELECT name FROM foo WHERE id=?", id).Scan(&s)
+        ...
+        if s.Valid {
+        use s.String
+        } else {
+        NULL value
+        }
+      example:
+        Valid: true
+        String: String
+      properties:
+        String:
+          type: string
+        Valid:
+          type: boolean
+      title: |-
+        NullString represents a string that may be null.
+        NullString implements the [Scanner] interface so
+        it can be used as a scan destination:
+      type: object
+      x-go-package: database/sql
     OAuth2AccessRules:
       description: |-
         OAuth2AccessRules contains access rules specific to OAuth2 authentication
