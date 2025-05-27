@@ -9,7 +9,7 @@ ItemUSCSyncAssociation includes details of usc sync associations
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**assocId** | **String** |  |  [optional] |
-|**attributes** | [**RemoteSecretInfo**](RemoteSecretInfo.md) |  |  [optional] |
+|**attributes** | [**UscSyncInfo**](UscSyncInfo.md) |  |  [optional] |
 |**itemId** | **Long** |  |  [optional] |
 |**itemName** | **String** |  |  [optional] |
 |**itemType** | **String** |  |  [optional] |

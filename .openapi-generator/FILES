@@ -768,7 +768,6 @@ docs/RawCreds.md
 docs/RefreshKey.md
 docs/RefreshKeyOutput.md
 docs/RegexpTokenizerInfo.md
-docs/RemoteSecretInfo.md
 docs/RenewCertificate.md
 docs/RenewCertificateOutput.md
 docs/RequestAccess.md
@@ -1074,6 +1073,7 @@ docs/UscGet.md
 docs/UscGetSecretOutput.md
 docs/UscList.md
 docs/UscListSecretsOutput.md
+docs/UscSyncInfo.md
 docs/UscUpdate.md
 docs/UscUpdateSecretOutput.md
 docs/V2Api.md
@@ -1891,7 +1891,6 @@ src/main/java/io/akeyless/client/model/RawCreds.java
 src/main/java/io/akeyless/client/model/RefreshKey.java
 src/main/java/io/akeyless/client/model/RefreshKeyOutput.java
 src/main/java/io/akeyless/client/model/RegexpTokenizerInfo.java
-src/main/java/io/akeyless/client/model/RemoteSecretInfo.java
 src/main/java/io/akeyless/client/model/RenewCertificate.java
 src/main/java/io/akeyless/client/model/RenewCertificateOutput.java
 src/main/java/io/akeyless/client/model/RequestAccess.java
@@ -2197,6 +2196,7 @@ src/main/java/io/akeyless/client/model/UscGet.java
 src/main/java/io/akeyless/client/model/UscGetSecretOutput.java
 src/main/java/io/akeyless/client/model/UscList.java
 src/main/java/io/akeyless/client/model/UscListSecretsOutput.java
+src/main/java/io/akeyless/client/model/UscSyncInfo.java
 src/main/java/io/akeyless/client/model/UscUpdate.java
 src/main/java/io/akeyless/client/model/UscUpdateSecretOutput.java
 src/main/java/io/akeyless/client/model/ValidateToken.java
@@ -2222,4 +2222,4 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/NullStringTest.java
+src/test/java/io/akeyless/client/model/UscSyncInfoTest.java

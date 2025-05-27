@@ -16,6 +16,7 @@
 |**azureUsername** | **String** |  |  [optional] |
 |**connectionType** | **String** |  |  [optional] |
 |**expirationDate** | **OffsetDateTime** |  |  [optional] |
+|**graceRotatedSecretKey** | **String** |  |  [optional] |
 |**useGwCloudIdentity** | **Boolean** |  |  [optional] |
 
 

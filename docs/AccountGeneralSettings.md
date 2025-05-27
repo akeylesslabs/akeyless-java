@@ -17,6 +17,8 @@ AccountGeneralSettings describes general settings for an account
 |**defaultHomePage** | [**DefaultHomePage**](DefaultHomePage.md) |  |  [optional] |
 |**dynamicSecretMaxTtl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  |  [optional] |
 |**enableRequestForAccess** | **Boolean** |  |  [optional] |
+|**hidePersonalFolder** | **Boolean** |  |  [optional] |
+|**hideStaticPassword** | **Boolean** |  |  [optional] |
 |**invalidCharacters** | **String** | InvalidCharacters is the invalid characters for items/targets/roles/auths/notifier_forwarder naming convention |  [optional] |
 |**itemUsageEvent** | [**UsageEventSetting**](UsageEventSetting.md) |  |  [optional] |
 |**lockDefaultKey** | **Boolean** | LockDefaultKey determines whether the configured default key can be updated by end-users on a per-request basis true - all requests use the configured default key false - every request can determine its protection key (default) nil - change nothing (every request can determine its protection key (default)) This parameter is only relevant if AccountDefaultKeyItemID is not empty |  [optional] |

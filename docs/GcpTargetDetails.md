@@ -11,6 +11,7 @@
 |**gcpServiceAccountKey** | **String** |  |  [optional] |
 |**gcpServiceAccountKeyBase64** | **String** |  |  [optional] |
 |**gcpServiceAccountKeyId** | **String** |  |  [optional] |
+|**graceRotatedSecretKey** | **String** |  |  [optional] |
 |**useGwCloudIdentity** | **Boolean** |  |  [optional] |
 
 

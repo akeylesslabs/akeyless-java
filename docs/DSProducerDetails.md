@@ -133,6 +133,7 @@
 |**googleWorkspaceGroupRole** | **String** |  |  [optional] |
 |**googleWorkspaceRoleName** | **String** |  |  [optional] |
 |**googleWorkspaceRoleScope** | **String** |  |  [optional] |
+|**graceRotatedSecretKey** | **String** |  |  [optional] |
 |**grantTypes** | **List&lt;String&gt;** |  |  [optional] |
 |**groups** | **String** |  |  [optional] |
 |**hanadbCreationStatements** | **String** |  |  [optional] |

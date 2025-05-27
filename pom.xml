@@ -5,7 +5,7 @@
     <artifactId>akeyless-java</artifactId>
     <packaging>jar</packaging>
     <name>akeyless-java</name>
-    <version>5.0.3</version>
+    <version>5.0.4</version>
     <url>https://github.com/akeylesslabs/akeyless-java</url>
     <description>Akeyless Java SDK</description>
     <scm>
@@ -16,8 +16,8 @@
 
     <licenses>
         <license>
-            <name>Unlicense</name>
-            <url>http://unlicense.org</url>
+            <name>Apache 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
             <distribution>repo</distribution>
         </license>
     </licenses>

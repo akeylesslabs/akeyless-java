@@ -22,6 +22,8 @@
 |**enablePasswordExpiration** | **String** | Enable password expiration policy [true/false] |  [optional] |
 |**forceNewVersions** | **String** | If set to true, new version will be created on update |  [optional] |
 |**gwBoundIps** | **List&lt;String&gt;** | A default list of comma-separated CIDR block that acts as a trusted Gateway entity. |  [optional] |
+|**hidePersonalFolder** | **String** | Hide personal folder, if set - users will not be able to use personal folder [true/false] |  [optional] |
+|**hideStaticPassword** | **String** | Hide static secret&#39;s password type [true/false] |  [optional] |
 |**invalidCharacters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. |  [optional] |
 |**itemType** | **String** | VersionSettingsObjectType defines object types for account version settings |  [optional] |
 |**itemsDeletionProtection** | **String** | Set or unset the default behaviour of items deletion protection [true/false] |  [optional] |

@@ -1,7 +1,7 @@
 # akeyless-java
 
 Akeyless API
-- API version: 3.0
+- API version: 2.0
   - Generator version: 7.10.0
 
 The purpose of this application is to provide access to Akeyless API.
@@ -1442,7 +1442,6 @@ Class | Method | HTTP request | Description
  - [RefreshKey](docs/RefreshKey.md)
  - [RefreshKeyOutput](docs/RefreshKeyOutput.md)
  - [RegexpTokenizerInfo](docs/RegexpTokenizerInfo.md)
- - [RemoteSecretInfo](docs/RemoteSecretInfo.md)
  - [RenewCertificate](docs/RenewCertificate.md)
  - [RenewCertificateOutput](docs/RenewCertificateOutput.md)
  - [RequestAccess](docs/RequestAccess.md)
@@ -1748,6 +1747,7 @@ Class | Method | HTTP request | Description
  - [UscGetSecretOutput](docs/UscGetSecretOutput.md)
  - [UscList](docs/UscList.md)
  - [UscListSecretsOutput](docs/UscListSecretsOutput.md)
+ - [UscSyncInfo](docs/UscSyncInfo.md)
  - [UscUpdate](docs/UscUpdate.md)
  - [UscUpdateSecretOutput](docs/UscUpdateSecretOutput.md)
  - [ValidateToken](docs/ValidateToken.md)
