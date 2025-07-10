@@ -1,7 +1,7 @@
 # akeyless-java
 
 Akeyless API
-- API version: 2.0
+- API version: 3.0
   - Generator version: 7.10.0
 
 The purpose of this application is to provide access to Akeyless API.
@@ -540,6 +540,8 @@ Class | Method | HTTP request | Description
 *V2Api* | [**signPKICertWithClassicKey**](docs/V2Api.md#signPKICertWithClassicKey) | **POST** /sign-pki-cert-with-classic-key | 
 *V2Api* | [**signRsaSsaPss**](docs/V2Api.md#signRsaSsaPss) | **POST** /sign-rsassa-pss | 
 *V2Api* | [**staticCredsAuth**](docs/V2Api.md#staticCredsAuth) | **POST** /static-creds-auth | 
+*V2Api* | [**staticSecretDeleteSync**](docs/V2Api.md#staticSecretDeleteSync) | **POST** /static-secret-delete-sync | 
+*V2Api* | [**staticSecretSync**](docs/V2Api.md#staticSecretSync) | **POST** /static-secret-sync | 
 *V2Api* | [**targetCreateArtifactory**](docs/V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory | 
 *V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
 *V2Api* | [**targetCreateAzure**](docs/V2Api.md#targetCreateAzure) | **POST** /target-create-azure | 
@@ -680,6 +682,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [APIKeyAccessRules](docs/APIKeyAccessRules.md)
+ - [AWSGatewayCloudIdentityExternalIdOpt](docs/AWSGatewayCloudIdentityExternalIdOpt.md)
  - [AWSIAMAccessRules](docs/AWSIAMAccessRules.md)
  - [AWSPayload](docs/AWSPayload.md)
  - [AWSSecretsMigration](docs/AWSSecretsMigration.md)
@@ -769,6 +772,7 @@ Class | Method | HTTP request | Description
  - [CertificateAnalyticAggregation](docs/CertificateAnalyticAggregation.md)
  - [CertificateChainInfo](docs/CertificateChainInfo.md)
  - [CertificateExpirationEvent](docs/CertificateExpirationEvent.md)
+ - [CertificateExpirationEventsSettings](docs/CertificateExpirationEventsSettings.md)
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
  - [CertificateStore](docs/CertificateStore.md)
@@ -1486,6 +1490,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateWindows](docs/RotatedSecretCreateWindows.md)
  - [RotatedSecretDelete](docs/RotatedSecretDelete.md)
  - [RotatedSecretDeleteSync](docs/RotatedSecretDeleteSync.md)
+ - [RotatedSecretDeleteSyncOutput](docs/RotatedSecretDeleteSyncOutput.md)
  - [RotatedSecretDetailsInfo](docs/RotatedSecretDetailsInfo.md)
  - [RotatedSecretGetValue](docs/RotatedSecretGetValue.md)
  - [RotatedSecretList](docs/RotatedSecretList.md)
@@ -1521,6 +1526,7 @@ Class | Method | HTTP request | Description
  - [SSHTargetDetails](docs/SSHTargetDetails.md)
  - [SalesforceTargetDetails](docs/SalesforceTargetDetails.md)
  - [SecretInfo](docs/SecretInfo.md)
+ - [SecretSyncOutput](docs/SecretSyncOutput.md)
  - [SectigoTargetDetails](docs/SectigoTargetDetails.md)
  - [SecureRemoteAccess](docs/SecureRemoteAccess.md)
  - [ServerInventoryMigration](docs/ServerInventoryMigration.md)
@@ -1554,7 +1560,10 @@ Class | Method | HTTP request | Description
  - [SshBastionSessionTermination](docs/SshBastionSessionTermination.md)
  - [StaticCredsAuth](docs/StaticCredsAuth.md)
  - [StaticCredsAuthOutput](docs/StaticCredsAuthOutput.md)
+ - [StaticSecretDeleteSync](docs/StaticSecretDeleteSync.md)
+ - [StaticSecretDeleteSyncOutput](docs/StaticSecretDeleteSyncOutput.md)
  - [StaticSecretDetailsInfo](docs/StaticSecretDetailsInfo.md)
+ - [StaticSecretSync](docs/StaticSecretSync.md)
  - [SumologicLogForwardingConfig](docs/SumologicLogForwardingConfig.md)
  - [SyslogLogForwardingConfig](docs/SyslogLogForwardingConfig.md)
  - [SystemAccessCredentialsReplyObj](docs/SystemAccessCredentialsReplyObj.md)

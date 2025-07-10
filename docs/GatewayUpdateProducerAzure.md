@@ -9,9 +9,11 @@ gatewayUpdateProducerAzure is a command that updates azure producer [Deprecated:
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**appObjId** | **String** | Azure App Object Id |  [optional] |
+|**azureAdministrativeUnit** | **String** | Azure AD administrative unit (relevant only when azure-user-portal-access&#x3D;true) |  [optional] |
 |**azureClientId** | **String** | Azure Client ID |  [optional] |
 |**azureClientSecret** | **String** | Azure Client Secret |  [optional] |
 |**azureTenantId** | **String** | Azure Tenant ID |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional] |
 |**fixedUserOnly** | **Boolean** | Fixed user |  [optional] |

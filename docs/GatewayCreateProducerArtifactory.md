@@ -13,6 +13,7 @@ gatewayCreateProducerArtifactory is a command that creates artifactory producer 
 |**artifactoryTokenAudience** | **String** | Token Audience |  |
 |**artifactoryTokenScope** | **String** | Token Scope |  |
 |**baseUrl** | **String** | Base URL |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |

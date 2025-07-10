@@ -13,6 +13,7 @@ AccountGeneralSettings describes general settings for an account
 |**allowedClientsIps** | [**AllowedIpSettings**](AllowedIpSettings.md) |  |  [optional] |
 |**allowedGatewaysIps** | [**AllowedIpSettings**](AllowedIpSettings.md) |  |  [optional] |
 |**authUsageEvent** | [**UsageEventSetting**](UsageEventSetting.md) |  |  [optional] |
+|**certificateExpirationEvents** | [**CertificateExpirationEventsSettings**](CertificateExpirationEventsSettings.md) |  |  [optional] |
 |**dataProtectionSection** | [**DataProtectionSection**](DataProtectionSection.md) |  |  [optional] |
 |**defaultHomePage** | [**DefaultHomePage**](DefaultHomePage.md) |  |  [optional] |
 |**dynamicSecretMaxTtl** | [**DynamicSecretMaxTtl**](DynamicSecretMaxTtl.md) |  |  [optional] |

@@ -22,6 +22,7 @@
 |**authorizationPort** | **String** |  |  [optional] |
 |**awsAccessKeyId** | **String** |  |  [optional] |
 |**awsAccessMode** | **String** |  |  [optional] |
+|**awsExternalId** | **String** |  |  [optional] |
 |**awsRegion** | **String** |  |  [optional] |
 |**awsRoleArns** | **String** |  |  [optional] |
 |**awsSecretAccessKey** | **String** |  |  [optional] |
@@ -32,6 +33,7 @@
 |**awsUserGroups** | **String** |  |  [optional] |
 |**awsUserPolicies** | **String** |  |  [optional] |
 |**awsUserProgrammaticAccess** | **Boolean** |  |  [optional] |
+|**azureAdministrativeUnit** | **String** |  |  [optional] |
 |**azureAppObjectId** | **String** |  |  [optional] |
 |**azureClientId** | **String** |  |  [optional] |
 |**azureClientSecret** | **String** |  |  [optional] |
@@ -136,6 +138,7 @@
 |**graceRotatedSecretKey** | **String** |  |  [optional] |
 |**grantTypes** | **List&lt;String&gt;** |  |  [optional] |
 |**groups** | **String** |  |  [optional] |
+|**gwCloudIdentityExternalIdOpt** | [**AWSGatewayCloudIdentityExternalIdOpt**](AWSGatewayCloudIdentityExternalIdOpt.md) |  |  [optional] |
 |**hanadbCreationStatements** | **String** |  |  [optional] |
 |**hanadbRevocationStatements** | **String** |  |  [optional] |
 |**hostName** | **String** |  |  [optional] |
@@ -219,6 +222,8 @@
 |**secureRemoteAccessDetails** | [**SecureRemoteAccess**](SecureRemoteAccess.md) |  |  [optional] |
 |**sessionExtensionWarnIntervalMin** | **Long** |  |  [optional] |
 |**sfAccount** | **String** |  |  [optional] |
+|**sfAuthMode** | **String** |  |  [optional] |
+|**sfKeyAlgo** | **String** |  |  [optional] |
 |**sfUserRole** | **String** | generated  users info |  [optional] |
 |**sfWarehouseName** | **String** |  |  [optional] |
 |**shouldStop** | **String** | TODO delete this after migration |  [optional] |
@@ -236,6 +241,7 @@
 |**userTtl** | **String** |  |  [optional] |
 |**usernameLength** | **Long** |  |  [optional] |
 |**usernamePolicy** | **String** |  |  [optional] |
+|**usernameTemplate** | **String** |  |  [optional] |
 |**venafiAllowSubdomains** | **Boolean** |  |  [optional] |
 |**venafiAllowedDomains** | **List&lt;String&gt;** |  |  [optional] |
 |**venafiApiKey** | **String** |  |  [optional] |

@@ -9,9 +9,11 @@ dynamicSecretCreateAzure is a command that creates azure dynamic secret
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**appObjId** | **String** | Azure App Object Id |  [optional] |
+|**azureAdministrativeUnit** | **String** | Azure AD administrative unit (relevant only when azure-user-portal-access&#x3D;true) |  [optional] |
 |**azureClientId** | **String** | Azure Client ID |  [optional] |
 |**azureClientSecret** | **String** | Azure Client Secret |  [optional] |
 |**azureTenantId** | **String** | Azure Tenant ID |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional] |

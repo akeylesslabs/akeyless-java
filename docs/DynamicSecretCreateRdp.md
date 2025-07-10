@@ -9,6 +9,7 @@ dynamicSecretCreateRdp is a command that creates rdp dynamic secret
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**allowUserExtendSession** | **Long** | AllowUserExtendSession |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only&#x3D;true) |  [optional] |

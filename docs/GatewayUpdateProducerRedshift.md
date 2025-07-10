@@ -9,6 +9,7 @@ gatewayUpdateProducerRedshift is a command that updates redshift producer [Depre
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**creationStatements** | **String** | Redshift Creation statements |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |

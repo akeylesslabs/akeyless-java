@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**accessDate** | **OffsetDateTime** |  |  [optional] |
 |**accessDateDisplay** | **String** |  |  [optional] |
+|**accessId** | **String** |  |  [optional] |
 |**certificateVersionInfo** | [**CertificateVersionInfo**](CertificateVersionInfo.md) |  |  [optional] |
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
 |**customerFragmentId** | **String** |  |  [optional] |
@@ -18,6 +19,7 @@
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**protectionKeyName** | **String** |  |  [optional] |
 |**targetName** | **String** |  |  [optional] |
+|**uniqueIdentifier** | **String** |  |  [optional] |
 |**version** | **Integer** |  |  [optional] |
 |**withCustomerFragment** | **Boolean** |  |  [optional] |
 

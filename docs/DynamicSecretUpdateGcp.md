@@ -8,6 +8,7 @@ dynamicSecretUpdateGcp is a command that updates a GCP dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**gcpCredType** | **String** |  |  [optional] |

@@ -12,12 +12,14 @@
 |**city** | **String** | City |  [optional] |
 |**companyName** | **String** | Company name |  [optional] |
 |**country** | **String** | Country |  [optional] |
+|**defaultCertificateExpirationNotificationDays** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. To specify multiple events, use argument multiple times: --default-certificate-expiration-notification-days 1 --default-certificate-expiration-notification-days 5 |  [optional] |
 |**defaultKeyName** | **String** | Set the account default key based on the DFC key name. Use \&quot;set-original-akeyless-default-key\&quot; to revert to using the original default key of the account. |  [optional] |
 |**defaultShareLinkTtlMinutes** | **String** | Set the default ttl in minutes for sharing item number between 60 and 43200 |  [optional] |
 |**defaultVersioning** | **String** | If set to true, new versions is enabled by default |  [optional] |
 |**dpEnableClassicKeyProtection** | **String** | Set to update protection with classic keys state [true/false] |  [optional] |
 |**dynamicSecretMaxTtl** | **Long** | Set the maximum ttl for dynamic secrets |  [optional] |
 |**dynamicSecretMaxTtlEnable** | **String** | Set a maximum ttl for dynamic secrets [true/false] |  [optional] |
+|**enableDefaultCertificateExpirationEvent** | **String** | How many days before the expiration of the certificate would you like to be notified. [true/false] |  [optional] |
 |**enableItemSharing** | **String** | Enable sharing items [true/false] |  [optional] |
 |**enablePasswordExpiration** | **String** | Enable password expiration policy [true/false] |  [optional] |
 |**forceNewVersions** | **String** | If set to true, new version will be created on update |  [optional] |

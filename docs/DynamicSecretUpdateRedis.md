@@ -9,6 +9,7 @@ dynamicSecretUpdateRedis is a command that updates redis dynamic secret
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**aclRules** | **String** | A JSON array list of redis ACL rules to attach to the created user. For available rules see the ACL CAT command https://redis.io/commands/acl-cat By default the user will have permissions to read all keys &#39;[\&quot;~*\&quot;, \&quot;+@read\&quot;]&#39; |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**host** | **String** | Redis Host |  [optional] |

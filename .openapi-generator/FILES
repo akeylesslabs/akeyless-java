@@ -6,6 +6,7 @@ api/openapi.yaml
 build.gradle
 build.sbt
 docs/APIKeyAccessRules.md
+docs/AWSGatewayCloudIdentityExternalIdOpt.md
 docs/AWSIAMAccessRules.md
 docs/AWSPayload.md
 docs/AWSSecretsMigration.md
@@ -95,6 +96,7 @@ docs/CertAccessRules.md
 docs/CertificateAnalyticAggregation.md
 docs/CertificateChainInfo.md
 docs/CertificateExpirationEvent.md
+docs/CertificateExpirationEventsSettings.md
 docs/CertificateInfo.md
 docs/CertificateIssueInfo.md
 docs/CertificateStore.md
@@ -812,6 +814,7 @@ docs/RotatedSecretCreateSsh.md
 docs/RotatedSecretCreateWindows.md
 docs/RotatedSecretDelete.md
 docs/RotatedSecretDeleteSync.md
+docs/RotatedSecretDeleteSyncOutput.md
 docs/RotatedSecretDetailsInfo.md
 docs/RotatedSecretGetValue.md
 docs/RotatedSecretList.md
@@ -847,6 +850,7 @@ docs/SSHCertificateIssueDetails.md
 docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
 docs/SecretInfo.md
+docs/SecretSyncOutput.md
 docs/SectigoTargetDetails.md
 docs/SecureRemoteAccess.md
 docs/ServerInventoryMigration.md
@@ -880,7 +884,10 @@ docs/SshBastionConf.md
 docs/SshBastionSessionTermination.md
 docs/StaticCredsAuth.md
 docs/StaticCredsAuthOutput.md
+docs/StaticSecretDeleteSync.md
+docs/StaticSecretDeleteSyncOutput.md
 docs/StaticSecretDetailsInfo.md
+docs/StaticSecretSync.md
 docs/SumologicLogForwardingConfig.md
 docs/SyslogLogForwardingConfig.md
 docs/SystemAccessCredentialsReplyObj.md
@@ -1128,6 +1135,7 @@ src/main/java/io/akeyless/client/auth/Authentication.java
 src/main/java/io/akeyless/client/auth/HttpBasicAuth.java
 src/main/java/io/akeyless/client/auth/HttpBearerAuth.java
 src/main/java/io/akeyless/client/model/APIKeyAccessRules.java
+src/main/java/io/akeyless/client/model/AWSGatewayCloudIdentityExternalIdOpt.java
 src/main/java/io/akeyless/client/model/AWSIAMAccessRules.java
 src/main/java/io/akeyless/client/model/AWSPayload.java
 src/main/java/io/akeyless/client/model/AWSSecretsMigration.java
@@ -1218,6 +1226,7 @@ src/main/java/io/akeyless/client/model/CertAccessRules.java
 src/main/java/io/akeyless/client/model/CertificateAnalyticAggregation.java
 src/main/java/io/akeyless/client/model/CertificateChainInfo.java
 src/main/java/io/akeyless/client/model/CertificateExpirationEvent.java
+src/main/java/io/akeyless/client/model/CertificateExpirationEventsSettings.java
 src/main/java/io/akeyless/client/model/CertificateInfo.java
 src/main/java/io/akeyless/client/model/CertificateIssueInfo.java
 src/main/java/io/akeyless/client/model/CertificateStore.java
@@ -1935,6 +1944,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreateSsh.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateWindows.java
 src/main/java/io/akeyless/client/model/RotatedSecretDelete.java
 src/main/java/io/akeyless/client/model/RotatedSecretDeleteSync.java
+src/main/java/io/akeyless/client/model/RotatedSecretDeleteSyncOutput.java
 src/main/java/io/akeyless/client/model/RotatedSecretDetailsInfo.java
 src/main/java/io/akeyless/client/model/RotatedSecretGetValue.java
 src/main/java/io/akeyless/client/model/RotatedSecretList.java
@@ -1970,6 +1980,7 @@ src/main/java/io/akeyless/client/model/SSHCertificateIssueDetails.java
 src/main/java/io/akeyless/client/model/SSHTargetDetails.java
 src/main/java/io/akeyless/client/model/SalesforceTargetDetails.java
 src/main/java/io/akeyless/client/model/SecretInfo.java
+src/main/java/io/akeyless/client/model/SecretSyncOutput.java
 src/main/java/io/akeyless/client/model/SectigoTargetDetails.java
 src/main/java/io/akeyless/client/model/SecureRemoteAccess.java
 src/main/java/io/akeyless/client/model/ServerInventoryMigration.java
@@ -2003,7 +2014,10 @@ src/main/java/io/akeyless/client/model/SshBastionConf.java
 src/main/java/io/akeyless/client/model/SshBastionSessionTermination.java
 src/main/java/io/akeyless/client/model/StaticCredsAuth.java
 src/main/java/io/akeyless/client/model/StaticCredsAuthOutput.java
+src/main/java/io/akeyless/client/model/StaticSecretDeleteSync.java
+src/main/java/io/akeyless/client/model/StaticSecretDeleteSyncOutput.java
 src/main/java/io/akeyless/client/model/StaticSecretDetailsInfo.java
+src/main/java/io/akeyless/client/model/StaticSecretSync.java
 src/main/java/io/akeyless/client/model/SumologicLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SyslogLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SystemAccessCredentialsReplyObj.java
@@ -2222,4 +2236,10 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/UscSyncInfoTest.java
+src/test/java/io/akeyless/client/model/AWSGatewayCloudIdentityExternalIdOptTest.java
+src/test/java/io/akeyless/client/model/CertificateExpirationEventsSettingsTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretDeleteSyncOutputTest.java
+src/test/java/io/akeyless/client/model/SecretSyncOutputTest.java
+src/test/java/io/akeyless/client/model/StaticSecretDeleteSyncOutputTest.java
+src/test/java/io/akeyless/client/model/StaticSecretDeleteSyncTest.java
+src/test/java/io/akeyless/client/model/StaticSecretSyncTest.java

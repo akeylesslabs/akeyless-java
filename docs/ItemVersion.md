@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**accessDate** | **OffsetDateTime** |  |  [optional] |
 |**accessDateDisplay** | **String** |  |  [optional] |
+|**accessId** | **String** |  |  [optional] |
 |**certificateVersionInfo** | [**CertificateVersionInfo**](CertificateVersionInfo.md) |  |  [optional] |
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
 |**customerFragmentId** | **String** |  |  [optional] |
@@ -16,6 +17,7 @@
 |**itemVersionState** | **String** | ItemState defines the different states an Item can be in |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**protectionKeyName** | **String** |  |  [optional] |
+|**uniqueIdentifier** | **String** |  |  [optional] |
 |**version** | **Integer** |  |  [optional] |
 |**withCustomerFragment** | **Boolean** |  |  [optional] |
 

@@ -8,6 +8,7 @@ dynamicSecretCreateMySql is a command that creates mysql dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional] |
 |**dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |

@@ -11,6 +11,7 @@ gatewayUpdateProducerLdap is a command that updates ldap producer [Deprecated: U
 |**providerType** | **String** |  |  [optional] |
 |**bindDn** | **String** | Bind DN |  [optional] |
 |**bindDnPassword** | **String** | Bind DN Password |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**externalUsername** | **String** | Externally provided username [true/false] |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) |  [optional] |

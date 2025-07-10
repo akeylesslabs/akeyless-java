@@ -13,6 +13,7 @@ uscCreate is a command that creates a new secret in a Universal Secrets Connecto
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**namespace** | **String** | The namespace (relevant for Hashi vault target) |  [optional] |
 |**objectType** | **String** |  |  [optional] |
+|**pfxPassword** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) |  [optional] |
 |**secretName** | **String** | Name for the new universal secrets |  |
 |**tags** | **Map&lt;String, String&gt;** | Tags for the universal secrets |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

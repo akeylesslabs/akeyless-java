@@ -11,9 +11,12 @@ GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake producer
 |**account** | **String** | Account name |  [optional] |
 |**accountPassword** | **String** | Database Password |  [optional] |
 |**accountUsername** | **String** | Database Username |  [optional] |
+|**authMode** | **String** | The authentication mode for the temporary user [password/key] |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**dbName** | **String** | Database name |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
+|**keyAlgo** | **String** |  |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |

@@ -12,6 +12,7 @@ gatewayUpdateProducerChef is a command that updates chef producer [Deprecated: U
 |**chefServerKey** | **String** | Server key |  [optional] |
 |**chefServerUrl** | **String** | Server URL |  [optional] |
 |**chefServerUsername** | **String** | Server username |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |

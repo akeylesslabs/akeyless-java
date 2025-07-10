@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**allowAnyName** | **Boolean** | If set, clients can request certificates for any CN |  [optional] |
 |**allowCopyExtFromCsr** | **Boolean** | If set, will allow copying the extra extensions from the csr file (if given) |  [optional] |
-|**allowSubdomains** | **Boolean** | If set, clients can request certificates for subdomains and wildcard subdomains of the allowed domains |  [optional] |
+|**allowSubdomains** | **Boolean** | If set, clients can request certificates for subdomains of the allowed domains |  [optional] |
 |**allowedDomains** | **String** | A list of the allowed domains that clients can request to be included in the certificate (in a comma-delimited list) |  [optional] |
 |**allowedExtraExtensions** | **String** | A json string containing the allowed extra extensions for the pki cert issuer |  [optional] |
 |**allowedIpSans** | **String** | A list of the allowed CIDRs for ips that clients can request to be included in the certificate as part of the IP Subject Alternative Names (in a comma-delimited list) |  [optional] |
@@ -25,6 +25,7 @@
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**destinationPath** | **String** | A path in which to save generated certificates |  [optional] |
+|**disableWildcards** | **Boolean** | If set, generation of wildcard certificates will be disabled. |  [optional] |
 |**enableAcme** | **Boolean** | If set, the cert issuer will support the acme protocol |  [optional] |
 |**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**gwClusterUrl** | **String** | The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME |  [optional] |

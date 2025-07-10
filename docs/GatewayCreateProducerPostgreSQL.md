@@ -9,6 +9,7 @@ gatewayCreateProducerPostgreSQL is a command that creates postgresql producer [D
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**creationStatements** | **String** | PostgreSQL Creation statements |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |

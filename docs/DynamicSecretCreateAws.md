@@ -12,11 +12,13 @@ dynamicSecretCreateAws is a command that creates aws dynamic secret
 |**adminRotationIntervalDays** | **Long** | Admin credentials rotation interval (days) |  [optional] |
 |**awsAccessKeyId** | **String** | Access Key ID |  [optional] |
 |**awsAccessSecretKey** | **String** | Secret Access Key |  [optional] |
+|**awsExternalId** | **String** | The AWS External ID associated with the AWS role (relevant only for assume_role mode) |  [optional] |
 |**awsRoleArns** | **String** | AWS Role ARNs to be used in the Assume Role operation (relevant only for assume_role mode) |  [optional] |
 |**awsUserConsoleAccess** | **Boolean** | AWS User console access |  [optional] |
 |**awsUserGroups** | **String** | AWS User groups |  [optional] |
 |**awsUserPolicies** | **String** | AWS User policies |  [optional] |
 |**awsUserProgrammaticAccess** | **Boolean** | Enable AWS User programmatic access |  [optional] |
+|**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**enableAdminRotation** | **Boolean** | Automatic admin credentials rotation |  [optional] |
