@@ -55,6 +55,11 @@ public class CreateGodaddyTarget {
   @javax.annotation.Nonnull
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  @javax.annotation.Nullable
+  private String customerId;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -139,6 +144,25 @@ public class CreateGodaddyTarget {
 
   public void setApiKey(@javax.annotation.Nonnull String apiKey) {
     this.apiKey = apiKey;
+  }
+
+
+  public CreateGodaddyTarget customerId(@javax.annotation.Nullable String customerId) {
+    this.customerId = customerId;
+    return this;
+  }
+
+  /**
+   * Customer ID (ShopperId) required for renewal of imported certificates
+   * @return customerId
+   */
+  @javax.annotation.Nullable
+  public String getCustomerId() {
+    return customerId;
+  }
+
+  public void setCustomerId(@javax.annotation.Nullable String customerId) {
+    this.customerId = customerId;
   }
 
 
@@ -400,6 +424,7 @@ public class CreateGodaddyTarget {
     }
     CreateGodaddyTarget createGodaddyTarget = (CreateGodaddyTarget) o;
     return Objects.equals(this.apiKey, createGodaddyTarget.apiKey) &&
+        Objects.equals(this.customerId, createGodaddyTarget.customerId) &&
         Objects.equals(this.description, createGodaddyTarget.description) &&
         Objects.equals(this.imapFqdn, createGodaddyTarget.imapFqdn) &&
         Objects.equals(this.imapPassword, createGodaddyTarget.imapPassword) &&
@@ -417,7 +442,7 @@ public class CreateGodaddyTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, description, imapFqdn, imapPassword, imapPort, imapUsername, json, key, maxVersions, name, secret, timeout, token, uidToken);
+    return Objects.hash(apiKey, customerId, description, imapFqdn, imapPassword, imapPort, imapUsername, json, key, maxVersions, name, secret, timeout, token, uidToken);
   }
 
   @Override
@@ -425,6 +450,7 @@ public class CreateGodaddyTarget {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGodaddyTarget {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imapFqdn: ").append(toIndentedString(imapFqdn)).append("\n");
     sb.append("    imapPassword: ").append(toIndentedString(imapPassword)).append("\n");
@@ -461,6 +487,7 @@ public class CreateGodaddyTarget {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("api-key");
+    openapiFields.add("customer_id");
     openapiFields.add("description");
     openapiFields.add("imap-fqdn");
     openapiFields.add("imap-password");
@@ -515,6 +542,9 @@ public class CreateGodaddyTarget {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("api-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `api-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-key").toString()));
+      }
+      if ((jsonObj.get("customer_id") != null && !jsonObj.get("customer_id").isJsonNull()) && !jsonObj.get("customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

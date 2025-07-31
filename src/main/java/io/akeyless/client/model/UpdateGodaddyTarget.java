@@ -60,6 +60,11 @@ public class UpdateGodaddyTarget {
   @javax.annotation.Nullable
   private String comment;
 
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  @javax.annotation.Nullable
+  private String customerId;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -178,6 +183,25 @@ public class UpdateGodaddyTarget {
 
   public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
+  }
+
+
+  public UpdateGodaddyTarget customerId(@javax.annotation.Nullable String customerId) {
+    this.customerId = customerId;
+    return this;
+  }
+
+  /**
+   * Customer ID (ShopperId) required for renewal of imported certificates
+   * @return customerId
+   */
+  @javax.annotation.Nullable
+  public String getCustomerId() {
+    return customerId;
+  }
+
+  public void setCustomerId(@javax.annotation.Nullable String customerId) {
+    this.customerId = customerId;
   }
 
 
@@ -497,6 +521,7 @@ public class UpdateGodaddyTarget {
     UpdateGodaddyTarget updateGodaddyTarget = (UpdateGodaddyTarget) o;
     return Objects.equals(this.apiKey, updateGodaddyTarget.apiKey) &&
         Objects.equals(this.comment, updateGodaddyTarget.comment) &&
+        Objects.equals(this.customerId, updateGodaddyTarget.customerId) &&
         Objects.equals(this.description, updateGodaddyTarget.description) &&
         Objects.equals(this.imapFqdn, updateGodaddyTarget.imapFqdn) &&
         Objects.equals(this.imapPassword, updateGodaddyTarget.imapPassword) &&
@@ -517,7 +542,7 @@ public class UpdateGodaddyTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, comment, description, imapFqdn, imapPassword, imapPort, imapUsername, json, keepPrevVersion, key, maxVersions, name, newName, secret, timeout, token, uidToken, updateVersion);
+    return Objects.hash(apiKey, comment, customerId, description, imapFqdn, imapPassword, imapPort, imapUsername, json, keepPrevVersion, key, maxVersions, name, newName, secret, timeout, token, uidToken, updateVersion);
   }
 
   @Override
@@ -526,6 +551,7 @@ public class UpdateGodaddyTarget {
     sb.append("class UpdateGodaddyTarget {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imapFqdn: ").append(toIndentedString(imapFqdn)).append("\n");
     sb.append("    imapPassword: ").append(toIndentedString(imapPassword)).append("\n");
@@ -566,6 +592,7 @@ public class UpdateGodaddyTarget {
     openapiFields = new HashSet<String>();
     openapiFields.add("api-key");
     openapiFields.add("comment");
+    openapiFields.add("customer_id");
     openapiFields.add("description");
     openapiFields.add("imap-fqdn");
     openapiFields.add("imap-password");
@@ -626,6 +653,9 @@ public class UpdateGodaddyTarget {
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      if ((jsonObj.get("customer_id") != null && !jsonObj.get("customer_id").isJsonNull()) && !jsonObj.get("customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

@@ -19,6 +19,7 @@ gatewayCreateProducerNativeK8S is a command that creates k8s producer [Deprecate
 |**k8sNamespace** | **String** | K8S Namespace where the ServiceAccount exists. |  [optional] |
 |**k8sPredefinedRoleName** | **String** | The pre-existing Role or ClusterRole name to bind the generated ServiceAccount to (relevant only for k8s-service-account-type&#x3D;dynamic) |  [optional] |
 |**k8sPredefinedRoleType** | **String** | Specifies the type of the pre-existing K8S role [Role, ClusterRole] (relevant only for k8s-service-account-type&#x3D;dynamic) |  [optional] |
+|**k8sRolebindingYamlData** | **String** | Content of the yaml in a Base64 format. |  [optional] |
 |**k8sRolebindingYamlDef** | **String** | Path to yaml file that contains definitions of K8S role and role binding (relevant only for k8s-service-account-type&#x3D;dynamic) |  [optional] |
 |**k8sServiceAccount** | **String** | K8S ServiceAccount to extract token from. |  [optional] |
 |**k8sServiceAccountType** | **String** | K8S ServiceAccount type [fixed, dynamic]. |  [optional] |

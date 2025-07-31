@@ -23434,6 +23434,9 @@ components:
             keyboard_layout: keyboard_layout
           rdp_record:
             storage_type: storage_type
+            compress: true
+            encryption_key: encryption_key
+            recording_quality: recording_quality
             aws:
               access_key_id: access_key_id
               bucket: bucket
@@ -29616,6 +29619,7 @@ components:
             imap_fqdn: imap_fqdn
             validation_email: validation_email
             imap_user: imap_user
+            shopper_id: shopper_id
             secret: secret
             imap_password: imap_password
             key: key
@@ -29847,6 +29851,7 @@ components:
         imap_fqdn: imap_fqdn
         validation_email: validation_email
         imap_user: imap_user
+        shopper_id: shopper_id
         secret: secret
         imap_password: imap_password
         key: key
@@ -29870,6 +29875,10 @@ components:
         secret:
           type: string
           x-go-name: Secret
+        shopper_id:
+          description: "Optional, used to find the certificate ID in GoDaddy's API"
+          type: string
+          x-go-name: ShopperID
         timeout:
           description: |-
             A Duration represents the elapsed time between two instants
@@ -40326,6 +40335,9 @@ components:
     RecordStorageType:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
+    RecordingQuality:
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
     RegexpTokenizerInfo:
       description: RegexpTokenizerInfo represents a general Regexp tokenization template
       example:
@@ -42965,6 +42977,7 @@ components:
           imap_fqdn: imap_fqdn
           validation_email: validation_email
           imap_user: imap_user
+          shopper_id: shopper_id
           secret: secret
           imap_password: imap_password
           key: key
@@ -43910,6 +43923,9 @@ components:
           keyboard_layout: keyboard_layout
         rdp_record:
           storage_type: storage_type
+          compress: true
+          encryption_key: encryption_key
+          recording_quality: recording_quality
           aws:
             access_key_id: access_key_id
             bucket: bucket
@@ -43943,6 +43959,9 @@ components:
     WebBastionRdpRecord:
       example:
         storage_type: storage_type
+        compress: true
+        encryption_key: encryption_key
+        recording_quality: recording_quality
         aws:
           access_key_id: access_key_id
           bucket: bucket
@@ -43962,6 +43981,15 @@ components:
           $ref: '#/components/schemas/AwsStorage'
         azure:
           $ref: '#/components/schemas/AzureStorage'
+        compress:
+          type: boolean
+          x-go-name: Compress
+        encryption_key:
+          type: string
+          x-go-name: EncryptionKey
+        recording_quality:
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
         storage_type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/gator
@@ -51737,6 +51765,10 @@ components:
           description: Key of the api credentials to the Godaddy account
           type: string
           x-go-name: Key
+        customer_id:
+          description: Customer ID (ShopperId) required for renewal of imported certificates
+          type: string
+          x-go-name: CustomerID
         description:
           description: Description of the object
           type: string
@@ -56309,6 +56341,10 @@ components:
             \ (relevant only for k8s-service-account-type=dynamic)"
           type: string
           x-go-name: PredefinedRoleType
+        k8s-rolebinding-yaml-data:
+          description: Content of the yaml in a Base64 format.
+          type: string
+          x-go-name: RoleBindingYamlData
         k8s-rolebinding-yaml-def:
           description: Path to yaml file that contains definitions of K8S role and
             role binding (relevant only for k8s-service-account-type=dynamic)
@@ -60219,6 +60255,10 @@ components:
             \ (relevant only for k8s-service-account-type=dynamic)"
           type: string
           x-go-name: PredefinedRoleType
+        k8s-rolebinding-yaml-data:
+          description: Content of the yaml in a Base64 format.
+          type: string
+          x-go-name: RoleBindingYamlData
         k8s-rolebinding-yaml-def:
           description: Path to yaml file that contains definitions of K8S role and
             role binding (relevant only for k8s-service-account-type=dynamic)
@@ -72109,6 +72149,10 @@ components:
             \ (relevant only for k8s-service-account-type=dynamic)"
           type: string
           x-go-name: PredefinedRoleType
+        k8s-rolebinding-yaml-data:
+          description: Content of the yaml in a Base64 format.
+          type: string
+          x-go-name: RoleBindingYamlData
         k8s-rolebinding-yaml-def:
           description: Path to yaml file that contains definitions of K8S role and
             role binding (relevant only for k8s-service-account-type=dynamic)
@@ -87771,6 +87815,10 @@ components:
             \ (relevant only for k8s-service-account-type=dynamic)"
           type: string
           x-go-name: PredefinedRoleType
+        k8s-rolebinding-yaml-data:
+          description: Content of the yaml in a Base64 format.
+          type: string
+          x-go-name: RoleBindingYamlData
         k8s-rolebinding-yaml-def:
           description: Path to yaml file that contains definitions of K8S role and
             role binding (relevant only for k8s-service-account-type=dynamic)
@@ -92771,6 +92819,18 @@ components:
           description: "Enable recording of rdp session [true/false]"
           type: string
           x-go-name: IsEnabled
+        rdp-session-recording-compress:
+          description: Whether to compress recording files before upload
+          type: boolean
+          x-go-name: RdpSessionRecordingCompress
+        rdp-session-recording-encryption-key:
+          description: "If provided, this key will be used to encrypt uploaded recordings."
+          type: string
+          x-go-name: RdpSessionRecordingEncKey
+        rdp-session-recording-quality:
+          description: "RDP session recording quality [low/medium/high]"
+          type: string
+          x-go-name: RdpSessionRecordingQuality
         rdp-session-storage:
           description: "Rdp session recording storage destination [local/aws/azure]"
           type: string
@@ -102385,6 +102445,10 @@ components:
           description: Key of the api credentials to the Godaddy account
           type: string
           x-go-name: Key
+        customer_id:
+          description: Customer ID (ShopperId) required for renewal of imported certificates
+          type: string
+          x-go-name: CustomerID
         description:
           description: Description of the object
           type: string
@@ -104355,6 +104419,10 @@ components:
           description: Key of the api credentials to the Godaddy account
           type: string
           x-go-name: Key
+        customer_id:
+          description: Customer ID (ShopperId) required for renewal of imported certificates
+          type: string
+          x-go-name: CustomerID
         description:
           description: Description of the object
           type: string
@@ -109095,6 +109163,10 @@ components:
           description: Deprecated - use description
           type: string
           x-go-name: Comment
+        customer_id:
+          description: Customer ID (ShopperId) required for renewal of imported certificates
+          type: string
+          x-go-name: CustomerID
         description:
           description: Description of the object
           type: string

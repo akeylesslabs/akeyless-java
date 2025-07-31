@@ -20,6 +20,9 @@ gatewayUpdateRemoteAccessRdpRecordings is a command that update remote access rd
 |**azureStorageTenantId** | **String** | Azure tenant id. For more information refer to https://learn.microsoft.com/en-us/entra/fundamentals/how-to-find-tenant |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**rdpSessionRecording** | **String** | Enable recording of rdp session [true/false] |  [optional] |
+|**rdpSessionRecordingCompress** | **Boolean** | Whether to compress recording files before upload |  [optional] |
+|**rdpSessionRecordingEncryptionKey** | **String** | If provided, this key will be used to encrypt uploaded recordings. |  [optional] |
+|**rdpSessionRecordingQuality** | **String** | RDP session recording quality [low/medium/high] |  [optional] |
 |**rdpSessionStorage** | **String** | Rdp session recording storage destination [local/aws/azure] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

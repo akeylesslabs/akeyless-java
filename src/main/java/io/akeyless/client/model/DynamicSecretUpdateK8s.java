@@ -112,6 +112,11 @@ public class DynamicSecretUpdateK8s {
   @javax.annotation.Nullable
   private String k8sPredefinedRoleType;
 
+  public static final String SERIALIZED_NAME_K8S_ROLEBINDING_YAML_DATA = "k8s-rolebinding-yaml-data";
+  @SerializedName(SERIALIZED_NAME_K8S_ROLEBINDING_YAML_DATA)
+  @javax.annotation.Nullable
+  private String k8sRolebindingYamlData;
+
   public static final String SERIALIZED_NAME_K8S_ROLEBINDING_YAML_DEF = "k8s-rolebinding-yaml-def";
   @SerializedName(SERIALIZED_NAME_K8S_ROLEBINDING_YAML_DEF)
   @javax.annotation.Nullable
@@ -450,6 +455,25 @@ public class DynamicSecretUpdateK8s {
 
   public void setK8sPredefinedRoleType(@javax.annotation.Nullable String k8sPredefinedRoleType) {
     this.k8sPredefinedRoleType = k8sPredefinedRoleType;
+  }
+
+
+  public DynamicSecretUpdateK8s k8sRolebindingYamlData(@javax.annotation.Nullable String k8sRolebindingYamlData) {
+    this.k8sRolebindingYamlData = k8sRolebindingYamlData;
+    return this;
+  }
+
+  /**
+   * Content of the yaml in a Base64 format.
+   * @return k8sRolebindingYamlData
+   */
+  @javax.annotation.Nullable
+  public String getK8sRolebindingYamlData() {
+    return k8sRolebindingYamlData;
+  }
+
+  public void setK8sRolebindingYamlData(@javax.annotation.Nullable String k8sRolebindingYamlData) {
+    this.k8sRolebindingYamlData = k8sRolebindingYamlData;
   }
 
 
@@ -901,6 +925,7 @@ public class DynamicSecretUpdateK8s {
         Objects.equals(this.k8sNamespace, dynamicSecretUpdateK8s.k8sNamespace) &&
         Objects.equals(this.k8sPredefinedRoleName, dynamicSecretUpdateK8s.k8sPredefinedRoleName) &&
         Objects.equals(this.k8sPredefinedRoleType, dynamicSecretUpdateK8s.k8sPredefinedRoleType) &&
+        Objects.equals(this.k8sRolebindingYamlData, dynamicSecretUpdateK8s.k8sRolebindingYamlData) &&
         Objects.equals(this.k8sRolebindingYamlDef, dynamicSecretUpdateK8s.k8sRolebindingYamlDef) &&
         Objects.equals(this.k8sServiceAccount, dynamicSecretUpdateK8s.k8sServiceAccount) &&
         Objects.equals(this.k8sServiceAccountType, dynamicSecretUpdateK8s.k8sServiceAccountType) &&
@@ -927,7 +952,7 @@ public class DynamicSecretUpdateK8s {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
@@ -946,6 +971,7 @@ public class DynamicSecretUpdateK8s {
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    k8sPredefinedRoleName: ").append(toIndentedString(k8sPredefinedRoleName)).append("\n");
     sb.append("    k8sPredefinedRoleType: ").append(toIndentedString(k8sPredefinedRoleType)).append("\n");
+    sb.append("    k8sRolebindingYamlData: ").append(toIndentedString(k8sRolebindingYamlData)).append("\n");
     sb.append("    k8sRolebindingYamlDef: ").append(toIndentedString(k8sRolebindingYamlDef)).append("\n");
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
     sb.append("    k8sServiceAccountType: ").append(toIndentedString(k8sServiceAccountType)).append("\n");
@@ -1002,6 +1028,7 @@ public class DynamicSecretUpdateK8s {
     openapiFields.add("k8s-namespace");
     openapiFields.add("k8s-predefined-role-name");
     openapiFields.add("k8s-predefined-role-type");
+    openapiFields.add("k8s-rolebinding-yaml-data");
     openapiFields.add("k8s-rolebinding-yaml-def");
     openapiFields.add("k8s-service-account");
     openapiFields.add("k8s-service-account-type");
@@ -1090,6 +1117,9 @@ public class DynamicSecretUpdateK8s {
       }
       if ((jsonObj.get("k8s-predefined-role-type") != null && !jsonObj.get("k8s-predefined-role-type").isJsonNull()) && !jsonObj.get("k8s-predefined-role-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-predefined-role-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-predefined-role-type").toString()));
+      }
+      if ((jsonObj.get("k8s-rolebinding-yaml-data") != null && !jsonObj.get("k8s-rolebinding-yaml-data").isJsonNull()) && !jsonObj.get("k8s-rolebinding-yaml-data").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `k8s-rolebinding-yaml-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-rolebinding-yaml-data").toString()));
       }
       if ((jsonObj.get("k8s-rolebinding-yaml-def") != null && !jsonObj.get("k8s-rolebinding-yaml-def").isJsonNull()) && !jsonObj.get("k8s-rolebinding-yaml-def").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-rolebinding-yaml-def` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-rolebinding-yaml-def").toString()));

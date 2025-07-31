@@ -62,6 +62,21 @@ public class WebBastionRdpRecord {
   @javax.annotation.Nullable
   private AzureStorage azure;
 
+  public static final String SERIALIZED_NAME_COMPRESS = "compress";
+  @SerializedName(SERIALIZED_NAME_COMPRESS)
+  @javax.annotation.Nullable
+  private Boolean compress;
+
+  public static final String SERIALIZED_NAME_ENCRYPTION_KEY = "encryption_key";
+  @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY)
+  @javax.annotation.Nullable
+  private String encryptionKey;
+
+  public static final String SERIALIZED_NAME_RECORDING_QUALITY = "recording_quality";
+  @SerializedName(SERIALIZED_NAME_RECORDING_QUALITY)
+  @javax.annotation.Nullable
+  private String recordingQuality;
+
   public static final String SERIALIZED_NAME_STORAGE_TYPE = "storage_type";
   @SerializedName(SERIALIZED_NAME_STORAGE_TYPE)
   @javax.annotation.Nullable
@@ -108,6 +123,63 @@ public class WebBastionRdpRecord {
   }
 
 
+  public WebBastionRdpRecord compress(@javax.annotation.Nullable Boolean compress) {
+    this.compress = compress;
+    return this;
+  }
+
+  /**
+   * Get compress
+   * @return compress
+   */
+  @javax.annotation.Nullable
+  public Boolean getCompress() {
+    return compress;
+  }
+
+  public void setCompress(@javax.annotation.Nullable Boolean compress) {
+    this.compress = compress;
+  }
+
+
+  public WebBastionRdpRecord encryptionKey(@javax.annotation.Nullable String encryptionKey) {
+    this.encryptionKey = encryptionKey;
+    return this;
+  }
+
+  /**
+   * Get encryptionKey
+   * @return encryptionKey
+   */
+  @javax.annotation.Nullable
+  public String getEncryptionKey() {
+    return encryptionKey;
+  }
+
+  public void setEncryptionKey(@javax.annotation.Nullable String encryptionKey) {
+    this.encryptionKey = encryptionKey;
+  }
+
+
+  public WebBastionRdpRecord recordingQuality(@javax.annotation.Nullable String recordingQuality) {
+    this.recordingQuality = recordingQuality;
+    return this;
+  }
+
+  /**
+   * Get recordingQuality
+   * @return recordingQuality
+   */
+  @javax.annotation.Nullable
+  public String getRecordingQuality() {
+    return recordingQuality;
+  }
+
+  public void setRecordingQuality(@javax.annotation.Nullable String recordingQuality) {
+    this.recordingQuality = recordingQuality;
+  }
+
+
   public WebBastionRdpRecord storageType(@javax.annotation.Nullable String storageType) {
     this.storageType = storageType;
     return this;
@@ -139,12 +211,15 @@ public class WebBastionRdpRecord {
     WebBastionRdpRecord webBastionRdpRecord = (WebBastionRdpRecord) o;
     return Objects.equals(this.aws, webBastionRdpRecord.aws) &&
         Objects.equals(this.azure, webBastionRdpRecord.azure) &&
+        Objects.equals(this.compress, webBastionRdpRecord.compress) &&
+        Objects.equals(this.encryptionKey, webBastionRdpRecord.encryptionKey) &&
+        Objects.equals(this.recordingQuality, webBastionRdpRecord.recordingQuality) &&
         Objects.equals(this.storageType, webBastionRdpRecord.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aws, azure, storageType);
+    return Objects.hash(aws, azure, compress, encryptionKey, recordingQuality, storageType);
   }
 
   @Override
@@ -153,6 +228,9 @@ public class WebBastionRdpRecord {
     sb.append("class WebBastionRdpRecord {\n");
     sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
     sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
+    sb.append("    compress: ").append(toIndentedString(compress)).append("\n");
+    sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
+    sb.append("    recordingQuality: ").append(toIndentedString(recordingQuality)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -178,6 +256,9 @@ public class WebBastionRdpRecord {
     openapiFields = new HashSet<String>();
     openapiFields.add("aws");
     openapiFields.add("azure");
+    openapiFields.add("compress");
+    openapiFields.add("encryption_key");
+    openapiFields.add("recording_quality");
     openapiFields.add("storage_type");
 
     // a set of required properties/fields (JSON key names)
@@ -212,6 +293,12 @@ public class WebBastionRdpRecord {
       // validate the optional field `azure`
       if (jsonObj.get("azure") != null && !jsonObj.get("azure").isJsonNull()) {
         AzureStorage.validateJsonElement(jsonObj.get("azure"));
+      }
+      if ((jsonObj.get("encryption_key") != null && !jsonObj.get("encryption_key").isJsonNull()) && !jsonObj.get("encryption_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
+      }
+      if ((jsonObj.get("recording_quality") != null && !jsonObj.get("recording_quality").isJsonNull()) && !jsonObj.get("recording_quality").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `recording_quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recording_quality").toString()));
       }
       if ((jsonObj.get("storage_type") != null && !jsonObj.get("storage_type").isJsonNull()) && !jsonObj.get("storage_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `storage_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_type").toString()));

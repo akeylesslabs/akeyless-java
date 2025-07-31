@@ -80,6 +80,11 @@ public class GodaddyTargetDetails {
   @javax.annotation.Nullable
   private String secret;
 
+  public static final String SERIALIZED_NAME_SHOPPER_ID = "shopper_id";
+  @SerializedName(SERIALIZED_NAME_SHOPPER_ID)
+  @javax.annotation.Nullable
+  private String shopperId;
+
   public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
   @SerializedName(SERIALIZED_NAME_TIMEOUT)
   @javax.annotation.Nullable
@@ -207,6 +212,25 @@ public class GodaddyTargetDetails {
   }
 
 
+  public GodaddyTargetDetails shopperId(@javax.annotation.Nullable String shopperId) {
+    this.shopperId = shopperId;
+    return this;
+  }
+
+  /**
+   * Optional, used to find the certificate ID in GoDaddy&#39;s API
+   * @return shopperId
+   */
+  @javax.annotation.Nullable
+  public String getShopperId() {
+    return shopperId;
+  }
+
+  public void setShopperId(@javax.annotation.Nullable String shopperId) {
+    this.shopperId = shopperId;
+  }
+
+
   public GodaddyTargetDetails timeout(@javax.annotation.Nullable Long timeout) {
     this.timeout = timeout;
     return this;
@@ -261,13 +285,14 @@ public class GodaddyTargetDetails {
         Objects.equals(this.imapUser, godaddyTargetDetails.imapUser) &&
         Objects.equals(this.key, godaddyTargetDetails.key) &&
         Objects.equals(this.secret, godaddyTargetDetails.secret) &&
+        Objects.equals(this.shopperId, godaddyTargetDetails.shopperId) &&
         Objects.equals(this.timeout, godaddyTargetDetails.timeout) &&
         Objects.equals(this.validationEmail, godaddyTargetDetails.validationEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(imapFqdn, imapPassword, imapPort, imapUser, key, secret, timeout, validationEmail);
+    return Objects.hash(imapFqdn, imapPassword, imapPort, imapUser, key, secret, shopperId, timeout, validationEmail);
   }
 
   @Override
@@ -280,6 +305,7 @@ public class GodaddyTargetDetails {
     sb.append("    imapUser: ").append(toIndentedString(imapUser)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
+    sb.append("    shopperId: ").append(toIndentedString(shopperId)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    validationEmail: ").append(toIndentedString(validationEmail)).append("\n");
     sb.append("}");
@@ -310,6 +336,7 @@ public class GodaddyTargetDetails {
     openapiFields.add("imap_user");
     openapiFields.add("key");
     openapiFields.add("secret");
+    openapiFields.add("shopper_id");
     openapiFields.add("timeout");
     openapiFields.add("validation_email");
 
@@ -355,6 +382,9 @@ public class GodaddyTargetDetails {
       }
       if ((jsonObj.get("secret") != null && !jsonObj.get("secret").isJsonNull()) && !jsonObj.get("secret").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret").toString()));
+      }
+      if ((jsonObj.get("shopper_id") != null && !jsonObj.get("shopper_id").isJsonNull()) && !jsonObj.get("shopper_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shopper_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shopper_id").toString()));
       }
       if ((jsonObj.get("validation_email") != null && !jsonObj.get("validation_email").isJsonNull()) && !jsonObj.get("validation_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `validation_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validation_email").toString()));

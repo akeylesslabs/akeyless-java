@@ -110,6 +110,21 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
   @javax.annotation.Nullable
   private String rdpSessionRecording;
 
+  public static final String SERIALIZED_NAME_RDP_SESSION_RECORDING_COMPRESS = "rdp-session-recording-compress";
+  @SerializedName(SERIALIZED_NAME_RDP_SESSION_RECORDING_COMPRESS)
+  @javax.annotation.Nullable
+  private Boolean rdpSessionRecordingCompress;
+
+  public static final String SERIALIZED_NAME_RDP_SESSION_RECORDING_ENCRYPTION_KEY = "rdp-session-recording-encryption-key";
+  @SerializedName(SERIALIZED_NAME_RDP_SESSION_RECORDING_ENCRYPTION_KEY)
+  @javax.annotation.Nullable
+  private String rdpSessionRecordingEncryptionKey;
+
+  public static final String SERIALIZED_NAME_RDP_SESSION_RECORDING_QUALITY = "rdp-session-recording-quality";
+  @SerializedName(SERIALIZED_NAME_RDP_SESSION_RECORDING_QUALITY)
+  @javax.annotation.Nullable
+  private String rdpSessionRecordingQuality;
+
   public static final String SERIALIZED_NAME_RDP_SESSION_STORAGE = "rdp-session-storage";
   @SerializedName(SERIALIZED_NAME_RDP_SESSION_STORAGE)
   @javax.annotation.Nullable
@@ -356,6 +371,63 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
   }
 
 
+  public GatewayUpdateRemoteAccessRdpRecordings rdpSessionRecordingCompress(@javax.annotation.Nullable Boolean rdpSessionRecordingCompress) {
+    this.rdpSessionRecordingCompress = rdpSessionRecordingCompress;
+    return this;
+  }
+
+  /**
+   * Whether to compress recording files before upload
+   * @return rdpSessionRecordingCompress
+   */
+  @javax.annotation.Nullable
+  public Boolean getRdpSessionRecordingCompress() {
+    return rdpSessionRecordingCompress;
+  }
+
+  public void setRdpSessionRecordingCompress(@javax.annotation.Nullable Boolean rdpSessionRecordingCompress) {
+    this.rdpSessionRecordingCompress = rdpSessionRecordingCompress;
+  }
+
+
+  public GatewayUpdateRemoteAccessRdpRecordings rdpSessionRecordingEncryptionKey(@javax.annotation.Nullable String rdpSessionRecordingEncryptionKey) {
+    this.rdpSessionRecordingEncryptionKey = rdpSessionRecordingEncryptionKey;
+    return this;
+  }
+
+  /**
+   * If provided, this key will be used to encrypt uploaded recordings.
+   * @return rdpSessionRecordingEncryptionKey
+   */
+  @javax.annotation.Nullable
+  public String getRdpSessionRecordingEncryptionKey() {
+    return rdpSessionRecordingEncryptionKey;
+  }
+
+  public void setRdpSessionRecordingEncryptionKey(@javax.annotation.Nullable String rdpSessionRecordingEncryptionKey) {
+    this.rdpSessionRecordingEncryptionKey = rdpSessionRecordingEncryptionKey;
+  }
+
+
+  public GatewayUpdateRemoteAccessRdpRecordings rdpSessionRecordingQuality(@javax.annotation.Nullable String rdpSessionRecordingQuality) {
+    this.rdpSessionRecordingQuality = rdpSessionRecordingQuality;
+    return this;
+  }
+
+  /**
+   * RDP session recording quality [low/medium/high]
+   * @return rdpSessionRecordingQuality
+   */
+  @javax.annotation.Nullable
+  public String getRdpSessionRecordingQuality() {
+    return rdpSessionRecordingQuality;
+  }
+
+  public void setRdpSessionRecordingQuality(@javax.annotation.Nullable String rdpSessionRecordingQuality) {
+    this.rdpSessionRecordingQuality = rdpSessionRecordingQuality;
+  }
+
+
   public GatewayUpdateRemoteAccessRdpRecordings rdpSessionStorage(@javax.annotation.Nullable String rdpSessionStorage) {
     this.rdpSessionStorage = rdpSessionStorage;
     return this;
@@ -435,6 +507,9 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
         Objects.equals(this.azureStorageTenantId, gatewayUpdateRemoteAccessRdpRecordings.azureStorageTenantId) &&
         Objects.equals(this.json, gatewayUpdateRemoteAccessRdpRecordings.json) &&
         Objects.equals(this.rdpSessionRecording, gatewayUpdateRemoteAccessRdpRecordings.rdpSessionRecording) &&
+        Objects.equals(this.rdpSessionRecordingCompress, gatewayUpdateRemoteAccessRdpRecordings.rdpSessionRecordingCompress) &&
+        Objects.equals(this.rdpSessionRecordingEncryptionKey, gatewayUpdateRemoteAccessRdpRecordings.rdpSessionRecordingEncryptionKey) &&
+        Objects.equals(this.rdpSessionRecordingQuality, gatewayUpdateRemoteAccessRdpRecordings.rdpSessionRecordingQuality) &&
         Objects.equals(this.rdpSessionStorage, gatewayUpdateRemoteAccessRdpRecordings.rdpSessionStorage) &&
         Objects.equals(this.token, gatewayUpdateRemoteAccessRdpRecordings.token) &&
         Objects.equals(this.uidToken, gatewayUpdateRemoteAccessRdpRecordings.uidToken);
@@ -442,7 +517,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsStorageAccessKeyId, awsStorageBucketName, awsStorageBucketPrefix, awsStorageRegion, awsStorageSecretAccessKey, azureStorageAccountName, azureStorageClientId, azureStorageClientSecret, azureStorageContainerName, azureStorageTenantId, json, rdpSessionRecording, rdpSessionStorage, token, uidToken);
+    return Objects.hash(awsStorageAccessKeyId, awsStorageBucketName, awsStorageBucketPrefix, awsStorageRegion, awsStorageSecretAccessKey, azureStorageAccountName, azureStorageClientId, azureStorageClientSecret, azureStorageContainerName, azureStorageTenantId, json, rdpSessionRecording, rdpSessionRecordingCompress, rdpSessionRecordingEncryptionKey, rdpSessionRecordingQuality, rdpSessionStorage, token, uidToken);
   }
 
   @Override
@@ -461,6 +536,9 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
     sb.append("    azureStorageTenantId: ").append(toIndentedString(azureStorageTenantId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    rdpSessionRecording: ").append(toIndentedString(rdpSessionRecording)).append("\n");
+    sb.append("    rdpSessionRecordingCompress: ").append(toIndentedString(rdpSessionRecordingCompress)).append("\n");
+    sb.append("    rdpSessionRecordingEncryptionKey: ").append(toIndentedString(rdpSessionRecordingEncryptionKey)).append("\n");
+    sb.append("    rdpSessionRecordingQuality: ").append(toIndentedString(rdpSessionRecordingQuality)).append("\n");
     sb.append("    rdpSessionStorage: ").append(toIndentedString(rdpSessionStorage)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -498,6 +576,9 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
     openapiFields.add("azure-storage-tenant-id");
     openapiFields.add("json");
     openapiFields.add("rdp-session-recording");
+    openapiFields.add("rdp-session-recording-compress");
+    openapiFields.add("rdp-session-recording-encryption-key");
+    openapiFields.add("rdp-session-recording-quality");
     openapiFields.add("rdp-session-storage");
     openapiFields.add("token");
     openapiFields.add("uid-token");
@@ -559,6 +640,12 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
       }
       if ((jsonObj.get("rdp-session-recording") != null && !jsonObj.get("rdp-session-recording").isJsonNull()) && !jsonObj.get("rdp-session-recording").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rdp-session-recording` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording").toString()));
+      }
+      if ((jsonObj.get("rdp-session-recording-encryption-key") != null && !jsonObj.get("rdp-session-recording-encryption-key").isJsonNull()) && !jsonObj.get("rdp-session-recording-encryption-key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rdp-session-recording-encryption-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording-encryption-key").toString()));
+      }
+      if ((jsonObj.get("rdp-session-recording-quality") != null && !jsonObj.get("rdp-session-recording-quality").isJsonNull()) && !jsonObj.get("rdp-session-recording-quality").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rdp-session-recording-quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording-quality").toString()));
       }
       if ((jsonObj.get("rdp-session-storage") != null && !jsonObj.get("rdp-session-storage").isJsonNull()) && !jsonObj.get("rdp-session-storage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rdp-session-storage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-storage").toString()));
