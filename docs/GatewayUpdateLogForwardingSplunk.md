@@ -9,6 +9,7 @@ gatewayUpdateLogForwardingSplunk is a command that updates log forwarding config
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**enable** | **String** | Enable Log Forwarding [true/false] |  [optional] |
+|**enableBatch** | **String** | Enable batch forwarding [true/false] |  [optional] |
 |**enableTls** | **Boolean** | Enable tls |  [optional] |
 |**index** | **String** | Splunk index |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

@@ -55,6 +55,11 @@ public class GatewayUpdateLogForwardingSplunk {
   @javax.annotation.Nullable
   private String enable = "true";
 
+  public static final String SERIALIZED_NAME_ENABLE_BATCH = "enable-batch";
+  @SerializedName(SERIALIZED_NAME_ENABLE_BATCH)
+  @javax.annotation.Nullable
+  private String enableBatch = "true";
+
   public static final String SERIALIZED_NAME_ENABLE_TLS = "enable-tls";
   @SerializedName(SERIALIZED_NAME_ENABLE_TLS)
   @javax.annotation.Nullable
@@ -134,6 +139,25 @@ public class GatewayUpdateLogForwardingSplunk {
 
   public void setEnable(@javax.annotation.Nullable String enable) {
     this.enable = enable;
+  }
+
+
+  public GatewayUpdateLogForwardingSplunk enableBatch(@javax.annotation.Nullable String enableBatch) {
+    this.enableBatch = enableBatch;
+    return this;
+  }
+
+  /**
+   * Enable batch forwarding [true/false]
+   * @return enableBatch
+   */
+  @javax.annotation.Nullable
+  public String getEnableBatch() {
+    return enableBatch;
+  }
+
+  public void setEnableBatch(@javax.annotation.Nullable String enableBatch) {
+    this.enableBatch = enableBatch;
   }
 
 
@@ -376,6 +400,7 @@ public class GatewayUpdateLogForwardingSplunk {
     }
     GatewayUpdateLogForwardingSplunk gatewayUpdateLogForwardingSplunk = (GatewayUpdateLogForwardingSplunk) o;
     return Objects.equals(this.enable, gatewayUpdateLogForwardingSplunk.enable) &&
+        Objects.equals(this.enableBatch, gatewayUpdateLogForwardingSplunk.enableBatch) &&
         Objects.equals(this.enableTls, gatewayUpdateLogForwardingSplunk.enableTls) &&
         Objects.equals(this.index, gatewayUpdateLogForwardingSplunk.index) &&
         Objects.equals(this.json, gatewayUpdateLogForwardingSplunk.json) &&
@@ -392,7 +417,7 @@ public class GatewayUpdateLogForwardingSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, enableTls, index, json, outputFormat, pullInterval, source, sourceType, splunkToken, splunkUrl, tlsCertificate, token, uidToken);
+    return Objects.hash(enable, enableBatch, enableTls, index, json, outputFormat, pullInterval, source, sourceType, splunkToken, splunkUrl, tlsCertificate, token, uidToken);
   }
 
   @Override
@@ -400,6 +425,7 @@ public class GatewayUpdateLogForwardingSplunk {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateLogForwardingSplunk {\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    enableBatch: ").append(toIndentedString(enableBatch)).append("\n");
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    index: ").append(toIndentedString(index)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -435,6 +461,7 @@ public class GatewayUpdateLogForwardingSplunk {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("enable");
+    openapiFields.add("enable-batch");
     openapiFields.add("enable-tls");
     openapiFields.add("index");
     openapiFields.add("json");
@@ -475,6 +502,9 @@ public class GatewayUpdateLogForwardingSplunk {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("enable") != null && !jsonObj.get("enable").isJsonNull()) && !jsonObj.get("enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable").toString()));
+      }
+      if ((jsonObj.get("enable-batch") != null && !jsonObj.get("enable-batch").isJsonNull()) && !jsonObj.get("enable-batch").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `enable-batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-batch").toString()));
       }
       if ((jsonObj.get("index") != null && !jsonObj.get("index").isJsonNull()) && !jsonObj.get("index").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `index` to be a primitive type in the JSON string but got `%s`", jsonObj.get("index").toString()));

@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class StaticSecretSync {
+  public static final String SERIALIZED_NAME_FILTER_SECRET_VALUE = "filter-secret-value";
+  @SerializedName(SERIALIZED_NAME_FILTER_SECRET_VALUE)
+  @javax.annotation.Nullable
+  private String filterSecretValue;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -87,6 +92,25 @@ public class StaticSecretSync {
 
   public StaticSecretSync() {
   }
+
+  public StaticSecretSync filterSecretValue(@javax.annotation.Nullable String filterSecretValue) {
+    this.filterSecretValue = filterSecretValue;
+    return this;
+  }
+
+  /**
+   * JQ expression to filter or transform the secret value
+   * @return filterSecretValue
+   */
+  @javax.annotation.Nullable
+  public String getFilterSecretValue() {
+    return filterSecretValue;
+  }
+
+  public void setFilterSecretValue(@javax.annotation.Nullable String filterSecretValue) {
+    this.filterSecretValue = filterSecretValue;
+  }
+
 
   public StaticSecretSync json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
@@ -231,7 +255,8 @@ public class StaticSecretSync {
       return false;
     }
     StaticSecretSync staticSecretSync = (StaticSecretSync) o;
-    return Objects.equals(this.json, staticSecretSync.json) &&
+    return Objects.equals(this.filterSecretValue, staticSecretSync.filterSecretValue) &&
+        Objects.equals(this.json, staticSecretSync.json) &&
         Objects.equals(this.name, staticSecretSync.name) &&
         Objects.equals(this.namespace, staticSecretSync.namespace) &&
         Objects.equals(this.remoteSecretName, staticSecretSync.remoteSecretName) &&
@@ -242,13 +267,14 @@ public class StaticSecretSync {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, namespace, remoteSecretName, token, uidToken, uscName);
+    return Objects.hash(filterSecretValue, json, name, namespace, remoteSecretName, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretSync {\n");
+    sb.append("    filterSecretValue: ").append(toIndentedString(filterSecretValue)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
@@ -278,6 +304,7 @@ public class StaticSecretSync {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("filter-secret-value");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("namespace");
@@ -319,6 +346,9 @@ public class StaticSecretSync {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("filter-secret-value") != null && !jsonObj.get("filter-secret-value").isJsonNull()) && !jsonObj.get("filter-secret-value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `filter-secret-value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter-secret-value").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

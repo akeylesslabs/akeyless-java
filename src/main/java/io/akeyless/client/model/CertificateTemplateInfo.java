@@ -70,6 +70,11 @@ public class CertificateTemplateInfo {
   @javax.annotation.Nullable
   private String digestAlgo;
 
+  public static final String SERIALIZED_NAME_HASH_ALGORITHM = "hash_algorithm";
+  @SerializedName(SERIALIZED_NAME_HASH_ALGORITHM)
+  @javax.annotation.Nullable
+  private String hashAlgorithm;
+
   public static final String SERIALIZED_NAME_LOCALITY = "locality";
   @SerializedName(SERIALIZED_NAME_LOCALITY)
   @javax.annotation.Nullable
@@ -171,6 +176,25 @@ public class CertificateTemplateInfo {
 
   public void setDigestAlgo(@javax.annotation.Nullable String digestAlgo) {
     this.digestAlgo = digestAlgo;
+  }
+
+
+  public CertificateTemplateInfo hashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+    return this;
+  }
+
+  /**
+   * Get hashAlgorithm
+   * @return hashAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getHashAlgorithm() {
+    return hashAlgorithm;
+  }
+
+  public void setHashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
   }
 
 
@@ -283,6 +307,7 @@ public class CertificateTemplateInfo {
         Objects.equals(this.country, certificateTemplateInfo.country) &&
         Objects.equals(this.csrCnfBase64, certificateTemplateInfo.csrCnfBase64) &&
         Objects.equals(this.digestAlgo, certificateTemplateInfo.digestAlgo) &&
+        Objects.equals(this.hashAlgorithm, certificateTemplateInfo.hashAlgorithm) &&
         Objects.equals(this.locality, certificateTemplateInfo.locality) &&
         Objects.equals(this.organization, certificateTemplateInfo.organization) &&
         Objects.equals(this.province, certificateTemplateInfo.province) &&
@@ -292,7 +317,7 @@ public class CertificateTemplateInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonName, country, csrCnfBase64, digestAlgo, locality, organization, province, selfSignedEnabled, ttl);
+    return Objects.hash(commonName, country, csrCnfBase64, digestAlgo, hashAlgorithm, locality, organization, province, selfSignedEnabled, ttl);
   }
 
   @Override
@@ -303,6 +328,7 @@ public class CertificateTemplateInfo {
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    csrCnfBase64: ").append(toIndentedString(csrCnfBase64)).append("\n");
     sb.append("    digestAlgo: ").append(toIndentedString(digestAlgo)).append("\n");
+    sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
     sb.append("    organization: ").append(toIndentedString(organization)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
@@ -334,6 +360,7 @@ public class CertificateTemplateInfo {
     openapiFields.add("country");
     openapiFields.add("csr_cnf_base_64");
     openapiFields.add("digest_algo");
+    openapiFields.add("hash_algorithm");
     openapiFields.add("locality");
     openapiFields.add("organization");
     openapiFields.add("province");
@@ -376,6 +403,9 @@ public class CertificateTemplateInfo {
       }
       if ((jsonObj.get("digest_algo") != null && !jsonObj.get("digest_algo").isJsonNull()) && !jsonObj.get("digest_algo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `digest_algo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("digest_algo").toString()));
+      }
+      if ((jsonObj.get("hash_algorithm") != null && !jsonObj.get("hash_algorithm").isJsonNull()) && !jsonObj.get("hash_algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash_algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_algorithm").toString()));
       }
       if ((jsonObj.get("locality") != null && !jsonObj.get("locality").isJsonNull()) && !jsonObj.get("locality").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `locality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locality").toString()));

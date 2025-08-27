@@ -29,6 +29,7 @@ import io.akeyless.client.model.DockerhubTargetDetails;
 import io.akeyless.client.model.EKSTargetDetails;
 import io.akeyless.client.model.GKETargetDetails;
 import io.akeyless.client.model.GcpTargetDetails;
+import io.akeyless.client.model.GeminiTargetDetails;
 import io.akeyless.client.model.GithubTargetDetails;
 import io.akeyless.client.model.GitlabTargetDetails;
 import io.akeyless.client.model.GlobalSignAtlasTargetDetails;
@@ -39,6 +40,7 @@ import io.akeyless.client.model.LdapTargetDetails;
 import io.akeyless.client.model.LinkedTargetDetails;
 import io.akeyless.client.model.MongoDBTargetDetails;
 import io.akeyless.client.model.NativeK8sTargetDetails;
+import io.akeyless.client.model.OpenAITargetDetails;
 import io.akeyless.client.model.PingTargetDetails;
 import io.akeyless.client.model.RabbitMQTargetDetails;
 import io.akeyless.client.model.SSHTargetDetails;
@@ -124,6 +126,11 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   private GcpTargetDetails gcpTargetDetails;
 
+  public static final String SERIALIZED_NAME_GEMINI_TARGET_DETAILS = "gemini_target_details";
+  @SerializedName(SERIALIZED_NAME_GEMINI_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private GeminiTargetDetails geminiTargetDetails;
+
   public static final String SERIALIZED_NAME_GITHUB_TARGET_DETAILS = "github_target_details";
   @SerializedName(SERIALIZED_NAME_GITHUB_TARGET_DETAILS)
   @javax.annotation.Nullable
@@ -178,6 +185,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_NATIVE_K8S_TARGET_DETAILS)
   @javax.annotation.Nullable
   private NativeK8sTargetDetails nativeK8sTargetDetails;
+
+  public static final String SERIALIZED_NAME_OPENAI_TARGET_DETAILS = "openai_target_details";
+  @SerializedName(SERIALIZED_NAME_OPENAI_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private OpenAITargetDetails openaiTargetDetails;
 
   public static final String SERIALIZED_NAME_PING_TARGET_DETAILS = "ping_target_details";
   @SerializedName(SERIALIZED_NAME_PING_TARGET_DETAILS)
@@ -398,6 +410,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput geminiTargetDetails(@javax.annotation.Nullable GeminiTargetDetails geminiTargetDetails) {
+    this.geminiTargetDetails = geminiTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get geminiTargetDetails
+   * @return geminiTargetDetails
+   */
+  @javax.annotation.Nullable
+  public GeminiTargetDetails getGeminiTargetDetails() {
+    return geminiTargetDetails;
+  }
+
+  public void setGeminiTargetDetails(@javax.annotation.Nullable GeminiTargetDetails geminiTargetDetails) {
+    this.geminiTargetDetails = geminiTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput githubTargetDetails(@javax.annotation.Nullable GithubTargetDetails githubTargetDetails) {
     this.githubTargetDetails = githubTargetDetails;
     return this;
@@ -607,6 +638,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput openaiTargetDetails(@javax.annotation.Nullable OpenAITargetDetails openaiTargetDetails) {
+    this.openaiTargetDetails = openaiTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get openaiTargetDetails
+   * @return openaiTargetDetails
+   */
+  @javax.annotation.Nullable
+  public OpenAITargetDetails getOpenaiTargetDetails() {
+    return openaiTargetDetails;
+  }
+
+  public void setOpenaiTargetDetails(@javax.annotation.Nullable OpenAITargetDetails openaiTargetDetails) {
+    this.openaiTargetDetails = openaiTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput pingTargetDetails(@javax.annotation.Nullable PingTargetDetails pingTargetDetails) {
     this.pingTargetDetails = pingTargetDetails;
     return this;
@@ -797,6 +847,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.dockerhubTargetDetails, targetTypeDetailsInput.dockerhubTargetDetails) &&
         Objects.equals(this.eksTargetDetails, targetTypeDetailsInput.eksTargetDetails) &&
         Objects.equals(this.gcpTargetDetails, targetTypeDetailsInput.gcpTargetDetails) &&
+        Objects.equals(this.geminiTargetDetails, targetTypeDetailsInput.geminiTargetDetails) &&
         Objects.equals(this.githubTargetDetails, targetTypeDetailsInput.githubTargetDetails) &&
         Objects.equals(this.gitlabTargetDetails, targetTypeDetailsInput.gitlabTargetDetails) &&
         Objects.equals(this.gkeTargetDetails, targetTypeDetailsInput.gkeTargetDetails) &&
@@ -808,6 +859,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.linkedTargetDetails, targetTypeDetailsInput.linkedTargetDetails) &&
         Objects.equals(this.mongoDbTargetDetails, targetTypeDetailsInput.mongoDbTargetDetails) &&
         Objects.equals(this.nativeK8sTargetDetails, targetTypeDetailsInput.nativeK8sTargetDetails) &&
+        Objects.equals(this.openaiTargetDetails, targetTypeDetailsInput.openaiTargetDetails) &&
         Objects.equals(this.pingTargetDetails, targetTypeDetailsInput.pingTargetDetails) &&
         Objects.equals(this.rabbitMqTargetDetails, targetTypeDetailsInput.rabbitMqTargetDetails) &&
         Objects.equals(this.salesforceTargetDetails, targetTypeDetailsInput.salesforceTargetDetails) &&
@@ -821,7 +873,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -837,6 +889,7 @@ public class TargetTypeDetailsInput {
     sb.append("    dockerhubTargetDetails: ").append(toIndentedString(dockerhubTargetDetails)).append("\n");
     sb.append("    eksTargetDetails: ").append(toIndentedString(eksTargetDetails)).append("\n");
     sb.append("    gcpTargetDetails: ").append(toIndentedString(gcpTargetDetails)).append("\n");
+    sb.append("    geminiTargetDetails: ").append(toIndentedString(geminiTargetDetails)).append("\n");
     sb.append("    githubTargetDetails: ").append(toIndentedString(githubTargetDetails)).append("\n");
     sb.append("    gitlabTargetDetails: ").append(toIndentedString(gitlabTargetDetails)).append("\n");
     sb.append("    gkeTargetDetails: ").append(toIndentedString(gkeTargetDetails)).append("\n");
@@ -848,6 +901,7 @@ public class TargetTypeDetailsInput {
     sb.append("    linkedTargetDetails: ").append(toIndentedString(linkedTargetDetails)).append("\n");
     sb.append("    mongoDbTargetDetails: ").append(toIndentedString(mongoDbTargetDetails)).append("\n");
     sb.append("    nativeK8sTargetDetails: ").append(toIndentedString(nativeK8sTargetDetails)).append("\n");
+    sb.append("    openaiTargetDetails: ").append(toIndentedString(openaiTargetDetails)).append("\n");
     sb.append("    pingTargetDetails: ").append(toIndentedString(pingTargetDetails)).append("\n");
     sb.append("    rabbitMqTargetDetails: ").append(toIndentedString(rabbitMqTargetDetails)).append("\n");
     sb.append("    salesforceTargetDetails: ").append(toIndentedString(salesforceTargetDetails)).append("\n");
@@ -888,6 +942,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("dockerhub_target_details");
     openapiFields.add("eks_target_details");
     openapiFields.add("gcp_target_details");
+    openapiFields.add("gemini_target_details");
     openapiFields.add("github_target_details");
     openapiFields.add("gitlab_target_details");
     openapiFields.add("gke_target_details");
@@ -899,6 +954,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("linked_target_details");
     openapiFields.add("mongo_db_target_details");
     openapiFields.add("native_k8s_target_details");
+    openapiFields.add("openai_target_details");
     openapiFields.add("ping_target_details");
     openapiFields.add("rabbit_mq_target_details");
     openapiFields.add("salesforce_target_details");
@@ -970,6 +1026,10 @@ public class TargetTypeDetailsInput {
       if (jsonObj.get("gcp_target_details") != null && !jsonObj.get("gcp_target_details").isJsonNull()) {
         GcpTargetDetails.validateJsonElement(jsonObj.get("gcp_target_details"));
       }
+      // validate the optional field `gemini_target_details`
+      if (jsonObj.get("gemini_target_details") != null && !jsonObj.get("gemini_target_details").isJsonNull()) {
+        GeminiTargetDetails.validateJsonElement(jsonObj.get("gemini_target_details"));
+      }
       // validate the optional field `github_target_details`
       if (jsonObj.get("github_target_details") != null && !jsonObj.get("github_target_details").isJsonNull()) {
         GithubTargetDetails.validateJsonElement(jsonObj.get("github_target_details"));
@@ -1013,6 +1073,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `native_k8s_target_details`
       if (jsonObj.get("native_k8s_target_details") != null && !jsonObj.get("native_k8s_target_details").isJsonNull()) {
         NativeK8sTargetDetails.validateJsonElement(jsonObj.get("native_k8s_target_details"));
+      }
+      // validate the optional field `openai_target_details`
+      if (jsonObj.get("openai_target_details") != null && !jsonObj.get("openai_target_details").isJsonNull()) {
+        OpenAITargetDetails.validateJsonElement(jsonObj.get("openai_target_details"));
       }
       // validate the optional field `ping_target_details`
       if (jsonObj.get("ping_target_details") != null && !jsonObj.get("ping_target_details").isJsonNull()) {

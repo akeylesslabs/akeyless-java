@@ -137,6 +137,11 @@ public class CreateClassicKey {
   @javax.annotation.Nullable
   private String gpgAlg;
 
+  public static final String SERIALIZED_NAME_HASH_ALGORITHM = "hash-algorithm";
+  @SerializedName(SERIALIZED_NAME_HASH_ALGORITHM)
+  @javax.annotation.Nullable
+  private String hashAlgorithm = "SHA256";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -291,7 +296,7 @@ public class CreateClassicKey {
   }
 
   /**
-   * Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI.
+   * Digest algorithm to be used for the certificate key signing.
    * @return certificateDigestAlgo
    */
   @javax.annotation.Nullable
@@ -518,6 +523,25 @@ public class CreateClassicKey {
 
   public void setGpgAlg(@javax.annotation.Nullable String gpgAlg) {
     this.gpgAlg = gpgAlg;
+  }
+
+
+  public CreateClassicKey hashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+    return this;
+  }
+
+  /**
+   * Specifies the hash algorithm used for the encryption key&#39;s operations, available options: [SHA256, SHA384, SHA512]
+   * @return hashAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getHashAlgorithm() {
+    return hashAlgorithm;
+  }
+
+  public void setHashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
   }
 
 
@@ -754,6 +778,7 @@ public class CreateClassicKey {
         Objects.equals(this.expirationEventIn, createClassicKey.expirationEventIn) &&
         Objects.equals(this.generateSelfSignedCertificate, createClassicKey.generateSelfSignedCertificate) &&
         Objects.equals(this.gpgAlg, createClassicKey.gpgAlg) &&
+        Objects.equals(this.hashAlgorithm, createClassicKey.hashAlgorithm) &&
         Objects.equals(this.json, createClassicKey.json) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
@@ -768,7 +793,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, autoRotate, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, gpgAlg, json, keyData, metadata, name, protectionKeyName, rotationEventIn, rotationInterval, tags, token, uidToken);
+    return Objects.hash(alg, autoRotate, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, gpgAlg, hashAlgorithm, json, keyData, metadata, name, protectionKeyName, rotationEventIn, rotationInterval, tags, token, uidToken);
   }
 
   @Override
@@ -792,6 +817,7 @@ public class CreateClassicKey {
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
     sb.append("    gpgAlg: ").append(toIndentedString(gpgAlg)).append("\n");
+    sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -841,6 +867,7 @@ public class CreateClassicKey {
     openapiFields.add("expiration-event-in");
     openapiFields.add("generate-self-signed-certificate");
     openapiFields.add("gpg-alg");
+    openapiFields.add("hash-algorithm");
     openapiFields.add("json");
     openapiFields.add("key-data");
     openapiFields.add("metadata");
@@ -931,6 +958,9 @@ public class CreateClassicKey {
       }
       if ((jsonObj.get("gpg-alg") != null && !jsonObj.get("gpg-alg").isJsonNull()) && !jsonObj.get("gpg-alg").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gpg-alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gpg-alg").toString()));
+      }
+      if ((jsonObj.get("hash-algorithm") != null && !jsonObj.get("hash-algorithm").isJsonNull()) && !jsonObj.get("hash-algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash-algorithm").toString()));
       }
       if ((jsonObj.get("key-data") != null && !jsonObj.get("key-data").isJsonNull()) && !jsonObj.get("key-data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-data").toString()));

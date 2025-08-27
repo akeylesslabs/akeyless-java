@@ -16,6 +16,7 @@
 |**dockerhubTargetDetails** | [**DockerhubTargetDetails**](DockerhubTargetDetails.md) |  |  [optional] |
 |**eksTargetDetails** | [**EKSTargetDetails**](EKSTargetDetails.md) |  |  [optional] |
 |**gcpTargetDetails** | [**GcpTargetDetails**](GcpTargetDetails.md) |  |  [optional] |
+|**geminiTargetDetails** | [**GeminiTargetDetails**](GeminiTargetDetails.md) |  |  [optional] |
 |**githubTargetDetails** | [**GithubTargetDetails**](GithubTargetDetails.md) |  |  [optional] |
 |**gitlabTargetDetails** | [**GitlabTargetDetails**](GitlabTargetDetails.md) |  |  [optional] |
 |**gkeTargetDetails** | [**GKETargetDetails**](GKETargetDetails.md) |  |  [optional] |
@@ -27,6 +28,7 @@
 |**linkedTargetDetails** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  |  [optional] |
 |**mongoDbTargetDetails** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  |  [optional] |
 |**nativeK8sTargetDetails** | [**NativeK8sTargetDetails**](NativeK8sTargetDetails.md) |  |  [optional] |
+|**openaiTargetDetails** | [**OpenAITargetDetails**](OpenAITargetDetails.md) |  |  [optional] |
 |**pingTargetDetails** | [**PingTargetDetails**](PingTargetDetails.md) |  |  [optional] |
 |**rabbitMqTargetDetails** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  |  [optional] |
 |**salesforceTargetDetails** | [**SalesforceTargetDetails**](SalesforceTargetDetails.md) |  |  [optional] |

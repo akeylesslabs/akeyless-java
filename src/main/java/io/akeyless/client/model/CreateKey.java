@@ -117,6 +117,11 @@ public class CreateKey {
   @javax.annotation.Nullable
   private Boolean generateSelfSignedCertificate;
 
+  public static final String SERIALIZED_NAME_HASH_ALGORITHM = "hash-algorithm";
+  @SerializedName(SERIALIZED_NAME_HASH_ALGORITHM)
+  @javax.annotation.Nullable
+  private String hashAlgorithm = "SHA256";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -218,7 +223,7 @@ public class CreateKey {
   }
 
   /**
-   * Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI.
+   * Digest algorithm to be used for the certificate key signing.
    * @return certificateDigestAlgo
    */
   @javax.annotation.Nullable
@@ -402,6 +407,25 @@ public class CreateKey {
   }
 
 
+  public CreateKey hashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+    return this;
+  }
+
+  /**
+   * Specifies the hash algorithm used for the encryption key&#39;s operations, available options: [SHA256, SHA384, SHA512]
+   * @return hashAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getHashAlgorithm() {
+    return hashAlgorithm;
+  }
+
+  public void setHashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+  }
+
+
   public CreateKey json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -566,6 +590,7 @@ public class CreateKey {
         Objects.equals(this.deleteProtection, createKey.deleteProtection) &&
         Objects.equals(this.description, createKey.description) &&
         Objects.equals(this.generateSelfSignedCertificate, createKey.generateSelfSignedCertificate) &&
+        Objects.equals(this.hashAlgorithm, createKey.hashAlgorithm) &&
         Objects.equals(this.json, createKey.json) &&
         Objects.equals(this.metadata, createKey.metadata) &&
         Objects.equals(this.name, createKey.name) &&
@@ -577,7 +602,7 @@ public class CreateKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, generateSelfSignedCertificate, json, metadata, name, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, generateSelfSignedCertificate, hashAlgorithm, json, metadata, name, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -597,6 +622,7 @@ public class CreateKey {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
+    sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -639,6 +665,7 @@ public class CreateKey {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("generate-self-signed-certificate");
+    openapiFields.add("hash-algorithm");
     openapiFields.add("json");
     openapiFields.add("metadata");
     openapiFields.add("name");
@@ -713,6 +740,9 @@ public class CreateKey {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("hash-algorithm") != null && !jsonObj.get("hash-algorithm").isJsonNull()) && !jsonObj.get("hash-algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash-algorithm").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));

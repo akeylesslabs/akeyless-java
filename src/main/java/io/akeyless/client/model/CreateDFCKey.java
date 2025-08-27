@@ -132,6 +132,11 @@ public class CreateDFCKey {
   @javax.annotation.Nullable
   private Boolean generateSelfSignedCertificate;
 
+  public static final String SERIALIZED_NAME_HASH_ALGORITHM = "hash-algorithm";
+  @SerializedName(SERIALIZED_NAME_HASH_ALGORITHM)
+  @javax.annotation.Nullable
+  private String hashAlgorithm = "SHA256";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -262,7 +267,7 @@ public class CreateDFCKey {
   }
 
   /**
-   * Digest algorithm to be used for the certificate key signing. Currently, we support only \&quot;sha256\&quot; so we hide this option for CLI.
+   * Digest algorithm to be used for the certificate key signing.
    * @return certificateDigestAlgo
    */
   @javax.annotation.Nullable
@@ -492,6 +497,25 @@ public class CreateDFCKey {
   }
 
 
+  public CreateDFCKey hashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+    return this;
+  }
+
+  /**
+   * Specifies the hash algorithm used for the encryption key&#39;s operations, available options: [SHA256, SHA384, SHA512]
+   * @return hashAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getHashAlgorithm() {
+    return hashAlgorithm;
+  }
+
+  public void setHashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+  }
+
+
   public CreateDFCKey json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -705,6 +729,7 @@ public class CreateDFCKey {
         Objects.equals(this.description, createDFCKey.description) &&
         Objects.equals(this.expirationEventIn, createDFCKey.expirationEventIn) &&
         Objects.equals(this.generateSelfSignedCertificate, createDFCKey.generateSelfSignedCertificate) &&
+        Objects.equals(this.hashAlgorithm, createDFCKey.hashAlgorithm) &&
         Objects.equals(this.json, createDFCKey.json) &&
         Objects.equals(this.metadata, createDFCKey.metadata) &&
         Objects.equals(this.name, createDFCKey.name) &&
@@ -718,7 +743,7 @@ public class CreateDFCKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, autoRotate, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, json, metadata, name, rotationEventIn, rotationInterval, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, autoRotate, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, customerFrgId, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, hashAlgorithm, json, metadata, name, rotationEventIn, rotationInterval, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -741,6 +766,7 @@ public class CreateDFCKey {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
+    sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -788,6 +814,7 @@ public class CreateDFCKey {
     openapiFields.add("description");
     openapiFields.add("expiration-event-in");
     openapiFields.add("generate-self-signed-certificate");
+    openapiFields.add("hash-algorithm");
     openapiFields.add("json");
     openapiFields.add("metadata");
     openapiFields.add("name");
@@ -874,6 +901,9 @@ public class CreateDFCKey {
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+      }
+      if ((jsonObj.get("hash-algorithm") != null && !jsonObj.get("hash-algorithm").isJsonNull()) && !jsonObj.get("hash-algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash-algorithm").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));

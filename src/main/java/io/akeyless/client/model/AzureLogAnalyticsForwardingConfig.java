@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class AzureLogAnalyticsForwardingConfig {
+  public static final String SERIALIZED_NAME_AZURE_ENABLE_BATCH = "azure_enable_batch";
+  @SerializedName(SERIALIZED_NAME_AZURE_ENABLE_BATCH)
+  @javax.annotation.Nullable
+  private String azureEnableBatch;
+
   public static final String SERIALIZED_NAME_AZURE_WORKSPACE_ID = "azure_workspace_id";
   @SerializedName(SERIALIZED_NAME_AZURE_WORKSPACE_ID)
   @javax.annotation.Nullable
@@ -62,6 +67,25 @@ public class AzureLogAnalyticsForwardingConfig {
 
   public AzureLogAnalyticsForwardingConfig() {
   }
+
+  public AzureLogAnalyticsForwardingConfig azureEnableBatch(@javax.annotation.Nullable String azureEnableBatch) {
+    this.azureEnableBatch = azureEnableBatch;
+    return this;
+  }
+
+  /**
+   * Get azureEnableBatch
+   * @return azureEnableBatch
+   */
+  @javax.annotation.Nullable
+  public String getAzureEnableBatch() {
+    return azureEnableBatch;
+  }
+
+  public void setAzureEnableBatch(@javax.annotation.Nullable String azureEnableBatch) {
+    this.azureEnableBatch = azureEnableBatch;
+  }
+
 
   public AzureLogAnalyticsForwardingConfig azureWorkspaceId(@javax.annotation.Nullable String azureWorkspaceId) {
     this.azureWorkspaceId = azureWorkspaceId;
@@ -111,19 +135,21 @@ public class AzureLogAnalyticsForwardingConfig {
       return false;
     }
     AzureLogAnalyticsForwardingConfig azureLogAnalyticsForwardingConfig = (AzureLogAnalyticsForwardingConfig) o;
-    return Objects.equals(this.azureWorkspaceId, azureLogAnalyticsForwardingConfig.azureWorkspaceId) &&
+    return Objects.equals(this.azureEnableBatch, azureLogAnalyticsForwardingConfig.azureEnableBatch) &&
+        Objects.equals(this.azureWorkspaceId, azureLogAnalyticsForwardingConfig.azureWorkspaceId) &&
         Objects.equals(this.azureWorkspaceKey, azureLogAnalyticsForwardingConfig.azureWorkspaceKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureWorkspaceId, azureWorkspaceKey);
+    return Objects.hash(azureEnableBatch, azureWorkspaceId, azureWorkspaceKey);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureLogAnalyticsForwardingConfig {\n");
+    sb.append("    azureEnableBatch: ").append(toIndentedString(azureEnableBatch)).append("\n");
     sb.append("    azureWorkspaceId: ").append(toIndentedString(azureWorkspaceId)).append("\n");
     sb.append("    azureWorkspaceKey: ").append(toIndentedString(azureWorkspaceKey)).append("\n");
     sb.append("}");
@@ -148,6 +174,7 @@ public class AzureLogAnalyticsForwardingConfig {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("azure_enable_batch");
     openapiFields.add("azure_workspace_id");
     openapiFields.add("azure_workspace_key");
 
@@ -176,6 +203,9 @@ public class AzureLogAnalyticsForwardingConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("azure_enable_batch") != null && !jsonObj.get("azure_enable_batch").isJsonNull()) && !jsonObj.get("azure_enable_batch").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `azure_enable_batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_enable_batch").toString()));
+      }
       if ((jsonObj.get("azure_workspace_id") != null && !jsonObj.get("azure_workspace_id").isJsonNull()) && !jsonObj.get("azure_workspace_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure_workspace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_workspace_id").toString()));
       }

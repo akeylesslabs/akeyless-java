@@ -105,6 +105,11 @@ public class GenerateCsr {
   @javax.annotation.Nullable
   private Boolean generateKey;
 
+  public static final String SERIALIZED_NAME_HASH_ALGORITHM = "hash-algorithm";
+  @SerializedName(SERIALIZED_NAME_HASH_ALGORITHM)
+  @javax.annotation.Nullable
+  private String hashAlgorithm = "SHA256";
+
   public static final String SERIALIZED_NAME_IP_ADDRESSES = "ip-addresses";
   @SerializedName(SERIALIZED_NAME_IP_ADDRESSES)
   @javax.annotation.Nullable
@@ -367,6 +372,25 @@ public class GenerateCsr {
   }
 
 
+  public GenerateCsr hashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+    return this;
+  }
+
+  /**
+   * Specifies the hash algorithm used for the encryption key&#39;s operations, available options: SHA256, SHA384, SHA512
+   * @return hashAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getHashAlgorithm() {
+    return hashAlgorithm;
+  }
+
+  public void setHashAlgorithm(@javax.annotation.Nullable String hashAlgorithm) {
+    this.hashAlgorithm = hashAlgorithm;
+  }
+
+
   public GenerateCsr ipAddresses(@javax.annotation.Nullable String ipAddresses) {
     this.ipAddresses = ipAddresses;
     return this;
@@ -578,6 +602,7 @@ public class GenerateCsr {
         Objects.equals(this.emailAddresses, generateCsr.emailAddresses) &&
         Objects.equals(this.exportPrivateKey, generateCsr.exportPrivateKey) &&
         Objects.equals(this.generateKey, generateCsr.generateKey) &&
+        Objects.equals(this.hashAlgorithm, generateCsr.hashAlgorithm) &&
         Objects.equals(this.ipAddresses, generateCsr.ipAddresses) &&
         Objects.equals(this.json, generateCsr.json) &&
         Objects.equals(this.keyType, generateCsr.keyType) &&
@@ -592,7 +617,7 @@ public class GenerateCsr {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, exportPrivateKey, generateKey, ipAddresses, json, keyType, name, org, splitLevel, state, token, uidToken, uriSans);
+    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, exportPrivateKey, generateKey, hashAlgorithm, ipAddresses, json, keyType, name, org, splitLevel, state, token, uidToken, uriSans);
   }
 
   @Override
@@ -610,6 +635,7 @@ public class GenerateCsr {
     sb.append("    emailAddresses: ").append(toIndentedString(emailAddresses)).append("\n");
     sb.append("    exportPrivateKey: ").append(toIndentedString(exportPrivateKey)).append("\n");
     sb.append("    generateKey: ").append(toIndentedString(generateKey)).append("\n");
+    sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
@@ -653,6 +679,7 @@ public class GenerateCsr {
     openapiFields.add("email-addresses");
     openapiFields.add("export-private-key");
     openapiFields.add("generate-key");
+    openapiFields.add("hash-algorithm");
     openapiFields.add("ip-addresses");
     openapiFields.add("json");
     openapiFields.add("key-type");
@@ -722,6 +749,9 @@ public class GenerateCsr {
       }
       if ((jsonObj.get("email-addresses") != null && !jsonObj.get("email-addresses").isJsonNull()) && !jsonObj.get("email-addresses").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email-addresses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email-addresses").toString()));
+      }
+      if ((jsonObj.get("hash-algorithm") != null && !jsonObj.get("hash-algorithm").isJsonNull()) && !jsonObj.get("hash-algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hash-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash-algorithm").toString()));
       }
       if ((jsonObj.get("ip-addresses") != null && !jsonObj.get("ip-addresses").isJsonNull()) && !jsonObj.get("ip-addresses").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ip-addresses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ip-addresses").toString()));

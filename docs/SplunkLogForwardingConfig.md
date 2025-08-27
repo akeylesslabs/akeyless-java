@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**splunkEnableBatch** | **String** |  |  [optional] |
 |**splunkEnableTls** | **Boolean** |  |  [optional] |
 |**splunkIndex** | **String** |  |  [optional] |
 |**splunkSource** | **String** |  |  [optional] |

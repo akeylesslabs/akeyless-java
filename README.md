@@ -549,6 +549,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
 *V2Api* | [**targetCreateEks**](docs/V2Api.md#targetCreateEks) | **POST** /target-create-eks | 
 *V2Api* | [**targetCreateGcp**](docs/V2Api.md#targetCreateGcp) | **POST** /target-create-gcp | 
+*V2Api* | [**targetCreateGemini**](docs/V2Api.md#targetCreateGemini) | **POST** /target-create-gemini | 
 *V2Api* | [**targetCreateGithub**](docs/V2Api.md#targetCreateGithub) | **POST** /target-create-github | 
 *V2Api* | [**targetCreateGitlab**](docs/V2Api.md#targetCreateGitlab) | **POST** /target-create-gitlab | 
 *V2Api* | [**targetCreateGke**](docs/V2Api.md#targetCreateGke) | **POST** /target-create-gke | 
@@ -559,6 +560,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateK8s**](docs/V2Api.md#targetCreateK8s) | **POST** /target-create-k8s | 
 *V2Api* | [**targetCreateLdap**](docs/V2Api.md#targetCreateLdap) | **POST** /target-create-ldap | 
 *V2Api* | [**targetCreateLinked**](docs/V2Api.md#targetCreateLinked) | **POST** /target-create-linked | 
+*V2Api* | [**targetCreateOpenAI**](docs/V2Api.md#targetCreateOpenAI) | **POST** /target-create-openai | 
 *V2Api* | [**targetCreatePing**](docs/V2Api.md#targetCreatePing) | **POST** /target-create-ping | 
 *V2Api* | [**targetCreateRabbitMq**](docs/V2Api.md#targetCreateRabbitMq) | **POST** /target-create-rabbitmq | 
 *V2Api* | [**targetCreateSalesforce**](docs/V2Api.md#targetCreateSalesforce) | **POST** /target-create-salesforce | 
@@ -578,6 +580,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
 *V2Api* | [**targetUpdateEks**](docs/V2Api.md#targetUpdateEks) | **POST** /target-update-eks | 
 *V2Api* | [**targetUpdateGcp**](docs/V2Api.md#targetUpdateGcp) | **POST** /target-update-gcp | 
+*V2Api* | [**targetUpdateGemini**](docs/V2Api.md#targetUpdateGemini) | **POST** /target-update-gemini | 
 *V2Api* | [**targetUpdateGithub**](docs/V2Api.md#targetUpdateGithub) | **POST** /target-update-github | 
 *V2Api* | [**targetUpdateGitlab**](docs/V2Api.md#targetUpdateGitlab) | **POST** /target-update-gitlab | 
 *V2Api* | [**targetUpdateGke**](docs/V2Api.md#targetUpdateGke) | **POST** /target-update-gke | 
@@ -588,6 +591,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateK8s**](docs/V2Api.md#targetUpdateK8s) | **POST** /target-update-k8s | 
 *V2Api* | [**targetUpdateLdap**](docs/V2Api.md#targetUpdateLdap) | **POST** /target-update-ldap | 
 *V2Api* | [**targetUpdateLinked**](docs/V2Api.md#targetUpdateLinked) | **POST** /target-update-linked | 
+*V2Api* | [**targetUpdateOpenAI**](docs/V2Api.md#targetUpdateOpenAI) | **POST** /target-update-openai | 
 *V2Api* | [**targetUpdatePing**](docs/V2Api.md#targetUpdatePing) | **POST** /target-update-ping | 
 *V2Api* | [**targetUpdateRabbitMq**](docs/V2Api.md#targetUpdateRabbitMq) | **POST** /target-update-rabbitmq | 
 *V2Api* | [**targetUpdateSalesforce**](docs/V2Api.md#targetUpdateSalesforce) | **POST** /target-update-salesforce | 
@@ -1259,6 +1263,7 @@ Class | Method | HTTP request | Description
  - [GatewayUpdateTmpUsers](docs/GatewayUpdateTmpUsers.md)
  - [GatewaysListResponse](docs/GatewaysListResponse.md)
  - [GcpTargetDetails](docs/GcpTargetDetails.md)
+ - [GeminiTargetDetails](docs/GeminiTargetDetails.md)
  - [GenCustomerFragment](docs/GenCustomerFragment.md)
  - [GeneralConfigPart](docs/GeneralConfigPart.md)
  - [GenerateAcmeEab](docs/GenerateAcmeEab.md)
@@ -1428,6 +1433,7 @@ Class | Method | HTTP request | Description
  - [OidcClientInfo](docs/OidcClientInfo.md)
  - [OnePasswordMigration](docs/OnePasswordMigration.md)
  - [OnePasswordPayload](docs/OnePasswordPayload.md)
+ - [OpenAITargetDetails](docs/OpenAITargetDetails.md)
  - [PKICertificateIssueDetails](docs/PKICertificateIssueDetails.md)
  - [PasswordBreachInfo](docs/PasswordBreachInfo.md)
  - [PasswordExpirationInfo](docs/PasswordExpirationInfo.md)
@@ -1576,6 +1582,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
  - [TargetCreateEks](docs/TargetCreateEks.md)
  - [TargetCreateGcp](docs/TargetCreateGcp.md)
+ - [TargetCreateGemini](docs/TargetCreateGemini.md)
  - [TargetCreateGithub](docs/TargetCreateGithub.md)
  - [TargetCreateGitlab](docs/TargetCreateGitlab.md)
  - [TargetCreateGke](docs/TargetCreateGke.md)
@@ -1586,6 +1593,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateK8s](docs/TargetCreateK8s.md)
  - [TargetCreateLdap](docs/TargetCreateLdap.md)
  - [TargetCreateLinked](docs/TargetCreateLinked.md)
+ - [TargetCreateOpenAI](docs/TargetCreateOpenAI.md)
  - [TargetCreateOutput](docs/TargetCreateOutput.md)
  - [TargetCreatePing](docs/TargetCreatePing.md)
  - [TargetCreateRabbitMq](docs/TargetCreateRabbitMq.md)
@@ -1610,6 +1618,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)
  - [TargetUpdateEks](docs/TargetUpdateEks.md)
  - [TargetUpdateGcp](docs/TargetUpdateGcp.md)
+ - [TargetUpdateGemini](docs/TargetUpdateGemini.md)
  - [TargetUpdateGithub](docs/TargetUpdateGithub.md)
  - [TargetUpdateGitlab](docs/TargetUpdateGitlab.md)
  - [TargetUpdateGke](docs/TargetUpdateGke.md)
@@ -1620,6 +1629,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateK8s](docs/TargetUpdateK8s.md)
  - [TargetUpdateLdap](docs/TargetUpdateLdap.md)
  - [TargetUpdateLinked](docs/TargetUpdateLinked.md)
+ - [TargetUpdateOpenAI](docs/TargetUpdateOpenAI.md)
  - [TargetUpdateOutput](docs/TargetUpdateOutput.md)
  - [TargetUpdatePing](docs/TargetUpdatePing.md)
  - [TargetUpdateRabbitMq](docs/TargetUpdateRabbitMq.md)

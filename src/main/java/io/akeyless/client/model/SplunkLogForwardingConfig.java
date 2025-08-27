@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class SplunkLogForwardingConfig {
+  public static final String SERIALIZED_NAME_SPLUNK_ENABLE_BATCH = "splunk_enable_batch";
+  @SerializedName(SERIALIZED_NAME_SPLUNK_ENABLE_BATCH)
+  @javax.annotation.Nullable
+  private String splunkEnableBatch;
+
   public static final String SERIALIZED_NAME_SPLUNK_ENABLE_TLS = "splunk_enable_tls";
   @SerializedName(SERIALIZED_NAME_SPLUNK_ENABLE_TLS)
   @javax.annotation.Nullable
@@ -87,6 +92,25 @@ public class SplunkLogForwardingConfig {
 
   public SplunkLogForwardingConfig() {
   }
+
+  public SplunkLogForwardingConfig splunkEnableBatch(@javax.annotation.Nullable String splunkEnableBatch) {
+    this.splunkEnableBatch = splunkEnableBatch;
+    return this;
+  }
+
+  /**
+   * Get splunkEnableBatch
+   * @return splunkEnableBatch
+   */
+  @javax.annotation.Nullable
+  public String getSplunkEnableBatch() {
+    return splunkEnableBatch;
+  }
+
+  public void setSplunkEnableBatch(@javax.annotation.Nullable String splunkEnableBatch) {
+    this.splunkEnableBatch = splunkEnableBatch;
+  }
+
 
   public SplunkLogForwardingConfig splunkEnableTls(@javax.annotation.Nullable Boolean splunkEnableTls) {
     this.splunkEnableTls = splunkEnableTls;
@@ -231,7 +255,8 @@ public class SplunkLogForwardingConfig {
       return false;
     }
     SplunkLogForwardingConfig splunkLogForwardingConfig = (SplunkLogForwardingConfig) o;
-    return Objects.equals(this.splunkEnableTls, splunkLogForwardingConfig.splunkEnableTls) &&
+    return Objects.equals(this.splunkEnableBatch, splunkLogForwardingConfig.splunkEnableBatch) &&
+        Objects.equals(this.splunkEnableTls, splunkLogForwardingConfig.splunkEnableTls) &&
         Objects.equals(this.splunkIndex, splunkLogForwardingConfig.splunkIndex) &&
         Objects.equals(this.splunkSource, splunkLogForwardingConfig.splunkSource) &&
         Objects.equals(this.splunkSourcetype, splunkLogForwardingConfig.splunkSourcetype) &&
@@ -242,13 +267,14 @@ public class SplunkLogForwardingConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(splunkEnableTls, splunkIndex, splunkSource, splunkSourcetype, splunkTlsCertificate, splunkToken, splunkUrl);
+    return Objects.hash(splunkEnableBatch, splunkEnableTls, splunkIndex, splunkSource, splunkSourcetype, splunkTlsCertificate, splunkToken, splunkUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SplunkLogForwardingConfig {\n");
+    sb.append("    splunkEnableBatch: ").append(toIndentedString(splunkEnableBatch)).append("\n");
     sb.append("    splunkEnableTls: ").append(toIndentedString(splunkEnableTls)).append("\n");
     sb.append("    splunkIndex: ").append(toIndentedString(splunkIndex)).append("\n");
     sb.append("    splunkSource: ").append(toIndentedString(splunkSource)).append("\n");
@@ -278,6 +304,7 @@ public class SplunkLogForwardingConfig {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("splunk_enable_batch");
     openapiFields.add("splunk_enable_tls");
     openapiFields.add("splunk_index");
     openapiFields.add("splunk_source");
@@ -311,6 +338,9 @@ public class SplunkLogForwardingConfig {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("splunk_enable_batch") != null && !jsonObj.get("splunk_enable_batch").isJsonNull()) && !jsonObj.get("splunk_enable_batch").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `splunk_enable_batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_enable_batch").toString()));
+      }
       if ((jsonObj.get("splunk_index") != null && !jsonObj.get("splunk_index").isJsonNull()) && !jsonObj.get("splunk_index").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `splunk_index` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_index").toString()));
       }

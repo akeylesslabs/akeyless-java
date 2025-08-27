@@ -583,6 +583,7 @@ docs/GatewayUpdateTlsCertOutput.md
 docs/GatewayUpdateTmpUsers.md
 docs/GatewaysListResponse.md
 docs/GcpTargetDetails.md
+docs/GeminiTargetDetails.md
 docs/GenCustomerFragment.md
 docs/GeneralConfigPart.md
 docs/GenerateAcmeEab.md
@@ -752,6 +753,7 @@ docs/ObjectVersionSettingsOutput.md
 docs/OidcClientInfo.md
 docs/OnePasswordMigration.md
 docs/OnePasswordPayload.md
+docs/OpenAITargetDetails.md
 docs/PKICertificateIssueDetails.md
 docs/PasswordBreachInfo.md
 docs/PasswordExpirationInfo.md
@@ -900,6 +902,7 @@ docs/TargetCreateDB.md
 docs/TargetCreateDockerhub.md
 docs/TargetCreateEks.md
 docs/TargetCreateGcp.md
+docs/TargetCreateGemini.md
 docs/TargetCreateGithub.md
 docs/TargetCreateGitlab.md
 docs/TargetCreateGke.md
@@ -910,6 +913,7 @@ docs/TargetCreateHashiVault.md
 docs/TargetCreateK8s.md
 docs/TargetCreateLdap.md
 docs/TargetCreateLinked.md
+docs/TargetCreateOpenAI.md
 docs/TargetCreateOutput.md
 docs/TargetCreatePing.md
 docs/TargetCreateRabbitMq.md
@@ -934,6 +938,7 @@ docs/TargetUpdateDB.md
 docs/TargetUpdateDockerhub.md
 docs/TargetUpdateEks.md
 docs/TargetUpdateGcp.md
+docs/TargetUpdateGemini.md
 docs/TargetUpdateGithub.md
 docs/TargetUpdateGitlab.md
 docs/TargetUpdateGke.md
@@ -944,6 +949,7 @@ docs/TargetUpdateHashiVault.md
 docs/TargetUpdateK8s.md
 docs/TargetUpdateLdap.md
 docs/TargetUpdateLinked.md
+docs/TargetUpdateOpenAI.md
 docs/TargetUpdateOutput.md
 docs/TargetUpdatePing.md
 docs/TargetUpdateRabbitMq.md
@@ -1713,6 +1719,7 @@ src/main/java/io/akeyless/client/model/GatewayUpdateTlsCertOutput.java
 src/main/java/io/akeyless/client/model/GatewayUpdateTmpUsers.java
 src/main/java/io/akeyless/client/model/GatewaysListResponse.java
 src/main/java/io/akeyless/client/model/GcpTargetDetails.java
+src/main/java/io/akeyless/client/model/GeminiTargetDetails.java
 src/main/java/io/akeyless/client/model/GenCustomerFragment.java
 src/main/java/io/akeyless/client/model/GeneralConfigPart.java
 src/main/java/io/akeyless/client/model/GenerateAcmeEab.java
@@ -1882,6 +1889,7 @@ src/main/java/io/akeyless/client/model/ObjectVersionSettingsOutput.java
 src/main/java/io/akeyless/client/model/OidcClientInfo.java
 src/main/java/io/akeyless/client/model/OnePasswordMigration.java
 src/main/java/io/akeyless/client/model/OnePasswordPayload.java
+src/main/java/io/akeyless/client/model/OpenAITargetDetails.java
 src/main/java/io/akeyless/client/model/PKICertificateIssueDetails.java
 src/main/java/io/akeyless/client/model/PasswordBreachInfo.java
 src/main/java/io/akeyless/client/model/PasswordExpirationInfo.java
@@ -2030,6 +2038,7 @@ src/main/java/io/akeyless/client/model/TargetCreateDB.java
 src/main/java/io/akeyless/client/model/TargetCreateDockerhub.java
 src/main/java/io/akeyless/client/model/TargetCreateEks.java
 src/main/java/io/akeyless/client/model/TargetCreateGcp.java
+src/main/java/io/akeyless/client/model/TargetCreateGemini.java
 src/main/java/io/akeyless/client/model/TargetCreateGithub.java
 src/main/java/io/akeyless/client/model/TargetCreateGitlab.java
 src/main/java/io/akeyless/client/model/TargetCreateGke.java
@@ -2040,6 +2049,7 @@ src/main/java/io/akeyless/client/model/TargetCreateHashiVault.java
 src/main/java/io/akeyless/client/model/TargetCreateK8s.java
 src/main/java/io/akeyless/client/model/TargetCreateLdap.java
 src/main/java/io/akeyless/client/model/TargetCreateLinked.java
+src/main/java/io/akeyless/client/model/TargetCreateOpenAI.java
 src/main/java/io/akeyless/client/model/TargetCreateOutput.java
 src/main/java/io/akeyless/client/model/TargetCreatePing.java
 src/main/java/io/akeyless/client/model/TargetCreateRabbitMq.java
@@ -2064,6 +2074,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateDB.java
 src/main/java/io/akeyless/client/model/TargetUpdateDockerhub.java
 src/main/java/io/akeyless/client/model/TargetUpdateEks.java
 src/main/java/io/akeyless/client/model/TargetUpdateGcp.java
+src/main/java/io/akeyless/client/model/TargetUpdateGemini.java
 src/main/java/io/akeyless/client/model/TargetUpdateGithub.java
 src/main/java/io/akeyless/client/model/TargetUpdateGitlab.java
 src/main/java/io/akeyless/client/model/TargetUpdateGke.java
@@ -2074,6 +2085,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateHashiVault.java
 src/main/java/io/akeyless/client/model/TargetUpdateK8s.java
 src/main/java/io/akeyless/client/model/TargetUpdateLdap.java
 src/main/java/io/akeyless/client/model/TargetUpdateLinked.java
+src/main/java/io/akeyless/client/model/TargetUpdateOpenAI.java
 src/main/java/io/akeyless/client/model/TargetUpdateOutput.java
 src/main/java/io/akeyless/client/model/TargetUpdatePing.java
 src/main/java/io/akeyless/client/model/TargetUpdateRabbitMq.java
@@ -2236,3 +2248,9 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/GeminiTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/OpenAITargetDetailsTest.java
+src/test/java/io/akeyless/client/model/TargetCreateGeminiTest.java
+src/test/java/io/akeyless/client/model/TargetCreateOpenAITest.java
+src/test/java/io/akeyless/client/model/TargetUpdateGeminiTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateOpenAITest.java

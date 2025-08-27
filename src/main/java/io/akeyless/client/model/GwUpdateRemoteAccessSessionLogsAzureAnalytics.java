@@ -55,6 +55,11 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
   @javax.annotation.Nullable
   private String enable = "true";
 
+  public static final String SERIALIZED_NAME_ENABLE_BATCH = "enable-batch";
+  @SerializedName(SERIALIZED_NAME_ENABLE_BATCH)
+  @javax.annotation.Nullable
+  private String enableBatch = "true";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -109,6 +114,25 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
 
   public void setEnable(@javax.annotation.Nullable String enable) {
     this.enable = enable;
+  }
+
+
+  public GwUpdateRemoteAccessSessionLogsAzureAnalytics enableBatch(@javax.annotation.Nullable String enableBatch) {
+    this.enableBatch = enableBatch;
+    return this;
+  }
+
+  /**
+   * Enable batch forwarding [true/false]
+   * @return enableBatch
+   */
+  @javax.annotation.Nullable
+  public String getEnableBatch() {
+    return enableBatch;
+  }
+
+  public void setEnableBatch(@javax.annotation.Nullable String enableBatch) {
+    this.enableBatch = enableBatch;
   }
 
 
@@ -256,6 +280,7 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
     }
     GwUpdateRemoteAccessSessionLogsAzureAnalytics gwUpdateRemoteAccessSessionLogsAzureAnalytics = (GwUpdateRemoteAccessSessionLogsAzureAnalytics) o;
     return Objects.equals(this.enable, gwUpdateRemoteAccessSessionLogsAzureAnalytics.enable) &&
+        Objects.equals(this.enableBatch, gwUpdateRemoteAccessSessionLogsAzureAnalytics.enableBatch) &&
         Objects.equals(this.json, gwUpdateRemoteAccessSessionLogsAzureAnalytics.json) &&
         Objects.equals(this.outputFormat, gwUpdateRemoteAccessSessionLogsAzureAnalytics.outputFormat) &&
         Objects.equals(this.pullInterval, gwUpdateRemoteAccessSessionLogsAzureAnalytics.pullInterval) &&
@@ -267,7 +292,7 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, json, outputFormat, pullInterval, token, uidToken, workspaceId, workspaceKey);
+    return Objects.hash(enable, enableBatch, json, outputFormat, pullInterval, token, uidToken, workspaceId, workspaceKey);
   }
 
   @Override
@@ -275,6 +300,7 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
     StringBuilder sb = new StringBuilder();
     sb.append("class GwUpdateRemoteAccessSessionLogsAzureAnalytics {\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
+    sb.append("    enableBatch: ").append(toIndentedString(enableBatch)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
     sb.append("    pullInterval: ").append(toIndentedString(pullInterval)).append("\n");
@@ -305,6 +331,7 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("enable");
+    openapiFields.add("enable-batch");
     openapiFields.add("json");
     openapiFields.add("output-format");
     openapiFields.add("pull-interval");
@@ -340,6 +367,9 @@ public class GwUpdateRemoteAccessSessionLogsAzureAnalytics {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("enable") != null && !jsonObj.get("enable").isJsonNull()) && !jsonObj.get("enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable").toString()));
+      }
+      if ((jsonObj.get("enable-batch") != null && !jsonObj.get("enable-batch").isJsonNull()) && !jsonObj.get("enable-batch").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `enable-batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-batch").toString()));
       }
       if ((jsonObj.get("output-format") != null && !jsonObj.get("output-format").isJsonNull()) && !jsonObj.get("output-format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `output-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("output-format").toString()));

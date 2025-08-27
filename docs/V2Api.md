@@ -447,6 +447,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetCreateDockerhub**](V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub |  |
 | [**targetCreateEks**](V2Api.md#targetCreateEks) | **POST** /target-create-eks |  |
 | [**targetCreateGcp**](V2Api.md#targetCreateGcp) | **POST** /target-create-gcp |  |
+| [**targetCreateGemini**](V2Api.md#targetCreateGemini) | **POST** /target-create-gemini |  |
 | [**targetCreateGithub**](V2Api.md#targetCreateGithub) | **POST** /target-create-github |  |
 | [**targetCreateGitlab**](V2Api.md#targetCreateGitlab) | **POST** /target-create-gitlab |  |
 | [**targetCreateGke**](V2Api.md#targetCreateGke) | **POST** /target-create-gke |  |
@@ -457,6 +458,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetCreateK8s**](V2Api.md#targetCreateK8s) | **POST** /target-create-k8s |  |
 | [**targetCreateLdap**](V2Api.md#targetCreateLdap) | **POST** /target-create-ldap |  |
 | [**targetCreateLinked**](V2Api.md#targetCreateLinked) | **POST** /target-create-linked |  |
+| [**targetCreateOpenAI**](V2Api.md#targetCreateOpenAI) | **POST** /target-create-openai |  |
 | [**targetCreatePing**](V2Api.md#targetCreatePing) | **POST** /target-create-ping |  |
 | [**targetCreateRabbitMq**](V2Api.md#targetCreateRabbitMq) | **POST** /target-create-rabbitmq |  |
 | [**targetCreateSalesforce**](V2Api.md#targetCreateSalesforce) | **POST** /target-create-salesforce |  |
@@ -476,6 +478,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetUpdateDockerhub**](V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub |  |
 | [**targetUpdateEks**](V2Api.md#targetUpdateEks) | **POST** /target-update-eks |  |
 | [**targetUpdateGcp**](V2Api.md#targetUpdateGcp) | **POST** /target-update-gcp |  |
+| [**targetUpdateGemini**](V2Api.md#targetUpdateGemini) | **POST** /target-update-gemini |  |
 | [**targetUpdateGithub**](V2Api.md#targetUpdateGithub) | **POST** /target-update-github |  |
 | [**targetUpdateGitlab**](V2Api.md#targetUpdateGitlab) | **POST** /target-update-gitlab |  |
 | [**targetUpdateGke**](V2Api.md#targetUpdateGke) | **POST** /target-update-gke |  |
@@ -486,6 +489,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetUpdateK8s**](V2Api.md#targetUpdateK8s) | **POST** /target-update-k8s |  |
 | [**targetUpdateLdap**](V2Api.md#targetUpdateLdap) | **POST** /target-update-ldap |  |
 | [**targetUpdateLinked**](V2Api.md#targetUpdateLinked) | **POST** /target-update-linked |  |
+| [**targetUpdateOpenAI**](V2Api.md#targetUpdateOpenAI) | **POST** /target-update-openai |  |
 | [**targetUpdatePing**](V2Api.md#targetUpdatePing) | **POST** /target-update-ping |  |
 | [**targetUpdateRabbitMq**](V2Api.md#targetUpdateRabbitMq) | **POST** /target-update-rabbitmq |  |
 | [**targetUpdateSalesforce**](V2Api.md#targetUpdateSalesforce) | **POST** /target-update-salesforce |  |
@@ -27585,6 +27589,67 @@ No authorization required
 | **201** | targetCreateGcpResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="targetCreateGemini"></a>
+# **targetCreateGemini**
+> TargetCreateOutput targetCreateGemini(targetCreateGemini)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateGemini targetCreateGemini = new TargetCreateGemini(); // TargetCreateGemini | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateGemini(targetCreateGemini);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateGemini");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateGemini** | [**TargetCreateGemini**](TargetCreateGemini.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateGeminiResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="targetCreateGithub"></a>
 # **targetCreateGithub**
 > TargetCreateOutput targetCreateGithub(targetCreateGithub)
@@ -28193,6 +28258,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetCreateLinkedResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetCreateOpenAI"></a>
+# **targetCreateOpenAI**
+> TargetCreateOutput targetCreateOpenAI(targetCreateOpenAI)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateOpenAI targetCreateOpenAI = new TargetCreateOpenAI(); // TargetCreateOpenAI | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateOpenAI(targetCreateOpenAI);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateOpenAI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateOpenAI** | [**TargetCreateOpenAI**](TargetCreateOpenAI.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateOpenAIResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetCreatePing"></a>
@@ -29354,6 +29480,67 @@ No authorization required
 | **201** | targetUpdateGcpResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="targetUpdateGemini"></a>
+# **targetUpdateGemini**
+> TargetUpdateOutput targetUpdateGemini(targetUpdateGemini)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateGemini targetUpdateGemini = new TargetUpdateGemini(); // TargetUpdateGemini | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateGemini(targetUpdateGemini);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateGemini");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateGemini** | [**TargetUpdateGemini**](TargetUpdateGemini.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateGeminiResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="targetUpdateGithub"></a>
 # **targetUpdateGithub**
 > TargetUpdateOutput targetUpdateGithub(targetUpdateGithub)
@@ -29962,6 +30149,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetUpdateLinkedResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetUpdateOpenAI"></a>
+# **targetUpdateOpenAI**
+> TargetUpdateOutput targetUpdateOpenAI(targetUpdateOpenAI)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateOpenAI targetUpdateOpenAI = new TargetUpdateOpenAI(); // TargetUpdateOpenAI | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateOpenAI(targetUpdateOpenAI);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateOpenAI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateOpenAI** | [**TargetUpdateOpenAI**](TargetUpdateOpenAI.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateOpenAIResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetUpdatePing"></a>
