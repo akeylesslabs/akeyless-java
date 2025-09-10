@@ -82,6 +82,11 @@ public class Auth {
   @javax.annotation.Nullable
   private String adminPassword;
 
+  public static final String SERIALIZED_NAME_CERT_CHALLENGE = "cert-challenge";
+  @SerializedName(SERIALIZED_NAME_CERT_CHALLENGE)
+  @javax.annotation.Nullable
+  private String certChallenge;
+
   public static final String SERIALIZED_NAME_CERT_DATA = "cert-data";
   @SerializedName(SERIALIZED_NAME_CERT_DATA)
   @javax.annotation.Nullable
@@ -181,6 +186,11 @@ public class Auth {
   @SerializedName(SERIALIZED_NAME_OTP)
   @javax.annotation.Nullable
   private String otp;
+
+  public static final String SERIALIZED_NAME_SIGNED_CERT_CHALLENGE = "signed-cert-challenge";
+  @SerializedName(SERIALIZED_NAME_SIGNED_CERT_CHALLENGE)
+  @javax.annotation.Nullable
+  private String signedCertChallenge;
 
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
@@ -311,6 +321,25 @@ public class Auth {
 
   public void setAdminPassword(@javax.annotation.Nullable String adminPassword) {
     this.adminPassword = adminPassword;
+  }
+
+
+  public Auth certChallenge(@javax.annotation.Nullable String certChallenge) {
+    this.certChallenge = certChallenge;
+    return this;
+  }
+
+  /**
+   * Certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert)
+   * @return certChallenge
+   */
+  @javax.annotation.Nullable
+  public String getCertChallenge() {
+    return certChallenge;
+  }
+
+  public void setCertChallenge(@javax.annotation.Nullable String certChallenge) {
+    this.certChallenge = certChallenge;
   }
 
 
@@ -702,6 +731,25 @@ public class Auth {
   }
 
 
+  public Auth signedCertChallenge(@javax.annotation.Nullable String signedCertChallenge) {
+    this.signedCertChallenge = signedCertChallenge;
+    return this;
+  }
+
+  /**
+   * Signed certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert)
+   * @return signedCertChallenge
+   */
+  @javax.annotation.Nullable
+  public String getSignedCertChallenge() {
+    return signedCertChallenge;
+  }
+
+  public void setSignedCertChallenge(@javax.annotation.Nullable String signedCertChallenge) {
+    this.signedCertChallenge = signedCertChallenge;
+  }
+
+
   public Auth uidToken(@javax.annotation.Nullable String uidToken) {
     this.uidToken = uidToken;
     return this;
@@ -775,6 +823,7 @@ public class Auth {
         Objects.equals(this.accountId, auth.accountId) &&
         Objects.equals(this.adminEmail, auth.adminEmail) &&
         Objects.equals(this.adminPassword, auth.adminPassword) &&
+        Objects.equals(this.certChallenge, auth.certChallenge) &&
         Objects.equals(this.certData, auth.certData) &&
         Objects.equals(this.cloudId, auth.cloudId) &&
         Objects.equals(this.debug, auth.debug) &&
@@ -795,6 +844,7 @@ public class Auth {
         Objects.equals(this.ociAuthType, auth.ociAuthType) &&
         Objects.equals(this.ociGroupOcid, auth.ociGroupOcid) &&
         Objects.equals(this.otp, auth.otp) &&
+        Objects.equals(this.signedCertChallenge, auth.signedCertChallenge) &&
         Objects.equals(this.uidToken, auth.uidToken) &&
         Objects.equals(this.useRemoteBrowser, auth.useRemoteBrowser) &&
         Objects.equals(this.username, auth.username);
@@ -802,7 +852,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certData, cloudId, debug, disablePafxfast, gatewaySpn, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, kerberosToken, kerberosUsername, keyData, keytabData, krb5ConfData, ldapPassword, ociAuthType, ociGroupOcid, otp, uidToken, useRemoteBrowser, username);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, certChallenge, certData, cloudId, debug, disablePafxfast, gatewaySpn, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, kerberosToken, kerberosUsername, keyData, keytabData, krb5ConfData, ldapPassword, ociAuthType, ociGroupOcid, otp, signedCertChallenge, uidToken, useRemoteBrowser, username);
   }
 
   @Override
@@ -815,6 +865,7 @@ public class Auth {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
+    sb.append("    certChallenge: ").append(toIndentedString(certChallenge)).append("\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    cloudId: ").append(toIndentedString(cloudId)).append("\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
@@ -835,6 +886,7 @@ public class Auth {
     sb.append("    ociAuthType: ").append(toIndentedString(ociAuthType)).append("\n");
     sb.append("    ociGroupOcid: ").append(toIndentedString(ociGroupOcid)).append("\n");
     sb.append("    otp: ").append(toIndentedString(otp)).append("\n");
+    sb.append("    signedCertChallenge: ").append(toIndentedString(signedCertChallenge)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useRemoteBrowser: ").append(toIndentedString(useRemoteBrowser)).append("\n");
     sb.append("    username: ").append(toIndentedString(username)).append("\n");
@@ -866,6 +918,7 @@ public class Auth {
     openapiFields.add("account-id");
     openapiFields.add("admin-email");
     openapiFields.add("admin-password");
+    openapiFields.add("cert-challenge");
     openapiFields.add("cert-data");
     openapiFields.add("cloud-id");
     openapiFields.add("debug");
@@ -886,6 +939,7 @@ public class Auth {
     openapiFields.add("oci-auth-type");
     openapiFields.add("oci-group-ocid");
     openapiFields.add("otp");
+    openapiFields.add("signed-cert-challenge");
     openapiFields.add("uid-token");
     openapiFields.add("use-remote-browser");
     openapiFields.add("username");
@@ -932,6 +986,9 @@ public class Auth {
       }
       if ((jsonObj.get("admin-password") != null && !jsonObj.get("admin-password").isJsonNull()) && !jsonObj.get("admin-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `admin-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin-password").toString()));
+      }
+      if ((jsonObj.get("cert-challenge") != null && !jsonObj.get("cert-challenge").isJsonNull()) && !jsonObj.get("cert-challenge").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cert-challenge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-challenge").toString()));
       }
       if ((jsonObj.get("cert-data") != null && !jsonObj.get("cert-data").isJsonNull()) && !jsonObj.get("cert-data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cert-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-data").toString()));
@@ -987,6 +1044,9 @@ public class Auth {
       }
       if ((jsonObj.get("otp") != null && !jsonObj.get("otp").isJsonNull()) && !jsonObj.get("otp").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `otp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("otp").toString()));
+      }
+      if ((jsonObj.get("signed-cert-challenge") != null && !jsonObj.get("signed-cert-challenge").isJsonNull()) && !jsonObj.get("signed-cert-challenge").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signed-cert-challenge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signed-cert-challenge").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));

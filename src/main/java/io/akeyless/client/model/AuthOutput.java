@@ -61,6 +61,11 @@ public class AuthOutput {
   @javax.annotation.Nullable
   private SystemAccessCredentialsReplyObj creds;
 
+  public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION)
+  @javax.annotation.Nullable
+  private String expiration;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -107,6 +112,25 @@ public class AuthOutput {
   }
 
 
+  public AuthOutput expiration(@javax.annotation.Nullable String expiration) {
+    this.expiration = expiration;
+    return this;
+  }
+
+  /**
+   * Get expiration
+   * @return expiration
+   */
+  @javax.annotation.Nullable
+  public String getExpiration() {
+    return expiration;
+  }
+
+  public void setExpiration(@javax.annotation.Nullable String expiration) {
+    this.expiration = expiration;
+  }
+
+
   public AuthOutput token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -138,12 +162,13 @@ public class AuthOutput {
     AuthOutput authOutput = (AuthOutput) o;
     return Objects.equals(this.completeAuthLink, authOutput.completeAuthLink) &&
         Objects.equals(this.creds, authOutput.creds) &&
+        Objects.equals(this.expiration, authOutput.expiration) &&
         Objects.equals(this.token, authOutput.token);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(completeAuthLink, creds, token);
+    return Objects.hash(completeAuthLink, creds, expiration, token);
   }
 
   @Override
@@ -152,6 +177,7 @@ public class AuthOutput {
     sb.append("class AuthOutput {\n");
     sb.append("    completeAuthLink: ").append(toIndentedString(completeAuthLink)).append("\n");
     sb.append("    creds: ").append(toIndentedString(creds)).append("\n");
+    sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -177,6 +203,7 @@ public class AuthOutput {
     openapiFields = new HashSet<String>();
     openapiFields.add("complete_auth_link");
     openapiFields.add("creds");
+    openapiFields.add("expiration");
     openapiFields.add("token");
 
     // a set of required properties/fields (JSON key names)
@@ -210,6 +237,9 @@ public class AuthOutput {
       // validate the optional field `creds`
       if (jsonObj.get("creds") != null && !jsonObj.get("creds").isJsonNull()) {
         SystemAccessCredentialsReplyObj.validateJsonElement(jsonObj.get("creds"));
+      }
+      if ((jsonObj.get("expiration") != null && !jsonObj.get("expiration").isJsonNull()) && !jsonObj.get("expiration").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiration").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

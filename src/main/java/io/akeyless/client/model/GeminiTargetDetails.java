@@ -55,10 +55,10 @@ public class GeminiTargetDetails {
   @javax.annotation.Nullable
   private String apiKey;
 
-  public static final String SERIALIZED_NAME_BASE_URL = "base_url";
-  @SerializedName(SERIALIZED_NAME_BASE_URL)
+  public static final String SERIALIZED_NAME_GEMINI_URL = "gemini_url";
+  @SerializedName(SERIALIZED_NAME_GEMINI_URL)
   @javax.annotation.Nullable
-  private String baseUrl;
+  private String geminiUrl;
 
   public static final String SERIALIZED_NAME_MODEL = "model";
   @SerializedName(SERIALIZED_NAME_MODEL)
@@ -87,22 +87,22 @@ public class GeminiTargetDetails {
   }
 
 
-  public GeminiTargetDetails baseUrl(@javax.annotation.Nullable String baseUrl) {
-    this.baseUrl = baseUrl;
+  public GeminiTargetDetails geminiUrl(@javax.annotation.Nullable String geminiUrl) {
+    this.geminiUrl = geminiUrl;
     return this;
   }
 
   /**
-   * Get baseUrl
-   * @return baseUrl
+   * Get geminiUrl
+   * @return geminiUrl
    */
   @javax.annotation.Nullable
-  public String getBaseUrl() {
-    return baseUrl;
+  public String getGeminiUrl() {
+    return geminiUrl;
   }
 
-  public void setBaseUrl(@javax.annotation.Nullable String baseUrl) {
-    this.baseUrl = baseUrl;
+  public void setGeminiUrl(@javax.annotation.Nullable String geminiUrl) {
+    this.geminiUrl = geminiUrl;
   }
 
 
@@ -136,13 +136,13 @@ public class GeminiTargetDetails {
     }
     GeminiTargetDetails geminiTargetDetails = (GeminiTargetDetails) o;
     return Objects.equals(this.apiKey, geminiTargetDetails.apiKey) &&
-        Objects.equals(this.baseUrl, geminiTargetDetails.baseUrl) &&
+        Objects.equals(this.geminiUrl, geminiTargetDetails.geminiUrl) &&
         Objects.equals(this.model, geminiTargetDetails.model);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, baseUrl, model);
+    return Objects.hash(apiKey, geminiUrl, model);
   }
 
   @Override
@@ -150,7 +150,7 @@ public class GeminiTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class GeminiTargetDetails {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
-    sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
+    sb.append("    geminiUrl: ").append(toIndentedString(geminiUrl)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -175,7 +175,7 @@ public class GeminiTargetDetails {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("api_key");
-    openapiFields.add("base_url");
+    openapiFields.add("gemini_url");
     openapiFields.add("model");
 
     // a set of required properties/fields (JSON key names)
@@ -206,8 +206,8 @@ public class GeminiTargetDetails {
       if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()) && !jsonObj.get("api_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
       }
-      if ((jsonObj.get("base_url") != null && !jsonObj.get("base_url").isJsonNull()) && !jsonObj.get("base_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("base_url").toString()));
+      if ((jsonObj.get("gemini_url") != null && !jsonObj.get("gemini_url").isJsonNull()) && !jsonObj.get("gemini_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gemini_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gemini_url").toString()));
       }
       if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull()) && !jsonObj.get("model").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `model` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model").toString()));

@@ -11,6 +11,7 @@
 |**capabilities** | **List&lt;String&gt;** | The approved/denied capabilities in the path |  [optional] |
 |**cb** | **Integer** |  |  [optional] |
 |**isLimitAccess** | **Boolean** | flag that indicate that this rule is allowed to be access RemainingAccess of times. |  [optional] |
+|**itemId** | **Long** | The item id this rule directly refers to (when applicable) |  [optional] |
 |**numberOfAccessUsed** | **Long** |  |  [optional] |
 |**numberOfAllowedAccess** | **Long** |  |  [optional] |
 |**path** | **String** | The path the rule refers to |  [optional] |

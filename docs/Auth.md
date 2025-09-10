@@ -13,6 +13,7 @@
 |**accountId** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) |  [optional] |
 |**adminEmail** | **String** | Email (relevant only for access-type&#x3D;password) |  [optional] |
 |**adminPassword** | **String** | Password (relevant only for access-type&#x3D;password) |  [optional] |
+|**certChallenge** | **String** | Certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) |  [optional] |
 |**certData** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) |  [optional] |
 |**cloudId** | **String** | The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp) |  [optional] |
 |**debug** | **Boolean** |  |  [optional] |
@@ -33,6 +34,7 @@
 |**ociAuthType** | **String** | The type of the OCI configuration to use [instance/apikey/resource] (relevant only for access-type&#x3D;oci) |  [optional] |
 |**ociGroupOcid** | **List&lt;String&gt;** | A list of Oracle Cloud IDs groups (relevant only for access-type&#x3D;oci) |  [optional] |
 |**otp** | **String** |  |  [optional] |
+|**signedCertChallenge** | **String** | Signed certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) |  [optional] |
 |**uidToken** | **String** | The universal_identity token (relevant only for access-type&#x3D;universal_identity) |  [optional] |
 |**useRemoteBrowser** | **Boolean** | Returns a link to complete the authentication remotely (relevant only for access-type&#x3D;saml/oidc) |  [optional] |
 |**username** | **String** | LDAP username (relevant only for access-type&#x3D;ldap) |  [optional] |

@@ -9836,6 +9836,45 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /get-cert-challenge:
+    post:
+      operationId: get-cert-challenge
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetCertChallenge'
+        required: true
+        x-go-name: Body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCertChallengeOutput'
+          description: getCertChallengeResponse wraps response body.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSONError'
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-generate-protobuf: "true"
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /get-certificate-value:
     post:
       operationId: getCertificateValue
@@ -19121,6 +19160,12 @@ components:
           schema:
             $ref: '#/components/schemas/AuthMethod'
       description: getAuthMethodResponse wraps response body.
+    getCertChallengeResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GetCertChallengeOutput'
+      description: getCertChallengeResponse wraps response body.
     getCertificateValueResponse:
       content:
         application/json:
@@ -21791,36 +21836,38 @@ components:
               certificate_issue_date: 2000-01-23T04:56:07.000+00:00
               rules:
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               id: id
               activate_keys_on_creation: true
@@ -22183,12 +22230,14 @@ components:
         kerberos-username: kerberos-username
         access-id: access-id
         oci-auth-type: apikey
+        cert-challenge: cert-challenge
         cloud-id: cloud-id
         admin-email: admin-email
         key-data: key-data
         uid-token: uid-token
         k8s-auth-config-name: k8s-auth-config-name
         keytab-data: keytab-data
+        signed-cert-challenge: signed-cert-challenge
         admin-password: admin-password
         use-remote-browser: true
         gateway-spn: gateway-spn
@@ -22238,6 +22287,11 @@ components:
           description: Password (relevant only for access-type=password)
           type: string
           x-go-name: AdminPass
+        cert-challenge:
+          description: Certificate challenge encoded in base64. (relevant only for
+            access-type=cert)
+          type: string
+          x-go-name: CertChallengeB64
         cert-data:
           description: Certificate data encoded in base64. Used if file was not provided.
             (relevant only for access-type=cert)
@@ -22330,6 +22384,11 @@ components:
         otp:
           type: string
           x-go-name: Otp
+        signed-cert-challenge:
+          description: Signed certificate challenge encoded in base64. (relevant only
+            for access-type=cert)
+          type: string
+          x-go-name: SignedCertChallengeB64
         uid-token:
           description: |-
             The universal_identity token (relevant only for
@@ -22349,7 +22408,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     AuthExpirationEvent:
       example:
-        seconds_before: 7
+        seconds_before: 1
       properties:
         seconds_before:
           format: int64
@@ -22374,8 +22433,8 @@ components:
             ldap_bind_dn: ldap_bind_dn
             ldap_user_attr: ldap_user_attr
         expiration_events:
-        - seconds_before: 7
-        - seconds_before: 7
+        - seconds_before: 1
+        - seconds_before: 1
         auth_method_id: 5
         auth_method_roles_assoc:
         - is_sub_claims_case_sensitive: true
@@ -22388,36 +22447,38 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             admin: true
           is_subclaims_with_operator: true
@@ -22435,36 +22496,38 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             admin: true
           is_subclaims_with_operator: true
@@ -23146,36 +23209,38 @@ components:
         rules:
           path_rules:
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           admin: true
         is_subclaims_with_operator: true
@@ -23219,6 +23284,7 @@ components:
     AuthOutput:
       example:
         complete_auth_link: complete_auth_link
+        expiration: expiration
         creds:
           auth_creds: auth_creds
           uam_creds: uam_creds
@@ -23235,6 +23301,9 @@ components:
           x-go-name: Link
         creds:
           $ref: '#/components/schemas/SystemAccessCredentialsReplyObj'
+        expiration:
+          type: string
+          x-go-name: ExpirationTime
         token:
           type: string
           x-go-name: Token
@@ -29010,14 +29079,14 @@ components:
       description: GeminiTargetDetails defines details related to connecting to a
         Google Gemini provider
       example:
+        gemini_url: gemini_url
         api_key: api_key
-        base_url: base_url
         model: model
       properties:
         api_key:
           type: string
           x-go-name: ApiKey
-        base_url:
+        gemini_url:
           type: string
           x-go-name: BaseURL
         model:
@@ -29342,6 +29411,38 @@ components:
         command.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    GetCertChallenge:
+      description: GetCertChallenge is a command that gets a challenge for certificate
+        authentication
+      example:
+        json: false
+        access-id: access-id
+        cert-data: cert-data
+      properties:
+        access-id:
+          description: Access ID
+          type: string
+          x-go-name: AccessID
+        cert-data:
+          description: Certificate data encoded in base64. Used if file was not provided.
+          type: string
+          x-go-name: CertData
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    GetCertChallengeOutput:
+      example:
+        challenge: challenge
+      properties:
+        challenge:
+          type: string
+          x-go-name: Challenge
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     GetCertificateValueOutput:
       example:
         certificate_pem: certificate_pem
@@ -29658,8 +29759,8 @@ components:
             aws_secret_access_key: aws_secret_access_key
           openai_target_details:
             api_key: api_key
+            openai_url: openai_url
             organization_id: organization_id
-            base_url: base_url
             model: model
             api_key_id: api_key_id
           mongo_db_target_details:
@@ -29757,8 +29858,8 @@ components:
             chef_server_host_name: chef_server_host_name
             chef_server_username: chef_server_username
           gemini_target_details:
+            gemini_url: gemini_url
             api_key: api_key
-            base_url: base_url
             model: model
           azure_target_details:
             use_gw_cloud_identity: true
@@ -29827,6 +29928,7 @@ components:
           target_items_assoc:
           - cluster_id: 1
             assoc_id: assoc_id
+            item_id: 5
             item_type: item_type
             attributes:
               key: attributes
@@ -29834,6 +29936,7 @@ components:
             relationship: relationship
           - cluster_id: 1
             assoc_id: assoc_id
+            item_id: 5
             item_type: item_type
             attributes:
               key: attributes
@@ -32592,36 +32695,38 @@ components:
         certificate_issue_date: 2000-01-23T04:56:07.000+00:00
         rules:
         - path: path
-          start_time: 2
+          start_time: 4
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 3
+          number_of_allowed_access: 2
+          item_id: 9
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 9
+          number_of_access_used: 3
           type: type
-          ttl: 4
+          ttl: 7
           cb: 7
         - path: path
-          start_time: 2
+          start_time: 4
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 3
+          number_of_allowed_access: 2
+          item_id: 9
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 9
+          number_of_access_used: 3
           type: type
-          ttl: 4
+          ttl: 7
           cb: 7
         id: id
         activate_keys_on_creation: true
@@ -32658,36 +32763,38 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           id: id
           activate_keys_on_creation: true
@@ -32704,36 +32811,38 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           id: id
           activate_keys_on_creation: true
@@ -32742,36 +32851,38 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           id: id
           activate_keys_on_creation: true
@@ -32791,36 +32902,38 @@ components:
           certificate_issue_date: 2000-01-23T04:56:07.000+00:00
           rules:
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           id: id
           activate_keys_on_creation: true
@@ -32856,36 +32969,38 @@ components:
             certificate_issue_date: 2000-01-23T04:56:07.000+00:00
             rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             id: id
             activate_keys_on_creation: true
@@ -33698,8 +33813,8 @@ components:
               ldap_bind_dn: ldap_bind_dn
               ldap_user_attr: ldap_user_attr
           expiration_events:
-          - seconds_before: 7
-          - seconds_before: 7
+          - seconds_before: 1
+          - seconds_before: 1
           auth_method_id: 5
           auth_method_roles_assoc:
           - is_sub_claims_case_sensitive: true
@@ -33712,36 +33827,38 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               admin: true
             is_subclaims_with_operator: true
@@ -33759,36 +33876,38 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               admin: true
             is_subclaims_with_operator: true
@@ -34065,8 +34184,8 @@ components:
               ldap_bind_dn: ldap_bind_dn
               ldap_user_attr: ldap_user_attr
           expiration_events:
-          - seconds_before: 7
-          - seconds_before: 7
+          - seconds_before: 1
+          - seconds_before: 1
           auth_method_id: 5
           auth_method_roles_assoc:
           - is_sub_claims_case_sensitive: true
@@ -34079,36 +34198,38 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               admin: true
             is_subclaims_with_operator: true
@@ -34126,36 +34247,38 @@ components:
             rules:
               path_rules:
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               - path: path
-                start_time: 2
+                start_time: 4
                 capabilities:
                 - capabilities
                 - capabilities
-                number_of_allowed_access: 3
+                number_of_allowed_access: 2
+                item_id: 9
                 is_limit_access: true
                 assigners:
                 - unique_id: unique_id
                   access_id: access_id
                 - unique_id: unique_id
                   access_id: access_id
-                number_of_access_used: 9
+                number_of_access_used: 3
                 type: type
-                ttl: 4
+                ttl: 7
                 cb: 7
               admin: true
             is_subclaims_with_operator: true
@@ -38049,7 +38172,8 @@ components:
           - client_permissions
           - client_permissions
           role_auth_methods_assoc:
-          - assoc_id: assoc_id
+          - auth_method_id: 0
+            assoc_id: assoc_id
             is_subclaims_with_operator: true
             auth_method_name: auth_method_name
             auth_method_sub_claims:
@@ -38058,7 +38182,8 @@ components:
               - auth_method_sub_claims
             auth_method_access_id: auth_method_access_id
             sub_claims_case_sensitive: true
-          - assoc_id: assoc_id
+          - auth_method_id: 0
+            assoc_id: assoc_id
             is_subclaims_with_operator: true
             auth_method_name: auth_method_name
             auth_method_sub_claims:
@@ -38067,43 +38192,45 @@ components:
               - auth_method_sub_claims
             auth_method_access_id: auth_method_access_id
             sub_claims_case_sensitive: true
-          role_id: 0
+          role_id: 6
           access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           comment: comment
           rules:
             path_rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             admin: true
           creation_date: 2000-01-23T04:56:07.000+00:00
@@ -38114,7 +38241,8 @@ components:
           - client_permissions
           - client_permissions
           role_auth_methods_assoc:
-          - assoc_id: assoc_id
+          - auth_method_id: 0
+            assoc_id: assoc_id
             is_subclaims_with_operator: true
             auth_method_name: auth_method_name
             auth_method_sub_claims:
@@ -38123,7 +38251,8 @@ components:
               - auth_method_sub_claims
             auth_method_access_id: auth_method_access_id
             sub_claims_case_sensitive: true
-          - assoc_id: assoc_id
+          - auth_method_id: 0
+            assoc_id: assoc_id
             is_subclaims_with_operator: true
             auth_method_name: auth_method_name
             auth_method_sub_claims:
@@ -38132,43 +38261,45 @@ components:
               - auth_method_sub_claims
             auth_method_access_id: auth_method_access_id
             sub_claims_case_sensitive: true
-          role_id: 0
+          role_id: 6
           access_date: 2000-01-23T04:56:07.000+00:00
           modification_date: 2000-01-23T04:56:07.000+00:00
           comment: comment
           rules:
             path_rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             admin: true
           creation_date: 2000-01-23T04:56:07.000+00:00
@@ -38251,6 +38382,7 @@ components:
         - target_items_assoc:
           - cluster_id: 1
             assoc_id: assoc_id
+            item_id: 5
             item_type: item_type
             attributes:
               key: attributes
@@ -38258,6 +38390,7 @@ components:
             relationship: relationship
           - cluster_id: 1
             assoc_id: assoc_id
+            item_id: 5
             item_type: item_type
             attributes:
               key: attributes
@@ -38320,6 +38453,7 @@ components:
         - target_items_assoc:
           - cluster_id: 1
             assoc_id: assoc_id
+            item_id: 5
             item_type: item_type
             attributes:
               key: attributes
@@ -38327,6 +38461,7 @@ components:
             relationship: relationship
           - cluster_id: 1
             assoc_id: assoc_id
+            item_id: 5
             item_type: item_type
             attributes:
               key: attributes
@@ -39952,8 +40087,8 @@ components:
         OpenAI provider
       example:
         api_key: api_key
+        openai_url: openai_url
         organization_id: organization_id
-        base_url: base_url
         model: model
         api_key_id: api_key_id
       properties:
@@ -39963,12 +40098,12 @@ components:
         api_key_id:
           type: string
           x-go-name: ApiKeyID
-        base_url:
-          type: string
-          x-go-name: BaseURL
         model:
           type: string
           x-go-name: Model
+        openai_url:
+          type: string
+          x-go-name: BaseURL
         organization_id:
           type: string
           x-go-name: OrganizationID
@@ -40359,20 +40494,21 @@ components:
     PathRule:
       example:
         path: path
-        start_time: 2
+        start_time: 4
         capabilities:
         - capabilities
         - capabilities
-        number_of_allowed_access: 3
+        number_of_allowed_access: 2
+        item_id: 9
         is_limit_access: true
         assigners:
         - unique_id: unique_id
           access_id: access_id
         - unique_id: unique_id
           access_id: access_id
-        number_of_access_used: 9
+        number_of_access_used: 3
         type: type
-        ttl: 4
+        ttl: 7
         cb: 7
       properties:
         assigners:
@@ -40395,6 +40531,11 @@ components:
             of times.
           type: boolean
           x-go-name: IsLimitAccess
+        item_id:
+          description: The item id this rule directly refers to (when applicable)
+          format: int64
+          type: integer
+          x-go-name: ItemID
         number_of_access_used:
           format: int64
           type: integer
@@ -40713,6 +40854,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/akeyless-api/uam
     ReverseRBACClient:
       example:
+        auth_method_id: 0
         auth_method_name: auth_method_name
         assocs:
         - is_sub_claims_case_sensitive: true
@@ -40725,36 +40867,38 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             admin: true
           is_subclaims_with_operator: true
@@ -40772,36 +40916,38 @@ components:
           rules:
             path_rules:
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             - path: path
-              start_time: 2
+              start_time: 4
               capabilities:
               - capabilities
               - capabilities
-              number_of_allowed_access: 3
+              number_of_allowed_access: 2
+              item_id: 9
               is_limit_access: true
               assigners:
               - unique_id: unique_id
                 access_id: access_id
               - unique_id: unique_id
                 access_id: access_id
-              number_of_access_used: 9
+              number_of_access_used: 3
               type: type
-              ttl: 4
+              ttl: 7
               cb: 7
             admin: true
           is_subclaims_with_operator: true
@@ -40815,6 +40961,10 @@ components:
             $ref: '#/components/schemas/AuthMethodRoleAssociation'
           type: array
           x-go-name: Assocs
+        auth_method_id:
+          format: int64
+          type: integer
+          x-go-name: AuthMethodId
         auth_method_name:
           type: string
           x-go-name: AuthMethodName
@@ -40825,6 +40975,7 @@ components:
       example:
         clients:
           key:
+            auth_method_id: 0
             auth_method_name: auth_method_name
             assocs:
             - is_sub_claims_case_sensitive: true
@@ -40837,36 +40988,38 @@ components:
               rules:
                 path_rules:
                 - path: path
-                  start_time: 2
+                  start_time: 4
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 3
+                  number_of_allowed_access: 2
+                  item_id: 9
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 9
+                  number_of_access_used: 3
                   type: type
-                  ttl: 4
+                  ttl: 7
                   cb: 7
                 - path: path
-                  start_time: 2
+                  start_time: 4
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 3
+                  number_of_allowed_access: 2
+                  item_id: 9
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 9
+                  number_of_access_used: 3
                   type: type
-                  ttl: 4
+                  ttl: 7
                   cb: 7
                 admin: true
               is_subclaims_with_operator: true
@@ -40884,36 +41037,38 @@ components:
               rules:
                 path_rules:
                 - path: path
-                  start_time: 2
+                  start_time: 4
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 3
+                  number_of_allowed_access: 2
+                  item_id: 9
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 9
+                  number_of_access_used: 3
                   type: type
-                  ttl: 4
+                  ttl: 7
                   cb: 7
                 - path: path
-                  start_time: 2
+                  start_time: 4
                   capabilities:
                   - capabilities
                   - capabilities
-                  number_of_allowed_access: 3
+                  number_of_allowed_access: 2
+                  item_id: 9
                   is_limit_access: true
                   assigners:
                   - unique_id: unique_id
                     access_id: access_id
                   - unique_id: unique_id
                     access_id: access_id
-                  number_of_access_used: 9
+                  number_of_access_used: 3
                   type: type
-                  ttl: 4
+                  ttl: 7
                   cb: 7
                 admin: true
               is_subclaims_with_operator: true
@@ -40988,7 +41143,8 @@ components:
         - client_permissions
         - client_permissions
         role_auth_methods_assoc:
-        - assoc_id: assoc_id
+        - auth_method_id: 0
+          assoc_id: assoc_id
           is_subclaims_with_operator: true
           auth_method_name: auth_method_name
           auth_method_sub_claims:
@@ -40997,7 +41153,8 @@ components:
             - auth_method_sub_claims
           auth_method_access_id: auth_method_access_id
           sub_claims_case_sensitive: true
-        - assoc_id: assoc_id
+        - auth_method_id: 0
+          assoc_id: assoc_id
           is_subclaims_with_operator: true
           auth_method_name: auth_method_name
           auth_method_sub_claims:
@@ -41006,43 +41163,45 @@ components:
             - auth_method_sub_claims
           auth_method_access_id: auth_method_access_id
           sub_claims_case_sensitive: true
-        role_id: 0
+        role_id: 6
         access_date: 2000-01-23T04:56:07.000+00:00
         modification_date: 2000-01-23T04:56:07.000+00:00
         comment: comment
         rules:
           path_rules:
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           - path: path
-            start_time: 2
+            start_time: 4
             capabilities:
             - capabilities
             - capabilities
-            number_of_allowed_access: 3
+            number_of_allowed_access: 2
+            item_id: 9
             is_limit_access: true
             assigners:
             - unique_id: unique_id
               access_id: access_id
             - unique_id: unique_id
               access_id: access_id
-            number_of_access_used: 9
+            number_of_access_used: 3
             type: type
-            ttl: 4
+            ttl: 7
             cb: 7
           admin: true
         creation_date: 2000-01-23T04:56:07.000+00:00
@@ -41135,6 +41294,7 @@ components:
         RoleAuthMethodAssociation includes details of an association between a role
         and an auth method.
       example:
+        auth_method_id: 0
         assoc_id: assoc_id
         is_subclaims_with_operator: true
         auth_method_name: auth_method_name
@@ -41151,6 +41311,10 @@ components:
         auth_method_access_id:
           type: string
           x-go-name: AuthMethodAccessID
+        auth_method_id:
+          format: int64
+          type: integer
+          x-go-name: AuthMethodId
         auth_method_name:
           type: string
           x-go-name: AuthMethodName
@@ -41424,36 +41588,38 @@ components:
       example:
         path_rules:
         - path: path
-          start_time: 2
+          start_time: 4
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 3
+          number_of_allowed_access: 2
+          item_id: 9
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 9
+          number_of_access_used: 3
           type: type
-          ttl: 4
+          ttl: 7
           cb: 7
         - path: path
-          start_time: 2
+          start_time: 4
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 3
+          number_of_allowed_access: 2
+          item_id: 9
           is_limit_access: true
           assigners:
           - unique_id: unique_id
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 9
+          number_of_access_used: 3
           type: type
-          ttl: 4
+          ttl: 7
           cb: 7
         admin: true
       properties:
@@ -42122,7 +42288,8 @@ components:
         capabilities:
         - capabilities
         - capabilities
-        number_of_allowed_access: 1
+        number_of_allowed_access: 5
+        item_id: 6
         is_limit_access: true
         name: name
         assigners:
@@ -42130,9 +42297,9 @@ components:
           access_id: access_id
         - unique_id: unique_id
           access_id: access_id
-        number_of_access_used: 6
+        number_of_access_used: 1
         type: type
-        ttl: 5
+        ttl: 2
         cb: 0
       properties:
         assigners:
@@ -42155,6 +42322,11 @@ components:
             of times.
           type: boolean
           x-go-name: IsLimitAccess
+        item_id:
+          description: The item id this rule directly refers to (when applicable)
+          format: int64
+          type: integer
+          x-go-name: ItemID
         name:
           type: string
           x-go-name: Name
@@ -42710,6 +42882,7 @@ components:
         target_items_assoc:
         - cluster_id: 1
           assoc_id: assoc_id
+          item_id: 5
           item_type: item_type
           attributes:
             key: attributes
@@ -42717,6 +42890,7 @@ components:
           relationship: relationship
         - cluster_id: 1
           assoc_id: assoc_id
+          item_id: 5
           item_type: item_type
           attributes:
             key: attributes
@@ -42870,6 +43044,7 @@ components:
       example:
         cluster_id: 1
         assoc_id: assoc_id
+        item_id: 5
         item_type: item_type
         attributes:
           key: attributes
@@ -42888,6 +43063,10 @@ components:
           format: int64
           type: integer
           x-go-name: GWClusterID
+        item_id:
+          format: int64
+          type: integer
+          x-go-name: ItemID
         item_name:
           type: string
           x-go-name: ItemName
@@ -43067,8 +43246,8 @@ components:
           aws_secret_access_key: aws_secret_access_key
         openai_target_details:
           api_key: api_key
+          openai_url: openai_url
           organization_id: organization_id
-          base_url: base_url
           model: model
           api_key_id: api_key_id
         mongo_db_target_details:
@@ -43166,8 +43345,8 @@ components:
           chef_server_host_name: chef_server_host_name
           chef_server_username: chef_server_username
         gemini_target_details:
+          gemini_url: gemini_url
           api_key: api_key
-          base_url: base_url
           model: model
         azure_target_details:
           use_gw_cloud_identity: true
@@ -52845,6 +53024,11 @@ components:
           description: Role name
           type: string
           x-go-name: RoleName
+        reverse-rbac-access:
+          description: "Allow this role to view Reverse RBAC. Supported values: 'own',\
+            \ 'all'."
+          type: string
+          x-go-name: ReverseRbacAccess
         sra-reports-access:
           description: |-
             Allow this role to view SRA Clusters. Currently only 'none', 'own',
@@ -64189,7 +64373,7 @@ components:
             Permissions
 
             Comma-seperated list of permissions for this allowed access.
-            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general]
+            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general,rotate_secret_value]
           type: string
           x-go-name: Permissions
         sub-claims:
@@ -78912,7 +79096,7 @@ components:
             Permissions
 
             Comma-seperated list of permissions for this allowed access.
-            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general]
+            Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general,rotate_secret_value]
           type: string
           x-go-name: Permissions
         sub-claims:
@@ -101237,7 +101421,8 @@ components:
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 1
+          number_of_allowed_access: 5
+          item_id: 6
           is_limit_access: true
           name: name
           assigners:
@@ -101245,16 +101430,17 @@ components:
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 6
+          number_of_access_used: 1
           type: type
-          ttl: 5
+          ttl: 2
           cb: 0
         - path: path
           start_time: 5
           capabilities:
           - capabilities
           - capabilities
-          number_of_allowed_access: 1
+          number_of_allowed_access: 5
+          item_id: 6
           is_limit_access: true
           name: name
           assigners:
@@ -101262,9 +101448,9 @@ components:
             access_id: access_id
           - unique_id: unique_id
             access_id: access_id
-          number_of_access_used: 6
+          number_of_access_used: 1
           type: type
-          ttl: 5
+          ttl: 2
           cb: 0
         s_token: s_token
         shared_users:
@@ -110887,6 +111073,11 @@ components:
           description: New Role name
           type: string
           x-go-name: NewName
+        reverse-rbac-access:
+          description: "Allow this role to view Reverse RBAC. Supported values: 'own',\
+            \ 'all'."
+          type: string
+          x-go-name: ReverseRbacAccess
         sra-reports-access:
           description: |-
             Allow this role to view SRA Clusters. Currently only 'none', 'own',

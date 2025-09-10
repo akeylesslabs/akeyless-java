@@ -58,6 +58,11 @@ public class ReverseRBACClient {
   @javax.annotation.Nullable
   private List<AuthMethodRoleAssociation> assocs = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_AUTH_METHOD_ID = "auth_method_id";
+  @SerializedName(SERIALIZED_NAME_AUTH_METHOD_ID)
+  @javax.annotation.Nullable
+  private Long authMethodId;
+
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth_method_name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
   @javax.annotation.Nullable
@@ -93,6 +98,25 @@ public class ReverseRBACClient {
   }
 
 
+  public ReverseRBACClient authMethodId(@javax.annotation.Nullable Long authMethodId) {
+    this.authMethodId = authMethodId;
+    return this;
+  }
+
+  /**
+   * Get authMethodId
+   * @return authMethodId
+   */
+  @javax.annotation.Nullable
+  public Long getAuthMethodId() {
+    return authMethodId;
+  }
+
+  public void setAuthMethodId(@javax.annotation.Nullable Long authMethodId) {
+    this.authMethodId = authMethodId;
+  }
+
+
   public ReverseRBACClient authMethodName(@javax.annotation.Nullable String authMethodName) {
     this.authMethodName = authMethodName;
     return this;
@@ -123,12 +147,13 @@ public class ReverseRBACClient {
     }
     ReverseRBACClient reverseRBACClient = (ReverseRBACClient) o;
     return Objects.equals(this.assocs, reverseRBACClient.assocs) &&
+        Objects.equals(this.authMethodId, reverseRBACClient.authMethodId) &&
         Objects.equals(this.authMethodName, reverseRBACClient.authMethodName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocs, authMethodName);
+    return Objects.hash(assocs, authMethodId, authMethodName);
   }
 
   @Override
@@ -136,6 +161,7 @@ public class ReverseRBACClient {
     StringBuilder sb = new StringBuilder();
     sb.append("class ReverseRBACClient {\n");
     sb.append("    assocs: ").append(toIndentedString(assocs)).append("\n");
+    sb.append("    authMethodId: ").append(toIndentedString(authMethodId)).append("\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -160,6 +186,7 @@ public class ReverseRBACClient {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("assocs");
+    openapiFields.add("auth_method_id");
     openapiFields.add("auth_method_name");
 
     // a set of required properties/fields (JSON key names)

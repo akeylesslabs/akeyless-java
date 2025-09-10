@@ -73,6 +73,11 @@ public class PathRule {
   @javax.annotation.Nullable
   private Boolean isLimitAccess;
 
+  public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  @javax.annotation.Nullable
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_NUMBER_OF_ACCESS_USED = "number_of_access_used";
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_ACCESS_USED)
   @javax.annotation.Nullable
@@ -195,6 +200,25 @@ public class PathRule {
 
   public void setIsLimitAccess(@javax.annotation.Nullable Boolean isLimitAccess) {
     this.isLimitAccess = isLimitAccess;
+  }
+
+
+  public PathRule itemId(@javax.annotation.Nullable Long itemId) {
+    this.itemId = itemId;
+    return this;
+  }
+
+  /**
+   * The item id this rule directly refers to (when applicable)
+   * @return itemId
+   */
+  @javax.annotation.Nullable
+  public Long getItemId() {
+    return itemId;
+  }
+
+  public void setItemId(@javax.annotation.Nullable Long itemId) {
+    this.itemId = itemId;
   }
 
 
@@ -326,6 +350,7 @@ public class PathRule {
         Objects.equals(this.capabilities, pathRule.capabilities) &&
         Objects.equals(this.cb, pathRule.cb) &&
         Objects.equals(this.isLimitAccess, pathRule.isLimitAccess) &&
+        Objects.equals(this.itemId, pathRule.itemId) &&
         Objects.equals(this.numberOfAccessUsed, pathRule.numberOfAccessUsed) &&
         Objects.equals(this.numberOfAllowedAccess, pathRule.numberOfAllowedAccess) &&
         Objects.equals(this.path, pathRule.path) &&
@@ -336,7 +361,7 @@ public class PathRule {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assigners, capabilities, cb, isLimitAccess, numberOfAccessUsed, numberOfAllowedAccess, path, startTime, ttl, type);
+    return Objects.hash(assigners, capabilities, cb, isLimitAccess, itemId, numberOfAccessUsed, numberOfAllowedAccess, path, startTime, ttl, type);
   }
 
   @Override
@@ -347,6 +372,7 @@ public class PathRule {
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    cb: ").append(toIndentedString(cb)).append("\n");
     sb.append("    isLimitAccess: ").append(toIndentedString(isLimitAccess)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    numberOfAccessUsed: ").append(toIndentedString(numberOfAccessUsed)).append("\n");
     sb.append("    numberOfAllowedAccess: ").append(toIndentedString(numberOfAllowedAccess)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
@@ -379,6 +405,7 @@ public class PathRule {
     openapiFields.add("capabilities");
     openapiFields.add("cb");
     openapiFields.add("is_limit_access");
+    openapiFields.add("item_id");
     openapiFields.add("number_of_access_used");
     openapiFields.add("number_of_allowed_access");
     openapiFields.add("path");

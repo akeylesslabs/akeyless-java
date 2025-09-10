@@ -15,7 +15,7 @@ package io.akeyless.client;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class Configuration {
-    public static final String VERSION = "5.0.7";
+    public static final String VERSION = "5.0.8";
 
     private static ApiClient defaultApiClient = new ApiClient();
 

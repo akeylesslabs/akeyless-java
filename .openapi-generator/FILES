@@ -596,6 +596,8 @@ docs/GetAccountSettings.md
 docs/GetAccountSettingsCommandOutput.md
 docs/GetAnalyticsData.md
 docs/GetAuthMethod.md
+docs/GetCertChallenge.md
+docs/GetCertChallengeOutput.md
 docs/GetCertificateValue.md
 docs/GetCertificateValueOutput.md
 docs/GetDynamicSecretValue.md
@@ -1732,6 +1734,8 @@ src/main/java/io/akeyless/client/model/GetAccountSettings.java
 src/main/java/io/akeyless/client/model/GetAccountSettingsCommandOutput.java
 src/main/java/io/akeyless/client/model/GetAnalyticsData.java
 src/main/java/io/akeyless/client/model/GetAuthMethod.java
+src/main/java/io/akeyless/client/model/GetCertChallenge.java
+src/main/java/io/akeyless/client/model/GetCertChallengeOutput.java
 src/main/java/io/akeyless/client/model/GetCertificateValue.java
 src/main/java/io/akeyless/client/model/GetCertificateValueOutput.java
 src/main/java/io/akeyless/client/model/GetDynamicSecretValue.java
@@ -2248,9 +2252,5 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/GeminiTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/OpenAITargetDetailsTest.java
-src/test/java/io/akeyless/client/model/TargetCreateGeminiTest.java
-src/test/java/io/akeyless/client/model/TargetCreateOpenAITest.java
-src/test/java/io/akeyless/client/model/TargetUpdateGeminiTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateOpenAITest.java
+src/test/java/io/akeyless/client/model/GetCertChallengeOutputTest.java
+src/test/java/io/akeyless/client/model/GetCertChallengeTest.java

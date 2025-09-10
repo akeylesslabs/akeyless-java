@@ -684,6 +684,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetAccountSettingsCommandOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetAnalyticsData.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetAuthMethod.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetCertChallenge.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetCertChallengeOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetCertificateValue.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetCertificateValueOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GetDynamicSecretValue.CustomTypeAdapterFactory());

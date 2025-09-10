@@ -518,6 +518,8 @@ import io.akeyless.client.model.GetAccountSettings;
 import io.akeyless.client.model.GetAccountSettingsCommandOutput;
 import io.akeyless.client.model.GetAnalyticsData;
 import io.akeyless.client.model.GetAuthMethod;
+import io.akeyless.client.model.GetCertChallenge;
+import io.akeyless.client.model.GetCertChallengeOutput;
 import io.akeyless.client.model.GetCertificateValue;
 import io.akeyless.client.model.GetCertificateValueOutput;
 import io.akeyless.client.model.GetDynamicSecretValue;
@@ -42284,6 +42286,141 @@ public class V2Api {
 
         okhttp3.Call localVarCall = getAuthMethodValidateBeforeCall(getAuthMethod, _callback);
         Type localVarReturnType = new TypeToken<AuthMethod>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getCertChallenge
+     * @param getCertChallenge  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getCertChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCertChallengeCall(GetCertChallenge getCertChallenge, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = getCertChallenge;
+
+        // create path and map variables
+        String localVarPath = "/get-cert-challenge";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getCertChallengeValidateBeforeCall(GetCertChallenge getCertChallenge, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'getCertChallenge' is set
+        if (getCertChallenge == null) {
+            throw new ApiException("Missing the required parameter 'getCertChallenge' when calling getCertChallenge(Async)");
+        }
+
+        return getCertChallengeCall(getCertChallenge, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param getCertChallenge  (required)
+     * @return GetCertChallengeOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getCertChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public GetCertChallengeOutput getCertChallenge(GetCertChallenge getCertChallenge) throws ApiException {
+        ApiResponse<GetCertChallengeOutput> localVarResp = getCertChallengeWithHttpInfo(getCertChallenge);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param getCertChallenge  (required)
+     * @return ApiResponse&lt;GetCertChallengeOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getCertChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<GetCertChallengeOutput> getCertChallengeWithHttpInfo(GetCertChallenge getCertChallenge) throws ApiException {
+        okhttp3.Call localVarCall = getCertChallengeValidateBeforeCall(getCertChallenge, null);
+        Type localVarReturnType = new TypeToken<GetCertChallengeOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param getCertChallenge  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getCertChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getCertChallengeAsync(GetCertChallenge getCertChallenge, final ApiCallback<GetCertChallengeOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getCertChallengeValidateBeforeCall(getCertChallenge, _callback);
+        Type localVarReturnType = new TypeToken<GetCertChallengeOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

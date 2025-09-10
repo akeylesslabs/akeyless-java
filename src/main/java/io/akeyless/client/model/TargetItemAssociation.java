@@ -67,6 +67,11 @@ public class TargetItemAssociation {
   @javax.annotation.Nullable
   private Long clusterId;
 
+  public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
+  @SerializedName(SERIALIZED_NAME_ITEM_ID)
+  @javax.annotation.Nullable
+  private Long itemId;
+
   public static final String SERIALIZED_NAME_ITEM_NAME = "item_name";
   @SerializedName(SERIALIZED_NAME_ITEM_NAME)
   @javax.annotation.Nullable
@@ -150,6 +155,25 @@ public class TargetItemAssociation {
   }
 
 
+  public TargetItemAssociation itemId(@javax.annotation.Nullable Long itemId) {
+    this.itemId = itemId;
+    return this;
+  }
+
+  /**
+   * Get itemId
+   * @return itemId
+   */
+  @javax.annotation.Nullable
+  public Long getItemId() {
+    return itemId;
+  }
+
+  public void setItemId(@javax.annotation.Nullable Long itemId) {
+    this.itemId = itemId;
+  }
+
+
   public TargetItemAssociation itemName(@javax.annotation.Nullable String itemName) {
     this.itemName = itemName;
     return this;
@@ -220,6 +244,7 @@ public class TargetItemAssociation {
     return Objects.equals(this.assocId, targetItemAssociation.assocId) &&
         Objects.equals(this.attributes, targetItemAssociation.attributes) &&
         Objects.equals(this.clusterId, targetItemAssociation.clusterId) &&
+        Objects.equals(this.itemId, targetItemAssociation.itemId) &&
         Objects.equals(this.itemName, targetItemAssociation.itemName) &&
         Objects.equals(this.itemType, targetItemAssociation.itemType) &&
         Objects.equals(this.relationship, targetItemAssociation.relationship);
@@ -227,7 +252,7 @@ public class TargetItemAssociation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, attributes, clusterId, itemName, itemType, relationship);
+    return Objects.hash(assocId, attributes, clusterId, itemId, itemName, itemType, relationship);
   }
 
   @Override
@@ -237,6 +262,7 @@ public class TargetItemAssociation {
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    relationship: ").append(toIndentedString(relationship)).append("\n");
@@ -265,6 +291,7 @@ public class TargetItemAssociation {
     openapiFields.add("assoc_id");
     openapiFields.add("attributes");
     openapiFields.add("cluster_id");
+    openapiFields.add("item_id");
     openapiFields.add("item_name");
     openapiFields.add("item_type");
     openapiFields.add("relationship");

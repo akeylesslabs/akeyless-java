@@ -320,6 +320,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**getAccountSettings**](V2Api.md#getAccountSettings) | **POST** /get-account-settings |  |
 | [**getAnalyticsData**](V2Api.md#getAnalyticsData) | **POST** /get-analytics-data |  |
 | [**getAuthMethod**](V2Api.md#getAuthMethod) | **POST** /get-auth-method |  |
+| [**getCertChallenge**](V2Api.md#getCertChallenge) | **POST** /get-cert-challenge |  |
 | [**getCertificateValue**](V2Api.md#getCertificateValue) | **POST** /get-certificate-value |  |
 | [**getDynamicSecretValue**](V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value |  |
 | [**getEventForwarder**](V2Api.md#getEventForwarder) | **POST** /get-event-forwarder |  |
@@ -19849,6 +19850,68 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | getAuthMethodResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="getCertChallenge"></a>
+# **getCertChallenge**
+> GetCertChallengeOutput getCertChallenge(getCertChallenge)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GetCertChallenge getCertChallenge = new GetCertChallenge(); // GetCertChallenge | 
+    try {
+      GetCertChallengeOutput result = apiInstance.getCertChallenge(getCertChallenge);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#getCertChallenge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **getCertChallenge** | [**GetCertChallenge**](GetCertChallenge.md)|  | |
+
+### Return type
+
+[**GetCertChallengeOutput**](GetCertChallengeOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | getCertChallengeResponse wraps response body. |  -  |
+| **400** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="getCertificateValue"></a>

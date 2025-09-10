@@ -422,6 +422,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
 *V2Api* | [**getAnalyticsData**](docs/V2Api.md#getAnalyticsData) | **POST** /get-analytics-data | 
 *V2Api* | [**getAuthMethod**](docs/V2Api.md#getAuthMethod) | **POST** /get-auth-method | 
+*V2Api* | [**getCertChallenge**](docs/V2Api.md#getCertChallenge) | **POST** /get-cert-challenge | 
 *V2Api* | [**getCertificateValue**](docs/V2Api.md#getCertificateValue) | **POST** /get-certificate-value | 
 *V2Api* | [**getDynamicSecretValue**](docs/V2Api.md#getDynamicSecretValue) | **POST** /get-dynamic-secret-value | 
 *V2Api* | [**getEventForwarder**](docs/V2Api.md#getEventForwarder) | **POST** /get-event-forwarder | 
@@ -1276,6 +1277,8 @@ Class | Method | HTTP request | Description
  - [GetAccountSettingsCommandOutput](docs/GetAccountSettingsCommandOutput.md)
  - [GetAnalyticsData](docs/GetAnalyticsData.md)
  - [GetAuthMethod](docs/GetAuthMethod.md)
+ - [GetCertChallenge](docs/GetCertChallenge.md)
+ - [GetCertChallengeOutput](docs/GetCertChallengeOutput.md)
  - [GetCertificateValue](docs/GetCertificateValue.md)
  - [GetCertificateValueOutput](docs/GetCertificateValueOutput.md)
  - [GetDynamicSecretValue](docs/GetDynamicSecretValue.md)
