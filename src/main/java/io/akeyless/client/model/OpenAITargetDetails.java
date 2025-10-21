@@ -60,11 +60,6 @@ public class OpenAITargetDetails {
   @javax.annotation.Nullable
   private String apiKeyId;
 
-  public static final String SERIALIZED_NAME_MODEL = "model";
-  @SerializedName(SERIALIZED_NAME_MODEL)
-  @javax.annotation.Nullable
-  private String model;
-
   public static final String SERIALIZED_NAME_OPENAI_URL = "openai_url";
   @SerializedName(SERIALIZED_NAME_OPENAI_URL)
   @javax.annotation.Nullable
@@ -74,6 +69,11 @@ public class OpenAITargetDetails {
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_ID)
   @javax.annotation.Nullable
   private String organizationId;
+
+  public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String projectId;
 
   public OpenAITargetDetails() {
   }
@@ -116,25 +116,6 @@ public class OpenAITargetDetails {
   }
 
 
-  public OpenAITargetDetails model(@javax.annotation.Nullable String model) {
-    this.model = model;
-    return this;
-  }
-
-  /**
-   * Get model
-   * @return model
-   */
-  @javax.annotation.Nullable
-  public String getModel() {
-    return model;
-  }
-
-  public void setModel(@javax.annotation.Nullable String model) {
-    this.model = model;
-  }
-
-
   public OpenAITargetDetails openaiUrl(@javax.annotation.Nullable String openaiUrl) {
     this.openaiUrl = openaiUrl;
     return this;
@@ -173,6 +154,25 @@ public class OpenAITargetDetails {
   }
 
 
+  public OpenAITargetDetails projectId(@javax.annotation.Nullable String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Get projectId
+   * @return projectId
+   */
+  @javax.annotation.Nullable
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(@javax.annotation.Nullable String projectId) {
+    this.projectId = projectId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -185,14 +185,14 @@ public class OpenAITargetDetails {
     OpenAITargetDetails openAITargetDetails = (OpenAITargetDetails) o;
     return Objects.equals(this.apiKey, openAITargetDetails.apiKey) &&
         Objects.equals(this.apiKeyId, openAITargetDetails.apiKeyId) &&
-        Objects.equals(this.model, openAITargetDetails.model) &&
         Objects.equals(this.openaiUrl, openAITargetDetails.openaiUrl) &&
-        Objects.equals(this.organizationId, openAITargetDetails.organizationId);
+        Objects.equals(this.organizationId, openAITargetDetails.organizationId) &&
+        Objects.equals(this.projectId, openAITargetDetails.projectId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiKeyId, model, openaiUrl, organizationId);
+    return Objects.hash(apiKey, apiKeyId, openaiUrl, organizationId, projectId);
   }
 
   @Override
@@ -201,9 +201,9 @@ public class OpenAITargetDetails {
     sb.append("class OpenAITargetDetails {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
-    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    openaiUrl: ").append(toIndentedString(openaiUrl)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -228,9 +228,9 @@ public class OpenAITargetDetails {
     openapiFields = new HashSet<String>();
     openapiFields.add("api_key");
     openapiFields.add("api_key_id");
-    openapiFields.add("model");
     openapiFields.add("openai_url");
     openapiFields.add("organization_id");
+    openapiFields.add("project_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -263,14 +263,14 @@ public class OpenAITargetDetails {
       if ((jsonObj.get("api_key_id") != null && !jsonObj.get("api_key_id").isJsonNull()) && !jsonObj.get("api_key_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `api_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key_id").toString()));
       }
-      if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull()) && !jsonObj.get("model").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `model` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model").toString()));
-      }
       if ((jsonObj.get("openai_url") != null && !jsonObj.get("openai_url").isJsonNull()) && !jsonObj.get("openai_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `openai_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_url").toString()));
       }
       if ((jsonObj.get("organization_id") != null && !jsonObj.get("organization_id").isJsonNull()) && !jsonObj.get("organization_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `organization_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization_id").toString()));
+      }
+      if ((jsonObj.get("project_id") != null && !jsonObj.get("project_id").isJsonNull()) && !jsonObj.get("project_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_id").toString()));
       }
   }
 

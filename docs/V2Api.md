@@ -145,6 +145,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamicSecretCreateMongoDb**](V2Api.md#dynamicSecretCreateMongoDb) | **POST** /dynamic-secret-create-mongodb |  |
 | [**dynamicSecretCreateMsSql**](V2Api.md#dynamicSecretCreateMsSql) | **POST** /dynamic-secret-create-mssql |  |
 | [**dynamicSecretCreateMySql**](V2Api.md#dynamicSecretCreateMySql) | **POST** /dynamic-secret-create-mysql |  |
+| [**dynamicSecretCreateOpenAI**](V2Api.md#dynamicSecretCreateOpenAI) | **POST** /dynamic-secret-create-openai |  |
 | [**dynamicSecretCreateOracleDb**](V2Api.md#dynamicSecretCreateOracleDb) | **POST** /dynamic-secret-create-oracle |  |
 | [**dynamicSecretCreatePing**](V2Api.md#dynamicSecretCreatePing) | **POST** /dynamic-secret-create-ping |  |
 | [**dynamicSecretCreatePostgreSql**](V2Api.md#dynamicSecretCreatePostgreSql) | **POST** /dynamic-secret-create-postgresql |  |
@@ -179,6 +180,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamicSecretUpdateMongoDb**](V2Api.md#dynamicSecretUpdateMongoDb) | **POST** /dynamic-secret-update-mongo |  |
 | [**dynamicSecretUpdateMsSql**](V2Api.md#dynamicSecretUpdateMsSql) | **POST** /dynamic-secret-update-mssql |  |
 | [**dynamicSecretUpdateMySql**](V2Api.md#dynamicSecretUpdateMySql) | **POST** /dynamic-secret-update-mysql |  |
+| [**dynamicSecretUpdateOpenAI**](V2Api.md#dynamicSecretUpdateOpenAI) | **POST** /dynamic-secret-update-openai |  |
 | [**dynamicSecretUpdateOracleDb**](V2Api.md#dynamicSecretUpdateOracleDb) | **POST** /dynamic-secret-update-oracle |  |
 | [**dynamicSecretUpdatePing**](V2Api.md#dynamicSecretUpdatePing) | **POST** /dynamic-secret-update-ping |  |
 | [**dynamicSecretUpdatePostgreSql**](V2Api.md#dynamicSecretUpdatePostgreSql) | **POST** /dynamic-secret-update-postgresql |  |
@@ -201,12 +203,14 @@ All URIs are relative to *https://api.akeyless.io*
 | [**eventForwarderCreateEmail**](V2Api.md#eventForwarderCreateEmail) | **POST** /event-forwarder-create-email |  |
 | [**eventForwarderCreateServiceNow**](V2Api.md#eventForwarderCreateServiceNow) | **POST** /event-forwarder-create-servicenow |  |
 | [**eventForwarderCreateSlack**](V2Api.md#eventForwarderCreateSlack) | **POST** /event-forwarder-create-slack |  |
+| [**eventForwarderCreateTeams**](V2Api.md#eventForwarderCreateTeams) | **POST** /event-forwarder-create-teams |  |
 | [**eventForwarderCreateWebhook**](V2Api.md#eventForwarderCreateWebhook) | **POST** /event-forwarder-create-webhook |  |
 | [**eventForwarderDelete**](V2Api.md#eventForwarderDelete) | **POST** /event-forwarder-delete |  |
 | [**eventForwarderGet**](V2Api.md#eventForwarderGet) | **POST** /event-forwarder-get |  |
 | [**eventForwarderUpdateEmail**](V2Api.md#eventForwarderUpdateEmail) | **POST** /event-forwarder-update-email |  |
 | [**eventForwarderUpdateServiceNow**](V2Api.md#eventForwarderUpdateServiceNow) | **POST** /event-forwarder-update-servicenow |  |
 | [**eventForwarderUpdateSlack**](V2Api.md#eventForwarderUpdateSlack) | **POST** /event-forwarder-update-slack |  |
+| [**eventForwarderUpdateTeams**](V2Api.md#eventForwarderUpdateTeams) | **POST** /event-forwarder-update-teams |  |
 | [**eventForwarderUpdateWebhook**](V2Api.md#eventForwarderUpdateWebhook) | **POST** /event-forwarder-update-webhook |  |
 | [**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key |  |
 | [**gatewayCreateAllowedAccess**](V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access |  |
@@ -9185,6 +9189,67 @@ No authorization required
 | **201** | dynamicSecretCreateMySqlResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="dynamicSecretCreateOpenAI"></a>
+# **dynamicSecretCreateOpenAI**
+> DynamicSecretCreateOutput dynamicSecretCreateOpenAI(dynamicSecretCreateOpenAI)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretCreateOpenAI dynamicSecretCreateOpenAI = new DynamicSecretCreateOpenAI(); // DynamicSecretCreateOpenAI | 
+    try {
+      DynamicSecretCreateOutput result = apiInstance.dynamicSecretCreateOpenAI(dynamicSecretCreateOpenAI);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#dynamicSecretCreateOpenAI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dynamicSecretCreateOpenAI** | [**DynamicSecretCreateOpenAI**](DynamicSecretCreateOpenAI.md)|  | |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | dynamicSecretCreateOpenAIResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="dynamicSecretCreateOracleDb"></a>
 # **dynamicSecretCreateOracleDb**
 > DynamicSecretCreateOutput dynamicSecretCreateOracleDb(dynamicSecretCreateOracleDb)
@@ -11257,6 +11322,67 @@ No authorization required
 | **201** | dynamicSecretUpdateMySqlResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="dynamicSecretUpdateOpenAI"></a>
+# **dynamicSecretUpdateOpenAI**
+> DynamicSecretUpdateOutput dynamicSecretUpdateOpenAI(dynamicSecretUpdateOpenAI)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretUpdateOpenAI dynamicSecretUpdateOpenAI = new DynamicSecretUpdateOpenAI(); // DynamicSecretUpdateOpenAI | 
+    try {
+      DynamicSecretUpdateOutput result = apiInstance.dynamicSecretUpdateOpenAI(dynamicSecretUpdateOpenAI);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#dynamicSecretUpdateOpenAI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dynamicSecretUpdateOpenAI** | [**DynamicSecretUpdateOpenAI**](DynamicSecretUpdateOpenAI.md)|  | |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | dynamicSecretUpdateOpenAIResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="dynamicSecretUpdateOracleDb"></a>
 # **dynamicSecretUpdateOracleDb**
 > DynamicSecretUpdateOutput dynamicSecretUpdateOracleDb(dynamicSecretUpdateOracleDb)
@@ -12599,6 +12725,67 @@ No authorization required
 | **201** | eventForwarderCreateSlackResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="eventForwarderCreateTeams"></a>
+# **eventForwarderCreateTeams**
+> EventForwarderCreateUpdateOutput eventForwarderCreateTeams(eventForwarderCreateTeams)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventForwarderCreateTeams eventForwarderCreateTeams = new EventForwarderCreateTeams(); // EventForwarderCreateTeams | 
+    try {
+      EventForwarderCreateUpdateOutput result = apiInstance.eventForwarderCreateTeams(eventForwarderCreateTeams);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventForwarderCreateTeams");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **eventForwarderCreateTeams** | [**EventForwarderCreateTeams**](EventForwarderCreateTeams.md)|  | |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="eventForwarderCreateWebhook"></a>
 # **eventForwarderCreateWebhook**
 > EventForwarderCreateUpdateOutput eventForwarderCreateWebhook(eventForwarderCreateWebhook)
@@ -12963,6 +13150,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | eventForwarderUpdateSlackResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="eventForwarderUpdateTeams"></a>
+# **eventForwarderUpdateTeams**
+> EventForwarderCreateUpdateOutput eventForwarderUpdateTeams(eventForwarderUpdateTeams)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    EventForwarderUpdateTeams eventForwarderUpdateTeams = new EventForwarderUpdateTeams(); // EventForwarderUpdateTeams | 
+    try {
+      EventForwarderCreateUpdateOutput result = apiInstance.eventForwarderUpdateTeams(eventForwarderUpdateTeams);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#eventForwarderUpdateTeams");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **eventForwarderUpdateTeams** | [**EventForwarderUpdateTeams**](EventForwarderUpdateTeams.md)|  | |
+
+### Return type
+
+[**EventForwarderCreateUpdateOutput**](EventForwarderCreateUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | eventForwarderUpdateTeamsResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="eventForwarderUpdateWebhook"></a>

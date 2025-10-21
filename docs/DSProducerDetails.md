@@ -14,6 +14,8 @@
 |**adminPwd** | **String** |  |  [optional] |
 |**adminRotationIntervalDays** | **Long** |  |  [optional] |
 |**administrativePort** | **String** |  |  [optional] |
+|**apiKey** | **String** |  |  [optional] |
+|**apiKeyId** | **String** |  |  [optional] |
 |**artifactoryAdminApikey** | **String** |  |  [optional] |
 |**artifactoryAdminUsername** | **String** |  |  [optional] |
 |**artifactoryBaseUrl** | **String** |  |  [optional] |
@@ -193,9 +195,11 @@
 |**mssqlRevocationStatements** | **String** |  |  [optional] |
 |**mysqlCreationStatements** | **String** |  |  [optional] |
 |**mysqlRevocationStatements** | **String** |  |  [optional] |
+|**openaiUrl** | **String** |  |  [optional] |
 |**oracleCreationStatements** | **String** |  |  [optional] |
 |**oracleRevocationStatements** | **String** |  |  [optional] |
 |**oracleWalletDetails** | [**WalletDetails**](WalletDetails.md) |  |  [optional] |
+|**organizationId** | **String** |  |  [optional] |
 |**password** | **String** |  |  [optional] |
 |**passwordLength** | **Long** |  |  [optional] |
 |**passwordPolicy** | **String** |  |  [optional] |
@@ -204,6 +208,7 @@
 |**postgresCreationStatements** | **String** |  |  [optional] |
 |**postgresRevocationStatements** | **String** |  |  [optional] |
 |**privilegedUser** | **String** |  |  [optional] |
+|**projectId** | **String** |  |  [optional] |
 |**rabbitmqServerPassword** | **String** |  |  [optional] |
 |**rabbitmqServerUri** | **String** |  |  [optional] |
 |**rabbitmqServerUser** | **String** |  |  [optional] |

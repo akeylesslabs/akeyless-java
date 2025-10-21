@@ -102,6 +102,11 @@ public class UscCreate {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USC_ENCRYPTION_KEY = "usc-encryption-key";
+  @SerializedName(SERIALIZED_NAME_USC_ENCRYPTION_KEY)
+  @javax.annotation.Nullable
+  private String uscEncryptionKey;
+
   public static final String SERIALIZED_NAME_USC_NAME = "usc-name";
   @SerializedName(SERIALIZED_NAME_USC_NAME)
   @javax.annotation.Nonnull
@@ -313,6 +318,25 @@ public class UscCreate {
   }
 
 
+  public UscCreate uscEncryptionKey(@javax.annotation.Nullable String uscEncryptionKey) {
+    this.uscEncryptionKey = uscEncryptionKey;
+    return this;
+  }
+
+  /**
+   * Optional, The name of the remote key that used to encrypt the secret value (if empty, the default key will be used)
+   * @return uscEncryptionKey
+   */
+  @javax.annotation.Nullable
+  public String getUscEncryptionKey() {
+    return uscEncryptionKey;
+  }
+
+  public void setUscEncryptionKey(@javax.annotation.Nullable String uscEncryptionKey) {
+    this.uscEncryptionKey = uscEncryptionKey;
+  }
+
+
   public UscCreate uscName(@javax.annotation.Nonnull String uscName) {
     this.uscName = uscName;
     return this;
@@ -371,13 +395,14 @@ public class UscCreate {
         Objects.equals(this.tags, uscCreate.tags) &&
         Objects.equals(this.token, uscCreate.token) &&
         Objects.equals(this.uidToken, uscCreate.uidToken) &&
+        Objects.equals(this.uscEncryptionKey, uscCreate.uscEncryptionKey) &&
         Objects.equals(this.uscName, uscCreate.uscName) &&
         Objects.equals(this.value, uscCreate.value);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, secretName, tags, token, uidToken, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, secretName, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
@@ -394,6 +419,7 @@ public class UscCreate {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uscEncryptionKey: ").append(toIndentedString(uscEncryptionKey)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -428,6 +454,7 @@ public class UscCreate {
     openapiFields.add("tags");
     openapiFields.add("token");
     openapiFields.add("uid-token");
+    openapiFields.add("usc-encryption-key");
     openapiFields.add("usc-name");
     openapiFields.add("value");
 
@@ -486,6 +513,9 @@ public class UscCreate {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("usc-encryption-key") != null && !jsonObj.get("usc-encryption-key").isJsonNull()) && !jsonObj.get("usc-encryption-key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usc-encryption-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-encryption-key").toString()));
       }
       if (!jsonObj.get("usc-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `usc-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-name").toString()));

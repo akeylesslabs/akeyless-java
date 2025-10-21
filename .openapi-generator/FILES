@@ -301,6 +301,7 @@ docs/DynamicSecretCreateLdap.md
 docs/DynamicSecretCreateMongoDb.md
 docs/DynamicSecretCreateMsSql.md
 docs/DynamicSecretCreateMySql.md
+docs/DynamicSecretCreateOpenAI.md
 docs/DynamicSecretCreateOracleDb.md
 docs/DynamicSecretCreateOutput.md
 docs/DynamicSecretCreatePing.md
@@ -340,6 +341,7 @@ docs/DynamicSecretUpdateLdap.md
 docs/DynamicSecretUpdateMongoDb.md
 docs/DynamicSecretUpdateMsSql.md
 docs/DynamicSecretUpdateMySql.md
+docs/DynamicSecretUpdateOpenAI.md
 docs/DynamicSecretUpdateOracleDb.md
 docs/DynamicSecretUpdateOutput.md
 docs/DynamicSecretUpdatePing.md
@@ -378,6 +380,7 @@ docs/EventAction.md
 docs/EventForwarderCreateEmail.md
 docs/EventForwarderCreateServiceNow.md
 docs/EventForwarderCreateSlack.md
+docs/EventForwarderCreateTeams.md
 docs/EventForwarderCreateUpdateOutput.md
 docs/EventForwarderCreateWebhook.md
 docs/EventForwarderDelete.md
@@ -387,6 +390,7 @@ docs/EventForwarderGetOutput.md
 docs/EventForwarderUpdateEmail.md
 docs/EventForwarderUpdateServiceNow.md
 docs/EventForwarderUpdateSlack.md
+docs/EventForwarderUpdateTeams.md
 docs/EventForwarderUpdateWebhook.md
 docs/ExportClassicKey.md
 docs/ExportClassicKeyOutput.md
@@ -1439,6 +1443,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretCreateLdap.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateMongoDb.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateMsSql.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateMySql.java
+src/main/java/io/akeyless/client/model/DynamicSecretCreateOpenAI.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateOracleDb.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateOutput.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreatePing.java
@@ -1478,6 +1483,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretUpdateLdap.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateMongoDb.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateMsSql.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateMySql.java
+src/main/java/io/akeyless/client/model/DynamicSecretUpdateOpenAI.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateOracleDb.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateOutput.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdatePing.java
@@ -1516,6 +1522,7 @@ src/main/java/io/akeyless/client/model/EventAction.java
 src/main/java/io/akeyless/client/model/EventForwarderCreateEmail.java
 src/main/java/io/akeyless/client/model/EventForwarderCreateServiceNow.java
 src/main/java/io/akeyless/client/model/EventForwarderCreateSlack.java
+src/main/java/io/akeyless/client/model/EventForwarderCreateTeams.java
 src/main/java/io/akeyless/client/model/EventForwarderCreateUpdateOutput.java
 src/main/java/io/akeyless/client/model/EventForwarderCreateWebhook.java
 src/main/java/io/akeyless/client/model/EventForwarderDelete.java
@@ -1525,6 +1532,7 @@ src/main/java/io/akeyless/client/model/EventForwarderGetOutput.java
 src/main/java/io/akeyless/client/model/EventForwarderUpdateEmail.java
 src/main/java/io/akeyless/client/model/EventForwarderUpdateServiceNow.java
 src/main/java/io/akeyless/client/model/EventForwarderUpdateSlack.java
+src/main/java/io/akeyless/client/model/EventForwarderUpdateTeams.java
 src/main/java/io/akeyless/client/model/EventForwarderUpdateWebhook.java
 src/main/java/io/akeyless/client/model/ExportClassicKey.java
 src/main/java/io/akeyless/client/model/ExportClassicKeyOutput.java
@@ -2252,5 +2260,7 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/GetCertChallengeOutputTest.java
-src/test/java/io/akeyless/client/model/GetCertChallengeTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretCreateOpenAITest.java
+src/test/java/io/akeyless/client/model/DynamicSecretUpdateOpenAITest.java
+src/test/java/io/akeyless/client/model/EventForwarderCreateTeamsTest.java
+src/test/java/io/akeyless/client/model/EventForwarderUpdateTeamsTest.java

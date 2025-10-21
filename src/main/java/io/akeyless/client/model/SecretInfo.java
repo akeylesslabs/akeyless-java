@@ -69,6 +69,11 @@ public class SecretInfo {
   @javax.annotation.Nullable
   private OffsetDateTime expiration;
 
+  public static final String SERIALIZED_NAME_KEY_ID = "key_id";
+  @SerializedName(SERIALIZED_NAME_KEY_ID)
+  @javax.annotation.Nullable
+  private String keyId;
+
   public static final String SERIALIZED_NAME_LAST_RETRIEVED = "last_retrieved";
   @SerializedName(SERIALIZED_NAME_LAST_RETRIEVED)
   @javax.annotation.Nullable
@@ -171,6 +176,25 @@ public class SecretInfo {
 
   public void setExpiration(@javax.annotation.Nullable OffsetDateTime expiration) {
     this.expiration = expiration;
+  }
+
+
+  public SecretInfo keyId(@javax.annotation.Nullable String keyId) {
+    this.keyId = keyId;
+    return this;
+  }
+
+  /**
+   * Get keyId
+   * @return keyId
+   */
+  @javax.annotation.Nullable
+  public String getKeyId() {
+    return keyId;
+  }
+
+  public void setKeyId(@javax.annotation.Nullable String keyId) {
+    this.keyId = keyId;
   }
 
 
@@ -366,6 +390,7 @@ public class SecretInfo {
     return Objects.equals(this.created, secretInfo.created) &&
         Objects.equals(this.description, secretInfo.description) &&
         Objects.equals(this.expiration, secretInfo.expiration) &&
+        Objects.equals(this.keyId, secretInfo.keyId) &&
         Objects.equals(this.lastRetrieved, secretInfo.lastRetrieved) &&
         Objects.equals(this.location, secretInfo.location) &&
         Objects.equals(this.name, secretInfo.name) &&
@@ -383,7 +408,7 @@ public class SecretInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, description, expiration, lastRetrieved, location, name, secretId, status, tags, thumbprint, type, version);
+    return Objects.hash(created, description, expiration, keyId, lastRetrieved, location, name, secretId, status, tags, thumbprint, type, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -400,6 +425,7 @@ public class SecretInfo {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
+    sb.append("    keyId: ").append(toIndentedString(keyId)).append("\n");
     sb.append("    lastRetrieved: ").append(toIndentedString(lastRetrieved)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -434,6 +460,7 @@ public class SecretInfo {
     openapiFields.add("created");
     openapiFields.add("description");
     openapiFields.add("expiration");
+    openapiFields.add("key_id");
     openapiFields.add("last_retrieved");
     openapiFields.add("location");
     openapiFields.add("name");
@@ -471,6 +498,9 @@ public class SecretInfo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("key_id") != null && !jsonObj.get("key_id").isJsonNull()) && !jsonObj.get("key_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

@@ -28,6 +28,7 @@
 |**protectionKey** | **String** |  |  [optional] |
 |**runnerType** | **String** |  |  [optional] |
 |**slackNotiForwarderPublicDetails** | **Object** |  |  [optional] |
+|**teamsNotiForwarderPublicDetails** | **Object** |  |  [optional] |
 |**timespanInSeconds** | **Long** |  |  [optional] |
 |**toEmails** | [**List&lt;EmailEntry&gt;**](EmailEntry.md) |  |  [optional] |
 |**userEmail** | **String** |  |  [optional] |

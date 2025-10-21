@@ -247,6 +247,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretCreateMongoDb**](docs/V2Api.md#dynamicSecretCreateMongoDb) | **POST** /dynamic-secret-create-mongodb | 
 *V2Api* | [**dynamicSecretCreateMsSql**](docs/V2Api.md#dynamicSecretCreateMsSql) | **POST** /dynamic-secret-create-mssql | 
 *V2Api* | [**dynamicSecretCreateMySql**](docs/V2Api.md#dynamicSecretCreateMySql) | **POST** /dynamic-secret-create-mysql | 
+*V2Api* | [**dynamicSecretCreateOpenAI**](docs/V2Api.md#dynamicSecretCreateOpenAI) | **POST** /dynamic-secret-create-openai | 
 *V2Api* | [**dynamicSecretCreateOracleDb**](docs/V2Api.md#dynamicSecretCreateOracleDb) | **POST** /dynamic-secret-create-oracle | 
 *V2Api* | [**dynamicSecretCreatePing**](docs/V2Api.md#dynamicSecretCreatePing) | **POST** /dynamic-secret-create-ping | 
 *V2Api* | [**dynamicSecretCreatePostgreSql**](docs/V2Api.md#dynamicSecretCreatePostgreSql) | **POST** /dynamic-secret-create-postgresql | 
@@ -281,6 +282,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretUpdateMongoDb**](docs/V2Api.md#dynamicSecretUpdateMongoDb) | **POST** /dynamic-secret-update-mongo | 
 *V2Api* | [**dynamicSecretUpdateMsSql**](docs/V2Api.md#dynamicSecretUpdateMsSql) | **POST** /dynamic-secret-update-mssql | 
 *V2Api* | [**dynamicSecretUpdateMySql**](docs/V2Api.md#dynamicSecretUpdateMySql) | **POST** /dynamic-secret-update-mysql | 
+*V2Api* | [**dynamicSecretUpdateOpenAI**](docs/V2Api.md#dynamicSecretUpdateOpenAI) | **POST** /dynamic-secret-update-openai | 
 *V2Api* | [**dynamicSecretUpdateOracleDb**](docs/V2Api.md#dynamicSecretUpdateOracleDb) | **POST** /dynamic-secret-update-oracle | 
 *V2Api* | [**dynamicSecretUpdatePing**](docs/V2Api.md#dynamicSecretUpdatePing) | **POST** /dynamic-secret-update-ping | 
 *V2Api* | [**dynamicSecretUpdatePostgreSql**](docs/V2Api.md#dynamicSecretUpdatePostgreSql) | **POST** /dynamic-secret-update-postgresql | 
@@ -303,12 +305,14 @@ Class | Method | HTTP request | Description
 *V2Api* | [**eventForwarderCreateEmail**](docs/V2Api.md#eventForwarderCreateEmail) | **POST** /event-forwarder-create-email | 
 *V2Api* | [**eventForwarderCreateServiceNow**](docs/V2Api.md#eventForwarderCreateServiceNow) | **POST** /event-forwarder-create-servicenow | 
 *V2Api* | [**eventForwarderCreateSlack**](docs/V2Api.md#eventForwarderCreateSlack) | **POST** /event-forwarder-create-slack | 
+*V2Api* | [**eventForwarderCreateTeams**](docs/V2Api.md#eventForwarderCreateTeams) | **POST** /event-forwarder-create-teams | 
 *V2Api* | [**eventForwarderCreateWebhook**](docs/V2Api.md#eventForwarderCreateWebhook) | **POST** /event-forwarder-create-webhook | 
 *V2Api* | [**eventForwarderDelete**](docs/V2Api.md#eventForwarderDelete) | **POST** /event-forwarder-delete | 
 *V2Api* | [**eventForwarderGet**](docs/V2Api.md#eventForwarderGet) | **POST** /event-forwarder-get | 
 *V2Api* | [**eventForwarderUpdateEmail**](docs/V2Api.md#eventForwarderUpdateEmail) | **POST** /event-forwarder-update-email | 
 *V2Api* | [**eventForwarderUpdateServiceNow**](docs/V2Api.md#eventForwarderUpdateServiceNow) | **POST** /event-forwarder-update-servicenow | 
 *V2Api* | [**eventForwarderUpdateSlack**](docs/V2Api.md#eventForwarderUpdateSlack) | **POST** /event-forwarder-update-slack | 
+*V2Api* | [**eventForwarderUpdateTeams**](docs/V2Api.md#eventForwarderUpdateTeams) | **POST** /event-forwarder-update-teams | 
 *V2Api* | [**eventForwarderUpdateWebhook**](docs/V2Api.md#eventForwarderUpdateWebhook) | **POST** /event-forwarder-update-webhook | 
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 *V2Api* | [**gatewayCreateAllowedAccess**](docs/V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
@@ -982,6 +986,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretCreateMongoDb](docs/DynamicSecretCreateMongoDb.md)
  - [DynamicSecretCreateMsSql](docs/DynamicSecretCreateMsSql.md)
  - [DynamicSecretCreateMySql](docs/DynamicSecretCreateMySql.md)
+ - [DynamicSecretCreateOpenAI](docs/DynamicSecretCreateOpenAI.md)
  - [DynamicSecretCreateOracleDb](docs/DynamicSecretCreateOracleDb.md)
  - [DynamicSecretCreateOutput](docs/DynamicSecretCreateOutput.md)
  - [DynamicSecretCreatePing](docs/DynamicSecretCreatePing.md)
@@ -1021,6 +1026,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretUpdateMongoDb](docs/DynamicSecretUpdateMongoDb.md)
  - [DynamicSecretUpdateMsSql](docs/DynamicSecretUpdateMsSql.md)
  - [DynamicSecretUpdateMySql](docs/DynamicSecretUpdateMySql.md)
+ - [DynamicSecretUpdateOpenAI](docs/DynamicSecretUpdateOpenAI.md)
  - [DynamicSecretUpdateOracleDb](docs/DynamicSecretUpdateOracleDb.md)
  - [DynamicSecretUpdateOutput](docs/DynamicSecretUpdateOutput.md)
  - [DynamicSecretUpdatePing](docs/DynamicSecretUpdatePing.md)
@@ -1059,6 +1065,7 @@ Class | Method | HTTP request | Description
  - [EventForwarderCreateEmail](docs/EventForwarderCreateEmail.md)
  - [EventForwarderCreateServiceNow](docs/EventForwarderCreateServiceNow.md)
  - [EventForwarderCreateSlack](docs/EventForwarderCreateSlack.md)
+ - [EventForwarderCreateTeams](docs/EventForwarderCreateTeams.md)
  - [EventForwarderCreateUpdateOutput](docs/EventForwarderCreateUpdateOutput.md)
  - [EventForwarderCreateWebhook](docs/EventForwarderCreateWebhook.md)
  - [EventForwarderDelete](docs/EventForwarderDelete.md)
@@ -1068,6 +1075,7 @@ Class | Method | HTTP request | Description
  - [EventForwarderUpdateEmail](docs/EventForwarderUpdateEmail.md)
  - [EventForwarderUpdateServiceNow](docs/EventForwarderUpdateServiceNow.md)
  - [EventForwarderUpdateSlack](docs/EventForwarderUpdateSlack.md)
+ - [EventForwarderUpdateTeams](docs/EventForwarderUpdateTeams.md)
  - [EventForwarderUpdateWebhook](docs/EventForwarderUpdateWebhook.md)
  - [ExportClassicKey](docs/ExportClassicKey.md)
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)

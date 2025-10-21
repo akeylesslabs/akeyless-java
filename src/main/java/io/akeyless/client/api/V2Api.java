@@ -251,6 +251,7 @@ import io.akeyless.client.model.DynamicSecretCreateLdap;
 import io.akeyless.client.model.DynamicSecretCreateMongoDb;
 import io.akeyless.client.model.DynamicSecretCreateMsSql;
 import io.akeyless.client.model.DynamicSecretCreateMySql;
+import io.akeyless.client.model.DynamicSecretCreateOpenAI;
 import io.akeyless.client.model.DynamicSecretCreateOracleDb;
 import io.akeyless.client.model.DynamicSecretCreateOutput;
 import io.akeyless.client.model.DynamicSecretCreatePing;
@@ -287,6 +288,7 @@ import io.akeyless.client.model.DynamicSecretUpdateLdap;
 import io.akeyless.client.model.DynamicSecretUpdateMongoDb;
 import io.akeyless.client.model.DynamicSecretUpdateMsSql;
 import io.akeyless.client.model.DynamicSecretUpdateMySql;
+import io.akeyless.client.model.DynamicSecretUpdateOpenAI;
 import io.akeyless.client.model.DynamicSecretUpdateOracleDb;
 import io.akeyless.client.model.DynamicSecretUpdateOutput;
 import io.akeyless.client.model.DynamicSecretUpdatePing;
@@ -316,6 +318,7 @@ import io.akeyless.client.model.EventAction;
 import io.akeyless.client.model.EventForwarderCreateEmail;
 import io.akeyless.client.model.EventForwarderCreateServiceNow;
 import io.akeyless.client.model.EventForwarderCreateSlack;
+import io.akeyless.client.model.EventForwarderCreateTeams;
 import io.akeyless.client.model.EventForwarderCreateUpdateOutput;
 import io.akeyless.client.model.EventForwarderCreateWebhook;
 import io.akeyless.client.model.EventForwarderDelete;
@@ -325,6 +328,7 @@ import io.akeyless.client.model.EventForwarderGetOutput;
 import io.akeyless.client.model.EventForwarderUpdateEmail;
 import io.akeyless.client.model.EventForwarderUpdateServiceNow;
 import io.akeyless.client.model.EventForwarderUpdateSlack;
+import io.akeyless.client.model.EventForwarderUpdateTeams;
 import io.akeyless.client.model.EventForwarderUpdateWebhook;
 import io.akeyless.client.model.ExportClassicKey;
 import io.akeyless.client.model.ExportClassicKeyOutput;
@@ -19411,6 +19415,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for dynamicSecretCreateOpenAI
+     * @param dynamicSecretCreateOpenAI  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretCreateOpenAICall(DynamicSecretCreateOpenAI dynamicSecretCreateOpenAI, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = dynamicSecretCreateOpenAI;
+
+        // create path and map variables
+        String localVarPath = "/dynamic-secret-create-openai";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call dynamicSecretCreateOpenAIValidateBeforeCall(DynamicSecretCreateOpenAI dynamicSecretCreateOpenAI, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'dynamicSecretCreateOpenAI' is set
+        if (dynamicSecretCreateOpenAI == null) {
+            throw new ApiException("Missing the required parameter 'dynamicSecretCreateOpenAI' when calling dynamicSecretCreateOpenAI(Async)");
+        }
+
+        return dynamicSecretCreateOpenAICall(dynamicSecretCreateOpenAI, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param dynamicSecretCreateOpenAI  (required)
+     * @return DynamicSecretCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public DynamicSecretCreateOutput dynamicSecretCreateOpenAI(DynamicSecretCreateOpenAI dynamicSecretCreateOpenAI) throws ApiException {
+        ApiResponse<DynamicSecretCreateOutput> localVarResp = dynamicSecretCreateOpenAIWithHttpInfo(dynamicSecretCreateOpenAI);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param dynamicSecretCreateOpenAI  (required)
+     * @return ApiResponse&lt;DynamicSecretCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DynamicSecretCreateOutput> dynamicSecretCreateOpenAIWithHttpInfo(DynamicSecretCreateOpenAI dynamicSecretCreateOpenAI) throws ApiException {
+        okhttp3.Call localVarCall = dynamicSecretCreateOpenAIValidateBeforeCall(dynamicSecretCreateOpenAI, null);
+        Type localVarReturnType = new TypeToken<DynamicSecretCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param dynamicSecretCreateOpenAI  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretCreateOpenAIAsync(DynamicSecretCreateOpenAI dynamicSecretCreateOpenAI, final ApiCallback<DynamicSecretCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = dynamicSecretCreateOpenAIValidateBeforeCall(dynamicSecretCreateOpenAI, _callback);
+        Type localVarReturnType = new TypeToken<DynamicSecretCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for dynamicSecretCreateOracleDb
      * @param dynamicSecretCreateOracleDb  (required)
      * @param _callback Callback for upload/download progress
@@ -23852,6 +23987,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for dynamicSecretUpdateOpenAI
+     * @param dynamicSecretUpdateOpenAI  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretUpdateOpenAICall(DynamicSecretUpdateOpenAI dynamicSecretUpdateOpenAI, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = dynamicSecretUpdateOpenAI;
+
+        // create path and map variables
+        String localVarPath = "/dynamic-secret-update-openai";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call dynamicSecretUpdateOpenAIValidateBeforeCall(DynamicSecretUpdateOpenAI dynamicSecretUpdateOpenAI, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'dynamicSecretUpdateOpenAI' is set
+        if (dynamicSecretUpdateOpenAI == null) {
+            throw new ApiException("Missing the required parameter 'dynamicSecretUpdateOpenAI' when calling dynamicSecretUpdateOpenAI(Async)");
+        }
+
+        return dynamicSecretUpdateOpenAICall(dynamicSecretUpdateOpenAI, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param dynamicSecretUpdateOpenAI  (required)
+     * @return DynamicSecretUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public DynamicSecretUpdateOutput dynamicSecretUpdateOpenAI(DynamicSecretUpdateOpenAI dynamicSecretUpdateOpenAI) throws ApiException {
+        ApiResponse<DynamicSecretUpdateOutput> localVarResp = dynamicSecretUpdateOpenAIWithHttpInfo(dynamicSecretUpdateOpenAI);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param dynamicSecretUpdateOpenAI  (required)
+     * @return ApiResponse&lt;DynamicSecretUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DynamicSecretUpdateOutput> dynamicSecretUpdateOpenAIWithHttpInfo(DynamicSecretUpdateOpenAI dynamicSecretUpdateOpenAI) throws ApiException {
+        okhttp3.Call localVarCall = dynamicSecretUpdateOpenAIValidateBeforeCall(dynamicSecretUpdateOpenAI, null);
+        Type localVarReturnType = new TypeToken<DynamicSecretUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param dynamicSecretUpdateOpenAI  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> dynamicSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call dynamicSecretUpdateOpenAIAsync(DynamicSecretUpdateOpenAI dynamicSecretUpdateOpenAI, final ApiCallback<DynamicSecretUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = dynamicSecretUpdateOpenAIValidateBeforeCall(dynamicSecretUpdateOpenAI, _callback);
+        Type localVarReturnType = new TypeToken<DynamicSecretUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for dynamicSecretUpdateOracleDb
      * @param dynamicSecretUpdateOracleDb  (required)
      * @param _callback Callback for upload/download progress
@@ -26734,6 +27000,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for eventForwarderCreateTeams
+     * @param eventForwarderCreateTeams  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call eventForwarderCreateTeamsCall(EventForwarderCreateTeams eventForwarderCreateTeams, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = eventForwarderCreateTeams;
+
+        // create path and map variables
+        String localVarPath = "/event-forwarder-create-teams";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call eventForwarderCreateTeamsValidateBeforeCall(EventForwarderCreateTeams eventForwarderCreateTeams, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'eventForwarderCreateTeams' is set
+        if (eventForwarderCreateTeams == null) {
+            throw new ApiException("Missing the required parameter 'eventForwarderCreateTeams' when calling eventForwarderCreateTeams(Async)");
+        }
+
+        return eventForwarderCreateTeamsCall(eventForwarderCreateTeams, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param eventForwarderCreateTeams  (required)
+     * @return EventForwarderCreateUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public EventForwarderCreateUpdateOutput eventForwarderCreateTeams(EventForwarderCreateTeams eventForwarderCreateTeams) throws ApiException {
+        ApiResponse<EventForwarderCreateUpdateOutput> localVarResp = eventForwarderCreateTeamsWithHttpInfo(eventForwarderCreateTeams);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param eventForwarderCreateTeams  (required)
+     * @return ApiResponse&lt;EventForwarderCreateUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EventForwarderCreateUpdateOutput> eventForwarderCreateTeamsWithHttpInfo(EventForwarderCreateTeams eventForwarderCreateTeams) throws ApiException {
+        okhttp3.Call localVarCall = eventForwarderCreateTeamsValidateBeforeCall(eventForwarderCreateTeams, null);
+        Type localVarReturnType = new TypeToken<EventForwarderCreateUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param eventForwarderCreateTeams  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call eventForwarderCreateTeamsAsync(EventForwarderCreateTeams eventForwarderCreateTeams, final ApiCallback<EventForwarderCreateUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = eventForwarderCreateTeamsValidateBeforeCall(eventForwarderCreateTeams, _callback);
+        Type localVarReturnType = new TypeToken<EventForwarderCreateUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for eventForwarderCreateWebhook
      * @param eventForwarderCreateWebhook  (required)
      * @param _callback Callback for upload/download progress
@@ -27515,6 +27912,137 @@ public class V2Api {
     public okhttp3.Call eventForwarderUpdateSlackAsync(EventForwarderUpdateSlack eventForwarderUpdateSlack, final ApiCallback<EventForwarderCreateUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = eventForwarderUpdateSlackValidateBeforeCall(eventForwarderUpdateSlack, _callback);
+        Type localVarReturnType = new TypeToken<EventForwarderCreateUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for eventForwarderUpdateTeams
+     * @param eventForwarderUpdateTeams  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> eventForwarderUpdateTeamsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call eventForwarderUpdateTeamsCall(EventForwarderUpdateTeams eventForwarderUpdateTeams, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = eventForwarderUpdateTeams;
+
+        // create path and map variables
+        String localVarPath = "/event-forwarder-update-teams";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call eventForwarderUpdateTeamsValidateBeforeCall(EventForwarderUpdateTeams eventForwarderUpdateTeams, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'eventForwarderUpdateTeams' is set
+        if (eventForwarderUpdateTeams == null) {
+            throw new ApiException("Missing the required parameter 'eventForwarderUpdateTeams' when calling eventForwarderUpdateTeams(Async)");
+        }
+
+        return eventForwarderUpdateTeamsCall(eventForwarderUpdateTeams, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param eventForwarderUpdateTeams  (required)
+     * @return EventForwarderCreateUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> eventForwarderUpdateTeamsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public EventForwarderCreateUpdateOutput eventForwarderUpdateTeams(EventForwarderUpdateTeams eventForwarderUpdateTeams) throws ApiException {
+        ApiResponse<EventForwarderCreateUpdateOutput> localVarResp = eventForwarderUpdateTeamsWithHttpInfo(eventForwarderUpdateTeams);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param eventForwarderUpdateTeams  (required)
+     * @return ApiResponse&lt;EventForwarderCreateUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> eventForwarderUpdateTeamsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<EventForwarderCreateUpdateOutput> eventForwarderUpdateTeamsWithHttpInfo(EventForwarderUpdateTeams eventForwarderUpdateTeams) throws ApiException {
+        okhttp3.Call localVarCall = eventForwarderUpdateTeamsValidateBeforeCall(eventForwarderUpdateTeams, null);
+        Type localVarReturnType = new TypeToken<EventForwarderCreateUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param eventForwarderUpdateTeams  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> eventForwarderUpdateTeamsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call eventForwarderUpdateTeamsAsync(EventForwarderUpdateTeams eventForwarderUpdateTeams, final ApiCallback<EventForwarderCreateUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = eventForwarderUpdateTeamsValidateBeforeCall(eventForwarderUpdateTeams, _callback);
         Type localVarReturnType = new TypeToken<EventForwarderCreateUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

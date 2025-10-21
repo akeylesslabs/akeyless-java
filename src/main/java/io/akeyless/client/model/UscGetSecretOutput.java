@@ -56,6 +56,11 @@ public class UscGetSecretOutput {
   @javax.annotation.Nullable
   private Boolean binaryValue;
 
+  public static final String SERIALIZED_NAME_ENCRYPTION_KEY = "encryption_key";
+  @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY)
+  @javax.annotation.Nullable
+  private String encryptionKey;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   @javax.annotation.Nullable
@@ -95,6 +100,25 @@ public class UscGetSecretOutput {
 
   public void setBinaryValue(@javax.annotation.Nullable Boolean binaryValue) {
     this.binaryValue = binaryValue;
+  }
+
+
+  public UscGetSecretOutput encryptionKey(@javax.annotation.Nullable String encryptionKey) {
+    this.encryptionKey = encryptionKey;
+    return this;
+  }
+
+  /**
+   * Get encryptionKey
+   * @return encryptionKey
+   */
+  @javax.annotation.Nullable
+  public String getEncryptionKey() {
+    return encryptionKey;
+  }
+
+  public void setEncryptionKey(@javax.annotation.Nullable String encryptionKey) {
+    this.encryptionKey = encryptionKey;
   }
 
 
@@ -185,6 +209,7 @@ public class UscGetSecretOutput {
     }
     UscGetSecretOutput uscGetSecretOutput = (UscGetSecretOutput) o;
     return Objects.equals(this.binaryValue, uscGetSecretOutput.binaryValue) &&
+        Objects.equals(this.encryptionKey, uscGetSecretOutput.encryptionKey) &&
         Objects.equals(this.id, uscGetSecretOutput.id) &&
         Objects.equals(this.metadata, uscGetSecretOutput.metadata) &&
         Objects.equals(this.name, uscGetSecretOutput.name) &&
@@ -197,7 +222,7 @@ public class UscGetSecretOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, id, metadata, name, value);
+    return Objects.hash(binaryValue, encryptionKey, id, metadata, name, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -212,6 +237,7 @@ public class UscGetSecretOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscGetSecretOutput {\n");
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
+    sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -239,6 +265,7 @@ public class UscGetSecretOutput {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("binary_value");
+    openapiFields.add("encryption_key");
     openapiFields.add("id");
     openapiFields.add("metadata");
     openapiFields.add("name");
@@ -269,6 +296,9 @@ public class UscGetSecretOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("encryption_key") != null && !jsonObj.get("encryption_key").isJsonNull()) && !jsonObj.get("encryption_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
+      }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }

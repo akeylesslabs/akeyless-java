@@ -161,6 +161,11 @@ public class NotiForwarder {
   @javax.annotation.Nullable
   private Object slackNotiForwarderPublicDetails;
 
+  public static final String SERIALIZED_NAME_TEAMS_NOTI_FORWARDER_PUBLIC_DETAILS = "teams_noti_forwarder_public_details";
+  @SerializedName(SERIALIZED_NAME_TEAMS_NOTI_FORWARDER_PUBLIC_DETAILS)
+  @javax.annotation.Nullable
+  private Object teamsNotiForwarderPublicDetails;
+
   public static final String SERIALIZED_NAME_TIMESPAN_IN_SECONDS = "timespan_in_seconds";
   @SerializedName(SERIALIZED_NAME_TIMESPAN_IN_SECONDS)
   @javax.annotation.Nullable
@@ -625,6 +630,25 @@ public class NotiForwarder {
   }
 
 
+  public NotiForwarder teamsNotiForwarderPublicDetails(@javax.annotation.Nullable Object teamsNotiForwarderPublicDetails) {
+    this.teamsNotiForwarderPublicDetails = teamsNotiForwarderPublicDetails;
+    return this;
+  }
+
+  /**
+   * Get teamsNotiForwarderPublicDetails
+   * @return teamsNotiForwarderPublicDetails
+   */
+  @javax.annotation.Nullable
+  public Object getTeamsNotiForwarderPublicDetails() {
+    return teamsNotiForwarderPublicDetails;
+  }
+
+  public void setTeamsNotiForwarderPublicDetails(@javax.annotation.Nullable Object teamsNotiForwarderPublicDetails) {
+    this.teamsNotiForwarderPublicDetails = teamsNotiForwarderPublicDetails;
+  }
+
+
   public NotiForwarder timespanInSeconds(@javax.annotation.Nullable Long timespanInSeconds) {
     this.timespanInSeconds = timespanInSeconds;
     return this;
@@ -778,6 +802,7 @@ public class NotiForwarder {
         Objects.equals(this.protectionKey, notiForwarder.protectionKey) &&
         Objects.equals(this.runnerType, notiForwarder.runnerType) &&
         Objects.equals(this.slackNotiForwarderPublicDetails, notiForwarder.slackNotiForwarderPublicDetails) &&
+        Objects.equals(this.teamsNotiForwarderPublicDetails, notiForwarder.teamsNotiForwarderPublicDetails) &&
         Objects.equals(this.timespanInSeconds, notiForwarder.timespanInSeconds) &&
         Objects.equals(this.toEmails, notiForwarder.toEmails) &&
         Objects.equals(this.userEmail, notiForwarder.userEmail) &&
@@ -788,7 +813,7 @@ public class NotiForwarder {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, includeError, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, overrideUrl, paths, protectionKey, runnerType, slackNotiForwarderPublicDetails, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
+    return Objects.hash(authType, clientId, clientPermissions, comment, creationDate, endpoint, eventTypes, gatewayClusterId, includeError, isEnabled, lastVersion, modificationDate, notiForwarderId, notiForwarderName, notiForwarderType, notiForwarderVersions, overrideUrl, paths, protectionKey, runnerType, slackNotiForwarderPublicDetails, teamsNotiForwarderPublicDetails, timespanInSeconds, toEmails, userEmail, username, webhookNotiForwarderPublicDetails, withCustomerFragment);
   }
 
   @Override
@@ -816,6 +841,7 @@ public class NotiForwarder {
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    runnerType: ").append(toIndentedString(runnerType)).append("\n");
     sb.append("    slackNotiForwarderPublicDetails: ").append(toIndentedString(slackNotiForwarderPublicDetails)).append("\n");
+    sb.append("    teamsNotiForwarderPublicDetails: ").append(toIndentedString(teamsNotiForwarderPublicDetails)).append("\n");
     sb.append("    timespanInSeconds: ").append(toIndentedString(timespanInSeconds)).append("\n");
     sb.append("    toEmails: ").append(toIndentedString(toEmails)).append("\n");
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
@@ -865,6 +891,7 @@ public class NotiForwarder {
     openapiFields.add("protection_key");
     openapiFields.add("runner_type");
     openapiFields.add("slack_noti_forwarder_public_details");
+    openapiFields.add("teams_noti_forwarder_public_details");
     openapiFields.add("timespan_in_seconds");
     openapiFields.add("to_emails");
     openapiFields.add("user_email");

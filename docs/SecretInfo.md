@@ -10,6 +10,7 @@
 |**created** | **OffsetDateTime** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**expiration** | **OffsetDateTime** |  |  [optional] |
+|**keyId** | **String** |  |  [optional] |
 |**lastRetrieved** | **OffsetDateTime** |  |  [optional] |
 |**location** | **Object** |  |  [optional] |
 |**name** | **String** |  |  [optional] |

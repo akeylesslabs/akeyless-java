@@ -94,6 +94,16 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String administrativePort;
 
+  public static final String SERIALIZED_NAME_API_KEY = "api_key";
+  @SerializedName(SERIALIZED_NAME_API_KEY)
+  @javax.annotation.Nullable
+  private String apiKey;
+
+  public static final String SERIALIZED_NAME_API_KEY_ID = "api_key_id";
+  @SerializedName(SERIALIZED_NAME_API_KEY_ID)
+  @javax.annotation.Nullable
+  private String apiKeyId;
+
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY = "artifactory_admin_apikey";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY)
   @javax.annotation.Nullable
@@ -989,6 +999,11 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String mysqlRevocationStatements;
 
+  public static final String SERIALIZED_NAME_OPENAI_URL = "openai_url";
+  @SerializedName(SERIALIZED_NAME_OPENAI_URL)
+  @javax.annotation.Nullable
+  private String openaiUrl;
+
   public static final String SERIALIZED_NAME_ORACLE_CREATION_STATEMENTS = "oracle_creation_statements";
   @SerializedName(SERIALIZED_NAME_ORACLE_CREATION_STATEMENTS)
   @javax.annotation.Nullable
@@ -1003,6 +1018,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ORACLE_WALLET_DETAILS)
   @javax.annotation.Nullable
   private WalletDetails oracleWalletDetails;
+
+  public static final String SERIALIZED_NAME_ORGANIZATION_ID = "organization_id";
+  @SerializedName(SERIALIZED_NAME_ORGANIZATION_ID)
+  @javax.annotation.Nullable
+  private String organizationId;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -1043,6 +1063,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_PRIVILEGED_USER)
   @javax.annotation.Nullable
   private String privilegedUser;
+
+  public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String projectId;
 
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
@@ -1460,6 +1485,44 @@ public class DSProducerDetails {
 
   public void setAdministrativePort(@javax.annotation.Nullable String administrativePort) {
     this.administrativePort = administrativePort;
+  }
+
+
+  public DSProducerDetails apiKey(@javax.annotation.Nullable String apiKey) {
+    this.apiKey = apiKey;
+    return this;
+  }
+
+  /**
+   * Get apiKey
+   * @return apiKey
+   */
+  @javax.annotation.Nullable
+  public String getApiKey() {
+    return apiKey;
+  }
+
+  public void setApiKey(@javax.annotation.Nullable String apiKey) {
+    this.apiKey = apiKey;
+  }
+
+
+  public DSProducerDetails apiKeyId(@javax.annotation.Nullable String apiKeyId) {
+    this.apiKeyId = apiKeyId;
+    return this;
+  }
+
+  /**
+   * Get apiKeyId
+   * @return apiKeyId
+   */
+  @javax.annotation.Nullable
+  public String getApiKeyId() {
+    return apiKeyId;
+  }
+
+  public void setApiKeyId(@javax.annotation.Nullable String apiKeyId) {
+    this.apiKeyId = apiKeyId;
   }
 
 
@@ -4928,6 +4991,25 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails openaiUrl(@javax.annotation.Nullable String openaiUrl) {
+    this.openaiUrl = openaiUrl;
+    return this;
+  }
+
+  /**
+   * Get openaiUrl
+   * @return openaiUrl
+   */
+  @javax.annotation.Nullable
+  public String getOpenaiUrl() {
+    return openaiUrl;
+  }
+
+  public void setOpenaiUrl(@javax.annotation.Nullable String openaiUrl) {
+    this.openaiUrl = openaiUrl;
+  }
+
+
   public DSProducerDetails oracleCreationStatements(@javax.annotation.Nullable String oracleCreationStatements) {
     this.oracleCreationStatements = oracleCreationStatements;
     return this;
@@ -4982,6 +5064,25 @@ public class DSProducerDetails {
 
   public void setOracleWalletDetails(@javax.annotation.Nullable WalletDetails oracleWalletDetails) {
     this.oracleWalletDetails = oracleWalletDetails;
+  }
+
+
+  public DSProducerDetails organizationId(@javax.annotation.Nullable String organizationId) {
+    this.organizationId = organizationId;
+    return this;
+  }
+
+  /**
+   * Get organizationId
+   * @return organizationId
+   */
+  @javax.annotation.Nullable
+  public String getOrganizationId() {
+    return organizationId;
+  }
+
+  public void setOrganizationId(@javax.annotation.Nullable String organizationId) {
+    this.organizationId = organizationId;
   }
 
 
@@ -5134,6 +5235,25 @@ public class DSProducerDetails {
 
   public void setPrivilegedUser(@javax.annotation.Nullable String privilegedUser) {
     this.privilegedUser = privilegedUser;
+  }
+
+
+  public DSProducerDetails projectId(@javax.annotation.Nullable String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Get projectId
+   * @return projectId
+   */
+  @javax.annotation.Nullable
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(@javax.annotation.Nullable String projectId) {
+    this.projectId = projectId;
   }
 
 
@@ -6239,6 +6359,8 @@ public class DSProducerDetails {
         Objects.equals(this.adminPwd, dsProducerDetails.adminPwd) &&
         Objects.equals(this.adminRotationIntervalDays, dsProducerDetails.adminRotationIntervalDays) &&
         Objects.equals(this.administrativePort, dsProducerDetails.administrativePort) &&
+        Objects.equals(this.apiKey, dsProducerDetails.apiKey) &&
+        Objects.equals(this.apiKeyId, dsProducerDetails.apiKeyId) &&
         Objects.equals(this.artifactoryAdminApikey, dsProducerDetails.artifactoryAdminApikey) &&
         Objects.equals(this.artifactoryAdminUsername, dsProducerDetails.artifactoryAdminUsername) &&
         Objects.equals(this.artifactoryBaseUrl, dsProducerDetails.artifactoryBaseUrl) &&
@@ -6418,9 +6540,11 @@ public class DSProducerDetails {
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
         Objects.equals(this.mysqlRevocationStatements, dsProducerDetails.mysqlRevocationStatements) &&
+        Objects.equals(this.openaiUrl, dsProducerDetails.openaiUrl) &&
         Objects.equals(this.oracleCreationStatements, dsProducerDetails.oracleCreationStatements) &&
         Objects.equals(this.oracleRevocationStatements, dsProducerDetails.oracleRevocationStatements) &&
         Objects.equals(this.oracleWalletDetails, dsProducerDetails.oracleWalletDetails) &&
+        Objects.equals(this.organizationId, dsProducerDetails.organizationId) &&
         Objects.equals(this.password, dsProducerDetails.password) &&
         Objects.equals(this.passwordLength, dsProducerDetails.passwordLength) &&
         Objects.equals(this.passwordPolicy, dsProducerDetails.passwordPolicy) &&
@@ -6429,6 +6553,7 @@ public class DSProducerDetails {
         Objects.equals(this.postgresCreationStatements, dsProducerDetails.postgresCreationStatements) &&
         Objects.equals(this.postgresRevocationStatements, dsProducerDetails.postgresRevocationStatements) &&
         Objects.equals(this.privilegedUser, dsProducerDetails.privilegedUser) &&
+        Objects.equals(this.projectId, dsProducerDetails.projectId) &&
         Objects.equals(this.rabbitmqServerPassword, dsProducerDetails.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, dsProducerDetails.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, dsProducerDetails.rabbitmqServerUser) &&
@@ -6488,7 +6613,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6502,6 +6627,8 @@ public class DSProducerDetails {
     sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
     sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
+    sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
     sb.append("    artifactoryAdminUsername: ").append(toIndentedString(artifactoryAdminUsername)).append("\n");
     sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");
@@ -6681,9 +6808,11 @@ public class DSProducerDetails {
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
     sb.append("    mysqlRevocationStatements: ").append(toIndentedString(mysqlRevocationStatements)).append("\n");
+    sb.append("    openaiUrl: ").append(toIndentedString(openaiUrl)).append("\n");
     sb.append("    oracleCreationStatements: ").append(toIndentedString(oracleCreationStatements)).append("\n");
     sb.append("    oracleRevocationStatements: ").append(toIndentedString(oracleRevocationStatements)).append("\n");
     sb.append("    oracleWalletDetails: ").append(toIndentedString(oracleWalletDetails)).append("\n");
+    sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
@@ -6692,6 +6821,7 @@ public class DSProducerDetails {
     sb.append("    postgresCreationStatements: ").append(toIndentedString(postgresCreationStatements)).append("\n");
     sb.append("    postgresRevocationStatements: ").append(toIndentedString(postgresRevocationStatements)).append("\n");
     sb.append("    privilegedUser: ").append(toIndentedString(privilegedUser)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
@@ -6776,6 +6906,8 @@ public class DSProducerDetails {
     openapiFields.add("admin_pwd");
     openapiFields.add("admin_rotation_interval_days");
     openapiFields.add("administrative_port");
+    openapiFields.add("api_key");
+    openapiFields.add("api_key_id");
     openapiFields.add("artifactory_admin_apikey");
     openapiFields.add("artifactory_admin_username");
     openapiFields.add("artifactory_base_url");
@@ -6955,9 +7087,11 @@ public class DSProducerDetails {
     openapiFields.add("mssql_revocation_statements");
     openapiFields.add("mysql_creation_statements");
     openapiFields.add("mysql_revocation_statements");
+    openapiFields.add("openai_url");
     openapiFields.add("oracle_creation_statements");
     openapiFields.add("oracle_revocation_statements");
     openapiFields.add("oracle_wallet_details");
+    openapiFields.add("organization_id");
     openapiFields.add("password");
     openapiFields.add("password_length");
     openapiFields.add("password_policy");
@@ -6966,6 +7100,7 @@ public class DSProducerDetails {
     openapiFields.add("postgres_creation_statements");
     openapiFields.add("postgres_revocation_statements");
     openapiFields.add("privileged_user");
+    openapiFields.add("project_id");
     openapiFields.add("rabbitmq_server_password");
     openapiFields.add("rabbitmq_server_uri");
     openapiFields.add("rabbitmq_server_user");
@@ -7062,6 +7197,12 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("administrative_port") != null && !jsonObj.get("administrative_port").isJsonNull()) && !jsonObj.get("administrative_port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `administrative_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("administrative_port").toString()));
+      }
+      if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()) && !jsonObj.get("api_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
+      }
+      if ((jsonObj.get("api_key_id") != null && !jsonObj.get("api_key_id").isJsonNull()) && !jsonObj.get("api_key_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `api_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key_id").toString()));
       }
       if ((jsonObj.get("artifactory_admin_apikey") != null && !jsonObj.get("artifactory_admin_apikey").isJsonNull()) && !jsonObj.get("artifactory_admin_apikey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `artifactory_admin_apikey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_admin_apikey").toString()));
@@ -7560,6 +7701,9 @@ public class DSProducerDetails {
       if ((jsonObj.get("mysql_revocation_statements") != null && !jsonObj.get("mysql_revocation_statements").isJsonNull()) && !jsonObj.get("mysql_revocation_statements").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mysql_revocation_statements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mysql_revocation_statements").toString()));
       }
+      if ((jsonObj.get("openai_url") != null && !jsonObj.get("openai_url").isJsonNull()) && !jsonObj.get("openai_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `openai_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_url").toString()));
+      }
       if ((jsonObj.get("oracle_creation_statements") != null && !jsonObj.get("oracle_creation_statements").isJsonNull()) && !jsonObj.get("oracle_creation_statements").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `oracle_creation_statements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oracle_creation_statements").toString()));
       }
@@ -7569,6 +7713,9 @@ public class DSProducerDetails {
       // validate the optional field `oracle_wallet_details`
       if (jsonObj.get("oracle_wallet_details") != null && !jsonObj.get("oracle_wallet_details").isJsonNull()) {
         WalletDetails.validateJsonElement(jsonObj.get("oracle_wallet_details"));
+      }
+      if ((jsonObj.get("organization_id") != null && !jsonObj.get("organization_id").isJsonNull()) && !jsonObj.get("organization_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `organization_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization_id").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
@@ -7590,6 +7737,9 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("privileged_user") != null && !jsonObj.get("privileged_user").isJsonNull()) && !jsonObj.get("privileged_user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `privileged_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("privileged_user").toString()));
+      }
+      if ((jsonObj.get("project_id") != null && !jsonObj.get("project_id").isJsonNull()) && !jsonObj.get("project_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_id").toString()));
       }
       if ((jsonObj.get("rabbitmq_server_password") != null && !jsonObj.get("rabbitmq_server_password").isJsonNull()) && !jsonObj.get("rabbitmq_server_password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rabbitmq_server_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_password").toString()));

@@ -10,9 +10,9 @@ OpenAITargetDetails defines details related to connecting to an OpenAI provider
 |------------ | ------------- | ------------- | -------------|
 |**apiKey** | **String** |  |  [optional] |
 |**apiKeyId** | **String** |  |  [optional] |
-|**model** | **String** |  |  [optional] |
 |**openaiUrl** | **String** |  |  [optional] |
 |**organizationId** | **String** |  |  [optional] |
+|**projectId** | **String** |  |  [optional] |
 
 
 
