@@ -8,11 +8,6 @@ gatewayUpdateMigration is a command that update migration
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**_1passwordEmail** | **String** | 1Password user email to connect to the API |  [optional] |
-|**_1passwordPassword** | **String** | 1Password user password to connect to the API |  [optional] |
-|**_1passwordSecretKey** | **String** | 1Password user secret key to connect to the API |  [optional] |
-|**_1passwordUrl** | **String** | 1Password api container url |  [optional] |
-|**_1passwordVaults** | **List&lt;String&gt;** | 1Password list of vault to get the items from |  [optional] |
 |**serviceAccountKeyDecoded** | **String** |  |  [optional] |
 |**adAutoRotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration) |  [optional] |
 |**adComputerBaseDn** | **String** | Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN&#x3D;Computers,DC&#x3D;example,DC&#x3D;com (Relevant only for Active Directory migration) |  [optional] |

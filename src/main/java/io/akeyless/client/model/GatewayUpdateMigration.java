@@ -52,31 +52,6 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class GatewayUpdateMigration {
-  public static final String SERIALIZED_NAME_1PASSWORD_EMAIL = "1password-email";
-  @SerializedName(SERIALIZED_NAME_1PASSWORD_EMAIL)
-  @javax.annotation.Nullable
-  private String _1passwordEmail;
-
-  public static final String SERIALIZED_NAME_1PASSWORD_PASSWORD = "1password-password";
-  @SerializedName(SERIALIZED_NAME_1PASSWORD_PASSWORD)
-  @javax.annotation.Nullable
-  private String _1passwordPassword;
-
-  public static final String SERIALIZED_NAME_1PASSWORD_SECRET_KEY = "1password-secret-key";
-  @SerializedName(SERIALIZED_NAME_1PASSWORD_SECRET_KEY)
-  @javax.annotation.Nullable
-  private String _1passwordSecretKey;
-
-  public static final String SERIALIZED_NAME_1PASSWORD_URL = "1password-url";
-  @SerializedName(SERIALIZED_NAME_1PASSWORD_URL)
-  @javax.annotation.Nullable
-  private String _1passwordUrl;
-
-  public static final String SERIALIZED_NAME_1PASSWORD_VAULTS = "1password-vaults";
-  @SerializedName(SERIALIZED_NAME_1PASSWORD_VAULTS)
-  @javax.annotation.Nullable
-  private List<String> _1passwordVaults = new ArrayList<>();
-
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_KEY_DECODED = "ServiceAccountKeyDecoded";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_KEY_DECODED)
   @javax.annotation.Nullable
@@ -379,109 +354,6 @@ public class GatewayUpdateMigration {
 
   public GatewayUpdateMigration() {
   }
-
-  public GatewayUpdateMigration _1passwordEmail(@javax.annotation.Nullable String _1passwordEmail) {
-    this._1passwordEmail = _1passwordEmail;
-    return this;
-  }
-
-  /**
-   * 1Password user email to connect to the API
-   * @return _1passwordEmail
-   */
-  @javax.annotation.Nullable
-  public String get1passwordEmail() {
-    return _1passwordEmail;
-  }
-
-  public void set1passwordEmail(@javax.annotation.Nullable String _1passwordEmail) {
-    this._1passwordEmail = _1passwordEmail;
-  }
-
-
-  public GatewayUpdateMigration _1passwordPassword(@javax.annotation.Nullable String _1passwordPassword) {
-    this._1passwordPassword = _1passwordPassword;
-    return this;
-  }
-
-  /**
-   * 1Password user password to connect to the API
-   * @return _1passwordPassword
-   */
-  @javax.annotation.Nullable
-  public String get1passwordPassword() {
-    return _1passwordPassword;
-  }
-
-  public void set1passwordPassword(@javax.annotation.Nullable String _1passwordPassword) {
-    this._1passwordPassword = _1passwordPassword;
-  }
-
-
-  public GatewayUpdateMigration _1passwordSecretKey(@javax.annotation.Nullable String _1passwordSecretKey) {
-    this._1passwordSecretKey = _1passwordSecretKey;
-    return this;
-  }
-
-  /**
-   * 1Password user secret key to connect to the API
-   * @return _1passwordSecretKey
-   */
-  @javax.annotation.Nullable
-  public String get1passwordSecretKey() {
-    return _1passwordSecretKey;
-  }
-
-  public void set1passwordSecretKey(@javax.annotation.Nullable String _1passwordSecretKey) {
-    this._1passwordSecretKey = _1passwordSecretKey;
-  }
-
-
-  public GatewayUpdateMigration _1passwordUrl(@javax.annotation.Nullable String _1passwordUrl) {
-    this._1passwordUrl = _1passwordUrl;
-    return this;
-  }
-
-  /**
-   * 1Password api container url
-   * @return _1passwordUrl
-   */
-  @javax.annotation.Nullable
-  public String get1passwordUrl() {
-    return _1passwordUrl;
-  }
-
-  public void set1passwordUrl(@javax.annotation.Nullable String _1passwordUrl) {
-    this._1passwordUrl = _1passwordUrl;
-  }
-
-
-  public GatewayUpdateMigration _1passwordVaults(@javax.annotation.Nullable List<String> _1passwordVaults) {
-    this._1passwordVaults = _1passwordVaults;
-    return this;
-  }
-
-  public GatewayUpdateMigration add1passwordVaultsItem(String _1passwordVaultsItem) {
-    if (this._1passwordVaults == null) {
-      this._1passwordVaults = new ArrayList<>();
-    }
-    this._1passwordVaults.add(_1passwordVaultsItem);
-    return this;
-  }
-
-  /**
-   * 1Password list of vault to get the items from
-   * @return _1passwordVaults
-   */
-  @javax.annotation.Nullable
-  public List<String> get1passwordVaults() {
-    return _1passwordVaults;
-  }
-
-  public void set1passwordVaults(@javax.annotation.Nullable List<String> _1passwordVaults) {
-    this._1passwordVaults = _1passwordVaults;
-  }
-
 
   public GatewayUpdateMigration serviceAccountKeyDecoded(@javax.annotation.Nullable String serviceAccountKeyDecoded) {
     this.serviceAccountKeyDecoded = serviceAccountKeyDecoded;
@@ -1673,12 +1545,7 @@ public class GatewayUpdateMigration {
       return false;
     }
     GatewayUpdateMigration gatewayUpdateMigration = (GatewayUpdateMigration) o;
-    return Objects.equals(this._1passwordEmail, gatewayUpdateMigration._1passwordEmail) &&
-        Objects.equals(this._1passwordPassword, gatewayUpdateMigration._1passwordPassword) &&
-        Objects.equals(this._1passwordSecretKey, gatewayUpdateMigration._1passwordSecretKey) &&
-        Objects.equals(this._1passwordUrl, gatewayUpdateMigration._1passwordUrl) &&
-        Objects.equals(this._1passwordVaults, gatewayUpdateMigration._1passwordVaults) &&
-        Objects.equals(this.serviceAccountKeyDecoded, gatewayUpdateMigration.serviceAccountKeyDecoded) &&
+    return Objects.equals(this.serviceAccountKeyDecoded, gatewayUpdateMigration.serviceAccountKeyDecoded) &&
         Objects.equals(this.adAutoRotate, gatewayUpdateMigration.adAutoRotate) &&
         Objects.equals(this.adComputerBaseDn, gatewayUpdateMigration.adComputerBaseDn) &&
         Objects.equals(this.adDiscoverServices, gatewayUpdateMigration.adDiscoverServices) &&
@@ -1742,18 +1609,13 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(_1passwordEmail, _1passwordPassword, _1passwordSecretKey, _1passwordUrl, _1passwordVaults, serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateMigration {\n");
-    sb.append("    _1passwordEmail: ").append(toIndentedString(_1passwordEmail)).append("\n");
-    sb.append("    _1passwordPassword: ").append(toIndentedString(_1passwordPassword)).append("\n");
-    sb.append("    _1passwordSecretKey: ").append(toIndentedString(_1passwordSecretKey)).append("\n");
-    sb.append("    _1passwordUrl: ").append(toIndentedString(_1passwordUrl)).append("\n");
-    sb.append("    _1passwordVaults: ").append(toIndentedString(_1passwordVaults)).append("\n");
     sb.append("    serviceAccountKeyDecoded: ").append(toIndentedString(serviceAccountKeyDecoded)).append("\n");
     sb.append("    adAutoRotate: ").append(toIndentedString(adAutoRotate)).append("\n");
     sb.append("    adComputerBaseDn: ").append(toIndentedString(adComputerBaseDn)).append("\n");
@@ -1836,11 +1698,6 @@ public class GatewayUpdateMigration {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("1password-email");
-    openapiFields.add("1password-password");
-    openapiFields.add("1password-secret-key");
-    openapiFields.add("1password-url");
-    openapiFields.add("1password-vaults");
     openapiFields.add("ServiceAccountKeyDecoded");
     openapiFields.add("ad-auto-rotate");
     openapiFields.add("ad-computer-base-dn");
@@ -1937,22 +1794,6 @@ public class GatewayUpdateMigration {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("1password-email") != null && !jsonObj.get("1password-email").isJsonNull()) && !jsonObj.get("1password-email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `1password-email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("1password-email").toString()));
-      }
-      if ((jsonObj.get("1password-password") != null && !jsonObj.get("1password-password").isJsonNull()) && !jsonObj.get("1password-password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `1password-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("1password-password").toString()));
-      }
-      if ((jsonObj.get("1password-secret-key") != null && !jsonObj.get("1password-secret-key").isJsonNull()) && !jsonObj.get("1password-secret-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `1password-secret-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("1password-secret-key").toString()));
-      }
-      if ((jsonObj.get("1password-url") != null && !jsonObj.get("1password-url").isJsonNull()) && !jsonObj.get("1password-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `1password-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("1password-url").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("1password-vaults") != null && !jsonObj.get("1password-vaults").isJsonNull() && !jsonObj.get("1password-vaults").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `1password-vaults` to be an array in the JSON string but got `%s`", jsonObj.get("1password-vaults").toString()));
-      }
       if ((jsonObj.get("ServiceAccountKeyDecoded") != null && !jsonObj.get("ServiceAccountKeyDecoded").isJsonNull()) && !jsonObj.get("ServiceAccountKeyDecoded").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ServiceAccountKeyDecoded` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ServiceAccountKeyDecoded").toString()));
       }

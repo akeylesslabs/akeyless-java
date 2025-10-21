@@ -8,11 +8,6 @@ gatewayCreateMigration is a command that create migration
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**_1passwordEmail** | **String** | 1Password user email to connect to the API |  [optional] |
-|**_1passwordPassword** | **String** | 1Password user password to connect to the API |  [optional] |
-|**_1passwordSecretKey** | **String** | 1Password user secret key to connect to the API |  [optional] |
-|**_1passwordUrl** | **String** | 1Password api container url |  [optional] |
-|**_1passwordVaults** | **List&lt;String&gt;** | 1Password list of vault to get the items from |  [optional] |
 |**serviceAccountKeyDecoded** | **String** |  |  [optional] |
 |**adAutoRotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration) |  [optional] |
 |**adComputerBaseDn** | **String** | Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN&#x3D;Computers,DC&#x3D;example,DC&#x3D;com (Relevant only for Active Directory migration) |  [optional] |
@@ -70,7 +65,7 @@ gatewayCreateMigration is a command that create migration
 |**siUsersPathTemplate** | **String** | Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration) |  |
 |**targetLocation** | **String** | Target location in Akeyless for imported secrets |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
-|**type** | **String** | Migration type (hashi/aws/gcp/k8s/azure_kv/1password/active_directory) |  [optional] |
+|**type** | **String** | Migration type (hashi/aws/gcp/k8s/azure_kv/active_directory) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 
 
