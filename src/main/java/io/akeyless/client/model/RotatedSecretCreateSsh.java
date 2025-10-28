@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,6 +73,11 @@ public class RotatedSecretCreateSsh {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -283,6 +290,33 @@ public class RotatedSecretCreateSsh {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public RotatedSecretCreateSsh itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public RotatedSecretCreateSsh putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -837,6 +871,7 @@ public class RotatedSecretCreateSsh {
         Objects.equals(this.autoRotate, rotatedSecretCreateSsh.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateSsh.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateSsh.description) &&
+        Objects.equals(this.itemCustomFields, rotatedSecretCreateSsh.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateSsh.json) &&
         Objects.equals(this.key, rotatedSecretCreateSsh.key) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateSsh.maxVersions) &&
@@ -868,7 +903,7 @@ public class RotatedSecretCreateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -879,6 +914,7 @@ public class RotatedSecretCreateSsh {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -932,6 +968,7 @@ public class RotatedSecretCreateSsh {
     openapiFields.add("auto-rotate");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key");
     openapiFields.add("max-versions");

@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -121,6 +123,11 @@ public class DynamicSecretUpdateAws {
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   @javax.annotation.Nullable
   private Boolean enableAdminRotation = false;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -498,6 +505,33 @@ public class DynamicSecretUpdateAws {
 
   public void setEnableAdminRotation(@javax.annotation.Nullable Boolean enableAdminRotation) {
     this.enableAdminRotation = enableAdminRotation;
+  }
+
+
+  public DynamicSecretUpdateAws itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretUpdateAws putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -951,6 +985,7 @@ public class DynamicSecretUpdateAws {
         Objects.equals(this.deleteProtection, dynamicSecretUpdateAws.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateAws.description) &&
         Objects.equals(this.enableAdminRotation, dynamicSecretUpdateAws.enableAdminRotation) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretUpdateAws.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateAws.json) &&
         Objects.equals(this.name, dynamicSecretUpdateAws.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateAws.newName) &&
@@ -977,7 +1012,7 @@ public class DynamicSecretUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, description, enableAdminRotation, json, name, newName, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, tags, targetName, token, transitiveTagKeys, uidToken, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, description, enableAdminRotation, itemCustomFields, json, name, newName, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, tags, targetName, token, transitiveTagKeys, uidToken, userTtl);
   }
 
   @Override
@@ -998,6 +1033,7 @@ public class DynamicSecretUpdateAws {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -1056,6 +1092,7 @@ public class DynamicSecretUpdateAws {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("enable-admin-rotation");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

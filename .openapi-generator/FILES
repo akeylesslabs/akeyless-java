@@ -13,6 +13,13 @@ docs/AWSSecretsMigration.md
 docs/AWSTargetDetails.md
 docs/AccessOrGroupPermissionAssignment.md
 docs/AccessPermissionAssignment.md
+docs/AccountCustomFieldCreate.md
+docs/AccountCustomFieldCreateOutput.md
+docs/AccountCustomFieldDelete.md
+docs/AccountCustomFieldGet.md
+docs/AccountCustomFieldGetOutput.md
+docs/AccountCustomFieldList.md
+docs/AccountCustomFieldUpdate.md
 docs/AccountGeneralSettings.md
 docs/AccountObjectVersionSettingsOutput.md
 docs/AcmeAccount.md
@@ -20,6 +27,8 @@ docs/ActiveDirectoryMigration.md
 docs/ActiveDirectoryPayload.md
 docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
+docs/AiInsightsConfigPart.md
+docs/AiInsightsSetting.md
 docs/AkeylessGatewayConfig.md
 docs/AliasDetails.md
 docs/AliasDetailsOutput.md
@@ -656,6 +665,7 @@ docs/ImportPasswords.md
 docs/ImportPasswordsOutput.md
 docs/ImporterInfo.md
 docs/Item.md
+docs/ItemCustomFieldsDetails.md
 docs/ItemGeneralInfo.md
 docs/ItemSraStatus.md
 docs/ItemTargetAssociation.md
@@ -750,6 +760,7 @@ docs/NativeK8sTargetDetails.md
 docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
 docs/NullString.md
+docs/NullTime.md
 docs/OAuth2AccessRules.md
 docs/OAuth2CustomClaim.md
 docs/OCIAccessRules.md
@@ -1155,6 +1166,13 @@ src/main/java/io/akeyless/client/model/AWSTargetDetails.java
 src/main/java/io/akeyless/client/model/AbstractOpenApiSchema.java
 src/main/java/io/akeyless/client/model/AccessOrGroupPermissionAssignment.java
 src/main/java/io/akeyless/client/model/AccessPermissionAssignment.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldCreate.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldCreateOutput.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldDelete.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldGet.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldGetOutput.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldList.java
+src/main/java/io/akeyless/client/model/AccountCustomFieldUpdate.java
 src/main/java/io/akeyless/client/model/AccountGeneralSettings.java
 src/main/java/io/akeyless/client/model/AccountObjectVersionSettingsOutput.java
 src/main/java/io/akeyless/client/model/AcmeAccount.java
@@ -1162,6 +1180,8 @@ src/main/java/io/akeyless/client/model/ActiveDirectoryMigration.java
 src/main/java/io/akeyless/client/model/ActiveDirectoryPayload.java
 src/main/java/io/akeyless/client/model/AddGatewayAllowedAccessId.java
 src/main/java/io/akeyless/client/model/AdminsConfigPart.java
+src/main/java/io/akeyless/client/model/AiInsightsConfigPart.java
+src/main/java/io/akeyless/client/model/AiInsightsSetting.java
 src/main/java/io/akeyless/client/model/AkeylessGatewayConfig.java
 src/main/java/io/akeyless/client/model/AliasDetails.java
 src/main/java/io/akeyless/client/model/AliasDetailsOutput.java
@@ -1798,6 +1818,7 @@ src/main/java/io/akeyless/client/model/ImportPasswords.java
 src/main/java/io/akeyless/client/model/ImportPasswordsOutput.java
 src/main/java/io/akeyless/client/model/ImporterInfo.java
 src/main/java/io/akeyless/client/model/Item.java
+src/main/java/io/akeyless/client/model/ItemCustomFieldsDetails.java
 src/main/java/io/akeyless/client/model/ItemGeneralInfo.java
 src/main/java/io/akeyless/client/model/ItemSraStatus.java
 src/main/java/io/akeyless/client/model/ItemTargetAssociation.java
@@ -1892,6 +1913,7 @@ src/main/java/io/akeyless/client/model/NativeK8sTargetDetails.java
 src/main/java/io/akeyless/client/model/NextAutoRotationEvent.java
 src/main/java/io/akeyless/client/model/NotiForwarder.java
 src/main/java/io/akeyless/client/model/NullString.java
+src/main/java/io/akeyless/client/model/NullTime.java
 src/main/java/io/akeyless/client/model/OAuth2AccessRules.java
 src/main/java/io/akeyless/client/model/OAuth2CustomClaim.java
 src/main/java/io/akeyless/client/model/OCIAccessRules.java
@@ -2260,3 +2282,14 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldCreateOutputTest.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldCreateTest.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldDeleteTest.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldGetOutputTest.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldGetTest.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldListTest.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldUpdateTest.java
+src/test/java/io/akeyless/client/model/AiInsightsConfigPartTest.java
+src/test/java/io/akeyless/client/model/AiInsightsSettingTest.java
+src/test/java/io/akeyless/client/model/ItemCustomFieldsDetailsTest.java
+src/test/java/io/akeyless/client/model/NullTimeTest.java

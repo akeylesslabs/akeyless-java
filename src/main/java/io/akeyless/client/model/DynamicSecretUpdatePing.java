@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,6 +63,11 @@ public class DynamicSecretUpdatePing {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -225,6 +232,33 @@ public class DynamicSecretUpdatePing {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdatePing itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretUpdatePing putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -747,6 +781,7 @@ public class DynamicSecretUpdatePing {
     DynamicSecretUpdatePing dynamicSecretUpdatePing = (DynamicSecretUpdatePing) o;
     return Objects.equals(this.deleteProtection, dynamicSecretUpdatePing.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdatePing.description) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretUpdatePing.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdatePing.json) &&
         Objects.equals(this.name, dynamicSecretUpdatePing.name) &&
         Objects.equals(this.newName, dynamicSecretUpdatePing.newName) &&
@@ -776,7 +811,7 @@ public class DynamicSecretUpdatePing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, json, name, newName, pingAdministrativePort, pingAtmId, pingAuthorizationPort, pingCertSubjectDn, pingClientAuthenticationType, pingEnforceReplayPrevention, pingGrantTypes, pingIssuerDn, pingJwks, pingJwksUrl, pingPassword, pingPrivilegedUser, pingRedirectUris, pingRestrictedScopes, pingSigningAlgo, pingUrl, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, description, itemCustomFields, json, name, newName, pingAdministrativePort, pingAtmId, pingAuthorizationPort, pingCertSubjectDn, pingClientAuthenticationType, pingEnforceReplayPrevention, pingGrantTypes, pingIssuerDn, pingJwks, pingJwksUrl, pingPassword, pingPrivilegedUser, pingRedirectUris, pingRestrictedScopes, pingSigningAlgo, pingUrl, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -785,6 +820,7 @@ public class DynamicSecretUpdatePing {
     sb.append("class DynamicSecretUpdatePing {\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -834,6 +870,7 @@ public class DynamicSecretUpdatePing {
     openapiFields = new HashSet<String>();
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

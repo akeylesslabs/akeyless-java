@@ -16,6 +16,7 @@ gatewayCreateProducerEks is a command that creates eks producer [Deprecated: Use
 |**eksClusterName** | **String** | EKS cluster name |  [optional] |
 |**eksRegion** | **String** | Region |  [optional] |
 |**eksSecretAccessKey** | **String** | Secret Access Key |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |

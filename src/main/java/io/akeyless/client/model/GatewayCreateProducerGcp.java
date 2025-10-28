@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -77,11 +79,6 @@ public class GatewayCreateProducerGcp {
   @javax.annotation.Nullable
   private String gcpKeyAlgo;
 
-  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
-  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
-  @javax.annotation.Nullable
-  private String gcpProjectId;
-
   public static final String SERIALIZED_NAME_GCP_SA_EMAIL = "gcp-sa-email";
   @SerializedName(SERIALIZED_NAME_GCP_SA_EMAIL)
   @javax.annotation.Nullable
@@ -91,6 +88,11 @@ public class GatewayCreateProducerGcp {
   @SerializedName(SERIALIZED_NAME_GCP_TOKEN_SCOPES)
   @javax.annotation.Nullable
   private String gcpTokenScopes;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -240,25 +242,6 @@ public class GatewayCreateProducerGcp {
   }
 
 
-  public GatewayCreateProducerGcp gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
-    return this;
-  }
-
-  /**
-   * GCP Project ID override for dynamic secret operations (tmp service accounts)
-   * @return gcpProjectId
-   */
-  @javax.annotation.Nullable
-  public String getGcpProjectId() {
-    return gcpProjectId;
-  }
-
-  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
-  }
-
-
   public GatewayCreateProducerGcp gcpSaEmail(@javax.annotation.Nullable String gcpSaEmail) {
     this.gcpSaEmail = gcpSaEmail;
     return this;
@@ -294,6 +277,33 @@ public class GatewayCreateProducerGcp {
 
   public void setGcpTokenScopes(@javax.annotation.Nullable String gcpTokenScopes) {
     this.gcpTokenScopes = gcpTokenScopes;
+  }
+
+
+  public GatewayCreateProducerGcp itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public GatewayCreateProducerGcp putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -510,9 +520,9 @@ public class GatewayCreateProducerGcp {
         Objects.equals(this.gcpCredType, gatewayCreateProducerGcp.gcpCredType) &&
         Objects.equals(this.gcpKey, gatewayCreateProducerGcp.gcpKey) &&
         Objects.equals(this.gcpKeyAlgo, gatewayCreateProducerGcp.gcpKeyAlgo) &&
-        Objects.equals(this.gcpProjectId, gatewayCreateProducerGcp.gcpProjectId) &&
         Objects.equals(this.gcpSaEmail, gatewayCreateProducerGcp.gcpSaEmail) &&
         Objects.equals(this.gcpTokenScopes, gatewayCreateProducerGcp.gcpTokenScopes) &&
+        Objects.equals(this.itemCustomFields, gatewayCreateProducerGcp.itemCustomFields) &&
         Objects.equals(this.json, gatewayCreateProducerGcp.json) &&
         Objects.equals(this.name, gatewayCreateProducerGcp.name) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGcp.producerEncryptionKeyName) &&
@@ -527,7 +537,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, json, name, producerEncryptionKeyName, roleBinding, serviceAccountType, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpSaEmail, gcpTokenScopes, itemCustomFields, json, name, producerEncryptionKeyName, roleBinding, serviceAccountType, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -539,9 +549,9 @@ public class GatewayCreateProducerGcp {
     sb.append("    gcpCredType: ").append(toIndentedString(gcpCredType)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");
-    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    gcpSaEmail: ").append(toIndentedString(gcpSaEmail)).append("\n");
     sb.append("    gcpTokenScopes: ").append(toIndentedString(gcpTokenScopes)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
@@ -579,9 +589,9 @@ public class GatewayCreateProducerGcp {
     openapiFields.add("gcp-cred-type");
     openapiFields.add("gcp-key");
     openapiFields.add("gcp-key-algo");
-    openapiFields.add("gcp-project-id");
     openapiFields.add("gcp-sa-email");
     openapiFields.add("gcp-token-scopes");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("producer-encryption-key-name");
@@ -641,9 +651,6 @@ public class GatewayCreateProducerGcp {
       }
       if ((jsonObj.get("gcp-key-algo") != null && !jsonObj.get("gcp-key-algo").isJsonNull()) && !jsonObj.get("gcp-key-algo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-key-algo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-key-algo").toString()));
-      }
-      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if ((jsonObj.get("gcp-sa-email") != null && !jsonObj.get("gcp-sa-email").isJsonNull()) && !jsonObj.get("gcp-sa-email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-sa-email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-sa-email").toString()));

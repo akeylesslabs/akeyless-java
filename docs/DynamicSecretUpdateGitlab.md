@@ -18,6 +18,7 @@ dynamicSecretUpdateGitlab is a command that updates gitlab dynamic secret
 |**gitlabUrl** | **String** | Gitlab base url |  [optional] |
 |**groupName** | **String** | Gitlab group name, required for access-type&#x3D;group |  [optional] |
 |**installationOrganization** | **String** | Gitlab project name, required for access-type&#x3D;project |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |

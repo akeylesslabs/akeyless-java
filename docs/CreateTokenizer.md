@@ -14,6 +14,7 @@ createTokenizer is a command that creates a tokenizer item
 |**description** | **String** | Description of the object |  [optional] |
 |**encodingTemplate** | **String** | The Encoding output template to use in regexp vaultless tokenization |  [optional] |
 |**encryptionKeyName** | **String** | AES key name to use in vaultless tokenization |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**metadata** | **String** | Deprecated - use description |  [optional] |
 |**name** | **String** | Tokenizer name |  |

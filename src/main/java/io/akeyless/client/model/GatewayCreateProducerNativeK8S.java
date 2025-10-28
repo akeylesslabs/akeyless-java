@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,6 +63,11 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
   private String deleteProtection;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -255,6 +262,33 @@ public class GatewayCreateProducerNativeK8S {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerNativeK8S itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public GatewayCreateProducerNativeK8S putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -867,6 +901,7 @@ public class GatewayCreateProducerNativeK8S {
     GatewayCreateProducerNativeK8S gatewayCreateProducerNativeK8S = (GatewayCreateProducerNativeK8S) o;
     return Objects.equals(this.customUsernameTemplate, gatewayCreateProducerNativeK8S.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerNativeK8S.deleteProtection) &&
+        Objects.equals(this.itemCustomFields, gatewayCreateProducerNativeK8S.itemCustomFields) &&
         Objects.equals(this.json, gatewayCreateProducerNativeK8S.json) &&
         Objects.equals(this.k8sAllowedNamespaces, gatewayCreateProducerNativeK8S.k8sAllowedNamespaces) &&
         Objects.equals(this.k8sClusterCaCert, gatewayCreateProducerNativeK8S.k8sClusterCaCert) &&
@@ -902,7 +937,7 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
@@ -911,6 +946,7 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("class GatewayCreateProducerNativeK8S {\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
     sb.append("    k8sClusterCaCert: ").append(toIndentedString(k8sClusterCaCert)).append("\n");
@@ -966,6 +1002,7 @@ public class GatewayCreateProducerNativeK8S {
     openapiFields = new HashSet<String>();
     openapiFields.add("custom-username-template");
     openapiFields.add("delete_protection");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("k8s-allowed-namespaces");
     openapiFields.add("k8s-cluster-ca-cert");

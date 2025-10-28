@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class SharingPolicyInfo {
+  public static final String SERIALIZED_NAME_ALLOWED_EMAIL_DOMAINS = "allowed_email_domains";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_EMAIL_DOMAINS)
+  @javax.annotation.Nullable
+  private List<String> allowedEmailDomains = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL = "default_share_link_ttl";
   @SerializedName(SERIALIZED_NAME_DEFAULT_SHARE_LINK_TTL)
   @javax.annotation.Nullable
@@ -62,6 +69,33 @@ public class SharingPolicyInfo {
 
   public SharingPolicyInfo() {
   }
+
+  public SharingPolicyInfo allowedEmailDomains(@javax.annotation.Nullable List<String> allowedEmailDomains) {
+    this.allowedEmailDomains = allowedEmailDomains;
+    return this;
+  }
+
+  public SharingPolicyInfo addAllowedEmailDomainsItem(String allowedEmailDomainsItem) {
+    if (this.allowedEmailDomains == null) {
+      this.allowedEmailDomains = new ArrayList<>();
+    }
+    this.allowedEmailDomains.add(allowedEmailDomainsItem);
+    return this;
+  }
+
+  /**
+   * AllowedEmailDomains limits email sharing to these domains. By default all domains are allowed.
+   * @return allowedEmailDomains
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedEmailDomains() {
+    return allowedEmailDomains;
+  }
+
+  public void setAllowedEmailDomains(@javax.annotation.Nullable List<String> allowedEmailDomains) {
+    this.allowedEmailDomains = allowedEmailDomains;
+  }
+
 
   public SharingPolicyInfo defaultShareLinkTtl(@javax.annotation.Nullable Long defaultShareLinkTtl) {
     this.defaultShareLinkTtl = defaultShareLinkTtl;
@@ -111,19 +145,21 @@ public class SharingPolicyInfo {
       return false;
     }
     SharingPolicyInfo sharingPolicyInfo = (SharingPolicyInfo) o;
-    return Objects.equals(this.defaultShareLinkTtl, sharingPolicyInfo.defaultShareLinkTtl) &&
+    return Objects.equals(this.allowedEmailDomains, sharingPolicyInfo.allowedEmailDomains) &&
+        Objects.equals(this.defaultShareLinkTtl, sharingPolicyInfo.defaultShareLinkTtl) &&
         Objects.equals(this.enable, sharingPolicyInfo.enable);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(defaultShareLinkTtl, enable);
+    return Objects.hash(allowedEmailDomains, defaultShareLinkTtl, enable);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SharingPolicyInfo {\n");
+    sb.append("    allowedEmailDomains: ").append(toIndentedString(allowedEmailDomains)).append("\n");
     sb.append("    defaultShareLinkTtl: ").append(toIndentedString(defaultShareLinkTtl)).append("\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("}");
@@ -148,6 +184,7 @@ public class SharingPolicyInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("allowed_email_domains");
     openapiFields.add("default_share_link_ttl");
     openapiFields.add("enable");
 
@@ -176,6 +213,10 @@ public class SharingPolicyInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed_email_domains") != null && !jsonObj.get("allowed_email_domains").isJsonNull() && !jsonObj.get("allowed_email_domains").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed_email_domains` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_email_domains").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

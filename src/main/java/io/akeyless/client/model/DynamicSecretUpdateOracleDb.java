@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -76,6 +78,11 @@ public class DynamicSecretUpdateOracleDb {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -282,6 +289,33 @@ public class DynamicSecretUpdateOracleDb {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateOracleDb itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretUpdateOracleDb putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -734,6 +768,7 @@ public class DynamicSecretUpdateOracleDb {
         Objects.equals(this.dbServerName, dynamicSecretUpdateOracleDb.dbServerName) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateOracleDb.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateOracleDb.description) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretUpdateOracleDb.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateOracleDb.json) &&
         Objects.equals(this.name, dynamicSecretUpdateOracleDb.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateOracleDb.newName) &&
@@ -760,7 +795,7 @@ public class DynamicSecretUpdateOracleDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, description, json, name, newName, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, description, itemCustomFields, json, name, newName, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -772,6 +807,7 @@ public class DynamicSecretUpdateOracleDb {
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -821,6 +857,7 @@ public class DynamicSecretUpdateOracleDb {
     openapiFields.add("db-server-name");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

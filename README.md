@@ -106,6 +106,11 @@ All URIs are relative to *https://api.akeyless.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*V2Api* | [**accountCustomFieldCreate**](docs/V2Api.md#accountCustomFieldCreate) | **POST** /account-custom-field-create | Create a new custom field.
+*V2Api* | [**accountCustomFieldDelete**](docs/V2Api.md#accountCustomFieldDelete) | **POST** /account-custom-field-delete | Delete a custom field.
+*V2Api* | [**accountCustomFieldGet**](docs/V2Api.md#accountCustomFieldGet) | **POST** /account-custom-field-get | Get an account custom field by ID.
+*V2Api* | [**accountCustomFieldList**](docs/V2Api.md#accountCustomFieldList) | **POST** /account-custom-field-list | List all account custom fields.
+*V2Api* | [**accountCustomFieldUpdate**](docs/V2Api.md#accountCustomFieldUpdate) | **POST** /account-custom-field-update | Update a custom field.
 *V2Api* | [**aliasDetails**](docs/V2Api.md#aliasDetails) | **POST** /alias-details | 
 *V2Api* | [**assocRoleAuthMethod**](docs/V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am | 
 *V2Api* | [**assocTargetItem**](docs/V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
@@ -698,6 +703,13 @@ Class | Method | HTTP request | Description
  - [AWSTargetDetails](docs/AWSTargetDetails.md)
  - [AccessOrGroupPermissionAssignment](docs/AccessOrGroupPermissionAssignment.md)
  - [AccessPermissionAssignment](docs/AccessPermissionAssignment.md)
+ - [AccountCustomFieldCreate](docs/AccountCustomFieldCreate.md)
+ - [AccountCustomFieldCreateOutput](docs/AccountCustomFieldCreateOutput.md)
+ - [AccountCustomFieldDelete](docs/AccountCustomFieldDelete.md)
+ - [AccountCustomFieldGet](docs/AccountCustomFieldGet.md)
+ - [AccountCustomFieldGetOutput](docs/AccountCustomFieldGetOutput.md)
+ - [AccountCustomFieldList](docs/AccountCustomFieldList.md)
+ - [AccountCustomFieldUpdate](docs/AccountCustomFieldUpdate.md)
  - [AccountGeneralSettings](docs/AccountGeneralSettings.md)
  - [AccountObjectVersionSettingsOutput](docs/AccountObjectVersionSettingsOutput.md)
  - [AcmeAccount](docs/AcmeAccount.md)
@@ -705,6 +717,8 @@ Class | Method | HTTP request | Description
  - [ActiveDirectoryPayload](docs/ActiveDirectoryPayload.md)
  - [AddGatewayAllowedAccessId](docs/AddGatewayAllowedAccessId.md)
  - [AdminsConfigPart](docs/AdminsConfigPart.md)
+ - [AiInsightsConfigPart](docs/AiInsightsConfigPart.md)
+ - [AiInsightsSetting](docs/AiInsightsSetting.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
  - [AliasDetails](docs/AliasDetails.md)
  - [AliasDetailsOutput](docs/AliasDetailsOutput.md)
@@ -1341,6 +1355,7 @@ Class | Method | HTTP request | Description
  - [ImportPasswordsOutput](docs/ImportPasswordsOutput.md)
  - [ImporterInfo](docs/ImporterInfo.md)
  - [Item](docs/Item.md)
+ - [ItemCustomFieldsDetails](docs/ItemCustomFieldsDetails.md)
  - [ItemGeneralInfo](docs/ItemGeneralInfo.md)
  - [ItemSraStatus](docs/ItemSraStatus.md)
  - [ItemTargetAssociation](docs/ItemTargetAssociation.md)
@@ -1435,6 +1450,7 @@ Class | Method | HTTP request | Description
  - [NextAutoRotationEvent](docs/NextAutoRotationEvent.md)
  - [NotiForwarder](docs/NotiForwarder.md)
  - [NullString](docs/NullString.md)
+ - [NullTime](docs/NullTime.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
  - [OCIAccessRules](docs/OCIAccessRules.md)

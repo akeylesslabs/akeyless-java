@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -101,6 +103,11 @@ public class DynamicSecretUpdateAzure {
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   @javax.annotation.Nullable
   private Boolean fixedUserOnly = false;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -392,6 +399,33 @@ public class DynamicSecretUpdateAzure {
 
   public void setFixedUserOnly(@javax.annotation.Nullable Boolean fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
+  }
+
+
+  public DynamicSecretUpdateAzure itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretUpdateAzure putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -803,6 +837,7 @@ public class DynamicSecretUpdateAzure {
         Objects.equals(this.description, dynamicSecretUpdateAzure.description) &&
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretUpdateAzure.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, dynamicSecretUpdateAzure.fixedUserOnly) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretUpdateAzure.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateAzure.json) &&
         Objects.equals(this.name, dynamicSecretUpdateAzure.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateAzure.newName) &&
@@ -827,7 +862,7 @@ public class DynamicSecretUpdateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, itemCustomFields, json, name, newName, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -844,6 +879,7 @@ public class DynamicSecretUpdateAzure {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -896,6 +932,7 @@ public class DynamicSecretUpdateAzure {
     openapiFields.add("description");
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("fixed-user-only");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

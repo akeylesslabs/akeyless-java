@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -106,6 +108,11 @@ public class RotatedSecretUpdateGcp {
   @SerializedName(SERIALIZED_NAME_GRACE_ROTATION_INTERVAL)
   @javax.annotation.Nullable
   private String graceRotationInterval;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -394,6 +401,33 @@ public class RotatedSecretUpdateGcp {
 
   public void setGraceRotationInterval(@javax.annotation.Nullable String graceRotationInterval) {
     this.graceRotationInterval = graceRotationInterval;
+  }
+
+
+  public RotatedSecretUpdateGcp itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public RotatedSecretUpdateGcp putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -700,6 +734,7 @@ public class RotatedSecretUpdateGcp {
         Objects.equals(this.graceRotation, rotatedSecretUpdateGcp.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretUpdateGcp.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretUpdateGcp.graceRotationInterval) &&
+        Objects.equals(this.itemCustomFields, rotatedSecretUpdateGcp.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateGcp.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateGcp.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateGcp.key) &&
@@ -718,7 +753,7 @@ public class RotatedSecretUpdateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, token, uidToken);
   }
 
   @Override
@@ -736,6 +771,7 @@ public class RotatedSecretUpdateGcp {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -783,6 +819,7 @@ public class RotatedSecretUpdateGcp {
     openapiFields.add("grace-rotation");
     openapiFields.add("grace-rotation-hour");
     openapiFields.add("grace-rotation-interval");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
     openapiFields.add("key");

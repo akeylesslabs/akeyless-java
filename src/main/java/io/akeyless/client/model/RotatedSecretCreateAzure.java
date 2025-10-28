@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -106,6 +108,11 @@ public class RotatedSecretCreateAzure {
   @SerializedName(SERIALIZED_NAME_GRACE_ROTATION_INTERVAL)
   @javax.annotation.Nullable
   private String graceRotationInterval;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -436,6 +443,33 @@ public class RotatedSecretCreateAzure {
 
   public void setGraceRotationInterval(@javax.annotation.Nullable String graceRotationInterval) {
     this.graceRotationInterval = graceRotationInterval;
+  }
+
+
+  public RotatedSecretCreateAzure itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public RotatedSecretCreateAzure putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -932,6 +966,7 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.graceRotation, rotatedSecretCreateAzure.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretCreateAzure.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretCreateAzure.graceRotationInterval) &&
+        Objects.equals(this.itemCustomFields, rotatedSecretCreateAzure.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateAzure.json) &&
         Objects.equals(this.key, rotatedSecretCreateAzure.key) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateAzure.maxVersions) &&
@@ -960,7 +995,7 @@ public class RotatedSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, json, key, maxVersions, name, passwordLength, resourceGroupName, resourceName, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, tags, targetName, token, uidToken, username);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, itemCustomFields, json, key, maxVersions, name, passwordLength, resourceGroupName, resourceName, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, tags, targetName, token, uidToken, username);
   }
 
   @Override
@@ -978,6 +1013,7 @@ public class RotatedSecretCreateAzure {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -1035,6 +1071,7 @@ public class RotatedSecretCreateAzure {
     openapiFields.add("grace-rotation");
     openapiFields.add("grace-rotation-hour");
     openapiFields.add("grace-rotation-interval");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key");
     openapiFields.add("max-versions");

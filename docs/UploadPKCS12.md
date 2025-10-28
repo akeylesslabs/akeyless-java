@@ -11,6 +11,7 @@
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**in** | **String** | PKCS#12 input file (private key and certificate only) |  |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**metadata** | **String** | Deprecated - use description |  [optional] |
 |**name** | **String** | Name of key to be created |  |

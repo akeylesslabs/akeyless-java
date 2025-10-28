@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -91,6 +93,11 @@ public class DynamicSecretUpdateGithub {
   @SerializedName(SERIALIZED_NAME_INSTALLATION_REPOSITORY)
   @javax.annotation.Nullable
   private String installationRepository;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -294,6 +301,33 @@ public class DynamicSecretUpdateGithub {
 
   public void setInstallationRepository(@javax.annotation.Nullable String installationRepository) {
     this.installationRepository = installationRepository;
+  }
+
+
+  public DynamicSecretUpdateGithub itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretUpdateGithub putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -529,6 +563,7 @@ public class DynamicSecretUpdateGithub {
         Objects.equals(this.installationId, dynamicSecretUpdateGithub.installationId) &&
         Objects.equals(this.installationOrganization, dynamicSecretUpdateGithub.installationOrganization) &&
         Objects.equals(this.installationRepository, dynamicSecretUpdateGithub.installationRepository) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretUpdateGithub.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateGithub.json) &&
         Objects.equals(this.name, dynamicSecretUpdateGithub.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateGithub.newName) &&
@@ -543,7 +578,7 @@ public class DynamicSecretUpdateGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationOrganization, installationRepository, json, name, newName, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
+    return Objects.hash(deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, newName, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
   }
 
   @Override
@@ -558,6 +593,7 @@ public class DynamicSecretUpdateGithub {
     sb.append("    installationId: ").append(toIndentedString(installationId)).append("\n");
     sb.append("    installationOrganization: ").append(toIndentedString(installationOrganization)).append("\n");
     sb.append("    installationRepository: ").append(toIndentedString(installationRepository)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -598,6 +634,7 @@ public class DynamicSecretUpdateGithub {
     openapiFields.add("installation-id");
     openapiFields.add("installation-organization");
     openapiFields.add("installation-repository");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

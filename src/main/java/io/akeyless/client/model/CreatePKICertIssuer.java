@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -166,6 +168,11 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_IS_CA)
   @javax.annotation.Nullable
   private Boolean isCa;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -720,6 +727,33 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public CreatePKICertIssuer putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+  }
+
+
   public CreatePKICertIssuer json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -1160,6 +1194,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.expirationEventIn, createPKICertIssuer.expirationEventIn) &&
         Objects.equals(this.gwClusterUrl, createPKICertIssuer.gwClusterUrl) &&
         Objects.equals(this.isCa, createPKICertIssuer.isCa) &&
+        Objects.equals(this.itemCustomFields, createPKICertIssuer.itemCustomFields) &&
         Objects.equals(this.json, createPKICertIssuer.json) &&
         Objects.equals(this.keyUsage, createPKICertIssuer.keyUsage) &&
         Objects.equals(this.locality, createPKICertIssuer.locality) &&
@@ -1185,7 +1220,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1215,6 +1250,7 @@ public class CreatePKICertIssuer {
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    isCa: ").append(toIndentedString(isCa)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    locality: ").append(toIndentedString(locality)).append("\n");
@@ -1281,6 +1317,7 @@ public class CreatePKICertIssuer {
     openapiFields.add("expiration-event-in");
     openapiFields.add("gw-cluster-url");
     openapiFields.add("is-ca");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key-usage");
     openapiFields.add("locality");

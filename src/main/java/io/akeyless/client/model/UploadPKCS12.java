@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,6 +73,11 @@ public class UploadPKCS12 {
   @SerializedName(SERIALIZED_NAME_IN)
   @javax.annotation.Nonnull
   private String in;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -188,6 +195,33 @@ public class UploadPKCS12 {
 
   public void setIn(@javax.annotation.Nonnull String in) {
     this.in = in;
+  }
+
+
+  public UploadPKCS12 itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public UploadPKCS12 putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -365,6 +399,7 @@ public class UploadPKCS12 {
         Objects.equals(this.deleteProtection, uploadPKCS12.deleteProtection) &&
         Objects.equals(this.description, uploadPKCS12.description) &&
         Objects.equals(this.in, uploadPKCS12.in) &&
+        Objects.equals(this.itemCustomFields, uploadPKCS12.itemCustomFields) &&
         Objects.equals(this.json, uploadPKCS12.json) &&
         Objects.equals(this.metadata, uploadPKCS12.metadata) &&
         Objects.equals(this.name, uploadPKCS12.name) &&
@@ -377,7 +412,7 @@ public class UploadPKCS12 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerFrgId, deleteProtection, description, in, json, metadata, name, passphrase, splitLevel, tag, token, uidToken);
+    return Objects.hash(customerFrgId, deleteProtection, description, in, itemCustomFields, json, metadata, name, passphrase, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -388,6 +423,7 @@ public class UploadPKCS12 {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    in: ").append(toIndentedString(in)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -422,6 +458,7 @@ public class UploadPKCS12 {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("in");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("metadata");
     openapiFields.add("name");

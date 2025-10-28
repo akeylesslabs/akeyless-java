@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.BastionsList;
 import io.akeyless.client.model.CertificateIssueInfo;
 import io.akeyless.client.model.GatewayDetailsForItemReplyObj;
+import io.akeyless.client.model.ItemCustomFieldsDetails;
 import io.akeyless.client.model.ItemGeneralInfo;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemUSCSyncAssociation;
@@ -152,6 +153,11 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_ITEM_ACCESSIBILITY)
   @javax.annotation.Nullable
   private Long itemAccessibility;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS_DETAILS = "item_custom_fields_details";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS_DETAILS)
+  @javax.annotation.Nullable
+  private List<ItemCustomFieldsDetails> itemCustomFieldsDetails = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ITEM_GENERAL_INFO = "item_general_info";
   @SerializedName(SERIALIZED_NAME_ITEM_GENERAL_INFO)
@@ -631,6 +637,33 @@ public class Item {
 
   public void setItemAccessibility(@javax.annotation.Nullable Long itemAccessibility) {
     this.itemAccessibility = itemAccessibility;
+  }
+
+
+  public Item itemCustomFieldsDetails(@javax.annotation.Nullable List<ItemCustomFieldsDetails> itemCustomFieldsDetails) {
+    this.itemCustomFieldsDetails = itemCustomFieldsDetails;
+    return this;
+  }
+
+  public Item addItemCustomFieldsDetailsItem(ItemCustomFieldsDetails itemCustomFieldsDetailsItem) {
+    if (this.itemCustomFieldsDetails == null) {
+      this.itemCustomFieldsDetails = new ArrayList<>();
+    }
+    this.itemCustomFieldsDetails.add(itemCustomFieldsDetailsItem);
+    return this;
+  }
+
+  /**
+   * Get itemCustomFieldsDetails
+   * @return itemCustomFieldsDetails
+   */
+  @javax.annotation.Nullable
+  public List<ItemCustomFieldsDetails> getItemCustomFieldsDetails() {
+    return itemCustomFieldsDetails;
+  }
+
+  public void setItemCustomFieldsDetails(@javax.annotation.Nullable List<ItemCustomFieldsDetails> itemCustomFieldsDetails) {
+    this.itemCustomFieldsDetails = itemCustomFieldsDetails;
   }
 
 
@@ -1158,6 +1191,7 @@ public class Item {
         Objects.equals(this.isAccessRequestEnabled, item.isAccessRequestEnabled) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
         Objects.equals(this.itemAccessibility, item.itemAccessibility) &&
+        Objects.equals(this.itemCustomFieldsDetails, item.itemCustomFieldsDetails) &&
         Objects.equals(this.itemGeneralInfo, item.itemGeneralInfo) &&
         Objects.equals(this.itemId, item.itemId) &&
         Objects.equals(this.itemMetadata, item.itemMetadata) &&
@@ -1186,7 +1220,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
   }
 
   @Override
@@ -1211,6 +1245,7 @@ public class Item {
     sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
     sb.append("    itemAccessibility: ").append(toIndentedString(itemAccessibility)).append("\n");
+    sb.append("    itemCustomFieldsDetails: ").append(toIndentedString(itemCustomFieldsDetails)).append("\n");
     sb.append("    itemGeneralInfo: ").append(toIndentedString(itemGeneralInfo)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemMetadata: ").append(toIndentedString(itemMetadata)).append("\n");
@@ -1275,6 +1310,7 @@ public class Item {
     openapiFields.add("is_access_request_enabled");
     openapiFields.add("is_enabled");
     openapiFields.add("item_accessibility");
+    openapiFields.add("item_custom_fields_details");
     openapiFields.add("item_general_info");
     openapiFields.add("item_id");
     openapiFields.add("item_metadata");
@@ -1366,6 +1402,20 @@ public class Item {
           // validate the optional field `gateway_details` (array)
           for (int i = 0; i < jsonArraygatewayDetails.size(); i++) {
             GatewayDetailsForItemReplyObj.validateJsonElement(jsonArraygatewayDetails.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("item_custom_fields_details") != null && !jsonObj.get("item_custom_fields_details").isJsonNull()) {
+        JsonArray jsonArrayitemCustomFieldsDetails = jsonObj.getAsJsonArray("item_custom_fields_details");
+        if (jsonArrayitemCustomFieldsDetails != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("item_custom_fields_details").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `item_custom_fields_details` to be an array in the JSON string but got `%s`", jsonObj.get("item_custom_fields_details").toString()));
+          }
+
+          // validate the optional field `item_custom_fields_details` (array)
+          for (int i = 0; i < jsonArrayitemCustomFieldsDetails.size(); i++) {
+            ItemCustomFieldsDetails.validateJsonElement(jsonArrayitemCustomFieldsDetails.get(i));
           };
         }
       }

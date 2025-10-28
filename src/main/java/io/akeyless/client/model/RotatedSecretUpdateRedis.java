@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -76,6 +78,11 @@ public class RotatedSecretUpdateRedis {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description = "default_metadata";
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -255,6 +262,33 @@ public class RotatedSecretUpdateRedis {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public RotatedSecretUpdateRedis itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public RotatedSecretUpdateRedis putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -574,6 +608,7 @@ public class RotatedSecretUpdateRedis {
         Objects.equals(this.autoRotate, rotatedSecretUpdateRedis.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretUpdateRedis.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretUpdateRedis.description) &&
+        Objects.equals(this.itemCustomFields, rotatedSecretUpdateRedis.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateRedis.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateRedis.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateRedis.key) &&
@@ -593,7 +628,7 @@ public class RotatedSecretUpdateRedis {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, token, uidToken);
   }
 
   @Override
@@ -605,6 +640,7 @@ public class RotatedSecretUpdateRedis {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -647,6 +683,7 @@ public class RotatedSecretUpdateRedis {
     openapiFields.add("auto-rotate");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
     openapiFields.add("key");

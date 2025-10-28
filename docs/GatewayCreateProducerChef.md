@@ -14,6 +14,7 @@ gatewayCreateProducerChef is a command that creates chef producer [Deprecated: U
 |**chefServerUsername** | **String** | Server username |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |

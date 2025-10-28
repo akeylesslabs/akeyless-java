@@ -17,6 +17,7 @@ gatewayCreateProducerHanaDb is a command that creates hanadb producer [Deprecate
 |**hanadbPort** | **String** | HanaDb Port |  [optional] |
 |**hanadbRevocationStatements** | **String** | HanaDb Revocation statements |  [optional] |
 |**hanadbUsername** | **String** | HanaDb Username |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |

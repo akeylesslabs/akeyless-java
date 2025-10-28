@@ -17,6 +17,7 @@ gatewayCreateProducerAzure is a command that creates azure dynamic secret [Depre
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional] |
 |**fixedUserOnly** | **Boolean** | Fixed user |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |

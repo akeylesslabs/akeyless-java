@@ -57,6 +57,11 @@ public class UpdateAccountSettings {
   @javax.annotation.Nullable
   private String address;
 
+  public static final String SERIALIZED_NAME_ALLOWED_EMAIL_DOMAINS = "allowed-email-domains";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_EMAIL_DOMAINS)
+  @javax.annotation.Nullable
+  private List<String> allowedEmailDomains = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_BOUND_IPS = "bound-ips";
   @SerializedName(SERIALIZED_NAME_BOUND_IPS)
   @javax.annotation.Nullable
@@ -111,6 +116,11 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL_ENABLE)
   @javax.annotation.Nullable
   private String dynamicSecretMaxTtlEnable;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_INSIGHTS = "enable-ai-insights";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_INSIGHTS)
+  @javax.annotation.Nullable
+  private String enableAiInsights;
 
   public static final String SERIALIZED_NAME_ENABLE_DEFAULT_CERTIFICATE_EXPIRATION_EVENT = "enable-default-certificate-expiration-event";
   @SerializedName(SERIALIZED_NAME_ENABLE_DEFAULT_CERTIFICATE_EXPIRATION_EVENT)
@@ -301,6 +311,33 @@ public class UpdateAccountSettings {
 
   public void setAddress(@javax.annotation.Nullable String address) {
     this.address = address;
+  }
+
+
+  public UpdateAccountSettings allowedEmailDomains(@javax.annotation.Nullable List<String> allowedEmailDomains) {
+    this.allowedEmailDomains = allowedEmailDomains;
+    return this;
+  }
+
+  public UpdateAccountSettings addAllowedEmailDomainsItem(String allowedEmailDomainsItem) {
+    if (this.allowedEmailDomains == null) {
+      this.allowedEmailDomains = new ArrayList<>();
+    }
+    this.allowedEmailDomains.add(allowedEmailDomainsItem);
+    return this;
+  }
+
+  /**
+   * Limits email sharing to the specified domains. Relevant only when item sharing is enabled. By default, all domains are allowed.
+   * @return allowedEmailDomains
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedEmailDomains() {
+    return allowedEmailDomains;
+  }
+
+  public void setAllowedEmailDomains(@javax.annotation.Nullable List<String> allowedEmailDomains) {
+    this.allowedEmailDomains = allowedEmailDomains;
   }
 
 
@@ -526,6 +563,25 @@ public class UpdateAccountSettings {
 
   public void setDynamicSecretMaxTtlEnable(@javax.annotation.Nullable String dynamicSecretMaxTtlEnable) {
     this.dynamicSecretMaxTtlEnable = dynamicSecretMaxTtlEnable;
+  }
+
+
+  public UpdateAccountSettings enableAiInsights(@javax.annotation.Nullable String enableAiInsights) {
+    this.enableAiInsights = enableAiInsights;
+    return this;
+  }
+
+  /**
+   * Enable AI insights [true/false]
+   * @return enableAiInsights
+   */
+  @javax.annotation.Nullable
+  public String getEnableAiInsights() {
+    return enableAiInsights;
+  }
+
+  public void setEnableAiInsights(@javax.annotation.Nullable String enableAiInsights) {
+    this.enableAiInsights = enableAiInsights;
   }
 
 
@@ -1194,6 +1250,7 @@ public class UpdateAccountSettings {
     }
     UpdateAccountSettings updateAccountSettings = (UpdateAccountSettings) o;
     return Objects.equals(this.address, updateAccountSettings.address) &&
+        Objects.equals(this.allowedEmailDomains, updateAccountSettings.allowedEmailDomains) &&
         Objects.equals(this.boundIps, updateAccountSettings.boundIps) &&
         Objects.equals(this.city, updateAccountSettings.city) &&
         Objects.equals(this.companyName, updateAccountSettings.companyName) &&
@@ -1205,6 +1262,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.dpEnableClassicKeyProtection, updateAccountSettings.dpEnableClassicKeyProtection) &&
         Objects.equals(this.dynamicSecretMaxTtl, updateAccountSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
+        Objects.equals(this.enableAiInsights, updateAccountSettings.enableAiInsights) &&
         Objects.equals(this.enableDefaultCertificateExpirationEvent, updateAccountSettings.enableDefaultCertificateExpirationEvent) &&
         Objects.equals(this.enableItemSharing, updateAccountSettings.enableItemSharing) &&
         Objects.equals(this.enablePasswordExpiration, updateAccountSettings.enablePasswordExpiration) &&
@@ -1243,7 +1301,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(address, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1251,6 +1309,7 @@ public class UpdateAccountSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAccountSettings {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    allowedEmailDomains: ").append(toIndentedString(allowedEmailDomains)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    companyName: ").append(toIndentedString(companyName)).append("\n");
@@ -1262,6 +1321,7 @@ public class UpdateAccountSettings {
     sb.append("    dpEnableClassicKeyProtection: ").append(toIndentedString(dpEnableClassicKeyProtection)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
+    sb.append("    enableAiInsights: ").append(toIndentedString(enableAiInsights)).append("\n");
     sb.append("    enableDefaultCertificateExpirationEvent: ").append(toIndentedString(enableDefaultCertificateExpirationEvent)).append("\n");
     sb.append("    enableItemSharing: ").append(toIndentedString(enableItemSharing)).append("\n");
     sb.append("    enablePasswordExpiration: ").append(toIndentedString(enablePasswordExpiration)).append("\n");
@@ -1319,6 +1379,7 @@ public class UpdateAccountSettings {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("address");
+    openapiFields.add("allowed-email-domains");
     openapiFields.add("bound-ips");
     openapiFields.add("city");
     openapiFields.add("company-name");
@@ -1330,6 +1391,7 @@ public class UpdateAccountSettings {
     openapiFields.add("dp-enable-classic-key-protection");
     openapiFields.add("dynamic-secret-max-ttl");
     openapiFields.add("dynamic-secret-max-ttl-enable");
+    openapiFields.add("enable-ai-insights");
     openapiFields.add("enable-default-certificate-expiration-event");
     openapiFields.add("enable-item-sharing");
     openapiFields.add("enable-password-expiration");
@@ -1394,6 +1456,10 @@ public class UpdateAccountSettings {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
       // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-email-domains") != null && !jsonObj.get("allowed-email-domains").isJsonNull() && !jsonObj.get("allowed-email-domains").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-email-domains` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-email-domains").toString()));
+      }
+      // ensure the optional json data is an array if present
       if (jsonObj.get("bound-ips") != null && !jsonObj.get("bound-ips").isJsonNull() && !jsonObj.get("bound-ips").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `bound-ips` to be an array in the JSON string but got `%s`", jsonObj.get("bound-ips").toString()));
       }
@@ -1424,6 +1490,9 @@ public class UpdateAccountSettings {
       }
       if ((jsonObj.get("dynamic-secret-max-ttl-enable") != null && !jsonObj.get("dynamic-secret-max-ttl-enable").isJsonNull()) && !jsonObj.get("dynamic-secret-max-ttl-enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dynamic-secret-max-ttl-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dynamic-secret-max-ttl-enable").toString()));
+      }
+      if ((jsonObj.get("enable-ai-insights") != null && !jsonObj.get("enable-ai-insights").isJsonNull()) && !jsonObj.get("enable-ai-insights").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `enable-ai-insights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-ai-insights").toString()));
       }
       if ((jsonObj.get("enable-default-certificate-expiration-event") != null && !jsonObj.get("enable-default-certificate-expiration-event").isJsonNull()) && !jsonObj.get("enable-default-certificate-expiration-event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `enable-default-certificate-expiration-event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-default-certificate-expiration-event").toString()));

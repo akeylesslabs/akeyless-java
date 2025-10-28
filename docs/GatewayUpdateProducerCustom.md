@@ -12,6 +12,7 @@ gatewayUpdateProducerCustom is a command that updates a custom producer. [Deprec
 |**createSyncUrl** | **String** | URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create |  |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**enableAdminRotation** | **Boolean** | Should admin credentials be rotated |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |

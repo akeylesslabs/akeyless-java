@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -81,6 +83,11 @@ public class CreateTokenizer {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY_NAME)
   @javax.annotation.Nullable
   private String encryptionKeyName;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -246,6 +253,33 @@ public class CreateTokenizer {
 
   public void setEncryptionKeyName(@javax.annotation.Nullable String encryptionKeyName) {
     this.encryptionKeyName = encryptionKeyName;
+  }
+
+
+  public CreateTokenizer itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public CreateTokenizer putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -463,6 +497,7 @@ public class CreateTokenizer {
         Objects.equals(this.description, createTokenizer.description) &&
         Objects.equals(this.encodingTemplate, createTokenizer.encodingTemplate) &&
         Objects.equals(this.encryptionKeyName, createTokenizer.encryptionKeyName) &&
+        Objects.equals(this.itemCustomFields, createTokenizer.itemCustomFields) &&
         Objects.equals(this.json, createTokenizer.json) &&
         Objects.equals(this.metadata, createTokenizer.metadata) &&
         Objects.equals(this.name, createTokenizer.name) &&
@@ -477,7 +512,7 @@ public class CreateTokenizer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alphabet, decodingTemplate, deleteProtection, description, encodingTemplate, encryptionKeyName, json, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
+    return Objects.hash(alphabet, decodingTemplate, deleteProtection, description, encodingTemplate, encryptionKeyName, itemCustomFields, json, metadata, name, pattern, tag, templateType, token, tokenizerType, tweakType, uidToken);
   }
 
   @Override
@@ -490,6 +525,7 @@ public class CreateTokenizer {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    encodingTemplate: ").append(toIndentedString(encodingTemplate)).append("\n");
     sb.append("    encryptionKeyName: ").append(toIndentedString(encryptionKeyName)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -528,6 +564,7 @@ public class CreateTokenizer {
     openapiFields.add("description");
     openapiFields.add("encoding-template");
     openapiFields.add("encryption-key-name");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("metadata");
     openapiFields.add("name");

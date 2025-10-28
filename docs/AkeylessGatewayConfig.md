@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**admins** | [**AdminsConfigPart**](AdminsConfigPart.md) |  |  [optional] |
+|**aiInsights** | [**AiInsightsConfigPart**](AiInsightsConfigPart.md) |  |  [optional] |
 |**caCertificates** | [**CaCertificatesConfigPart**](CaCertificatesConfigPart.md) |  |  [optional] |
 |**cache** | [**CacheConfigPart**](CacheConfigPart.md) |  |  [optional] |
 |**cf** | [**CFConfigPart**](CFConfigPart.md) |  |  [optional] |

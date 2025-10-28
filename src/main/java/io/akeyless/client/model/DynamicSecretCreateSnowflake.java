@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -91,6 +93,11 @@ public class DynamicSecretCreateSnowflake {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -309,6 +316,33 @@ public class DynamicSecretCreateSnowflake {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretCreateSnowflake itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretCreateSnowflake putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -585,6 +619,7 @@ public class DynamicSecretCreateSnowflake {
         Objects.equals(this.dbName, dynamicSecretCreateSnowflake.dbName) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateSnowflake.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateSnowflake.description) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretCreateSnowflake.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretCreateSnowflake.json) &&
         Objects.equals(this.keyAlgo, dynamicSecretCreateSnowflake.keyAlgo) &&
         Objects.equals(this.name, dynamicSecretCreateSnowflake.name) &&
@@ -602,7 +637,7 @@ public class DynamicSecretCreateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, authMode, customUsernameTemplate, dbName, deleteProtection, description, json, keyAlgo, name, passwordLength, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, authMode, customUsernameTemplate, dbName, deleteProtection, description, itemCustomFields, json, keyAlgo, name, passwordLength, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, userTtl, warehouse);
   }
 
   @Override
@@ -617,6 +652,7 @@ public class DynamicSecretCreateSnowflake {
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyAlgo: ").append(toIndentedString(keyAlgo)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -660,6 +696,7 @@ public class DynamicSecretCreateSnowflake {
     openapiFields.add("db-name");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key-algo");
     openapiFields.add("name");

@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -61,6 +63,11 @@ public class GatewayUpdateProducerMSSQL {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
   private String deleteProtection;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -225,6 +232,33 @@ public class GatewayUpdateProducerMSSQL {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerMSSQL itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public GatewayUpdateProducerMSSQL putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -731,6 +765,7 @@ public class GatewayUpdateProducerMSSQL {
     GatewayUpdateProducerMSSQL gatewayUpdateProducerMSSQL = (GatewayUpdateProducerMSSQL) o;
     return Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerMSSQL.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerMSSQL.deleteProtection) &&
+        Objects.equals(this.itemCustomFields, gatewayUpdateProducerMSSQL.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerMSSQL.json) &&
         Objects.equals(this.mssqlCreateStatements, gatewayUpdateProducerMSSQL.mssqlCreateStatements) &&
         Objects.equals(this.mssqlDbname, gatewayUpdateProducerMSSQL.mssqlDbname) &&
@@ -760,7 +795,7 @@ public class GatewayUpdateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, itemCustomFields, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -769,6 +804,7 @@ public class GatewayUpdateProducerMSSQL {
     sb.append("class GatewayUpdateProducerMSSQL {\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    mssqlCreateStatements: ").append(toIndentedString(mssqlCreateStatements)).append("\n");
     sb.append("    mssqlDbname: ").append(toIndentedString(mssqlDbname)).append("\n");
@@ -818,6 +854,7 @@ public class GatewayUpdateProducerMSSQL {
     openapiFields = new HashSet<String>();
     openapiFields.add("custom-username-template");
     openapiFields.add("delete_protection");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("mssql-create-statements");
     openapiFields.add("mssql-dbname");

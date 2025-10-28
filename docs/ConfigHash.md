@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**admins** | **String** |  |  [optional] |
+|**aiInsights** | **String** |  |  [optional] |
 |**cache** | **String** |  |  [optional] |
 |**customerFragements** | **String** |  |  [optional] |
 |**general** | **String** |  |  [optional] |

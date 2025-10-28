@@ -15,7 +15,6 @@ targetUpdateGemini is a command that updates an existing gemini target
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
-|**model** | **String** | Default model to use with Gemini |  [optional] |
 |**name** | **String** | Target name |  |
 |**newComment** | **String** | Deprecated - use description |  [optional] |
 |**newName** | **String** | New target name |  [optional] |

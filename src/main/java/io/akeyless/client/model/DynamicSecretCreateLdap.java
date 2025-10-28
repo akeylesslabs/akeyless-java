@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -101,6 +103,11 @@ public class DynamicSecretCreateLdap {
   @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
   @javax.annotation.Nullable
   private String hostProvider;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -402,6 +409,33 @@ public class DynamicSecretCreateLdap {
 
   public void setHostProvider(@javax.annotation.Nullable String hostProvider) {
     this.hostProvider = hostProvider;
+  }
+
+
+  public DynamicSecretCreateLdap itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretCreateLdap putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -867,6 +901,7 @@ public class DynamicSecretCreateLdap {
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretCreateLdap.fixedUserClaimKeyname) &&
         Objects.equals(this.groupDn, dynamicSecretCreateLdap.groupDn) &&
         Objects.equals(this.hostProvider, dynamicSecretCreateLdap.hostProvider) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretCreateLdap.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretCreateLdap.json) &&
         Objects.equals(this.ldapCaCert, dynamicSecretCreateLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, dynamicSecretCreateLdap.ldapUrl) &&
@@ -893,7 +928,7 @@ public class DynamicSecretCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, json, ldapCaCert, ldapUrl, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, itemCustomFields, json, ldapCaCert, ldapUrl, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -910,6 +945,7 @@ public class DynamicSecretCreateLdap {
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
@@ -964,6 +1000,7 @@ public class DynamicSecretCreateLdap {
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("group-dn");
     openapiFields.add("host-provider");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("ldap-ca-cert");
     openapiFields.add("ldap-url");

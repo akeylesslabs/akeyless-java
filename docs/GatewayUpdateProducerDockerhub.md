@@ -12,6 +12,7 @@ gatewayUpdateProducerDockerhub is a command that updates a DOCKERHUB producer [D
 |**dockerhubPassword** | **String** | DockerhubPassword is either the user&#39;s password access token to manage the repository |  [optional] |
 |**dockerhubTokenScopes** | **String** | Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot; |  [optional] |
 |**dockerhubUsername** | **String** | DockerhubUsername is the name of the user in dockerhub |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |

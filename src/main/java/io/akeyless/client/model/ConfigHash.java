@@ -56,6 +56,11 @@ public class ConfigHash {
   @javax.annotation.Nullable
   private String admins;
 
+  public static final String SERIALIZED_NAME_AI_INSIGHTS = "ai_insights";
+  @SerializedName(SERIALIZED_NAME_AI_INSIGHTS)
+  @javax.annotation.Nullable
+  private String aiInsights;
+
   public static final String SERIALIZED_NAME_CACHE = "cache";
   @SerializedName(SERIALIZED_NAME_CACHE)
   @javax.annotation.Nullable
@@ -155,6 +160,25 @@ public class ConfigHash {
 
   public void setAdmins(@javax.annotation.Nullable String admins) {
     this.admins = admins;
+  }
+
+
+  public ConfigHash aiInsights(@javax.annotation.Nullable String aiInsights) {
+    this.aiInsights = aiInsights;
+    return this;
+  }
+
+  /**
+   * Get aiInsights
+   * @return aiInsights
+   */
+  @javax.annotation.Nullable
+  public String getAiInsights() {
+    return aiInsights;
+  }
+
+  public void setAiInsights(@javax.annotation.Nullable String aiInsights) {
+    this.aiInsights = aiInsights;
   }
 
 
@@ -473,6 +497,7 @@ public class ConfigHash {
     }
     ConfigHash configHash = (ConfigHash) o;
     return Objects.equals(this.admins, configHash.admins) &&
+        Objects.equals(this.aiInsights, configHash.aiInsights) &&
         Objects.equals(this.cache, configHash.cache) &&
         Objects.equals(this.customerFragements, configHash.customerFragements) &&
         Objects.equals(this.general, configHash.general) &&
@@ -497,7 +522,7 @@ public class ConfigHash {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrationStatus, migrations, producers, producersStatus, rotators, saml, universalIdentity);
+    return Objects.hash(admins, aiInsights, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrationStatus, migrations, producers, producersStatus, rotators, saml, universalIdentity);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -512,6 +537,7 @@ public class ConfigHash {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigHash {\n");
     sb.append("    admins: ").append(toIndentedString(admins)).append("\n");
+    sb.append("    aiInsights: ").append(toIndentedString(aiInsights)).append("\n");
     sb.append("    cache: ").append(toIndentedString(cache)).append("\n");
     sb.append("    customerFragements: ").append(toIndentedString(customerFragements)).append("\n");
     sb.append("    general: ").append(toIndentedString(general)).append("\n");
@@ -551,6 +577,7 @@ public class ConfigHash {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("admins");
+    openapiFields.add("ai_insights");
     openapiFields.add("cache");
     openapiFields.add("customer_fragements");
     openapiFields.add("general");
@@ -595,6 +622,9 @@ public class ConfigHash {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("admins") != null && !jsonObj.get("admins").isJsonNull()) && !jsonObj.get("admins").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `admins` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admins").toString()));
+      }
+      if ((jsonObj.get("ai_insights") != null && !jsonObj.get("ai_insights").isJsonNull()) && !jsonObj.get("ai_insights").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai_insights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai_insights").toString()));
       }
       if ((jsonObj.get("cache") != null && !jsonObj.get("cache").isJsonNull()) && !jsonObj.get("cache").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cache` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cache").toString()));

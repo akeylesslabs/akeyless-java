@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -67,10 +69,10 @@ public class CreateUSC {
   @javax.annotation.Nullable
   private String description;
 
-  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
-  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
-  private String gcpProjectId;
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -177,22 +179,30 @@ public class CreateUSC {
   }
 
 
-  public CreateUSC gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
+  public CreateUSC itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public CreateUSC putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
     return this;
   }
 
   /**
-   * GCP Project ID (Relevant only for GCP targets)
-   * @return gcpProjectId
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
    */
   @javax.annotation.Nullable
-  public String getGcpProjectId() {
-    return gcpProjectId;
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
   }
 
-  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -388,7 +398,7 @@ public class CreateUSC {
     return Objects.equals(this.azureKvName, createUSC.azureKvName) &&
         Objects.equals(this.deleteProtection, createUSC.deleteProtection) &&
         Objects.equals(this.description, createUSC.description) &&
-        Objects.equals(this.gcpProjectId, createUSC.gcpProjectId) &&
+        Objects.equals(this.itemCustomFields, createUSC.itemCustomFields) &&
         Objects.equals(this.json, createUSC.json) &&
         Objects.equals(this.k8sNamespace, createUSC.k8sNamespace) &&
         Objects.equals(this.name, createUSC.name) &&
@@ -402,7 +412,7 @@ public class CreateUSC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, gcpProjectId, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
+    return Objects.hash(azureKvName, deleteProtection, description, itemCustomFields, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
   }
 
   @Override
@@ -412,7 +422,7 @@ public class CreateUSC {
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -447,7 +457,7 @@ public class CreateUSC {
     openapiFields.add("azure-kv-name");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
-    openapiFields.add("gcp-project-id");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("k8s-namespace");
     openapiFields.add("name");
@@ -500,9 +510,6 @@ public class CreateUSC {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if ((jsonObj.get("k8s-namespace") != null && !jsonObj.get("k8s-namespace").isJsonNull()) && !jsonObj.get("k8s-namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-namespace").toString()));

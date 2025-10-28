@@ -16,6 +16,7 @@ GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake dynamic 
 |**dbName** | **String** | Database name |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keyAlgo** | **String** |  |  [optional] |
 |**name** | **String** | Dynamic secret name |  |

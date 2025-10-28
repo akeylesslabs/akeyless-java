@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AWSGatewayCloudIdentityExternalIdOpt;
+import io.akeyless.client.model.ItemCustomFieldsDetails;
 import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.SecureRemoteAccess;
 import io.akeyless.client.model.WalletDetails;
@@ -768,6 +769,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ISSUER)
   @javax.annotation.Nullable
   private String issuer;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS_DETAILS = "item_custom_fields_details";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS_DETAILS)
+  @javax.annotation.Nullable
+  private List<ItemCustomFieldsDetails> itemCustomFieldsDetails = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ITEM_TARGETS_ASSOC = "item_targets_assoc";
   @SerializedName(SERIALIZED_NAME_ITEM_TARGETS_ASSOC)
@@ -4106,6 +4112,33 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails itemCustomFieldsDetails(@javax.annotation.Nullable List<ItemCustomFieldsDetails> itemCustomFieldsDetails) {
+    this.itemCustomFieldsDetails = itemCustomFieldsDetails;
+    return this;
+  }
+
+  public DSProducerDetails addItemCustomFieldsDetailsItem(ItemCustomFieldsDetails itemCustomFieldsDetailsItem) {
+    if (this.itemCustomFieldsDetails == null) {
+      this.itemCustomFieldsDetails = new ArrayList<>();
+    }
+    this.itemCustomFieldsDetails.add(itemCustomFieldsDetailsItem);
+    return this;
+  }
+
+  /**
+   * Get itemCustomFieldsDetails
+   * @return itemCustomFieldsDetails
+   */
+  @javax.annotation.Nullable
+  public List<ItemCustomFieldsDetails> getItemCustomFieldsDetails() {
+    return itemCustomFieldsDetails;
+  }
+
+  public void setItemCustomFieldsDetails(@javax.annotation.Nullable List<ItemCustomFieldsDetails> itemCustomFieldsDetails) {
+    this.itemCustomFieldsDetails = itemCustomFieldsDetails;
+  }
+
+
   public DSProducerDetails itemTargetsAssoc(@javax.annotation.Nullable List<ItemTargetAssociation> itemTargetsAssoc) {
     this.itemTargetsAssoc = itemTargetsAssoc;
     return this;
@@ -6518,6 +6551,7 @@ public class DSProducerDetails {
         Objects.equals(this.implementationType, dsProducerDetails.implementationType) &&
         Objects.equals(this.isFixedUser, dsProducerDetails.isFixedUser) &&
         Objects.equals(this.issuer, dsProducerDetails.issuer) &&
+        Objects.equals(this.itemCustomFieldsDetails, dsProducerDetails.itemCustomFieldsDetails) &&
         Objects.equals(this.itemTargetsAssoc, dsProducerDetails.itemTargetsAssoc) &&
         Objects.equals(this.jwks, dsProducerDetails.jwks) &&
         Objects.equals(this.jwksUrl, dsProducerDetails.jwksUrl) &&
@@ -6638,7 +6672,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6787,6 +6821,7 @@ public class DSProducerDetails {
     sb.append("    implementationType: ").append(toIndentedString(implementationType)).append("\n");
     sb.append("    isFixedUser: ").append(toIndentedString(isFixedUser)).append("\n");
     sb.append("    issuer: ").append(toIndentedString(issuer)).append("\n");
+    sb.append("    itemCustomFieldsDetails: ").append(toIndentedString(itemCustomFieldsDetails)).append("\n");
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
     sb.append("    jwks: ").append(toIndentedString(jwks)).append("\n");
     sb.append("    jwksUrl: ").append(toIndentedString(jwksUrl)).append("\n");
@@ -7067,6 +7102,7 @@ public class DSProducerDetails {
     openapiFields.add("implementation_type");
     openapiFields.add("is_fixed_user");
     openapiFields.add("issuer");
+    openapiFields.add("item_custom_fields_details");
     openapiFields.add("item_targets_assoc");
     openapiFields.add("jwks");
     openapiFields.add("jwks_url");
@@ -7586,6 +7622,20 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonNull()) && !jsonObj.get("issuer").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
+      }
+      if (jsonObj.get("item_custom_fields_details") != null && !jsonObj.get("item_custom_fields_details").isJsonNull()) {
+        JsonArray jsonArrayitemCustomFieldsDetails = jsonObj.getAsJsonArray("item_custom_fields_details");
+        if (jsonArrayitemCustomFieldsDetails != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("item_custom_fields_details").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `item_custom_fields_details` to be an array in the JSON string but got `%s`", jsonObj.get("item_custom_fields_details").toString()));
+          }
+
+          // validate the optional field `item_custom_fields_details` (array)
+          for (int i = 0; i < jsonArrayitemCustomFieldsDetails.size(); i++) {
+            ItemCustomFieldsDetails.validateJsonElement(jsonArrayitemCustomFieldsDetails.get(i));
+          };
+        }
       }
       if (jsonObj.get("item_targets_assoc") != null && !jsonObj.get("item_targets_assoc").isJsonNull()) {
         JsonArray jsonArrayitemTargetsAssoc = jsonObj.getAsJsonArray("item_targets_assoc");

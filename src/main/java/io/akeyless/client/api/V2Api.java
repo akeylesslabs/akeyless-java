@@ -27,6 +27,13 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.akeyless.client.model.AccountCustomFieldCreate;
+import io.akeyless.client.model.AccountCustomFieldCreateOutput;
+import io.akeyless.client.model.AccountCustomFieldDelete;
+import io.akeyless.client.model.AccountCustomFieldGet;
+import io.akeyless.client.model.AccountCustomFieldGetOutput;
+import io.akeyless.client.model.AccountCustomFieldList;
+import io.akeyless.client.model.AccountCustomFieldUpdate;
 import io.akeyless.client.model.AkeylessGatewayConfig;
 import io.akeyless.client.model.AliasDetails;
 import io.akeyless.client.model.AllAnalyticsData;
@@ -940,6 +947,661 @@ public class V2Api {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for accountCustomFieldCreate
+     * @param accountCustomFieldCreate  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldCreateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldCreateCall(AccountCustomFieldCreate accountCustomFieldCreate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = accountCustomFieldCreate;
+
+        // create path and map variables
+        String localVarPath = "/account-custom-field-create";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call accountCustomFieldCreateValidateBeforeCall(AccountCustomFieldCreate accountCustomFieldCreate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'accountCustomFieldCreate' is set
+        if (accountCustomFieldCreate == null) {
+            throw new ApiException("Missing the required parameter 'accountCustomFieldCreate' when calling accountCustomFieldCreate(Async)");
+        }
+
+        return accountCustomFieldCreateCall(accountCustomFieldCreate, _callback);
+
+    }
+
+    /**
+     * Create a new custom field.
+     * 
+     * @param accountCustomFieldCreate  (required)
+     * @return AccountCustomFieldCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldCreateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountCustomFieldCreateOutput accountCustomFieldCreate(AccountCustomFieldCreate accountCustomFieldCreate) throws ApiException {
+        ApiResponse<AccountCustomFieldCreateOutput> localVarResp = accountCustomFieldCreateWithHttpInfo(accountCustomFieldCreate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a new custom field.
+     * 
+     * @param accountCustomFieldCreate  (required)
+     * @return ApiResponse&lt;AccountCustomFieldCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldCreateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountCustomFieldCreateOutput> accountCustomFieldCreateWithHttpInfo(AccountCustomFieldCreate accountCustomFieldCreate) throws ApiException {
+        okhttp3.Call localVarCall = accountCustomFieldCreateValidateBeforeCall(accountCustomFieldCreate, null);
+        Type localVarReturnType = new TypeToken<AccountCustomFieldCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a new custom field. (asynchronously)
+     * 
+     * @param accountCustomFieldCreate  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldCreateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldCreateAsync(AccountCustomFieldCreate accountCustomFieldCreate, final ApiCallback<AccountCustomFieldCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = accountCustomFieldCreateValidateBeforeCall(accountCustomFieldCreate, _callback);
+        Type localVarReturnType = new TypeToken<AccountCustomFieldCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for accountCustomFieldDelete
+     * @param accountCustomFieldDelete  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldDeleteResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldDeleteCall(AccountCustomFieldDelete accountCustomFieldDelete, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = accountCustomFieldDelete;
+
+        // create path and map variables
+        String localVarPath = "/account-custom-field-delete";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call accountCustomFieldDeleteValidateBeforeCall(AccountCustomFieldDelete accountCustomFieldDelete, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'accountCustomFieldDelete' is set
+        if (accountCustomFieldDelete == null) {
+            throw new ApiException("Missing the required parameter 'accountCustomFieldDelete' when calling accountCustomFieldDelete(Async)");
+        }
+
+        return accountCustomFieldDeleteCall(accountCustomFieldDelete, _callback);
+
+    }
+
+    /**
+     * Delete a custom field.
+     * 
+     * @param accountCustomFieldDelete  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldDeleteResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object accountCustomFieldDelete(AccountCustomFieldDelete accountCustomFieldDelete) throws ApiException {
+        ApiResponse<Object> localVarResp = accountCustomFieldDeleteWithHttpInfo(accountCustomFieldDelete);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a custom field.
+     * 
+     * @param accountCustomFieldDelete  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldDeleteResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> accountCustomFieldDeleteWithHttpInfo(AccountCustomFieldDelete accountCustomFieldDelete) throws ApiException {
+        okhttp3.Call localVarCall = accountCustomFieldDeleteValidateBeforeCall(accountCustomFieldDelete, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a custom field. (asynchronously)
+     * 
+     * @param accountCustomFieldDelete  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldDeleteResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldDeleteAsync(AccountCustomFieldDelete accountCustomFieldDelete, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = accountCustomFieldDeleteValidateBeforeCall(accountCustomFieldDelete, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for accountCustomFieldGet
+     * @param accountCustomFieldGet  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldGetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldGetCall(AccountCustomFieldGet accountCustomFieldGet, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = accountCustomFieldGet;
+
+        // create path and map variables
+        String localVarPath = "/account-custom-field-get";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call accountCustomFieldGetValidateBeforeCall(AccountCustomFieldGet accountCustomFieldGet, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'accountCustomFieldGet' is set
+        if (accountCustomFieldGet == null) {
+            throw new ApiException("Missing the required parameter 'accountCustomFieldGet' when calling accountCustomFieldGet(Async)");
+        }
+
+        return accountCustomFieldGetCall(accountCustomFieldGet, _callback);
+
+    }
+
+    /**
+     * Get an account custom field by ID.
+     * 
+     * @param accountCustomFieldGet  (required)
+     * @return AccountCustomFieldGetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldGetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountCustomFieldGetOutput accountCustomFieldGet(AccountCustomFieldGet accountCustomFieldGet) throws ApiException {
+        ApiResponse<AccountCustomFieldGetOutput> localVarResp = accountCustomFieldGetWithHttpInfo(accountCustomFieldGet);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get an account custom field by ID.
+     * 
+     * @param accountCustomFieldGet  (required)
+     * @return ApiResponse&lt;AccountCustomFieldGetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldGetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountCustomFieldGetOutput> accountCustomFieldGetWithHttpInfo(AccountCustomFieldGet accountCustomFieldGet) throws ApiException {
+        okhttp3.Call localVarCall = accountCustomFieldGetValidateBeforeCall(accountCustomFieldGet, null);
+        Type localVarReturnType = new TypeToken<AccountCustomFieldGetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get an account custom field by ID. (asynchronously)
+     * 
+     * @param accountCustomFieldGet  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldGetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldGetAsync(AccountCustomFieldGet accountCustomFieldGet, final ApiCallback<AccountCustomFieldGetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = accountCustomFieldGetValidateBeforeCall(accountCustomFieldGet, _callback);
+        Type localVarReturnType = new TypeToken<AccountCustomFieldGetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for accountCustomFieldList
+     * @param accountCustomFieldList  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldListResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldListCall(AccountCustomFieldList accountCustomFieldList, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = accountCustomFieldList;
+
+        // create path and map variables
+        String localVarPath = "/account-custom-field-list";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call accountCustomFieldListValidateBeforeCall(AccountCustomFieldList accountCustomFieldList, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'accountCustomFieldList' is set
+        if (accountCustomFieldList == null) {
+            throw new ApiException("Missing the required parameter 'accountCustomFieldList' when calling accountCustomFieldList(Async)");
+        }
+
+        return accountCustomFieldListCall(accountCustomFieldList, _callback);
+
+    }
+
+    /**
+     * List all account custom fields.
+     * Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+     * @param accountCustomFieldList  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldListResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object accountCustomFieldList(AccountCustomFieldList accountCustomFieldList) throws ApiException {
+        ApiResponse<Object> localVarResp = accountCustomFieldListWithHttpInfo(accountCustomFieldList);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List all account custom fields.
+     * Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+     * @param accountCustomFieldList  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldListResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> accountCustomFieldListWithHttpInfo(AccountCustomFieldList accountCustomFieldList) throws ApiException {
+        okhttp3.Call localVarCall = accountCustomFieldListValidateBeforeCall(accountCustomFieldList, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List all account custom fields. (asynchronously)
+     * Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+     * @param accountCustomFieldList  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldListResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldListAsync(AccountCustomFieldList accountCustomFieldList, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = accountCustomFieldListValidateBeforeCall(accountCustomFieldList, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for accountCustomFieldUpdate
+     * @param accountCustomFieldUpdate  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldUpdateCall(AccountCustomFieldUpdate accountCustomFieldUpdate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = accountCustomFieldUpdate;
+
+        // create path and map variables
+        String localVarPath = "/account-custom-field-update";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call accountCustomFieldUpdateValidateBeforeCall(AccountCustomFieldUpdate accountCustomFieldUpdate, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'accountCustomFieldUpdate' is set
+        if (accountCustomFieldUpdate == null) {
+            throw new ApiException("Missing the required parameter 'accountCustomFieldUpdate' when calling accountCustomFieldUpdate(Async)");
+        }
+
+        return accountCustomFieldUpdateCall(accountCustomFieldUpdate, _callback);
+
+    }
+
+    /**
+     * Update a custom field.
+     * 
+     * @param accountCustomFieldUpdate  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object accountCustomFieldUpdate(AccountCustomFieldUpdate accountCustomFieldUpdate) throws ApiException {
+        ApiResponse<Object> localVarResp = accountCustomFieldUpdateWithHttpInfo(accountCustomFieldUpdate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a custom field.
+     * 
+     * @param accountCustomFieldUpdate  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> accountCustomFieldUpdateWithHttpInfo(AccountCustomFieldUpdate accountCustomFieldUpdate) throws ApiException {
+        okhttp3.Call localVarCall = accountCustomFieldUpdateValidateBeforeCall(accountCustomFieldUpdate, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a custom field. (asynchronously)
+     * 
+     * @param accountCustomFieldUpdate  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> accountCustomFieldUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call accountCustomFieldUpdateAsync(AccountCustomFieldUpdate accountCustomFieldUpdate, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = accountCustomFieldUpdateValidateBeforeCall(accountCustomFieldUpdate, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for aliasDetails
      * @param aliasDetails  (required)

@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -96,6 +98,11 @@ public class DynamicSecretUpdateEks {
   @SerializedName(SERIALIZED_NAME_EKS_SECRET_ACCESS_KEY)
   @javax.annotation.Nullable
   private String eksSecretAccessKey;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -348,6 +355,33 @@ public class DynamicSecretUpdateEks {
 
   public void setEksSecretAccessKey(@javax.annotation.Nullable String eksSecretAccessKey) {
     this.eksSecretAccessKey = eksSecretAccessKey;
+  }
+
+
+  public DynamicSecretUpdateEks itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretUpdateEks putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -682,6 +716,7 @@ public class DynamicSecretUpdateEks {
         Objects.equals(this.eksClusterName, dynamicSecretUpdateEks.eksClusterName) &&
         Objects.equals(this.eksRegion, dynamicSecretUpdateEks.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, dynamicSecretUpdateEks.eksSecretAccessKey) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretUpdateEks.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateEks.json) &&
         Objects.equals(this.name, dynamicSecretUpdateEks.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateEks.newName) &&
@@ -702,7 +737,7 @@ public class DynamicSecretUpdateEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, json, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, description, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, itemCustomFields, json, name, newName, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -718,6 +753,7 @@ public class DynamicSecretUpdateEks {
     sb.append("    eksClusterName: ").append(toIndentedString(eksClusterName)).append("\n");
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -765,6 +801,7 @@ public class DynamicSecretUpdateEks {
     openapiFields.add("eks-cluster-name");
     openapiFields.add("eks-region");
     openapiFields.add("eks-secret-access-key");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

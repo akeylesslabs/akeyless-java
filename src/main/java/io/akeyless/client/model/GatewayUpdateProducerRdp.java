@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -76,6 +78,11 @@ public class GatewayUpdateProducerRdp {
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   @javax.annotation.Nullable
   private String fixedUserOnly = "false";
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -297,6 +304,33 @@ public class GatewayUpdateProducerRdp {
 
   public void setFixedUserOnly(@javax.annotation.Nullable String fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
+  }
+
+
+  public GatewayUpdateProducerRdp itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public GatewayUpdateProducerRdp putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -806,6 +840,7 @@ public class GatewayUpdateProducerRdp {
         Objects.equals(this.deleteProtection, gatewayUpdateProducerRdp.deleteProtection) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerRdp.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, gatewayUpdateProducerRdp.fixedUserOnly) &&
+        Objects.equals(this.itemCustomFields, gatewayUpdateProducerRdp.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerRdp.json) &&
         Objects.equals(this.name, gatewayUpdateProducerRdp.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerRdp.newName) &&
@@ -835,7 +870,7 @@ public class GatewayUpdateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, json, name, newName, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, itemCustomFields, json, name, newName, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -847,6 +882,7 @@ public class GatewayUpdateProducerRdp {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -899,6 +935,7 @@ public class GatewayUpdateProducerRdp {
     openapiFields.add("delete_protection");
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("fixed-user-only");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");

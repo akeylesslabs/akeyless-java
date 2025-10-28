@@ -13,6 +13,7 @@ dynamicSecretCreateRedis is a command that creates Redis dynamic secret
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**host** | **String** | Redis Host |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**password** | **String** | Redis Password |  [optional] |

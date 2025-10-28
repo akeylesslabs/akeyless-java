@@ -94,6 +94,11 @@ public class CreateSSHCertIssuer {
   @javax.annotation.Nullable
   private String hostProvider;
 
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -359,6 +364,33 @@ public class CreateSSHCertIssuer {
 
   public void setHostProvider(@javax.annotation.Nullable String hostProvider) {
     this.hostProvider = hostProvider;
+  }
+
+
+  public CreateSSHCertIssuer itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public CreateSSHCertIssuer putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -803,6 +835,7 @@ public class CreateSSHCertIssuer {
         Objects.equals(this.externalUsername, createSSHCertIssuer.externalUsername) &&
         Objects.equals(this.fixedUserClaimKeyname, createSSHCertIssuer.fixedUserClaimKeyname) &&
         Objects.equals(this.hostProvider, createSSHCertIssuer.hostProvider) &&
+        Objects.equals(this.itemCustomFields, createSSHCertIssuer.itemCustomFields) &&
         Objects.equals(this.json, createSSHCertIssuer.json) &&
         Objects.equals(this.metadata, createSSHCertIssuer.metadata) &&
         Objects.equals(this.name, createSSHCertIssuer.name) &&
@@ -828,7 +861,7 @@ public class CreateSSHCertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, allowedUsers, deleteProtection, description, extensions, externalUsername, fixedUserClaimKeyname, hostProvider, json, metadata, name, principals, secureAccessApi, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessSsh, secureAccessSshCredsUser, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, signerKeyName, tag, target, token, ttl, uidToken);
+    return Objects.hash(providerType, allowedUsers, deleteProtection, description, extensions, externalUsername, fixedUserClaimKeyname, hostProvider, itemCustomFields, json, metadata, name, principals, secureAccessApi, secureAccessBastionApi, secureAccessBastionSsh, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessSsh, secureAccessSshCredsUser, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, signerKeyName, tag, target, token, ttl, uidToken);
   }
 
   @Override
@@ -843,6 +876,7 @@ public class CreateSSHCertIssuer {
     sb.append("    externalUsername: ").append(toIndentedString(externalUsername)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -894,6 +928,7 @@ public class CreateSSHCertIssuer {
     openapiFields.add("external-username");
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("host-provider");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("metadata");
     openapiFields.add("name");

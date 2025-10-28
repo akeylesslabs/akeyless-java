@@ -18,6 +18,7 @@ dynamicSecretCreateLdap is a command that creates ldap dynamic secret
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for external-username&#x3D;true) |  [optional] |
 |**groupDn** | **String** | Group DN which the temporary user should be added |  [optional] |
 |**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**ldapCaCert** | **String** | CA Certificate File Content |  [optional] |
 |**ldapUrl** | **String** | LDAP Server URL |  [optional] |

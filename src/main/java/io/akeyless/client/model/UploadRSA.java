@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -86,6 +88,11 @@ public class UploadRSA {
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   @javax.annotation.Nullable
   private List<String> expirationEventIn = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -273,6 +280,33 @@ public class UploadRSA {
 
   public void setExpirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
     this.expirationEventIn = expirationEventIn;
+  }
+
+
+  public UploadRSA itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public UploadRSA putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -472,6 +506,7 @@ public class UploadRSA {
         Objects.equals(this.deleteProtection, uploadRSA.deleteProtection) &&
         Objects.equals(this.description, uploadRSA.description) &&
         Objects.equals(this.expirationEventIn, uploadRSA.expirationEventIn) &&
+        Objects.equals(this.itemCustomFields, uploadRSA.itemCustomFields) &&
         Objects.equals(this.json, uploadRSA.json) &&
         Objects.equals(this.metadata, uploadRSA.metadata) &&
         Objects.equals(this.name, uploadRSA.name) &&
@@ -485,7 +520,7 @@ public class UploadRSA {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, certFileData, certificateFormat, customerFrgId, deleteProtection, description, expirationEventIn, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
+    return Objects.hash(alg, certFileData, certificateFormat, customerFrgId, deleteProtection, description, expirationEventIn, itemCustomFields, json, metadata, name, overwrite, rsaFileData, splitLevel, tag, token, uidToken);
   }
 
   @Override
@@ -499,6 +534,7 @@ public class UploadRSA {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -537,6 +573,7 @@ public class UploadRSA {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("expiration-event-in");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("metadata");
     openapiFields.add("name");

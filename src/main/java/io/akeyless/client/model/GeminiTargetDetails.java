@@ -60,11 +60,6 @@ public class GeminiTargetDetails {
   @javax.annotation.Nullable
   private String geminiUrl;
 
-  public static final String SERIALIZED_NAME_MODEL = "model";
-  @SerializedName(SERIALIZED_NAME_MODEL)
-  @javax.annotation.Nullable
-  private String model;
-
   public GeminiTargetDetails() {
   }
 
@@ -106,25 +101,6 @@ public class GeminiTargetDetails {
   }
 
 
-  public GeminiTargetDetails model(@javax.annotation.Nullable String model) {
-    this.model = model;
-    return this;
-  }
-
-  /**
-   * Get model
-   * @return model
-   */
-  @javax.annotation.Nullable
-  public String getModel() {
-    return model;
-  }
-
-  public void setModel(@javax.annotation.Nullable String model) {
-    this.model = model;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -136,13 +112,12 @@ public class GeminiTargetDetails {
     }
     GeminiTargetDetails geminiTargetDetails = (GeminiTargetDetails) o;
     return Objects.equals(this.apiKey, geminiTargetDetails.apiKey) &&
-        Objects.equals(this.geminiUrl, geminiTargetDetails.geminiUrl) &&
-        Objects.equals(this.model, geminiTargetDetails.model);
+        Objects.equals(this.geminiUrl, geminiTargetDetails.geminiUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, geminiUrl, model);
+    return Objects.hash(apiKey, geminiUrl);
   }
 
   @Override
@@ -151,7 +126,6 @@ public class GeminiTargetDetails {
     sb.append("class GeminiTargetDetails {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    geminiUrl: ").append(toIndentedString(geminiUrl)).append("\n");
-    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -176,7 +150,6 @@ public class GeminiTargetDetails {
     openapiFields = new HashSet<String>();
     openapiFields.add("api_key");
     openapiFields.add("gemini_url");
-    openapiFields.add("model");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -208,9 +181,6 @@ public class GeminiTargetDetails {
       }
       if ((jsonObj.get("gemini_url") != null && !jsonObj.get("gemini_url").isJsonNull()) && !jsonObj.get("gemini_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gemini_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gemini_url").toString()));
-      }
-      if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull()) && !jsonObj.get("model").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `model` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model").toString()));
       }
   }
 

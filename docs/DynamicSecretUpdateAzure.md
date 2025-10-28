@@ -18,6 +18,7 @@ dynamicSecretUpdateAzure is a command that updates azure dynamic secret
 |**description** | **String** | Description of the object |  [optional] |
 |**fixedUserClaimKeyname** | **String** | FixedUserClaimKeyname |  [optional] |
 |**fixedUserOnly** | **Boolean** | Fixed user |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |

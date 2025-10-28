@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,6 +73,11 @@ public class RotatedSecretCreateMysql {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -258,6 +265,33 @@ public class RotatedSecretCreateMysql {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public RotatedSecretCreateMysql itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public RotatedSecretCreateMysql putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -717,6 +751,7 @@ public class RotatedSecretCreateMysql {
         Objects.equals(this.autoRotate, rotatedSecretCreateMysql.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateMysql.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateMysql.description) &&
+        Objects.equals(this.itemCustomFields, rotatedSecretCreateMysql.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateMysql.json) &&
         Objects.equals(this.key, rotatedSecretCreateMysql.key) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateMysql.maxVersions) &&
@@ -743,7 +778,7 @@ public class RotatedSecretCreateMysql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -754,6 +789,7 @@ public class RotatedSecretCreateMysql {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -802,6 +838,7 @@ public class RotatedSecretCreateMysql {
     openapiFields.add("auto-rotate");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key");
     openapiFields.add("max-versions");

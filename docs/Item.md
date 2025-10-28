@@ -25,6 +25,7 @@
 |**isAccessRequestEnabled** | **Boolean** |  |  [optional] |
 |**isEnabled** | **Boolean** |  |  [optional] |
 |**itemAccessibility** | **Long** |  |  [optional] |
+|**itemCustomFieldsDetails** | [**List&lt;ItemCustomFieldsDetails&gt;**](ItemCustomFieldsDetails.md) |  |  [optional] |
 |**itemGeneralInfo** | [**ItemGeneralInfo**](ItemGeneralInfo.md) |  |  [optional] |
 |**itemId** | **Long** |  |  [optional] |
 |**itemMetadata** | **String** |  |  [optional] |

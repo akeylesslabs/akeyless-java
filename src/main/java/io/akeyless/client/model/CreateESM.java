@@ -67,11 +67,6 @@ public class CreateESM {
   @javax.annotation.Nullable
   private String description;
 
-  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
-  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
-  @javax.annotation.Nullable
-  private String gcpProjectId;
-
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -164,25 +159,6 @@ public class CreateESM {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
-  }
-
-
-  public CreateESM gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
-    return this;
-  }
-
-  /**
-   * GCP Project ID (Relevant only for GCP targets)
-   * @return gcpProjectId
-   */
-  @javax.annotation.Nullable
-  public String getGcpProjectId() {
-    return gcpProjectId;
-  }
-
-  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
   }
 
 
@@ -340,7 +316,6 @@ public class CreateESM {
     return Objects.equals(this.azureKvName, createESM.azureKvName) &&
         Objects.equals(this.deleteProtection, createESM.deleteProtection) &&
         Objects.equals(this.description, createESM.description) &&
-        Objects.equals(this.gcpProjectId, createESM.gcpProjectId) &&
         Objects.equals(this.json, createESM.json) &&
         Objects.equals(this.k8sNamespace, createESM.k8sNamespace) &&
         Objects.equals(this.name, createESM.name) &&
@@ -352,7 +327,7 @@ public class CreateESM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, gcpProjectId, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken);
+    return Objects.hash(azureKvName, deleteProtection, description, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken);
   }
 
   @Override
@@ -362,7 +337,6 @@ public class CreateESM {
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -395,7 +369,6 @@ public class CreateESM {
     openapiFields.add("azure-kv-name");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
-    openapiFields.add("gcp-project-id");
     openapiFields.add("json");
     openapiFields.add("k8s-namespace");
     openapiFields.add("name");
@@ -446,9 +419,6 @@ public class CreateESM {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
-      }
-      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if ((jsonObj.get("k8s-namespace") != null && !jsonObj.get("k8s-namespace").isJsonNull()) && !jsonObj.get("k8s-namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-namespace").toString()));

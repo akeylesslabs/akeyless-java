@@ -75,6 +75,11 @@ public class DescribeItem {
   @javax.annotation.Nullable
   private Boolean gatewayDetails = false;
 
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS_DETAILS = "item-custom-fields-details";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS_DETAILS)
+  @javax.annotation.Nullable
+  private Boolean itemCustomFieldsDetails = false;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item-id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   @javax.annotation.Nullable
@@ -205,6 +210,25 @@ public class DescribeItem {
 
   public void setGatewayDetails(@javax.annotation.Nullable Boolean gatewayDetails) {
     this.gatewayDetails = gatewayDetails;
+  }
+
+
+  public DescribeItem itemCustomFieldsDetails(@javax.annotation.Nullable Boolean itemCustomFieldsDetails) {
+    this.itemCustomFieldsDetails = itemCustomFieldsDetails;
+    return this;
+  }
+
+  /**
+   * Include all item custom fields details
+   * @return itemCustomFieldsDetails
+   */
+  @javax.annotation.Nullable
+  public Boolean getItemCustomFieldsDetails() {
+    return itemCustomFieldsDetails;
+  }
+
+  public void setItemCustomFieldsDetails(@javax.annotation.Nullable Boolean itemCustomFieldsDetails) {
+    this.itemCustomFieldsDetails = itemCustomFieldsDetails;
   }
 
 
@@ -356,6 +380,7 @@ public class DescribeItem {
         Objects.equals(this.derCertificateFormat, describeItem.derCertificateFormat) &&
         Objects.equals(this.displayId, describeItem.displayId) &&
         Objects.equals(this.gatewayDetails, describeItem.gatewayDetails) &&
+        Objects.equals(this.itemCustomFieldsDetails, describeItem.itemCustomFieldsDetails) &&
         Objects.equals(this.itemId, describeItem.itemId) &&
         Objects.equals(this.json, describeItem.json) &&
         Objects.equals(this.name, describeItem.name) &&
@@ -367,7 +392,7 @@ public class DescribeItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, bastionDetails, derCertificateFormat, displayId, gatewayDetails, itemId, json, name, servicesDetails, showVersions, token, uidToken);
+    return Objects.hash(accessibility, bastionDetails, derCertificateFormat, displayId, gatewayDetails, itemCustomFieldsDetails, itemId, json, name, servicesDetails, showVersions, token, uidToken);
   }
 
   @Override
@@ -379,6 +404,7 @@ public class DescribeItem {
     sb.append("    derCertificateFormat: ").append(toIndentedString(derCertificateFormat)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
     sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
+    sb.append("    itemCustomFieldsDetails: ").append(toIndentedString(itemCustomFieldsDetails)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -413,6 +439,7 @@ public class DescribeItem {
     openapiFields.add("der-certificate-format");
     openapiFields.add("display-id");
     openapiFields.add("gateway-details");
+    openapiFields.add("item-custom-fields-details");
     openapiFields.add("item-id");
     openapiFields.add("json");
     openapiFields.add("name");

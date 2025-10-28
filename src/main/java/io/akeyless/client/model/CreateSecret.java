@@ -89,6 +89,11 @@ public class CreateSecret {
   @javax.annotation.Nullable
   private List<String> injectUrl = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -358,6 +363,33 @@ public class CreateSecret {
 
   public void setInjectUrl(@javax.annotation.Nullable List<String> injectUrl) {
     this.injectUrl = injectUrl;
+  }
+
+
+  public CreateSecret itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public CreateSecret putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -850,6 +882,7 @@ public class CreateSecret {
         Objects.equals(this.description, createSecret.description) &&
         Objects.equals(this.format, createSecret.format) &&
         Objects.equals(this.injectUrl, createSecret.injectUrl) &&
+        Objects.equals(this.itemCustomFields, createSecret.itemCustomFields) &&
         Objects.equals(this.json, createSecret.json) &&
         Objects.equals(this.maxVersions, createSecret.maxVersions) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
@@ -878,7 +911,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, json, maxVersions, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
+    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, itemCustomFields, json, maxVersions, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
   }
 
   @Override
@@ -892,6 +925,7 @@ public class CreateSecret {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -945,6 +979,7 @@ public class CreateSecret {
     openapiFields.add("description");
     openapiFields.add("format");
     openapiFields.add("inject-url");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("max-versions");
     openapiFields.add("metadata");

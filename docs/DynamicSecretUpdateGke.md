@@ -15,6 +15,7 @@ dynamicSecretUpdateGke is a command that updates gke dynamic secret
 |**gkeClusterEndpoint** | **String** | GKE cluster URL endpoint |  [optional] |
 |**gkeClusterName** | **String** | GKE cluster name |  [optional] |
 |**gkeServiceAccountEmail** | **String** | GKE service account email |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |

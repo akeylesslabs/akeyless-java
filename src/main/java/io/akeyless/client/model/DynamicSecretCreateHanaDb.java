@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -101,6 +103,11 @@ public class DynamicSecretCreateHanaDb {
   @SerializedName(SERIALIZED_NAME_HANADB_USERNAME)
   @javax.annotation.Nullable
   private String hanadbUsername;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -372,6 +379,33 @@ public class DynamicSecretCreateHanaDb {
 
   public void setHanadbUsername(@javax.annotation.Nullable String hanadbUsername) {
     this.hanadbUsername = hanadbUsername;
+  }
+
+
+  public DynamicSecretCreateHanaDb itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public DynamicSecretCreateHanaDb putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -715,6 +749,7 @@ public class DynamicSecretCreateHanaDb {
         Objects.equals(this.hanadbPort, dynamicSecretCreateHanaDb.hanadbPort) &&
         Objects.equals(this.hanadbRevocationStatements, dynamicSecretCreateHanaDb.hanadbRevocationStatements) &&
         Objects.equals(this.hanadbUsername, dynamicSecretCreateHanaDb.hanadbUsername) &&
+        Objects.equals(this.itemCustomFields, dynamicSecretCreateHanaDb.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretCreateHanaDb.json) &&
         Objects.equals(this.name, dynamicSecretCreateHanaDb.name) &&
         Objects.equals(this.passwordLength, dynamicSecretCreateHanaDb.passwordLength) &&
@@ -735,7 +770,7 @@ public class DynamicSecretCreateHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, json, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, itemCustomFields, json, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -752,6 +787,7 @@ public class DynamicSecretCreateHanaDb {
     sb.append("    hanadbPort: ").append(toIndentedString(hanadbPort)).append("\n");
     sb.append("    hanadbRevocationStatements: ").append(toIndentedString(hanadbRevocationStatements)).append("\n");
     sb.append("    hanadbUsername: ").append(toIndentedString(hanadbUsername)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
@@ -800,6 +836,7 @@ public class DynamicSecretCreateHanaDb {
     openapiFields.add("hanadb-port");
     openapiFields.add("hanadb-revocation-statements");
     openapiFields.add("hanadb-username");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("password-length");

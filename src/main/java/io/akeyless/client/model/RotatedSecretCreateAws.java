@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -101,6 +103,11 @@ public class RotatedSecretCreateAws {
   @SerializedName(SERIALIZED_NAME_GRACE_ROTATION_INTERVAL)
   @javax.annotation.Nullable
   private String graceRotationInterval;
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -387,6 +394,33 @@ public class RotatedSecretCreateAws {
 
   public void setGraceRotationInterval(@javax.annotation.Nullable String graceRotationInterval) {
     this.graceRotationInterval = graceRotationInterval;
+  }
+
+
+  public RotatedSecretCreateAws itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public RotatedSecretCreateAws putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
   }
 
 
@@ -787,6 +821,7 @@ public class RotatedSecretCreateAws {
         Objects.equals(this.graceRotation, rotatedSecretCreateAws.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretCreateAws.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretCreateAws.graceRotationInterval) &&
+        Objects.equals(this.itemCustomFields, rotatedSecretCreateAws.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateAws.json) &&
         Objects.equals(this.key, rotatedSecretCreateAws.key) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateAws.maxVersions) &&
@@ -810,7 +845,7 @@ public class RotatedSecretCreateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, graceRotationHour, graceRotationInterval, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, tags, targetName, token, uidToken);
+    return Objects.hash(apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, graceRotationHour, graceRotationInterval, itemCustomFields, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -827,6 +862,7 @@ public class RotatedSecretCreateAws {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -878,6 +914,7 @@ public class RotatedSecretCreateAws {
     openapiFields.add("grace-rotation");
     openapiFields.add("grace-rotation-hour");
     openapiFields.add("grace-rotation-interval");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key");
     openapiFields.add("max-versions");

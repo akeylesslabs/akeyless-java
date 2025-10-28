@@ -12,6 +12,7 @@
 |**derCertificateFormat** | **Boolean** | The certificate will be displayed in DER format |  [optional] |
 |**displayId** | **String** | The display id of the item |  [optional] |
 |**gatewayDetails** | **Boolean** | Indicate if the item should return with clusters details (url, etc) |  [optional] |
+|**itemCustomFieldsDetails** | **Boolean** | Include all item custom fields details |  [optional] |
 |**itemId** | **Long** | Item id of the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Item name |  |

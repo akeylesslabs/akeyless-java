@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AdminsConfigPart;
+import io.akeyless.client.model.AiInsightsConfigPart;
 import io.akeyless.client.model.CFConfigPart;
 import io.akeyless.client.model.CaCertificatesConfigPart;
 import io.akeyless.client.model.CacheConfigPart;
@@ -70,6 +71,11 @@ public class AkeylessGatewayConfig {
   @SerializedName(SERIALIZED_NAME_ADMINS)
   @javax.annotation.Nullable
   private AdminsConfigPart admins;
+
+  public static final String SERIALIZED_NAME_AI_INSIGHTS = "ai_insights";
+  @SerializedName(SERIALIZED_NAME_AI_INSIGHTS)
+  @javax.annotation.Nullable
+  private AiInsightsConfigPart aiInsights;
 
   public static final String SERIALIZED_NAME_CA_CERTIFICATES = "ca_certificates";
   @SerializedName(SERIALIZED_NAME_CA_CERTIFICATES)
@@ -175,6 +181,25 @@ public class AkeylessGatewayConfig {
 
   public void setAdmins(@javax.annotation.Nullable AdminsConfigPart admins) {
     this.admins = admins;
+  }
+
+
+  public AkeylessGatewayConfig aiInsights(@javax.annotation.Nullable AiInsightsConfigPart aiInsights) {
+    this.aiInsights = aiInsights;
+    return this;
+  }
+
+  /**
+   * Get aiInsights
+   * @return aiInsights
+   */
+  @javax.annotation.Nullable
+  public AiInsightsConfigPart getAiInsights() {
+    return aiInsights;
+  }
+
+  public void setAiInsights(@javax.annotation.Nullable AiInsightsConfigPart aiInsights) {
+    this.aiInsights = aiInsights;
   }
 
 
@@ -512,6 +537,7 @@ public class AkeylessGatewayConfig {
     }
     AkeylessGatewayConfig akeylessGatewayConfig = (AkeylessGatewayConfig) o;
     return Objects.equals(this.admins, akeylessGatewayConfig.admins) &&
+        Objects.equals(this.aiInsights, akeylessGatewayConfig.aiInsights) &&
         Objects.equals(this.caCertificates, akeylessGatewayConfig.caCertificates) &&
         Objects.equals(this.cache, akeylessGatewayConfig.cache) &&
         Objects.equals(this.cf, akeylessGatewayConfig.cf) &&
@@ -533,7 +559,7 @@ public class AkeylessGatewayConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, caCertificates, cache, cf, configProtectionKeyName, general, k8sAuths, kerberos, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
+    return Objects.hash(admins, aiInsights, caCertificates, cache, cf, configProtectionKeyName, general, k8sAuths, kerberos, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
   }
 
   @Override
@@ -541,6 +567,7 @@ public class AkeylessGatewayConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class AkeylessGatewayConfig {\n");
     sb.append("    admins: ").append(toIndentedString(admins)).append("\n");
+    sb.append("    aiInsights: ").append(toIndentedString(aiInsights)).append("\n");
     sb.append("    caCertificates: ").append(toIndentedString(caCertificates)).append("\n");
     sb.append("    cache: ").append(toIndentedString(cache)).append("\n");
     sb.append("    cf: ").append(toIndentedString(cf)).append("\n");
@@ -581,6 +608,7 @@ public class AkeylessGatewayConfig {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("admins");
+    openapiFields.add("ai_insights");
     openapiFields.add("ca_certificates");
     openapiFields.add("cache");
     openapiFields.add("cf");
@@ -627,6 +655,10 @@ public class AkeylessGatewayConfig {
       // validate the optional field `admins`
       if (jsonObj.get("admins") != null && !jsonObj.get("admins").isJsonNull()) {
         AdminsConfigPart.validateJsonElement(jsonObj.get("admins"));
+      }
+      // validate the optional field `ai_insights`
+      if (jsonObj.get("ai_insights") != null && !jsonObj.get("ai_insights").isJsonNull()) {
+        AiInsightsConfigPart.validateJsonElement(jsonObj.get("ai_insights"));
       }
       // validate the optional field `ca_certificates`
       if (jsonObj.get("ca_certificates") != null && !jsonObj.get("ca_certificates").isJsonNull()) {

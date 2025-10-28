@@ -14,6 +14,7 @@ dynamicSecretUpdateRdp is a command that updates rdp dynamic secret
 |**description** | **String** | Description of the object |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only&#x3D;true) |  [optional] |
 |**fixedUserOnly** | **String** | Allow access using externally (IdP) provided username [true/false] |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |

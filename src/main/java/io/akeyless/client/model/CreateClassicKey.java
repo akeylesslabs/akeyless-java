@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -141,6 +143,11 @@ public class CreateClassicKey {
   @SerializedName(SERIALIZED_NAME_HASH_ALGORITHM)
   @javax.annotation.Nullable
   private String hashAlgorithm = "SHA256";
+
+  public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
+  @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
+  @javax.annotation.Nullable
+  private Map<String, String> itemCustomFields = new HashMap<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -545,6 +552,33 @@ public class CreateClassicKey {
   }
 
 
+  public CreateClassicKey itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+    return this;
+  }
+
+  public CreateClassicKey putItemCustomFieldsItem(String key, String itemCustomFieldsItem) {
+    if (this.itemCustomFields == null) {
+      this.itemCustomFields = new HashMap<>();
+    }
+    this.itemCustomFields.put(key, itemCustomFieldsItem);
+    return this;
+  }
+
+  /**
+   * Additional custom fields to associate with the item
+   * @return itemCustomFields
+   */
+  @javax.annotation.Nullable
+  public Map<String, String> getItemCustomFields() {
+    return itemCustomFields;
+  }
+
+  public void setItemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
+    this.itemCustomFields = itemCustomFields;
+  }
+
+
   public CreateClassicKey json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -779,6 +813,7 @@ public class CreateClassicKey {
         Objects.equals(this.generateSelfSignedCertificate, createClassicKey.generateSelfSignedCertificate) &&
         Objects.equals(this.gpgAlg, createClassicKey.gpgAlg) &&
         Objects.equals(this.hashAlgorithm, createClassicKey.hashAlgorithm) &&
+        Objects.equals(this.itemCustomFields, createClassicKey.itemCustomFields) &&
         Objects.equals(this.json, createClassicKey.json) &&
         Objects.equals(this.keyData, createClassicKey.keyData) &&
         Objects.equals(this.metadata, createClassicKey.metadata) &&
@@ -793,7 +828,7 @@ public class CreateClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, autoRotate, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, gpgAlg, hashAlgorithm, json, keyData, metadata, name, protectionKeyName, rotationEventIn, rotationInterval, tags, token, uidToken);
+    return Objects.hash(alg, autoRotate, certFileData, certificateCommonName, certificateCountry, certificateDigestAlgo, certificateFormat, certificateLocality, certificateOrganization, certificateProvince, certificateTtl, confFileData, deleteProtection, description, expirationEventIn, generateSelfSignedCertificate, gpgAlg, hashAlgorithm, itemCustomFields, json, keyData, metadata, name, protectionKeyName, rotationEventIn, rotationInterval, tags, token, uidToken);
   }
 
   @Override
@@ -818,6 +853,7 @@ public class CreateClassicKey {
     sb.append("    generateSelfSignedCertificate: ").append(toIndentedString(generateSelfSignedCertificate)).append("\n");
     sb.append("    gpgAlg: ").append(toIndentedString(gpgAlg)).append("\n");
     sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
+    sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -868,6 +904,7 @@ public class CreateClassicKey {
     openapiFields.add("generate-self-signed-certificate");
     openapiFields.add("gpg-alg");
     openapiFields.add("hash-algorithm");
+    openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key-data");
     openapiFields.add("metadata");

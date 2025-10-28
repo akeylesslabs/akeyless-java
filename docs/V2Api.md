@@ -4,6 +4,11 @@ All URIs are relative to *https://api.akeyless.io*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**accountCustomFieldCreate**](V2Api.md#accountCustomFieldCreate) | **POST** /account-custom-field-create | Create a new custom field. |
+| [**accountCustomFieldDelete**](V2Api.md#accountCustomFieldDelete) | **POST** /account-custom-field-delete | Delete a custom field. |
+| [**accountCustomFieldGet**](V2Api.md#accountCustomFieldGet) | **POST** /account-custom-field-get | Get an account custom field by ID. |
+| [**accountCustomFieldList**](V2Api.md#accountCustomFieldList) | **POST** /account-custom-field-list | List all account custom fields. |
+| [**accountCustomFieldUpdate**](V2Api.md#accountCustomFieldUpdate) | **POST** /account-custom-field-update | Update a custom field. |
 | [**aliasDetails**](V2Api.md#aliasDetails) | **POST** /alias-details |  |
 | [**assocRoleAuthMethod**](V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am |  |
 | [**assocTargetItem**](V2Api.md#assocTargetItem) | **POST** /assoc-target-item |  |
@@ -585,6 +590,313 @@ All URIs are relative to *https://api.akeyless.io*
 | [**verifyPKICertWithClassicKey**](V2Api.md#verifyPKICertWithClassicKey) | **POST** /verify-pki-cert-with-classic-key |  |
 | [**verifyRsaSsaPss**](V2Api.md#verifyRsaSsaPss) | **POST** /verify-rsassa-pss |  |
 
+
+<a id="accountCustomFieldCreate"></a>
+# **accountCustomFieldCreate**
+> AccountCustomFieldCreateOutput accountCustomFieldCreate(accountCustomFieldCreate)
+
+Create a new custom field.
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AccountCustomFieldCreate accountCustomFieldCreate = new AccountCustomFieldCreate(); // AccountCustomFieldCreate | 
+    try {
+      AccountCustomFieldCreateOutput result = apiInstance.accountCustomFieldCreate(accountCustomFieldCreate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#accountCustomFieldCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountCustomFieldCreate** | [**AccountCustomFieldCreate**](AccountCustomFieldCreate.md)|  | |
+
+### Return type
+
+[**AccountCustomFieldCreateOutput**](AccountCustomFieldCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | accountCustomFieldCreateResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="accountCustomFieldDelete"></a>
+# **accountCustomFieldDelete**
+> Object accountCustomFieldDelete(accountCustomFieldDelete)
+
+Delete a custom field.
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AccountCustomFieldDelete accountCustomFieldDelete = new AccountCustomFieldDelete(); // AccountCustomFieldDelete | 
+    try {
+      Object result = apiInstance.accountCustomFieldDelete(accountCustomFieldDelete);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#accountCustomFieldDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountCustomFieldDelete** | [**AccountCustomFieldDelete**](AccountCustomFieldDelete.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | accountCustomFieldDeleteResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="accountCustomFieldGet"></a>
+# **accountCustomFieldGet**
+> AccountCustomFieldGetOutput accountCustomFieldGet(accountCustomFieldGet)
+
+Get an account custom field by ID.
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AccountCustomFieldGet accountCustomFieldGet = new AccountCustomFieldGet(); // AccountCustomFieldGet | 
+    try {
+      AccountCustomFieldGetOutput result = apiInstance.accountCustomFieldGet(accountCustomFieldGet);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#accountCustomFieldGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountCustomFieldGet** | [**AccountCustomFieldGet**](AccountCustomFieldGet.md)|  | |
+
+### Return type
+
+[**AccountCustomFieldGetOutput**](AccountCustomFieldGetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | accountCustomFieldGetResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="accountCustomFieldList"></a>
+# **accountCustomFieldList**
+> Object accountCustomFieldList(accountCustomFieldList)
+
+List all account custom fields.
+
+Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AccountCustomFieldList accountCustomFieldList = new AccountCustomFieldList(); // AccountCustomFieldList | 
+    try {
+      Object result = apiInstance.accountCustomFieldList(accountCustomFieldList);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#accountCustomFieldList");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountCustomFieldList** | [**AccountCustomFieldList**](AccountCustomFieldList.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | accountCustomFieldListResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="accountCustomFieldUpdate"></a>
+# **accountCustomFieldUpdate**
+> Object accountCustomFieldUpdate(accountCustomFieldUpdate)
+
+Update a custom field.
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AccountCustomFieldUpdate accountCustomFieldUpdate = new AccountCustomFieldUpdate(); // AccountCustomFieldUpdate | 
+    try {
+      Object result = apiInstance.accountCustomFieldUpdate(accountCustomFieldUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#accountCustomFieldUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountCustomFieldUpdate** | [**AccountCustomFieldUpdate**](AccountCustomFieldUpdate.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | accountCustomFieldUpdateResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="aliasDetails"></a>
 # **aliasDetails**

@@ -16,6 +16,7 @@ dynamicSecretCreateGithub is a command that creates github dynamic secret
 |**installationId** | **Long** | GitHub application installation id |  [optional] |
 |**installationOrganization** | **String** | Optional, mutually exclusive with installation id, GitHub organization name |  [optional] |
 |**installationRepository** | **String** | Optional, mutually exclusive with installation id, GitHub repository &#39;&lt;owner&gt;/&lt;repo-name&gt;&#39; |  [optional] |
+|**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |

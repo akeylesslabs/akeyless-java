@@ -10,7 +10,6 @@ GeminiTargetDetails defines details related to connecting to a Google Gemini pro
 |------------ | ------------- | ------------- | -------------|
 |**apiKey** | **String** |  |  [optional] |
 |**geminiUrl** | **String** |  |  [optional] |
-|**model** | **String** |  |  [optional] |
 
 
 

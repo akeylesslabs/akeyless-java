@@ -85,11 +85,6 @@ public class TargetUpdateGemini {
   @javax.annotation.Nullable
   private String maxVersions;
 
-  public static final String SERIALIZED_NAME_MODEL = "model";
-  @SerializedName(SERIALIZED_NAME_MODEL)
-  @javax.annotation.Nullable
-  private String model;
-
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -251,25 +246,6 @@ public class TargetUpdateGemini {
   }
 
 
-  public TargetUpdateGemini model(@javax.annotation.Nullable String model) {
-    this.model = model;
-    return this;
-  }
-
-  /**
-   * Default model to use with Gemini
-   * @return model
-   */
-  @javax.annotation.Nullable
-  public String getModel() {
-    return model;
-  }
-
-  public void setModel(@javax.annotation.Nullable String model) {
-    this.model = model;
-  }
-
-
   public TargetUpdateGemini name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
@@ -382,7 +358,6 @@ public class TargetUpdateGemini {
         Objects.equals(this.keepPrevVersion, targetUpdateGemini.keepPrevVersion) &&
         Objects.equals(this.key, targetUpdateGemini.key) &&
         Objects.equals(this.maxVersions, targetUpdateGemini.maxVersions) &&
-        Objects.equals(this.model, targetUpdateGemini.model) &&
         Objects.equals(this.name, targetUpdateGemini.name) &&
         Objects.equals(this.newComment, targetUpdateGemini.newComment) &&
         Objects.equals(this.newName, targetUpdateGemini.newName) &&
@@ -392,7 +367,7 @@ public class TargetUpdateGemini {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, description, geminiUrl, json, keepPrevVersion, key, maxVersions, model, name, newComment, newName, token, uidToken);
+    return Objects.hash(apiKey, description, geminiUrl, json, keepPrevVersion, key, maxVersions, name, newComment, newName, token, uidToken);
   }
 
   @Override
@@ -406,7 +381,6 @@ public class TargetUpdateGemini {
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
-    sb.append("    model: ").append(toIndentedString(model)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -441,7 +415,6 @@ public class TargetUpdateGemini {
     openapiFields.add("keep-prev-version");
     openapiFields.add("key");
     openapiFields.add("max-versions");
-    openapiFields.add("model");
     openapiFields.add("name");
     openapiFields.add("new-comment");
     openapiFields.add("new-name");
@@ -498,9 +471,6 @@ public class TargetUpdateGemini {
       }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
-      }
-      if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull()) && !jsonObj.get("model").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `model` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
