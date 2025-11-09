@@ -14,6 +14,7 @@
 |**description** | **String** | Description of the object |  [optional] |
 |**eventCenterAccess** | **String** | Allow this role to view Event Center. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported |  [optional] |
 |**eventForwardersAccess** | **String** | Allow this role to manage Event Forwarders. Currently only &#39;none&#39; and &#39;all&#39; values are supported. |  [optional] |
+|**eventForwardersName** | **List&lt;String&gt;** | Allow this role to manage the following Event Forwarders. |  [optional] |
 |**gwAnalyticsAccess** | **String** | Allow this role to view gw analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Role name |  |

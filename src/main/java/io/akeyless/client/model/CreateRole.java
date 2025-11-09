@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -84,6 +86,11 @@ public class CreateRole {
   @SerializedName(SERIALIZED_NAME_EVENT_FORWARDERS_ACCESS)
   @javax.annotation.Nullable
   private String eventForwardersAccess;
+
+  public static final String SERIALIZED_NAME_EVENT_FORWARDERS_NAME = "event-forwarders-name";
+  @SerializedName(SERIALIZED_NAME_EVENT_FORWARDERS_NAME)
+  @javax.annotation.Nullable
+  private List<String> eventForwardersName = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GW_ANALYTICS_ACCESS = "gw-analytics-access";
   @SerializedName(SERIALIZED_NAME_GW_ANALYTICS_ACCESS)
@@ -261,6 +268,33 @@ public class CreateRole {
   }
 
 
+  public CreateRole eventForwardersName(@javax.annotation.Nullable List<String> eventForwardersName) {
+    this.eventForwardersName = eventForwardersName;
+    return this;
+  }
+
+  public CreateRole addEventForwardersNameItem(String eventForwardersNameItem) {
+    if (this.eventForwardersName == null) {
+      this.eventForwardersName = new ArrayList<>();
+    }
+    this.eventForwardersName.add(eventForwardersNameItem);
+    return this;
+  }
+
+  /**
+   * Allow this role to manage the following Event Forwarders.
+   * @return eventForwardersName
+   */
+  @javax.annotation.Nullable
+  public List<String> getEventForwardersName() {
+    return eventForwardersName;
+  }
+
+  public void setEventForwardersName(@javax.annotation.Nullable List<String> eventForwardersName) {
+    this.eventForwardersName = eventForwardersName;
+  }
+
+
   public CreateRole gwAnalyticsAccess(@javax.annotation.Nullable String gwAnalyticsAccess) {
     this.gwAnalyticsAccess = gwAnalyticsAccess;
     return this;
@@ -430,6 +464,7 @@ public class CreateRole {
         Objects.equals(this.description, createRole.description) &&
         Objects.equals(this.eventCenterAccess, createRole.eventCenterAccess) &&
         Objects.equals(this.eventForwardersAccess, createRole.eventForwardersAccess) &&
+        Objects.equals(this.eventForwardersName, createRole.eventForwardersName) &&
         Objects.equals(this.gwAnalyticsAccess, createRole.gwAnalyticsAccess) &&
         Objects.equals(this.json, createRole.json) &&
         Objects.equals(this.name, createRole.name) &&
@@ -442,7 +477,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, gwAnalyticsAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -456,6 +491,7 @@ public class CreateRole {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eventCenterAccess: ").append(toIndentedString(eventCenterAccess)).append("\n");
     sb.append("    eventForwardersAccess: ").append(toIndentedString(eventForwardersAccess)).append("\n");
+    sb.append("    eventForwardersName: ").append(toIndentedString(eventForwardersName)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -493,6 +529,7 @@ public class CreateRole {
     openapiFields.add("description");
     openapiFields.add("event-center-access");
     openapiFields.add("event-forwarders-access");
+    openapiFields.add("event-forwarders-name");
     openapiFields.add("gw-analytics-access");
     openapiFields.add("json");
     openapiFields.add("name");
@@ -555,6 +592,10 @@ public class CreateRole {
       }
       if ((jsonObj.get("event-forwarders-access") != null && !jsonObj.get("event-forwarders-access").isJsonNull()) && !jsonObj.get("event-forwarders-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `event-forwarders-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event-forwarders-access").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("event-forwarders-name") != null && !jsonObj.get("event-forwarders-name").isJsonNull() && !jsonObj.get("event-forwarders-name").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `event-forwarders-name` to be an array in the JSON string but got `%s`", jsonObj.get("event-forwarders-name").toString()));
       }
       if ((jsonObj.get("gw-analytics-access") != null && !jsonObj.get("gw-analytics-access").isJsonNull()) && !jsonObj.get("gw-analytics-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gw-analytics-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw-analytics-access").toString()));

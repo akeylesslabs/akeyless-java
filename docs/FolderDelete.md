@@ -1,19 +1,19 @@
 
 
-# EncryptWithClassicKey
+# FolderDelete
 
+folderDelete is a command that delete folder
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**displayId** | **String** | The name of the key to use in the encryption process |  |
-|**ignoreCache** | **String** | Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI |  [optional] |
+|**accessibility** | **String** | for personal password manager |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
-|**plaintext** | **String** | Data to be encrypted |  |
+|**name** | **String** | Folder name |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
+|**type** | **String** |  |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
-|**version** | **Integer** | classic key version |  |
 
 
 

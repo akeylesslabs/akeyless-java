@@ -48,14 +48,19 @@ import java.util.Set;
 import io.akeyless.client.JSON;
 
 /**
- * CreateESM is a command that creates an External Secrets Manager. [Deprecated: Use command create-usc]
+ * folderUpdate is a command that updates folder
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
-public class CreateESM {
-  public static final String SERIALIZED_NAME_AZURE_KV_NAME = "azure-kv-name";
-  @SerializedName(SERIALIZED_NAME_AZURE_KV_NAME)
+public class FolderUpdate {
+  public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
+  @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   @javax.annotation.Nullable
-  private String azureKvName;
+  private String accessibility = "regular";
+
+  public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
+  @SerializedName(SERIALIZED_NAME_ADD_TAG)
+  @javax.annotation.Nullable
+  private List<String> addTag = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -67,69 +72,86 @@ public class CreateESM {
   @javax.annotation.Nullable
   private String description;
 
-  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
-  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
-  @javax.annotation.Nullable
-  private String gcpProjectId;
-
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
   private Boolean json = false;
-
-  public static final String SERIALIZED_NAME_K8S_NAMESPACE = "k8s-namespace";
-  @SerializedName(SERIALIZED_NAME_K8S_NAMESPACE)
-  @javax.annotation.Nullable
-  private String k8sNamespace;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
 
-  public static final String SERIALIZED_NAME_TAGS = "tags";
-  @SerializedName(SERIALIZED_NAME_TAGS)
+  public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
+  @SerializedName(SERIALIZED_NAME_RM_TAG)
   @javax.annotation.Nullable
-  private List<String> tags = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_TARGET_TO_ASSOCIATE = "target-to-associate";
-  @SerializedName(SERIALIZED_NAME_TARGET_TO_ASSOCIATE)
-  @javax.annotation.Nonnull
-  private String targetToAssociate;
+  private List<String> rmTag = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
   private String token;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  @javax.annotation.Nullable
+  private String type;
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   @javax.annotation.Nullable
   private String uidToken;
 
-  public CreateESM() {
+  public FolderUpdate() {
   }
 
-  public CreateESM azureKvName(@javax.annotation.Nullable String azureKvName) {
-    this.azureKvName = azureKvName;
+  public FolderUpdate accessibility(@javax.annotation.Nullable String accessibility) {
+    this.accessibility = accessibility;
     return this;
   }
 
   /**
-   * Azure Key Vault name (Relevant only for Azure targets)
-   * @return azureKvName
+   * for personal password manager
+   * @return accessibility
    */
   @javax.annotation.Nullable
-  public String getAzureKvName() {
-    return azureKvName;
+  public String getAccessibility() {
+    return accessibility;
   }
 
-  public void setAzureKvName(@javax.annotation.Nullable String azureKvName) {
-    this.azureKvName = azureKvName;
+  public void setAccessibility(@javax.annotation.Nullable String accessibility) {
+    this.accessibility = accessibility;
   }
 
 
-  public CreateESM deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+  public FolderUpdate addTag(@javax.annotation.Nullable List<String> addTag) {
+    this.addTag = addTag;
+    return this;
+  }
+
+  public FolderUpdate addAddTagItem(String addTagItem) {
+    if (this.addTag == null) {
+      this.addTag = new ArrayList<>();
+    }
+    this.addTag.add(addTagItem);
+    return this;
+  }
+
+  /**
+   * List of the new tags that will be attached to this folder
+   * @return addTag
+   */
+  @javax.annotation.Nullable
+  public List<String> getAddTag() {
+    return addTag;
+  }
+
+  public void setAddTag(@javax.annotation.Nullable List<String> addTag) {
+    this.addTag = addTag;
+  }
+
+
+  public FolderUpdate deleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
     return this;
   }
@@ -148,13 +170,13 @@ public class CreateESM {
   }
 
 
-  public CreateESM description(@javax.annotation.Nullable String description) {
+  public FolderUpdate description(@javax.annotation.Nullable String description) {
     this.description = description;
     return this;
   }
 
   /**
-   * Description of the External Secrets Manager
+   * Description of the object
    * @return description
    */
   @javax.annotation.Nullable
@@ -167,26 +189,7 @@ public class CreateESM {
   }
 
 
-  public CreateESM gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
-    return this;
-  }
-
-  /**
-   * GCP Project ID (Relevant only for GCP targets)
-   * @return gcpProjectId
-   */
-  @javax.annotation.Nullable
-  public String getGcpProjectId() {
-    return gcpProjectId;
-  }
-
-  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
-    this.gcpProjectId = gcpProjectId;
-  }
-
-
-  public CreateESM json(@javax.annotation.Nullable Boolean json) {
+  public FolderUpdate json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
   }
@@ -205,32 +208,13 @@ public class CreateESM {
   }
 
 
-  public CreateESM k8sNamespace(@javax.annotation.Nullable String k8sNamespace) {
-    this.k8sNamespace = k8sNamespace;
-    return this;
-  }
-
-  /**
-   * K8s namespace (Relevant to Kubernetes targets)
-   * @return k8sNamespace
-   */
-  @javax.annotation.Nullable
-  public String getK8sNamespace() {
-    return k8sNamespace;
-  }
-
-  public void setK8sNamespace(@javax.annotation.Nullable String k8sNamespace) {
-    this.k8sNamespace = k8sNamespace;
-  }
-
-
-  public CreateESM name(@javax.annotation.Nonnull String name) {
+  public FolderUpdate name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
   }
 
   /**
-   * External Secrets Manager name
+   * Folder name
    * @return name
    */
   @javax.annotation.Nonnull
@@ -243,53 +227,34 @@ public class CreateESM {
   }
 
 
-  public CreateESM tags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
+  public FolderUpdate rmTag(@javax.annotation.Nullable List<String> rmTag) {
+    this.rmTag = rmTag;
     return this;
   }
 
-  public CreateESM addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<>();
+  public FolderUpdate addRmTagItem(String rmTagItem) {
+    if (this.rmTag == null) {
+      this.rmTag = new ArrayList<>();
     }
-    this.tags.add(tagsItem);
+    this.rmTag.add(rmTagItem);
     return this;
   }
 
   /**
-   * List of the tags attached to this External Secrets Manager
-   * @return tags
+   * List of the existent tags that will be removed from this folder
+   * @return rmTag
    */
   @javax.annotation.Nullable
-  public List<String> getTags() {
-    return tags;
+  public List<String> getRmTag() {
+    return rmTag;
   }
 
-  public void setTags(@javax.annotation.Nullable List<String> tags) {
-    this.tags = tags;
-  }
-
-
-  public CreateESM targetToAssociate(@javax.annotation.Nonnull String targetToAssociate) {
-    this.targetToAssociate = targetToAssociate;
-    return this;
-  }
-
-  /**
-   * Target External Secrets Manager to connect
-   * @return targetToAssociate
-   */
-  @javax.annotation.Nonnull
-  public String getTargetToAssociate() {
-    return targetToAssociate;
-  }
-
-  public void setTargetToAssociate(@javax.annotation.Nonnull String targetToAssociate) {
-    this.targetToAssociate = targetToAssociate;
+  public void setRmTag(@javax.annotation.Nullable List<String> rmTag) {
+    this.rmTag = rmTag;
   }
 
 
-  public CreateESM token(@javax.annotation.Nullable String token) {
+  public FolderUpdate token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
   }
@@ -308,7 +273,26 @@ public class CreateESM {
   }
 
 
-  public CreateESM uidToken(@javax.annotation.Nullable String uidToken) {
+  public FolderUpdate type(@javax.annotation.Nullable String type) {
+    this.type = type;
+    return this;
+  }
+
+  /**
+   * Get type
+   * @return type
+   */
+  @javax.annotation.Nullable
+  public String getType() {
+    return type;
+  }
+
+  public void setType(@javax.annotation.Nullable String type) {
+    this.type = type;
+  }
+
+
+  public FolderUpdate uidToken(@javax.annotation.Nullable String uidToken) {
     this.uidToken = uidToken;
     return this;
   }
@@ -336,39 +320,37 @@ public class CreateESM {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateESM createESM = (CreateESM) o;
-    return Objects.equals(this.azureKvName, createESM.azureKvName) &&
-        Objects.equals(this.deleteProtection, createESM.deleteProtection) &&
-        Objects.equals(this.description, createESM.description) &&
-        Objects.equals(this.gcpProjectId, createESM.gcpProjectId) &&
-        Objects.equals(this.json, createESM.json) &&
-        Objects.equals(this.k8sNamespace, createESM.k8sNamespace) &&
-        Objects.equals(this.name, createESM.name) &&
-        Objects.equals(this.tags, createESM.tags) &&
-        Objects.equals(this.targetToAssociate, createESM.targetToAssociate) &&
-        Objects.equals(this.token, createESM.token) &&
-        Objects.equals(this.uidToken, createESM.uidToken);
+    FolderUpdate folderUpdate = (FolderUpdate) o;
+    return Objects.equals(this.accessibility, folderUpdate.accessibility) &&
+        Objects.equals(this.addTag, folderUpdate.addTag) &&
+        Objects.equals(this.deleteProtection, folderUpdate.deleteProtection) &&
+        Objects.equals(this.description, folderUpdate.description) &&
+        Objects.equals(this.json, folderUpdate.json) &&
+        Objects.equals(this.name, folderUpdate.name) &&
+        Objects.equals(this.rmTag, folderUpdate.rmTag) &&
+        Objects.equals(this.token, folderUpdate.token) &&
+        Objects.equals(this.type, folderUpdate.type) &&
+        Objects.equals(this.uidToken, folderUpdate.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, gcpProjectId, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken);
+    return Objects.hash(accessibility, addTag, deleteProtection, description, json, name, rmTag, token, type, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateESM {\n");
-    sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
+    sb.append("class FolderUpdate {\n");
+    sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
-    sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    targetToAssociate: ").append(toIndentedString(targetToAssociate)).append("\n");
+    sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -392,54 +374,56 @@ public class CreateESM {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("azure-kv-name");
+    openapiFields.add("accessibility");
+    openapiFields.add("add-tag");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
-    openapiFields.add("gcp-project-id");
     openapiFields.add("json");
-    openapiFields.add("k8s-namespace");
     openapiFields.add("name");
-    openapiFields.add("tags");
-    openapiFields.add("target-to-associate");
+    openapiFields.add("rm-tag");
     openapiFields.add("token");
+    openapiFields.add("type");
     openapiFields.add("uid-token");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
-    openapiRequiredFields.add("target-to-associate");
   }
 
   /**
    * Validates the JSON Element and throws an exception if issues found
    *
    * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CreateESM
+   * @throws IOException if the JSON Element is invalid with respect to FolderUpdate
    */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreateESM.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateESM is not found in the empty JSON string", CreateESM.openapiRequiredFields.toString()));
+        if (!FolderUpdate.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in FolderUpdate is not found in the empty JSON string", FolderUpdate.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateESM.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateESM` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!FolderUpdate.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FolderUpdate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateESM.openapiRequiredFields) {
+      for (String requiredField : FolderUpdate.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("azure-kv-name") != null && !jsonObj.get("azure-kv-name").isJsonNull()) && !jsonObj.get("azure-kv-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure-kv-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-kv-name").toString()));
+      if ((jsonObj.get("accessibility") != null && !jsonObj.get("accessibility").isJsonNull()) && !jsonObj.get("accessibility").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `accessibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessibility").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("add-tag") != null && !jsonObj.get("add-tag").isJsonNull() && !jsonObj.get("add-tag").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `add-tag` to be an array in the JSON string but got `%s`", jsonObj.get("add-tag").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
@@ -447,24 +431,18 @@ public class CreateESM {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
-      }
-      if ((jsonObj.get("k8s-namespace") != null && !jsonObj.get("k8s-namespace").isJsonNull()) && !jsonObj.get("k8s-namespace").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s-namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-namespace").toString()));
-      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
-      }
-      if (!jsonObj.get("target-to-associate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-to-associate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-to-associate").toString()));
+      if (jsonObj.get("rm-tag") != null && !jsonObj.get("rm-tag").isJsonNull() && !jsonObj.get("rm-tag").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rm-tag` to be an array in the JSON string but got `%s`", jsonObj.get("rm-tag").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
@@ -475,22 +453,22 @@ public class CreateESM {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateESM.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateESM' and its subtypes
+       if (!FolderUpdate.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'FolderUpdate' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateESM> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateESM.class));
+       final TypeAdapter<FolderUpdate> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(FolderUpdate.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateESM>() {
+       return (TypeAdapter<T>) new TypeAdapter<FolderUpdate>() {
            @Override
-           public void write(JsonWriter out, CreateESM value) throws IOException {
+           public void write(JsonWriter out, FolderUpdate value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateESM read(JsonReader in) throws IOException {
+           public FolderUpdate read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -501,18 +479,18 @@ public class CreateESM {
   }
 
   /**
-   * Create an instance of CreateESM given an JSON string
+   * Create an instance of FolderUpdate given an JSON string
    *
    * @param jsonString JSON string
-   * @return An instance of CreateESM
-   * @throws IOException if the JSON string is invalid with respect to CreateESM
+   * @return An instance of FolderUpdate
+   * @throws IOException if the JSON string is invalid with respect to FolderUpdate
    */
-  public static CreateESM fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateESM.class);
+  public static FolderUpdate fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, FolderUpdate.class);
   }
 
   /**
-   * Convert an instance of CreateESM to an JSON string
+   * Convert an instance of FolderUpdate to an JSON string
    *
    * @return JSON string
    */

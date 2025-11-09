@@ -320,6 +320,10 @@ Class | Method | HTTP request | Description
 *V2Api* | [**eventForwarderUpdateTeams**](docs/V2Api.md#eventForwarderUpdateTeams) | **POST** /event-forwarder-update-teams | 
 *V2Api* | [**eventForwarderUpdateWebhook**](docs/V2Api.md#eventForwarderUpdateWebhook) | **POST** /event-forwarder-update-webhook | 
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
+*V2Api* | [**folderCreate**](docs/V2Api.md#folderCreate) | **POST** /folder-create | 
+*V2Api* | [**folderDelete**](docs/V2Api.md#folderDelete) | **POST** /folder-delete | 
+*V2Api* | [**folderGet**](docs/V2Api.md#folderGet) | **POST** /folder-get | 
+*V2Api* | [**folderUpdate**](docs/V2Api.md#folderUpdate) | **POST** /folder-update | 
 *V2Api* | [**gatewayCreateAllowedAccess**](docs/V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
 *V2Api* | [**gatewayCreateK8SAuthConfig**](docs/V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
 *V2Api* | [**gatewayCreateMigration**](docs/V2Api.md#gatewayCreateMigration) | **POST** /gateway-create-migration | 
@@ -1095,6 +1099,12 @@ Class | Method | HTTP request | Description
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
  - [Extension](docs/Extension.md)
  - [ExternalKMSKeyId](docs/ExternalKMSKeyId.md)
+ - [FolderCreate](docs/FolderCreate.md)
+ - [FolderCreateOutput](docs/FolderCreateOutput.md)
+ - [FolderDelete](docs/FolderDelete.md)
+ - [FolderGet](docs/FolderGet.md)
+ - [FolderGetOutput](docs/FolderGetOutput.md)
+ - [FolderUpdate](docs/FolderUpdate.md)
  - [GCPAccessRules](docs/GCPAccessRules.md)
  - [GCPPayload](docs/GCPPayload.md)
  - [GCPSecretsMigration](docs/GCPSecretsMigration.md)
@@ -1306,6 +1316,7 @@ Class | Method | HTTP request | Description
  - [GetDynamicSecretValue](docs/GetDynamicSecretValue.md)
  - [GetEventForwarder](docs/GetEventForwarder.md)
  - [GetEventForwarderOutput](docs/GetEventForwarderOutput.md)
+ - [GetFolderOutput](docs/GetFolderOutput.md)
  - [GetGroup](docs/GetGroup.md)
  - [GetGroupOutput](docs/GetGroupOutput.md)
  - [GetKubeExecCreds](docs/GetKubeExecCreds.md)

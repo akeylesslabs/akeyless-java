@@ -60,6 +60,11 @@ public class DecryptWithClassicKey {
   @javax.annotation.Nonnull
   private String displayId;
 
+  public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
+  @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
+  @javax.annotation.Nullable
+  private String ignoreCache = "false";
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -118,6 +123,25 @@ public class DecryptWithClassicKey {
 
   public void setDisplayId(@javax.annotation.Nonnull String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public DecryptWithClassicKey ignoreCache(@javax.annotation.Nullable String ignoreCache) {
+    this.ignoreCache = ignoreCache;
+    return this;
+  }
+
+  /**
+   * Retrieve the Secret value without checking the Gateway&#39;s cache [true/false]. This flag is only relevant when using the RestAPI
+   * @return ignoreCache
+   */
+  @javax.annotation.Nullable
+  public String getIgnoreCache() {
+    return ignoreCache;
+  }
+
+  public void setIgnoreCache(@javax.annotation.Nullable String ignoreCache) {
+    this.ignoreCache = ignoreCache;
   }
 
 
@@ -209,6 +233,7 @@ public class DecryptWithClassicKey {
     DecryptWithClassicKey decryptWithClassicKey = (DecryptWithClassicKey) o;
     return Objects.equals(this.ciphertext, decryptWithClassicKey.ciphertext) &&
         Objects.equals(this.displayId, decryptWithClassicKey.displayId) &&
+        Objects.equals(this.ignoreCache, decryptWithClassicKey.ignoreCache) &&
         Objects.equals(this.json, decryptWithClassicKey.json) &&
         Objects.equals(this.token, decryptWithClassicKey.token) &&
         Objects.equals(this.uidToken, decryptWithClassicKey.uidToken) &&
@@ -217,7 +242,7 @@ public class DecryptWithClassicKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, json, token, uidToken, version);
+    return Objects.hash(ciphertext, displayId, ignoreCache, json, token, uidToken, version);
   }
 
   @Override
@@ -226,6 +251,7 @@ public class DecryptWithClassicKey {
     sb.append("class DecryptWithClassicKey {\n");
     sb.append("    ciphertext: ").append(toIndentedString(ciphertext)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -254,6 +280,7 @@ public class DecryptWithClassicKey {
     openapiFields = new HashSet<String>();
     openapiFields.add("ciphertext");
     openapiFields.add("display-id");
+    openapiFields.add("ignore-cache");
     openapiFields.add("json");
     openapiFields.add("token");
     openapiFields.add("uid-token");
@@ -299,6 +326,9 @@ public class DecryptWithClassicKey {
       }
       if (!jsonObj.get("display-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `display-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display-id").toString()));
+      }
+      if ((jsonObj.get("ignore-cache") != null && !jsonObj.get("ignore-cache").isJsonNull()) && !jsonObj.get("ignore-cache").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ignore-cache` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ignore-cache").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
