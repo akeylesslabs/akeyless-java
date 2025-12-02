@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.NotiForwarder;
+import io.akeyless.client.model.NotiForwarderDetailsInput;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -56,6 +57,11 @@ public class EventForwarderGetOutput {
   @javax.annotation.Nullable
   private NotiForwarder eventForwarder;
 
+  public static final String SERIALIZED_NAME_EVENT_FORWARDER_DETAILS = "event_forwarder_details";
+  @SerializedName(SERIALIZED_NAME_EVENT_FORWARDER_DETAILS)
+  @javax.annotation.Nullable
+  private NotiForwarderDetailsInput eventForwarderDetails;
+
   public EventForwarderGetOutput() {
   }
 
@@ -78,6 +84,25 @@ public class EventForwarderGetOutput {
   }
 
 
+  public EventForwarderGetOutput eventForwarderDetails(@javax.annotation.Nullable NotiForwarderDetailsInput eventForwarderDetails) {
+    this.eventForwarderDetails = eventForwarderDetails;
+    return this;
+  }
+
+  /**
+   * Get eventForwarderDetails
+   * @return eventForwarderDetails
+   */
+  @javax.annotation.Nullable
+  public NotiForwarderDetailsInput getEventForwarderDetails() {
+    return eventForwarderDetails;
+  }
+
+  public void setEventForwarderDetails(@javax.annotation.Nullable NotiForwarderDetailsInput eventForwarderDetails) {
+    this.eventForwarderDetails = eventForwarderDetails;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -88,12 +113,13 @@ public class EventForwarderGetOutput {
       return false;
     }
     EventForwarderGetOutput eventForwarderGetOutput = (EventForwarderGetOutput) o;
-    return Objects.equals(this.eventForwarder, eventForwarderGetOutput.eventForwarder);
+    return Objects.equals(this.eventForwarder, eventForwarderGetOutput.eventForwarder) &&
+        Objects.equals(this.eventForwarderDetails, eventForwarderGetOutput.eventForwarderDetails);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventForwarder);
+    return Objects.hash(eventForwarder, eventForwarderDetails);
   }
 
   @Override
@@ -101,6 +127,7 @@ public class EventForwarderGetOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EventForwarderGetOutput {\n");
     sb.append("    eventForwarder: ").append(toIndentedString(eventForwarder)).append("\n");
+    sb.append("    eventForwarderDetails: ").append(toIndentedString(eventForwarderDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -124,6 +151,7 @@ public class EventForwarderGetOutput {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("event_forwarder");
+    openapiFields.add("event_forwarder_details");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -153,6 +181,10 @@ public class EventForwarderGetOutput {
       // validate the optional field `event_forwarder`
       if (jsonObj.get("event_forwarder") != null && !jsonObj.get("event_forwarder").isJsonNull()) {
         NotiForwarder.validateJsonElement(jsonObj.get("event_forwarder"));
+      }
+      // validate the optional field `event_forwarder_details`
+      if (jsonObj.get("event_forwarder_details") != null && !jsonObj.get("event_forwarder_details").isJsonNull()) {
+        NotiForwarderDetailsInput.validateJsonElement(jsonObj.get("event_forwarder_details"));
       }
   }
 

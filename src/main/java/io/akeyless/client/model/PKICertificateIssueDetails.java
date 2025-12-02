@@ -130,10 +130,20 @@ public class PKICertificateIssueDetails {
   @javax.annotation.Nullable
   private Boolean createPrivateCrl;
 
+  public static final String SERIALIZED_NAME_CREATE_PRIVATE_OCSP = "create_private_ocsp";
+  @SerializedName(SERIALIZED_NAME_CREATE_PRIVATE_OCSP)
+  @javax.annotation.Nullable
+  private Boolean createPrivateOcsp;
+
   public static final String SERIALIZED_NAME_CREATE_PUBLIC_CRL = "create_public_crl";
   @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_CRL)
   @javax.annotation.Nullable
   private Boolean createPublicCrl;
+
+  public static final String SERIALIZED_NAME_CREATE_PUBLIC_OCSP = "create_public_ocsp";
+  @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_OCSP)
+  @javax.annotation.Nullable
+  private Boolean createPublicOcsp;
 
   public static final String SERIALIZED_NAME_DESTINATION_PATH = "destination_path";
   @SerializedName(SERIALIZED_NAME_DESTINATION_PATH)
@@ -204,6 +214,11 @@ public class PKICertificateIssueDetails {
   @SerializedName(SERIALIZED_NAME_NOT_BEFORE_DURATION)
   @javax.annotation.Nullable
   private Long notBeforeDuration;
+
+  public static final String SERIALIZED_NAME_OCSP_NEXT_UPDATE = "ocsp_next_update";
+  @SerializedName(SERIALIZED_NAME_OCSP_NEXT_UPDATE)
+  @javax.annotation.Nullable
+  private Long ocspNextUpdate;
 
   public static final String SERIALIZED_NAME_ORGANIZATION_LIST = "organization_list";
   @SerializedName(SERIALIZED_NAME_ORGANIZATION_LIST)
@@ -583,6 +598,25 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails createPrivateOcsp(@javax.annotation.Nullable Boolean createPrivateOcsp) {
+    this.createPrivateOcsp = createPrivateOcsp;
+    return this;
+  }
+
+  /**
+   * CreatePrivateOcsp enables exposing an OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates.
+   * @return createPrivateOcsp
+   */
+  @javax.annotation.Nullable
+  public Boolean getCreatePrivateOcsp() {
+    return createPrivateOcsp;
+  }
+
+  public void setCreatePrivateOcsp(@javax.annotation.Nullable Boolean createPrivateOcsp) {
+    this.createPrivateOcsp = createPrivateOcsp;
+  }
+
+
   public PKICertificateIssueDetails createPublicCrl(@javax.annotation.Nullable Boolean createPublicCrl) {
     this.createPublicCrl = createPublicCrl;
     return this;
@@ -599,6 +633,25 @@ public class PKICertificateIssueDetails {
 
   public void setCreatePublicCrl(@javax.annotation.Nullable Boolean createPublicCrl) {
     this.createPublicCrl = createPublicCrl;
+  }
+
+
+  public PKICertificateIssueDetails createPublicOcsp(@javax.annotation.Nullable Boolean createPublicOcsp) {
+    this.createPublicOcsp = createPublicOcsp;
+    return this;
+  }
+
+  /**
+   * CreatePublicOcsp enables exposing a public OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates.
+   * @return createPublicOcsp
+   */
+  @javax.annotation.Nullable
+  public Boolean getCreatePublicOcsp() {
+    return createPublicOcsp;
+  }
+
+  public void setCreatePublicOcsp(@javax.annotation.Nullable Boolean createPublicOcsp) {
+    this.createPublicOcsp = createPublicOcsp;
   }
 
 
@@ -892,6 +945,25 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails ocspNextUpdate(@javax.annotation.Nullable Long ocspNextUpdate) {
+    this.ocspNextUpdate = ocspNextUpdate;
+    return this;
+  }
+
+  /**
+   * OcspNextUpdate defines the desired NextUpdate window for OCSP responses. Value is in seconds; 0 means not set. Minimum enforced is 10 minutes.
+   * @return ocspNextUpdate
+   */
+  @javax.annotation.Nullable
+  public Long getOcspNextUpdate() {
+    return ocspNextUpdate;
+  }
+
+  public void setOcspNextUpdate(@javax.annotation.Nullable Long ocspNextUpdate) {
+    this.ocspNextUpdate = ocspNextUpdate;
+  }
+
+
   public PKICertificateIssueDetails organizationList(@javax.annotation.Nullable List<String> organizationList) {
     this.organizationList = organizationList;
     return this;
@@ -1147,7 +1219,9 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.codeSigningFlag, pkICertificateIssueDetails.codeSigningFlag) &&
         Objects.equals(this.country, pkICertificateIssueDetails.country) &&
         Objects.equals(this.createPrivateCrl, pkICertificateIssueDetails.createPrivateCrl) &&
+        Objects.equals(this.createPrivateOcsp, pkICertificateIssueDetails.createPrivateOcsp) &&
         Objects.equals(this.createPublicCrl, pkICertificateIssueDetails.createPublicCrl) &&
+        Objects.equals(this.createPublicOcsp, pkICertificateIssueDetails.createPublicOcsp) &&
         Objects.equals(this.destinationPath, pkICertificateIssueDetails.destinationPath) &&
         Objects.equals(this.disableWildcards, pkICertificateIssueDetails.disableWildcards) &&
         Objects.equals(this.enforceHostnames, pkICertificateIssueDetails.enforceHostnames) &&
@@ -1162,6 +1236,7 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.maxPathLen, pkICertificateIssueDetails.maxPathLen) &&
         Objects.equals(this.nonCriticalKeyUsage, pkICertificateIssueDetails.nonCriticalKeyUsage) &&
         Objects.equals(this.notBeforeDuration, pkICertificateIssueDetails.notBeforeDuration) &&
+        Objects.equals(this.ocspNextUpdate, pkICertificateIssueDetails.ocspNextUpdate) &&
         Objects.equals(this.organizationList, pkICertificateIssueDetails.organizationList) &&
         Objects.equals(this.organizationUnitList, pkICertificateIssueDetails.organizationUnitList) &&
         Objects.equals(this.pkiIssuerType, pkICertificateIssueDetails.pkiIssuerType) &&
@@ -1176,7 +1251,7 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, streetAddress);
+    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, streetAddress);
   }
 
   @Override
@@ -1198,7 +1273,9 @@ public class PKICertificateIssueDetails {
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    createPrivateCrl: ").append(toIndentedString(createPrivateCrl)).append("\n");
+    sb.append("    createPrivateOcsp: ").append(toIndentedString(createPrivateOcsp)).append("\n");
     sb.append("    createPublicCrl: ").append(toIndentedString(createPublicCrl)).append("\n");
+    sb.append("    createPublicOcsp: ").append(toIndentedString(createPublicOcsp)).append("\n");
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
     sb.append("    disableWildcards: ").append(toIndentedString(disableWildcards)).append("\n");
     sb.append("    enforceHostnames: ").append(toIndentedString(enforceHostnames)).append("\n");
@@ -1213,6 +1290,7 @@ public class PKICertificateIssueDetails {
     sb.append("    maxPathLen: ").append(toIndentedString(maxPathLen)).append("\n");
     sb.append("    nonCriticalKeyUsage: ").append(toIndentedString(nonCriticalKeyUsage)).append("\n");
     sb.append("    notBeforeDuration: ").append(toIndentedString(notBeforeDuration)).append("\n");
+    sb.append("    ocspNextUpdate: ").append(toIndentedString(ocspNextUpdate)).append("\n");
     sb.append("    organizationList: ").append(toIndentedString(organizationList)).append("\n");
     sb.append("    organizationUnitList: ").append(toIndentedString(organizationUnitList)).append("\n");
     sb.append("    pkiIssuerType: ").append(toIndentedString(pkiIssuerType)).append("\n");
@@ -1260,7 +1338,9 @@ public class PKICertificateIssueDetails {
     openapiFields.add("code_signing_flag");
     openapiFields.add("country");
     openapiFields.add("create_private_crl");
+    openapiFields.add("create_private_ocsp");
     openapiFields.add("create_public_crl");
+    openapiFields.add("create_public_ocsp");
     openapiFields.add("destination_path");
     openapiFields.add("disable_wildcards");
     openapiFields.add("enforce_hostnames");
@@ -1275,6 +1355,7 @@ public class PKICertificateIssueDetails {
     openapiFields.add("max_path_len");
     openapiFields.add("non_critical_key_usage");
     openapiFields.add("not_before_duration");
+    openapiFields.add("ocsp_next_update");
     openapiFields.add("organization_list");
     openapiFields.add("organization_unit_list");
     openapiFields.add("pki_issuer_type");

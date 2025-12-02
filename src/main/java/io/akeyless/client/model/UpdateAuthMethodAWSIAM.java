@@ -57,6 +57,11 @@ public class UpdateAuthMethodAWSIAM {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
   @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
   @javax.annotation.Nullable
@@ -191,6 +196,33 @@ public class UpdateAuthMethodAWSIAM {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethodAWSIAM allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public UpdateAuthMethodAWSIAM addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -738,6 +770,7 @@ public class UpdateAuthMethodAWSIAM {
     }
     UpdateAuthMethodAWSIAM updateAuthMethodAWSIAM = (UpdateAuthMethodAWSIAM) o;
     return Objects.equals(this.accessExpires, updateAuthMethodAWSIAM.accessExpires) &&
+        Objects.equals(this.allowedClientType, updateAuthMethodAWSIAM.allowedClientType) &&
         Objects.equals(this.auditLogsClaims, updateAuthMethodAWSIAM.auditLogsClaims) &&
         Objects.equals(this.boundArn, updateAuthMethodAWSIAM.boundArn) &&
         Objects.equals(this.boundAwsAccountId, updateAuthMethodAWSIAM.boundAwsAccountId) &&
@@ -765,7 +798,7 @@ public class UpdateAuthMethodAWSIAM {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, stsUrl, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -773,6 +806,7 @@ public class UpdateAuthMethodAWSIAM {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethodAWSIAM {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundArn: ").append(toIndentedString(boundArn)).append("\n");
     sb.append("    boundAwsAccountId: ").append(toIndentedString(boundAwsAccountId)).append("\n");
@@ -819,6 +853,7 @@ public class UpdateAuthMethodAWSIAM {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bound-arn");
     openapiFields.add("bound-aws-account-id");
@@ -877,6 +912,10 @@ public class UpdateAuthMethodAWSIAM {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("audit-logs-claims") != null && !jsonObj.get("audit-logs-claims").isJsonNull() && !jsonObj.get("audit-logs-claims").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `audit-logs-claims` to be an array in the JSON string but got `%s`", jsonObj.get("audit-logs-claims").toString()));

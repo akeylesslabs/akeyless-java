@@ -510,6 +510,16 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String fixedUserOnly;
 
+  public static final String SERIALIZED_NAME_GCP_ACCESS_TYPE = "gcp_access_type";
+  @SerializedName(SERIALIZED_NAME_GCP_ACCESS_TYPE)
+  @javax.annotation.Nullable
+  private String gcpAccessType;
+
+  public static final String SERIALIZED_NAME_GCP_FIXED_USER_CLAIM_KEYNAME = "gcp_fixed_user_claim_keyname";
+  @SerializedName(SERIALIZED_NAME_GCP_FIXED_USER_CLAIM_KEYNAME)
+  @javax.annotation.Nullable
+  private String gcpFixedUserClaimKeyname;
+
   public static final String SERIALIZED_NAME_GCP_KEY_ALGO = "gcp_key_algo";
   @SerializedName(SERIALIZED_NAME_GCP_KEY_ALGO)
   @javax.annotation.Nullable
@@ -524,6 +534,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_GCP_ROLE_BINDINGS)
   @javax.annotation.Nullable
   private Map<String, List<String>> gcpRoleBindings = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_GCP_ROLE_NAMES = "gcp_role_names";
+  @SerializedName(SERIALIZED_NAME_GCP_ROLE_NAMES)
+  @javax.annotation.Nullable
+  private String gcpRoleNames;
 
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp_service_account_email";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
@@ -975,6 +990,11 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String mongodbRoles;
 
+  public static final String SERIALIZED_NAME_MONGODB_SCOPES = "mongodb_scopes";
+  @SerializedName(SERIALIZED_NAME_MONGODB_SCOPES)
+  @javax.annotation.Nullable
+  private String mongodbScopes;
+
   public static final String SERIALIZED_NAME_MONGODB_URI_CONNECTION = "mongodb_uri_connection";
   @SerializedName(SERIALIZED_NAME_MONGODB_URI_CONNECTION)
   @javax.annotation.Nullable
@@ -989,6 +1009,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_MONGODB_USERNAME)
   @javax.annotation.Nullable
   private String mongodbUsername;
+
+  public static final String SERIALIZED_NAME_MSSQL_ALLOWED_DB_NAMES = "mssql_allowed_db_names";
+  @SerializedName(SERIALIZED_NAME_MSSQL_ALLOWED_DB_NAMES)
+  @javax.annotation.Nullable
+  private String mssqlAllowedDbNames;
 
   public static final String SERIALIZED_NAME_MSSQL_CREATION_STATEMENTS = "mssql_creation_statements";
   @SerializedName(SERIALIZED_NAME_MSSQL_CREATION_STATEMENTS)
@@ -3076,6 +3101,44 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails gcpAccessType(@javax.annotation.Nullable String gcpAccessType) {
+    this.gcpAccessType = gcpAccessType;
+    return this;
+  }
+
+  /**
+   * Get gcpAccessType
+   * @return gcpAccessType
+   */
+  @javax.annotation.Nullable
+  public String getGcpAccessType() {
+    return gcpAccessType;
+  }
+
+  public void setGcpAccessType(@javax.annotation.Nullable String gcpAccessType) {
+    this.gcpAccessType = gcpAccessType;
+  }
+
+
+  public DSProducerDetails gcpFixedUserClaimKeyname(@javax.annotation.Nullable String gcpFixedUserClaimKeyname) {
+    this.gcpFixedUserClaimKeyname = gcpFixedUserClaimKeyname;
+    return this;
+  }
+
+  /**
+   * Get gcpFixedUserClaimKeyname
+   * @return gcpFixedUserClaimKeyname
+   */
+  @javax.annotation.Nullable
+  public String getGcpFixedUserClaimKeyname() {
+    return gcpFixedUserClaimKeyname;
+  }
+
+  public void setGcpFixedUserClaimKeyname(@javax.annotation.Nullable String gcpFixedUserClaimKeyname) {
+    this.gcpFixedUserClaimKeyname = gcpFixedUserClaimKeyname;
+  }
+
+
   public DSProducerDetails gcpKeyAlgo(@javax.annotation.Nullable String gcpKeyAlgo) {
     this.gcpKeyAlgo = gcpKeyAlgo;
     return this;
@@ -3138,6 +3201,25 @@ public class DSProducerDetails {
 
   public void setGcpRoleBindings(@javax.annotation.Nullable Map<String, List<String>> gcpRoleBindings) {
     this.gcpRoleBindings = gcpRoleBindings;
+  }
+
+
+  public DSProducerDetails gcpRoleNames(@javax.annotation.Nullable String gcpRoleNames) {
+    this.gcpRoleNames = gcpRoleNames;
+    return this;
+  }
+
+  /**
+   * Get gcpRoleNames
+   * @return gcpRoleNames
+   */
+  @javax.annotation.Nullable
+  public String getGcpRoleNames() {
+    return gcpRoleNames;
+  }
+
+  public void setGcpRoleNames(@javax.annotation.Nullable String gcpRoleNames) {
+    this.gcpRoleNames = gcpRoleNames;
   }
 
 
@@ -4915,6 +4997,25 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails mongodbScopes(@javax.annotation.Nullable String mongodbScopes) {
+    this.mongodbScopes = mongodbScopes;
+    return this;
+  }
+
+  /**
+   * Get mongodbScopes
+   * @return mongodbScopes
+   */
+  @javax.annotation.Nullable
+  public String getMongodbScopes() {
+    return mongodbScopes;
+  }
+
+  public void setMongodbScopes(@javax.annotation.Nullable String mongodbScopes) {
+    this.mongodbScopes = mongodbScopes;
+  }
+
+
   public DSProducerDetails mongodbUriConnection(@javax.annotation.Nullable String mongodbUriConnection) {
     this.mongodbUriConnection = mongodbUriConnection;
     return this;
@@ -4969,6 +5070,25 @@ public class DSProducerDetails {
 
   public void setMongodbUsername(@javax.annotation.Nullable String mongodbUsername) {
     this.mongodbUsername = mongodbUsername;
+  }
+
+
+  public DSProducerDetails mssqlAllowedDbNames(@javax.annotation.Nullable String mssqlAllowedDbNames) {
+    this.mssqlAllowedDbNames = mssqlAllowedDbNames;
+    return this;
+  }
+
+  /**
+   * Comma-separated list of allowed DB names for runtime selection when fetching the secret value. Empty string &#x3D;&gt; use target DB name only (no override allowed) \&quot;*\&quot; &#x3D;&gt; any DB name is allowed One or more names &#x3D;&gt; user must select one of the provided names
+   * @return mssqlAllowedDbNames
+   */
+  @javax.annotation.Nullable
+  public String getMssqlAllowedDbNames() {
+    return mssqlAllowedDbNames;
+  }
+
+  public void setMssqlAllowedDbNames(@javax.annotation.Nullable String mssqlAllowedDbNames) {
+    this.mssqlAllowedDbNames = mssqlAllowedDbNames;
   }
 
 
@@ -6499,9 +6619,12 @@ public class DSProducerDetails {
         Objects.equals(this.externallyProvidedUser, dsProducerDetails.externallyProvidedUser) &&
         Objects.equals(this.failureMessage, dsProducerDetails.failureMessage) &&
         Objects.equals(this.fixedUserOnly, dsProducerDetails.fixedUserOnly) &&
+        Objects.equals(this.gcpAccessType, dsProducerDetails.gcpAccessType) &&
+        Objects.equals(this.gcpFixedUserClaimKeyname, dsProducerDetails.gcpFixedUserClaimKeyname) &&
         Objects.equals(this.gcpKeyAlgo, dsProducerDetails.gcpKeyAlgo) &&
         Objects.equals(this.gcpProjectId, dsProducerDetails.gcpProjectId) &&
         Objects.equals(this.gcpRoleBindings, dsProducerDetails.gcpRoleBindings) &&
+        Objects.equals(this.gcpRoleNames, dsProducerDetails.gcpRoleNames) &&
         Objects.equals(this.gcpServiceAccountEmail, dsProducerDetails.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKey, dsProducerDetails.gcpServiceAccountKey) &&
         Objects.equals(this.gcpServiceAccountKeyBase64, dsProducerDetails.gcpServiceAccountKeyBase64) &&
@@ -6592,9 +6715,11 @@ public class DSProducerDetails {
         Objects.equals(this.mongodbIsAtlas, dsProducerDetails.mongodbIsAtlas) &&
         Objects.equals(this.mongodbPassword, dsProducerDetails.mongodbPassword) &&
         Objects.equals(this.mongodbRoles, dsProducerDetails.mongodbRoles) &&
+        Objects.equals(this.mongodbScopes, dsProducerDetails.mongodbScopes) &&
         Objects.equals(this.mongodbUriConnection, dsProducerDetails.mongodbUriConnection) &&
         Objects.equals(this.mongodbUriOptions, dsProducerDetails.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, dsProducerDetails.mongodbUsername) &&
+        Objects.equals(this.mssqlAllowedDbNames, dsProducerDetails.mssqlAllowedDbNames) &&
         Objects.equals(this.mssqlCreationStatements, dsProducerDetails.mssqlCreationStatements) &&
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
@@ -6672,7 +6797,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6769,9 +6894,12 @@ public class DSProducerDetails {
     sb.append("    externallyProvidedUser: ").append(toIndentedString(externallyProvidedUser)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    gcpAccessType: ").append(toIndentedString(gcpAccessType)).append("\n");
+    sb.append("    gcpFixedUserClaimKeyname: ").append(toIndentedString(gcpFixedUserClaimKeyname)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    gcpRoleBindings: ").append(toIndentedString(gcpRoleBindings)).append("\n");
+    sb.append("    gcpRoleNames: ").append(toIndentedString(gcpRoleNames)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKey: ").append(toIndentedString(gcpServiceAccountKey)).append("\n");
     sb.append("    gcpServiceAccountKeyBase64: ").append(toIndentedString(gcpServiceAccountKeyBase64)).append("\n");
@@ -6862,9 +6990,11 @@ public class DSProducerDetails {
     sb.append("    mongodbIsAtlas: ").append(toIndentedString(mongodbIsAtlas)).append("\n");
     sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
     sb.append("    mongodbRoles: ").append(toIndentedString(mongodbRoles)).append("\n");
+    sb.append("    mongodbScopes: ").append(toIndentedString(mongodbScopes)).append("\n");
     sb.append("    mongodbUriConnection: ").append(toIndentedString(mongodbUriConnection)).append("\n");
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
+    sb.append("    mssqlAllowedDbNames: ").append(toIndentedString(mssqlAllowedDbNames)).append("\n");
     sb.append("    mssqlCreationStatements: ").append(toIndentedString(mssqlCreationStatements)).append("\n");
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
@@ -7050,9 +7180,12 @@ public class DSProducerDetails {
     openapiFields.add("externally_provided_user");
     openapiFields.add("failure_message");
     openapiFields.add("fixed_user_only");
+    openapiFields.add("gcp_access_type");
+    openapiFields.add("gcp_fixed_user_claim_keyname");
     openapiFields.add("gcp_key_algo");
     openapiFields.add("gcp_project_id");
     openapiFields.add("gcp_role_bindings");
+    openapiFields.add("gcp_role_names");
     openapiFields.add("gcp_service_account_email");
     openapiFields.add("gcp_service_account_key");
     openapiFields.add("gcp_service_account_key_base64");
@@ -7143,9 +7276,11 @@ public class DSProducerDetails {
     openapiFields.add("mongodb_is_atlas");
     openapiFields.add("mongodb_password");
     openapiFields.add("mongodb_roles");
+    openapiFields.add("mongodb_scopes");
     openapiFields.add("mongodb_uri_connection");
     openapiFields.add("mongodb_uri_options");
     openapiFields.add("mongodb_username");
+    openapiFields.add("mssql_allowed_db_names");
     openapiFields.add("mssql_creation_statements");
     openapiFields.add("mssql_revocation_statements");
     openapiFields.add("mysql_creation_statements");
@@ -7474,11 +7609,20 @@ public class DSProducerDetails {
       if ((jsonObj.get("fixed_user_only") != null && !jsonObj.get("fixed_user_only").isJsonNull()) && !jsonObj.get("fixed_user_only").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fixed_user_only` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fixed_user_only").toString()));
       }
+      if ((jsonObj.get("gcp_access_type") != null && !jsonObj.get("gcp_access_type").isJsonNull()) && !jsonObj.get("gcp_access_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gcp_access_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_access_type").toString()));
+      }
+      if ((jsonObj.get("gcp_fixed_user_claim_keyname") != null && !jsonObj.get("gcp_fixed_user_claim_keyname").isJsonNull()) && !jsonObj.get("gcp_fixed_user_claim_keyname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gcp_fixed_user_claim_keyname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_fixed_user_claim_keyname").toString()));
+      }
       if ((jsonObj.get("gcp_key_algo") != null && !jsonObj.get("gcp_key_algo").isJsonNull()) && !jsonObj.get("gcp_key_algo").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp_key_algo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_key_algo").toString()));
       }
       if ((jsonObj.get("gcp_project_id") != null && !jsonObj.get("gcp_project_id").isJsonNull()) && !jsonObj.get("gcp_project_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp_project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_project_id").toString()));
+      }
+      if ((jsonObj.get("gcp_role_names") != null && !jsonObj.get("gcp_role_names").isJsonNull()) && !jsonObj.get("gcp_role_names").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gcp_role_names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_role_names").toString()));
       }
       if ((jsonObj.get("gcp_service_account_email") != null && !jsonObj.get("gcp_service_account_email").isJsonNull()) && !jsonObj.get("gcp_service_account_email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp_service_account_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_email").toString()));
@@ -7760,6 +7904,9 @@ public class DSProducerDetails {
       if ((jsonObj.get("mongodb_roles") != null && !jsonObj.get("mongodb_roles").isJsonNull()) && !jsonObj.get("mongodb_roles").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb_roles` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_roles").toString()));
       }
+      if ((jsonObj.get("mongodb_scopes") != null && !jsonObj.get("mongodb_scopes").isJsonNull()) && !jsonObj.get("mongodb_scopes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mongodb_scopes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_scopes").toString()));
+      }
       if ((jsonObj.get("mongodb_uri_connection") != null && !jsonObj.get("mongodb_uri_connection").isJsonNull()) && !jsonObj.get("mongodb_uri_connection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb_uri_connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_uri_connection").toString()));
       }
@@ -7768,6 +7915,9 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("mongodb_username") != null && !jsonObj.get("mongodb_username").isJsonNull()) && !jsonObj.get("mongodb_username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_username").toString()));
+      }
+      if ((jsonObj.get("mssql_allowed_db_names") != null && !jsonObj.get("mssql_allowed_db_names").isJsonNull()) && !jsonObj.get("mssql_allowed_db_names").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mssql_allowed_db_names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mssql_allowed_db_names").toString()));
       }
       if ((jsonObj.get("mssql_creation_statements") != null && !jsonObj.get("mssql_creation_statements").isJsonNull()) && !jsonObj.get("mssql_creation_statements").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mssql_creation_statements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mssql_creation_statements").toString()));

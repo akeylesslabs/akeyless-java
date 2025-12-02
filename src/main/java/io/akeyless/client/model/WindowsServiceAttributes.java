@@ -55,10 +55,20 @@ public class WindowsServiceAttributes {
   @javax.annotation.Nullable
   private String connectionType;
 
+  public static final String SERIALIZED_NAME_IIS_APP_POOL = "iis_app_pool";
+  @SerializedName(SERIALIZED_NAME_IIS_APP_POOL)
+  @javax.annotation.Nullable
+  private Boolean iisAppPool;
+
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)
   @javax.annotation.Nullable
   private String port;
+
+  public static final String SERIALIZED_NAME_SKIP_RESTART = "skip_restart";
+  @SerializedName(SERIALIZED_NAME_SKIP_RESTART)
+  @javax.annotation.Nullable
+  private Boolean skipRestart;
 
   public static final String SERIALIZED_NAME_USE_TLS = "use_tls";
   @SerializedName(SERIALIZED_NAME_USE_TLS)
@@ -87,6 +97,25 @@ public class WindowsServiceAttributes {
   }
 
 
+  public WindowsServiceAttributes iisAppPool(@javax.annotation.Nullable Boolean iisAppPool) {
+    this.iisAppPool = iisAppPool;
+    return this;
+  }
+
+  /**
+   * IISAppPool marks this entry as an IIS Application Pool rather than a Windows Service
+   * @return iisAppPool
+   */
+  @javax.annotation.Nullable
+  public Boolean getIisAppPool() {
+    return iisAppPool;
+  }
+
+  public void setIisAppPool(@javax.annotation.Nullable Boolean iisAppPool) {
+    this.iisAppPool = iisAppPool;
+  }
+
+
   public WindowsServiceAttributes port(@javax.annotation.Nullable String port) {
     this.port = port;
     return this;
@@ -103,6 +132,25 @@ public class WindowsServiceAttributes {
 
   public void setPort(@javax.annotation.Nullable String port) {
     this.port = port;
+  }
+
+
+  public WindowsServiceAttributes skipRestart(@javax.annotation.Nullable Boolean skipRestart) {
+    this.skipRestart = skipRestart;
+    return this;
+  }
+
+  /**
+   * SkipRestart allows skipping recycle/start of the IIS App Pool after credential update
+   * @return skipRestart
+   */
+  @javax.annotation.Nullable
+  public Boolean getSkipRestart() {
+    return skipRestart;
+  }
+
+  public void setSkipRestart(@javax.annotation.Nullable Boolean skipRestart) {
+    this.skipRestart = skipRestart;
   }
 
 
@@ -136,13 +184,15 @@ public class WindowsServiceAttributes {
     }
     WindowsServiceAttributes windowsServiceAttributes = (WindowsServiceAttributes) o;
     return Objects.equals(this.connectionType, windowsServiceAttributes.connectionType) &&
+        Objects.equals(this.iisAppPool, windowsServiceAttributes.iisAppPool) &&
         Objects.equals(this.port, windowsServiceAttributes.port) &&
+        Objects.equals(this.skipRestart, windowsServiceAttributes.skipRestart) &&
         Objects.equals(this.useTls, windowsServiceAttributes.useTls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(connectionType, port, useTls);
+    return Objects.hash(connectionType, iisAppPool, port, skipRestart, useTls);
   }
 
   @Override
@@ -150,7 +200,9 @@ public class WindowsServiceAttributes {
     StringBuilder sb = new StringBuilder();
     sb.append("class WindowsServiceAttributes {\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
+    sb.append("    iisAppPool: ").append(toIndentedString(iisAppPool)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    skipRestart: ").append(toIndentedString(skipRestart)).append("\n");
     sb.append("    useTls: ").append(toIndentedString(useTls)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -175,7 +227,9 @@ public class WindowsServiceAttributes {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("connection_type");
+    openapiFields.add("iis_app_pool");
     openapiFields.add("port");
+    openapiFields.add("skip_restart");
     openapiFields.add("use_tls");
 
     // a set of required properties/fields (JSON key names)

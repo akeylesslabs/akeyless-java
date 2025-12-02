@@ -12,6 +12,7 @@
 |**autoRotateIntervalInDays** | **Integer** |  |  [optional] |
 |**autoRotateRotationHour** | **Integer** |  |  [optional] |
 |**computerBaseDn** | **String** |  |  [optional] |
+|**discoverIisApps** | **Boolean** |  |  [optional] |
 |**discoverLocalUsers** | **Boolean** | Deprecated |  [optional] |
 |**discoverServices** | **Boolean** |  |  [optional] |
 |**discoveryTypes** | **List&lt;String&gt;** |  |  [optional] |

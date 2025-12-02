@@ -67,6 +67,11 @@ public class GatewayCreateMigration {
   @javax.annotation.Nullable
   private String adComputerBaseDn;
 
+  public static final String SERIALIZED_NAME_AD_DISCOVER_IIS_APP = "ad-discover-iis-app";
+  @SerializedName(SERIALIZED_NAME_AD_DISCOVER_IIS_APP)
+  @javax.annotation.Nullable
+  private String adDiscoverIisApp = "false";
+
   public static final String SERIALIZED_NAME_AD_DISCOVER_SERVICES = "ad-discover-services";
   @SerializedName(SERIALIZED_NAME_AD_DISCOVER_SERVICES)
   @javax.annotation.Nullable
@@ -404,6 +409,25 @@ public class GatewayCreateMigration {
 
   public void setAdComputerBaseDn(@javax.annotation.Nullable String adComputerBaseDn) {
     this.adComputerBaseDn = adComputerBaseDn;
+  }
+
+
+  public GatewayCreateMigration adDiscoverIisApp(@javax.annotation.Nullable String adDiscoverIisApp) {
+    this.adDiscoverIisApp = adDiscoverIisApp;
+    return this;
+  }
+
+  /**
+   * Enable/Disable discovery of IIS application from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration)
+   * @return adDiscoverIisApp
+   */
+  @javax.annotation.Nullable
+  public String getAdDiscoverIisApp() {
+    return adDiscoverIisApp;
+  }
+
+  public void setAdDiscoverIisApp(@javax.annotation.Nullable String adDiscoverIisApp) {
+    this.adDiscoverIisApp = adDiscoverIisApp;
   }
 
 
@@ -1524,6 +1548,7 @@ public class GatewayCreateMigration {
     return Objects.equals(this.serviceAccountKeyDecoded, gatewayCreateMigration.serviceAccountKeyDecoded) &&
         Objects.equals(this.adAutoRotate, gatewayCreateMigration.adAutoRotate) &&
         Objects.equals(this.adComputerBaseDn, gatewayCreateMigration.adComputerBaseDn) &&
+        Objects.equals(this.adDiscoverIisApp, gatewayCreateMigration.adDiscoverIisApp) &&
         Objects.equals(this.adDiscoverServices, gatewayCreateMigration.adDiscoverServices) &&
         Objects.equals(this.adDiscoveryTypes, gatewayCreateMigration.adDiscoveryTypes) &&
         Objects.equals(this.adDomainName, gatewayCreateMigration.adDomainName) &&
@@ -1584,7 +1609,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
   }
 
   @Override
@@ -1594,6 +1619,7 @@ public class GatewayCreateMigration {
     sb.append("    serviceAccountKeyDecoded: ").append(toIndentedString(serviceAccountKeyDecoded)).append("\n");
     sb.append("    adAutoRotate: ").append(toIndentedString(adAutoRotate)).append("\n");
     sb.append("    adComputerBaseDn: ").append(toIndentedString(adComputerBaseDn)).append("\n");
+    sb.append("    adDiscoverIisApp: ").append(toIndentedString(adDiscoverIisApp)).append("\n");
     sb.append("    adDiscoverServices: ").append(toIndentedString(adDiscoverServices)).append("\n");
     sb.append("    adDiscoveryTypes: ").append(toIndentedString(adDiscoveryTypes)).append("\n");
     sb.append("    adDomainName: ").append(toIndentedString(adDomainName)).append("\n");
@@ -1675,6 +1701,7 @@ public class GatewayCreateMigration {
     openapiFields.add("ServiceAccountKeyDecoded");
     openapiFields.add("ad-auto-rotate");
     openapiFields.add("ad-computer-base-dn");
+    openapiFields.add("ad-discover-iis-app");
     openapiFields.add("ad-discover-services");
     openapiFields.add("ad-discovery-types");
     openapiFields.add("ad-domain-name");
@@ -1776,6 +1803,9 @@ public class GatewayCreateMigration {
       }
       if ((jsonObj.get("ad-computer-base-dn") != null && !jsonObj.get("ad-computer-base-dn").isJsonNull()) && !jsonObj.get("ad-computer-base-dn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ad-computer-base-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad-computer-base-dn").toString()));
+      }
+      if ((jsonObj.get("ad-discover-iis-app") != null && !jsonObj.get("ad-discover-iis-app").isJsonNull()) && !jsonObj.get("ad-discover-iis-app").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ad-discover-iis-app` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad-discover-iis-app").toString()));
       }
       if ((jsonObj.get("ad-discover-services") != null && !jsonObj.get("ad-discover-services").isJsonNull()) && !jsonObj.get("ad-discover-services").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ad-discover-services` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad-discover-services").toString()));

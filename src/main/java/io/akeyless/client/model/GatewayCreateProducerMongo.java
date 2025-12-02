@@ -119,6 +119,11 @@ public class GatewayCreateProducerMongo {
   @javax.annotation.Nullable
   private String mongodbRoles = "[]";
 
+  public static final String SERIALIZED_NAME_MONGODB_SCOPES = "mongodb-scopes";
+  @SerializedName(SERIALIZED_NAME_MONGODB_SCOPES)
+  @javax.annotation.Nullable
+  private String mongodbScopes;
+
   public static final String SERIALIZED_NAME_MONGODB_SERVER_URI = "mongodb-server-uri";
   @SerializedName(SERIALIZED_NAME_MONGODB_SERVER_URI)
   @javax.annotation.Nullable
@@ -464,6 +469,25 @@ public class GatewayCreateProducerMongo {
 
   public void setMongodbRoles(@javax.annotation.Nullable String mongodbRoles) {
     this.mongodbRoles = mongodbRoles;
+  }
+
+
+  public GatewayCreateProducerMongo mongodbScopes(@javax.annotation.Nullable String mongodbScopes) {
+    this.mongodbScopes = mongodbScopes;
+    return this;
+  }
+
+  /**
+   * MongoDB Scopes (Atlas only)
+   * @return mongodbScopes
+   */
+  @javax.annotation.Nullable
+  public String getMongodbScopes() {
+    return mongodbScopes;
+  }
+
+  public void setMongodbScopes(@javax.annotation.Nullable String mongodbScopes) {
+    this.mongodbScopes = mongodbScopes;
   }
 
 
@@ -848,6 +872,7 @@ public class GatewayCreateProducerMongo {
         Objects.equals(this.mongodbName, gatewayCreateProducerMongo.mongodbName) &&
         Objects.equals(this.mongodbPassword, gatewayCreateProducerMongo.mongodbPassword) &&
         Objects.equals(this.mongodbRoles, gatewayCreateProducerMongo.mongodbRoles) &&
+        Objects.equals(this.mongodbScopes, gatewayCreateProducerMongo.mongodbScopes) &&
         Objects.equals(this.mongodbServerUri, gatewayCreateProducerMongo.mongodbServerUri) &&
         Objects.equals(this.mongodbUriOptions, gatewayCreateProducerMongo.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, gatewayCreateProducerMongo.mongodbUsername) &&
@@ -870,7 +895,7 @@ public class GatewayCreateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -890,6 +915,7 @@ public class GatewayCreateProducerMongo {
     sb.append("    mongodbName: ").append(toIndentedString(mongodbName)).append("\n");
     sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
     sb.append("    mongodbRoles: ").append(toIndentedString(mongodbRoles)).append("\n");
+    sb.append("    mongodbScopes: ").append(toIndentedString(mongodbScopes)).append("\n");
     sb.append("    mongodbServerUri: ").append(toIndentedString(mongodbServerUri)).append("\n");
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
@@ -943,6 +969,7 @@ public class GatewayCreateProducerMongo {
     openapiFields.add("mongodb-name");
     openapiFields.add("mongodb-password");
     openapiFields.add("mongodb-roles");
+    openapiFields.add("mongodb-scopes");
     openapiFields.add("mongodb-server-uri");
     openapiFields.add("mongodb-uri-options");
     openapiFields.add("mongodb-username");
@@ -1027,6 +1054,9 @@ public class GatewayCreateProducerMongo {
       }
       if ((jsonObj.get("mongodb-roles") != null && !jsonObj.get("mongodb-roles").isJsonNull()) && !jsonObj.get("mongodb-roles").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb-roles` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-roles").toString()));
+      }
+      if ((jsonObj.get("mongodb-scopes") != null && !jsonObj.get("mongodb-scopes").isJsonNull()) && !jsonObj.get("mongodb-scopes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mongodb-scopes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-scopes").toString()));
       }
       if ((jsonObj.get("mongodb-server-uri") != null && !jsonObj.get("mongodb-server-uri").isJsonNull()) && !jsonObj.get("mongodb-server-uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb-server-uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-server-uri").toString()));

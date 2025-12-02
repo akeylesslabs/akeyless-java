@@ -9,6 +9,7 @@ authMethodCreateSAML is a command that creates a new auth method that will be av
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional] |
+|**allowedClientType** | **List&lt;String&gt;** |  |  [optional] |
 |**allowedRedirectUri** | **List&lt;String&gt;** | Allowed redirect URIs after the authentication |  [optional] |
 |**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional] |
 |**boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional] |

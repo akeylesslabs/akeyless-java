@@ -60,6 +60,11 @@ public class RotatedSecretDeleteSync {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_REMOTE_SECRET_NAME = "remote-secret-name";
+  @SerializedName(SERIALIZED_NAME_REMOTE_SECRET_NAME)
+  @javax.annotation.Nullable
+  private String remoteSecretName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -113,6 +118,25 @@ public class RotatedSecretDeleteSync {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public RotatedSecretDeleteSync remoteSecretName(@javax.annotation.Nullable String remoteSecretName) {
+    this.remoteSecretName = remoteSecretName;
+    return this;
+  }
+
+  /**
+   * Remote Secret Name to disambiguate when multiple syncs exist under the same USC
+   * @return remoteSecretName
+   */
+  @javax.annotation.Nullable
+  public String getRemoteSecretName() {
+    return remoteSecretName;
+  }
+
+  public void setRemoteSecretName(@javax.annotation.Nullable String remoteSecretName) {
+    this.remoteSecretName = remoteSecretName;
   }
 
 
@@ -185,6 +209,7 @@ public class RotatedSecretDeleteSync {
     RotatedSecretDeleteSync rotatedSecretDeleteSync = (RotatedSecretDeleteSync) o;
     return Objects.equals(this.json, rotatedSecretDeleteSync.json) &&
         Objects.equals(this.name, rotatedSecretDeleteSync.name) &&
+        Objects.equals(this.remoteSecretName, rotatedSecretDeleteSync.remoteSecretName) &&
         Objects.equals(this.token, rotatedSecretDeleteSync.token) &&
         Objects.equals(this.uidToken, rotatedSecretDeleteSync.uidToken) &&
         Objects.equals(this.uscName, rotatedSecretDeleteSync.uscName);
@@ -192,7 +217,7 @@ public class RotatedSecretDeleteSync {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, token, uidToken, uscName);
+    return Objects.hash(json, name, remoteSecretName, token, uidToken, uscName);
   }
 
   @Override
@@ -201,6 +226,7 @@ public class RotatedSecretDeleteSync {
     sb.append("class RotatedSecretDeleteSync {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    remoteSecretName: ").append(toIndentedString(remoteSecretName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
@@ -228,6 +254,7 @@ public class RotatedSecretDeleteSync {
     openapiFields = new HashSet<String>();
     openapiFields.add("json");
     openapiFields.add("name");
+    openapiFields.add("remote-secret-name");
     openapiFields.add("token");
     openapiFields.add("uid-token");
     openapiFields.add("usc-name");
@@ -268,6 +295,9 @@ public class RotatedSecretDeleteSync {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("remote-secret-name") != null && !jsonObj.get("remote-secret-name").isJsonNull()) && !jsonObj.get("remote-secret-name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remote-secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote-secret-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

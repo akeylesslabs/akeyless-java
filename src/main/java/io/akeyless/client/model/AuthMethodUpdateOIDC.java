@@ -57,6 +57,11 @@ public class AuthMethodUpdateOIDC {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_URI = "allowed-redirect-uri";
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_URI)
   @javax.annotation.Nullable
@@ -191,6 +196,33 @@ public class AuthMethodUpdateOIDC {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public AuthMethodUpdateOIDC allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public AuthMethodUpdateOIDC addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -706,6 +738,7 @@ public class AuthMethodUpdateOIDC {
     }
     AuthMethodUpdateOIDC authMethodUpdateOIDC = (AuthMethodUpdateOIDC) o;
     return Objects.equals(this.accessExpires, authMethodUpdateOIDC.accessExpires) &&
+        Objects.equals(this.allowedClientType, authMethodUpdateOIDC.allowedClientType) &&
         Objects.equals(this.allowedRedirectUri, authMethodUpdateOIDC.allowedRedirectUri) &&
         Objects.equals(this.audience, authMethodUpdateOIDC.audience) &&
         Objects.equals(this.auditLogsClaims, authMethodUpdateOIDC.auditLogsClaims) &&
@@ -733,7 +766,7 @@ public class AuthMethodUpdateOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, issuer, json, jwtTtl, name, newName, productType, requiredScopes, requiredScopesPrefix, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -741,6 +774,7 @@ public class AuthMethodUpdateOIDC {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethodUpdateOIDC {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    allowedRedirectUri: ").append(toIndentedString(allowedRedirectUri)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
@@ -787,6 +821,7 @@ public class AuthMethodUpdateOIDC {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("allowed-redirect-uri");
     openapiFields.add("audience");
     openapiFields.add("audit-logs-claims");
@@ -845,6 +880,10 @@ public class AuthMethodUpdateOIDC {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed-redirect-uri") != null && !jsonObj.get("allowed-redirect-uri").isJsonNull() && !jsonObj.get("allowed-redirect-uri").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed-redirect-uri` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-redirect-uri").toString()));

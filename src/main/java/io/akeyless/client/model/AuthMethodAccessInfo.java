@@ -77,6 +77,11 @@ public class AuthMethodAccessInfo {
   @javax.annotation.Nullable
   private String accessIdAlias;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed_client_type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_API_KEY_ACCESS_RULES = "api_key_access_rules";
   @SerializedName(SERIALIZED_NAME_API_KEY_ACCESS_RULES)
   @javax.annotation.Nullable
@@ -230,6 +235,33 @@ public class AuthMethodAccessInfo {
 
   public void setAccessIdAlias(@javax.annotation.Nullable String accessIdAlias) {
     this.accessIdAlias = accessIdAlias;
+  }
+
+
+  public AuthMethodAccessInfo allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public AuthMethodAccessInfo addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -706,6 +738,7 @@ public class AuthMethodAccessInfo {
     AuthMethodAccessInfo authMethodAccessInfo = (AuthMethodAccessInfo) o;
     return Objects.equals(this.accessExpires, authMethodAccessInfo.accessExpires) &&
         Objects.equals(this.accessIdAlias, authMethodAccessInfo.accessIdAlias) &&
+        Objects.equals(this.allowedClientType, authMethodAccessInfo.allowedClientType) &&
         Objects.equals(this.apiKeyAccessRules, authMethodAccessInfo.apiKeyAccessRules) &&
         Objects.equals(this.auditLogsClaims, authMethodAccessInfo.auditLogsClaims) &&
         Objects.equals(this.awsIamAccessRules, authMethodAccessInfo.awsIamAccessRules) &&
@@ -733,7 +766,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
   }
 
   @Override
@@ -742,6 +775,7 @@ public class AuthMethodAccessInfo {
     sb.append("class AuthMethodAccessInfo {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    accessIdAlias: ").append(toIndentedString(accessIdAlias)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    apiKeyAccessRules: ").append(toIndentedString(apiKeyAccessRules)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    awsIamAccessRules: ").append(toIndentedString(awsIamAccessRules)).append("\n");
@@ -789,6 +823,7 @@ public class AuthMethodAccessInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("access_expires");
     openapiFields.add("access_id_alias");
+    openapiFields.add("allowed_client_type");
     openapiFields.add("api_key_access_rules");
     openapiFields.add("audit_logs_claims");
     openapiFields.add("aws_iam_access_rules");
@@ -840,6 +875,10 @@ public class AuthMethodAccessInfo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id_alias") != null && !jsonObj.get("access_id_alias").isJsonNull()) && !jsonObj.get("access_id_alias").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `access_id_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id_alias").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed_client_type") != null && !jsonObj.get("allowed_client_type").isJsonNull() && !jsonObj.get("allowed_client_type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed_client_type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_client_type").toString()));
       }
       // validate the optional field `api_key_access_rules`
       if (jsonObj.get("api_key_access_rules") != null && !jsonObj.get("api_key_access_rules").isJsonNull()) {

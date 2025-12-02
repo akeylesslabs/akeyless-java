@@ -23,6 +23,7 @@ dynamicSecretUpdateGoogleWorkspace is a command that updates a Google Workspace 
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
 |**roleName** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode |  [optional] |
 |**roleScope** | **String** |  |  [optional] |
+|**secureAccessDelay** | **Long** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
 |**secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional] |
 |**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional] |

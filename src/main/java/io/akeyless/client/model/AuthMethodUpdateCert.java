@@ -57,6 +57,11 @@ public class AuthMethodUpdateCert {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ALLOWED_CORS = "allowed-cors";
   @SerializedName(SERIALIZED_NAME_ALLOWED_CORS)
   @javax.annotation.Nullable
@@ -196,6 +201,33 @@ public class AuthMethodUpdateCert {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public AuthMethodUpdateCert allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public AuthMethodUpdateCert addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -762,6 +794,7 @@ public class AuthMethodUpdateCert {
     }
     AuthMethodUpdateCert authMethodUpdateCert = (AuthMethodUpdateCert) o;
     return Objects.equals(this.accessExpires, authMethodUpdateCert.accessExpires) &&
+        Objects.equals(this.allowedClientType, authMethodUpdateCert.allowedClientType) &&
         Objects.equals(this.allowedCors, authMethodUpdateCert.allowedCors) &&
         Objects.equals(this.auditLogsClaims, authMethodUpdateCert.auditLogsClaims) &&
         Objects.equals(this.boundCommonNames, authMethodUpdateCert.boundCommonNames) &&
@@ -790,7 +823,7 @@ public class AuthMethodUpdateCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -798,6 +831,7 @@ public class AuthMethodUpdateCert {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethodUpdateCert {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    allowedCors: ").append(toIndentedString(allowedCors)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundCommonNames: ").append(toIndentedString(boundCommonNames)).append("\n");
@@ -845,6 +879,7 @@ public class AuthMethodUpdateCert {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("allowed-cors");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bound-common-names");
@@ -904,6 +939,10 @@ public class AuthMethodUpdateCert {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       if ((jsonObj.get("allowed-cors") != null && !jsonObj.get("allowed-cors").isJsonNull()) && !jsonObj.get("allowed-cors").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed-cors` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-cors").toString()));
       }

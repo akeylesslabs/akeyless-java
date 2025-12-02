@@ -57,6 +57,11 @@ public class CreateAuthMethodK8S {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   @javax.annotation.Nullable
@@ -171,6 +176,33 @@ public class CreateAuthMethodK8S {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public CreateAuthMethodK8S allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public CreateAuthMethodK8S addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -610,6 +642,7 @@ public class CreateAuthMethodK8S {
     }
     CreateAuthMethodK8S createAuthMethodK8S = (CreateAuthMethodK8S) o;
     return Objects.equals(this.accessExpires, createAuthMethodK8S.accessExpires) &&
+        Objects.equals(this.allowedClientType, createAuthMethodK8S.allowedClientType) &&
         Objects.equals(this.audience, createAuthMethodK8S.audience) &&
         Objects.equals(this.auditLogsClaims, createAuthMethodK8S.auditLogsClaims) &&
         Objects.equals(this.boundIps, createAuthMethodK8S.boundIps) &&
@@ -633,7 +666,7 @@ public class CreateAuthMethodK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, deleteProtection, description, expirationEventIn, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, productType, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, deleteProtection, description, expirationEventIn, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, productType, publicKey, token, uidToken);
   }
 
   @Override
@@ -641,6 +674,7 @@ public class CreateAuthMethodK8S {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAuthMethodK8S {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
@@ -683,6 +717,7 @@ public class CreateAuthMethodK8S {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("audience");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bound-ips");
@@ -736,6 +771,10 @@ public class CreateAuthMethodK8S {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull()) && !jsonObj.get("audience").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
       }

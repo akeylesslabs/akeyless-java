@@ -35,6 +35,7 @@ docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
 docs/AllowedAccess.md
 docs/AllowedAccessOld.md
+docs/AllowedClientType.md
 docs/AllowedIpSettings.md
 docs/ArtifactoryTargetDetails.md
 docs/AssocRoleAuthMethod.md
@@ -766,6 +767,7 @@ docs/Name.md
 docs/NativeK8sTargetDetails.md
 docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
+docs/NotiForwarderDetailsInput.md
 docs/NullString.md
 docs/NullTime.md
 docs/OAuth2AccessRules.md
@@ -901,6 +903,7 @@ docs/SignPKICertOutput.md
 docs/SignPKICertWithClassicKey.md
 docs/SignRsaSsaPss.md
 docs/SignRsaSsaPssOutput.md
+docs/SlackNotiForwarderDetails.md
 docs/SmInfo.md
 docs/SplunkLogForwardingConfig.md
 docs/SraDesktopAppConf.md
@@ -983,6 +986,7 @@ docs/TargetUpdateSsh.md
 docs/TargetUpdateWeb.md
 docs/TargetUpdateWindows.md
 docs/TargetUpdateZeroSSL.md
+docs/TeamsNotiForwarderDetails.md
 docs/TmpUserData.md
 docs/Tokenize.md
 docs/TokenizeOutput.md
@@ -1133,6 +1137,7 @@ docs/WebBastionGuacamole.md
 docs/WebBastionRdpRecord.md
 docs/WebHookNotiForwarderPublicDetails.md
 docs/WebTargetDetails.md
+docs/WebhookNotiForwarderDetails.md
 docs/WindowsService.md
 docs/WindowsServiceAttributes.md
 docs/WindowsTargetDetails.md
@@ -1195,6 +1200,7 @@ src/main/java/io/akeyless/client/model/AliasDetailsOutput.java
 src/main/java/io/akeyless/client/model/AllAnalyticsData.java
 src/main/java/io/akeyless/client/model/AllowedAccess.java
 src/main/java/io/akeyless/client/model/AllowedAccessOld.java
+src/main/java/io/akeyless/client/model/AllowedClientType.java
 src/main/java/io/akeyless/client/model/AllowedIpSettings.java
 src/main/java/io/akeyless/client/model/ArtifactoryTargetDetails.java
 src/main/java/io/akeyless/client/model/AssocRoleAuthMethod.java
@@ -1926,6 +1932,7 @@ src/main/java/io/akeyless/client/model/Name.java
 src/main/java/io/akeyless/client/model/NativeK8sTargetDetails.java
 src/main/java/io/akeyless/client/model/NextAutoRotationEvent.java
 src/main/java/io/akeyless/client/model/NotiForwarder.java
+src/main/java/io/akeyless/client/model/NotiForwarderDetailsInput.java
 src/main/java/io/akeyless/client/model/NullString.java
 src/main/java/io/akeyless/client/model/NullTime.java
 src/main/java/io/akeyless/client/model/OAuth2AccessRules.java
@@ -2061,6 +2068,7 @@ src/main/java/io/akeyless/client/model/SignPKICertOutput.java
 src/main/java/io/akeyless/client/model/SignPKICertWithClassicKey.java
 src/main/java/io/akeyless/client/model/SignRsaSsaPss.java
 src/main/java/io/akeyless/client/model/SignRsaSsaPssOutput.java
+src/main/java/io/akeyless/client/model/SlackNotiForwarderDetails.java
 src/main/java/io/akeyless/client/model/SmInfo.java
 src/main/java/io/akeyless/client/model/SplunkLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SraDesktopAppConf.java
@@ -2143,6 +2151,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateSsh.java
 src/main/java/io/akeyless/client/model/TargetUpdateWeb.java
 src/main/java/io/akeyless/client/model/TargetUpdateWindows.java
 src/main/java/io/akeyless/client/model/TargetUpdateZeroSSL.java
+src/main/java/io/akeyless/client/model/TeamsNotiForwarderDetails.java
 src/main/java/io/akeyless/client/model/TmpUserData.java
 src/main/java/io/akeyless/client/model/Tokenize.java
 src/main/java/io/akeyless/client/model/TokenizeOutput.java
@@ -2292,14 +2301,13 @@ src/main/java/io/akeyless/client/model/WebBastionGuacamole.java
 src/main/java/io/akeyless/client/model/WebBastionRdpRecord.java
 src/main/java/io/akeyless/client/model/WebHookNotiForwarderPublicDetails.java
 src/main/java/io/akeyless/client/model/WebTargetDetails.java
+src/main/java/io/akeyless/client/model/WebhookNotiForwarderDetails.java
 src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/FolderCreateOutputTest.java
-src/test/java/io/akeyless/client/model/FolderCreateTest.java
-src/test/java/io/akeyless/client/model/FolderDeleteTest.java
-src/test/java/io/akeyless/client/model/FolderGetOutputTest.java
-src/test/java/io/akeyless/client/model/FolderGetTest.java
-src/test/java/io/akeyless/client/model/FolderUpdateTest.java
-src/test/java/io/akeyless/client/model/GetFolderOutputTest.java
+src/test/java/io/akeyless/client/model/AllowedClientTypeTest.java
+src/test/java/io/akeyless/client/model/NotiForwarderDetailsInputTest.java
+src/test/java/io/akeyless/client/model/SlackNotiForwarderDetailsTest.java
+src/test/java/io/akeyless/client/model/TeamsNotiForwarderDetailsTest.java
+src/test/java/io/akeyless/client/model/WebhookNotiForwarderDetailsTest.java

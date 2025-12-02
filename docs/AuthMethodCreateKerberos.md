@@ -9,6 +9,7 @@ authMethodCreateKerberos is a command that creates a new auth method that will b
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional] |
+|**allowedClientType** | **List&lt;String&gt;** |  |  [optional] |
 |**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional] |
 |**bindDn** | **String** |  |  [optional] |
 |**bindDnPassword** | **String** |  |  [optional] |

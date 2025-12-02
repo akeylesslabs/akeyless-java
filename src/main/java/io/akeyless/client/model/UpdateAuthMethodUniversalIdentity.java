@@ -57,6 +57,11 @@ public class UpdateAuthMethodUniversalIdentity {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
   @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
   @javax.annotation.Nullable
@@ -161,6 +166,33 @@ public class UpdateAuthMethodUniversalIdentity {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public UpdateAuthMethodUniversalIdentity allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public UpdateAuthMethodUniversalIdentity addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -538,6 +570,7 @@ public class UpdateAuthMethodUniversalIdentity {
     }
     UpdateAuthMethodUniversalIdentity updateAuthMethodUniversalIdentity = (UpdateAuthMethodUniversalIdentity) o;
     return Objects.equals(this.accessExpires, updateAuthMethodUniversalIdentity.accessExpires) &&
+        Objects.equals(this.allowedClientType, updateAuthMethodUniversalIdentity.allowedClientType) &&
         Objects.equals(this.auditLogsClaims, updateAuthMethodUniversalIdentity.auditLogsClaims) &&
         Objects.equals(this.boundIps, updateAuthMethodUniversalIdentity.boundIps) &&
         Objects.equals(this.deleteProtection, updateAuthMethodUniversalIdentity.deleteProtection) &&
@@ -559,7 +592,7 @@ public class UpdateAuthMethodUniversalIdentity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, boundIps, deleteProtection, denyInheritance, denyRotate, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, denyInheritance, denyRotate, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
   }
 
   @Override
@@ -567,6 +600,7 @@ public class UpdateAuthMethodUniversalIdentity {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAuthMethodUniversalIdentity {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -607,6 +641,7 @@ public class UpdateAuthMethodUniversalIdentity {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bound-ips");
     openapiFields.add("delete_protection");
@@ -658,6 +693,10 @@ public class UpdateAuthMethodUniversalIdentity {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("audit-logs-claims") != null && !jsonObj.get("audit-logs-claims").isJsonNull() && !jsonObj.get("audit-logs-claims").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `audit-logs-claims` to be an array in the JSON string but got `%s`", jsonObj.get("audit-logs-claims").toString()));

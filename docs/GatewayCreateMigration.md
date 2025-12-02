@@ -11,6 +11,7 @@ gatewayCreateMigration is a command that create migration
 |**serviceAccountKeyDecoded** | **String** |  |  [optional] |
 |**adAutoRotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --ad-rotation-interval and --ad-rotation-hour parameters (Relevant only for Active Directory migration) |  [optional] |
 |**adComputerBaseDn** | **String** | Distinguished Name of Computer objects (servers) to search in Active Directory e.g.: CN&#x3D;Computers,DC&#x3D;example,DC&#x3D;com (Relevant only for Active Directory migration) |  [optional] |
+|**adDiscoverIisApp** | **String** | Enable/Disable discovery of IIS application from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration) |  [optional] |
 |**adDiscoverServices** | **String** | Enable/Disable discovery of Windows services from each domain server as part of the SSH/Windows Rotated Secrets. Default is false. (Relevant only for Active Directory migration) |  [optional] |
 |**adDiscoveryTypes** | **List&lt;String&gt;** | Set migration discovery types (domain-users, computers, local-users). (Relevant only for Active Directory migration) |  [optional] |
 |**adDomainName** | **String** | Active Directory Domain Name (Relevant only for Active Directory migration) |  [optional] |

@@ -57,6 +57,11 @@ public class GetDynamicSecretValue {
   @javax.annotation.Nullable
   private List<String> args = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_DBNAME = "dbname";
+  @SerializedName(SERIALIZED_NAME_DBNAME)
+  @javax.annotation.Nullable
+  private String dbname;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nullable
@@ -119,6 +124,25 @@ public class GetDynamicSecretValue {
 
   public void setArgs(@javax.annotation.Nullable List<String> args) {
     this.args = args;
+  }
+
+
+  public GetDynamicSecretValue dbname(@javax.annotation.Nullable String dbname) {
+    this.dbname = dbname;
+    return this;
+  }
+
+  /**
+   * DBName: Optional override DB name (works only if DS allows it. only relevant for MSSQL)
+   * @return dbname
+   */
+  @javax.annotation.Nullable
+  public String getDbname() {
+    return dbname;
+  }
+
+  public void setDbname(@javax.annotation.Nullable String dbname) {
+    this.dbname = dbname;
   }
 
 
@@ -266,6 +290,7 @@ public class GetDynamicSecretValue {
     }
     GetDynamicSecretValue getDynamicSecretValue = (GetDynamicSecretValue) o;
     return Objects.equals(this.args, getDynamicSecretValue.args) &&
+        Objects.equals(this.dbname, getDynamicSecretValue.dbname) &&
         Objects.equals(this.host, getDynamicSecretValue.host) &&
         Objects.equals(this.json, getDynamicSecretValue.json) &&
         Objects.equals(this.name, getDynamicSecretValue.name) &&
@@ -277,7 +302,7 @@ public class GetDynamicSecretValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, host, json, name, target, timeout, token, uidToken);
+    return Objects.hash(args, dbname, host, json, name, target, timeout, token, uidToken);
   }
 
   @Override
@@ -285,6 +310,7 @@ public class GetDynamicSecretValue {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetDynamicSecretValue {\n");
     sb.append("    args: ").append(toIndentedString(args)).append("\n");
+    sb.append("    dbname: ").append(toIndentedString(dbname)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -315,6 +341,7 @@ public class GetDynamicSecretValue {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("args");
+    openapiFields.add("dbname");
     openapiFields.add("host");
     openapiFields.add("json");
     openapiFields.add("name");
@@ -359,6 +386,9 @@ public class GetDynamicSecretValue {
       // ensure the optional json data is an array if present
       if (jsonObj.get("args") != null && !jsonObj.get("args").isJsonNull() && !jsonObj.get("args").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
+      }
+      if ((jsonObj.get("dbname") != null && !jsonObj.get("dbname").isJsonNull()) && !jsonObj.get("dbname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dbname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dbname").toString()));
       }
       if ((jsonObj.get("host") != null && !jsonObj.get("host").isJsonNull()) && !jsonObj.get("host").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));

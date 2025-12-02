@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class GatewayUpdateProducerGcp {
+  public static final String SERIALIZED_NAME_ACCESS_TYPE = "access-type";
+  @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
+  @javax.annotation.Nullable
+  private String accessType;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -63,6 +68,11 @@ public class GatewayUpdateProducerGcp {
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
   private String deleteProtection;
+
+  public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
+  @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
+  @javax.annotation.Nullable
+  private String fixedUserClaimKeyname = "ext_email";
 
   public static final String SERIALIZED_NAME_GCP_CRED_TYPE = "gcp-cred-type";
   @SerializedName(SERIALIZED_NAME_GCP_CRED_TYPE)
@@ -124,9 +134,39 @@ public class GatewayUpdateProducerGcp {
   @javax.annotation.Nullable
   private String roleBinding;
 
+  public static final String SERIALIZED_NAME_ROLE_NAMES = "role-names";
+  @SerializedName(SERIALIZED_NAME_ROLE_NAMES)
+  @javax.annotation.Nullable
+  private String roleNames;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DELAY = "secure-access-delay";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DELAY)
+  @javax.annotation.Nullable
+  private Long secureAccessDelay;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
+  @javax.annotation.Nullable
+  private String secureAccessEnable;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  @javax.annotation.Nullable
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessWebBrowsing = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  @javax.annotation.Nullable
+  private Boolean secureAccessWebProxy = false;
+
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_TYPE = "service-account-type";
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_TYPE)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private String serviceAccountType = "fixed";
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
@@ -156,6 +196,25 @@ public class GatewayUpdateProducerGcp {
 
   public GatewayUpdateProducerGcp() {
   }
+
+  public GatewayUpdateProducerGcp accessType(@javax.annotation.Nullable String accessType) {
+    this.accessType = accessType;
+    return this;
+  }
+
+  /**
+   * Get accessType
+   * @return accessType
+   */
+  @javax.annotation.Nullable
+  public String getAccessType() {
+    return accessType;
+  }
+
+  public void setAccessType(@javax.annotation.Nullable String accessType) {
+    this.accessType = accessType;
+  }
+
 
   public GatewayUpdateProducerGcp customUsernameTemplate(@javax.annotation.Nullable String customUsernameTemplate) {
     this.customUsernameTemplate = customUsernameTemplate;
@@ -192,6 +251,25 @@ public class GatewayUpdateProducerGcp {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerGcp fixedUserClaimKeyname(@javax.annotation.Nullable String fixedUserClaimKeyname) {
+    this.fixedUserClaimKeyname = fixedUserClaimKeyname;
+    return this;
+  }
+
+  /**
+   * For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type&#x3D;external)
+   * @return fixedUserClaimKeyname
+   */
+  @javax.annotation.Nullable
+  public String getFixedUserClaimKeyname() {
+    return fixedUserClaimKeyname;
+  }
+
+  public void setFixedUserClaimKeyname(@javax.annotation.Nullable String fixedUserClaimKeyname) {
+    this.fixedUserClaimKeyname = fixedUserClaimKeyname;
   }
 
 
@@ -239,7 +317,7 @@ public class GatewayUpdateProducerGcp {
   }
 
   /**
-   * Service account key algorithm, e.g. KEY_ALG_RSA_1024
+   * Service account key algorithm, e.g. KEY_ALG_RSA_1024 (Relevant only when --access-type&#x3D;sa and --gcp-cred-type&#x3D;key)
    * @return gcpKeyAlgo
    */
   @javax.annotation.Nullable
@@ -258,7 +336,7 @@ public class GatewayUpdateProducerGcp {
   }
 
   /**
-   * GCP Project ID override for dynamic secret operations (tmp service accounts)
+   * GCP Project ID override for dynamic secret operations
    * @return gcpProjectId
    */
   @javax.annotation.Nullable
@@ -277,7 +355,7 @@ public class GatewayUpdateProducerGcp {
   }
 
   /**
-   * The email of the fixed service acocunt to generate keys or tokens for. (revelant for service-account-type&#x3D;fixed)
+   * The email of the fixed service account to generate keys or tokens for (Relevant only when --access-type&#x3D;sa and --service-account-type&#x3D;fixed)
    * @return gcpSaEmail
    */
   @javax.annotation.Nullable
@@ -296,7 +374,7 @@ public class GatewayUpdateProducerGcp {
   }
 
   /**
-   * Access token scopes list, e.g. scope1,scope2
+   * Access token scopes list, e.g. scope1,scope2 (Relevant only when --access-type&#x3D;sa; required when --gcp-cred-type&#x3D;token)
    * @return gcpTokenScopes
    */
   @javax.annotation.Nullable
@@ -418,7 +496,7 @@ public class GatewayUpdateProducerGcp {
   }
 
   /**
-   * Role binding definitions in json format
+   * Role binding definitions in JSON format (Relevant only when --access-type&#x3D;sa and --service-account-type&#x3D;dynamic)
    * @return roleBinding
    */
   @javax.annotation.Nullable
@@ -431,21 +509,135 @@ public class GatewayUpdateProducerGcp {
   }
 
 
-  public GatewayUpdateProducerGcp serviceAccountType(@javax.annotation.Nonnull String serviceAccountType) {
+  public GatewayUpdateProducerGcp roleNames(@javax.annotation.Nullable String roleNames) {
+    this.roleNames = roleNames;
+    return this;
+  }
+
+  /**
+   * Comma-separated list of GCP roles to assign to the user (Relevant only when --access-type&#x3D;external)
+   * @return roleNames
+   */
+  @javax.annotation.Nullable
+  public String getRoleNames() {
+    return roleNames;
+  }
+
+  public void setRoleNames(@javax.annotation.Nullable String roleNames) {
+    this.roleNames = roleNames;
+  }
+
+
+  public GatewayUpdateProducerGcp secureAccessDelay(@javax.annotation.Nullable Long secureAccessDelay) {
+    this.secureAccessDelay = secureAccessDelay;
+    return this;
+  }
+
+  /**
+   * The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
+   * @return secureAccessDelay
+   */
+  @javax.annotation.Nullable
+  public Long getSecureAccessDelay() {
+    return secureAccessDelay;
+  }
+
+  public void setSecureAccessDelay(@javax.annotation.Nullable Long secureAccessDelay) {
+    this.secureAccessDelay = secureAccessDelay;
+  }
+
+
+  public GatewayUpdateProducerGcp secureAccessEnable(@javax.annotation.Nullable String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+    return this;
+  }
+
+  /**
+   * Enable/Disable secure remote access [true/false]
+   * @return secureAccessEnable
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessEnable() {
+    return secureAccessEnable;
+  }
+
+  public void setSecureAccessEnable(@javax.annotation.Nullable String secureAccessEnable) {
+    this.secureAccessEnable = secureAccessEnable;
+  }
+
+
+  public GatewayUpdateProducerGcp secureAccessUrl(@javax.annotation.Nullable String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+  /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+  public void setSecureAccessUrl(@javax.annotation.Nullable String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public GatewayUpdateProducerGcp secureAccessWebBrowsing(@javax.annotation.Nullable Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+  /**
+   * Secure browser via Akeyless&#39;s Secure Remote Access (SRA)
+   * @return secureAccessWebBrowsing
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+  public void setSecureAccessWebBrowsing(@javax.annotation.Nullable Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public GatewayUpdateProducerGcp secureAccessWebProxy(@javax.annotation.Nullable Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+  /**
+   * Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA)
+   * @return secureAccessWebProxy
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+  public void setSecureAccessWebProxy(@javax.annotation.Nullable Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+  }
+
+
+  public GatewayUpdateProducerGcp serviceAccountType(@javax.annotation.Nullable String serviceAccountType) {
     this.serviceAccountType = serviceAccountType;
     return this;
   }
 
   /**
-   * The type of the gcp dynamic secret. Options[fixed, dynamic]
+   * The type of the GCP service account. Options [fixed, dynamic] (Relevant only when --access-type&#x3D;sa)
    * @return serviceAccountType
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getServiceAccountType() {
     return serviceAccountType;
   }
 
-  public void setServiceAccountType(@javax.annotation.Nonnull String serviceAccountType) {
+  public void setServiceAccountType(@javax.annotation.Nullable String serviceAccountType) {
     this.serviceAccountType = serviceAccountType;
   }
 
@@ -563,8 +755,10 @@ public class GatewayUpdateProducerGcp {
       return false;
     }
     GatewayUpdateProducerGcp gatewayUpdateProducerGcp = (GatewayUpdateProducerGcp) o;
-    return Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerGcp.customUsernameTemplate) &&
+    return Objects.equals(this.accessType, gatewayUpdateProducerGcp.accessType) &&
+        Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerGcp.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerGcp.deleteProtection) &&
+        Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerGcp.fixedUserClaimKeyname) &&
         Objects.equals(this.gcpCredType, gatewayUpdateProducerGcp.gcpCredType) &&
         Objects.equals(this.gcpKey, gatewayUpdateProducerGcp.gcpKey) &&
         Objects.equals(this.gcpKeyAlgo, gatewayUpdateProducerGcp.gcpKeyAlgo) &&
@@ -577,6 +771,12 @@ public class GatewayUpdateProducerGcp {
         Objects.equals(this.newName, gatewayUpdateProducerGcp.newName) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerGcp.producerEncryptionKeyName) &&
         Objects.equals(this.roleBinding, gatewayUpdateProducerGcp.roleBinding) &&
+        Objects.equals(this.roleNames, gatewayUpdateProducerGcp.roleNames) &&
+        Objects.equals(this.secureAccessDelay, gatewayUpdateProducerGcp.secureAccessDelay) &&
+        Objects.equals(this.secureAccessEnable, gatewayUpdateProducerGcp.secureAccessEnable) &&
+        Objects.equals(this.secureAccessUrl, gatewayUpdateProducerGcp.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWebBrowsing, gatewayUpdateProducerGcp.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, gatewayUpdateProducerGcp.secureAccessWebProxy) &&
         Objects.equals(this.serviceAccountType, gatewayUpdateProducerGcp.serviceAccountType) &&
         Objects.equals(this.tags, gatewayUpdateProducerGcp.tags) &&
         Objects.equals(this.targetName, gatewayUpdateProducerGcp.targetName) &&
@@ -587,15 +787,17 @@ public class GatewayUpdateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, itemCustomFields, json, name, newName, producerEncryptionKeyName, roleBinding, serviceAccountType, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessType, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, itemCustomFields, json, name, newName, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerGcp {\n");
+    sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    gcpCredType: ").append(toIndentedString(gcpCredType)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpKeyAlgo: ").append(toIndentedString(gcpKeyAlgo)).append("\n");
@@ -608,6 +810,12 @@ public class GatewayUpdateProducerGcp {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    roleBinding: ").append(toIndentedString(roleBinding)).append("\n");
+    sb.append("    roleNames: ").append(toIndentedString(roleNames)).append("\n");
+    sb.append("    secureAccessDelay: ").append(toIndentedString(secureAccessDelay)).append("\n");
+    sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    serviceAccountType: ").append(toIndentedString(serviceAccountType)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -636,8 +844,10 @@ public class GatewayUpdateProducerGcp {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("access-type");
     openapiFields.add("custom-username-template");
     openapiFields.add("delete_protection");
+    openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("gcp-cred-type");
     openapiFields.add("gcp-key");
     openapiFields.add("gcp-key-algo");
@@ -650,6 +860,12 @@ public class GatewayUpdateProducerGcp {
     openapiFields.add("new-name");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("role-binding");
+    openapiFields.add("role-names");
+    openapiFields.add("secure-access-delay");
+    openapiFields.add("secure-access-enable");
+    openapiFields.add("secure-access-url");
+    openapiFields.add("secure-access-web-browsing");
+    openapiFields.add("secure-access-web-proxy");
     openapiFields.add("service-account-type");
     openapiFields.add("tags");
     openapiFields.add("target-name");
@@ -660,7 +876,6 @@ public class GatewayUpdateProducerGcp {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
-    openapiRequiredFields.add("service-account-type");
   }
 
   /**
@@ -691,11 +906,17 @@ public class GatewayUpdateProducerGcp {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("access-type") != null && !jsonObj.get("access-type").isJsonNull()) && !jsonObj.get("access-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `access-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access-type").toString()));
+      }
       if ((jsonObj.get("custom-username-template") != null && !jsonObj.get("custom-username-template").isJsonNull()) && !jsonObj.get("custom-username-template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custom-username-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom-username-template").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+      }
+      if ((jsonObj.get("fixed-user-claim-keyname") != null && !jsonObj.get("fixed-user-claim-keyname").isJsonNull()) && !jsonObj.get("fixed-user-claim-keyname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fixed-user-claim-keyname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fixed-user-claim-keyname").toString()));
       }
       if ((jsonObj.get("gcp-cred-type") != null && !jsonObj.get("gcp-cred-type").isJsonNull()) && !jsonObj.get("gcp-cred-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-cred-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-cred-type").toString()));
@@ -727,7 +948,16 @@ public class GatewayUpdateProducerGcp {
       if ((jsonObj.get("role-binding") != null && !jsonObj.get("role-binding").isJsonNull()) && !jsonObj.get("role-binding").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `role-binding` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role-binding").toString()));
       }
-      if (!jsonObj.get("service-account-type").isJsonPrimitive()) {
+      if ((jsonObj.get("role-names") != null && !jsonObj.get("role-names").isJsonNull()) && !jsonObj.get("role-names").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `role-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role-names").toString()));
+      }
+      if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
+      }
+      if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      if ((jsonObj.get("service-account-type") != null && !jsonObj.get("service-account-type").isJsonNull()) && !jsonObj.get("service-account-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `service-account-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service-account-type").toString()));
       }
       // ensure the optional json data is an array if present

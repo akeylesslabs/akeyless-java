@@ -124,6 +124,11 @@ public class DynamicSecretCreateGoogleWorkspace {
   @javax.annotation.Nullable
   private String roleScope;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_DELAY = "secure-access-delay";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_DELAY)
+  @javax.annotation.Nullable
+  private Long secureAccessDelay;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ENABLE = "secure-access-enable";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENABLE)
   @javax.annotation.Nullable
@@ -451,6 +456,25 @@ public class DynamicSecretCreateGoogleWorkspace {
   }
 
 
+  public DynamicSecretCreateGoogleWorkspace secureAccessDelay(@javax.annotation.Nullable Long secureAccessDelay) {
+    this.secureAccessDelay = secureAccessDelay;
+    return this;
+  }
+
+  /**
+   * The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds
+   * @return secureAccessDelay
+   */
+  @javax.annotation.Nullable
+  public Long getSecureAccessDelay() {
+    return secureAccessDelay;
+  }
+
+  public void setSecureAccessDelay(@javax.annotation.Nullable Long secureAccessDelay) {
+    this.secureAccessDelay = secureAccessDelay;
+  }
+
+
   public DynamicSecretCreateGoogleWorkspace secureAccessEnable(@javax.annotation.Nullable String secureAccessEnable) {
     this.secureAccessEnable = secureAccessEnable;
     return this;
@@ -673,6 +697,7 @@ public class DynamicSecretCreateGoogleWorkspace {
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateGoogleWorkspace.producerEncryptionKeyName) &&
         Objects.equals(this.roleName, dynamicSecretCreateGoogleWorkspace.roleName) &&
         Objects.equals(this.roleScope, dynamicSecretCreateGoogleWorkspace.roleScope) &&
+        Objects.equals(this.secureAccessDelay, dynamicSecretCreateGoogleWorkspace.secureAccessDelay) &&
         Objects.equals(this.secureAccessEnable, dynamicSecretCreateGoogleWorkspace.secureAccessEnable) &&
         Objects.equals(this.secureAccessUrl, dynamicSecretCreateGoogleWorkspace.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, dynamicSecretCreateGoogleWorkspace.secureAccessWeb) &&
@@ -687,7 +712,7 @@ public class DynamicSecretCreateGoogleWorkspace {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminEmail, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, itemCustomFields, json, name, producerEncryptionKeyName, roleName, roleScope, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminEmail, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, itemCustomFields, json, name, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -708,6 +733,7 @@ public class DynamicSecretCreateGoogleWorkspace {
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
     sb.append("    roleScope: ").append(toIndentedString(roleScope)).append("\n");
+    sb.append("    secureAccessDelay: ").append(toIndentedString(secureAccessDelay)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
@@ -754,6 +780,7 @@ public class DynamicSecretCreateGoogleWorkspace {
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("role-name");
     openapiFields.add("role-scope");
+    openapiFields.add("secure-access-delay");
     openapiFields.add("secure-access-enable");
     openapiFields.add("secure-access-url");
     openapiFields.add("secure-access-web");

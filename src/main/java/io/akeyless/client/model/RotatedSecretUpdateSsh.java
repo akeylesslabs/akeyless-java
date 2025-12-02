@@ -99,6 +99,11 @@ public class RotatedSecretUpdateSsh {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
+  @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
+  @javax.annotation.Nullable
+  private String keyDataBase64;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -118,6 +123,11 @@ public class RotatedSecretUpdateSsh {
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   @javax.annotation.Nullable
   private String passwordLength;
+
+  public static final String SERIALIZED_NAME_PUBLIC_KEY_REMOTE_PATH = "public-key-remote-path";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_REMOTE_PATH)
+  @javax.annotation.Nullable
+  private String publicKeyRemotePath;
 
   public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
   @SerializedName(SERIALIZED_NAME_RM_TAG)
@@ -414,6 +424,25 @@ public class RotatedSecretUpdateSsh {
   }
 
 
+  public RotatedSecretUpdateSsh keyDataBase64(@javax.annotation.Nullable String keyDataBase64) {
+    this.keyDataBase64 = keyDataBase64;
+    return this;
+  }
+
+  /**
+   * Private key file contents encoded using base64
+   * @return keyDataBase64
+   */
+  @javax.annotation.Nullable
+  public String getKeyDataBase64() {
+    return keyDataBase64;
+  }
+
+  public void setKeyDataBase64(@javax.annotation.Nullable String keyDataBase64) {
+    this.keyDataBase64 = keyDataBase64;
+  }
+
+
   public RotatedSecretUpdateSsh maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -487,6 +516,25 @@ public class RotatedSecretUpdateSsh {
 
   public void setPasswordLength(@javax.annotation.Nullable String passwordLength) {
     this.passwordLength = passwordLength;
+  }
+
+
+  public RotatedSecretUpdateSsh publicKeyRemotePath(@javax.annotation.Nullable String publicKeyRemotePath) {
+    this.publicKeyRemotePath = publicKeyRemotePath;
+    return this;
+  }
+
+  /**
+   * The path to the public key that will be rotated on the server
+   * @return publicKeyRemotePath
+   */
+  @javax.annotation.Nullable
+  public String getPublicKeyRemotePath() {
+    return publicKeyRemotePath;
+  }
+
+  public void setPublicKeyRemotePath(@javax.annotation.Nullable String publicKeyRemotePath) {
+    this.publicKeyRemotePath = publicKeyRemotePath;
   }
 
 
@@ -932,10 +980,12 @@ public class RotatedSecretUpdateSsh {
         Objects.equals(this.json, rotatedSecretUpdateSsh.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateSsh.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateSsh.key) &&
+        Objects.equals(this.keyDataBase64, rotatedSecretUpdateSsh.keyDataBase64) &&
         Objects.equals(this.maxVersions, rotatedSecretUpdateSsh.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateSsh.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateSsh.newName) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateSsh.passwordLength) &&
+        Objects.equals(this.publicKeyRemotePath, rotatedSecretUpdateSsh.publicKeyRemotePath) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateSsh.rmTag) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateSsh.rotateAfterDisconnect) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateSsh.rotatedPassword) &&
@@ -961,7 +1011,7 @@ public class RotatedSecretUpdateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, keepPrevVersion, key, keyDataBase64, maxVersions, name, newName, passwordLength, publicKeyRemotePath, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, token, uidToken);
   }
 
   @Override
@@ -977,10 +1027,12 @@ public class RotatedSecretUpdateSsh {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    publicKeyRemotePath: ").append(toIndentedString(publicKeyRemotePath)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
@@ -1033,10 +1085,12 @@ public class RotatedSecretUpdateSsh {
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
     openapiFields.add("key");
+    openapiFields.add("key-data-base64");
     openapiFields.add("max-versions");
     openapiFields.add("name");
     openapiFields.add("new-name");
     openapiFields.add("password-length");
+    openapiFields.add("public-key-remote-path");
     openapiFields.add("rm-tag");
     openapiFields.add("rotate-after-disconnect");
     openapiFields.add("rotated-password");
@@ -1115,6 +1169,9 @@ public class RotatedSecretUpdateSsh {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("key-data-base64") != null && !jsonObj.get("key-data-base64").isJsonNull()) && !jsonObj.get("key-data-base64").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `key-data-base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-data-base64").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1126,6 +1183,9 @@ public class RotatedSecretUpdateSsh {
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+      }
+      if ((jsonObj.get("public-key-remote-path") != null && !jsonObj.get("public-key-remote-path").isJsonNull()) && !jsonObj.get("public-key-remote-path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `public-key-remote-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public-key-remote-path").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rm-tag") != null && !jsonObj.get("rm-tag").isJsonNull() && !jsonObj.get("rm-tag").isJsonArray()) {

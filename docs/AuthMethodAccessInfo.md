@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**accessExpires** | **Long** |  |  [optional] |
 |**accessIdAlias** | **String** | for accounts where AccessId holds encrypted email this field will hold generated AccessId, for accounts based on regular AccessId it will be equal to accessId itself |  [optional] |
+|**allowedClientType** | **List&lt;String&gt;** |  |  [optional] |
 |**apiKeyAccessRules** | [**APIKeyAccessRules**](APIKeyAccessRules.md) |  |  [optional] |
 |**auditLogsClaims** | **List&lt;String&gt;** |  |  [optional] |
 |**awsIamAccessRules** | [**AWSIAMAccessRules**](AWSIAMAccessRules.md) |  |  [optional] |

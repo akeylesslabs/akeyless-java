@@ -57,6 +57,11 @@ public class AuthMethodUpdateKerberos {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_AUDIT_LOGS_CLAIMS = "audit-logs-claims";
   @SerializedName(SERIALIZED_NAME_AUDIT_LOGS_CLAIMS)
   @javax.annotation.Nullable
@@ -226,6 +231,33 @@ public class AuthMethodUpdateKerberos {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public AuthMethodUpdateKerberos allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public AuthMethodUpdateKerberos addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -858,6 +890,7 @@ public class AuthMethodUpdateKerberos {
     }
     AuthMethodUpdateKerberos authMethodUpdateKerberos = (AuthMethodUpdateKerberos) o;
     return Objects.equals(this.accessExpires, authMethodUpdateKerberos.accessExpires) &&
+        Objects.equals(this.allowedClientType, authMethodUpdateKerberos.allowedClientType) &&
         Objects.equals(this.auditLogsClaims, authMethodUpdateKerberos.auditLogsClaims) &&
         Objects.equals(this.bindDn, authMethodUpdateKerberos.bindDn) &&
         Objects.equals(this.bindDnPassword, authMethodUpdateKerberos.bindDnPassword) &&
@@ -892,7 +925,7 @@ public class AuthMethodUpdateKerberos {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, auditLogsClaims, bindDn, bindDnPassword, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, groupAttr, groupDn, groupFilter, gwBoundIps, json, jwtTtl, keytabFileData, keytabFilePath, krb5ConfData, krb5ConfPath, ldapAnonymousSearch, ldapCaCert, ldapUrl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, userAttribute, userDn);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, bindDn, bindDnPassword, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, groupAttr, groupDn, groupFilter, gwBoundIps, json, jwtTtl, keytabFileData, keytabFilePath, krb5ConfData, krb5ConfPath, ldapAnonymousSearch, ldapCaCert, ldapUrl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, userAttribute, userDn);
   }
 
   @Override
@@ -900,6 +933,7 @@ public class AuthMethodUpdateKerberos {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethodUpdateKerberos {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
@@ -953,6 +987,7 @@ public class AuthMethodUpdateKerberos {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bind-dn");
     openapiFields.add("bind-dn-password");
@@ -1017,6 +1052,10 @@ public class AuthMethodUpdateKerberos {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("audit-logs-claims") != null && !jsonObj.get("audit-logs-claims").isJsonNull() && !jsonObj.get("audit-logs-claims").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `audit-logs-claims` to be an array in the JSON string but got `%s`", jsonObj.get("audit-logs-claims").toString()));

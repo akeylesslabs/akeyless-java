@@ -119,10 +119,20 @@ public class CreatePKICertIssuer {
   @javax.annotation.Nullable
   private Boolean createPrivateCrl;
 
+  public static final String SERIALIZED_NAME_CREATE_PRIVATE_OCSP = "create-private-ocsp";
+  @SerializedName(SERIALIZED_NAME_CREATE_PRIVATE_OCSP)
+  @javax.annotation.Nullable
+  private Boolean createPrivateOcsp;
+
   public static final String SERIALIZED_NAME_CREATE_PUBLIC_CRL = "create-public-crl";
   @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_CRL)
   @javax.annotation.Nullable
   private Boolean createPublicCrl;
+
+  public static final String SERIALIZED_NAME_CREATE_PUBLIC_OCSP = "create-public-ocsp";
+  @SerializedName(SERIALIZED_NAME_CREATE_PUBLIC_OCSP)
+  @javax.annotation.Nullable
+  private Boolean createPublicOcsp;
 
   public static final String SERIALIZED_NAME_CRITICAL_KEY_USAGE = "critical-key-usage";
   @SerializedName(SERIALIZED_NAME_CRITICAL_KEY_USAGE)
@@ -213,6 +223,11 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_NOT_REQUIRE_CN)
   @javax.annotation.Nullable
   private Boolean notRequireCn;
+
+  public static final String SERIALIZED_NAME_OCSP_TTL = "ocsp-ttl";
+  @SerializedName(SERIALIZED_NAME_OCSP_TTL)
+  @javax.annotation.Nullable
+  private String ocspTtl;
 
   public static final String SERIALIZED_NAME_ORGANIZATIONAL_UNITS = "organizational-units";
   @SerializedName(SERIALIZED_NAME_ORGANIZATIONAL_UNITS)
@@ -529,6 +544,25 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer createPrivateOcsp(@javax.annotation.Nullable Boolean createPrivateOcsp) {
+    this.createPrivateOcsp = createPrivateOcsp;
+    return this;
+  }
+
+  /**
+   * Get createPrivateOcsp
+   * @return createPrivateOcsp
+   */
+  @javax.annotation.Nullable
+  public Boolean getCreatePrivateOcsp() {
+    return createPrivateOcsp;
+  }
+
+  public void setCreatePrivateOcsp(@javax.annotation.Nullable Boolean createPrivateOcsp) {
+    this.createPrivateOcsp = createPrivateOcsp;
+  }
+
+
   public CreatePKICertIssuer createPublicCrl(@javax.annotation.Nullable Boolean createPublicCrl) {
     this.createPublicCrl = createPublicCrl;
     return this;
@@ -545,6 +579,25 @@ public class CreatePKICertIssuer {
 
   public void setCreatePublicCrl(@javax.annotation.Nullable Boolean createPublicCrl) {
     this.createPublicCrl = createPublicCrl;
+  }
+
+
+  public CreatePKICertIssuer createPublicOcsp(@javax.annotation.Nullable Boolean createPublicOcsp) {
+    this.createPublicOcsp = createPublicOcsp;
+    return this;
+  }
+
+  /**
+   * Get createPublicOcsp
+   * @return createPublicOcsp
+   */
+  @javax.annotation.Nullable
+  public Boolean getCreatePublicOcsp() {
+    return createPublicOcsp;
+  }
+
+  public void setCreatePublicOcsp(@javax.annotation.Nullable Boolean createPublicOcsp) {
+    this.createPublicOcsp = createPublicOcsp;
   }
 
 
@@ -906,6 +959,25 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer ocspTtl(@javax.annotation.Nullable String ocspTtl) {
+    this.ocspTtl = ocspTtl;
+    return this;
+  }
+
+  /**
+   * Get ocspTtl
+   * @return ocspTtl
+   */
+  @javax.annotation.Nullable
+  public String getOcspTtl() {
+    return ocspTtl;
+  }
+
+  public void setOcspTtl(@javax.annotation.Nullable String ocspTtl) {
+    this.ocspTtl = ocspTtl;
+  }
+
+
   public CreatePKICertIssuer organizationalUnits(@javax.annotation.Nullable String organizationalUnits) {
     this.organizationalUnits = organizationalUnits;
     return this;
@@ -1184,7 +1256,9 @@ public class CreatePKICertIssuer {
         Objects.equals(this.codeSigningFlag, createPKICertIssuer.codeSigningFlag) &&
         Objects.equals(this.country, createPKICertIssuer.country) &&
         Objects.equals(this.createPrivateCrl, createPKICertIssuer.createPrivateCrl) &&
+        Objects.equals(this.createPrivateOcsp, createPKICertIssuer.createPrivateOcsp) &&
         Objects.equals(this.createPublicCrl, createPKICertIssuer.createPublicCrl) &&
+        Objects.equals(this.createPublicOcsp, createPKICertIssuer.createPublicOcsp) &&
         Objects.equals(this.criticalKeyUsage, createPKICertIssuer.criticalKeyUsage) &&
         Objects.equals(this.deleteProtection, createPKICertIssuer.deleteProtection) &&
         Objects.equals(this.description, createPKICertIssuer.description) &&
@@ -1203,6 +1277,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.name, createPKICertIssuer.name) &&
         Objects.equals(this.notEnforceHostnames, createPKICertIssuer.notEnforceHostnames) &&
         Objects.equals(this.notRequireCn, createPKICertIssuer.notRequireCn) &&
+        Objects.equals(this.ocspTtl, createPKICertIssuer.ocspTtl) &&
         Objects.equals(this.organizationalUnits, createPKICertIssuer.organizationalUnits) &&
         Objects.equals(this.organizations, createPKICertIssuer.organizations) &&
         Objects.equals(this.postalCode, createPKICertIssuer.postalCode) &&
@@ -1220,7 +1295,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPublicCrl, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1240,7 +1315,9 @@ public class CreatePKICertIssuer {
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    createPrivateCrl: ").append(toIndentedString(createPrivateCrl)).append("\n");
+    sb.append("    createPrivateOcsp: ").append(toIndentedString(createPrivateOcsp)).append("\n");
     sb.append("    createPublicCrl: ").append(toIndentedString(createPublicCrl)).append("\n");
+    sb.append("    createPublicOcsp: ").append(toIndentedString(createPublicOcsp)).append("\n");
     sb.append("    criticalKeyUsage: ").append(toIndentedString(criticalKeyUsage)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -1259,6 +1336,7 @@ public class CreatePKICertIssuer {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    notEnforceHostnames: ").append(toIndentedString(notEnforceHostnames)).append("\n");
     sb.append("    notRequireCn: ").append(toIndentedString(notRequireCn)).append("\n");
+    sb.append("    ocspTtl: ").append(toIndentedString(ocspTtl)).append("\n");
     sb.append("    organizationalUnits: ").append(toIndentedString(organizationalUnits)).append("\n");
     sb.append("    organizations: ").append(toIndentedString(organizations)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
@@ -1307,7 +1385,9 @@ public class CreatePKICertIssuer {
     openapiFields.add("code-signing-flag");
     openapiFields.add("country");
     openapiFields.add("create-private-crl");
+    openapiFields.add("create-private-ocsp");
     openapiFields.add("create-public-crl");
+    openapiFields.add("create-public-ocsp");
     openapiFields.add("critical-key-usage");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
@@ -1326,6 +1406,7 @@ public class CreatePKICertIssuer {
     openapiFields.add("name");
     openapiFields.add("not-enforce-hostnames");
     openapiFields.add("not-require-cn");
+    openapiFields.add("ocsp-ttl");
     openapiFields.add("organizational-units");
     openapiFields.add("organizations");
     openapiFields.add("postal-code");
@@ -1422,6 +1503,9 @@ public class CreatePKICertIssuer {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("ocsp-ttl") != null && !jsonObj.get("ocsp-ttl").isJsonNull()) && !jsonObj.get("ocsp-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ocsp-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ocsp-ttl").toString()));
       }
       if ((jsonObj.get("organizational-units") != null && !jsonObj.get("organizational-units").isJsonNull()) && !jsonObj.get("organizational-units").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `organizational-units` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organizational-units").toString()));

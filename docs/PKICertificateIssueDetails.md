@@ -22,7 +22,9 @@
 |**codeSigningFlag** | **Boolean** |  |  [optional] |
 |**country** | **List&lt;String&gt;** |  |  [optional] |
 |**createPrivateCrl** | **Boolean** |  |  [optional] |
+|**createPrivateOcsp** | **Boolean** | CreatePrivateOcsp enables exposing an OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates. |  [optional] |
 |**createPublicCrl** | **Boolean** |  |  [optional] |
+|**createPublicOcsp** | **Boolean** | CreatePublicOcsp enables exposing a public OCSP endpoint on the Gateway and embedding its URL in the AIA extension of issued certificates. |  [optional] |
 |**destinationPath** | **String** | DestinationPath is the destination to save generated certificates |  [optional] |
 |**disableWildcards** | **Boolean** |  |  [optional] |
 |**enforceHostnames** | **Boolean** |  |  [optional] |
@@ -37,6 +39,7 @@
 |**maxPathLen** | **Long** |  |  [optional] |
 |**nonCriticalKeyUsage** | **Boolean** |  |  [optional] |
 |**notBeforeDuration** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional] |
+|**ocspNextUpdate** | **Long** | OcspNextUpdate defines the desired NextUpdate window for OCSP responses. Value is in seconds; 0 means not set. Minimum enforced is 10 minutes. |  [optional] |
 |**organizationList** | **List&lt;String&gt;** |  |  [optional] |
 |**organizationUnitList** | **List&lt;String&gt;** |  |  [optional] |
 |**pkiIssuerType** | **String** |  |  [optional] |

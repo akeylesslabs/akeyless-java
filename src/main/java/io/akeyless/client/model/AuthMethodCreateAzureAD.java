@@ -57,6 +57,11 @@ public class AuthMethodCreateAzureAD {
   @javax.annotation.Nullable
   private Long accessExpires = 0l;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   @javax.annotation.Nullable
@@ -206,6 +211,33 @@ public class AuthMethodCreateAzureAD {
 
   public void setAccessExpires(@javax.annotation.Nullable Long accessExpires) {
     this.accessExpires = accessExpires;
+  }
+
+
+  public AuthMethodCreateAzureAD allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public AuthMethodCreateAzureAD addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -818,6 +850,7 @@ public class AuthMethodCreateAzureAD {
     }
     AuthMethodCreateAzureAD authMethodCreateAzureAD = (AuthMethodCreateAzureAD) o;
     return Objects.equals(this.accessExpires, authMethodCreateAzureAD.accessExpires) &&
+        Objects.equals(this.allowedClientType, authMethodCreateAzureAD.allowedClientType) &&
         Objects.equals(this.audience, authMethodCreateAzureAD.audience) &&
         Objects.equals(this.auditLogsClaims, authMethodCreateAzureAD.auditLogsClaims) &&
         Objects.equals(this.boundGroupId, authMethodCreateAzureAD.boundGroupId) &&
@@ -848,7 +881,7 @@ public class AuthMethodCreateAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -856,6 +889,7 @@ public class AuthMethodCreateAzureAD {
     StringBuilder sb = new StringBuilder();
     sb.append("class AuthMethodCreateAzureAD {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundGroupId: ").append(toIndentedString(boundGroupId)).append("\n");
@@ -905,6 +939,7 @@ public class AuthMethodCreateAzureAD {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("access-expires");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("audience");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bound-group-id");
@@ -966,6 +1001,10 @@ public class AuthMethodCreateAzureAD {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
+      }
       if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull()) && !jsonObj.get("audience").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
       }

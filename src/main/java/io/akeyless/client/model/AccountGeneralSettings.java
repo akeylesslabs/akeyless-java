@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AiInsightsSetting;
+import io.akeyless.client.model.AllowedClientType;
 import io.akeyless.client.model.AllowedIpSettings;
 import io.akeyless.client.model.CertificateExpirationEventsSettings;
 import io.akeyless.client.model.DataProtectionSection;
@@ -76,6 +77,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_AI_INSIGHTS)
   @javax.annotation.Nullable
   private AiInsightsSetting aiInsights;
+
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPES = "allowed_client_types";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPES)
+  @javax.annotation.Nullable
+  private AllowedClientType allowedClientTypes;
 
   public static final String SERIALIZED_NAME_ALLOWED_CLIENTS_IPS = "allowed_clients_ips";
   @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENTS_IPS)
@@ -229,6 +235,25 @@ public class AccountGeneralSettings {
 
   public void setAiInsights(@javax.annotation.Nullable AiInsightsSetting aiInsights) {
     this.aiInsights = aiInsights;
+  }
+
+
+  public AccountGeneralSettings allowedClientTypes(@javax.annotation.Nullable AllowedClientType allowedClientTypes) {
+    this.allowedClientTypes = allowedClientTypes;
+    return this;
+  }
+
+  /**
+   * Get allowedClientTypes
+   * @return allowedClientTypes
+   */
+  @javax.annotation.Nullable
+  public AllowedClientType getAllowedClientTypes() {
+    return allowedClientTypes;
+  }
+
+  public void setAllowedClientTypes(@javax.annotation.Nullable AllowedClientType allowedClientTypes) {
+    this.allowedClientTypes = allowedClientTypes;
   }
 
 
@@ -606,6 +631,7 @@ public class AccountGeneralSettings {
     return Objects.equals(this.accountDefaultKeyItemId, accountGeneralSettings.accountDefaultKeyItemId) &&
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
         Objects.equals(this.aiInsights, accountGeneralSettings.aiInsights) &&
+        Objects.equals(this.allowedClientTypes, accountGeneralSettings.allowedClientTypes) &&
         Objects.equals(this.allowedClientsIps, accountGeneralSettings.allowedClientsIps) &&
         Objects.equals(this.allowedGatewaysIps, accountGeneralSettings.allowedGatewaysIps) &&
         Objects.equals(this.authUsageEvent, accountGeneralSettings.authUsageEvent) &&
@@ -629,7 +655,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -639,6 +665,7 @@ public class AccountGeneralSettings {
     sb.append("    accountDefaultKeyItemId: ").append(toIndentedString(accountDefaultKeyItemId)).append("\n");
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
     sb.append("    aiInsights: ").append(toIndentedString(aiInsights)).append("\n");
+    sb.append("    allowedClientTypes: ").append(toIndentedString(allowedClientTypes)).append("\n");
     sb.append("    allowedClientsIps: ").append(toIndentedString(allowedClientsIps)).append("\n");
     sb.append("    allowedGatewaysIps: ").append(toIndentedString(allowedGatewaysIps)).append("\n");
     sb.append("    authUsageEvent: ").append(toIndentedString(authUsageEvent)).append("\n");
@@ -683,6 +710,7 @@ public class AccountGeneralSettings {
     openapiFields.add("account_default_key_item_id");
     openapiFields.add("account_default_key_name");
     openapiFields.add("ai_insights");
+    openapiFields.add("allowed_client_types");
     openapiFields.add("allowed_clients_ips");
     openapiFields.add("allowed_gateways_ips");
     openapiFields.add("auth_usage_event");
@@ -734,6 +762,10 @@ public class AccountGeneralSettings {
       // validate the optional field `ai_insights`
       if (jsonObj.get("ai_insights") != null && !jsonObj.get("ai_insights").isJsonNull()) {
         AiInsightsSetting.validateJsonElement(jsonObj.get("ai_insights"));
+      }
+      // validate the optional field `allowed_client_types`
+      if (jsonObj.get("allowed_client_types") != null && !jsonObj.get("allowed_client_types").isJsonNull()) {
+        AllowedClientType.validateJsonElement(jsonObj.get("allowed_client_types"));
       }
       // validate the optional field `allowed_clients_ips`
       if (jsonObj.get("allowed_clients_ips") != null && !jsonObj.get("allowed_clients_ips").isJsonNull()) {

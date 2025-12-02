@@ -21,6 +21,7 @@ gatewayUpdateProducerMongo is a command that updates either mongodb  producer or
 |**mongodbName** | **String** | MongoDB Name |  [optional] |
 |**mongodbPassword** | **String** | MongoDB server password. You will prompted to provide a password if it will not appear in CLI parameters |  [optional] |
 |**mongodbRoles** | **String** | MongoDB Roles |  [optional] |
+|**mongodbScopes** | **String** | MongoDB Scopes (Atlas only) |  [optional] |
 |**mongodbServerUri** | **String** | MongoDB server URI |  [optional] |
 |**mongodbUriOptions** | **String** | MongoDB server URI options |  [optional] |
 |**mongodbUsername** | **String** | MongoDB server username |  [optional] |

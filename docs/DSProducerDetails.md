@@ -97,9 +97,12 @@
 |**externallyProvidedUser** | **String** |  |  [optional] |
 |**failureMessage** | **String** |  |  [optional] |
 |**fixedUserOnly** | **String** |  |  [optional] |
+|**gcpAccessType** | **String** |  |  [optional] |
+|**gcpFixedUserClaimKeyname** | **String** |  |  [optional] |
 |**gcpKeyAlgo** | **String** |  |  [optional] |
 |**gcpProjectId** | **String** |  |  [optional] |
 |**gcpRoleBindings** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional] |
+|**gcpRoleNames** | **String** |  |  [optional] |
 |**gcpServiceAccountEmail** | **String** | GCPServiceAccountEmail overrides the deprecated field from the target |  [optional] |
 |**gcpServiceAccountKey** | **String** |  |  [optional] |
 |**gcpServiceAccountKeyBase64** | **String** |  |  [optional] |
@@ -190,9 +193,11 @@
 |**mongodbIsAtlas** | **Boolean** |  |  [optional] |
 |**mongodbPassword** | **String** |  |  [optional] |
 |**mongodbRoles** | **String** | common fields |  [optional] |
+|**mongodbScopes** | **String** |  |  [optional] |
 |**mongodbUriConnection** | **String** | mongodb fields |  [optional] |
 |**mongodbUriOptions** | **String** |  |  [optional] |
 |**mongodbUsername** | **String** |  |  [optional] |
+|**mssqlAllowedDbNames** | **String** | Comma-separated list of allowed DB names for runtime selection when fetching the secret value. Empty string &#x3D;&gt; use target DB name only (no override allowed) \&quot;*\&quot; &#x3D;&gt; any DB name is allowed One or more names &#x3D;&gt; user must select one of the provided names |  [optional] |
 |**mssqlCreationStatements** | **String** |  |  [optional] |
 |**mssqlRevocationStatements** | **String** |  |  [optional] |
 |**mysqlCreationStatements** | **String** |  |  [optional] |

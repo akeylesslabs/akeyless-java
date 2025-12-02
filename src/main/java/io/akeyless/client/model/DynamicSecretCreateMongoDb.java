@@ -124,6 +124,11 @@ public class DynamicSecretCreateMongoDb {
   @javax.annotation.Nullable
   private String mongodbRoles = "[]";
 
+  public static final String SERIALIZED_NAME_MONGODB_SCOPES = "mongodb-scopes";
+  @SerializedName(SERIALIZED_NAME_MONGODB_SCOPES)
+  @javax.annotation.Nullable
+  private String mongodbScopes;
+
   public static final String SERIALIZED_NAME_MONGODB_SERVER_URI = "mongodb-server-uri";
   @SerializedName(SERIALIZED_NAME_MONGODB_SERVER_URI)
   @javax.annotation.Nullable
@@ -488,6 +493,25 @@ public class DynamicSecretCreateMongoDb {
 
   public void setMongodbRoles(@javax.annotation.Nullable String mongodbRoles) {
     this.mongodbRoles = mongodbRoles;
+  }
+
+
+  public DynamicSecretCreateMongoDb mongodbScopes(@javax.annotation.Nullable String mongodbScopes) {
+    this.mongodbScopes = mongodbScopes;
+    return this;
+  }
+
+  /**
+   * MongoDB Scopes (Atlas only)
+   * @return mongodbScopes
+   */
+  @javax.annotation.Nullable
+  public String getMongodbScopes() {
+    return mongodbScopes;
+  }
+
+  public void setMongodbScopes(@javax.annotation.Nullable String mongodbScopes) {
+    this.mongodbScopes = mongodbScopes;
   }
 
 
@@ -873,6 +897,7 @@ public class DynamicSecretCreateMongoDb {
         Objects.equals(this.mongodbName, dynamicSecretCreateMongoDb.mongodbName) &&
         Objects.equals(this.mongodbPassword, dynamicSecretCreateMongoDb.mongodbPassword) &&
         Objects.equals(this.mongodbRoles, dynamicSecretCreateMongoDb.mongodbRoles) &&
+        Objects.equals(this.mongodbScopes, dynamicSecretCreateMongoDb.mongodbScopes) &&
         Objects.equals(this.mongodbServerUri, dynamicSecretCreateMongoDb.mongodbServerUri) &&
         Objects.equals(this.mongodbUriOptions, dynamicSecretCreateMongoDb.mongodbUriOptions) &&
         Objects.equals(this.mongodbUsername, dynamicSecretCreateMongoDb.mongodbUsername) &&
@@ -895,7 +920,7 @@ public class DynamicSecretCreateMongoDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -916,6 +941,7 @@ public class DynamicSecretCreateMongoDb {
     sb.append("    mongodbName: ").append(toIndentedString(mongodbName)).append("\n");
     sb.append("    mongodbPassword: ").append(toIndentedString(mongodbPassword)).append("\n");
     sb.append("    mongodbRoles: ").append(toIndentedString(mongodbRoles)).append("\n");
+    sb.append("    mongodbScopes: ").append(toIndentedString(mongodbScopes)).append("\n");
     sb.append("    mongodbServerUri: ").append(toIndentedString(mongodbServerUri)).append("\n");
     sb.append("    mongodbUriOptions: ").append(toIndentedString(mongodbUriOptions)).append("\n");
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
@@ -970,6 +996,7 @@ public class DynamicSecretCreateMongoDb {
     openapiFields.add("mongodb-name");
     openapiFields.add("mongodb-password");
     openapiFields.add("mongodb-roles");
+    openapiFields.add("mongodb-scopes");
     openapiFields.add("mongodb-server-uri");
     openapiFields.add("mongodb-uri-options");
     openapiFields.add("mongodb-username");
@@ -1057,6 +1084,9 @@ public class DynamicSecretCreateMongoDb {
       }
       if ((jsonObj.get("mongodb-roles") != null && !jsonObj.get("mongodb-roles").isJsonNull()) && !jsonObj.get("mongodb-roles").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb-roles` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-roles").toString()));
+      }
+      if ((jsonObj.get("mongodb-scopes") != null && !jsonObj.get("mongodb-scopes").isJsonNull()) && !jsonObj.get("mongodb-scopes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mongodb-scopes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-scopes").toString()));
       }
       if ((jsonObj.get("mongodb-server-uri") != null && !jsonObj.get("mongodb-server-uri").isJsonNull()) && !jsonObj.get("mongodb-server-uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb-server-uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-server-uri").toString()));

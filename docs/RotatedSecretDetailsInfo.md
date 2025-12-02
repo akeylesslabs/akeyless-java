@@ -14,11 +14,13 @@ RotatedSecretDetailsInfo The rotated secret rotator info
 |**graceRotationHour** | **Integer** |  |  [optional] |
 |**graceRotationInterval** | **Integer** |  |  [optional] |
 |**gwClusterId** | **Long** |  |  [optional] |
+|**iisAppsDetails** | [**List&lt;WindowsService&gt;**](WindowsService.md) |  |  [optional] |
 |**lastRotationError** | **String** |  |  [optional] |
 |**managedByAkeyless** | **Boolean** |  |  [optional] |
 |**maxVersions** | **Long** |  |  [optional] |
 |**nextAutoRotateType** | **String** |  |  [optional] |
 |**numberOfVersionsToSave** | **Integer** |  |  [optional] |
+|**publicKeyRemotePath** | **String** |  |  [optional] |
 |**rotationHour** | **Integer** |  |  [optional] |
 |**rotationIntervalMin** | **Boolean** |  |  [optional] |
 |**rotationStatement** | **String** |  |  [optional] |

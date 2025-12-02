@@ -79,6 +79,11 @@ public class DynamicSecretCreateMsSql {
   @javax.annotation.Nullable
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_MSSQL_ALLOWED_DB_NAMES = "mssql-allowed-db-names";
+  @SerializedName(SERIALIZED_NAME_MSSQL_ALLOWED_DB_NAMES)
+  @javax.annotation.Nullable
+  private String mssqlAllowedDbNames;
+
   public static final String SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS = "mssql-create-statements";
   @SerializedName(SERIALIZED_NAME_MSSQL_CREATE_STATEMENTS)
   @javax.annotation.Nullable
@@ -297,6 +302,25 @@ public class DynamicSecretCreateMsSql {
 
   public void setJson(@javax.annotation.Nullable Boolean json) {
     this.json = json;
+  }
+
+
+  public DynamicSecretCreateMsSql mssqlAllowedDbNames(@javax.annotation.Nullable String mssqlAllowedDbNames) {
+    this.mssqlAllowedDbNames = mssqlAllowedDbNames;
+    return this;
+  }
+
+  /**
+   * CSV of allowed DB names for runtime selection when getting the secret value. Empty &#x3D;&gt; use target DB only; \&quot;*\&quot; &#x3D;&gt; any DB allowed; One or more names &#x3D;&gt; user must choose from this list
+   * @return mssqlAllowedDbNames
+   */
+  @javax.annotation.Nullable
+  public String getMssqlAllowedDbNames() {
+    return mssqlAllowedDbNames;
+  }
+
+  public void setMssqlAllowedDbNames(@javax.annotation.Nullable String mssqlAllowedDbNames) {
+    this.mssqlAllowedDbNames = mssqlAllowedDbNames;
   }
 
 
@@ -768,6 +792,7 @@ public class DynamicSecretCreateMsSql {
         Objects.equals(this.description, dynamicSecretCreateMsSql.description) &&
         Objects.equals(this.itemCustomFields, dynamicSecretCreateMsSql.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretCreateMsSql.json) &&
+        Objects.equals(this.mssqlAllowedDbNames, dynamicSecretCreateMsSql.mssqlAllowedDbNames) &&
         Objects.equals(this.mssqlCreateStatements, dynamicSecretCreateMsSql.mssqlCreateStatements) &&
         Objects.equals(this.mssqlDbname, dynamicSecretCreateMsSql.mssqlDbname) &&
         Objects.equals(this.mssqlHost, dynamicSecretCreateMsSql.mssqlHost) &&
@@ -795,7 +820,7 @@ public class DynamicSecretCreateMsSql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, itemCustomFields, json, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, itemCustomFields, json, mssqlAllowedDbNames, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -807,6 +832,7 @@ public class DynamicSecretCreateMsSql {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    mssqlAllowedDbNames: ").append(toIndentedString(mssqlAllowedDbNames)).append("\n");
     sb.append("    mssqlCreateStatements: ").append(toIndentedString(mssqlCreateStatements)).append("\n");
     sb.append("    mssqlDbname: ").append(toIndentedString(mssqlDbname)).append("\n");
     sb.append("    mssqlHost: ").append(toIndentedString(mssqlHost)).append("\n");
@@ -857,6 +883,7 @@ public class DynamicSecretCreateMsSql {
     openapiFields.add("description");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
+    openapiFields.add("mssql-allowed-db-names");
     openapiFields.add("mssql-create-statements");
     openapiFields.add("mssql-dbname");
     openapiFields.add("mssql-host");
@@ -922,6 +949,9 @@ public class DynamicSecretCreateMsSql {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("mssql-allowed-db-names") != null && !jsonObj.get("mssql-allowed-db-names").isJsonNull()) && !jsonObj.get("mssql-allowed-db-names").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mssql-allowed-db-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mssql-allowed-db-names").toString()));
       }
       if ((jsonObj.get("mssql-create-statements") != null && !jsonObj.get("mssql-create-statements").isJsonNull()) && !jsonObj.get("mssql-create-statements").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mssql-create-statements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mssql-create-statements").toString()));

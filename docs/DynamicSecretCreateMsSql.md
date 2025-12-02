@@ -13,6 +13,7 @@ dynamicSecretCreateMsSql is a command that creates mssql dynamic secret
 |**description** | **String** | Description of the object |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
+|**mssqlAllowedDbNames** | **String** | CSV of allowed DB names for runtime selection when getting the secret value. Empty &#x3D;&gt; use target DB only; \&quot;*\&quot; &#x3D;&gt; any DB allowed; One or more names &#x3D;&gt; user must choose from this list |  [optional] |
 |**mssqlCreateStatements** | **String** | MSSQL Creation statements |  [optional] |
 |**mssqlDbname** | **String** | MSSQL Name |  [optional] |
 |**mssqlHost** | **String** | MSSQL Host |  [optional] |

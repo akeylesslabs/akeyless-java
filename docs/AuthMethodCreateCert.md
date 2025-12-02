@@ -9,6 +9,7 @@ authMethodCreateCert is a command that creates a new auth method that will be ab
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**accessExpires** | **Long** | Access expiration date in Unix timestamp (select 0 for access without expiry date) |  [optional] |
+|**allowedClientType** | **List&lt;String&gt;** |  |  [optional] |
 |**allowedCors** | **String** | Comma separated list of allowed CORS domains to be validated as part of the authentication flow. |  [optional] |
 |**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional] |
 |**boundCommonNames** | **List&lt;String&gt;** | A list of names. At least one must exist in the Common Name. Supports globbing. |  [optional] |

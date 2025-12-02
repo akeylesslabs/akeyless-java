@@ -79,6 +79,11 @@ public class ActiveDirectoryPayload {
   @javax.annotation.Nullable
   private String computerBaseDn;
 
+  public static final String SERIALIZED_NAME_DISCOVER_IIS_APPS = "discover_iis_apps";
+  @SerializedName(SERIALIZED_NAME_DISCOVER_IIS_APPS)
+  @javax.annotation.Nullable
+  private Boolean discoverIisApps;
+
   public static final String SERIALIZED_NAME_DISCOVER_LOCAL_USERS = "discover_local_users";
   @SerializedName(SERIALIZED_NAME_DISCOVER_LOCAL_USERS)
   @javax.annotation.Nullable
@@ -259,6 +264,25 @@ public class ActiveDirectoryPayload {
 
   public void setComputerBaseDn(@javax.annotation.Nullable String computerBaseDn) {
     this.computerBaseDn = computerBaseDn;
+  }
+
+
+  public ActiveDirectoryPayload discoverIisApps(@javax.annotation.Nullable Boolean discoverIisApps) {
+    this.discoverIisApps = discoverIisApps;
+    return this;
+  }
+
+  /**
+   * Get discoverIisApps
+   * @return discoverIisApps
+   */
+  @javax.annotation.Nullable
+  public Boolean getDiscoverIisApps() {
+    return discoverIisApps;
+  }
+
+  public void setDiscoverIisApps(@javax.annotation.Nullable Boolean discoverIisApps) {
+    this.discoverIisApps = discoverIisApps;
   }
 
 
@@ -624,6 +648,7 @@ public class ActiveDirectoryPayload {
         Objects.equals(this.autoRotateIntervalInDays, activeDirectoryPayload.autoRotateIntervalInDays) &&
         Objects.equals(this.autoRotateRotationHour, activeDirectoryPayload.autoRotateRotationHour) &&
         Objects.equals(this.computerBaseDn, activeDirectoryPayload.computerBaseDn) &&
+        Objects.equals(this.discoverIisApps, activeDirectoryPayload.discoverIisApps) &&
         Objects.equals(this.discoverLocalUsers, activeDirectoryPayload.discoverLocalUsers) &&
         Objects.equals(this.discoverServices, activeDirectoryPayload.discoverServices) &&
         Objects.equals(this.discoveryTypes, activeDirectoryPayload.discoveryTypes) &&
@@ -645,7 +670,7 @@ public class ActiveDirectoryPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
+    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverIisApps, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
 
   @Override
@@ -657,6 +682,7 @@ public class ActiveDirectoryPayload {
     sb.append("    autoRotateIntervalInDays: ").append(toIndentedString(autoRotateIntervalInDays)).append("\n");
     sb.append("    autoRotateRotationHour: ").append(toIndentedString(autoRotateRotationHour)).append("\n");
     sb.append("    computerBaseDn: ").append(toIndentedString(computerBaseDn)).append("\n");
+    sb.append("    discoverIisApps: ").append(toIndentedString(discoverIisApps)).append("\n");
     sb.append("    discoverLocalUsers: ").append(toIndentedString(discoverLocalUsers)).append("\n");
     sb.append("    discoverServices: ").append(toIndentedString(discoverServices)).append("\n");
     sb.append("    discoveryTypes: ").append(toIndentedString(discoveryTypes)).append("\n");
@@ -701,6 +727,7 @@ public class ActiveDirectoryPayload {
     openapiFields.add("auto_rotate_interval_in_days");
     openapiFields.add("auto_rotate_rotation_hour");
     openapiFields.add("computer_base_dn");
+    openapiFields.add("discover_iis_apps");
     openapiFields.add("discover_local_users");
     openapiFields.add("discover_services");
     openapiFields.add("discovery_types");

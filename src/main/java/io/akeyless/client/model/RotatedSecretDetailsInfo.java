@@ -83,6 +83,11 @@ public class RotatedSecretDetailsInfo {
   @javax.annotation.Nullable
   private Long gwClusterId;
 
+  public static final String SERIALIZED_NAME_IIS_APPS_DETAILS = "iis_apps_details";
+  @SerializedName(SERIALIZED_NAME_IIS_APPS_DETAILS)
+  @javax.annotation.Nullable
+  private List<WindowsService> iisAppsDetails = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_LAST_ROTATION_ERROR = "last_rotation_error";
   @SerializedName(SERIALIZED_NAME_LAST_ROTATION_ERROR)
   @javax.annotation.Nullable
@@ -107,6 +112,11 @@ public class RotatedSecretDetailsInfo {
   @SerializedName(SERIALIZED_NAME_NUMBER_OF_VERSIONS_TO_SAVE)
   @javax.annotation.Nullable
   private Integer numberOfVersionsToSave;
+
+  public static final String SERIALIZED_NAME_PUBLIC_KEY_REMOTE_PATH = "public_key_remote_path";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_REMOTE_PATH)
+  @javax.annotation.Nullable
+  private String publicKeyRemotePath;
 
   public static final String SERIALIZED_NAME_ROTATION_HOUR = "rotation_hour";
   @SerializedName(SERIALIZED_NAME_ROTATION_HOUR)
@@ -270,6 +280,33 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo iisAppsDetails(@javax.annotation.Nullable List<WindowsService> iisAppsDetails) {
+    this.iisAppsDetails = iisAppsDetails;
+    return this;
+  }
+
+  public RotatedSecretDetailsInfo addIisAppsDetailsItem(WindowsService iisAppsDetailsItem) {
+    if (this.iisAppsDetails == null) {
+      this.iisAppsDetails = new ArrayList<>();
+    }
+    this.iisAppsDetails.add(iisAppsDetailsItem);
+    return this;
+  }
+
+  /**
+   * Get iisAppsDetails
+   * @return iisAppsDetails
+   */
+  @javax.annotation.Nullable
+  public List<WindowsService> getIisAppsDetails() {
+    return iisAppsDetails;
+  }
+
+  public void setIisAppsDetails(@javax.annotation.Nullable List<WindowsService> iisAppsDetails) {
+    this.iisAppsDetails = iisAppsDetails;
+  }
+
+
   public RotatedSecretDetailsInfo lastRotationError(@javax.annotation.Nullable String lastRotationError) {
     this.lastRotationError = lastRotationError;
     return this;
@@ -362,6 +399,25 @@ public class RotatedSecretDetailsInfo {
 
   public void setNumberOfVersionsToSave(@javax.annotation.Nullable Integer numberOfVersionsToSave) {
     this.numberOfVersionsToSave = numberOfVersionsToSave;
+  }
+
+
+  public RotatedSecretDetailsInfo publicKeyRemotePath(@javax.annotation.Nullable String publicKeyRemotePath) {
+    this.publicKeyRemotePath = publicKeyRemotePath;
+    return this;
+  }
+
+  /**
+   * Get publicKeyRemotePath
+   * @return publicKeyRemotePath
+   */
+  @javax.annotation.Nullable
+  public String getPublicKeyRemotePath() {
+    return publicKeyRemotePath;
+  }
+
+  public void setPublicKeyRemotePath(@javax.annotation.Nullable String publicKeyRemotePath) {
+    this.publicKeyRemotePath = publicKeyRemotePath;
   }
 
 
@@ -560,11 +616,13 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.graceRotationHour, rotatedSecretDetailsInfo.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretDetailsInfo.graceRotationInterval) &&
         Objects.equals(this.gwClusterId, rotatedSecretDetailsInfo.gwClusterId) &&
+        Objects.equals(this.iisAppsDetails, rotatedSecretDetailsInfo.iisAppsDetails) &&
         Objects.equals(this.lastRotationError, rotatedSecretDetailsInfo.lastRotationError) &&
         Objects.equals(this.managedByAkeyless, rotatedSecretDetailsInfo.managedByAkeyless) &&
         Objects.equals(this.maxVersions, rotatedSecretDetailsInfo.maxVersions) &&
         Objects.equals(this.nextAutoRotateType, rotatedSecretDetailsInfo.nextAutoRotateType) &&
         Objects.equals(this.numberOfVersionsToSave, rotatedSecretDetailsInfo.numberOfVersionsToSave) &&
+        Objects.equals(this.publicKeyRemotePath, rotatedSecretDetailsInfo.publicKeyRemotePath) &&
         Objects.equals(this.rotationHour, rotatedSecretDetailsInfo.rotationHour) &&
         Objects.equals(this.rotationIntervalMin, rotatedSecretDetailsInfo.rotationIntervalMin) &&
         Objects.equals(this.rotationStatement, rotatedSecretDetailsInfo.rotationStatement) &&
@@ -578,7 +636,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, gwClusterId, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, timeoutSeconds);
+    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, timeoutSeconds);
   }
 
   @Override
@@ -591,11 +649,13 @@ public class RotatedSecretDetailsInfo {
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
+    sb.append("    iisAppsDetails: ").append(toIndentedString(iisAppsDetails)).append("\n");
     sb.append("    lastRotationError: ").append(toIndentedString(lastRotationError)).append("\n");
     sb.append("    managedByAkeyless: ").append(toIndentedString(managedByAkeyless)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    nextAutoRotateType: ").append(toIndentedString(nextAutoRotateType)).append("\n");
     sb.append("    numberOfVersionsToSave: ").append(toIndentedString(numberOfVersionsToSave)).append("\n");
+    sb.append("    publicKeyRemotePath: ").append(toIndentedString(publicKeyRemotePath)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationIntervalMin: ").append(toIndentedString(rotationIntervalMin)).append("\n");
     sb.append("    rotationStatement: ").append(toIndentedString(rotationStatement)).append("\n");
@@ -633,11 +693,13 @@ public class RotatedSecretDetailsInfo {
     openapiFields.add("grace_rotation_hour");
     openapiFields.add("grace_rotation_interval");
     openapiFields.add("gw_cluster_id");
+    openapiFields.add("iis_apps_details");
     openapiFields.add("last_rotation_error");
     openapiFields.add("managed_by_akeyless");
     openapiFields.add("max_versions");
     openapiFields.add("next_auto_rotate_type");
     openapiFields.add("number_of_versions_to_save");
+    openapiFields.add("public_key_remote_path");
     openapiFields.add("rotation_hour");
     openapiFields.add("rotation_interval_min");
     openapiFields.add("rotation_statement");
@@ -673,11 +735,28 @@ public class RotatedSecretDetailsInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("iis_apps_details") != null && !jsonObj.get("iis_apps_details").isJsonNull()) {
+        JsonArray jsonArrayiisAppsDetails = jsonObj.getAsJsonArray("iis_apps_details");
+        if (jsonArrayiisAppsDetails != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("iis_apps_details").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `iis_apps_details` to be an array in the JSON string but got `%s`", jsonObj.get("iis_apps_details").toString()));
+          }
+
+          // validate the optional field `iis_apps_details` (array)
+          for (int i = 0; i < jsonArrayiisAppsDetails.size(); i++) {
+            WindowsService.validateJsonElement(jsonArrayiisAppsDetails.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("last_rotation_error") != null && !jsonObj.get("last_rotation_error").isJsonNull()) && !jsonObj.get("last_rotation_error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `last_rotation_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_rotation_error").toString()));
       }
       if ((jsonObj.get("next_auto_rotate_type") != null && !jsonObj.get("next_auto_rotate_type").isJsonNull()) && !jsonObj.get("next_auto_rotate_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `next_auto_rotate_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_auto_rotate_type").toString()));
+      }
+      if ((jsonObj.get("public_key_remote_path") != null && !jsonObj.get("public_key_remote_path").isJsonNull()) && !jsonObj.get("public_key_remote_path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `public_key_remote_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key_remote_path").toString()));
       }
       if ((jsonObj.get("rotation_statement") != null && !jsonObj.get("rotation_statement").isJsonNull()) && !jsonObj.get("rotation_statement").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rotation_statement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation_statement").toString()));

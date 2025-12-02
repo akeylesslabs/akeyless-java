@@ -57,6 +57,11 @@ public class UpdateAccountSettings {
   @javax.annotation.Nullable
   private String address;
 
+  public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private List<String> allowedClientType = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ALLOWED_EMAIL_DOMAINS = "allowed-email-domains";
   @SerializedName(SERIALIZED_NAME_ALLOWED_EMAIL_DOMAINS)
   @javax.annotation.Nullable
@@ -192,6 +197,11 @@ public class UpdateAccountSettings {
   @javax.annotation.Nullable
   private Long jwtTtlMin;
 
+  public static final String SERIALIZED_NAME_LOCK_ALLOWED_CLIENT_TYPE = "lock-allowed-client-type";
+  @SerializedName(SERIALIZED_NAME_LOCK_ALLOWED_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private String lockAllowedClientType;
+
   public static final String SERIALIZED_NAME_LOCK_BOUND_IPS = "lock-bound-ips";
   @SerializedName(SERIALIZED_NAME_LOCK_BOUND_IPS)
   @javax.annotation.Nullable
@@ -311,6 +321,33 @@ public class UpdateAccountSettings {
 
   public void setAddress(@javax.annotation.Nullable String address) {
     this.address = address;
+  }
+
+
+  public UpdateAccountSettings allowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
+    return this;
+  }
+
+  public UpdateAccountSettings addAllowedClientTypeItem(String allowedClientTypeItem) {
+    if (this.allowedClientType == null) {
+      this.allowedClientType = new ArrayList<>();
+    }
+    this.allowedClientType.add(allowedClientTypeItem);
+    return this;
+  }
+
+  /**
+   * Get allowedClientType
+   * @return allowedClientType
+   */
+  @javax.annotation.Nullable
+  public List<String> getAllowedClientType() {
+    return allowedClientType;
+  }
+
+  public void setAllowedClientType(@javax.annotation.Nullable List<String> allowedClientType) {
+    this.allowedClientType = allowedClientType;
   }
 
 
@@ -859,6 +896,25 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings lockAllowedClientType(@javax.annotation.Nullable String lockAllowedClientType) {
+    this.lockAllowedClientType = lockAllowedClientType;
+    return this;
+  }
+
+  /**
+   * Get lockAllowedClientType
+   * @return lockAllowedClientType
+   */
+  @javax.annotation.Nullable
+  public String getLockAllowedClientType() {
+    return lockAllowedClientType;
+  }
+
+  public void setLockAllowedClientType(@javax.annotation.Nullable String lockAllowedClientType) {
+    this.lockAllowedClientType = lockAllowedClientType;
+  }
+
+
   public UpdateAccountSettings lockBoundIps(@javax.annotation.Nullable String lockBoundIps) {
     this.lockBoundIps = lockBoundIps;
     return this;
@@ -1250,6 +1306,7 @@ public class UpdateAccountSettings {
     }
     UpdateAccountSettings updateAccountSettings = (UpdateAccountSettings) o;
     return Objects.equals(this.address, updateAccountSettings.address) &&
+        Objects.equals(this.allowedClientType, updateAccountSettings.allowedClientType) &&
         Objects.equals(this.allowedEmailDomains, updateAccountSettings.allowedEmailDomains) &&
         Objects.equals(this.boundIps, updateAccountSettings.boundIps) &&
         Objects.equals(this.city, updateAccountSettings.city) &&
@@ -1277,6 +1334,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.jwtTtlDefault, updateAccountSettings.jwtTtlDefault) &&
         Objects.equals(this.jwtTtlMax, updateAccountSettings.jwtTtlMax) &&
         Objects.equals(this.jwtTtlMin, updateAccountSettings.jwtTtlMin) &&
+        Objects.equals(this.lockAllowedClientType, updateAccountSettings.lockAllowedClientType) &&
         Objects.equals(this.lockBoundIps, updateAccountSettings.lockBoundIps) &&
         Objects.equals(this.lockDefaultKey, updateAccountSettings.lockDefaultKey) &&
         Objects.equals(this.lockGwBoundIps, updateAccountSettings.lockGwBoundIps) &&
@@ -1301,7 +1359,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1309,6 +1367,7 @@ public class UpdateAccountSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAccountSettings {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    allowedEmailDomains: ").append(toIndentedString(allowedEmailDomains)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
@@ -1336,6 +1395,7 @@ public class UpdateAccountSettings {
     sb.append("    jwtTtlDefault: ").append(toIndentedString(jwtTtlDefault)).append("\n");
     sb.append("    jwtTtlMax: ").append(toIndentedString(jwtTtlMax)).append("\n");
     sb.append("    jwtTtlMin: ").append(toIndentedString(jwtTtlMin)).append("\n");
+    sb.append("    lockAllowedClientType: ").append(toIndentedString(lockAllowedClientType)).append("\n");
     sb.append("    lockBoundIps: ").append(toIndentedString(lockBoundIps)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    lockGwBoundIps: ").append(toIndentedString(lockGwBoundIps)).append("\n");
@@ -1379,6 +1439,7 @@ public class UpdateAccountSettings {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("address");
+    openapiFields.add("allowed-client-type");
     openapiFields.add("allowed-email-domains");
     openapiFields.add("bound-ips");
     openapiFields.add("city");
@@ -1406,6 +1467,7 @@ public class UpdateAccountSettings {
     openapiFields.add("jwt-ttl-default");
     openapiFields.add("jwt-ttl-max");
     openapiFields.add("jwt-ttl-min");
+    openapiFields.add("lock-allowed-client-type");
     openapiFields.add("lock-bound-ips");
     openapiFields.add("lock-default-key");
     openapiFields.add("lock-gw-bound-ips");
@@ -1454,6 +1516,10 @@ public class UpdateAccountSettings {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("allowed-client-type") != null && !jsonObj.get("allowed-client-type").isJsonNull() && !jsonObj.get("allowed-client-type").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-client-type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed-client-type").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed-email-domains") != null && !jsonObj.get("allowed-email-domains").isJsonNull() && !jsonObj.get("allowed-email-domains").isJsonArray()) {
@@ -1524,6 +1590,9 @@ public class UpdateAccountSettings {
       }
       if ((jsonObj.get("items-deletion-protection") != null && !jsonObj.get("items-deletion-protection").isJsonNull()) && !jsonObj.get("items-deletion-protection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `items-deletion-protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("items-deletion-protection").toString()));
+      }
+      if ((jsonObj.get("lock-allowed-client-type") != null && !jsonObj.get("lock-allowed-client-type").isJsonNull()) && !jsonObj.get("lock-allowed-client-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lock-allowed-client-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-allowed-client-type").toString()));
       }
       if ((jsonObj.get("lock-bound-ips") != null && !jsonObj.get("lock-bound-ips").isJsonNull()) && !jsonObj.get("lock-bound-ips").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lock-bound-ips` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-bound-ips").toString()));
