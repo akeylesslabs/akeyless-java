@@ -2306,8 +2306,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AllowedClientTypeTest.java
-src/test/java/io/akeyless/client/model/NotiForwarderDetailsInputTest.java
-src/test/java/io/akeyless/client/model/SlackNotiForwarderDetailsTest.java
-src/test/java/io/akeyless/client/model/TeamsNotiForwarderDetailsTest.java
-src/test/java/io/akeyless/client/model/WebhookNotiForwarderDetailsTest.java
