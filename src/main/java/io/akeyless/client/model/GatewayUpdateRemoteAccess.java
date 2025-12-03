@@ -50,10 +50,20 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class GatewayUpdateRemoteAccess {
+  public static final String SERIALIZED_NAME_ALLOWED_SSH_URL = "allowed-ssh-url";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_SSH_URL)
+  @javax.annotation.Nullable
+  private String allowedSshUrl = "use-existing";
+
   public static final String SERIALIZED_NAME_ALLOWED_URLS = "allowed-urls";
   @SerializedName(SERIALIZED_NAME_ALLOWED_URLS)
   @javax.annotation.Nullable
   private String allowedUrls = "use-existing";
+
+  public static final String SERIALIZED_NAME_DEFAULT_SESSION_TTL_MINUTES = "default-session-ttl-minutes";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_SESSION_TTL_MINUTES)
+  @javax.annotation.Nullable
+  private String defaultSessionTtlMinutes = "use-existing";
 
   public static final String SERIALIZED_NAME_HIDE_SESSION_RECORDING = "hide-session-recording";
   @SerializedName(SERIALIZED_NAME_HIDE_SESSION_RECORDING)
@@ -103,6 +113,25 @@ public class GatewayUpdateRemoteAccess {
   public GatewayUpdateRemoteAccess() {
   }
 
+  public GatewayUpdateRemoteAccess allowedSshUrl(@javax.annotation.Nullable String allowedSshUrl) {
+    this.allowedSshUrl = allowedSshUrl;
+    return this;
+  }
+
+  /**
+   * Specify a valid SSH-URL to tunnel to SSH session
+   * @return allowedSshUrl
+   */
+  @javax.annotation.Nullable
+  public String getAllowedSshUrl() {
+    return allowedSshUrl;
+  }
+
+  public void setAllowedSshUrl(@javax.annotation.Nullable String allowedSshUrl) {
+    this.allowedSshUrl = allowedSshUrl;
+  }
+
+
   public GatewayUpdateRemoteAccess allowedUrls(@javax.annotation.Nullable String allowedUrls) {
     this.allowedUrls = allowedUrls;
     return this;
@@ -119,6 +148,25 @@ public class GatewayUpdateRemoteAccess {
 
   public void setAllowedUrls(@javax.annotation.Nullable String allowedUrls) {
     this.allowedUrls = allowedUrls;
+  }
+
+
+  public GatewayUpdateRemoteAccess defaultSessionTtlMinutes(@javax.annotation.Nullable String defaultSessionTtlMinutes) {
+    this.defaultSessionTtlMinutes = defaultSessionTtlMinutes;
+    return this;
+  }
+
+  /**
+   * Default session TTL in minutes
+   * @return defaultSessionTtlMinutes
+   */
+  @javax.annotation.Nullable
+  public String getDefaultSessionTtlMinutes() {
+    return defaultSessionTtlMinutes;
+  }
+
+  public void setDefaultSessionTtlMinutes(@javax.annotation.Nullable String defaultSessionTtlMinutes) {
+    this.defaultSessionTtlMinutes = defaultSessionTtlMinutes;
   }
 
 
@@ -303,7 +351,9 @@ public class GatewayUpdateRemoteAccess {
       return false;
     }
     GatewayUpdateRemoteAccess gatewayUpdateRemoteAccess = (GatewayUpdateRemoteAccess) o;
-    return Objects.equals(this.allowedUrls, gatewayUpdateRemoteAccess.allowedUrls) &&
+    return Objects.equals(this.allowedSshUrl, gatewayUpdateRemoteAccess.allowedSshUrl) &&
+        Objects.equals(this.allowedUrls, gatewayUpdateRemoteAccess.allowedUrls) &&
+        Objects.equals(this.defaultSessionTtlMinutes, gatewayUpdateRemoteAccess.defaultSessionTtlMinutes) &&
         Objects.equals(this.hideSessionRecording, gatewayUpdateRemoteAccess.hideSessionRecording) &&
         Objects.equals(this.json, gatewayUpdateRemoteAccess.json) &&
         Objects.equals(this.kexalgs, gatewayUpdateRemoteAccess.kexalgs) &&
@@ -317,14 +367,16 @@ public class GatewayUpdateRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedUrls, hideSessionRecording, json, kexalgs, keyboardLayout, legacySshAlgorithm, rdpTargetConfiguration, sshTargetConfiguration, token, uidToken);
+    return Objects.hash(allowedSshUrl, allowedUrls, defaultSessionTtlMinutes, hideSessionRecording, json, kexalgs, keyboardLayout, legacySshAlgorithm, rdpTargetConfiguration, sshTargetConfiguration, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateRemoteAccess {\n");
+    sb.append("    allowedSshUrl: ").append(toIndentedString(allowedSshUrl)).append("\n");
     sb.append("    allowedUrls: ").append(toIndentedString(allowedUrls)).append("\n");
+    sb.append("    defaultSessionTtlMinutes: ").append(toIndentedString(defaultSessionTtlMinutes)).append("\n");
     sb.append("    hideSessionRecording: ").append(toIndentedString(hideSessionRecording)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    kexalgs: ").append(toIndentedString(kexalgs)).append("\n");
@@ -356,7 +408,9 @@ public class GatewayUpdateRemoteAccess {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("allowed-ssh-url");
     openapiFields.add("allowed-urls");
+    openapiFields.add("default-session-ttl-minutes");
     openapiFields.add("hide-session-recording");
     openapiFields.add("json");
     openapiFields.add("kexalgs");
@@ -392,8 +446,14 @@ public class GatewayUpdateRemoteAccess {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("allowed-ssh-url") != null && !jsonObj.get("allowed-ssh-url").isJsonNull()) && !jsonObj.get("allowed-ssh-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed-ssh-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-ssh-url").toString()));
+      }
       if ((jsonObj.get("allowed-urls") != null && !jsonObj.get("allowed-urls").isJsonNull()) && !jsonObj.get("allowed-urls").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed-urls` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-urls").toString()));
+      }
+      if ((jsonObj.get("default-session-ttl-minutes") != null && !jsonObj.get("default-session-ttl-minutes").isJsonNull()) && !jsonObj.get("default-session-ttl-minutes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default-session-ttl-minutes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default-session-ttl-minutes").toString()));
       }
       if ((jsonObj.get("hide-session-recording") != null && !jsonObj.get("hide-session-recording").isJsonNull()) && !jsonObj.get("hide-session-recording").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hide-session-recording` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hide-session-recording").toString()));

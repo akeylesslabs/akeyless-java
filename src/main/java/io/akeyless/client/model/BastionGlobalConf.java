@@ -57,6 +57,16 @@ public class BastionGlobalConf {
   @javax.annotation.Nullable
   private List<String> allowedBastionUrls = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ALLOWED_SSH_URL = "allowed_ssh_url";
+  @SerializedName(SERIALIZED_NAME_ALLOWED_SSH_URL)
+  @javax.annotation.Nullable
+  private String allowedSshUrl;
+
+  public static final String SERIALIZED_NAME_DEFAULT_SESSION_TTL_MINUTES = "default_session_ttl_minutes";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_SESSION_TTL_MINUTES)
+  @javax.annotation.Nullable
+  private Long defaultSessionTtlMinutes;
+
   public static final String SERIALIZED_NAME_LEGACY_SIGNING_ALG = "legacy_signing_alg";
   @SerializedName(SERIALIZED_NAME_LEGACY_SIGNING_ALG)
   @javax.annotation.Nullable
@@ -99,6 +109,44 @@ public class BastionGlobalConf {
 
   public void setAllowedBastionUrls(@javax.annotation.Nullable List<String> allowedBastionUrls) {
     this.allowedBastionUrls = allowedBastionUrls;
+  }
+
+
+  public BastionGlobalConf allowedSshUrl(@javax.annotation.Nullable String allowedSshUrl) {
+    this.allowedSshUrl = allowedSshUrl;
+    return this;
+  }
+
+  /**
+   * Get allowedSshUrl
+   * @return allowedSshUrl
+   */
+  @javax.annotation.Nullable
+  public String getAllowedSshUrl() {
+    return allowedSshUrl;
+  }
+
+  public void setAllowedSshUrl(@javax.annotation.Nullable String allowedSshUrl) {
+    this.allowedSshUrl = allowedSshUrl;
+  }
+
+
+  public BastionGlobalConf defaultSessionTtlMinutes(@javax.annotation.Nullable Long defaultSessionTtlMinutes) {
+    this.defaultSessionTtlMinutes = defaultSessionTtlMinutes;
+    return this;
+  }
+
+  /**
+   * Get defaultSessionTtlMinutes
+   * @return defaultSessionTtlMinutes
+   */
+  @javax.annotation.Nullable
+  public Long getDefaultSessionTtlMinutes() {
+    return defaultSessionTtlMinutes;
+  }
+
+  public void setDefaultSessionTtlMinutes(@javax.annotation.Nullable Long defaultSessionTtlMinutes) {
+    this.defaultSessionTtlMinutes = defaultSessionTtlMinutes;
   }
 
 
@@ -170,6 +218,8 @@ public class BastionGlobalConf {
     }
     BastionGlobalConf bastionGlobalConf = (BastionGlobalConf) o;
     return Objects.equals(this.allowedBastionUrls, bastionGlobalConf.allowedBastionUrls) &&
+        Objects.equals(this.allowedSshUrl, bastionGlobalConf.allowedSshUrl) &&
+        Objects.equals(this.defaultSessionTtlMinutes, bastionGlobalConf.defaultSessionTtlMinutes) &&
         Objects.equals(this.legacySigningAlg, bastionGlobalConf.legacySigningAlg) &&
         Objects.equals(this.rdpUsernameSubClaim, bastionGlobalConf.rdpUsernameSubClaim) &&
         Objects.equals(this.sshUsernameSubClaim, bastionGlobalConf.sshUsernameSubClaim);
@@ -177,7 +227,7 @@ public class BastionGlobalConf {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedBastionUrls, legacySigningAlg, rdpUsernameSubClaim, sshUsernameSubClaim);
+    return Objects.hash(allowedBastionUrls, allowedSshUrl, defaultSessionTtlMinutes, legacySigningAlg, rdpUsernameSubClaim, sshUsernameSubClaim);
   }
 
   @Override
@@ -185,6 +235,8 @@ public class BastionGlobalConf {
     StringBuilder sb = new StringBuilder();
     sb.append("class BastionGlobalConf {\n");
     sb.append("    allowedBastionUrls: ").append(toIndentedString(allowedBastionUrls)).append("\n");
+    sb.append("    allowedSshUrl: ").append(toIndentedString(allowedSshUrl)).append("\n");
+    sb.append("    defaultSessionTtlMinutes: ").append(toIndentedString(defaultSessionTtlMinutes)).append("\n");
     sb.append("    legacySigningAlg: ").append(toIndentedString(legacySigningAlg)).append("\n");
     sb.append("    rdpUsernameSubClaim: ").append(toIndentedString(rdpUsernameSubClaim)).append("\n");
     sb.append("    sshUsernameSubClaim: ").append(toIndentedString(sshUsernameSubClaim)).append("\n");
@@ -211,6 +263,8 @@ public class BastionGlobalConf {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("allowed_bastion_urls");
+    openapiFields.add("allowed_ssh_url");
+    openapiFields.add("default_session_ttl_minutes");
     openapiFields.add("legacy_signing_alg");
     openapiFields.add("rdp_username_sub_claim");
     openapiFields.add("ssh_username_sub_claim");
@@ -243,6 +297,9 @@ public class BastionGlobalConf {
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_bastion_urls") != null && !jsonObj.get("allowed_bastion_urls").isJsonNull() && !jsonObj.get("allowed_bastion_urls").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed_bastion_urls` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_bastion_urls").toString()));
+      }
+      if ((jsonObj.get("allowed_ssh_url") != null && !jsonObj.get("allowed_ssh_url").isJsonNull()) && !jsonObj.get("allowed_ssh_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `allowed_ssh_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed_ssh_url").toString()));
       }
       if ((jsonObj.get("rdp_username_sub_claim") != null && !jsonObj.get("rdp_username_sub_claim").isJsonNull()) && !jsonObj.get("rdp_username_sub_claim").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `rdp_username_sub_claim` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp_username_sub_claim").toString()));
