@@ -338,7 +338,7 @@ public class UpdateAccountSettings {
   }
 
   /**
-   * Get allowedClientType
+   * A default list of client types that are allowed to authenticate [cli,ui,gateway-admin,sdk,mobile,extension].
    * @return allowedClientType
    */
   @javax.annotation.Nullable
@@ -902,7 +902,7 @@ public class UpdateAccountSettings {
   }
 
   /**
-   * Get lockAllowedClientType
+   * Lock allowed-client-type setting in the account [true/false].
    * @return lockAllowedClientType
    */
   @javax.annotation.Nullable

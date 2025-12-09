@@ -20,9 +20,9 @@
 |**codeSigningFlag** | **Boolean** | If set, certificates will be flagged for code signing use |  [optional] |
 |**country** | **String** | A comma-separated list of countries that will be set in the issued certificate |  [optional] |
 |**createPrivateCrl** | **Boolean** | Set this to allow the issuer will expose a CRL endpoint in the Gateway |  [optional] |
-|**createPrivateOcsp** | **Boolean** |  |  [optional] |
+|**createPrivateOcsp** | **Boolean** | Set this to enable an OCSP endpoint in the Gateway and include its URL in AIA |  [optional] |
 |**createPublicCrl** | **Boolean** | Set this to allow the cert issuer will expose a public CRL endpoint |  [optional] |
-|**createPublicOcsp** | **Boolean** |  |  [optional] |
+|**createPublicOcsp** | **Boolean** | Set this to enable a public OCSP endpoint and include its URL in AIA (served by UAM and includes account id) |  [optional] |
 |**criticalKeyUsage** | **String** | Mark key usage as critical [true/false] |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
@@ -42,7 +42,7 @@
 |**newName** | **String** | New item name |  [optional] |
 |**notEnforceHostnames** | **Boolean** | If set, any names are allowed for CN and SANs in the certificate and not only a valid host name |  [optional] |
 |**notRequireCn** | **Boolean** | If set, clients can request certificates without a CN |  [optional] |
-|**ocspTtl** | **String** |  |  [optional] |
+|**ocspTtl** | **String** | OCSP NextUpdate window for OCSP responses (min 10m). Supports s,m,h,d suffix. |  [optional] |
 |**organizationalUnits** | **String** | A comma-separated list of organizational units (OU) that will be set in the issued certificate |  [optional] |
 |**organizations** | **String** | A comma-separated list of organizations (O) that will be set in the issued certificate |  [optional] |
 |**postalCode** | **String** | A comma-separated list of postal codes that will be set in the issued certificate |  [optional] |

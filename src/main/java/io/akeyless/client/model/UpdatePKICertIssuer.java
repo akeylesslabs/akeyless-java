@@ -563,7 +563,7 @@ public class UpdatePKICertIssuer {
   }
 
   /**
-   * Get createPrivateOcsp
+   * Set this to enable an OCSP endpoint in the Gateway and include its URL in AIA
    * @return createPrivateOcsp
    */
   @javax.annotation.Nullable
@@ -601,7 +601,7 @@ public class UpdatePKICertIssuer {
   }
 
   /**
-   * Get createPublicOcsp
+   * Set this to enable a public OCSP endpoint and include its URL in AIA (served by UAM and includes account id)
    * @return createPublicOcsp
    */
   @javax.annotation.Nullable
@@ -997,7 +997,7 @@ public class UpdatePKICertIssuer {
   }
 
   /**
-   * Get ocspTtl
+   * OCSP NextUpdate window for OCSP responses (min 10m). Supports s,m,h,d suffix.
    * @return ocspTtl
    */
   @javax.annotation.Nullable

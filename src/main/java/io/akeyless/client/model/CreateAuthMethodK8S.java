@@ -193,7 +193,7 @@ public class CreateAuthMethodK8S {
   }
 
   /**
-   * Get allowedClientType
+   * limit the auth method usage for specific client types [cli,ui,gateway-admin,sdk,mobile,extension]
    * @return allowedClientType
    */
   @javax.annotation.Nullable
