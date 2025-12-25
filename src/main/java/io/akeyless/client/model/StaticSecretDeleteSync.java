@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class StaticSecretDeleteSync {
+  public static final String SERIALIZED_NAME_DELETE_FROM_USC = "delete-from-usc";
+  @SerializedName(SERIALIZED_NAME_DELETE_FROM_USC)
+  @javax.annotation.Nullable
+  private Boolean deleteFromUsc = false;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -82,6 +87,25 @@ public class StaticSecretDeleteSync {
 
   public StaticSecretDeleteSync() {
   }
+
+  public StaticSecretDeleteSync deleteFromUsc(@javax.annotation.Nullable Boolean deleteFromUsc) {
+    this.deleteFromUsc = deleteFromUsc;
+    return this;
+  }
+
+  /**
+   * Delete the secret from the remote target USC as well
+   * @return deleteFromUsc
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteFromUsc() {
+    return deleteFromUsc;
+  }
+
+  public void setDeleteFromUsc(@javax.annotation.Nullable Boolean deleteFromUsc) {
+    this.deleteFromUsc = deleteFromUsc;
+  }
+
 
   public StaticSecretDeleteSync json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
@@ -207,7 +231,8 @@ public class StaticSecretDeleteSync {
       return false;
     }
     StaticSecretDeleteSync staticSecretDeleteSync = (StaticSecretDeleteSync) o;
-    return Objects.equals(this.json, staticSecretDeleteSync.json) &&
+    return Objects.equals(this.deleteFromUsc, staticSecretDeleteSync.deleteFromUsc) &&
+        Objects.equals(this.json, staticSecretDeleteSync.json) &&
         Objects.equals(this.name, staticSecretDeleteSync.name) &&
         Objects.equals(this.remoteSecretName, staticSecretDeleteSync.remoteSecretName) &&
         Objects.equals(this.token, staticSecretDeleteSync.token) &&
@@ -217,13 +242,14 @@ public class StaticSecretDeleteSync {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, remoteSecretName, token, uidToken, uscName);
+    return Objects.hash(deleteFromUsc, json, name, remoteSecretName, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretDeleteSync {\n");
+    sb.append("    deleteFromUsc: ").append(toIndentedString(deleteFromUsc)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    remoteSecretName: ").append(toIndentedString(remoteSecretName)).append("\n");
@@ -252,6 +278,7 @@ public class StaticSecretDeleteSync {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("delete-from-usc");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("remote-secret-name");

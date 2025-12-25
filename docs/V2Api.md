@@ -411,6 +411,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretCreateMongodb**](V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb |  |
 | [**rotatedSecretCreateMssql**](V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql |  |
 | [**rotatedSecretCreateMysql**](V2Api.md#rotatedSecretCreateMysql) | **POST** /rotated-secret-create-mysql |  |
+| [**rotatedSecretCreateOpenAI**](V2Api.md#rotatedSecretCreateOpenAI) | **POST** /rotated-secret-create-openai |  |
 | [**rotatedSecretCreateOracledb**](V2Api.md#rotatedSecretCreateOracledb) | **POST** /rotated-secret-create-oracledb |  |
 | [**rotatedSecretCreatePostgresql**](V2Api.md#rotatedSecretCreatePostgresql) | **POST** /rotated-secret-create-postgresql |  |
 | [**rotatedSecretCreateRedis**](V2Api.md#rotatedSecretCreateRedis) | **POST** /rotated-secret-create-redis |  |
@@ -434,6 +435,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretUpdateMongodb**](V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb |  |
 | [**rotatedSecretUpdateMssql**](V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql |  |
 | [**rotatedSecretUpdateMysql**](V2Api.md#rotatedSecretUpdateMysql) | **POST** /rotated-secret-update-mysql |  |
+| [**rotatedSecretUpdateOpenAI**](V2Api.md#rotatedSecretUpdateOpenAI) | **POST** /rotated-secret-update-openai |  |
 | [**rotatedSecretUpdateOracledb**](V2Api.md#rotatedSecretUpdateOracledb) | **POST** /rotated-secret-update-oracledb |  |
 | [**rotatedSecretUpdatePostgresql**](V2Api.md#rotatedSecretUpdatePostgresql) | **POST** /rotated-secret-update-postgresql |  |
 | [**rotatedSecretUpdateRedis**](V2Api.md#rotatedSecretUpdateRedis) | **POST** /rotated-secret-update-redis |  |
@@ -25410,6 +25412,67 @@ No authorization required
 | **200** | rotatedSecretCreateMysqlResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="rotatedSecretCreateOpenAI"></a>
+# **rotatedSecretCreateOpenAI**
+> RotatedSecretCreateOutput rotatedSecretCreateOpenAI(rotatedSecretCreateOpenAI)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretCreateOpenAI rotatedSecretCreateOpenAI = new RotatedSecretCreateOpenAI(); // RotatedSecretCreateOpenAI | 
+    try {
+      RotatedSecretCreateOutput result = apiInstance.rotatedSecretCreateOpenAI(rotatedSecretCreateOpenAI);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretCreateOpenAI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretCreateOpenAI** | [**RotatedSecretCreateOpenAI**](RotatedSecretCreateOpenAI.md)|  | |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | rotatedSecretCreateOpenAIResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="rotatedSecretCreateOracledb"></a>
 # **rotatedSecretCreateOracledb**
 > RotatedSecretCreateOutput rotatedSecretCreateOracledb(rotatedSecretCreateOracledb)
@@ -26811,6 +26874,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | rotatedSecretUpdateMysqlResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="rotatedSecretUpdateOpenAI"></a>
+# **rotatedSecretUpdateOpenAI**
+> RotatedSecretUpdateOutput rotatedSecretUpdateOpenAI(rotatedSecretUpdateOpenAI)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretUpdateOpenAI rotatedSecretUpdateOpenAI = new RotatedSecretUpdateOpenAI(); // RotatedSecretUpdateOpenAI | 
+    try {
+      RotatedSecretUpdateOutput result = apiInstance.rotatedSecretUpdateOpenAI(rotatedSecretUpdateOpenAI);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretUpdateOpenAI");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretUpdateOpenAI** | [**RotatedSecretUpdateOpenAI**](RotatedSecretUpdateOpenAI.md)|  | |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | rotatedSecretUpdateOpenAIResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="rotatedSecretUpdateOracledb"></a>

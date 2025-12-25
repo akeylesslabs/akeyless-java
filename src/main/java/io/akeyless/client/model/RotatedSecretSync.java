@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class RotatedSecretSync {
+  public static final String SERIALIZED_NAME_DELETE_REMOTE = "DeleteRemote";
+  @SerializedName(SERIALIZED_NAME_DELETE_REMOTE)
+  @javax.annotation.Nullable
+  private Boolean deleteRemote;
+
   public static final String SERIALIZED_NAME_FILTER_SECRET_VALUE = "filter-secret-value";
   @SerializedName(SERIALIZED_NAME_FILTER_SECRET_VALUE)
   @javax.annotation.Nullable
@@ -92,6 +97,25 @@ public class RotatedSecretSync {
 
   public RotatedSecretSync() {
   }
+
+  public RotatedSecretSync deleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+    return this;
+  }
+
+  /**
+   * Delete the secret from remote secret manager (for association create/update)
+   * @return deleteRemote
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteRemote() {
+    return deleteRemote;
+  }
+
+  public void setDeleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+  }
+
 
   public RotatedSecretSync filterSecretValue(@javax.annotation.Nullable String filterSecretValue) {
     this.filterSecretValue = filterSecretValue;
@@ -255,7 +279,8 @@ public class RotatedSecretSync {
       return false;
     }
     RotatedSecretSync rotatedSecretSync = (RotatedSecretSync) o;
-    return Objects.equals(this.filterSecretValue, rotatedSecretSync.filterSecretValue) &&
+    return Objects.equals(this.deleteRemote, rotatedSecretSync.deleteRemote) &&
+        Objects.equals(this.filterSecretValue, rotatedSecretSync.filterSecretValue) &&
         Objects.equals(this.json, rotatedSecretSync.json) &&
         Objects.equals(this.name, rotatedSecretSync.name) &&
         Objects.equals(this.namespace, rotatedSecretSync.namespace) &&
@@ -267,13 +292,14 @@ public class RotatedSecretSync {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filterSecretValue, json, name, namespace, remoteSecretName, token, uidToken, uscName);
+    return Objects.hash(deleteRemote, filterSecretValue, json, name, namespace, remoteSecretName, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretSync {\n");
+    sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
     sb.append("    filterSecretValue: ").append(toIndentedString(filterSecretValue)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -304,6 +330,7 @@ public class RotatedSecretSync {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("DeleteRemote");
     openapiFields.add("filter-secret-value");
     openapiFields.add("json");
     openapiFields.add("name");

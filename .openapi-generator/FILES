@@ -832,6 +832,7 @@ docs/RotatedSecretCreateLdap.md
 docs/RotatedSecretCreateMongodb.md
 docs/RotatedSecretCreateMssql.md
 docs/RotatedSecretCreateMysql.md
+docs/RotatedSecretCreateOpenAI.md
 docs/RotatedSecretCreateOracledb.md
 docs/RotatedSecretCreateOutput.md
 docs/RotatedSecretCreatePostgresql.md
@@ -859,6 +860,7 @@ docs/RotatedSecretUpdateLdap.md
 docs/RotatedSecretUpdateMongodb.md
 docs/RotatedSecretUpdateMssql.md
 docs/RotatedSecretUpdateMysql.md
+docs/RotatedSecretUpdateOpenAI.md
 docs/RotatedSecretUpdateOracledb.md
 docs/RotatedSecretUpdateOutput.md
 docs/RotatedSecretUpdatePostgresql.md
@@ -1997,6 +1999,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreateLdap.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMongodb.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMssql.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMysql.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateOpenAI.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateOracledb.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateOutput.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreatePostgresql.java
@@ -2024,6 +2027,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretUpdateLdap.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMongodb.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMssql.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMysql.java
+src/main/java/io/akeyless/client/model/RotatedSecretUpdateOpenAI.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateOracledb.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateOutput.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdatePostgresql.java
@@ -2306,3 +2310,5 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateOpenAITest.java
+src/test/java/io/akeyless/client/model/RotatedSecretUpdateOpenAITest.java

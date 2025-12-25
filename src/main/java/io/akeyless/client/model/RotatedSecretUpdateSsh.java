@@ -712,7 +712,7 @@ public class RotatedSecretUpdateSsh {
   }
 
   /**
-   * The rotator type. options: [target/password]
+   * The rotator type. options: [target/password/key]
    * @return rotatorType
    */
   @javax.annotation.Nonnull

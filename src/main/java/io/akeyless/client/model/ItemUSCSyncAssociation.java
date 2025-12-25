@@ -61,6 +61,11 @@ public class ItemUSCSyncAssociation {
   @javax.annotation.Nullable
   private UscSyncInfo attributes;
 
+  public static final String SERIALIZED_NAME_DELETE_REMOTE = "delete_remote";
+  @SerializedName(SERIALIZED_NAME_DELETE_REMOTE)
+  @javax.annotation.Nullable
+  private Boolean deleteRemote;
+
   public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
   @SerializedName(SERIALIZED_NAME_ITEM_ID)
   @javax.annotation.Nullable
@@ -114,6 +119,25 @@ public class ItemUSCSyncAssociation {
 
   public void setAttributes(@javax.annotation.Nullable UscSyncInfo attributes) {
     this.attributes = attributes;
+  }
+
+
+  public ItemUSCSyncAssociation deleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+    return this;
+  }
+
+  /**
+   * Get deleteRemote
+   * @return deleteRemote
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteRemote() {
+    return deleteRemote;
+  }
+
+  public void setDeleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
   }
 
 
@@ -186,6 +210,7 @@ public class ItemUSCSyncAssociation {
     ItemUSCSyncAssociation itemUSCSyncAssociation = (ItemUSCSyncAssociation) o;
     return Objects.equals(this.assocId, itemUSCSyncAssociation.assocId) &&
         Objects.equals(this.attributes, itemUSCSyncAssociation.attributes) &&
+        Objects.equals(this.deleteRemote, itemUSCSyncAssociation.deleteRemote) &&
         Objects.equals(this.itemId, itemUSCSyncAssociation.itemId) &&
         Objects.equals(this.itemName, itemUSCSyncAssociation.itemName) &&
         Objects.equals(this.itemType, itemUSCSyncAssociation.itemType);
@@ -193,7 +218,7 @@ public class ItemUSCSyncAssociation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(assocId, attributes, itemId, itemName, itemType);
+    return Objects.hash(assocId, attributes, deleteRemote, itemId, itemName, itemType);
   }
 
   @Override
@@ -202,6 +227,7 @@ public class ItemUSCSyncAssociation {
     sb.append("class ItemUSCSyncAssociation {\n");
     sb.append("    assocId: ").append(toIndentedString(assocId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    itemName: ").append(toIndentedString(itemName)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
@@ -229,6 +255,7 @@ public class ItemUSCSyncAssociation {
     openapiFields = new HashSet<String>();
     openapiFields.add("assoc_id");
     openapiFields.add("attributes");
+    openapiFields.add("delete_remote");
     openapiFields.add("item_id");
     openapiFields.add("item_name");
     openapiFields.add("item_type");

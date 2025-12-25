@@ -67,6 +67,11 @@ public class ListItems {
   @javax.annotation.Nullable
   private String autoPagination = "enabled";
 
+  public static final String SERIALIZED_NAME_CURRENT_FOLDER = "current-folder";
+  @SerializedName(SERIALIZED_NAME_CURRENT_FOLDER)
+  @javax.annotation.Nullable
+  private Boolean currentFolder = false;
+
   public static final String SERIALIZED_NAME_FILTER = "filter";
   @SerializedName(SERIALIZED_NAME_FILTER)
   @javax.annotation.Nullable
@@ -184,6 +189,25 @@ public class ListItems {
 
   public void setAutoPagination(@javax.annotation.Nullable String autoPagination) {
     this.autoPagination = autoPagination;
+  }
+
+
+  public ListItems currentFolder(@javax.annotation.Nullable Boolean currentFolder) {
+    this.currentFolder = currentFolder;
+    return this;
+  }
+
+  /**
+   * List only items in the current folder (excludes subfolders)
+   * @return currentFolder
+   */
+  @javax.annotation.Nullable
+  public Boolean getCurrentFolder() {
+    return currentFolder;
+  }
+
+  public void setCurrentFolder(@javax.annotation.Nullable Boolean currentFolder) {
+    this.currentFolder = currentFolder;
   }
 
 
@@ -444,6 +468,7 @@ public class ListItems {
     return Objects.equals(this.accessibility, listItems.accessibility) &&
         Objects.equals(this.advancedFilter, listItems.advancedFilter) &&
         Objects.equals(this.autoPagination, listItems.autoPagination) &&
+        Objects.equals(this.currentFolder, listItems.currentFolder) &&
         Objects.equals(this.filter, listItems.filter) &&
         Objects.equals(this.json, listItems.json) &&
         Objects.equals(this.minimalView, listItems.minimalView) &&
@@ -460,7 +485,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, advancedFilter, autoPagination, filter, json, minimalView, modifiedAfter, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, advancedFilter, autoPagination, currentFolder, filter, json, minimalView, modifiedAfter, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
   }
 
   @Override
@@ -470,6 +495,7 @@ public class ListItems {
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    advancedFilter: ").append(toIndentedString(advancedFilter)).append("\n");
     sb.append("    autoPagination: ").append(toIndentedString(autoPagination)).append("\n");
+    sb.append("    currentFolder: ").append(toIndentedString(currentFolder)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    minimalView: ").append(toIndentedString(minimalView)).append("\n");
@@ -507,6 +533,7 @@ public class ListItems {
     openapiFields.add("accessibility");
     openapiFields.add("advanced-filter");
     openapiFields.add("auto-pagination");
+    openapiFields.add("current-folder");
     openapiFields.add("filter");
     openapiFields.add("json");
     openapiFields.add("minimal-view");

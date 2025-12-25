@@ -659,6 +659,7 @@ import io.akeyless.client.model.RotatedSecretCreateLdap;
 import io.akeyless.client.model.RotatedSecretCreateMongodb;
 import io.akeyless.client.model.RotatedSecretCreateMssql;
 import io.akeyless.client.model.RotatedSecretCreateMysql;
+import io.akeyless.client.model.RotatedSecretCreateOpenAI;
 import io.akeyless.client.model.RotatedSecretCreateOracledb;
 import io.akeyless.client.model.RotatedSecretCreateOutput;
 import io.akeyless.client.model.RotatedSecretCreatePostgresql;
@@ -685,6 +686,7 @@ import io.akeyless.client.model.RotatedSecretUpdateLdap;
 import io.akeyless.client.model.RotatedSecretUpdateMongodb;
 import io.akeyless.client.model.RotatedSecretUpdateMssql;
 import io.akeyless.client.model.RotatedSecretUpdateMysql;
+import io.akeyless.client.model.RotatedSecretUpdateOpenAI;
 import io.akeyless.client.model.RotatedSecretUpdateOracledb;
 import io.akeyless.client.model.RotatedSecretUpdateOutput;
 import io.akeyless.client.model.RotatedSecretUpdatePostgresql;
@@ -54138,6 +54140,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for rotatedSecretCreateOpenAI
+     * @param rotatedSecretCreateOpenAI  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretCreateOpenAICall(RotatedSecretCreateOpenAI rotatedSecretCreateOpenAI, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rotatedSecretCreateOpenAI;
+
+        // create path and map variables
+        String localVarPath = "/rotated-secret-create-openai";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rotatedSecretCreateOpenAIValidateBeforeCall(RotatedSecretCreateOpenAI rotatedSecretCreateOpenAI, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rotatedSecretCreateOpenAI' is set
+        if (rotatedSecretCreateOpenAI == null) {
+            throw new ApiException("Missing the required parameter 'rotatedSecretCreateOpenAI' when calling rotatedSecretCreateOpenAI(Async)");
+        }
+
+        return rotatedSecretCreateOpenAICall(rotatedSecretCreateOpenAI, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretCreateOpenAI  (required)
+     * @return RotatedSecretCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RotatedSecretCreateOutput rotatedSecretCreateOpenAI(RotatedSecretCreateOpenAI rotatedSecretCreateOpenAI) throws ApiException {
+        ApiResponse<RotatedSecretCreateOutput> localVarResp = rotatedSecretCreateOpenAIWithHttpInfo(rotatedSecretCreateOpenAI);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretCreateOpenAI  (required)
+     * @return ApiResponse&lt;RotatedSecretCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RotatedSecretCreateOutput> rotatedSecretCreateOpenAIWithHttpInfo(RotatedSecretCreateOpenAI rotatedSecretCreateOpenAI) throws ApiException {
+        okhttp3.Call localVarCall = rotatedSecretCreateOpenAIValidateBeforeCall(rotatedSecretCreateOpenAI, null);
+        Type localVarReturnType = new TypeToken<RotatedSecretCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param rotatedSecretCreateOpenAI  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretCreateOpenAIAsync(RotatedSecretCreateOpenAI rotatedSecretCreateOpenAI, final ApiCallback<RotatedSecretCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rotatedSecretCreateOpenAIValidateBeforeCall(rotatedSecretCreateOpenAI, _callback);
+        Type localVarReturnType = new TypeToken<RotatedSecretCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for rotatedSecretCreateOracledb
      * @param rotatedSecretCreateOracledb  (required)
      * @param _callback Callback for upload/download progress
@@ -57146,6 +57279,137 @@ public class V2Api {
     public okhttp3.Call rotatedSecretUpdateMysqlAsync(RotatedSecretUpdateMysql rotatedSecretUpdateMysql, final ApiCallback<RotatedSecretUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = rotatedSecretUpdateMysqlValidateBeforeCall(rotatedSecretUpdateMysql, _callback);
+        Type localVarReturnType = new TypeToken<RotatedSecretUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for rotatedSecretUpdateOpenAI
+     * @param rotatedSecretUpdateOpenAI  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretUpdateOpenAICall(RotatedSecretUpdateOpenAI rotatedSecretUpdateOpenAI, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rotatedSecretUpdateOpenAI;
+
+        // create path and map variables
+        String localVarPath = "/rotated-secret-update-openai";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rotatedSecretUpdateOpenAIValidateBeforeCall(RotatedSecretUpdateOpenAI rotatedSecretUpdateOpenAI, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rotatedSecretUpdateOpenAI' is set
+        if (rotatedSecretUpdateOpenAI == null) {
+            throw new ApiException("Missing the required parameter 'rotatedSecretUpdateOpenAI' when calling rotatedSecretUpdateOpenAI(Async)");
+        }
+
+        return rotatedSecretUpdateOpenAICall(rotatedSecretUpdateOpenAI, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretUpdateOpenAI  (required)
+     * @return RotatedSecretUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RotatedSecretUpdateOutput rotatedSecretUpdateOpenAI(RotatedSecretUpdateOpenAI rotatedSecretUpdateOpenAI) throws ApiException {
+        ApiResponse<RotatedSecretUpdateOutput> localVarResp = rotatedSecretUpdateOpenAIWithHttpInfo(rotatedSecretUpdateOpenAI);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretUpdateOpenAI  (required)
+     * @return ApiResponse&lt;RotatedSecretUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RotatedSecretUpdateOutput> rotatedSecretUpdateOpenAIWithHttpInfo(RotatedSecretUpdateOpenAI rotatedSecretUpdateOpenAI) throws ApiException {
+        okhttp3.Call localVarCall = rotatedSecretUpdateOpenAIValidateBeforeCall(rotatedSecretUpdateOpenAI, null);
+        Type localVarReturnType = new TypeToken<RotatedSecretUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param rotatedSecretUpdateOpenAI  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateOpenAIResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretUpdateOpenAIAsync(RotatedSecretUpdateOpenAI rotatedSecretUpdateOpenAI, final ApiCallback<RotatedSecretUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rotatedSecretUpdateOpenAIValidateBeforeCall(rotatedSecretUpdateOpenAI, _callback);
         Type localVarReturnType = new TypeToken<RotatedSecretUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteFromUsc** | **Boolean** | Delete the secret from the remote target USC as well |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Static secret name |  |
 |**remoteSecretName** | **String** | Remote Secret Name to disambiguate when multiple syncs exist under the same USC |  [optional] |

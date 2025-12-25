@@ -513,6 +513,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretCreateMongodb**](docs/V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb | 
 *V2Api* | [**rotatedSecretCreateMssql**](docs/V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql | 
 *V2Api* | [**rotatedSecretCreateMysql**](docs/V2Api.md#rotatedSecretCreateMysql) | **POST** /rotated-secret-create-mysql | 
+*V2Api* | [**rotatedSecretCreateOpenAI**](docs/V2Api.md#rotatedSecretCreateOpenAI) | **POST** /rotated-secret-create-openai | 
 *V2Api* | [**rotatedSecretCreateOracledb**](docs/V2Api.md#rotatedSecretCreateOracledb) | **POST** /rotated-secret-create-oracledb | 
 *V2Api* | [**rotatedSecretCreatePostgresql**](docs/V2Api.md#rotatedSecretCreatePostgresql) | **POST** /rotated-secret-create-postgresql | 
 *V2Api* | [**rotatedSecretCreateRedis**](docs/V2Api.md#rotatedSecretCreateRedis) | **POST** /rotated-secret-create-redis | 
@@ -536,6 +537,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretUpdateMongodb**](docs/V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb | 
 *V2Api* | [**rotatedSecretUpdateMssql**](docs/V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql | 
 *V2Api* | [**rotatedSecretUpdateMysql**](docs/V2Api.md#rotatedSecretUpdateMysql) | **POST** /rotated-secret-update-mysql | 
+*V2Api* | [**rotatedSecretUpdateOpenAI**](docs/V2Api.md#rotatedSecretUpdateOpenAI) | **POST** /rotated-secret-update-openai | 
 *V2Api* | [**rotatedSecretUpdateOracledb**](docs/V2Api.md#rotatedSecretUpdateOracledb) | **POST** /rotated-secret-update-oracledb | 
 *V2Api* | [**rotatedSecretUpdatePostgresql**](docs/V2Api.md#rotatedSecretUpdatePostgresql) | **POST** /rotated-secret-update-postgresql | 
 *V2Api* | [**rotatedSecretUpdateRedis**](docs/V2Api.md#rotatedSecretUpdateRedis) | **POST** /rotated-secret-update-redis | 
@@ -1526,6 +1528,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateMongodb](docs/RotatedSecretCreateMongodb.md)
  - [RotatedSecretCreateMssql](docs/RotatedSecretCreateMssql.md)
  - [RotatedSecretCreateMysql](docs/RotatedSecretCreateMysql.md)
+ - [RotatedSecretCreateOpenAI](docs/RotatedSecretCreateOpenAI.md)
  - [RotatedSecretCreateOracledb](docs/RotatedSecretCreateOracledb.md)
  - [RotatedSecretCreateOutput](docs/RotatedSecretCreateOutput.md)
  - [RotatedSecretCreatePostgresql](docs/RotatedSecretCreatePostgresql.md)
@@ -1553,6 +1556,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretUpdateMongodb](docs/RotatedSecretUpdateMongodb.md)
  - [RotatedSecretUpdateMssql](docs/RotatedSecretUpdateMssql.md)
  - [RotatedSecretUpdateMysql](docs/RotatedSecretUpdateMysql.md)
+ - [RotatedSecretUpdateOpenAI](docs/RotatedSecretUpdateOpenAI.md)
  - [RotatedSecretUpdateOracledb](docs/RotatedSecretUpdateOracledb.md)
  - [RotatedSecretUpdateOutput](docs/RotatedSecretUpdateOutput.md)
  - [RotatedSecretUpdatePostgresql](docs/RotatedSecretUpdatePostgresql.md)

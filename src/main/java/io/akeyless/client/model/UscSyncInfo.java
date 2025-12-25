@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class UscSyncInfo {
+  public static final String SERIALIZED_NAME_DELETE_REMOTE = "delete_remote";
+  @SerializedName(SERIALIZED_NAME_DELETE_REMOTE)
+  @javax.annotation.Nullable
+  private Boolean deleteRemote;
+
   public static final String SERIALIZED_NAME_JQ_SECRET_FILTER = "jq_secret_filter";
   @SerializedName(SERIALIZED_NAME_JQ_SECRET_FILTER)
   @javax.annotation.Nullable
@@ -77,6 +82,25 @@ public class UscSyncInfo {
 
   public UscSyncInfo() {
   }
+
+  public UscSyncInfo deleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+    return this;
+  }
+
+  /**
+   * Get deleteRemote
+   * @return deleteRemote
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteRemote() {
+    return deleteRemote;
+  }
+
+  public void setDeleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+  }
+
 
   public UscSyncInfo jqSecretFilter(@javax.annotation.Nullable String jqSecretFilter) {
     this.jqSecretFilter = jqSecretFilter;
@@ -183,7 +207,8 @@ public class UscSyncInfo {
       return false;
     }
     UscSyncInfo uscSyncInfo = (UscSyncInfo) o;
-    return Objects.equals(this.jqSecretFilter, uscSyncInfo.jqSecretFilter) &&
+    return Objects.equals(this.deleteRemote, uscSyncInfo.deleteRemote) &&
+        Objects.equals(this.jqSecretFilter, uscSyncInfo.jqSecretFilter) &&
         Objects.equals(this.lastError, uscSyncInfo.lastError) &&
         Objects.equals(this.namespace, uscSyncInfo.namespace) &&
         Objects.equals(this.secretId, uscSyncInfo.secretId) &&
@@ -192,13 +217,14 @@ public class UscSyncInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jqSecretFilter, lastError, namespace, secretId, secretName);
+    return Objects.hash(deleteRemote, jqSecretFilter, lastError, namespace, secretId, secretName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscSyncInfo {\n");
+    sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
     sb.append("    jqSecretFilter: ").append(toIndentedString(jqSecretFilter)).append("\n");
     sb.append("    lastError: ").append(toIndentedString(lastError)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
@@ -226,6 +252,7 @@ public class UscSyncInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("delete_remote");
     openapiFields.add("jq_secret_filter");
     openapiFields.add("last_error");
     openapiFields.add("namespace");

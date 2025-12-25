@@ -10,6 +10,7 @@ ItemUSCSyncAssociation includes details of usc sync associations
 |------------ | ------------- | ------------- | -------------|
 |**assocId** | **String** |  |  [optional] |
 |**attributes** | [**UscSyncInfo**](UscSyncInfo.md) |  |  [optional] |
+|**deleteRemote** | **Boolean** |  |  [optional] |
 |**itemId** | **Long** |  |  [optional] |
 |**itemName** | **String** |  |  [optional] |
 |**itemType** | **String** |  |  [optional] |

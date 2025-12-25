@@ -78,6 +78,11 @@ public class AccountGeneralSettings {
   @javax.annotation.Nullable
   private AiInsightsSetting aiInsights;
 
+  public static final String SERIALIZED_NAME_ALLOW_AUTO_FILL = "allow_auto_fill";
+  @SerializedName(SERIALIZED_NAME_ALLOW_AUTO_FILL)
+  @javax.annotation.Nullable
+  private Boolean allowAutoFill;
+
   public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPES = "allowed_client_types";
   @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPES)
   @javax.annotation.Nullable
@@ -235,6 +240,25 @@ public class AccountGeneralSettings {
 
   public void setAiInsights(@javax.annotation.Nullable AiInsightsSetting aiInsights) {
     this.aiInsights = aiInsights;
+  }
+
+
+  public AccountGeneralSettings allowAutoFill(@javax.annotation.Nullable Boolean allowAutoFill) {
+    this.allowAutoFill = allowAutoFill;
+    return this;
+  }
+
+  /**
+   * Get allowAutoFill
+   * @return allowAutoFill
+   */
+  @javax.annotation.Nullable
+  public Boolean getAllowAutoFill() {
+    return allowAutoFill;
+  }
+
+  public void setAllowAutoFill(@javax.annotation.Nullable Boolean allowAutoFill) {
+    this.allowAutoFill = allowAutoFill;
   }
 
 
@@ -631,6 +655,7 @@ public class AccountGeneralSettings {
     return Objects.equals(this.accountDefaultKeyItemId, accountGeneralSettings.accountDefaultKeyItemId) &&
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
         Objects.equals(this.aiInsights, accountGeneralSettings.aiInsights) &&
+        Objects.equals(this.allowAutoFill, accountGeneralSettings.allowAutoFill) &&
         Objects.equals(this.allowedClientTypes, accountGeneralSettings.allowedClientTypes) &&
         Objects.equals(this.allowedClientsIps, accountGeneralSettings.allowedClientsIps) &&
         Objects.equals(this.allowedGatewaysIps, accountGeneralSettings.allowedGatewaysIps) &&
@@ -655,7 +680,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -665,6 +690,7 @@ public class AccountGeneralSettings {
     sb.append("    accountDefaultKeyItemId: ").append(toIndentedString(accountDefaultKeyItemId)).append("\n");
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
     sb.append("    aiInsights: ").append(toIndentedString(aiInsights)).append("\n");
+    sb.append("    allowAutoFill: ").append(toIndentedString(allowAutoFill)).append("\n");
     sb.append("    allowedClientTypes: ").append(toIndentedString(allowedClientTypes)).append("\n");
     sb.append("    allowedClientsIps: ").append(toIndentedString(allowedClientsIps)).append("\n");
     sb.append("    allowedGatewaysIps: ").append(toIndentedString(allowedGatewaysIps)).append("\n");
@@ -710,6 +736,7 @@ public class AccountGeneralSettings {
     openapiFields.add("account_default_key_item_id");
     openapiFields.add("account_default_key_name");
     openapiFields.add("ai_insights");
+    openapiFields.add("allow_auto_fill");
     openapiFields.add("allowed_client_types");
     openapiFields.add("allowed_clients_ips");
     openapiFields.add("allowed_gateways_ips");
