@@ -207,6 +207,11 @@ public class GatewayUpdateMigration {
   @javax.annotation.Nullable
   private String azureTenantId;
 
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  @javax.annotation.Nullable
+  private List<String> expirationEventIn = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   @javax.annotation.Nullable
@@ -231,6 +236,11 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_HASHI_URL)
   @javax.annotation.Nullable
   private String hashiUrl;
+
+  public static final String SERIALIZED_NAME_HOSTS = "hosts";
+  @SerializedName(SERIALIZED_NAME_HOSTS)
+  @javax.annotation.Nonnull
+  private String hosts;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -296,6 +306,11 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_PORT_RANGES = "port-ranges";
+  @SerializedName(SERIALIZED_NAME_PORT_RANGES)
+  @javax.annotation.Nullable
+  private String portRanges = "443";
 
   public static final String SERIALIZED_NAME_PROTECTION_KEY = "protection-key";
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
@@ -957,6 +972,33 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public GatewayUpdateMigration addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+  /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+   */
+  @javax.annotation.Nullable
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+  public void setExpirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+  }
+
+
   public GatewayUpdateMigration gcpKey(@javax.annotation.Nullable String gcpKey) {
     this.gcpKey = gcpKey;
     return this;
@@ -1057,6 +1099,25 @@ public class GatewayUpdateMigration {
 
   public void setHashiUrl(@javax.annotation.Nullable String hashiUrl) {
     this.hashiUrl = hashiUrl;
+  }
+
+
+  public GatewayUpdateMigration hosts(@javax.annotation.Nonnull String hosts) {
+    this.hosts = hosts;
+    return this;
+  }
+
+  /**
+   * A comma separated list of IPs, CIDR ranges, or DNS names to scan
+   * @return hosts
+   */
+  @javax.annotation.Nonnull
+  public String getHosts() {
+    return hosts;
+  }
+
+  public void setHosts(@javax.annotation.Nonnull String hosts) {
+    this.hosts = hosts;
   }
 
 
@@ -1331,6 +1392,25 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration portRanges(@javax.annotation.Nullable String portRanges) {
+    this.portRanges = portRanges;
+    return this;
+  }
+
+  /**
+   * A comma separated list of port ranges Examples: \&quot;80,443\&quot; or \&quot;80,443,8080-8090\&quot; or \&quot;443\&quot;
+   * @return portRanges
+   */
+  @javax.annotation.Nullable
+  public String getPortRanges() {
+    return portRanges;
+  }
+
+  public void setPortRanges(@javax.annotation.Nullable String portRanges) {
+    this.portRanges = portRanges;
+  }
+
+
   public GatewayUpdateMigration protectionKey(@javax.annotation.Nullable String protectionKey) {
     this.protectionKey = protectionKey;
     return this;
@@ -1600,11 +1680,13 @@ public class GatewayUpdateMigration {
         Objects.equals(this.azureKvName, gatewayUpdateMigration.azureKvName) &&
         Objects.equals(this.azureSecret, gatewayUpdateMigration.azureSecret) &&
         Objects.equals(this.azureTenantId, gatewayUpdateMigration.azureTenantId) &&
+        Objects.equals(this.expirationEventIn, gatewayUpdateMigration.expirationEventIn) &&
         Objects.equals(this.gcpKey, gatewayUpdateMigration.gcpKey) &&
         Objects.equals(this.hashiJson, gatewayUpdateMigration.hashiJson) &&
         Objects.equals(this.hashiNs, gatewayUpdateMigration.hashiNs) &&
         Objects.equals(this.hashiToken, gatewayUpdateMigration.hashiToken) &&
         Objects.equals(this.hashiUrl, gatewayUpdateMigration.hashiUrl) &&
+        Objects.equals(this.hosts, gatewayUpdateMigration.hosts) &&
         Objects.equals(this.id, gatewayUpdateMigration.id) &&
         Objects.equals(this.json, gatewayUpdateMigration.json) &&
         Objects.equals(this.k8sCaCertificate, gatewayUpdateMigration.k8sCaCertificate) &&
@@ -1618,6 +1700,7 @@ public class GatewayUpdateMigration {
         Objects.equals(this.k8sUsername, gatewayUpdateMigration.k8sUsername) &&
         Objects.equals(this.name, gatewayUpdateMigration.name) &&
         Objects.equals(this.newName, gatewayUpdateMigration.newName) &&
+        Objects.equals(this.portRanges, gatewayUpdateMigration.portRanges) &&
         Objects.equals(this.protectionKey, gatewayUpdateMigration.protectionKey) &&
         Objects.equals(this.siAutoRotate, gatewayUpdateMigration.siAutoRotate) &&
         Objects.equals(this.siRotationHour, gatewayUpdateMigration.siRotationHour) &&
@@ -1634,7 +1717,7 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, expirationEventIn, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken);
   }
 
   @Override
@@ -1672,11 +1755,13 @@ public class GatewayUpdateMigration {
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    azureSecret: ").append(toIndentedString(azureSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    hashiJson: ").append(toIndentedString(hashiJson)).append("\n");
     sb.append("    hashiNs: ").append(toIndentedString(hashiNs)).append("\n");
     sb.append("    hashiToken: ").append(toIndentedString(hashiToken)).append("\n");
     sb.append("    hashiUrl: ").append(toIndentedString(hashiUrl)).append("\n");
+    sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sCaCertificate: ").append(toIndentedString(k8sCaCertificate)).append("\n");
@@ -1690,6 +1775,7 @@ public class GatewayUpdateMigration {
     sb.append("    k8sUsername: ").append(toIndentedString(k8sUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    portRanges: ").append(toIndentedString(portRanges)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    siAutoRotate: ").append(toIndentedString(siAutoRotate)).append("\n");
     sb.append("    siRotationHour: ").append(toIndentedString(siRotationHour)).append("\n");
@@ -1755,11 +1841,13 @@ public class GatewayUpdateMigration {
     openapiFields.add("azure-kv-name");
     openapiFields.add("azure-secret");
     openapiFields.add("azure-tenant-id");
+    openapiFields.add("expiration-event-in");
     openapiFields.add("gcp-key");
     openapiFields.add("hashi-json");
     openapiFields.add("hashi-ns");
     openapiFields.add("hashi-token");
     openapiFields.add("hashi-url");
+    openapiFields.add("hosts");
     openapiFields.add("id");
     openapiFields.add("json");
     openapiFields.add("k8s-ca-certificate");
@@ -1773,6 +1861,7 @@ public class GatewayUpdateMigration {
     openapiFields.add("k8s-username");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("port-ranges");
     openapiFields.add("protection-key");
     openapiFields.add("si-auto-rotate");
     openapiFields.add("si-rotation-hour");
@@ -1788,6 +1877,7 @@ public class GatewayUpdateMigration {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("hosts");
     openapiRequiredFields.add("si-target-name");
     openapiRequiredFields.add("si-users-path-template");
     openapiRequiredFields.add("target-location");
@@ -1909,6 +1999,10 @@ public class GatewayUpdateMigration {
       if ((jsonObj.get("azure-tenant-id") != null && !jsonObj.get("azure-tenant-id").isJsonNull()) && !jsonObj.get("azure-tenant-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure-tenant-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-tenant-id").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+      }
       if ((jsonObj.get("gcp-key") != null && !jsonObj.get("gcp-key").isJsonNull()) && !jsonObj.get("gcp-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-key").toString()));
       }
@@ -1924,6 +2018,9 @@ public class GatewayUpdateMigration {
       }
       if ((jsonObj.get("hashi-url") != null && !jsonObj.get("hashi-url").isJsonNull()) && !jsonObj.get("hashi-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hashi-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashi-url").toString()));
+      }
+      if (!jsonObj.get("hosts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hosts").toString()));
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
@@ -1960,6 +2057,9 @@ public class GatewayUpdateMigration {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("port-ranges") != null && !jsonObj.get("port-ranges").isJsonNull()) && !jsonObj.get("port-ranges").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `port-ranges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port-ranges").toString()));
       }
       if ((jsonObj.get("protection-key") != null && !jsonObj.get("protection-key").isJsonNull()) && !jsonObj.get("protection-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `protection-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection-key").toString()));

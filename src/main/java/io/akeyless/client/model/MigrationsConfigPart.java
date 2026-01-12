@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AWSSecretsMigration;
 import io.akeyless.client.model.ActiveDirectoryMigration;
 import io.akeyless.client.model.AzureKeyVaultMigration;
+import io.akeyless.client.model.CertificateMigration;
 import io.akeyless.client.model.GCPSecretsMigration;
 import io.akeyless.client.model.HashiMigration;
 import io.akeyless.client.model.K8SMigration;
@@ -75,6 +76,11 @@ public class MigrationsConfigPart {
   @SerializedName(SERIALIZED_NAME_AZURE_KV_MIGRATIONS)
   @javax.annotation.Nullable
   private List<AzureKeyVaultMigration> azureKvMigrations = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_MIGRATIONS = "certificate_migrations";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_MIGRATIONS)
+  @javax.annotation.Nullable
+  private List<CertificateMigration> certificateMigrations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GCP_SECRETS_MIGRATIONS = "gcp_secrets_migrations";
   @SerializedName(SERIALIZED_NAME_GCP_SECRETS_MIGRATIONS)
@@ -187,6 +193,33 @@ public class MigrationsConfigPart {
 
   public void setAzureKvMigrations(@javax.annotation.Nullable List<AzureKeyVaultMigration> azureKvMigrations) {
     this.azureKvMigrations = azureKvMigrations;
+  }
+
+
+  public MigrationsConfigPart certificateMigrations(@javax.annotation.Nullable List<CertificateMigration> certificateMigrations) {
+    this.certificateMigrations = certificateMigrations;
+    return this;
+  }
+
+  public MigrationsConfigPart addCertificateMigrationsItem(CertificateMigration certificateMigrationsItem) {
+    if (this.certificateMigrations == null) {
+      this.certificateMigrations = new ArrayList<>();
+    }
+    this.certificateMigrations.add(certificateMigrationsItem);
+    return this;
+  }
+
+  /**
+   * Get certificateMigrations
+   * @return certificateMigrations
+   */
+  @javax.annotation.Nullable
+  public List<CertificateMigration> getCertificateMigrations() {
+    return certificateMigrations;
+  }
+
+  public void setCertificateMigrations(@javax.annotation.Nullable List<CertificateMigration> certificateMigrations) {
+    this.certificateMigrations = certificateMigrations;
   }
 
 
@@ -365,6 +398,7 @@ public class MigrationsConfigPart {
     return Objects.equals(this.activeDirectoryMigrations, migrationsConfigPart.activeDirectoryMigrations) &&
         Objects.equals(this.awsSecretsMigrations, migrationsConfigPart.awsSecretsMigrations) &&
         Objects.equals(this.azureKvMigrations, migrationsConfigPart.azureKvMigrations) &&
+        Objects.equals(this.certificateMigrations, migrationsConfigPart.certificateMigrations) &&
         Objects.equals(this.gcpSecretsMigrations, migrationsConfigPart.gcpSecretsMigrations) &&
         Objects.equals(this.hashiMigrations, migrationsConfigPart.hashiMigrations) &&
         Objects.equals(this.k8sMigrations, migrationsConfigPart.k8sMigrations) &&
@@ -375,7 +409,7 @@ public class MigrationsConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, mockMigrations, onePasswordMigrations, serverInventoryMigrations);
+    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, certificateMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, mockMigrations, onePasswordMigrations, serverInventoryMigrations);
   }
 
   @Override
@@ -385,6 +419,7 @@ public class MigrationsConfigPart {
     sb.append("    activeDirectoryMigrations: ").append(toIndentedString(activeDirectoryMigrations)).append("\n");
     sb.append("    awsSecretsMigrations: ").append(toIndentedString(awsSecretsMigrations)).append("\n");
     sb.append("    azureKvMigrations: ").append(toIndentedString(azureKvMigrations)).append("\n");
+    sb.append("    certificateMigrations: ").append(toIndentedString(certificateMigrations)).append("\n");
     sb.append("    gcpSecretsMigrations: ").append(toIndentedString(gcpSecretsMigrations)).append("\n");
     sb.append("    hashiMigrations: ").append(toIndentedString(hashiMigrations)).append("\n");
     sb.append("    k8sMigrations: ").append(toIndentedString(k8sMigrations)).append("\n");
@@ -416,6 +451,7 @@ public class MigrationsConfigPart {
     openapiFields.add("active_directory_migrations");
     openapiFields.add("aws_secrets_migrations");
     openapiFields.add("azure_kv_migrations");
+    openapiFields.add("certificate_migrations");
     openapiFields.add("gcp_secrets_migrations");
     openapiFields.add("hashi_migrations");
     openapiFields.add("k8s_migrations");
@@ -487,6 +523,20 @@ public class MigrationsConfigPart {
           // validate the optional field `azure_kv_migrations` (array)
           for (int i = 0; i < jsonArrayazureKvMigrations.size(); i++) {
             AzureKeyVaultMigration.validateJsonElement(jsonArrayazureKvMigrations.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("certificate_migrations") != null && !jsonObj.get("certificate_migrations").isJsonNull()) {
+        JsonArray jsonArraycertificateMigrations = jsonObj.getAsJsonArray("certificate_migrations");
+        if (jsonArraycertificateMigrations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("certificate_migrations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `certificate_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("certificate_migrations").toString()));
+          }
+
+          // validate the optional field `certificate_migrations` (array)
+          for (int i = 0; i < jsonArraycertificateMigrations.size(); i++) {
+            CertificateMigration.validateJsonElement(jsonArraycertificateMigrations.get(i));
           };
         }
       }

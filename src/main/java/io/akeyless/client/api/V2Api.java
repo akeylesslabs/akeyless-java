@@ -83,6 +83,8 @@ import io.akeyless.client.model.BatchEncryptionRequestLine;
 import io.akeyless.client.model.BatchTokenizationRequestLine;
 import io.akeyless.client.model.CacheConfigPart;
 import io.akeyless.client.model.CalcPasswordSecurityInfo;
+import io.akeyless.client.model.CertificateDiscovery;
+import io.akeyless.client.model.CertificateDiscoveryOutput;
 import io.akeyless.client.model.ChangeAdminAccountPassword;
 import io.akeyless.client.model.Configure;
 import io.akeyless.client.model.ConfigureOutput;
@@ -6327,6 +6329,137 @@ public class V2Api {
 
         okhttp3.Call localVarCall = calcPasswordSecurityInfoValidateBeforeCall(calcPasswordSecurityInfo, _callback);
         Type localVarReturnType = new TypeToken<PasswordSecurityInfo>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for certificateDiscovery
+     * @param certificateDiscovery  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> CertificateDiscoveryResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call certificateDiscoveryCall(CertificateDiscovery certificateDiscovery, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = certificateDiscovery;
+
+        // create path and map variables
+        String localVarPath = "/certificate-discovery";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call certificateDiscoveryValidateBeforeCall(CertificateDiscovery certificateDiscovery, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'certificateDiscovery' is set
+        if (certificateDiscovery == null) {
+            throw new ApiException("Missing the required parameter 'certificateDiscovery' when calling certificateDiscovery(Async)");
+        }
+
+        return certificateDiscoveryCall(certificateDiscovery, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param certificateDiscovery  (required)
+     * @return CertificateDiscoveryOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> CertificateDiscoveryResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CertificateDiscoveryOutput certificateDiscovery(CertificateDiscovery certificateDiscovery) throws ApiException {
+        ApiResponse<CertificateDiscoveryOutput> localVarResp = certificateDiscoveryWithHttpInfo(certificateDiscovery);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param certificateDiscovery  (required)
+     * @return ApiResponse&lt;CertificateDiscoveryOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> CertificateDiscoveryResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CertificateDiscoveryOutput> certificateDiscoveryWithHttpInfo(CertificateDiscovery certificateDiscovery) throws ApiException {
+        okhttp3.Call localVarCall = certificateDiscoveryValidateBeforeCall(certificateDiscovery, null);
+        Type localVarReturnType = new TypeToken<CertificateDiscoveryOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param certificateDiscovery  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> CertificateDiscoveryResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call certificateDiscoveryAsync(CertificateDiscovery certificateDiscovery, final ApiCallback<CertificateDiscoveryOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = certificateDiscoveryValidateBeforeCall(certificateDiscovery, _callback);
+        Type localVarReturnType = new TypeToken<CertificateDiscoveryOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

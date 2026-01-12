@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class UscDelete {
+  public static final String SERIALIZED_NAME_FORCE_DELETE = "force-delete";
+  @SerializedName(SERIALIZED_NAME_FORCE_DELETE)
+  @javax.annotation.Nullable
+  private Boolean forceDelete;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -82,6 +87,25 @@ public class UscDelete {
 
   public UscDelete() {
   }
+
+  public UscDelete forceDelete(@javax.annotation.Nullable Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+    return this;
+  }
+
+  /**
+   * Force delete objects that are soft deleted by default (relavent only for Azure target)
+   * @return forceDelete
+   */
+  @javax.annotation.Nullable
+  public Boolean getForceDelete() {
+    return forceDelete;
+  }
+
+  public void setForceDelete(@javax.annotation.Nullable Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+  }
+
 
   public UscDelete json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
@@ -207,7 +231,8 @@ public class UscDelete {
       return false;
     }
     UscDelete uscDelete = (UscDelete) o;
-    return Objects.equals(this.json, uscDelete.json) &&
+    return Objects.equals(this.forceDelete, uscDelete.forceDelete) &&
+        Objects.equals(this.json, uscDelete.json) &&
         Objects.equals(this.namespace, uscDelete.namespace) &&
         Objects.equals(this.secretId, uscDelete.secretId) &&
         Objects.equals(this.token, uscDelete.token) &&
@@ -217,13 +242,14 @@ public class UscDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, namespace, secretId, token, uidToken, uscName);
+    return Objects.hash(forceDelete, json, namespace, secretId, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscDelete {\n");
+    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
@@ -252,6 +278,7 @@ public class UscDelete {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("force-delete");
     openapiFields.add("json");
     openapiFields.add("namespace");
     openapiFields.add("secret-id");

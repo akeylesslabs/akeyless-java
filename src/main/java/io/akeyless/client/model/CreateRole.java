@@ -160,7 +160,7 @@ public class CreateRole {
   }
 
   /**
-   * Allow this role to view audit logs. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
+   * Allow this role to view audit logs. Currently only &#39;none&#39;, &#39;own&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported, allowing associated auth methods to view audit logs produced by the same auth methods.
    * @return auditAccess
    */
   @javax.annotation.Nullable
@@ -236,7 +236,7 @@ public class CreateRole {
   }
 
   /**
-   * Allow this role to view Event Center. Currently only &#39;none&#39;, &#39;own&#39; and &#39;all&#39; values are supported
+   * Allow this role to view Event Center. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported
    * @return eventCenterAccess
    */
   @javax.annotation.Nullable
@@ -301,7 +301,7 @@ public class CreateRole {
   }
 
   /**
-   * Allow this role to view gw analytics. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
+   * Allow this role to view gw analytics. Currently only &#39;none&#39;, &#39;scoped&#39;, &#39;all&#39; values are supported, allowing associated auth methods to view reports produced by the same auth methods.
    * @return gwAnalyticsAccess
    */
   @javax.annotation.Nullable
@@ -358,7 +358,7 @@ public class CreateRole {
   }
 
   /**
-   * Allow this role to view Reverse RBAC. Supported values: &#39;own&#39;, &#39;all&#39;.
+   * Allow this role to view Reverse RBAC. Supported values: &#39;scoped&#39;, &#39;all&#39;.
    * @return reverseRbacAccess
    */
   @javax.annotation.Nullable
@@ -377,7 +377,7 @@ public class CreateRole {
   }
 
   /**
-   * Allow this role to view SRA Clusters. Currently only &#39;none&#39;, &#39;own&#39;, &#39;all&#39; values are supported.
+   * Allow this role to view SRA Clusters. Currently only &#39;none&#39;, &#39;scoped&#39;, &#39;all&#39; values are supported.
    * @return sraReportsAccess
    */
   @javax.annotation.Nullable

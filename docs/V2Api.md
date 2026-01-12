@@ -45,6 +45,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**authMethodUpdateSAML**](V2Api.md#authMethodUpdateSAML) | **POST** /auth-method-update-saml |  |
 | [**authMethodUpdateUniversalIdentity**](V2Api.md#authMethodUpdateUniversalIdentity) | **POST** /auth-method-update-universal-identity |  |
 | [**calcPasswordSecurityInfo**](V2Api.md#calcPasswordSecurityInfo) | **POST** /calc-password-security-info |  |
+| [**certificateDiscovery**](V2Api.md#certificateDiscovery) | **POST** /certificate-discovery |  |
 | [**changeAdminAccountPassword**](V2Api.md#changeAdminAccountPassword) | **POST** /change-admin-account-password |  |
 | [**configure**](V2Api.md#configure) | **POST** /configure |  |
 | [**connect**](V2Api.md#connect) | **POST** /connect |  |
@@ -3099,6 +3100,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | calcPasswordSecurityInfoResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="certificateDiscovery"></a>
+# **certificateDiscovery**
+> CertificateDiscoveryOutput certificateDiscovery(certificateDiscovery)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CertificateDiscovery certificateDiscovery = new CertificateDiscovery(); // CertificateDiscovery | 
+    try {
+      CertificateDiscoveryOutput result = apiInstance.certificateDiscovery(certificateDiscovery);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#certificateDiscovery");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **certificateDiscovery** | [**CertificateDiscovery**](CertificateDiscovery.md)|  | |
+
+### Return type
+
+[**CertificateDiscoveryOutput**](CertificateDiscoveryOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | CertificateDiscoveryResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="changeAdminAccountPassword"></a>

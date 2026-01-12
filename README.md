@@ -147,6 +147,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**authMethodUpdateSAML**](docs/V2Api.md#authMethodUpdateSAML) | **POST** /auth-method-update-saml | 
 *V2Api* | [**authMethodUpdateUniversalIdentity**](docs/V2Api.md#authMethodUpdateUniversalIdentity) | **POST** /auth-method-update-universal-identity | 
 *V2Api* | [**calcPasswordSecurityInfo**](docs/V2Api.md#calcPasswordSecurityInfo) | **POST** /calc-password-security-info | 
+*V2Api* | [**certificateDiscovery**](docs/V2Api.md#certificateDiscovery) | **POST** /certificate-discovery | 
 *V2Api* | [**changeAdminAccountPassword**](docs/V2Api.md#changeAdminAccountPassword) | **POST** /change-admin-account-password | 
 *V2Api* | [**configure**](docs/V2Api.md#configure) | **POST** /configure | 
 *V2Api* | [**connect**](docs/V2Api.md#connect) | **POST** /connect | 
@@ -801,10 +802,15 @@ Class | Method | HTTP request | Description
  - [CertAccessRules](docs/CertAccessRules.md)
  - [CertificateAnalyticAggregation](docs/CertificateAnalyticAggregation.md)
  - [CertificateChainInfo](docs/CertificateChainInfo.md)
+ - [CertificateDiscovery](docs/CertificateDiscovery.md)
+ - [CertificateDiscoveryOutput](docs/CertificateDiscoveryOutput.md)
  - [CertificateExpirationEvent](docs/CertificateExpirationEvent.md)
  - [CertificateExpirationEventsSettings](docs/CertificateExpirationEventsSettings.md)
  - [CertificateInfo](docs/CertificateInfo.md)
  - [CertificateIssueInfo](docs/CertificateIssueInfo.md)
+ - [CertificateMigration](docs/CertificateMigration.md)
+ - [CertificatePayload](docs/CertificatePayload.md)
+ - [CertificateScanTarget](docs/CertificateScanTarget.md)
  - [CertificateStore](docs/CertificateStore.md)
  - [CertificateTemplateInfo](docs/CertificateTemplateInfo.md)
  - [CertificateVersionInfo](docs/CertificateVersionInfo.md)
@@ -1575,6 +1581,7 @@ Class | Method | HTTP request | Description
  - [SSHCertificateIssueDetails](docs/SSHCertificateIssueDetails.md)
  - [SSHTargetDetails](docs/SSHTargetDetails.md)
  - [SalesforceTargetDetails](docs/SalesforceTargetDetails.md)
+ - [ScanResults](docs/ScanResults.md)
  - [SecretInfo](docs/SecretInfo.md)
  - [SecretSyncOutput](docs/SecretSyncOutput.md)
  - [SectigoTargetDetails](docs/SectigoTargetDetails.md)
@@ -1649,6 +1656,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateWindows](docs/TargetCreateWindows.md)
  - [TargetCreateZeroSSL](docs/TargetCreateZeroSSL.md)
  - [TargetDelete](docs/TargetDelete.md)
+ - [TargetError](docs/TargetError.md)
  - [TargetGet](docs/TargetGet.md)
  - [TargetGetDetails](docs/TargetGetDetails.md)
  - [TargetItemAssociation](docs/TargetItemAssociation.md)
