@@ -2324,10 +2324,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/CertificateDiscoveryOutputTest.java
-src/test/java/io/akeyless/client/model/CertificateDiscoveryTest.java
-src/test/java/io/akeyless/client/model/CertificateMigrationTest.java
-src/test/java/io/akeyless/client/model/CertificatePayloadTest.java
-src/test/java/io/akeyless/client/model/CertificateScanTargetTest.java
-src/test/java/io/akeyless/client/model/ScanResultsTest.java
-src/test/java/io/akeyless/client/model/TargetErrorTest.java

@@ -19,9 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CertificateExpirationEvent;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,6 +68,11 @@ public class CertificateStore {
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   @javax.annotation.Nullable
   private OffsetDateTime expirationDate;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
+  @javax.annotation.Nullable
+  private List<CertificateExpirationEvent> expirationEvents = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -131,6 +139,33 @@ public class CertificateStore {
   }
 
 
+  public CertificateStore expirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> expirationEvents) {
+    this.expirationEvents = expirationEvents;
+    return this;
+  }
+
+  public CertificateStore addExpirationEventsItem(CertificateExpirationEvent expirationEventsItem) {
+    if (this.expirationEvents == null) {
+      this.expirationEvents = new ArrayList<>();
+    }
+    this.expirationEvents.add(expirationEventsItem);
+    return this;
+  }
+
+  /**
+   * Get expirationEvents
+   * @return expirationEvents
+   */
+  @javax.annotation.Nullable
+  public List<CertificateExpirationEvent> getExpirationEvents() {
+    return expirationEvents;
+  }
+
+  public void setExpirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> expirationEvents) {
+    this.expirationEvents = expirationEvents;
+  }
+
+
   public CertificateStore name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
@@ -163,12 +198,13 @@ public class CertificateStore {
     return Objects.equals(this.certificatePem, certificateStore.certificatePem) &&
         Objects.equals(this.commonName, certificateStore.commonName) &&
         Objects.equals(this.expirationDate, certificateStore.expirationDate) &&
+        Objects.equals(this.expirationEvents, certificateStore.expirationEvents) &&
         Objects.equals(this.name, certificateStore.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificatePem, commonName, expirationDate, name);
+    return Objects.hash(certificatePem, commonName, expirationDate, expirationEvents, name);
   }
 
   @Override
@@ -178,6 +214,7 @@ public class CertificateStore {
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
+    sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -204,6 +241,7 @@ public class CertificateStore {
     openapiFields.add("certificate_pem");
     openapiFields.add("common_name");
     openapiFields.add("expiration_date");
+    openapiFields.add("expiration_events");
     openapiFields.add("name");
 
     // a set of required properties/fields (JSON key names)
@@ -236,6 +274,20 @@ public class CertificateStore {
       }
       if ((jsonObj.get("common_name") != null && !jsonObj.get("common_name").isJsonNull()) && !jsonObj.get("common_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("common_name").toString()));
+      }
+      if (jsonObj.get("expiration_events") != null && !jsonObj.get("expiration_events").isJsonNull()) {
+        JsonArray jsonArrayexpirationEvents = jsonObj.getAsJsonArray("expiration_events");
+        if (jsonArrayexpirationEvents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("expiration_events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+          }
+
+          // validate the optional field `expiration_events` (array)
+          for (int i = 0; i < jsonArrayexpirationEvents.size(); i++) {
+            CertificateExpirationEvent.validateJsonElement(jsonArrayexpirationEvents.get(i));
+          };
+        }
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

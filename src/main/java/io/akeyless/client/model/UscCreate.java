@@ -82,6 +82,11 @@ public class UscCreate {
   @javax.annotation.Nullable
   private String pfxPassword;
 
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  @javax.annotation.Nullable
+  private String region;
+
   public static final String SERIALIZED_NAME_SECRET_NAME = "secret-name";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
   @javax.annotation.Nonnull
@@ -231,6 +236,25 @@ public class UscCreate {
 
   public void setPfxPassword(@javax.annotation.Nullable String pfxPassword) {
     this.pfxPassword = pfxPassword;
+  }
+
+
+  public UscCreate region(@javax.annotation.Nullable String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default).
+   * @return region
+   */
+  @javax.annotation.Nullable
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(@javax.annotation.Nullable String region) {
+    this.region = region;
   }
 
 
@@ -391,6 +415,7 @@ public class UscCreate {
         Objects.equals(this.namespace, uscCreate.namespace) &&
         Objects.equals(this.objectType, uscCreate.objectType) &&
         Objects.equals(this.pfxPassword, uscCreate.pfxPassword) &&
+        Objects.equals(this.region, uscCreate.region) &&
         Objects.equals(this.secretName, uscCreate.secretName) &&
         Objects.equals(this.tags, uscCreate.tags) &&
         Objects.equals(this.token, uscCreate.token) &&
@@ -402,7 +427,7 @@ public class UscCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, secretName, tags, token, uidToken, uscEncryptionKey, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, region, secretName, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
@@ -415,6 +440,7 @@ public class UscCreate {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pfxPassword: ").append(toIndentedString(pfxPassword)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -450,6 +476,7 @@ public class UscCreate {
     openapiFields.add("namespace");
     openapiFields.add("object-type");
     openapiFields.add("pfx-password");
+    openapiFields.add("region");
     openapiFields.add("secret-name");
     openapiFields.add("tags");
     openapiFields.add("token");
@@ -504,6 +531,9 @@ public class UscCreate {
       }
       if ((jsonObj.get("pfx-password") != null && !jsonObj.get("pfx-password").isJsonNull()) && !jsonObj.get("pfx-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pfx-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pfx-password").toString()));
+      }
+      if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       if (!jsonObj.get("secret-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-name").toString()));

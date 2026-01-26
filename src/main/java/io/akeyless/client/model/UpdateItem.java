@@ -99,6 +99,11 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private List<String> expirationEventIn = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_GCP_SM_REGIONS = "gcp-sm-regions";
+  @SerializedName(SERIALIZED_NAME_GCP_SM_REGIONS)
+  @javax.annotation.Nullable
+  private String gcpSmRegions;
+
   public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
   @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
   @javax.annotation.Nullable
@@ -491,6 +496,25 @@ public class UpdateItem {
 
   public void setExpirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
     this.expirationEventIn = expirationEventIn;
+  }
+
+
+  public UpdateItem gcpSmRegions(@javax.annotation.Nullable String gcpSmRegions) {
+    this.gcpSmRegions = gcpSmRegions;
+    return this;
+  }
+
+  /**
+   * GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. USC with GCP targets only.
+   * @return gcpSmRegions
+   */
+  @javax.annotation.Nullable
+  public String getGcpSmRegions() {
+    return gcpSmRegions;
+  }
+
+  public void setGcpSmRegions(@javax.annotation.Nullable String gcpSmRegions) {
+    this.gcpSmRegions = gcpSmRegions;
   }
 
 
@@ -1332,6 +1356,7 @@ public class UpdateItem {
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
         Objects.equals(this.description, updateItem.description) &&
         Objects.equals(this.expirationEventIn, updateItem.expirationEventIn) &&
+        Objects.equals(this.gcpSmRegions, updateItem.gcpSmRegions) &&
         Objects.equals(this.hostProvider, updateItem.hostProvider) &&
         Objects.equals(this.itemCustomFields, updateItem.itemCustomFields) &&
         Objects.equals(this.json, updateItem.json) &&
@@ -1377,7 +1402,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, hostProvider, itemCustomFields, json, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, gcpSmRegions, hostProvider, itemCustomFields, json, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
   }
 
   @Override
@@ -1393,6 +1418,7 @@ public class UpdateItem {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
+    sb.append("    gcpSmRegions: ").append(toIndentedString(gcpSmRegions)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1465,6 +1491,7 @@ public class UpdateItem {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("expiration-event-in");
+    openapiFields.add("gcp-sm-regions");
     openapiFields.add("host-provider");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
@@ -1568,6 +1595,9 @@ public class UpdateItem {
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+      }
+      if ((jsonObj.get("gcp-sm-regions") != null && !jsonObj.get("gcp-sm-regions").isJsonNull()) && !jsonObj.get("gcp-sm-regions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gcp-sm-regions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-sm-regions").toString()));
       }
       if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));

@@ -9,6 +9,7 @@ gatewayUpdateTlsCert is a command that updates Gateway TLS certificate
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**certData** | **String** | TLS Certificate (base64 encoded) |  [optional] |
+|**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keyData** | **String** | TLS Private Key (base64 encoded) |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

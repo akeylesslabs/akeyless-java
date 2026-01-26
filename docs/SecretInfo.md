@@ -14,6 +14,7 @@
 |**lastRetrieved** | **OffsetDateTime** |  |  [optional] |
 |**location** | **Object** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
+|**region** | **String** |  |  [optional] |
 |**secretId** | **String** |  |  [optional] |
 |**status** | **Boolean** |  |  [optional] |
 |**tags** | **Map&lt;String, String&gt;** |  |  [optional] |

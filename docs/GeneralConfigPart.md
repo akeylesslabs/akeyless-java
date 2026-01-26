@@ -20,6 +20,9 @@
 |**notifyOnStatusChange** | **Boolean** |  |  [optional] |
 |**tcpPort** | **String** |  |  [optional] |
 |**tlsCert** | **String** |  |  [optional] |
+|**tlsCertCommonName** | **String** |  |  [optional] |
+|**tlsCertExpirationDate** | **OffsetDateTime** |  |  [optional] |
+|**tlsCertExpirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
 |**tlsKey** | **String** |  |  [optional] |
 
 

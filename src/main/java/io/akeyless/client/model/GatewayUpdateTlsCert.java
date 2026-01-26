@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,6 +56,11 @@ public class GatewayUpdateTlsCert {
   @SerializedName(SERIALIZED_NAME_CERT_DATA)
   @javax.annotation.Nullable
   private String certData;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  @javax.annotation.Nullable
+  private List<String> expirationEventIn = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -94,6 +101,33 @@ public class GatewayUpdateTlsCert {
 
   public void setCertData(@javax.annotation.Nullable String certData) {
     this.certData = certData;
+  }
+
+
+  public GatewayUpdateTlsCert expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public GatewayUpdateTlsCert addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+  /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+   */
+  @javax.annotation.Nullable
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+  public void setExpirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
   }
 
 
@@ -184,6 +218,7 @@ public class GatewayUpdateTlsCert {
     }
     GatewayUpdateTlsCert gatewayUpdateTlsCert = (GatewayUpdateTlsCert) o;
     return Objects.equals(this.certData, gatewayUpdateTlsCert.certData) &&
+        Objects.equals(this.expirationEventIn, gatewayUpdateTlsCert.expirationEventIn) &&
         Objects.equals(this.json, gatewayUpdateTlsCert.json) &&
         Objects.equals(this.keyData, gatewayUpdateTlsCert.keyData) &&
         Objects.equals(this.token, gatewayUpdateTlsCert.token) &&
@@ -192,7 +227,7 @@ public class GatewayUpdateTlsCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certData, json, keyData, token, uidToken);
+    return Objects.hash(certData, expirationEventIn, json, keyData, token, uidToken);
   }
 
   @Override
@@ -200,6 +235,7 @@ public class GatewayUpdateTlsCert {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateTlsCert {\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyData: ").append(toIndentedString(keyData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -227,6 +263,7 @@ public class GatewayUpdateTlsCert {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("cert-data");
+    openapiFields.add("expiration-event-in");
     openapiFields.add("json");
     openapiFields.add("key-data");
     openapiFields.add("token");
@@ -259,6 +296,10 @@ public class GatewayUpdateTlsCert {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cert-data") != null && !jsonObj.get("cert-data").isJsonNull()) && !jsonObj.get("cert-data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cert-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-data").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
       }
       if ((jsonObj.get("key-data") != null && !jsonObj.get("key-data").isJsonNull()) && !jsonObj.get("key-data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-data").toString()));

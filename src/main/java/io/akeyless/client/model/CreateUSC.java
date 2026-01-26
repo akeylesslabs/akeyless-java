@@ -74,6 +74,11 @@ public class CreateUSC {
   @javax.annotation.Nullable
   private String gcpProjectId;
 
+  public static final String SERIALIZED_NAME_GCP_SM_REGIONS = "gcp-sm-regions";
+  @SerializedName(SERIALIZED_NAME_GCP_SM_REGIONS)
+  @javax.annotation.Nullable
+  private String gcpSmRegions;
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -200,6 +205,25 @@ public class CreateUSC {
 
   public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
+  }
+
+
+  public CreateUSC gcpSmRegions(@javax.annotation.Nullable String gcpSmRegions) {
+    this.gcpSmRegions = gcpSmRegions;
+    return this;
+  }
+
+  /**
+   * GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type&#x3D;regional-secrets.
+   * @return gcpSmRegions
+   */
+  @javax.annotation.Nullable
+  public String getGcpSmRegions() {
+    return gcpSmRegions;
+  }
+
+  public void setGcpSmRegions(@javax.annotation.Nullable String gcpSmRegions) {
+    this.gcpSmRegions = gcpSmRegions;
   }
 
 
@@ -423,6 +447,7 @@ public class CreateUSC {
         Objects.equals(this.deleteProtection, createUSC.deleteProtection) &&
         Objects.equals(this.description, createUSC.description) &&
         Objects.equals(this.gcpProjectId, createUSC.gcpProjectId) &&
+        Objects.equals(this.gcpSmRegions, createUSC.gcpSmRegions) &&
         Objects.equals(this.itemCustomFields, createUSC.itemCustomFields) &&
         Objects.equals(this.json, createUSC.json) &&
         Objects.equals(this.k8sNamespace, createUSC.k8sNamespace) &&
@@ -437,7 +462,7 @@ public class CreateUSC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, gcpProjectId, itemCustomFields, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
+    return Objects.hash(azureKvName, deleteProtection, description, gcpProjectId, gcpSmRegions, itemCustomFields, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
   }
 
   @Override
@@ -448,6 +473,7 @@ public class CreateUSC {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
+    sb.append("    gcpSmRegions: ").append(toIndentedString(gcpSmRegions)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
@@ -484,6 +510,7 @@ public class CreateUSC {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("gcp-project-id");
+    openapiFields.add("gcp-sm-regions");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("k8s-namespace");
@@ -540,6 +567,9 @@ public class CreateUSC {
       }
       if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
+      }
+      if ((jsonObj.get("gcp-sm-regions") != null && !jsonObj.get("gcp-sm-regions").isJsonNull()) && !jsonObj.get("gcp-sm-regions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gcp-sm-regions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-sm-regions").toString()));
       }
       if ((jsonObj.get("k8s-namespace") != null && !jsonObj.get("k8s-namespace").isJsonNull()) && !jsonObj.get("k8s-namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-namespace").toString()));

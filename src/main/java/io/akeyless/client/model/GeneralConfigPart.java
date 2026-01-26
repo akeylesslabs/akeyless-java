@@ -19,8 +19,12 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CertificateExpirationEvent;
 import java.io.IOException;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -114,6 +118,21 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_TLS_CERT)
   @javax.annotation.Nullable
   private String tlsCert;
+
+  public static final String SERIALIZED_NAME_TLS_CERT_COMMON_NAME = "tls_cert_common_name";
+  @SerializedName(SERIALIZED_NAME_TLS_CERT_COMMON_NAME)
+  @javax.annotation.Nullable
+  private String tlsCertCommonName;
+
+  public static final String SERIALIZED_NAME_TLS_CERT_EXPIRATION_DATE = "tls_cert_expiration_date";
+  @SerializedName(SERIALIZED_NAME_TLS_CERT_EXPIRATION_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime tlsCertExpirationDate;
+
+  public static final String SERIALIZED_NAME_TLS_CERT_EXPIRATION_EVENTS = "tls_cert_expiration_events";
+  @SerializedName(SERIALIZED_NAME_TLS_CERT_EXPIRATION_EVENTS)
+  @javax.annotation.Nullable
+  private List<CertificateExpirationEvent> tlsCertExpirationEvents = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TLS_KEY = "tls_key";
   @SerializedName(SERIALIZED_NAME_TLS_KEY)
@@ -370,6 +389,71 @@ public class GeneralConfigPart {
   }
 
 
+  public GeneralConfigPart tlsCertCommonName(@javax.annotation.Nullable String tlsCertCommonName) {
+    this.tlsCertCommonName = tlsCertCommonName;
+    return this;
+  }
+
+  /**
+   * Get tlsCertCommonName
+   * @return tlsCertCommonName
+   */
+  @javax.annotation.Nullable
+  public String getTlsCertCommonName() {
+    return tlsCertCommonName;
+  }
+
+  public void setTlsCertCommonName(@javax.annotation.Nullable String tlsCertCommonName) {
+    this.tlsCertCommonName = tlsCertCommonName;
+  }
+
+
+  public GeneralConfigPart tlsCertExpirationDate(@javax.annotation.Nullable OffsetDateTime tlsCertExpirationDate) {
+    this.tlsCertExpirationDate = tlsCertExpirationDate;
+    return this;
+  }
+
+  /**
+   * Get tlsCertExpirationDate
+   * @return tlsCertExpirationDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getTlsCertExpirationDate() {
+    return tlsCertExpirationDate;
+  }
+
+  public void setTlsCertExpirationDate(@javax.annotation.Nullable OffsetDateTime tlsCertExpirationDate) {
+    this.tlsCertExpirationDate = tlsCertExpirationDate;
+  }
+
+
+  public GeneralConfigPart tlsCertExpirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> tlsCertExpirationEvents) {
+    this.tlsCertExpirationEvents = tlsCertExpirationEvents;
+    return this;
+  }
+
+  public GeneralConfigPart addTlsCertExpirationEventsItem(CertificateExpirationEvent tlsCertExpirationEventsItem) {
+    if (this.tlsCertExpirationEvents == null) {
+      this.tlsCertExpirationEvents = new ArrayList<>();
+    }
+    this.tlsCertExpirationEvents.add(tlsCertExpirationEventsItem);
+    return this;
+  }
+
+  /**
+   * Get tlsCertExpirationEvents
+   * @return tlsCertExpirationEvents
+   */
+  @javax.annotation.Nullable
+  public List<CertificateExpirationEvent> getTlsCertExpirationEvents() {
+    return tlsCertExpirationEvents;
+  }
+
+  public void setTlsCertExpirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> tlsCertExpirationEvents) {
+    this.tlsCertExpirationEvents = tlsCertExpirationEvents;
+  }
+
+
   public GeneralConfigPart tlsKey(@javax.annotation.Nullable String tlsKey) {
     this.tlsKey = tlsKey;
     return this;
@@ -412,12 +496,15 @@ public class GeneralConfigPart {
         Objects.equals(this.notifyOnStatusChange, generalConfigPart.notifyOnStatusChange) &&
         Objects.equals(this.tcpPort, generalConfigPart.tcpPort) &&
         Objects.equals(this.tlsCert, generalConfigPart.tlsCert) &&
+        Objects.equals(this.tlsCertCommonName, generalConfigPart.tlsCertCommonName) &&
+        Objects.equals(this.tlsCertExpirationDate, generalConfigPart.tlsCertExpirationDate) &&
+        Objects.equals(this.tlsCertExpirationEvents, generalConfigPart.tlsCertExpirationEvents) &&
         Objects.equals(this.tlsKey, generalConfigPart.tlsKey);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, hvpRouteVersion, notifyOnStatusChange, tcpPort, tlsCert, tlsKey);
+    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, hvpRouteVersion, notifyOnStatusChange, tcpPort, tlsCert, tlsCertCommonName, tlsCertExpirationDate, tlsCertExpirationEvents, tlsKey);
   }
 
   @Override
@@ -437,6 +524,9 @@ public class GeneralConfigPart {
     sb.append("    notifyOnStatusChange: ").append(toIndentedString(notifyOnStatusChange)).append("\n");
     sb.append("    tcpPort: ").append(toIndentedString(tcpPort)).append("\n");
     sb.append("    tlsCert: ").append(toIndentedString(tlsCert)).append("\n");
+    sb.append("    tlsCertCommonName: ").append(toIndentedString(tlsCertCommonName)).append("\n");
+    sb.append("    tlsCertExpirationDate: ").append(toIndentedString(tlsCertExpirationDate)).append("\n");
+    sb.append("    tlsCertExpirationEvents: ").append(toIndentedString(tlsCertExpirationEvents)).append("\n");
     sb.append("    tlsKey: ").append(toIndentedString(tlsKey)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -473,6 +563,9 @@ public class GeneralConfigPart {
     openapiFields.add("notify_on_status_change");
     openapiFields.add("tcp_port");
     openapiFields.add("tls_cert");
+    openapiFields.add("tls_cert_common_name");
+    openapiFields.add("tls_cert_expiration_date");
+    openapiFields.add("tls_cert_expiration_events");
     openapiFields.add("tls_key");
 
     // a set of required properties/fields (JSON key names)
@@ -517,6 +610,23 @@ public class GeneralConfigPart {
       }
       if ((jsonObj.get("tls_cert") != null && !jsonObj.get("tls_cert").isJsonNull()) && !jsonObj.get("tls_cert").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tls_cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_cert").toString()));
+      }
+      if ((jsonObj.get("tls_cert_common_name") != null && !jsonObj.get("tls_cert_common_name").isJsonNull()) && !jsonObj.get("tls_cert_common_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tls_cert_common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_cert_common_name").toString()));
+      }
+      if (jsonObj.get("tls_cert_expiration_events") != null && !jsonObj.get("tls_cert_expiration_events").isJsonNull()) {
+        JsonArray jsonArraytlsCertExpirationEvents = jsonObj.getAsJsonArray("tls_cert_expiration_events");
+        if (jsonArraytlsCertExpirationEvents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("tls_cert_expiration_events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `tls_cert_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("tls_cert_expiration_events").toString()));
+          }
+
+          // validate the optional field `tls_cert_expiration_events` (array)
+          for (int i = 0; i < jsonArraytlsCertExpirationEvents.size(); i++) {
+            CertificateExpirationEvent.validateJsonElement(jsonArraytlsCertExpirationEvents.get(i));
+          };
+        }
       }
       if ((jsonObj.get("tls_key") != null && !jsonObj.get("tls_key").isJsonNull()) && !jsonObj.get("tls_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tls_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_key").toString()));

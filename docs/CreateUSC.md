@@ -12,6 +12,7 @@ CreateUSC is a command that creates a Universal Secrets Connector
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the Universal Secrets Connector |  [optional] |
 |**gcpProjectId** | **String** | GCP Project ID (Relevant only for GCP targets) |  [optional] |
+|**gcpSmRegions** | **String** | GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type&#x3D;regional-secrets. |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**k8sNamespace** | **String** | K8s namespace (Relevant to Kubernetes targets) |  [optional] |
