@@ -25,6 +25,7 @@
 |**godaddyTargetDetails** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  |  [optional] |
 |**hashiVaultTargetDetails** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  |  [optional] |
 |**ldapTargetDetails** | [**LdapTargetDetails**](LdapTargetDetails.md) |  |  [optional] |
+|**letsencryptTargetDetails** | [**LetsEncryptTargetDetails**](LetsEncryptTargetDetails.md) |  |  [optional] |
 |**linkedTargetDetails** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  |  [optional] |
 |**mongoDbTargetDetails** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  |  [optional] |
 |**nativeK8sTargetDetails** | [**NativeK8sTargetDetails**](NativeK8sTargetDetails.md) |  |  [optional] |
@@ -33,6 +34,7 @@
 |**rabbitMqTargetDetails** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  |  [optional] |
 |**salesforceTargetDetails** | [**SalesforceTargetDetails**](SalesforceTargetDetails.md) |  |  [optional] |
 |**sectigoTargetDetails** | [**SectigoTargetDetails**](SectigoTargetDetails.md) |  |  [optional] |
+|**splunkTargetDetails** | [**SplunkTargetDetails**](SplunkTargetDetails.md) |  |  [optional] |
 |**sshTargetDetails** | [**SSHTargetDetails**](SSHTargetDetails.md) |  |  [optional] |
 |**venafiTargetDetails** | [**VenafiTargetDetails**](VenafiTargetDetails.md) |  |  [optional] |
 |**webTargetDetails** | [**WebTargetDetails**](WebTargetDetails.md) |  |  [optional] |

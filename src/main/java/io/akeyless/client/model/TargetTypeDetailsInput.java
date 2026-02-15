@@ -37,6 +37,7 @@ import io.akeyless.client.model.GlobalSignGCCTargetDetails;
 import io.akeyless.client.model.GodaddyTargetDetails;
 import io.akeyless.client.model.HashiVaultTargetDetails;
 import io.akeyless.client.model.LdapTargetDetails;
+import io.akeyless.client.model.LetsEncryptTargetDetails;
 import io.akeyless.client.model.LinkedTargetDetails;
 import io.akeyless.client.model.MongoDBTargetDetails;
 import io.akeyless.client.model.NativeK8sTargetDetails;
@@ -46,6 +47,7 @@ import io.akeyless.client.model.RabbitMQTargetDetails;
 import io.akeyless.client.model.SSHTargetDetails;
 import io.akeyless.client.model.SalesforceTargetDetails;
 import io.akeyless.client.model.SectigoTargetDetails;
+import io.akeyless.client.model.SplunkTargetDetails;
 import io.akeyless.client.model.VenafiTargetDetails;
 import io.akeyless.client.model.WebTargetDetails;
 import io.akeyless.client.model.WindowsTargetDetails;
@@ -171,6 +173,11 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   private LdapTargetDetails ldapTargetDetails;
 
+  public static final String SERIALIZED_NAME_LETSENCRYPT_TARGET_DETAILS = "letsencrypt_target_details";
+  @SerializedName(SERIALIZED_NAME_LETSENCRYPT_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private LetsEncryptTargetDetails letsencryptTargetDetails;
+
   public static final String SERIALIZED_NAME_LINKED_TARGET_DETAILS = "linked_target_details";
   @SerializedName(SERIALIZED_NAME_LINKED_TARGET_DETAILS)
   @javax.annotation.Nullable
@@ -210,6 +217,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_SECTIGO_TARGET_DETAILS)
   @javax.annotation.Nullable
   private SectigoTargetDetails sectigoTargetDetails;
+
+  public static final String SERIALIZED_NAME_SPLUNK_TARGET_DETAILS = "splunk_target_details";
+  @SerializedName(SERIALIZED_NAME_SPLUNK_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private SplunkTargetDetails splunkTargetDetails;
 
   public static final String SERIALIZED_NAME_SSH_TARGET_DETAILS = "ssh_target_details";
   @SerializedName(SERIALIZED_NAME_SSH_TARGET_DETAILS)
@@ -581,6 +593,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput letsencryptTargetDetails(@javax.annotation.Nullable LetsEncryptTargetDetails letsencryptTargetDetails) {
+    this.letsencryptTargetDetails = letsencryptTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get letsencryptTargetDetails
+   * @return letsencryptTargetDetails
+   */
+  @javax.annotation.Nullable
+  public LetsEncryptTargetDetails getLetsencryptTargetDetails() {
+    return letsencryptTargetDetails;
+  }
+
+  public void setLetsencryptTargetDetails(@javax.annotation.Nullable LetsEncryptTargetDetails letsencryptTargetDetails) {
+    this.letsencryptTargetDetails = letsencryptTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput linkedTargetDetails(@javax.annotation.Nullable LinkedTargetDetails linkedTargetDetails) {
     this.linkedTargetDetails = linkedTargetDetails;
     return this;
@@ -733,6 +764,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput splunkTargetDetails(@javax.annotation.Nullable SplunkTargetDetails splunkTargetDetails) {
+    this.splunkTargetDetails = splunkTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get splunkTargetDetails
+   * @return splunkTargetDetails
+   */
+  @javax.annotation.Nullable
+  public SplunkTargetDetails getSplunkTargetDetails() {
+    return splunkTargetDetails;
+  }
+
+  public void setSplunkTargetDetails(@javax.annotation.Nullable SplunkTargetDetails splunkTargetDetails) {
+    this.splunkTargetDetails = splunkTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput sshTargetDetails(@javax.annotation.Nullable SSHTargetDetails sshTargetDetails) {
     this.sshTargetDetails = sshTargetDetails;
     return this;
@@ -856,6 +906,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.godaddyTargetDetails, targetTypeDetailsInput.godaddyTargetDetails) &&
         Objects.equals(this.hashiVaultTargetDetails, targetTypeDetailsInput.hashiVaultTargetDetails) &&
         Objects.equals(this.ldapTargetDetails, targetTypeDetailsInput.ldapTargetDetails) &&
+        Objects.equals(this.letsencryptTargetDetails, targetTypeDetailsInput.letsencryptTargetDetails) &&
         Objects.equals(this.linkedTargetDetails, targetTypeDetailsInput.linkedTargetDetails) &&
         Objects.equals(this.mongoDbTargetDetails, targetTypeDetailsInput.mongoDbTargetDetails) &&
         Objects.equals(this.nativeK8sTargetDetails, targetTypeDetailsInput.nativeK8sTargetDetails) &&
@@ -864,6 +915,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.rabbitMqTargetDetails, targetTypeDetailsInput.rabbitMqTargetDetails) &&
         Objects.equals(this.salesforceTargetDetails, targetTypeDetailsInput.salesforceTargetDetails) &&
         Objects.equals(this.sectigoTargetDetails, targetTypeDetailsInput.sectigoTargetDetails) &&
+        Objects.equals(this.splunkTargetDetails, targetTypeDetailsInput.splunkTargetDetails) &&
         Objects.equals(this.sshTargetDetails, targetTypeDetailsInput.sshTargetDetails) &&
         Objects.equals(this.venafiTargetDetails, targetTypeDetailsInput.venafiTargetDetails) &&
         Objects.equals(this.webTargetDetails, targetTypeDetailsInput.webTargetDetails) &&
@@ -873,7 +925,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -898,6 +950,7 @@ public class TargetTypeDetailsInput {
     sb.append("    godaddyTargetDetails: ").append(toIndentedString(godaddyTargetDetails)).append("\n");
     sb.append("    hashiVaultTargetDetails: ").append(toIndentedString(hashiVaultTargetDetails)).append("\n");
     sb.append("    ldapTargetDetails: ").append(toIndentedString(ldapTargetDetails)).append("\n");
+    sb.append("    letsencryptTargetDetails: ").append(toIndentedString(letsencryptTargetDetails)).append("\n");
     sb.append("    linkedTargetDetails: ").append(toIndentedString(linkedTargetDetails)).append("\n");
     sb.append("    mongoDbTargetDetails: ").append(toIndentedString(mongoDbTargetDetails)).append("\n");
     sb.append("    nativeK8sTargetDetails: ").append(toIndentedString(nativeK8sTargetDetails)).append("\n");
@@ -906,6 +959,7 @@ public class TargetTypeDetailsInput {
     sb.append("    rabbitMqTargetDetails: ").append(toIndentedString(rabbitMqTargetDetails)).append("\n");
     sb.append("    salesforceTargetDetails: ").append(toIndentedString(salesforceTargetDetails)).append("\n");
     sb.append("    sectigoTargetDetails: ").append(toIndentedString(sectigoTargetDetails)).append("\n");
+    sb.append("    splunkTargetDetails: ").append(toIndentedString(splunkTargetDetails)).append("\n");
     sb.append("    sshTargetDetails: ").append(toIndentedString(sshTargetDetails)).append("\n");
     sb.append("    venafiTargetDetails: ").append(toIndentedString(venafiTargetDetails)).append("\n");
     sb.append("    webTargetDetails: ").append(toIndentedString(webTargetDetails)).append("\n");
@@ -951,6 +1005,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("godaddy_target_details");
     openapiFields.add("hashi_vault_target_details");
     openapiFields.add("ldap_target_details");
+    openapiFields.add("letsencrypt_target_details");
     openapiFields.add("linked_target_details");
     openapiFields.add("mongo_db_target_details");
     openapiFields.add("native_k8s_target_details");
@@ -959,6 +1014,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("rabbit_mq_target_details");
     openapiFields.add("salesforce_target_details");
     openapiFields.add("sectigo_target_details");
+    openapiFields.add("splunk_target_details");
     openapiFields.add("ssh_target_details");
     openapiFields.add("venafi_target_details");
     openapiFields.add("web_target_details");
@@ -1062,6 +1118,10 @@ public class TargetTypeDetailsInput {
       if (jsonObj.get("ldap_target_details") != null && !jsonObj.get("ldap_target_details").isJsonNull()) {
         LdapTargetDetails.validateJsonElement(jsonObj.get("ldap_target_details"));
       }
+      // validate the optional field `letsencrypt_target_details`
+      if (jsonObj.get("letsencrypt_target_details") != null && !jsonObj.get("letsencrypt_target_details").isJsonNull()) {
+        LetsEncryptTargetDetails.validateJsonElement(jsonObj.get("letsencrypt_target_details"));
+      }
       // validate the optional field `linked_target_details`
       if (jsonObj.get("linked_target_details") != null && !jsonObj.get("linked_target_details").isJsonNull()) {
         LinkedTargetDetails.validateJsonElement(jsonObj.get("linked_target_details"));
@@ -1093,6 +1153,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `sectigo_target_details`
       if (jsonObj.get("sectigo_target_details") != null && !jsonObj.get("sectigo_target_details").isJsonNull()) {
         SectigoTargetDetails.validateJsonElement(jsonObj.get("sectigo_target_details"));
+      }
+      // validate the optional field `splunk_target_details`
+      if (jsonObj.get("splunk_target_details") != null && !jsonObj.get("splunk_target_details").isJsonNull()) {
+        SplunkTargetDetails.validateJsonElement(jsonObj.get("splunk_target_details"));
       }
       // validate the optional field `ssh_target_details`
       if (jsonObj.get("ssh_target_details") != null && !jsonObj.get("ssh_target_details").isJsonNull()) {

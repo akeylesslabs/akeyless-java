@@ -41,6 +41,7 @@ gatewayUpdateMigration is a command that update migration
 |**azureTenantId** | **String** | Azure Key Vault Access tenant ID (relevant only for Azure Key Vault migration) |  [optional] |
 |**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**gcpKey** | **String** | Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration) |  [optional] |
+|**gcpProjectId** | **String** | GCP Project ID (cross-project override) |  [optional] |
 |**hashiJson** | **String** | Import secret key as json value or independent secrets (relevant only for HasiCorp Vault migration) [true/false] |  [optional] |
 |**hashiNs** | **List&lt;String&gt;** | HashiCorp Vault Namespaces is a comma-separated list of namespaces which need to be imported into Akeyless Vault. For every provided namespace, all its child namespaces are imported as well, e.g. nmsp/subnmsp1/subnmsp2,nmsp/anothernmsp. By default, import all namespaces (relevant only for HasiCorp Vault migration) |  [optional] |
 |**hashiToken** | **String** | HashiCorp Vault access token with sufficient permissions to preform list &amp; read operations on secrets objects (relevant only for HasiCorp Vault migration) |  [optional] |
@@ -72,6 +73,7 @@ gatewayUpdateMigration is a command that update migration
 |**targetLocation** | **String** | Target location in Akeyless for imported secrets |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
+|**useGwCloudIdentity** | **Boolean** | Use the GW&#39;s Cloud IAM |  [optional] |
 
 
 

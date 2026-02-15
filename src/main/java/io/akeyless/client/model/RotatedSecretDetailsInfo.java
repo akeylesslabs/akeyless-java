@@ -78,6 +78,11 @@ public class RotatedSecretDetailsInfo {
   @javax.annotation.Nullable
   private Integer graceRotationInterval;
 
+  public static final String SERIALIZED_NAME_GRACE_ROTATION_TIMING = "grace_rotation_timing";
+  @SerializedName(SERIALIZED_NAME_GRACE_ROTATION_TIMING)
+  @javax.annotation.Nullable
+  private String graceRotationTiming;
+
   public static final String SERIALIZED_NAME_GW_CLUSTER_ID = "gw_cluster_id";
   @SerializedName(SERIALIZED_NAME_GW_CLUSTER_ID)
   @javax.annotation.Nullable
@@ -258,6 +263,25 @@ public class RotatedSecretDetailsInfo {
 
   public void setGraceRotationInterval(@javax.annotation.Nullable Integer graceRotationInterval) {
     this.graceRotationInterval = graceRotationInterval;
+  }
+
+
+  public RotatedSecretDetailsInfo graceRotationTiming(@javax.annotation.Nullable String graceRotationTiming) {
+    this.graceRotationTiming = graceRotationTiming;
+    return this;
+  }
+
+  /**
+   * Get graceRotationTiming
+   * @return graceRotationTiming
+   */
+  @javax.annotation.Nullable
+  public String getGraceRotationTiming() {
+    return graceRotationTiming;
+  }
+
+  public void setGraceRotationTiming(@javax.annotation.Nullable String graceRotationTiming) {
+    this.graceRotationTiming = graceRotationTiming;
   }
 
 
@@ -615,6 +639,7 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.graceRotation, rotatedSecretDetailsInfo.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretDetailsInfo.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretDetailsInfo.graceRotationInterval) &&
+        Objects.equals(this.graceRotationTiming, rotatedSecretDetailsInfo.graceRotationTiming) &&
         Objects.equals(this.gwClusterId, rotatedSecretDetailsInfo.gwClusterId) &&
         Objects.equals(this.iisAppsDetails, rotatedSecretDetailsInfo.iisAppsDetails) &&
         Objects.equals(this.lastRotationError, rotatedSecretDetailsInfo.lastRotationError) &&
@@ -636,7 +661,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, timeoutSeconds);
+    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, timeoutSeconds);
   }
 
   @Override
@@ -648,6 +673,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
+    sb.append("    graceRotationTiming: ").append(toIndentedString(graceRotationTiming)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    iisAppsDetails: ").append(toIndentedString(iisAppsDetails)).append("\n");
     sb.append("    lastRotationError: ").append(toIndentedString(lastRotationError)).append("\n");
@@ -692,6 +718,7 @@ public class RotatedSecretDetailsInfo {
     openapiFields.add("grace_rotation");
     openapiFields.add("grace_rotation_hour");
     openapiFields.add("grace_rotation_interval");
+    openapiFields.add("grace_rotation_timing");
     openapiFields.add("gw_cluster_id");
     openapiFields.add("iis_apps_details");
     openapiFields.add("last_rotation_error");
@@ -735,6 +762,9 @@ public class RotatedSecretDetailsInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("grace_rotation_timing") != null && !jsonObj.get("grace_rotation_timing").isJsonNull()) && !jsonObj.get("grace_rotation_timing").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `grace_rotation_timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotation_timing").toString()));
+      }
       if (jsonObj.get("iis_apps_details") != null && !jsonObj.get("iis_apps_details").isJsonNull()) {
         JsonArray jsonArrayiisAppsDetails = jsonObj.getAsJsonArray("iis_apps_details");
         if (jsonArrayiisAppsDetails != null) {

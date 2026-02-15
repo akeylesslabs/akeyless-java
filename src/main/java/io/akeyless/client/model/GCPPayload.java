@@ -55,6 +55,16 @@ public class GCPPayload {
   @javax.annotation.Nullable
   private String gcpCredentialsJson;
 
+  public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
+  @SerializedName(SERIALIZED_NAME_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String projectId;
+
+  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
+  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
+  @javax.annotation.Nullable
+  private Boolean useGwCloudIdentity;
+
   public GCPPayload() {
   }
 
@@ -77,6 +87,44 @@ public class GCPPayload {
   }
 
 
+  public GCPPayload projectId(@javax.annotation.Nullable String projectId) {
+    this.projectId = projectId;
+    return this;
+  }
+
+  /**
+   * Get projectId
+   * @return projectId
+   */
+  @javax.annotation.Nullable
+  public String getProjectId() {
+    return projectId;
+  }
+
+  public void setProjectId(@javax.annotation.Nullable String projectId) {
+    this.projectId = projectId;
+  }
+
+
+  public GCPPayload useGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+    return this;
+  }
+
+  /**
+   * Get useGwCloudIdentity
+   * @return useGwCloudIdentity
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseGwCloudIdentity() {
+    return useGwCloudIdentity;
+  }
+
+  public void setUseGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -87,12 +135,14 @@ public class GCPPayload {
       return false;
     }
     GCPPayload gcPPayload = (GCPPayload) o;
-    return Objects.equals(this.gcpCredentialsJson, gcPPayload.gcpCredentialsJson);
+    return Objects.equals(this.gcpCredentialsJson, gcPPayload.gcpCredentialsJson) &&
+        Objects.equals(this.projectId, gcPPayload.projectId) &&
+        Objects.equals(this.useGwCloudIdentity, gcPPayload.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpCredentialsJson);
+    return Objects.hash(gcpCredentialsJson, projectId, useGwCloudIdentity);
   }
 
   @Override
@@ -100,6 +150,8 @@ public class GCPPayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class GCPPayload {\n");
     sb.append("    gcpCredentialsJson: ").append(toIndentedString(gcpCredentialsJson)).append("\n");
+    sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -123,6 +175,8 @@ public class GCPPayload {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("gcp_credentials_json");
+    openapiFields.add("project_id");
+    openapiFields.add("use_gw_cloud_identity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -151,6 +205,9 @@ public class GCPPayload {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gcp_credentials_json") != null && !jsonObj.get("gcp_credentials_json").isJsonNull()) && !jsonObj.get("gcp_credentials_json").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp_credentials_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_credentials_json").toString()));
+      }
+      if ((jsonObj.get("project_id") != null && !jsonObj.get("project_id").isJsonNull()) && !jsonObj.get("project_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_id").toString()));
       }
   }
 

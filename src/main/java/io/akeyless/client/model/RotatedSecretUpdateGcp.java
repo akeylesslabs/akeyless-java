@@ -109,6 +109,11 @@ public class RotatedSecretUpdateGcp {
   @javax.annotation.Nullable
   private String graceRotationInterval;
 
+  public static final String SERIALIZED_NAME_GRACE_ROTATION_TIMING = "grace-rotation-timing";
+  @SerializedName(SERIALIZED_NAME_GRACE_ROTATION_TIMING)
+  @javax.annotation.Nullable
+  private String graceRotationTiming;
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -353,7 +358,7 @@ public class RotatedSecretUpdateGcp {
   }
 
   /**
-   * Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]
+   * Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]
    * @return graceRotation
    */
   @javax.annotation.Nullable
@@ -401,6 +406,25 @@ public class RotatedSecretUpdateGcp {
 
   public void setGraceRotationInterval(@javax.annotation.Nullable String graceRotationInterval) {
     this.graceRotationInterval = graceRotationInterval;
+  }
+
+
+  public RotatedSecretUpdateGcp graceRotationTiming(@javax.annotation.Nullable String graceRotationTiming) {
+    this.graceRotationTiming = graceRotationTiming;
+    return this;
+  }
+
+  /**
+   * When to create the new version relative to the rotation date [after/before]
+   * @return graceRotationTiming
+   */
+  @javax.annotation.Nullable
+  public String getGraceRotationTiming() {
+    return graceRotationTiming;
+  }
+
+  public void setGraceRotationTiming(@javax.annotation.Nullable String graceRotationTiming) {
+    this.graceRotationTiming = graceRotationTiming;
   }
 
 
@@ -734,6 +758,7 @@ public class RotatedSecretUpdateGcp {
         Objects.equals(this.graceRotation, rotatedSecretUpdateGcp.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretUpdateGcp.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretUpdateGcp.graceRotationInterval) &&
+        Objects.equals(this.graceRotationTiming, rotatedSecretUpdateGcp.graceRotationTiming) &&
         Objects.equals(this.itemCustomFields, rotatedSecretUpdateGcp.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateGcp.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateGcp.keepPrevVersion) &&
@@ -753,7 +778,7 @@ public class RotatedSecretUpdateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, token, uidToken);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, token, uidToken);
   }
 
   @Override
@@ -771,6 +796,7 @@ public class RotatedSecretUpdateGcp {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
+    sb.append("    graceRotationTiming: ").append(toIndentedString(graceRotationTiming)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -819,6 +845,7 @@ public class RotatedSecretUpdateGcp {
     openapiFields.add("grace-rotation");
     openapiFields.add("grace-rotation-hour");
     openapiFields.add("grace-rotation-interval");
+    openapiFields.add("grace-rotation-timing");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
@@ -899,6 +926,9 @@ public class RotatedSecretUpdateGcp {
       }
       if ((jsonObj.get("grace-rotation-interval") != null && !jsonObj.get("grace-rotation-interval").isJsonNull()) && !jsonObj.get("grace-rotation-interval").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `grace-rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-interval").toString()));
+      }
+      if ((jsonObj.get("grace-rotation-timing") != null && !jsonObj.get("grace-rotation-timing").isJsonNull()) && !jsonObj.get("grace-rotation-timing").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `grace-rotation-timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-timing").toString()));
       }
       if ((jsonObj.get("keep-prev-version") != null && !jsonObj.get("keep-prev-version").isJsonNull()) && !jsonObj.get("keep-prev-version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));

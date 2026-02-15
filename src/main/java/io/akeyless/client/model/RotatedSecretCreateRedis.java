@@ -510,7 +510,7 @@ public class RotatedSecretCreateRedis {
   }
 
   /**
-   * Target name
+   * The target name to associate
    * @return targetName
    */
   @javax.annotation.Nonnull

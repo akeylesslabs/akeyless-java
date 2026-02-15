@@ -848,7 +848,7 @@ public class RotatedSecretCreateLdap {
   }
 
   /**
-   * Target name
+   * The target name to associate
    * @return targetName
    */
   @javax.annotation.Nonnull

@@ -114,6 +114,11 @@ public class RotatedSecretUpdateAzure {
   @javax.annotation.Nullable
   private String graceRotationInterval;
 
+  public static final String SERIALIZED_NAME_GRACE_ROTATION_TIMING = "grace-rotation-timing";
+  @SerializedName(SERIALIZED_NAME_GRACE_ROTATION_TIMING)
+  @javax.annotation.Nullable
+  private String graceRotationTiming;
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -427,7 +432,7 @@ public class RotatedSecretUpdateAzure {
   }
 
   /**
-   * Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false]
+   * Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false]
    * @return graceRotation
    */
   @javax.annotation.Nullable
@@ -475,6 +480,25 @@ public class RotatedSecretUpdateAzure {
 
   public void setGraceRotationInterval(@javax.annotation.Nullable String graceRotationInterval) {
     this.graceRotationInterval = graceRotationInterval;
+  }
+
+
+  public RotatedSecretUpdateAzure graceRotationTiming(@javax.annotation.Nullable String graceRotationTiming) {
+    this.graceRotationTiming = graceRotationTiming;
+    return this;
+  }
+
+  /**
+   * When to create the new version relative to the rotation date [after/before]
+   * @return graceRotationTiming
+   */
+  @javax.annotation.Nullable
+  public String getGraceRotationTiming() {
+    return graceRotationTiming;
+  }
+
+  public void setGraceRotationTiming(@javax.annotation.Nullable String graceRotationTiming) {
+    this.graceRotationTiming = graceRotationTiming;
   }
 
 
@@ -999,6 +1023,7 @@ public class RotatedSecretUpdateAzure {
         Objects.equals(this.graceRotation, rotatedSecretUpdateAzure.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretUpdateAzure.graceRotationHour) &&
         Objects.equals(this.graceRotationInterval, rotatedSecretUpdateAzure.graceRotationInterval) &&
+        Objects.equals(this.graceRotationTiming, rotatedSecretUpdateAzure.graceRotationTiming) &&
         Objects.equals(this.itemCustomFields, rotatedSecretUpdateAzure.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateAzure.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateAzure.keepPrevVersion) &&
@@ -1028,7 +1053,7 @@ public class RotatedSecretUpdateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, resourceGroupName, resourceName, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, username);
+    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, resourceGroupName, resourceName, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, username);
   }
 
   @Override
@@ -1047,6 +1072,7 @@ public class RotatedSecretUpdateAzure {
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
     sb.append("    graceRotationInterval: ").append(toIndentedString(graceRotationInterval)).append("\n");
+    sb.append("    graceRotationTiming: ").append(toIndentedString(graceRotationTiming)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -1106,6 +1132,7 @@ public class RotatedSecretUpdateAzure {
     openapiFields.add("grace-rotation");
     openapiFields.add("grace-rotation-hour");
     openapiFields.add("grace-rotation-interval");
+    openapiFields.add("grace-rotation-timing");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
@@ -1198,6 +1225,9 @@ public class RotatedSecretUpdateAzure {
       }
       if ((jsonObj.get("grace-rotation-interval") != null && !jsonObj.get("grace-rotation-interval").isJsonNull()) && !jsonObj.get("grace-rotation-interval").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `grace-rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-interval").toString()));
+      }
+      if ((jsonObj.get("grace-rotation-timing") != null && !jsonObj.get("grace-rotation-timing").isJsonNull()) && !jsonObj.get("grace-rotation-timing").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `grace-rotation-timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-timing").toString()));
       }
       if ((jsonObj.get("keep-prev-version") != null && !jsonObj.get("keep-prev-version").isJsonNull()) && !jsonObj.get("keep-prev-version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));

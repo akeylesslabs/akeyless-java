@@ -510,7 +510,7 @@ public class RotatedSecretCreateOpenAI {
   }
 
   /**
-   * Target name
+   * The target name to associate
    * @return targetName
    */
   @javax.annotation.Nonnull

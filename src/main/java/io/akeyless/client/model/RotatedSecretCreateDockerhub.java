@@ -438,7 +438,7 @@ public class RotatedSecretCreateDockerhub {
   }
 
   /**
-   * Target name
+   * The target name to associate
    * @return targetName
    */
   @javax.annotation.Nonnull

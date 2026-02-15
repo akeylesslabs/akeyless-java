@@ -490,6 +490,11 @@ Class | Method | HTTP request | Description
 *V2Api* | [**listSharedItems**](docs/V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 *V2Api* | [**listTargets**](docs/V2Api.md#listTargets) | **POST** /list-targets | 
 *V2Api* | [**moveObjects**](docs/V2Api.md#moveObjects) | **POST** /move-objects | 
+*V2Api* | [**policiesDelete**](docs/V2Api.md#policiesDelete) | **POST** /policy-delete | 
+*V2Api* | [**policiesGet**](docs/V2Api.md#policiesGet) | **POST** /policy-get | 
+*V2Api* | [**policiesList**](docs/V2Api.md#policiesList) | **POST** /policy-list | 
+*V2Api* | [**policyCreateKeys**](docs/V2Api.md#policyCreateKeys) | **POST** /policy-create-keys | 
+*V2Api* | [**policyUpdateKeys**](docs/V2Api.md#policyUpdateKeys) | **POST** /policy-update-keys | 
 *V2Api* | [**provisionCertificate**](docs/V2Api.md#provisionCertificate) | **POST** /provision-certificate | 
 *V2Api* | [**rawCreds**](docs/V2Api.md#rawCreds) | **POST** /raw-creds | 
 *V2Api* | [**refreshKey**](docs/V2Api.md#refreshKey) | **POST** /refresh-key | 
@@ -520,6 +525,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretCreateRedis**](docs/V2Api.md#rotatedSecretCreateRedis) | **POST** /rotated-secret-create-redis | 
 *V2Api* | [**rotatedSecretCreateRedshift**](docs/V2Api.md#rotatedSecretCreateRedshift) | **POST** /rotated-secret-create-redshift | 
 *V2Api* | [**rotatedSecretCreateSnowflake**](docs/V2Api.md#rotatedSecretCreateSnowflake) | **POST** /rotated-secret-create-snowflake | 
+*V2Api* | [**rotatedSecretCreateSplunk**](docs/V2Api.md#rotatedSecretCreateSplunk) | **POST** /rotated-secret-create-splunk | 
 *V2Api* | [**rotatedSecretCreateSsh**](docs/V2Api.md#rotatedSecretCreateSsh) | **POST** /rotated-secret-create-ssh | 
 *V2Api* | [**rotatedSecretCreateWindows**](docs/V2Api.md#rotatedSecretCreateWindows) | **POST** /rotated-secret-create-windows | 
 *V2Api* | [**rotatedSecretDelete**](docs/V2Api.md#rotatedSecretDelete) | **POST** /rotated-secret-delete | 
@@ -544,6 +550,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretUpdateRedis**](docs/V2Api.md#rotatedSecretUpdateRedis) | **POST** /rotated-secret-update-redis | 
 *V2Api* | [**rotatedSecretUpdateRedshift**](docs/V2Api.md#rotatedSecretUpdateRedshift) | **POST** /rotated-secret-update-redshift | 
 *V2Api* | [**rotatedSecretUpdateSnowflake**](docs/V2Api.md#rotatedSecretUpdateSnowflake) | **POST** /rotated-secret-update-snowflake | 
+*V2Api* | [**rotatedSecretUpdateSplunk**](docs/V2Api.md#rotatedSecretUpdateSplunk) | **POST** /rotated-secret-update-splunk | 
 *V2Api* | [**rotatedSecretUpdateSsh**](docs/V2Api.md#rotatedSecretUpdateSsh) | **POST** /rotated-secret-update-ssh | 
 *V2Api* | [**rotatedSecretUpdateWindows**](docs/V2Api.md#rotatedSecretUpdateWindows) | **POST** /rotated-secret-update-windows | 
 *V2Api* | [**setItemState**](docs/V2Api.md#setItemState) | **POST** /set-item-state | 
@@ -576,12 +583,14 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateHashiVault**](docs/V2Api.md#targetCreateHashiVault) | **POST** /target-create-hashi-vault | 
 *V2Api* | [**targetCreateK8s**](docs/V2Api.md#targetCreateK8s) | **POST** /target-create-k8s | 
 *V2Api* | [**targetCreateLdap**](docs/V2Api.md#targetCreateLdap) | **POST** /target-create-ldap | 
+*V2Api* | [**targetCreateLetsEncrypt**](docs/V2Api.md#targetCreateLetsEncrypt) | **POST** /target-create-lets-encrypt | 
 *V2Api* | [**targetCreateLinked**](docs/V2Api.md#targetCreateLinked) | **POST** /target-create-linked | 
 *V2Api* | [**targetCreateOpenAI**](docs/V2Api.md#targetCreateOpenAI) | **POST** /target-create-openai | 
 *V2Api* | [**targetCreatePing**](docs/V2Api.md#targetCreatePing) | **POST** /target-create-ping | 
 *V2Api* | [**targetCreateRabbitMq**](docs/V2Api.md#targetCreateRabbitMq) | **POST** /target-create-rabbitmq | 
 *V2Api* | [**targetCreateSalesforce**](docs/V2Api.md#targetCreateSalesforce) | **POST** /target-create-salesforce | 
 *V2Api* | [**targetCreateSectigo**](docs/V2Api.md#targetCreateSectigo) | **POST** /target-create-sectigo | 
+*V2Api* | [**targetCreateSplunk**](docs/V2Api.md#targetCreateSplunk) | **POST** /target-create-splunk | 
 *V2Api* | [**targetCreateSsh**](docs/V2Api.md#targetCreateSsh) | **POST** /target-create-ssh | 
 *V2Api* | [**targetCreateWeb**](docs/V2Api.md#targetCreateWeb) | **POST** /target-create-web | 
 *V2Api* | [**targetCreateWindows**](docs/V2Api.md#targetCreateWindows) | **POST** /target-create-windows | 
@@ -607,6 +616,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateHashiVault**](docs/V2Api.md#targetUpdateHashiVault) | **POST** /target-update-hashi-vault | 
 *V2Api* | [**targetUpdateK8s**](docs/V2Api.md#targetUpdateK8s) | **POST** /target-update-k8s | 
 *V2Api* | [**targetUpdateLdap**](docs/V2Api.md#targetUpdateLdap) | **POST** /target-update-ldap | 
+*V2Api* | [**targetUpdateLetsEncrypt**](docs/V2Api.md#targetUpdateLetsEncrypt) | **POST** /target-update-lets-encrypt | 
 *V2Api* | [**targetUpdateLinked**](docs/V2Api.md#targetUpdateLinked) | **POST** /target-update-linked | 
 *V2Api* | [**targetUpdateOpenAI**](docs/V2Api.md#targetUpdateOpenAI) | **POST** /target-update-openai | 
 *V2Api* | [**targetUpdatePing**](docs/V2Api.md#targetUpdatePing) | **POST** /target-update-ping | 
@@ -1432,6 +1442,7 @@ Class | Method | HTTP request | Description
  - [LdapConfigPart](docs/LdapConfigPart.md)
  - [LdapTargetDetails](docs/LdapTargetDetails.md)
  - [LeadershipConfigPart](docs/LeadershipConfigPart.md)
+ - [LetsEncryptTargetDetails](docs/LetsEncryptTargetDetails.md)
  - [LinkedDetails](docs/LinkedDetails.md)
  - [LinkedTargetDetails](docs/LinkedTargetDetails.md)
  - [ListAcmeAccounts](docs/ListAcmeAccounts.md)
@@ -1491,6 +1502,15 @@ Class | Method | HTTP request | Description
  - [PasswordSecurityInfo](docs/PasswordSecurityInfo.md)
  - [PathRule](docs/PathRule.md)
  - [PingTargetDetails](docs/PingTargetDetails.md)
+ - [PoliciesCreateOutput](docs/PoliciesCreateOutput.md)
+ - [PoliciesDelete](docs/PoliciesDelete.md)
+ - [PoliciesGet](docs/PoliciesGet.md)
+ - [PoliciesGetOutput](docs/PoliciesGetOutput.md)
+ - [PoliciesList](docs/PoliciesList.md)
+ - [PoliciesListOutput](docs/PoliciesListOutput.md)
+ - [PolicyCreateKeys](docs/PolicyCreateKeys.md)
+ - [PolicyOutput](docs/PolicyOutput.md)
+ - [PolicyUpdateKeys](docs/PolicyUpdateKeys.md)
  - [Producer](docs/Producer.md)
  - [ProducersConfigPart](docs/ProducersConfigPart.md)
  - [ProvisionCertificate](docs/ProvisionCertificate.md)
@@ -1541,6 +1561,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateRedis](docs/RotatedSecretCreateRedis.md)
  - [RotatedSecretCreateRedshift](docs/RotatedSecretCreateRedshift.md)
  - [RotatedSecretCreateSnowflake](docs/RotatedSecretCreateSnowflake.md)
+ - [RotatedSecretCreateSplunk](docs/RotatedSecretCreateSplunk.md)
  - [RotatedSecretCreateSsh](docs/RotatedSecretCreateSsh.md)
  - [RotatedSecretCreateWindows](docs/RotatedSecretCreateWindows.md)
  - [RotatedSecretDelete](docs/RotatedSecretDelete.md)
@@ -1569,6 +1590,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretUpdateRedis](docs/RotatedSecretUpdateRedis.md)
  - [RotatedSecretUpdateRedshift](docs/RotatedSecretUpdateRedshift.md)
  - [RotatedSecretUpdateSnowflake](docs/RotatedSecretUpdateSnowflake.md)
+ - [RotatedSecretUpdateSplunk](docs/RotatedSecretUpdateSplunk.md)
  - [RotatedSecretUpdateSsh](docs/RotatedSecretUpdateSsh.md)
  - [RotatedSecretUpdateWindows](docs/RotatedSecretUpdateWindows.md)
  - [RotationSecretMaxInterval](docs/RotationSecretMaxInterval.md)
@@ -1611,6 +1633,8 @@ Class | Method | HTTP request | Description
  - [SlackNotiForwarderDetails](docs/SlackNotiForwarderDetails.md)
  - [SmInfo](docs/SmInfo.md)
  - [SplunkLogForwardingConfig](docs/SplunkLogForwardingConfig.md)
+ - [SplunkPayload](docs/SplunkPayload.md)
+ - [SplunkTargetDetails](docs/SplunkTargetDetails.md)
  - [SraDesktopAppConf](docs/SraDesktopAppConf.md)
  - [SraInfo](docs/SraInfo.md)
  - [SraSessionEntryOut](docs/SraSessionEntryOut.md)
@@ -1644,6 +1668,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateHashiVault](docs/TargetCreateHashiVault.md)
  - [TargetCreateK8s](docs/TargetCreateK8s.md)
  - [TargetCreateLdap](docs/TargetCreateLdap.md)
+ - [TargetCreateLetsEncrypt](docs/TargetCreateLetsEncrypt.md)
  - [TargetCreateLinked](docs/TargetCreateLinked.md)
  - [TargetCreateOpenAI](docs/TargetCreateOpenAI.md)
  - [TargetCreateOutput](docs/TargetCreateOutput.md)
@@ -1651,6 +1676,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateRabbitMq](docs/TargetCreateRabbitMq.md)
  - [TargetCreateSalesforce](docs/TargetCreateSalesforce.md)
  - [TargetCreateSectigo](docs/TargetCreateSectigo.md)
+ - [TargetCreateSplunk](docs/TargetCreateSplunk.md)
  - [TargetCreateSsh](docs/TargetCreateSsh.md)
  - [TargetCreateWeb](docs/TargetCreateWeb.md)
  - [TargetCreateWindows](docs/TargetCreateWindows.md)
@@ -1681,6 +1707,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateHashiVault](docs/TargetUpdateHashiVault.md)
  - [TargetUpdateK8s](docs/TargetUpdateK8s.md)
  - [TargetUpdateLdap](docs/TargetUpdateLdap.md)
+ - [TargetUpdateLetsEncrypt](docs/TargetUpdateLetsEncrypt.md)
  - [TargetUpdateLinked](docs/TargetUpdateLinked.md)
  - [TargetUpdateOpenAI](docs/TargetUpdateOpenAI.md)
  - [TargetUpdateOutput](docs/TargetUpdateOutput.md)

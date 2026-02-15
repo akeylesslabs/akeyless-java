@@ -217,6 +217,11 @@ public class GatewayCreateMigration {
   @javax.annotation.Nullable
   private String gcpKey;
 
+  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
+  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String gcpProjectId;
+
   public static final String SERIALIZED_NAME_HASHI_JSON = "hashi-json";
   @SerializedName(SERIALIZED_NAME_HASHI_JSON)
   @javax.annotation.Nullable
@@ -366,6 +371,11 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   @javax.annotation.Nullable
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
+  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
+  @javax.annotation.Nullable
+  private Boolean useGwCloudIdentity;
 
   public GatewayCreateMigration() {
   }
@@ -1013,6 +1023,25 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+    return this;
+  }
+
+  /**
+   * GCP Project ID (cross-project override)
+   * @return gcpProjectId
+   */
+  @javax.annotation.Nullable
+  public String getGcpProjectId() {
+    return gcpProjectId;
+  }
+
+  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+  }
+
+
   public GatewayCreateMigration hashiJson(@javax.annotation.Nullable String hashiJson) {
     this.hashiJson = hashiJson;
     return this;
@@ -1615,6 +1644,25 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration useGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+    return this;
+  }
+
+  /**
+   * Use the GW&#39;s Cloud IAM
+   * @return useGwCloudIdentity
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseGwCloudIdentity() {
+    return useGwCloudIdentity;
+  }
+
+  public void setUseGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1658,6 +1706,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.azureTenantId, gatewayCreateMigration.azureTenantId) &&
         Objects.equals(this.expirationEventIn, gatewayCreateMigration.expirationEventIn) &&
         Objects.equals(this.gcpKey, gatewayCreateMigration.gcpKey) &&
+        Objects.equals(this.gcpProjectId, gatewayCreateMigration.gcpProjectId) &&
         Objects.equals(this.hashiJson, gatewayCreateMigration.hashiJson) &&
         Objects.equals(this.hashiNs, gatewayCreateMigration.hashiNs) &&
         Objects.equals(this.hashiToken, gatewayCreateMigration.hashiToken) &&
@@ -1687,12 +1736,13 @@ public class GatewayCreateMigration {
         Objects.equals(this.targetLocation, gatewayCreateMigration.targetLocation) &&
         Objects.equals(this.token, gatewayCreateMigration.token) &&
         Objects.equals(this.type, gatewayCreateMigration.type) &&
-        Objects.equals(this.uidToken, gatewayCreateMigration.uidToken);
+        Objects.equals(this.uidToken, gatewayCreateMigration.uidToken) &&
+        Objects.equals(this.useGwCloudIdentity, gatewayCreateMigration.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, expirationEventIn, gcpKey, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -1732,6 +1782,7 @@ public class GatewayCreateMigration {
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
+    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    hashiJson: ").append(toIndentedString(hashiJson)).append("\n");
     sb.append("    hashiNs: ").append(toIndentedString(hashiNs)).append("\n");
     sb.append("    hashiToken: ").append(toIndentedString(hashiToken)).append("\n");
@@ -1762,6 +1813,7 @@ public class GatewayCreateMigration {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1817,6 +1869,7 @@ public class GatewayCreateMigration {
     openapiFields.add("azure-tenant-id");
     openapiFields.add("expiration-event-in");
     openapiFields.add("gcp-key");
+    openapiFields.add("gcp-project-id");
     openapiFields.add("hashi-json");
     openapiFields.add("hashi-ns");
     openapiFields.add("hashi-token");
@@ -1847,6 +1900,7 @@ public class GatewayCreateMigration {
     openapiFields.add("token");
     openapiFields.add("type");
     openapiFields.add("uid-token");
+    openapiFields.add("use-gw-cloud-identity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1979,6 +2033,9 @@ public class GatewayCreateMigration {
       }
       if ((jsonObj.get("gcp-key") != null && !jsonObj.get("gcp-key").isJsonNull()) && !jsonObj.get("gcp-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-key").toString()));
+      }
+      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if ((jsonObj.get("hashi-json") != null && !jsonObj.get("hashi-json").isJsonNull()) && !jsonObj.get("hashi-json").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hashi-json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashi-json").toString()));

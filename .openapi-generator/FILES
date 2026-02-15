@@ -735,6 +735,7 @@ docs/LastStatusInfo.md
 docs/LdapConfigPart.md
 docs/LdapTargetDetails.md
 docs/LeadershipConfigPart.md
+docs/LetsEncryptTargetDetails.md
 docs/LinkedDetails.md
 docs/LinkedTargetDetails.md
 docs/ListAcmeAccounts.md
@@ -794,6 +795,15 @@ docs/PasswordScoreSetting.md
 docs/PasswordSecurityInfo.md
 docs/PathRule.md
 docs/PingTargetDetails.md
+docs/PoliciesCreateOutput.md
+docs/PoliciesDelete.md
+docs/PoliciesGet.md
+docs/PoliciesGetOutput.md
+docs/PoliciesList.md
+docs/PoliciesListOutput.md
+docs/PolicyCreateKeys.md
+docs/PolicyOutput.md
+docs/PolicyUpdateKeys.md
 docs/Producer.md
 docs/ProducersConfigPart.md
 docs/ProvisionCertificate.md
@@ -844,6 +854,7 @@ docs/RotatedSecretCreatePostgresql.md
 docs/RotatedSecretCreateRedis.md
 docs/RotatedSecretCreateRedshift.md
 docs/RotatedSecretCreateSnowflake.md
+docs/RotatedSecretCreateSplunk.md
 docs/RotatedSecretCreateSsh.md
 docs/RotatedSecretCreateWindows.md
 docs/RotatedSecretDelete.md
@@ -872,6 +883,7 @@ docs/RotatedSecretUpdatePostgresql.md
 docs/RotatedSecretUpdateRedis.md
 docs/RotatedSecretUpdateRedshift.md
 docs/RotatedSecretUpdateSnowflake.md
+docs/RotatedSecretUpdateSplunk.md
 docs/RotatedSecretUpdateSsh.md
 docs/RotatedSecretUpdateWindows.md
 docs/RotationSecretMaxInterval.md
@@ -914,6 +926,8 @@ docs/SignRsaSsaPssOutput.md
 docs/SlackNotiForwarderDetails.md
 docs/SmInfo.md
 docs/SplunkLogForwardingConfig.md
+docs/SplunkPayload.md
+docs/SplunkTargetDetails.md
 docs/SraDesktopAppConf.md
 docs/SraInfo.md
 docs/SraSessionEntryOut.md
@@ -947,6 +961,7 @@ docs/TargetCreateGodaddy.md
 docs/TargetCreateHashiVault.md
 docs/TargetCreateK8s.md
 docs/TargetCreateLdap.md
+docs/TargetCreateLetsEncrypt.md
 docs/TargetCreateLinked.md
 docs/TargetCreateOpenAI.md
 docs/TargetCreateOutput.md
@@ -954,6 +969,7 @@ docs/TargetCreatePing.md
 docs/TargetCreateRabbitMq.md
 docs/TargetCreateSalesforce.md
 docs/TargetCreateSectigo.md
+docs/TargetCreateSplunk.md
 docs/TargetCreateSsh.md
 docs/TargetCreateWeb.md
 docs/TargetCreateWindows.md
@@ -984,6 +1000,7 @@ docs/TargetUpdateGodaddy.md
 docs/TargetUpdateHashiVault.md
 docs/TargetUpdateK8s.md
 docs/TargetUpdateLdap.md
+docs/TargetUpdateLetsEncrypt.md
 docs/TargetUpdateLinked.md
 docs/TargetUpdateOpenAI.md
 docs/TargetUpdateOutput.md
@@ -1909,6 +1926,7 @@ src/main/java/io/akeyless/client/model/LastStatusInfo.java
 src/main/java/io/akeyless/client/model/LdapConfigPart.java
 src/main/java/io/akeyless/client/model/LdapTargetDetails.java
 src/main/java/io/akeyless/client/model/LeadershipConfigPart.java
+src/main/java/io/akeyless/client/model/LetsEncryptTargetDetails.java
 src/main/java/io/akeyless/client/model/LinkedDetails.java
 src/main/java/io/akeyless/client/model/LinkedTargetDetails.java
 src/main/java/io/akeyless/client/model/ListAcmeAccounts.java
@@ -1968,6 +1986,15 @@ src/main/java/io/akeyless/client/model/PasswordScoreSetting.java
 src/main/java/io/akeyless/client/model/PasswordSecurityInfo.java
 src/main/java/io/akeyless/client/model/PathRule.java
 src/main/java/io/akeyless/client/model/PingTargetDetails.java
+src/main/java/io/akeyless/client/model/PoliciesCreateOutput.java
+src/main/java/io/akeyless/client/model/PoliciesDelete.java
+src/main/java/io/akeyless/client/model/PoliciesGet.java
+src/main/java/io/akeyless/client/model/PoliciesGetOutput.java
+src/main/java/io/akeyless/client/model/PoliciesList.java
+src/main/java/io/akeyless/client/model/PoliciesListOutput.java
+src/main/java/io/akeyless/client/model/PolicyCreateKeys.java
+src/main/java/io/akeyless/client/model/PolicyOutput.java
+src/main/java/io/akeyless/client/model/PolicyUpdateKeys.java
 src/main/java/io/akeyless/client/model/Producer.java
 src/main/java/io/akeyless/client/model/ProducersConfigPart.java
 src/main/java/io/akeyless/client/model/ProvisionCertificate.java
@@ -2018,6 +2045,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreatePostgresql.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateRedis.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateRedshift.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateSnowflake.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateSplunk.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateSsh.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateWindows.java
 src/main/java/io/akeyless/client/model/RotatedSecretDelete.java
@@ -2046,6 +2074,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretUpdatePostgresql.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateRedis.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateRedshift.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateSnowflake.java
+src/main/java/io/akeyless/client/model/RotatedSecretUpdateSplunk.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateSsh.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateWindows.java
 src/main/java/io/akeyless/client/model/RotationSecretMaxInterval.java
@@ -2088,6 +2117,8 @@ src/main/java/io/akeyless/client/model/SignRsaSsaPssOutput.java
 src/main/java/io/akeyless/client/model/SlackNotiForwarderDetails.java
 src/main/java/io/akeyless/client/model/SmInfo.java
 src/main/java/io/akeyless/client/model/SplunkLogForwardingConfig.java
+src/main/java/io/akeyless/client/model/SplunkPayload.java
+src/main/java/io/akeyless/client/model/SplunkTargetDetails.java
 src/main/java/io/akeyless/client/model/SraDesktopAppConf.java
 src/main/java/io/akeyless/client/model/SraInfo.java
 src/main/java/io/akeyless/client/model/SraSessionEntryOut.java
@@ -2121,6 +2152,7 @@ src/main/java/io/akeyless/client/model/TargetCreateGodaddy.java
 src/main/java/io/akeyless/client/model/TargetCreateHashiVault.java
 src/main/java/io/akeyless/client/model/TargetCreateK8s.java
 src/main/java/io/akeyless/client/model/TargetCreateLdap.java
+src/main/java/io/akeyless/client/model/TargetCreateLetsEncrypt.java
 src/main/java/io/akeyless/client/model/TargetCreateLinked.java
 src/main/java/io/akeyless/client/model/TargetCreateOpenAI.java
 src/main/java/io/akeyless/client/model/TargetCreateOutput.java
@@ -2128,6 +2160,7 @@ src/main/java/io/akeyless/client/model/TargetCreatePing.java
 src/main/java/io/akeyless/client/model/TargetCreateRabbitMq.java
 src/main/java/io/akeyless/client/model/TargetCreateSalesforce.java
 src/main/java/io/akeyless/client/model/TargetCreateSectigo.java
+src/main/java/io/akeyless/client/model/TargetCreateSplunk.java
 src/main/java/io/akeyless/client/model/TargetCreateSsh.java
 src/main/java/io/akeyless/client/model/TargetCreateWeb.java
 src/main/java/io/akeyless/client/model/TargetCreateWindows.java
@@ -2158,6 +2191,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateGodaddy.java
 src/main/java/io/akeyless/client/model/TargetUpdateHashiVault.java
 src/main/java/io/akeyless/client/model/TargetUpdateK8s.java
 src/main/java/io/akeyless/client/model/TargetUpdateLdap.java
+src/main/java/io/akeyless/client/model/TargetUpdateLetsEncrypt.java
 src/main/java/io/akeyless/client/model/TargetUpdateLinked.java
 src/main/java/io/akeyless/client/model/TargetUpdateOpenAI.java
 src/main/java/io/akeyless/client/model/TargetUpdateOutput.java
@@ -2324,3 +2358,20 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/LetsEncryptTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/PoliciesCreateOutputTest.java
+src/test/java/io/akeyless/client/model/PoliciesDeleteTest.java
+src/test/java/io/akeyless/client/model/PoliciesGetOutputTest.java
+src/test/java/io/akeyless/client/model/PoliciesGetTest.java
+src/test/java/io/akeyless/client/model/PoliciesListOutputTest.java
+src/test/java/io/akeyless/client/model/PoliciesListTest.java
+src/test/java/io/akeyless/client/model/PolicyCreateKeysTest.java
+src/test/java/io/akeyless/client/model/PolicyOutputTest.java
+src/test/java/io/akeyless/client/model/PolicyUpdateKeysTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateSplunkTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretUpdateSplunkTest.java
+src/test/java/io/akeyless/client/model/SplunkPayloadTest.java
+src/test/java/io/akeyless/client/model/SplunkTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/TargetCreateLetsEncryptTest.java
+src/test/java/io/akeyless/client/model/TargetCreateSplunkTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateLetsEncryptTest.java

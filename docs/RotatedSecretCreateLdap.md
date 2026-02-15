@@ -37,7 +37,7 @@
 |**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**target** | **List&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times |  [optional] |
-|**targetName** | **String** | Target name |  |
+|**targetName** | **String** | The target name to associate |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 |**userAttribute** | **String** | LDAP User Attribute, Default value \&quot;cn\&quot; |  [optional] |

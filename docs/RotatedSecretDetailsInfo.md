@@ -13,6 +13,7 @@ RotatedSecretDetailsInfo The rotated secret rotator info
 |**graceRotation** | **Boolean** |  |  [optional] |
 |**graceRotationHour** | **Integer** |  |  [optional] |
 |**graceRotationInterval** | **Integer** |  |  [optional] |
+|**graceRotationTiming** | **String** |  |  [optional] |
 |**gwClusterId** | **Long** |  |  [optional] |
 |**iisAppsDetails** | [**List&lt;WindowsService&gt;**](WindowsService.md) |  |  [optional] |
 |**lastRotationError** | **String** |  |  [optional] |

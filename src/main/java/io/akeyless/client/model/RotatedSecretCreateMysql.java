@@ -686,7 +686,7 @@ public class RotatedSecretCreateMysql {
   }
 
   /**
-   * Target name
+   * The target name to associate
    * @return targetName
    */
   @javax.annotation.Nonnull

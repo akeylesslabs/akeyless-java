@@ -15,9 +15,10 @@
 |**gcpKey** | **String** | Base64-encoded service account private key text |  [optional] |
 |**gcpServiceAccountEmail** | **String** | The email of the gcp service account to rotate |  [optional] |
 |**gcpServiceAccountKeyId** | **String** | The key id of the gcp service account to rotate |  [optional] |
-|**graceRotation** | **String** | Create a new access key without deleting the old key from AWS/Azure/GCP for backup (relevant only for AWS/Azure/GCP) [true/false] |  [optional] |
+|**graceRotation** | **String** | Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false] |  [optional] |
 |**graceRotationHour** | **Integer** | The Hour of the grace rotation in UTC |  [optional] |
 |**graceRotationInterval** | **String** | The number of days to wait before deleting the old key (must be bigger than rotation-interval) |  [optional] |
+|**graceRotationTiming** | **String** | When to create the new version relative to the rotation date [after/before] |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
