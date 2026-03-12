@@ -17,6 +17,7 @@
 |**dynamicSecretProducerDetails** | [**DynamicSecretProducerInfo**](DynamicSecretProducerInfo.md) |  |  [optional] |
 |**expirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
 |**importerInfo** | [**ImporterInfo**](ImporterInfo.md) |  |  [optional] |
+|**issuerOverviewInfo** | [**IssuerOverviewInfo**](IssuerOverviewInfo.md) |  |  [optional] |
 |**nextRotationEvents** | [**List&lt;NextAutoRotationEvent&gt;**](NextAutoRotationEvent.md) |  |  [optional] |
 |**oidcClientInfo** | [**OidcClientInfo**](OidcClientInfo.md) |  |  [optional] |
 |**passwordPolicy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional] |

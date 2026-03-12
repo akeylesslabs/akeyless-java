@@ -8,6 +8,7 @@ createAzureTarget is a command that creates a new target. [Deprecated: Use targe
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**azureCloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. |  [optional] |
 |**clientId** | **String** | Azure client/application id |  [optional] |
 |**clientSecret** | **String** | Azure client secret |  [optional] |
 |**comment** | **String** | Deprecated - use description |  [optional] |

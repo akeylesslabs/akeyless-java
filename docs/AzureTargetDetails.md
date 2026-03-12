@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**azureClientId** | **String** |  |  [optional] |
 |**azureClientSecret** | **String** |  |  [optional] |
+|**azureCloud** | **String** |  |  [optional] |
 |**azureResourceGroupName** | **String** |  |  [optional] |
 |**azureResourceName** | **String** |  |  [optional] |
 |**azureSubscriptionId** | **String** |  |  [optional] |

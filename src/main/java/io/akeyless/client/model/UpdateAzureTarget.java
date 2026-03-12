@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class UpdateAzureTarget {
+  public static final String SERIALIZED_NAME_AZURE_CLOUD = "azure-cloud";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLOUD)
+  @javax.annotation.Nullable
+  private String azureCloud = "AzureCloud";
+
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
   @javax.annotation.Nullable
@@ -147,6 +152,25 @@ public class UpdateAzureTarget {
 
   public UpdateAzureTarget() {
   }
+
+  public UpdateAzureTarget azureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+    return this;
+  }
+
+  /**
+   * Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud.
+   * @return azureCloud
+   */
+  @javax.annotation.Nullable
+  public String getAzureCloud() {
+    return azureCloud;
+  }
+
+  public void setAzureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+  }
+
 
   public UpdateAzureTarget clientId(@javax.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -519,7 +543,8 @@ public class UpdateAzureTarget {
       return false;
     }
     UpdateAzureTarget updateAzureTarget = (UpdateAzureTarget) o;
-    return Objects.equals(this.clientId, updateAzureTarget.clientId) &&
+    return Objects.equals(this.azureCloud, updateAzureTarget.azureCloud) &&
+        Objects.equals(this.clientId, updateAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, updateAzureTarget.clientSecret) &&
         Objects.equals(this.comment, updateAzureTarget.comment) &&
         Objects.equals(this.connectionType, updateAzureTarget.connectionType) &&
@@ -542,13 +567,14 @@ public class UpdateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, connectionType, description, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
+    return Objects.hash(azureCloud, clientId, clientSecret, comment, connectionType, description, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, updateVersion, useGwCloudIdentity);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateAzureTarget {\n");
+    sb.append("    azureCloud: ").append(toIndentedString(azureCloud)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
@@ -590,6 +616,7 @@ public class UpdateAzureTarget {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("azure-cloud");
     openapiFields.add("client-id");
     openapiFields.add("client-secret");
     openapiFields.add("comment");
@@ -643,6 +670,9 @@ public class UpdateAzureTarget {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("azure-cloud") != null && !jsonObj.get("azure-cloud").isJsonNull()) && !jsonObj.get("azure-cloud").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `azure-cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-cloud").toString()));
+      }
       if ((jsonObj.get("client-id") != null && !jsonObj.get("client-id").isJsonNull()) && !jsonObj.get("client-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `client-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-id").toString()));
       }

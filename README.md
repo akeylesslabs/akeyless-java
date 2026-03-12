@@ -700,7 +700,9 @@ Class | Method | HTTP request | Description
 *V2Api* | [**uscGet**](docs/V2Api.md#uscGet) | **POST** /usc-get | 
 *V2Api* | [**uscList**](docs/V2Api.md#uscList) | **POST** /usc-list | 
 *V2Api* | [**uscUpdate**](docs/V2Api.md#uscUpdate) | **POST** /usc-update | 
+*V2Api* | [**validateCertificateChallenge**](docs/V2Api.md#validateCertificateChallenge) | **POST** /validate-certificate-challenge | 
 *V2Api* | [**validateToken**](docs/V2Api.md#validateToken) | **POST** /validate-token | 
+*V2Api* | [**vaultAddress**](docs/V2Api.md#vaultAddress) | **POST** /vault-address | 
 *V2Api* | [**verifyDataWithClassicKey**](docs/V2Api.md#verifyDataWithClassicKey) | **POST** /verify-data-with-classic-key | 
 *V2Api* | [**verifyEcDsa**](docs/V2Api.md#verifyEcDsa) | **POST** /verify-ecdsa | 
 *V2Api* | [**verifyGPG**](docs/V2Api.md#verifyGPG) | **POST** /verify-gpg | 
@@ -837,6 +839,8 @@ Class | Method | HTTP request | Description
  - [ConfigHash](docs/ConfigHash.md)
  - [Configure](docs/Configure.md)
  - [ConfigureOutput](docs/ConfigureOutput.md)
+ - [ConjurMigration](docs/ConjurMigration.md)
+ - [ConjurPayload](docs/ConjurPayload.md)
  - [Connect](docs/Connect.md)
  - [CreateAWSTarget](docs/CreateAWSTarget.md)
  - [CreateAWSTargetOutput](docs/CreateAWSTargetOutput.md)
@@ -969,6 +973,7 @@ Class | Method | HTTP request | Description
  - [DecryptPKCS1Output](docs/DecryptPKCS1Output.md)
  - [DecryptWithClassicKey](docs/DecryptWithClassicKey.md)
  - [DecryptWithClassicKeyOutput](docs/DecryptWithClassicKeyOutput.md)
+ - [DefaultAuthMethodSettings](docs/DefaultAuthMethodSettings.md)
  - [DefaultConfigPart](docs/DefaultConfigPart.md)
  - [DefaultHomePage](docs/DefaultHomePage.md)
  - [DeleteAuthMethod](docs/DeleteAuthMethod.md)
@@ -1356,6 +1361,7 @@ Class | Method | HTTP request | Description
  - [GetTargetDetails](docs/GetTargetDetails.md)
  - [GetTargetDetailsOutput](docs/GetTargetDetailsOutput.md)
  - [GetUserEventStatusOutput](docs/GetUserEventStatusOutput.md)
+ - [GithubMetadata](docs/GithubMetadata.md)
  - [GithubTargetDetails](docs/GithubTargetDetails.md)
  - [GitlabTargetDetails](docs/GitlabTargetDetails.md)
  - [GlobalSignAtlasTargetDetails](docs/GlobalSignAtlasTargetDetails.md)
@@ -1375,6 +1381,7 @@ Class | Method | HTTP request | Description
  - [GwUpdateRemoteAccessSessionLogsStdout](docs/GwUpdateRemoteAccessSessionLogsStdout.md)
  - [GwUpdateRemoteAccessSessionLogsSumologic](docs/GwUpdateRemoteAccessSessionLogsSumologic.md)
  - [GwUpdateRemoteAccessSessionLogsSyslog](docs/GwUpdateRemoteAccessSessionLogsSyslog.md)
+ - [HTTPChallengeInfo](docs/HTTPChallengeInfo.md)
  - [HashiMigration](docs/HashiMigration.md)
  - [HashiPayload](docs/HashiPayload.md)
  - [HashiVaultTargetDetails](docs/HashiVaultTargetDetails.md)
@@ -1384,6 +1391,7 @@ Class | Method | HTTP request | Description
  - [ImportPasswords](docs/ImportPasswords.md)
  - [ImportPasswordsOutput](docs/ImportPasswordsOutput.md)
  - [ImporterInfo](docs/ImporterInfo.md)
+ - [IssuerOverviewInfo](docs/IssuerOverviewInfo.md)
  - [Item](docs/Item.md)
  - [ItemCustomFieldsDetails](docs/ItemCustomFieldsDetails.md)
  - [ItemGeneralInfo](docs/ItemGeneralInfo.md)
@@ -1850,8 +1858,12 @@ Class | Method | HTTP request | Description
  - [UscSyncInfo](docs/UscSyncInfo.md)
  - [UscUpdate](docs/UscUpdate.md)
  - [UscUpdateSecretOutput](docs/UscUpdateSecretOutput.md)
+ - [ValidateCertificateChallenge](docs/ValidateCertificateChallenge.md)
+ - [ValidateCertificateChallengeOutput](docs/ValidateCertificateChallengeOutput.md)
  - [ValidateToken](docs/ValidateToken.md)
  - [ValidateTokenOutput](docs/ValidateTokenOutput.md)
+ - [VaultAddress](docs/VaultAddress.md)
+ - [VaultAddressOutput](docs/VaultAddressOutput.md)
  - [VaultlessTokenizerInfo](docs/VaultlessTokenizerInfo.md)
  - [VenafiTargetDetails](docs/VenafiTargetDetails.md)
  - [VerifyDataWithClassicKey](docs/VerifyDataWithClassicKey.md)

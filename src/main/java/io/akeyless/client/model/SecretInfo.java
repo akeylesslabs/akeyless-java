@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.GithubMetadata;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -68,6 +69,11 @@ public class SecretInfo {
   @SerializedName(SERIALIZED_NAME_EXPIRATION)
   @javax.annotation.Nullable
   private OffsetDateTime expiration;
+
+  public static final String SERIALIZED_NAME_GITHUB = "github";
+  @SerializedName(SERIALIZED_NAME_GITHUB)
+  @javax.annotation.Nullable
+  private GithubMetadata github;
 
   public static final String SERIALIZED_NAME_KEY_ID = "key_id";
   @SerializedName(SERIALIZED_NAME_KEY_ID)
@@ -181,6 +187,25 @@ public class SecretInfo {
 
   public void setExpiration(@javax.annotation.Nullable OffsetDateTime expiration) {
     this.expiration = expiration;
+  }
+
+
+  public SecretInfo github(@javax.annotation.Nullable GithubMetadata github) {
+    this.github = github;
+    return this;
+  }
+
+  /**
+   * Get github
+   * @return github
+   */
+  @javax.annotation.Nullable
+  public GithubMetadata getGithub() {
+    return github;
+  }
+
+  public void setGithub(@javax.annotation.Nullable GithubMetadata github) {
+    this.github = github;
   }
 
 
@@ -414,6 +439,7 @@ public class SecretInfo {
     return Objects.equals(this.created, secretInfo.created) &&
         Objects.equals(this.description, secretInfo.description) &&
         Objects.equals(this.expiration, secretInfo.expiration) &&
+        Objects.equals(this.github, secretInfo.github) &&
         Objects.equals(this.keyId, secretInfo.keyId) &&
         Objects.equals(this.lastRetrieved, secretInfo.lastRetrieved) &&
         Objects.equals(this.location, secretInfo.location) &&
@@ -433,7 +459,7 @@ public class SecretInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, description, expiration, keyId, lastRetrieved, location, name, region, secretId, status, tags, thumbprint, type, version);
+    return Objects.hash(created, description, expiration, github, keyId, lastRetrieved, location, name, region, secretId, status, tags, thumbprint, type, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -450,6 +476,7 @@ public class SecretInfo {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
+    sb.append("    github: ").append(toIndentedString(github)).append("\n");
     sb.append("    keyId: ").append(toIndentedString(keyId)).append("\n");
     sb.append("    lastRetrieved: ").append(toIndentedString(lastRetrieved)).append("\n");
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
@@ -486,6 +513,7 @@ public class SecretInfo {
     openapiFields.add("created");
     openapiFields.add("description");
     openapiFields.add("expiration");
+    openapiFields.add("github");
     openapiFields.add("key_id");
     openapiFields.add("last_retrieved");
     openapiFields.add("location");
@@ -525,6 +553,10 @@ public class SecretInfo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `github`
+      if (jsonObj.get("github") != null && !jsonObj.get("github").isJsonNull()) {
+        GithubMetadata.validateJsonElement(jsonObj.get("github"));
       }
       if ((jsonObj.get("key_id") != null && !jsonObj.get("key_id").isJsonNull()) && !jsonObj.get("key_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_id").toString()));

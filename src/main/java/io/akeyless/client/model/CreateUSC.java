@@ -69,6 +69,11 @@ public class CreateUSC {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENVIRONMENT_NAMES = "environment-names";
+  @SerializedName(SERIALIZED_NAME_ENVIRONMENT_NAMES)
+  @javax.annotation.Nullable
+  private String environmentNames;
+
   public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
   @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
   @javax.annotation.Nullable
@@ -78,6 +83,11 @@ public class CreateUSC {
   @SerializedName(SERIALIZED_NAME_GCP_SM_REGIONS)
   @javax.annotation.Nullable
   private String gcpSmRegions;
+
+  public static final String SERIALIZED_NAME_GITHUB_SCOPE = "github-scope";
+  @SerializedName(SERIALIZED_NAME_GITHUB_SCOPE)
+  @javax.annotation.Nullable
+  private String githubScope = "repository";
 
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
@@ -98,6 +108,21 @@ public class CreateUSC {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_ORGANIZATION_NAME = "organization-name";
+  @SerializedName(SERIALIZED_NAME_ORGANIZATION_NAME)
+  @javax.annotation.Nullable
+  private String organizationName;
+
+  public static final String SERIALIZED_NAME_REPOSITORY_ACCESS = "repository-access";
+  @SerializedName(SERIALIZED_NAME_REPOSITORY_ACCESS)
+  @javax.annotation.Nullable
+  private String repositoryAccess = "public";
+
+  public static final String SERIALIZED_NAME_REPOSITORY_NAMES = "repository-names";
+  @SerializedName(SERIALIZED_NAME_REPOSITORY_NAMES)
+  @javax.annotation.Nullable
+  private String repositoryNames;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -189,6 +214,25 @@ public class CreateUSC {
   }
 
 
+  public CreateUSC environmentNames(@javax.annotation.Nullable String environmentNames) {
+    this.environmentNames = environmentNames;
+    return this;
+  }
+
+  /**
+   * The environments in repo-name/environment-name format, comma-separated (only relevant for: github-scope&#x3D;repository-environment)
+   * @return environmentNames
+   */
+  @javax.annotation.Nullable
+  public String getEnvironmentNames() {
+    return environmentNames;
+  }
+
+  public void setEnvironmentNames(@javax.annotation.Nullable String environmentNames) {
+    this.environmentNames = environmentNames;
+  }
+
+
   public CreateUSC gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
     return this;
@@ -224,6 +268,25 @@ public class CreateUSC {
 
   public void setGcpSmRegions(@javax.annotation.Nullable String gcpSmRegions) {
     this.gcpSmRegions = gcpSmRegions;
+  }
+
+
+  public CreateUSC githubScope(@javax.annotation.Nullable String githubScope) {
+    this.githubScope = githubScope;
+    return this;
+  }
+
+  /**
+   * The scope where secrets will be created, available options: [repository, organization, repository-environment]
+   * @return githubScope
+   */
+  @javax.annotation.Nullable
+  public String getGithubScope() {
+    return githubScope;
+  }
+
+  public void setGithubScope(@javax.annotation.Nullable String githubScope) {
+    this.githubScope = githubScope;
   }
 
 
@@ -308,6 +371,63 @@ public class CreateUSC {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public CreateUSC organizationName(@javax.annotation.Nullable String organizationName) {
+    this.organizationName = organizationName;
+    return this;
+  }
+
+  /**
+   * The organization name to create the secret in (only relevant for: github-scope&#x3D;organization)
+   * @return organizationName
+   */
+  @javax.annotation.Nullable
+  public String getOrganizationName() {
+    return organizationName;
+  }
+
+  public void setOrganizationName(@javax.annotation.Nullable String organizationName) {
+    this.organizationName = organizationName;
+  }
+
+
+  public CreateUSC repositoryAccess(@javax.annotation.Nullable String repositoryAccess) {
+    this.repositoryAccess = repositoryAccess;
+    return this;
+  }
+
+  /**
+   * Get repositoryAccess
+   * @return repositoryAccess
+   */
+  @javax.annotation.Nullable
+  public String getRepositoryAccess() {
+    return repositoryAccess;
+  }
+
+  public void setRepositoryAccess(@javax.annotation.Nullable String repositoryAccess) {
+    this.repositoryAccess = repositoryAccess;
+  }
+
+
+  public CreateUSC repositoryNames(@javax.annotation.Nullable String repositoryNames) {
+    this.repositoryNames = repositoryNames;
+    return this;
+  }
+
+  /**
+   * The repository names, comma-separated (only relevant for: github-scope&#x3D;repository)
+   * @return repositoryNames
+   */
+  @javax.annotation.Nullable
+  public String getRepositoryNames() {
+    return repositoryNames;
+  }
+
+  public void setRepositoryNames(@javax.annotation.Nullable String repositoryNames) {
+    this.repositoryNames = repositoryNames;
   }
 
 
@@ -446,12 +566,17 @@ public class CreateUSC {
     return Objects.equals(this.azureKvName, createUSC.azureKvName) &&
         Objects.equals(this.deleteProtection, createUSC.deleteProtection) &&
         Objects.equals(this.description, createUSC.description) &&
+        Objects.equals(this.environmentNames, createUSC.environmentNames) &&
         Objects.equals(this.gcpProjectId, createUSC.gcpProjectId) &&
         Objects.equals(this.gcpSmRegions, createUSC.gcpSmRegions) &&
+        Objects.equals(this.githubScope, createUSC.githubScope) &&
         Objects.equals(this.itemCustomFields, createUSC.itemCustomFields) &&
         Objects.equals(this.json, createUSC.json) &&
         Objects.equals(this.k8sNamespace, createUSC.k8sNamespace) &&
         Objects.equals(this.name, createUSC.name) &&
+        Objects.equals(this.organizationName, createUSC.organizationName) &&
+        Objects.equals(this.repositoryAccess, createUSC.repositoryAccess) &&
+        Objects.equals(this.repositoryNames, createUSC.repositoryNames) &&
         Objects.equals(this.tags, createUSC.tags) &&
         Objects.equals(this.targetToAssociate, createUSC.targetToAssociate) &&
         Objects.equals(this.token, createUSC.token) &&
@@ -462,7 +587,7 @@ public class CreateUSC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, gcpProjectId, gcpSmRegions, itemCustomFields, json, k8sNamespace, name, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
+    return Objects.hash(azureKvName, deleteProtection, description, environmentNames, gcpProjectId, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
   }
 
   @Override
@@ -472,12 +597,17 @@ public class CreateUSC {
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    environmentNames: ").append(toIndentedString(environmentNames)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    gcpSmRegions: ").append(toIndentedString(gcpSmRegions)).append("\n");
+    sb.append("    githubScope: ").append(toIndentedString(githubScope)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sNamespace: ").append(toIndentedString(k8sNamespace)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    organizationName: ").append(toIndentedString(organizationName)).append("\n");
+    sb.append("    repositoryAccess: ").append(toIndentedString(repositoryAccess)).append("\n");
+    sb.append("    repositoryNames: ").append(toIndentedString(repositoryNames)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetToAssociate: ").append(toIndentedString(targetToAssociate)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -509,12 +639,17 @@ public class CreateUSC {
     openapiFields.add("azure-kv-name");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("environment-names");
     openapiFields.add("gcp-project-id");
     openapiFields.add("gcp-sm-regions");
+    openapiFields.add("github-scope");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("k8s-namespace");
     openapiFields.add("name");
+    openapiFields.add("organization-name");
+    openapiFields.add("repository-access");
+    openapiFields.add("repository-names");
     openapiFields.add("tags");
     openapiFields.add("target-to-associate");
     openapiFields.add("token");
@@ -565,17 +700,32 @@ public class CreateUSC {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if ((jsonObj.get("environment-names") != null && !jsonObj.get("environment-names").isJsonNull()) && !jsonObj.get("environment-names").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `environment-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("environment-names").toString()));
+      }
       if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if ((jsonObj.get("gcp-sm-regions") != null && !jsonObj.get("gcp-sm-regions").isJsonNull()) && !jsonObj.get("gcp-sm-regions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gcp-sm-regions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-sm-regions").toString()));
       }
+      if ((jsonObj.get("github-scope") != null && !jsonObj.get("github-scope").isJsonNull()) && !jsonObj.get("github-scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `github-scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("github-scope").toString()));
+      }
       if ((jsonObj.get("k8s-namespace") != null && !jsonObj.get("k8s-namespace").isJsonNull()) && !jsonObj.get("k8s-namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-namespace").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("organization-name") != null && !jsonObj.get("organization-name").isJsonNull()) && !jsonObj.get("organization-name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `organization-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization-name").toString()));
+      }
+      if ((jsonObj.get("repository-access") != null && !jsonObj.get("repository-access").isJsonNull()) && !jsonObj.get("repository-access").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `repository-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository-access").toString()));
+      }
+      if ((jsonObj.get("repository-names") != null && !jsonObj.get("repository-names").isJsonNull()) && !jsonObj.get("repository-names").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `repository-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository-names").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

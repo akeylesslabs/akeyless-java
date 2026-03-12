@@ -10,6 +10,7 @@
 |**created** | **OffsetDateTime** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**expiration** | **OffsetDateTime** |  |  [optional] |
+|**github** | [**GithubMetadata**](GithubMetadata.md) |  |  [optional] |
 |**keyId** | **String** |  |  [optional] |
 |**lastRetrieved** | **OffsetDateTime** |  |  [optional] |
 |**location** | **Object** |  |  [optional] |

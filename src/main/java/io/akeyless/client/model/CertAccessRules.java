@@ -92,6 +92,11 @@ public class CertAccessRules {
   @javax.annotation.Nullable
   private String certificate;
 
+  public static final String SERIALIZED_NAME_REQUIRE_CRL_DP = "require_crl_dp";
+  @SerializedName(SERIALIZED_NAME_REQUIRE_CRL_DP)
+  @javax.annotation.Nullable
+  private Boolean requireCrlDp;
+
   public static final String SERIALIZED_NAME_REVOKED_CERT_IDS = "revoked_cert_ids";
   @SerializedName(SERIALIZED_NAME_REVOKED_CERT_IDS)
   @javax.annotation.Nullable
@@ -313,6 +318,25 @@ public class CertAccessRules {
   }
 
 
+  public CertAccessRules requireCrlDp(@javax.annotation.Nullable Boolean requireCrlDp) {
+    this.requireCrlDp = requireCrlDp;
+    return this;
+  }
+
+  /**
+   * RequireCrlDp indicates whether CRL distribution points are required on the leaf client certificate, and whether CRL validation must be enforced during authentication.
+   * @return requireCrlDp
+   */
+  @javax.annotation.Nullable
+  public Boolean getRequireCrlDp() {
+    return requireCrlDp;
+  }
+
+  public void setRequireCrlDp(@javax.annotation.Nullable Boolean requireCrlDp) {
+    this.requireCrlDp = requireCrlDp;
+  }
+
+
   public CertAccessRules revokedCertIds(@javax.annotation.Nullable List<String> revokedCertIds) {
     this.revokedCertIds = revokedCertIds;
     return this;
@@ -377,13 +401,14 @@ public class CertAccessRules {
         Objects.equals(this.boundOrganizationalUnits, certAccessRules.boundOrganizationalUnits) &&
         Objects.equals(this.boundUriSans, certAccessRules.boundUriSans) &&
         Objects.equals(this.certificate, certAccessRules.certificate) &&
+        Objects.equals(this.requireCrlDp, certAccessRules.requireCrlDp) &&
         Objects.equals(this.revokedCertIds, certAccessRules.revokedCertIds) &&
         Objects.equals(this.uniqueIdentifier, certAccessRules.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundOrganizationalUnits, boundUriSans, certificate, revokedCertIds, uniqueIdentifier);
+    return Objects.hash(allowedCors, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundOrganizationalUnits, boundUriSans, certificate, requireCrlDp, revokedCertIds, uniqueIdentifier);
   }
 
   @Override
@@ -398,6 +423,7 @@ public class CertAccessRules {
     sb.append("    boundOrganizationalUnits: ").append(toIndentedString(boundOrganizationalUnits)).append("\n");
     sb.append("    boundUriSans: ").append(toIndentedString(boundUriSans)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
+    sb.append("    requireCrlDp: ").append(toIndentedString(requireCrlDp)).append("\n");
     sb.append("    revokedCertIds: ").append(toIndentedString(revokedCertIds)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
@@ -430,6 +456,7 @@ public class CertAccessRules {
     openapiFields.add("bound_organizational_units");
     openapiFields.add("bound_uri_sans");
     openapiFields.add("certificate");
+    openapiFields.add("require_crl_dp");
     openapiFields.add("revoked_cert_ids");
     openapiFields.add("unique_identifier");
 

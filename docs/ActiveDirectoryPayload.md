@@ -8,9 +8,12 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**activeDirectoryTargetId** | **Long** |  |  [optional] |
+|**aiCertificateDiscovery** | **Boolean** |  |  [optional] |
 |**autoRotate** | **Boolean** |  |  [optional] |
 |**autoRotateIntervalInDays** | **Integer** |  |  [optional] |
 |**autoRotateRotationHour** | **Integer** |  |  [optional] |
+|**certificatesExpirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
+|**certificatesPathTemplate** | **String** |  |  [optional] |
 |**computerBaseDn** | **String** |  |  [optional] |
 |**discoverIisApps** | **Boolean** |  |  [optional] |
 |**discoverLocalUsers** | **Boolean** | Deprecated |  [optional] |

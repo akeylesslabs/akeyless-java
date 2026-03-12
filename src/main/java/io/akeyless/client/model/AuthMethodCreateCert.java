@@ -157,6 +157,11 @@ public class AuthMethodCreateCert {
   @javax.annotation.Nullable
   private List<String> productType = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_REQUIRE_CRL_DP = "require-crl-dp";
+  @SerializedName(SERIALIZED_NAME_REQUIRE_CRL_DP)
+  @javax.annotation.Nullable
+  private Boolean requireCrlDp;
+
   public static final String SERIALIZED_NAME_REVOKED_CERT_IDS = "revoked-cert-ids";
   @SerializedName(SERIALIZED_NAME_REVOKED_CERT_IDS)
   @javax.annotation.Nullable
@@ -675,6 +680,25 @@ public class AuthMethodCreateCert {
   }
 
 
+  public AuthMethodCreateCert requireCrlDp(@javax.annotation.Nullable Boolean requireCrlDp) {
+    this.requireCrlDp = requireCrlDp;
+    return this;
+  }
+
+  /**
+   * Require certificate CRL distribution points (CDP) and enforce CRL validation during authentication.
+   * @return requireCrlDp
+   */
+  @javax.annotation.Nullable
+  public Boolean getRequireCrlDp() {
+    return requireCrlDp;
+  }
+
+  public void setRequireCrlDp(@javax.annotation.Nullable Boolean requireCrlDp) {
+    this.requireCrlDp = requireCrlDp;
+  }
+
+
   public AuthMethodCreateCert revokedCertIds(@javax.annotation.Nullable List<String> revokedCertIds) {
     this.revokedCertIds = revokedCertIds;
     return this;
@@ -790,6 +814,7 @@ public class AuthMethodCreateCert {
         Objects.equals(this.jwtTtl, authMethodCreateCert.jwtTtl) &&
         Objects.equals(this.name, authMethodCreateCert.name) &&
         Objects.equals(this.productType, authMethodCreateCert.productType) &&
+        Objects.equals(this.requireCrlDp, authMethodCreateCert.requireCrlDp) &&
         Objects.equals(this.revokedCertIds, authMethodCreateCert.revokedCertIds) &&
         Objects.equals(this.token, authMethodCreateCert.token) &&
         Objects.equals(this.uidToken, authMethodCreateCert.uidToken) &&
@@ -798,7 +823,7 @@ public class AuthMethodCreateCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, requireCrlDp, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -826,6 +851,7 @@ public class AuthMethodCreateCert {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
+    sb.append("    requireCrlDp: ").append(toIndentedString(requireCrlDp)).append("\n");
     sb.append("    revokedCertIds: ").append(toIndentedString(revokedCertIds)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -873,6 +899,7 @@ public class AuthMethodCreateCert {
     openapiFields.add("jwt-ttl");
     openapiFields.add("name");
     openapiFields.add("product-type");
+    openapiFields.add("require-crl-dp");
     openapiFields.add("revoked-cert-ids");
     openapiFields.add("token");
     openapiFields.add("uid-token");

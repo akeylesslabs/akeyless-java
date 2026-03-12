@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.HTTPChallengeInfo;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -64,6 +65,11 @@ public class GetPKICertificateOutput {
   @SerializedName(SERIALIZED_NAME_DATA)
   @javax.annotation.Nullable
   private String data;
+
+  public static final String SERIALIZED_NAME_HTTP_CHALLENGE_INFO = "http_challenge_info";
+  @SerializedName(SERIALIZED_NAME_HTTP_CHALLENGE_INFO)
+  @javax.annotation.Nullable
+  private HTTPChallengeInfo httpChallengeInfo;
 
   public static final String SERIALIZED_NAME_PARENT_CERT = "parent_cert";
   @SerializedName(SERIALIZED_NAME_PARENT_CERT)
@@ -140,6 +146,25 @@ public class GetPKICertificateOutput {
   }
 
 
+  public GetPKICertificateOutput httpChallengeInfo(@javax.annotation.Nullable HTTPChallengeInfo httpChallengeInfo) {
+    this.httpChallengeInfo = httpChallengeInfo;
+    return this;
+  }
+
+  /**
+   * Get httpChallengeInfo
+   * @return httpChallengeInfo
+   */
+  @javax.annotation.Nullable
+  public HTTPChallengeInfo getHttpChallengeInfo() {
+    return httpChallengeInfo;
+  }
+
+  public void setHttpChallengeInfo(@javax.annotation.Nullable HTTPChallengeInfo httpChallengeInfo) {
+    this.httpChallengeInfo = httpChallengeInfo;
+  }
+
+
   public GetPKICertificateOutput parentCert(@javax.annotation.Nullable String parentCert) {
     this.parentCert = parentCert;
     return this;
@@ -210,6 +235,7 @@ public class GetPKICertificateOutput {
     return Objects.equals(this.certDisplayId, getPKICertificateOutput.certDisplayId) &&
         Objects.equals(this.certItemId, getPKICertificateOutput.certItemId) &&
         Objects.equals(this.data, getPKICertificateOutput.data) &&
+        Objects.equals(this.httpChallengeInfo, getPKICertificateOutput.httpChallengeInfo) &&
         Objects.equals(this.parentCert, getPKICertificateOutput.parentCert) &&
         Objects.equals(this.path, getPKICertificateOutput.path) &&
         Objects.equals(this.readingToken, getPKICertificateOutput.readingToken);
@@ -217,7 +243,7 @@ public class GetPKICertificateOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certDisplayId, certItemId, data, parentCert, path, readingToken);
+    return Objects.hash(certDisplayId, certItemId, data, httpChallengeInfo, parentCert, path, readingToken);
   }
 
   @Override
@@ -227,6 +253,7 @@ public class GetPKICertificateOutput {
     sb.append("    certDisplayId: ").append(toIndentedString(certDisplayId)).append("\n");
     sb.append("    certItemId: ").append(toIndentedString(certItemId)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    httpChallengeInfo: ").append(toIndentedString(httpChallengeInfo)).append("\n");
     sb.append("    parentCert: ").append(toIndentedString(parentCert)).append("\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    readingToken: ").append(toIndentedString(readingToken)).append("\n");
@@ -255,6 +282,7 @@ public class GetPKICertificateOutput {
     openapiFields.add("cert_display_id");
     openapiFields.add("cert_item_id");
     openapiFields.add("data");
+    openapiFields.add("http_challenge_info");
     openapiFields.add("parent_cert");
     openapiFields.add("path");
     openapiFields.add("reading_token");
@@ -289,6 +317,10 @@ public class GetPKICertificateOutput {
       }
       if ((jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) && !jsonObj.get("data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data").toString()));
+      }
+      // validate the optional field `http_challenge_info`
+      if (jsonObj.get("http_challenge_info") != null && !jsonObj.get("http_challenge_info").isJsonNull()) {
+        HTTPChallengeInfo.validateJsonElement(jsonObj.get("http_challenge_info"));
       }
       if ((jsonObj.get("parent_cert") != null && !jsonObj.get("parent_cert").isJsonNull()) && !jsonObj.get("parent_cert").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parent_cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parent_cert").toString()));

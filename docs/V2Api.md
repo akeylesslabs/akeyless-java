@@ -598,7 +598,9 @@ All URIs are relative to *https://api.akeyless.io*
 | [**uscGet**](V2Api.md#uscGet) | **POST** /usc-get |  |
 | [**uscList**](V2Api.md#uscList) | **POST** /usc-list |  |
 | [**uscUpdate**](V2Api.md#uscUpdate) | **POST** /usc-update |  |
+| [**validateCertificateChallenge**](V2Api.md#validateCertificateChallenge) | **POST** /validate-certificate-challenge |  |
 | [**validateToken**](V2Api.md#validateToken) | **POST** /validate-token |  |
+| [**vaultAddress**](V2Api.md#vaultAddress) | **POST** /vault-address |  |
 | [**verifyDataWithClassicKey**](V2Api.md#verifyDataWithClassicKey) | **POST** /verify-data-with-classic-key |  |
 | [**verifyEcDsa**](V2Api.md#verifyEcDsa) | **POST** /verify-ecdsa |  |
 | [**verifyGPG**](V2Api.md#verifyGPG) | **POST** /verify-gpg |  |
@@ -36830,6 +36832,67 @@ No authorization required
 | **200** | uscUpdateResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="validateCertificateChallenge"></a>
+# **validateCertificateChallenge**
+> ValidateCertificateChallengeOutput validateCertificateChallenge(validateCertificateChallenge)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ValidateCertificateChallenge validateCertificateChallenge = new ValidateCertificateChallenge(); // ValidateCertificateChallenge | 
+    try {
+      ValidateCertificateChallengeOutput result = apiInstance.validateCertificateChallenge(validateCertificateChallenge);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#validateCertificateChallenge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **validateCertificateChallenge** | [**ValidateCertificateChallenge**](ValidateCertificateChallenge.md)|  | |
+
+### Return type
+
+[**ValidateCertificateChallengeOutput**](ValidateCertificateChallengeOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | validateCertificateChallengeResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="validateToken"></a>
 # **validateToken**
 > ValidateTokenOutput validateToken(validateToken)
@@ -36890,6 +36953,67 @@ No authorization required
 |-------------|-------------|------------------|
 | **200** | validateTokenResponse wraps response body. |  -  |
 | **401** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="vaultAddress"></a>
+# **vaultAddress**
+> VaultAddressOutput vaultAddress(vaultAddress)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    VaultAddress vaultAddress = new VaultAddress(); // VaultAddress | 
+    try {
+      VaultAddressOutput result = apiInstance.vaultAddress(vaultAddress);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#vaultAddress");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **vaultAddress** | [**VaultAddress**](VaultAddress.md)|  | |
+
+### Return type
+
+[**VaultAddressOutput**](VaultAddressOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | vaultAddressResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="verifyDataWithClassicKey"></a>

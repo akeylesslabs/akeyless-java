@@ -87,6 +87,11 @@ public class Configure {
   @javax.annotation.Nullable
   private String azureAdObjectId;
 
+  public static final String SERIALIZED_NAME_AZURE_CLOUD = "azure-cloud";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLOUD)
+  @javax.annotation.Nullable
+  private String azureCloud = "AzureCloud";
+
   public static final String SERIALIZED_NAME_CERT_DATA = "cert-data";
   @SerializedName(SERIALIZED_NAME_CERT_DATA)
   @javax.annotation.Nullable
@@ -305,6 +310,25 @@ public class Configure {
 
   public void setAzureAdObjectId(@javax.annotation.Nullable String azureAdObjectId) {
     this.azureAdObjectId = azureAdObjectId;
+  }
+
+
+  public Configure azureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+    return this;
+  }
+
+  /**
+   * Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud.
+   * @return azureCloud
+   */
+  @javax.annotation.Nullable
+  public String getAzureCloud() {
+    return azureCloud;
+  }
+
+  public void setAzureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
   }
 
 
@@ -656,6 +680,7 @@ public class Configure {
         Objects.equals(this.adminEmail, configure.adminEmail) &&
         Objects.equals(this.adminPassword, configure.adminPassword) &&
         Objects.equals(this.azureAdObjectId, configure.azureAdObjectId) &&
+        Objects.equals(this.azureCloud, configure.azureCloud) &&
         Objects.equals(this.certData, configure.certData) &&
         Objects.equals(this.certIssuerName, configure.certIssuerName) &&
         Objects.equals(this.certUsername, configure.certUsername) &&
@@ -677,7 +702,7 @@ public class Configure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, certData, certIssuerName, certUsername, defaultLocationPrefix, disablePafxfast, gatewaySpn, gcpAudience, json, k8sAuthConfigName, kerberosToken, kerberosUsername, keyData, keytabData, krb5ConfData, legacySigningAlgName, ociAuthType, ociGroupOcid);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureAdObjectId, azureCloud, certData, certIssuerName, certUsername, defaultLocationPrefix, disablePafxfast, gatewaySpn, gcpAudience, json, k8sAuthConfigName, kerberosToken, kerberosUsername, keyData, keytabData, krb5ConfData, legacySigningAlgName, ociAuthType, ociGroupOcid);
   }
 
   @Override
@@ -691,6 +716,7 @@ public class Configure {
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
     sb.append("    azureAdObjectId: ").append(toIndentedString(azureAdObjectId)).append("\n");
+    sb.append("    azureCloud: ").append(toIndentedString(azureCloud)).append("\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    certUsername: ").append(toIndentedString(certUsername)).append("\n");
@@ -737,6 +763,7 @@ public class Configure {
     openapiFields.add("admin-email");
     openapiFields.add("admin-password");
     openapiFields.add("azure-ad-object-id");
+    openapiFields.add("azure-cloud");
     openapiFields.add("cert-data");
     openapiFields.add("cert-issuer-name");
     openapiFields.add("cert-username");
@@ -800,6 +827,9 @@ public class Configure {
       }
       if ((jsonObj.get("azure-ad-object-id") != null && !jsonObj.get("azure-ad-object-id").isJsonNull()) && !jsonObj.get("azure-ad-object-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure-ad-object-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-ad-object-id").toString()));
+      }
+      if ((jsonObj.get("azure-cloud") != null && !jsonObj.get("azure-cloud").isJsonNull()) && !jsonObj.get("azure-cloud").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `azure-cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-cloud").toString()));
       }
       if ((jsonObj.get("cert-data") != null && !jsonObj.get("cert-data").isJsonNull()) && !jsonObj.get("cert-data").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cert-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-data").toString()));

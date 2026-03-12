@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CertificateExpirationEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,6 +60,11 @@ public class ActiveDirectoryPayload {
   @javax.annotation.Nullable
   private Long activeDirectoryTargetId;
 
+  public static final String SERIALIZED_NAME_AI_CERTIFICATE_DISCOVERY = "ai_certificate_discovery";
+  @SerializedName(SERIALIZED_NAME_AI_CERTIFICATE_DISCOVERY)
+  @javax.annotation.Nullable
+  private Boolean aiCertificateDiscovery;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto_rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   @javax.annotation.Nullable
@@ -73,6 +79,16 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE_ROTATION_HOUR)
   @javax.annotation.Nullable
   private Integer autoRotateRotationHour;
+
+  public static final String SERIALIZED_NAME_CERTIFICATES_EXPIRATION_EVENTS = "certificates_expiration_events";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATES_EXPIRATION_EVENTS)
+  @javax.annotation.Nullable
+  private List<CertificateExpirationEvent> certificatesExpirationEvents = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CERTIFICATES_PATH_TEMPLATE = "certificates_path_template";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATES_PATH_TEMPLATE)
+  @javax.annotation.Nullable
+  private String certificatesPathTemplate;
 
   public static final String SERIALIZED_NAME_COMPUTER_BASE_DN = "computer_base_dn";
   @SerializedName(SERIALIZED_NAME_COMPUTER_BASE_DN)
@@ -191,6 +207,25 @@ public class ActiveDirectoryPayload {
   }
 
 
+  public ActiveDirectoryPayload aiCertificateDiscovery(@javax.annotation.Nullable Boolean aiCertificateDiscovery) {
+    this.aiCertificateDiscovery = aiCertificateDiscovery;
+    return this;
+  }
+
+  /**
+   * Get aiCertificateDiscovery
+   * @return aiCertificateDiscovery
+   */
+  @javax.annotation.Nullable
+  public Boolean getAiCertificateDiscovery() {
+    return aiCertificateDiscovery;
+  }
+
+  public void setAiCertificateDiscovery(@javax.annotation.Nullable Boolean aiCertificateDiscovery) {
+    this.aiCertificateDiscovery = aiCertificateDiscovery;
+  }
+
+
   public ActiveDirectoryPayload autoRotate(@javax.annotation.Nullable Boolean autoRotate) {
     this.autoRotate = autoRotate;
     return this;
@@ -245,6 +280,52 @@ public class ActiveDirectoryPayload {
 
   public void setAutoRotateRotationHour(@javax.annotation.Nullable Integer autoRotateRotationHour) {
     this.autoRotateRotationHour = autoRotateRotationHour;
+  }
+
+
+  public ActiveDirectoryPayload certificatesExpirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> certificatesExpirationEvents) {
+    this.certificatesExpirationEvents = certificatesExpirationEvents;
+    return this;
+  }
+
+  public ActiveDirectoryPayload addCertificatesExpirationEventsItem(CertificateExpirationEvent certificatesExpirationEventsItem) {
+    if (this.certificatesExpirationEvents == null) {
+      this.certificatesExpirationEvents = new ArrayList<>();
+    }
+    this.certificatesExpirationEvents.add(certificatesExpirationEventsItem);
+    return this;
+  }
+
+  /**
+   * Get certificatesExpirationEvents
+   * @return certificatesExpirationEvents
+   */
+  @javax.annotation.Nullable
+  public List<CertificateExpirationEvent> getCertificatesExpirationEvents() {
+    return certificatesExpirationEvents;
+  }
+
+  public void setCertificatesExpirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> certificatesExpirationEvents) {
+    this.certificatesExpirationEvents = certificatesExpirationEvents;
+  }
+
+
+  public ActiveDirectoryPayload certificatesPathTemplate(@javax.annotation.Nullable String certificatesPathTemplate) {
+    this.certificatesPathTemplate = certificatesPathTemplate;
+    return this;
+  }
+
+  /**
+   * Get certificatesPathTemplate
+   * @return certificatesPathTemplate
+   */
+  @javax.annotation.Nullable
+  public String getCertificatesPathTemplate() {
+    return certificatesPathTemplate;
+  }
+
+  public void setCertificatesPathTemplate(@javax.annotation.Nullable String certificatesPathTemplate) {
+    this.certificatesPathTemplate = certificatesPathTemplate;
   }
 
 
@@ -644,9 +725,12 @@ public class ActiveDirectoryPayload {
     }
     ActiveDirectoryPayload activeDirectoryPayload = (ActiveDirectoryPayload) o;
     return Objects.equals(this.activeDirectoryTargetId, activeDirectoryPayload.activeDirectoryTargetId) &&
+        Objects.equals(this.aiCertificateDiscovery, activeDirectoryPayload.aiCertificateDiscovery) &&
         Objects.equals(this.autoRotate, activeDirectoryPayload.autoRotate) &&
         Objects.equals(this.autoRotateIntervalInDays, activeDirectoryPayload.autoRotateIntervalInDays) &&
         Objects.equals(this.autoRotateRotationHour, activeDirectoryPayload.autoRotateRotationHour) &&
+        Objects.equals(this.certificatesExpirationEvents, activeDirectoryPayload.certificatesExpirationEvents) &&
+        Objects.equals(this.certificatesPathTemplate, activeDirectoryPayload.certificatesPathTemplate) &&
         Objects.equals(this.computerBaseDn, activeDirectoryPayload.computerBaseDn) &&
         Objects.equals(this.discoverIisApps, activeDirectoryPayload.discoverIisApps) &&
         Objects.equals(this.discoverLocalUsers, activeDirectoryPayload.discoverLocalUsers) &&
@@ -670,7 +754,7 @@ public class ActiveDirectoryPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, computerBaseDn, discoverIisApps, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
+    return Objects.hash(activeDirectoryTargetId, aiCertificateDiscovery, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, certificatesExpirationEvents, certificatesPathTemplate, computerBaseDn, discoverIisApps, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
 
   @Override
@@ -678,9 +762,12 @@ public class ActiveDirectoryPayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class ActiveDirectoryPayload {\n");
     sb.append("    activeDirectoryTargetId: ").append(toIndentedString(activeDirectoryTargetId)).append("\n");
+    sb.append("    aiCertificateDiscovery: ").append(toIndentedString(aiCertificateDiscovery)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    autoRotateIntervalInDays: ").append(toIndentedString(autoRotateIntervalInDays)).append("\n");
     sb.append("    autoRotateRotationHour: ").append(toIndentedString(autoRotateRotationHour)).append("\n");
+    sb.append("    certificatesExpirationEvents: ").append(toIndentedString(certificatesExpirationEvents)).append("\n");
+    sb.append("    certificatesPathTemplate: ").append(toIndentedString(certificatesPathTemplate)).append("\n");
     sb.append("    computerBaseDn: ").append(toIndentedString(computerBaseDn)).append("\n");
     sb.append("    discoverIisApps: ").append(toIndentedString(discoverIisApps)).append("\n");
     sb.append("    discoverLocalUsers: ").append(toIndentedString(discoverLocalUsers)).append("\n");
@@ -723,9 +810,12 @@ public class ActiveDirectoryPayload {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("active_directory_target_id");
+    openapiFields.add("ai_certificate_discovery");
     openapiFields.add("auto_rotate");
     openapiFields.add("auto_rotate_interval_in_days");
     openapiFields.add("auto_rotate_rotation_hour");
+    openapiFields.add("certificates_expiration_events");
+    openapiFields.add("certificates_path_template");
     openapiFields.add("computer_base_dn");
     openapiFields.add("discover_iis_apps");
     openapiFields.add("discover_local_users");
@@ -771,6 +861,23 @@ public class ActiveDirectoryPayload {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("certificates_expiration_events") != null && !jsonObj.get("certificates_expiration_events").isJsonNull()) {
+        JsonArray jsonArraycertificatesExpirationEvents = jsonObj.getAsJsonArray("certificates_expiration_events");
+        if (jsonArraycertificatesExpirationEvents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("certificates_expiration_events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `certificates_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("certificates_expiration_events").toString()));
+          }
+
+          // validate the optional field `certificates_expiration_events` (array)
+          for (int i = 0; i < jsonArraycertificatesExpirationEvents.size(); i++) {
+            CertificateExpirationEvent.validateJsonElement(jsonArraycertificatesExpirationEvents.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("certificates_path_template") != null && !jsonObj.get("certificates_path_template").isJsonNull()) && !jsonObj.get("certificates_path_template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `certificates_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificates_path_template").toString()));
+      }
       if ((jsonObj.get("computer_base_dn") != null && !jsonObj.get("computer_base_dn").isJsonNull()) && !jsonObj.get("computer_base_dn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `computer_base_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("computer_base_dn").toString()));
       }

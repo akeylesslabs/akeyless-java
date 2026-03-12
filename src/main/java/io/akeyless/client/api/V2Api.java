@@ -915,8 +915,12 @@ import io.akeyless.client.model.UscList;
 import io.akeyless.client.model.UscListSecretsOutput;
 import io.akeyless.client.model.UscUpdate;
 import io.akeyless.client.model.UscUpdateSecretOutput;
+import io.akeyless.client.model.ValidateCertificateChallenge;
+import io.akeyless.client.model.ValidateCertificateChallengeOutput;
 import io.akeyless.client.model.ValidateToken;
 import io.akeyless.client.model.ValidateTokenOutput;
+import io.akeyless.client.model.VaultAddress;
+import io.akeyless.client.model.VaultAddressOutput;
 import io.akeyless.client.model.VerifyDataWithClassicKey;
 import io.akeyless.client.model.VerifyEcDsa;
 import io.akeyless.client.model.VerifyGPG;
@@ -78652,6 +78656,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for validateCertificateChallenge
+     * @param validateCertificateChallenge  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> validateCertificateChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call validateCertificateChallengeCall(ValidateCertificateChallenge validateCertificateChallenge, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = validateCertificateChallenge;
+
+        // create path and map variables
+        String localVarPath = "/validate-certificate-challenge";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call validateCertificateChallengeValidateBeforeCall(ValidateCertificateChallenge validateCertificateChallenge, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'validateCertificateChallenge' is set
+        if (validateCertificateChallenge == null) {
+            throw new ApiException("Missing the required parameter 'validateCertificateChallenge' when calling validateCertificateChallenge(Async)");
+        }
+
+        return validateCertificateChallengeCall(validateCertificateChallenge, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param validateCertificateChallenge  (required)
+     * @return ValidateCertificateChallengeOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> validateCertificateChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ValidateCertificateChallengeOutput validateCertificateChallenge(ValidateCertificateChallenge validateCertificateChallenge) throws ApiException {
+        ApiResponse<ValidateCertificateChallengeOutput> localVarResp = validateCertificateChallengeWithHttpInfo(validateCertificateChallenge);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param validateCertificateChallenge  (required)
+     * @return ApiResponse&lt;ValidateCertificateChallengeOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> validateCertificateChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ValidateCertificateChallengeOutput> validateCertificateChallengeWithHttpInfo(ValidateCertificateChallenge validateCertificateChallenge) throws ApiException {
+        okhttp3.Call localVarCall = validateCertificateChallengeValidateBeforeCall(validateCertificateChallenge, null);
+        Type localVarReturnType = new TypeToken<ValidateCertificateChallengeOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param validateCertificateChallenge  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> validateCertificateChallengeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call validateCertificateChallengeAsync(ValidateCertificateChallenge validateCertificateChallenge, final ApiCallback<ValidateCertificateChallengeOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = validateCertificateChallengeValidateBeforeCall(validateCertificateChallenge, _callback);
+        Type localVarReturnType = new TypeToken<ValidateCertificateChallengeOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for validateToken
      * @param validateToken  (required)
      * @param _callback Callback for upload/download progress
@@ -78783,6 +78918,137 @@ public class V2Api {
 
         okhttp3.Call localVarCall = validateTokenValidateBeforeCall(validateToken, _callback);
         Type localVarReturnType = new TypeToken<ValidateTokenOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for vaultAddress
+     * @param vaultAddress  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> vaultAddressResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call vaultAddressCall(VaultAddress vaultAddress, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = vaultAddress;
+
+        // create path and map variables
+        String localVarPath = "/vault-address";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call vaultAddressValidateBeforeCall(VaultAddress vaultAddress, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vaultAddress' is set
+        if (vaultAddress == null) {
+            throw new ApiException("Missing the required parameter 'vaultAddress' when calling vaultAddress(Async)");
+        }
+
+        return vaultAddressCall(vaultAddress, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param vaultAddress  (required)
+     * @return VaultAddressOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> vaultAddressResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public VaultAddressOutput vaultAddress(VaultAddress vaultAddress) throws ApiException {
+        ApiResponse<VaultAddressOutput> localVarResp = vaultAddressWithHttpInfo(vaultAddress);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param vaultAddress  (required)
+     * @return ApiResponse&lt;VaultAddressOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> vaultAddressResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<VaultAddressOutput> vaultAddressWithHttpInfo(VaultAddress vaultAddress) throws ApiException {
+        okhttp3.Call localVarCall = vaultAddressValidateBeforeCall(vaultAddress, null);
+        Type localVarReturnType = new TypeToken<VaultAddressOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param vaultAddress  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> vaultAddressResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call vaultAddressAsync(VaultAddress vaultAddress, final ApiCallback<VaultAddressOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = vaultAddressValidateBeforeCall(vaultAddress, _callback);
+        Type localVarReturnType = new TypeToken<VaultAddressOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

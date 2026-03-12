@@ -61,6 +61,11 @@ public class AzureTargetDetails {
   @javax.annotation.Nullable
   private String azureClientSecret;
 
+  public static final String SERIALIZED_NAME_AZURE_CLOUD = "azure_cloud";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLOUD)
+  @javax.annotation.Nullable
+  private String azureCloud;
+
   public static final String SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME = "azure_resource_group_name";
   @SerializedName(SERIALIZED_NAME_AZURE_RESOURCE_GROUP_NAME)
   @javax.annotation.Nullable
@@ -144,6 +149,25 @@ public class AzureTargetDetails {
 
   public void setAzureClientSecret(@javax.annotation.Nullable String azureClientSecret) {
     this.azureClientSecret = azureClientSecret;
+  }
+
+
+  public AzureTargetDetails azureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+    return this;
+  }
+
+  /**
+   * Get azureCloud
+   * @return azureCloud
+   */
+  @javax.annotation.Nullable
+  public String getAzureCloud() {
+    return azureCloud;
+  }
+
+  public void setAzureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
   }
 
 
@@ -330,6 +354,7 @@ public class AzureTargetDetails {
     AzureTargetDetails azureTargetDetails = (AzureTargetDetails) o;
     return Objects.equals(this.azureClientId, azureTargetDetails.azureClientId) &&
         Objects.equals(this.azureClientSecret, azureTargetDetails.azureClientSecret) &&
+        Objects.equals(this.azureCloud, azureTargetDetails.azureCloud) &&
         Objects.equals(this.azureResourceGroupName, azureTargetDetails.azureResourceGroupName) &&
         Objects.equals(this.azureResourceName, azureTargetDetails.azureResourceName) &&
         Objects.equals(this.azureSubscriptionId, azureTargetDetails.azureSubscriptionId) &&
@@ -343,7 +368,7 @@ public class AzureTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId, azureClientSecret, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUsername, connectionType, expirationDate, graceRotatedSecretKey, useGwCloudIdentity);
+    return Objects.hash(azureClientId, azureClientSecret, azureCloud, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUsername, connectionType, expirationDate, graceRotatedSecretKey, useGwCloudIdentity);
   }
 
   @Override
@@ -352,6 +377,7 @@ public class AzureTargetDetails {
     sb.append("class AzureTargetDetails {\n");
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
+    sb.append("    azureCloud: ").append(toIndentedString(azureCloud)).append("\n");
     sb.append("    azureResourceGroupName: ").append(toIndentedString(azureResourceGroupName)).append("\n");
     sb.append("    azureResourceName: ").append(toIndentedString(azureResourceName)).append("\n");
     sb.append("    azureSubscriptionId: ").append(toIndentedString(azureSubscriptionId)).append("\n");
@@ -385,6 +411,7 @@ public class AzureTargetDetails {
     openapiFields = new HashSet<String>();
     openapiFields.add("azure_client_id");
     openapiFields.add("azure_client_secret");
+    openapiFields.add("azure_cloud");
     openapiFields.add("azure_resource_group_name");
     openapiFields.add("azure_resource_name");
     openapiFields.add("azure_subscription_id");
@@ -425,6 +452,9 @@ public class AzureTargetDetails {
       }
       if ((jsonObj.get("azure_client_secret") != null && !jsonObj.get("azure_client_secret").isJsonNull()) && !jsonObj.get("azure_client_secret").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure_client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_client_secret").toString()));
+      }
+      if ((jsonObj.get("azure_cloud") != null && !jsonObj.get("azure_cloud").isJsonNull()) && !jsonObj.get("azure_cloud").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `azure_cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_cloud").toString()));
       }
       if ((jsonObj.get("azure_resource_group_name") != null && !jsonObj.get("azure_resource_group_name").isJsonNull()) && !jsonObj.get("azure_resource_group_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure_resource_group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_resource_group_name").toString()));

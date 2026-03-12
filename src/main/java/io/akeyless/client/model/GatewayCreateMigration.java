@@ -62,6 +62,16 @@ public class GatewayCreateMigration {
   @javax.annotation.Nullable
   private String adAutoRotate;
 
+  public static final String SERIALIZED_NAME_AD_CERT_EXPIRATION_EVENT_IN = "ad-cert-expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_AD_CERT_EXPIRATION_EVENT_IN)
+  @javax.annotation.Nullable
+  private List<String> adCertExpirationEventIn = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_AD_CERTIFICATES_PATH_TEMPLATE = "ad-certificates-path-template";
+  @SerializedName(SERIALIZED_NAME_AD_CERTIFICATES_PATH_TEMPLATE)
+  @javax.annotation.Nullable
+  private String adCertificatesPathTemplate;
+
   public static final String SERIALIZED_NAME_AD_COMPUTER_BASE_DN = "ad-computer-base-dn";
   @SerializedName(SERIALIZED_NAME_AD_COMPUTER_BASE_DN)
   @javax.annotation.Nullable
@@ -172,6 +182,11 @@ public class GatewayCreateMigration {
   @javax.annotation.Nullable
   private String adDiscoverLocalUsers;
 
+  public static final String SERIALIZED_NAME_AI_CERTIFICATE_DISCOVERY = "ai-certificate-discovery";
+  @SerializedName(SERIALIZED_NAME_AI_CERTIFICATE_DISCOVERY)
+  @javax.annotation.Nullable
+  private String aiCertificateDiscovery;
+
   public static final String SERIALIZED_NAME_AWS_KEY = "aws-key";
   @SerializedName(SERIALIZED_NAME_AWS_KEY)
   @javax.annotation.Nullable
@@ -206,6 +221,26 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_AZURE_TENANT_ID)
   @javax.annotation.Nullable
   private String azureTenantId;
+
+  public static final String SERIALIZED_NAME_CONJUR_ACCOUNT = "conjur-account";
+  @SerializedName(SERIALIZED_NAME_CONJUR_ACCOUNT)
+  @javax.annotation.Nullable
+  private String conjurAccount;
+
+  public static final String SERIALIZED_NAME_CONJUR_API_KEY = "conjur-api-key";
+  @SerializedName(SERIALIZED_NAME_CONJUR_API_KEY)
+  @javax.annotation.Nullable
+  private String conjurApiKey;
+
+  public static final String SERIALIZED_NAME_CONJUR_URL = "conjur-url";
+  @SerializedName(SERIALIZED_NAME_CONJUR_URL)
+  @javax.annotation.Nullable
+  private String conjurUrl;
+
+  public static final String SERIALIZED_NAME_CONJUR_USERNAME = "conjur-username";
+  @SerializedName(SERIALIZED_NAME_CONJUR_USERNAME)
+  @javax.annotation.Nullable
+  private String conjurUsername;
 
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
@@ -415,6 +450,52 @@ public class GatewayCreateMigration {
 
   public void setAdAutoRotate(@javax.annotation.Nullable String adAutoRotate) {
     this.adAutoRotate = adAutoRotate;
+  }
+
+
+  public GatewayCreateMigration adCertExpirationEventIn(@javax.annotation.Nullable List<String> adCertExpirationEventIn) {
+    this.adCertExpirationEventIn = adCertExpirationEventIn;
+    return this;
+  }
+
+  public GatewayCreateMigration addAdCertExpirationEventInItem(String adCertExpirationEventInItem) {
+    if (this.adCertExpirationEventIn == null) {
+      this.adCertExpirationEventIn = new ArrayList<>();
+    }
+    this.adCertExpirationEventIn.add(adCertExpirationEventInItem);
+    return this;
+  }
+
+  /**
+   * How many days before the expiration of discovered certificates would you like to be notified (Relevant only for Active Directory migration with certificate discovery enabled)
+   * @return adCertExpirationEventIn
+   */
+  @javax.annotation.Nullable
+  public List<String> getAdCertExpirationEventIn() {
+    return adCertExpirationEventIn;
+  }
+
+  public void setAdCertExpirationEventIn(@javax.annotation.Nullable List<String> adCertExpirationEventIn) {
+    this.adCertExpirationEventIn = adCertExpirationEventIn;
+  }
+
+
+  public GatewayCreateMigration adCertificatesPathTemplate(@javax.annotation.Nullable String adCertificatesPathTemplate) {
+    this.adCertificatesPathTemplate = adCertificatesPathTemplate;
+    return this;
+  }
+
+  /**
+   * Path location template for migrating certificates e.g.: /Certificates/{{COMMON_NAME}} (Relevant only for Active Directory migration with certificate discovery enabled)
+   * @return adCertificatesPathTemplate
+   */
+  @javax.annotation.Nullable
+  public String getAdCertificatesPathTemplate() {
+    return adCertificatesPathTemplate;
+  }
+
+  public void setAdCertificatesPathTemplate(@javax.annotation.Nullable String adCertificatesPathTemplate) {
+    this.adCertificatesPathTemplate = adCertificatesPathTemplate;
   }
 
 
@@ -844,6 +925,25 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration aiCertificateDiscovery(@javax.annotation.Nullable String aiCertificateDiscovery) {
+    this.aiCertificateDiscovery = aiCertificateDiscovery;
+    return this;
+  }
+
+  /**
+   * Enable AI-assisted certificate discovery (only when AI Insight is enabled on the Gateway)
+   * @return aiCertificateDiscovery
+   */
+  @javax.annotation.Nullable
+  public String getAiCertificateDiscovery() {
+    return aiCertificateDiscovery;
+  }
+
+  public void setAiCertificateDiscovery(@javax.annotation.Nullable String aiCertificateDiscovery) {
+    this.aiCertificateDiscovery = aiCertificateDiscovery;
+  }
+
+
   public GatewayCreateMigration awsKey(@javax.annotation.Nullable String awsKey) {
     this.awsKey = awsKey;
     return this;
@@ -974,6 +1074,82 @@ public class GatewayCreateMigration {
 
   public void setAzureTenantId(@javax.annotation.Nullable String azureTenantId) {
     this.azureTenantId = azureTenantId;
+  }
+
+
+  public GatewayCreateMigration conjurAccount(@javax.annotation.Nullable String conjurAccount) {
+    this.conjurAccount = conjurAccount;
+    return this;
+  }
+
+  /**
+   * Conjur account name set on your Conjur server (relevant only for Conjur migration).
+   * @return conjurAccount
+   */
+  @javax.annotation.Nullable
+  public String getConjurAccount() {
+    return conjurAccount;
+  }
+
+  public void setConjurAccount(@javax.annotation.Nullable String conjurAccount) {
+    this.conjurAccount = conjurAccount;
+  }
+
+
+  public GatewayCreateMigration conjurApiKey(@javax.annotation.Nullable String conjurApiKey) {
+    this.conjurApiKey = conjurApiKey;
+    return this;
+  }
+
+  /**
+   * Conjur API Key for the specified user (relevant only for Conjur migration).
+   * @return conjurApiKey
+   */
+  @javax.annotation.Nullable
+  public String getConjurApiKey() {
+    return conjurApiKey;
+  }
+
+  public void setConjurApiKey(@javax.annotation.Nullable String conjurApiKey) {
+    this.conjurApiKey = conjurApiKey;
+  }
+
+
+  public GatewayCreateMigration conjurUrl(@javax.annotation.Nullable String conjurUrl) {
+    this.conjurUrl = conjurUrl;
+    return this;
+  }
+
+  /**
+   * Conjur server base URL (relevant only for Conjur migration). If conjur-url is HTTPS and Conjur uses a private CA/self-signed certificate, make the CA bundle available on the Gateway and set CONJUR_SSL_CERT_PATH to its path.
+   * @return conjurUrl
+   */
+  @javax.annotation.Nullable
+  public String getConjurUrl() {
+    return conjurUrl;
+  }
+
+  public void setConjurUrl(@javax.annotation.Nullable String conjurUrl) {
+    this.conjurUrl = conjurUrl;
+  }
+
+
+  public GatewayCreateMigration conjurUsername(@javax.annotation.Nullable String conjurUsername) {
+    this.conjurUsername = conjurUsername;
+    return this;
+  }
+
+  /**
+   * Conjur username used to authenticate (relevant only for Conjur migration).
+   * @return conjurUsername
+   */
+  @javax.annotation.Nullable
+  public String getConjurUsername() {
+    return conjurUsername;
+  }
+
+  public void setConjurUsername(@javax.annotation.Nullable String conjurUsername) {
+    this.conjurUsername = conjurUsername;
   }
 
 
@@ -1612,7 +1788,7 @@ public class GatewayCreateMigration {
   }
 
   /**
-   * Migration type (hashi/aws/gcp/k8s/azure_kv/active_directory/server_inventory/certificate)
+   * Migration type (hashi/aws/gcp/k8s/azure_kv/conjur/active_directory/server_inventory/certificate)
    * @return type
    */
   @javax.annotation.Nullable
@@ -1675,6 +1851,8 @@ public class GatewayCreateMigration {
     GatewayCreateMigration gatewayCreateMigration = (GatewayCreateMigration) o;
     return Objects.equals(this.serviceAccountKeyDecoded, gatewayCreateMigration.serviceAccountKeyDecoded) &&
         Objects.equals(this.adAutoRotate, gatewayCreateMigration.adAutoRotate) &&
+        Objects.equals(this.adCertExpirationEventIn, gatewayCreateMigration.adCertExpirationEventIn) &&
+        Objects.equals(this.adCertificatesPathTemplate, gatewayCreateMigration.adCertificatesPathTemplate) &&
         Objects.equals(this.adComputerBaseDn, gatewayCreateMigration.adComputerBaseDn) &&
         Objects.equals(this.adDiscoverIisApp, gatewayCreateMigration.adDiscoverIisApp) &&
         Objects.equals(this.adDiscoverServices, gatewayCreateMigration.adDiscoverServices) &&
@@ -1697,6 +1875,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.adWinrmOverHttp, gatewayCreateMigration.adWinrmOverHttp) &&
         Objects.equals(this.adWinrmPort, gatewayCreateMigration.adWinrmPort) &&
         Objects.equals(this.adDiscoverLocalUsers, gatewayCreateMigration.adDiscoverLocalUsers) &&
+        Objects.equals(this.aiCertificateDiscovery, gatewayCreateMigration.aiCertificateDiscovery) &&
         Objects.equals(this.awsKey, gatewayCreateMigration.awsKey) &&
         Objects.equals(this.awsKeyId, gatewayCreateMigration.awsKeyId) &&
         Objects.equals(this.awsRegion, gatewayCreateMigration.awsRegion) &&
@@ -1704,6 +1883,10 @@ public class GatewayCreateMigration {
         Objects.equals(this.azureKvName, gatewayCreateMigration.azureKvName) &&
         Objects.equals(this.azureSecret, gatewayCreateMigration.azureSecret) &&
         Objects.equals(this.azureTenantId, gatewayCreateMigration.azureTenantId) &&
+        Objects.equals(this.conjurAccount, gatewayCreateMigration.conjurAccount) &&
+        Objects.equals(this.conjurApiKey, gatewayCreateMigration.conjurApiKey) &&
+        Objects.equals(this.conjurUrl, gatewayCreateMigration.conjurUrl) &&
+        Objects.equals(this.conjurUsername, gatewayCreateMigration.conjurUsername) &&
         Objects.equals(this.expirationEventIn, gatewayCreateMigration.expirationEventIn) &&
         Objects.equals(this.gcpKey, gatewayCreateMigration.gcpKey) &&
         Objects.equals(this.gcpProjectId, gatewayCreateMigration.gcpProjectId) &&
@@ -1742,7 +1925,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken, useGwCloudIdentity);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, type, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -1751,6 +1934,8 @@ public class GatewayCreateMigration {
     sb.append("class GatewayCreateMigration {\n");
     sb.append("    serviceAccountKeyDecoded: ").append(toIndentedString(serviceAccountKeyDecoded)).append("\n");
     sb.append("    adAutoRotate: ").append(toIndentedString(adAutoRotate)).append("\n");
+    sb.append("    adCertExpirationEventIn: ").append(toIndentedString(adCertExpirationEventIn)).append("\n");
+    sb.append("    adCertificatesPathTemplate: ").append(toIndentedString(adCertificatesPathTemplate)).append("\n");
     sb.append("    adComputerBaseDn: ").append(toIndentedString(adComputerBaseDn)).append("\n");
     sb.append("    adDiscoverIisApp: ").append(toIndentedString(adDiscoverIisApp)).append("\n");
     sb.append("    adDiscoverServices: ").append(toIndentedString(adDiscoverServices)).append("\n");
@@ -1773,6 +1958,7 @@ public class GatewayCreateMigration {
     sb.append("    adWinrmOverHttp: ").append(toIndentedString(adWinrmOverHttp)).append("\n");
     sb.append("    adWinrmPort: ").append(toIndentedString(adWinrmPort)).append("\n");
     sb.append("    adDiscoverLocalUsers: ").append(toIndentedString(adDiscoverLocalUsers)).append("\n");
+    sb.append("    aiCertificateDiscovery: ").append(toIndentedString(aiCertificateDiscovery)).append("\n");
     sb.append("    awsKey: ").append(toIndentedString(awsKey)).append("\n");
     sb.append("    awsKeyId: ").append(toIndentedString(awsKeyId)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
@@ -1780,6 +1966,10 @@ public class GatewayCreateMigration {
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    azureSecret: ").append(toIndentedString(azureSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    conjurAccount: ").append(toIndentedString(conjurAccount)).append("\n");
+    sb.append("    conjurApiKey: ").append(toIndentedString(conjurApiKey)).append("\n");
+    sb.append("    conjurUrl: ").append(toIndentedString(conjurUrl)).append("\n");
+    sb.append("    conjurUsername: ").append(toIndentedString(conjurUsername)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
@@ -1838,6 +2028,8 @@ public class GatewayCreateMigration {
     openapiFields = new HashSet<String>();
     openapiFields.add("ServiceAccountKeyDecoded");
     openapiFields.add("ad-auto-rotate");
+    openapiFields.add("ad-cert-expiration-event-in");
+    openapiFields.add("ad-certificates-path-template");
     openapiFields.add("ad-computer-base-dn");
     openapiFields.add("ad-discover-iis-app");
     openapiFields.add("ad-discover-services");
@@ -1860,6 +2052,7 @@ public class GatewayCreateMigration {
     openapiFields.add("ad-winrm-over-http");
     openapiFields.add("ad-winrm-port");
     openapiFields.add("ad_discover_local_users");
+    openapiFields.add("ai-certificate-discovery");
     openapiFields.add("aws-key");
     openapiFields.add("aws-key-id");
     openapiFields.add("aws-region");
@@ -1867,6 +2060,10 @@ public class GatewayCreateMigration {
     openapiFields.add("azure-kv-name");
     openapiFields.add("azure-secret");
     openapiFields.add("azure-tenant-id");
+    openapiFields.add("conjur-account");
+    openapiFields.add("conjur-api-key");
+    openapiFields.add("conjur-url");
+    openapiFields.add("conjur-username");
     openapiFields.add("expiration-event-in");
     openapiFields.add("gcp-key");
     openapiFields.add("gcp-project-id");
@@ -1945,6 +2142,13 @@ public class GatewayCreateMigration {
       if ((jsonObj.get("ad-auto-rotate") != null && !jsonObj.get("ad-auto-rotate").isJsonNull()) && !jsonObj.get("ad-auto-rotate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ad-auto-rotate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad-auto-rotate").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ad-cert-expiration-event-in") != null && !jsonObj.get("ad-cert-expiration-event-in").isJsonNull() && !jsonObj.get("ad-cert-expiration-event-in").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ad-cert-expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("ad-cert-expiration-event-in").toString()));
+      }
+      if ((jsonObj.get("ad-certificates-path-template") != null && !jsonObj.get("ad-certificates-path-template").isJsonNull()) && !jsonObj.get("ad-certificates-path-template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ad-certificates-path-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad-certificates-path-template").toString()));
+      }
       if ((jsonObj.get("ad-computer-base-dn") != null && !jsonObj.get("ad-computer-base-dn").isJsonNull()) && !jsonObj.get("ad-computer-base-dn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ad-computer-base-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad-computer-base-dn").toString()));
       }
@@ -2006,6 +2210,9 @@ public class GatewayCreateMigration {
       if ((jsonObj.get("ad_discover_local_users") != null && !jsonObj.get("ad_discover_local_users").isJsonNull()) && !jsonObj.get("ad_discover_local_users").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ad_discover_local_users` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad_discover_local_users").toString()));
       }
+      if ((jsonObj.get("ai-certificate-discovery") != null && !jsonObj.get("ai-certificate-discovery").isJsonNull()) && !jsonObj.get("ai-certificate-discovery").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ai-certificate-discovery` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ai-certificate-discovery").toString()));
+      }
       if ((jsonObj.get("aws-key") != null && !jsonObj.get("aws-key").isJsonNull()) && !jsonObj.get("aws-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aws-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-key").toString()));
       }
@@ -2026,6 +2233,18 @@ public class GatewayCreateMigration {
       }
       if ((jsonObj.get("azure-tenant-id") != null && !jsonObj.get("azure-tenant-id").isJsonNull()) && !jsonObj.get("azure-tenant-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure-tenant-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-tenant-id").toString()));
+      }
+      if ((jsonObj.get("conjur-account") != null && !jsonObj.get("conjur-account").isJsonNull()) && !jsonObj.get("conjur-account").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conjur-account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur-account").toString()));
+      }
+      if ((jsonObj.get("conjur-api-key") != null && !jsonObj.get("conjur-api-key").isJsonNull()) && !jsonObj.get("conjur-api-key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conjur-api-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur-api-key").toString()));
+      }
+      if ((jsonObj.get("conjur-url") != null && !jsonObj.get("conjur-url").isJsonNull()) && !jsonObj.get("conjur-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conjur-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur-url").toString()));
+      }
+      if ((jsonObj.get("conjur-username") != null && !jsonObj.get("conjur-username").isJsonNull()) && !jsonObj.get("conjur-username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conjur-username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur-username").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {

@@ -24,6 +24,7 @@ import io.akeyless.client.model.AllowedClientType;
 import io.akeyless.client.model.AllowedIpSettings;
 import io.akeyless.client.model.CertificateExpirationEventsSettings;
 import io.akeyless.client.model.DataProtectionSection;
+import io.akeyless.client.model.DefaultAuthMethodSettings;
 import io.akeyless.client.model.DefaultHomePage;
 import io.akeyless.client.model.DynamicSecretMaxTtl;
 import io.akeyless.client.model.PasswordExpirationInfo;
@@ -112,6 +113,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_DATA_PROTECTION_SECTION)
   @javax.annotation.Nullable
   private DataProtectionSection dataProtectionSection;
+
+  public static final String SERIALIZED_NAME_DEFAULT_AUTH_METHOD = "default_auth_method";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_AUTH_METHOD)
+  @javax.annotation.Nullable
+  private DefaultAuthMethodSettings defaultAuthMethod;
 
   public static final String SERIALIZED_NAME_DEFAULT_HOME_PAGE = "default_home_page";
   @SerializedName(SERIALIZED_NAME_DEFAULT_HOME_PAGE)
@@ -373,6 +379,25 @@ public class AccountGeneralSettings {
 
   public void setDataProtectionSection(@javax.annotation.Nullable DataProtectionSection dataProtectionSection) {
     this.dataProtectionSection = dataProtectionSection;
+  }
+
+
+  public AccountGeneralSettings defaultAuthMethod(@javax.annotation.Nullable DefaultAuthMethodSettings defaultAuthMethod) {
+    this.defaultAuthMethod = defaultAuthMethod;
+    return this;
+  }
+
+  /**
+   * Get defaultAuthMethod
+   * @return defaultAuthMethod
+   */
+  @javax.annotation.Nullable
+  public DefaultAuthMethodSettings getDefaultAuthMethod() {
+    return defaultAuthMethod;
+  }
+
+  public void setDefaultAuthMethod(@javax.annotation.Nullable DefaultAuthMethodSettings defaultAuthMethod) {
+    this.defaultAuthMethod = defaultAuthMethod;
   }
 
 
@@ -662,6 +687,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.authUsageEvent, accountGeneralSettings.authUsageEvent) &&
         Objects.equals(this.certificateExpirationEvents, accountGeneralSettings.certificateExpirationEvents) &&
         Objects.equals(this.dataProtectionSection, accountGeneralSettings.dataProtectionSection) &&
+        Objects.equals(this.defaultAuthMethod, accountGeneralSettings.defaultAuthMethod) &&
         Objects.equals(this.defaultHomePage, accountGeneralSettings.defaultHomePage) &&
         Objects.equals(this.dynamicSecretMaxTtl, accountGeneralSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
@@ -680,7 +706,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -697,6 +723,7 @@ public class AccountGeneralSettings {
     sb.append("    authUsageEvent: ").append(toIndentedString(authUsageEvent)).append("\n");
     sb.append("    certificateExpirationEvents: ").append(toIndentedString(certificateExpirationEvents)).append("\n");
     sb.append("    dataProtectionSection: ").append(toIndentedString(dataProtectionSection)).append("\n");
+    sb.append("    defaultAuthMethod: ").append(toIndentedString(defaultAuthMethod)).append("\n");
     sb.append("    defaultHomePage: ").append(toIndentedString(defaultHomePage)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
@@ -743,6 +770,7 @@ public class AccountGeneralSettings {
     openapiFields.add("auth_usage_event");
     openapiFields.add("certificate_expiration_events");
     openapiFields.add("data_protection_section");
+    openapiFields.add("default_auth_method");
     openapiFields.add("default_home_page");
     openapiFields.add("dynamic_secret_max_ttl");
     openapiFields.add("enable_request_for_access");
@@ -813,6 +841,10 @@ public class AccountGeneralSettings {
       // validate the optional field `data_protection_section`
       if (jsonObj.get("data_protection_section") != null && !jsonObj.get("data_protection_section").isJsonNull()) {
         DataProtectionSection.validateJsonElement(jsonObj.get("data_protection_section"));
+      }
+      // validate the optional field `default_auth_method`
+      if (jsonObj.get("default_auth_method") != null && !jsonObj.get("default_auth_method").isJsonNull()) {
+        DefaultAuthMethodSettings.validateJsonElement(jsonObj.get("default_auth_method"));
       }
       // validate the optional field `default_home_page`
       if (jsonObj.get("default_home_page") != null && !jsonObj.get("default_home_page").isJsonNull()) {

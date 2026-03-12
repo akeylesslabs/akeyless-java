@@ -9,6 +9,7 @@ AzureADAccessRules contains access rules specific to Azure Active Directory auth
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**adEndpoint** | **String** | The audience in the JWT. |  [optional] |
+|**azureCloud** | **String** | Azure cloud environment [AzureCloud/AzureUSGovernment/AzureChinaCloud]. For create/update, cloud is inferred from jwks_uri. |  [optional] |
 |**boundGroupIds** | **List&lt;String&gt;** | The list of group ids that login is restricted to. |  [optional] |
 |**boundResourceGroups** | **List&lt;String&gt;** | The list of resource groups that login is restricted to. |  [optional] |
 |**boundResourceIds** | **List&lt;String&gt;** | The list of full resource ids that the login is restricted to. |  [optional] |

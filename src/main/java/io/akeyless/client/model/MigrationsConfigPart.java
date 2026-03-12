@@ -23,6 +23,7 @@ import io.akeyless.client.model.AWSSecretsMigration;
 import io.akeyless.client.model.ActiveDirectoryMigration;
 import io.akeyless.client.model.AzureKeyVaultMigration;
 import io.akeyless.client.model.CertificateMigration;
+import io.akeyless.client.model.ConjurMigration;
 import io.akeyless.client.model.GCPSecretsMigration;
 import io.akeyless.client.model.HashiMigration;
 import io.akeyless.client.model.K8SMigration;
@@ -81,6 +82,11 @@ public class MigrationsConfigPart {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_MIGRATIONS)
   @javax.annotation.Nullable
   private List<CertificateMigration> certificateMigrations = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CONJUR_MIGRATIONS = "conjur_migrations";
+  @SerializedName(SERIALIZED_NAME_CONJUR_MIGRATIONS)
+  @javax.annotation.Nullable
+  private List<ConjurMigration> conjurMigrations = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_GCP_SECRETS_MIGRATIONS = "gcp_secrets_migrations";
   @SerializedName(SERIALIZED_NAME_GCP_SECRETS_MIGRATIONS)
@@ -220,6 +226,33 @@ public class MigrationsConfigPart {
 
   public void setCertificateMigrations(@javax.annotation.Nullable List<CertificateMigration> certificateMigrations) {
     this.certificateMigrations = certificateMigrations;
+  }
+
+
+  public MigrationsConfigPart conjurMigrations(@javax.annotation.Nullable List<ConjurMigration> conjurMigrations) {
+    this.conjurMigrations = conjurMigrations;
+    return this;
+  }
+
+  public MigrationsConfigPart addConjurMigrationsItem(ConjurMigration conjurMigrationsItem) {
+    if (this.conjurMigrations == null) {
+      this.conjurMigrations = new ArrayList<>();
+    }
+    this.conjurMigrations.add(conjurMigrationsItem);
+    return this;
+  }
+
+  /**
+   * Get conjurMigrations
+   * @return conjurMigrations
+   */
+  @javax.annotation.Nullable
+  public List<ConjurMigration> getConjurMigrations() {
+    return conjurMigrations;
+  }
+
+  public void setConjurMigrations(@javax.annotation.Nullable List<ConjurMigration> conjurMigrations) {
+    this.conjurMigrations = conjurMigrations;
   }
 
 
@@ -399,6 +432,7 @@ public class MigrationsConfigPart {
         Objects.equals(this.awsSecretsMigrations, migrationsConfigPart.awsSecretsMigrations) &&
         Objects.equals(this.azureKvMigrations, migrationsConfigPart.azureKvMigrations) &&
         Objects.equals(this.certificateMigrations, migrationsConfigPart.certificateMigrations) &&
+        Objects.equals(this.conjurMigrations, migrationsConfigPart.conjurMigrations) &&
         Objects.equals(this.gcpSecretsMigrations, migrationsConfigPart.gcpSecretsMigrations) &&
         Objects.equals(this.hashiMigrations, migrationsConfigPart.hashiMigrations) &&
         Objects.equals(this.k8sMigrations, migrationsConfigPart.k8sMigrations) &&
@@ -409,7 +443,7 @@ public class MigrationsConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, certificateMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, mockMigrations, onePasswordMigrations, serverInventoryMigrations);
+    return Objects.hash(activeDirectoryMigrations, awsSecretsMigrations, azureKvMigrations, certificateMigrations, conjurMigrations, gcpSecretsMigrations, hashiMigrations, k8sMigrations, mockMigrations, onePasswordMigrations, serverInventoryMigrations);
   }
 
   @Override
@@ -420,6 +454,7 @@ public class MigrationsConfigPart {
     sb.append("    awsSecretsMigrations: ").append(toIndentedString(awsSecretsMigrations)).append("\n");
     sb.append("    azureKvMigrations: ").append(toIndentedString(azureKvMigrations)).append("\n");
     sb.append("    certificateMigrations: ").append(toIndentedString(certificateMigrations)).append("\n");
+    sb.append("    conjurMigrations: ").append(toIndentedString(conjurMigrations)).append("\n");
     sb.append("    gcpSecretsMigrations: ").append(toIndentedString(gcpSecretsMigrations)).append("\n");
     sb.append("    hashiMigrations: ").append(toIndentedString(hashiMigrations)).append("\n");
     sb.append("    k8sMigrations: ").append(toIndentedString(k8sMigrations)).append("\n");
@@ -452,6 +487,7 @@ public class MigrationsConfigPart {
     openapiFields.add("aws_secrets_migrations");
     openapiFields.add("azure_kv_migrations");
     openapiFields.add("certificate_migrations");
+    openapiFields.add("conjur_migrations");
     openapiFields.add("gcp_secrets_migrations");
     openapiFields.add("hashi_migrations");
     openapiFields.add("k8s_migrations");
@@ -537,6 +573,20 @@ public class MigrationsConfigPart {
           // validate the optional field `certificate_migrations` (array)
           for (int i = 0; i < jsonArraycertificateMigrations.size(); i++) {
             CertificateMigration.validateJsonElement(jsonArraycertificateMigrations.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("conjur_migrations") != null && !jsonObj.get("conjur_migrations").isJsonNull()) {
+        JsonArray jsonArrayconjurMigrations = jsonObj.getAsJsonArray("conjur_migrations");
+        if (jsonArrayconjurMigrations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("conjur_migrations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `conjur_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("conjur_migrations").toString()));
+          }
+
+          // validate the optional field `conjur_migrations` (array)
+          for (int i = 0; i < jsonArrayconjurMigrations.size(); i++) {
+            ConjurMigration.validateJsonElement(jsonArrayconjurMigrations.get(i));
           };
         }
       }

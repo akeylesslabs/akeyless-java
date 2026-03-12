@@ -57,6 +57,11 @@ public class AzureADAccessRules {
   @javax.annotation.Nullable
   private String adEndpoint;
 
+  public static final String SERIALIZED_NAME_AZURE_CLOUD = "azure_cloud";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLOUD)
+  @javax.annotation.Nullable
+  private String azureCloud;
+
   public static final String SERIALIZED_NAME_BOUND_GROUP_IDS = "bound_group_ids";
   @SerializedName(SERIALIZED_NAME_BOUND_GROUP_IDS)
   @javax.annotation.Nullable
@@ -136,6 +141,25 @@ public class AzureADAccessRules {
 
   public void setAdEndpoint(@javax.annotation.Nullable String adEndpoint) {
     this.adEndpoint = adEndpoint;
+  }
+
+
+  public AzureADAccessRules azureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+    return this;
+  }
+
+  /**
+   * Azure cloud environment [AzureCloud/AzureUSGovernment/AzureChinaCloud]. For create/update, cloud is inferred from jwks_uri.
+   * @return azureCloud
+   */
+  @javax.annotation.Nullable
+  public String getAzureCloud() {
+    return azureCloud;
+  }
+
+  public void setAzureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
   }
 
 
@@ -442,6 +466,7 @@ public class AzureADAccessRules {
     }
     AzureADAccessRules azureADAccessRules = (AzureADAccessRules) o;
     return Objects.equals(this.adEndpoint, azureADAccessRules.adEndpoint) &&
+        Objects.equals(this.azureCloud, azureADAccessRules.azureCloud) &&
         Objects.equals(this.boundGroupIds, azureADAccessRules.boundGroupIds) &&
         Objects.equals(this.boundResourceGroups, azureADAccessRules.boundResourceGroups) &&
         Objects.equals(this.boundResourceIds, azureADAccessRules.boundResourceIds) &&
@@ -458,7 +483,7 @@ public class AzureADAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adEndpoint, boundGroupIds, boundResourceGroups, boundResourceIds, boundResourceNames, boundResourceProviders, boundResourceTypes, boundServicePrincipalIds, boundSubscriptionIds, boundTenantId, issuer, jwksUri, uniqueIdentifier);
+    return Objects.hash(adEndpoint, azureCloud, boundGroupIds, boundResourceGroups, boundResourceIds, boundResourceNames, boundResourceProviders, boundResourceTypes, boundServicePrincipalIds, boundSubscriptionIds, boundTenantId, issuer, jwksUri, uniqueIdentifier);
   }
 
   @Override
@@ -466,6 +491,7 @@ public class AzureADAccessRules {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureADAccessRules {\n");
     sb.append("    adEndpoint: ").append(toIndentedString(adEndpoint)).append("\n");
+    sb.append("    azureCloud: ").append(toIndentedString(azureCloud)).append("\n");
     sb.append("    boundGroupIds: ").append(toIndentedString(boundGroupIds)).append("\n");
     sb.append("    boundResourceGroups: ").append(toIndentedString(boundResourceGroups)).append("\n");
     sb.append("    boundResourceIds: ").append(toIndentedString(boundResourceIds)).append("\n");
@@ -501,6 +527,7 @@ public class AzureADAccessRules {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("ad_endpoint");
+    openapiFields.add("azure_cloud");
     openapiFields.add("bound_group_ids");
     openapiFields.add("bound_resource_groups");
     openapiFields.add("bound_resource_ids");
@@ -541,6 +568,9 @@ public class AzureADAccessRules {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("ad_endpoint") != null && !jsonObj.get("ad_endpoint").isJsonNull()) && !jsonObj.get("ad_endpoint").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ad_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad_endpoint").toString()));
+      }
+      if ((jsonObj.get("azure_cloud") != null && !jsonObj.get("azure_cloud").isJsonNull()) && !jsonObj.get("azure_cloud").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `azure_cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_cloud").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_group_ids") != null && !jsonObj.get("bound_group_ids").isJsonNull() && !jsonObj.get("bound_group_ids").isJsonArray()) {

@@ -26,6 +26,7 @@ import io.akeyless.client.model.CertificateTemplateInfo;
 import io.akeyless.client.model.ClassicKeyDetailsInfo;
 import io.akeyless.client.model.DynamicSecretProducerInfo;
 import io.akeyless.client.model.ImporterInfo;
+import io.akeyless.client.model.IssuerOverviewInfo;
 import io.akeyless.client.model.NextAutoRotationEvent;
 import io.akeyless.client.model.OidcClientInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
@@ -115,6 +116,11 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_IMPORTER_INFO)
   @javax.annotation.Nullable
   private ImporterInfo importerInfo;
+
+  public static final String SERIALIZED_NAME_ISSUER_OVERVIEW_INFO = "issuer_overview_info";
+  @SerializedName(SERIALIZED_NAME_ISSUER_OVERVIEW_INFO)
+  @javax.annotation.Nullable
+  private IssuerOverviewInfo issuerOverviewInfo;
 
   public static final String SERIALIZED_NAME_NEXT_ROTATION_EVENTS = "next_rotation_events";
   @SerializedName(SERIALIZED_NAME_NEXT_ROTATION_EVENTS)
@@ -352,6 +358,25 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo issuerOverviewInfo(@javax.annotation.Nullable IssuerOverviewInfo issuerOverviewInfo) {
+    this.issuerOverviewInfo = issuerOverviewInfo;
+    return this;
+  }
+
+  /**
+   * Get issuerOverviewInfo
+   * @return issuerOverviewInfo
+   */
+  @javax.annotation.Nullable
+  public IssuerOverviewInfo getIssuerOverviewInfo() {
+    return issuerOverviewInfo;
+  }
+
+  public void setIssuerOverviewInfo(@javax.annotation.Nullable IssuerOverviewInfo issuerOverviewInfo) {
+    this.issuerOverviewInfo = issuerOverviewInfo;
+  }
+
+
   public ItemGeneralInfo nextRotationEvents(@javax.annotation.Nullable List<NextAutoRotationEvent> nextRotationEvents) {
     this.nextRotationEvents = nextRotationEvents;
     return this;
@@ -513,6 +538,7 @@ public class ItemGeneralInfo {
         Objects.equals(this.dynamicSecretProducerDetails, itemGeneralInfo.dynamicSecretProducerDetails) &&
         Objects.equals(this.expirationEvents, itemGeneralInfo.expirationEvents) &&
         Objects.equals(this.importerInfo, itemGeneralInfo.importerInfo) &&
+        Objects.equals(this.issuerOverviewInfo, itemGeneralInfo.issuerOverviewInfo) &&
         Objects.equals(this.nextRotationEvents, itemGeneralInfo.nextRotationEvents) &&
         Objects.equals(this.oidcClientInfo, itemGeneralInfo.oidcClientInfo) &&
         Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
@@ -524,7 +550,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, nextRotationEvents, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, issuerOverviewInfo, nextRotationEvents, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
@@ -541,6 +567,7 @@ public class ItemGeneralInfo {
     sb.append("    dynamicSecretProducerDetails: ").append(toIndentedString(dynamicSecretProducerDetails)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    importerInfo: ").append(toIndentedString(importerInfo)).append("\n");
+    sb.append("    issuerOverviewInfo: ").append(toIndentedString(issuerOverviewInfo)).append("\n");
     sb.append("    nextRotationEvents: ").append(toIndentedString(nextRotationEvents)).append("\n");
     sb.append("    oidcClientInfo: ").append(toIndentedString(oidcClientInfo)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
@@ -580,6 +607,7 @@ public class ItemGeneralInfo {
     openapiFields.add("dynamic_secret_producer_details");
     openapiFields.add("expiration_events");
     openapiFields.add("importer_info");
+    openapiFields.add("issuer_overview_info");
     openapiFields.add("next_rotation_events");
     openapiFields.add("oidc_client_info");
     openapiFields.add("password_policy");
@@ -659,6 +687,10 @@ public class ItemGeneralInfo {
       // validate the optional field `importer_info`
       if (jsonObj.get("importer_info") != null && !jsonObj.get("importer_info").isJsonNull()) {
         ImporterInfo.validateJsonElement(jsonObj.get("importer_info"));
+      }
+      // validate the optional field `issuer_overview_info`
+      if (jsonObj.get("issuer_overview_info") != null && !jsonObj.get("issuer_overview_info").isJsonNull()) {
+        IssuerOverviewInfo.validateJsonElement(jsonObj.get("issuer_overview_info"));
       }
       if (jsonObj.get("next_rotation_events") != null && !jsonObj.get("next_rotation_events").isJsonNull()) {
         JsonArray jsonArraynextRotationEvents = jsonObj.getAsJsonArray("next_rotation_events");

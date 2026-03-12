@@ -111,6 +111,11 @@ public class CertificateChainInfo {
   @javax.annotation.Nullable
   private String commonName;
 
+  public static final String SERIALIZED_NAME_CSR_PEM = "csr_pem";
+  @SerializedName(SERIALIZED_NAME_CSR_PEM)
+  @javax.annotation.Nullable
+  private String csrPem;
+
   public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
   @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
   @javax.annotation.Nullable
@@ -366,6 +371,25 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo csrPem(@javax.annotation.Nullable String csrPem) {
+    this.csrPem = csrPem;
+    return this;
+  }
+
+  /**
+   * CSRPEM contains the PEM-encoded CSR for pending certificates (HTTP-01 challenge)
+   * @return csrPem
+   */
+  @javax.annotation.Nullable
+  public String getCsrPem() {
+    return csrPem;
+  }
+
+  public void setCsrPem(@javax.annotation.Nullable String csrPem) {
+    this.csrPem = csrPem;
+  }
+
+
   public CertificateChainInfo errorMessage(@javax.annotation.Nullable String errorMessage) {
     this.errorMessage = errorMessage;
     return this;
@@ -528,6 +552,7 @@ public class CertificateChainInfo {
         Objects.equals(this.certificatePem, certificateChainInfo.certificatePem) &&
         Objects.equals(this.certificateStatus, certificateChainInfo.certificateStatus) &&
         Objects.equals(this.commonName, certificateChainInfo.commonName) &&
+        Objects.equals(this.csrPem, certificateChainInfo.csrPem) &&
         Objects.equals(this.errorMessage, certificateChainInfo.errorMessage) &&
         Objects.equals(this.expirationDate, certificateChainInfo.expirationDate) &&
         Objects.equals(this.expirationEvents, certificateChainInfo.expirationEvents) &&
@@ -539,7 +564,7 @@ public class CertificateChainInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterId, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, commonName, errorMessage, expirationDate, expirationEvents, externalCaId, issuanceStatus, notBefore, renewBeforeExpirationInDays);
+    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterId, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, commonName, csrPem, errorMessage, expirationDate, expirationEvents, externalCaId, issuanceStatus, notBefore, renewBeforeExpirationInDays);
   }
 
   @Override
@@ -557,6 +582,7 @@ public class CertificateChainInfo {
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
     sb.append("    certificateStatus: ").append(toIndentedString(certificateStatus)).append("\n");
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
+    sb.append("    csrPem: ").append(toIndentedString(csrPem)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
@@ -597,6 +623,7 @@ public class CertificateChainInfo {
     openapiFields.add("certificate_pem");
     openapiFields.add("certificate_status");
     openapiFields.add("common_name");
+    openapiFields.add("csr_pem");
     openapiFields.add("error_message");
     openapiFields.add("expiration_date");
     openapiFields.add("expiration_events");
@@ -661,6 +688,9 @@ public class CertificateChainInfo {
       }
       if ((jsonObj.get("common_name") != null && !jsonObj.get("common_name").isJsonNull()) && !jsonObj.get("common_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("common_name").toString()));
+      }
+      if ((jsonObj.get("csr_pem") != null && !jsonObj.get("csr_pem").isJsonNull()) && !jsonObj.get("csr_pem").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `csr_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csr_pem").toString()));
       }
       if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));

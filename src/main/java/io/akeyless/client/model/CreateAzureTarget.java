@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class CreateAzureTarget {
+  public static final String SERIALIZED_NAME_AZURE_CLOUD = "azure-cloud";
+  @SerializedName(SERIALIZED_NAME_AZURE_CLOUD)
+  @javax.annotation.Nullable
+  private String azureCloud = "AzureCloud";
+
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
   @javax.annotation.Nullable
@@ -132,6 +137,25 @@ public class CreateAzureTarget {
 
   public CreateAzureTarget() {
   }
+
+  public CreateAzureTarget azureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+    return this;
+  }
+
+  /**
+   * Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud.
+   * @return azureCloud
+   */
+  @javax.annotation.Nullable
+  public String getAzureCloud() {
+    return azureCloud;
+  }
+
+  public void setAzureCloud(@javax.annotation.Nullable String azureCloud) {
+    this.azureCloud = azureCloud;
+  }
+
 
   public CreateAzureTarget clientId(@javax.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -447,7 +471,8 @@ public class CreateAzureTarget {
       return false;
     }
     CreateAzureTarget createAzureTarget = (CreateAzureTarget) o;
-    return Objects.equals(this.clientId, createAzureTarget.clientId) &&
+    return Objects.equals(this.azureCloud, createAzureTarget.azureCloud) &&
+        Objects.equals(this.clientId, createAzureTarget.clientId) &&
         Objects.equals(this.clientSecret, createAzureTarget.clientSecret) &&
         Objects.equals(this.comment, createAzureTarget.comment) &&
         Objects.equals(this.connectionType, createAzureTarget.connectionType) &&
@@ -467,13 +492,14 @@ public class CreateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, comment, connectionType, description, json, key, maxVersions, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(azureCloud, clientId, clientSecret, comment, connectionType, description, json, key, maxVersions, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAzureTarget {\n");
+    sb.append("    azureCloud: ").append(toIndentedString(azureCloud)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
@@ -512,6 +538,7 @@ public class CreateAzureTarget {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("azure-cloud");
     openapiFields.add("client-id");
     openapiFields.add("client-secret");
     openapiFields.add("comment");
@@ -562,6 +589,9 @@ public class CreateAzureTarget {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("azure-cloud") != null && !jsonObj.get("azure-cloud").isJsonNull()) && !jsonObj.get("azure-cloud").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `azure-cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-cloud").toString()));
+      }
       if ((jsonObj.get("client-id") != null && !jsonObj.get("client-id").isJsonNull()) && !jsonObj.get("client-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `client-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-id").toString()));
       }

@@ -14,6 +14,7 @@
 |**adminEmail** | **String** | Email (relevant only for access-type&#x3D;password) |  [optional] |
 |**adminPassword** | **String** | Password (relevant only for access-type&#x3D;password) |  [optional] |
 |**azureAdObjectId** | **String** | Azure Active Directory ObjectId (relevant only for access-type&#x3D;azure_ad) |  [optional] |
+|**azureCloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. |  [optional] |
 |**certData** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert in Curl Context) |  [optional] |
 |**certIssuerName** | **String** | Certificate Issuer Name |  [optional] |
 |**certUsername** | **String** | The username to sign in the SSH certificate (use a comma-separated list for more than one username) |  [optional] |

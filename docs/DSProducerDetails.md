@@ -39,6 +39,7 @@
 |**azureAppObjectId** | **String** |  |  [optional] |
 |**azureClientId** | **String** |  |  [optional] |
 |**azureClientSecret** | **String** |  |  [optional] |
+|**azureCloud** | **String** |  |  [optional] |
 |**azureFixedUserNameSubClaimKey** | **String** |  |  [optional] |
 |**azureFixedUserOnly** | **Boolean** |  |  [optional] |
 |**azureResourceGroupName** | **String** |  |  [optional] |

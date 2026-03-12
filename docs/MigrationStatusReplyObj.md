@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**certificates** | [**MigrationItems**](MigrationItems.md) |  |  [optional] |
 |**computers** | **Long** |  |  [optional] |
 |**durationTime** | **String** |  |  [optional] |
 |**error** | **String** |  |  [optional] |

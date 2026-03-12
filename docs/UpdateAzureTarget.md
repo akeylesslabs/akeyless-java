@@ -8,6 +8,7 @@ updateAzureTarget is a command that updates an existing target. [Deprecated: Use
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**azureCloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. |  [optional] |
 |**clientId** | **String** | Azure client/application id |  [optional] |
 |**clientSecret** | **String** | Azure client secret |  [optional] |
 |**comment** | **String** | Deprecated - use description |  [optional] |
