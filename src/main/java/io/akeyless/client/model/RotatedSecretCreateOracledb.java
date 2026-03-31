@@ -89,6 +89,11 @@ public class RotatedSecretCreateOracledb {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_DURING_SRA_SESSION = "lock-during-sra-session";
+  @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
+  @javax.annotation.Nullable
+  private String lockDuringSraSession;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -107,7 +112,7 @@ public class RotatedSecretCreateOracledb {
   public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT = "rotate-after-disconnect";
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
-  private String rotateAfterDisconnect = "false";
+  private String rotateAfterDisconnect;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -323,6 +328,25 @@ public class RotatedSecretCreateOracledb {
   }
 
 
+  public RotatedSecretCreateOracledb lockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+    return this;
+  }
+
+  /**
+   * Lock this secret for read/update while an SRA session is active
+   * @return lockDuringSraSession
+   */
+  @javax.annotation.Nullable
+  public String getLockDuringSraSession() {
+    return lockDuringSraSession;
+  }
+
+  public void setLockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+  }
+
+
   public RotatedSecretCreateOracledb maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -386,7 +410,7 @@ public class RotatedSecretCreateOracledb {
   }
 
   /**
-   * Rotate the value of the secret after SRA session ends [true/false]
+   * StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
    * @return rotateAfterDisconnect
    */
   @javax.annotation.Nullable
@@ -706,6 +730,7 @@ public class RotatedSecretCreateOracledb {
         Objects.equals(this.itemCustomFields, rotatedSecretCreateOracledb.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateOracledb.json) &&
         Objects.equals(this.key, rotatedSecretCreateOracledb.key) &&
+        Objects.equals(this.lockDuringSraSession, rotatedSecretCreateOracledb.lockDuringSraSession) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateOracledb.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateOracledb.name) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateOracledb.passwordLength) &&
@@ -728,7 +753,7 @@ public class RotatedSecretCreateOracledb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, key, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDbName, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken);
   }
 
   @Override
@@ -742,6 +767,7 @@ public class RotatedSecretCreateOracledb {
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
@@ -789,6 +815,7 @@ public class RotatedSecretCreateOracledb {
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key");
+    openapiFields.add("lock-during-sra-session");
     openapiFields.add("max-versions");
     openapiFields.add("name");
     openapiFields.add("password-length");
@@ -857,6 +884,9 @@ public class RotatedSecretCreateOracledb {
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+      }
+      if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));

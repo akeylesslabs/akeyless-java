@@ -28,6 +28,7 @@ import io.akeyless.client.model.ItemTargetAssociation;
 import io.akeyless.client.model.ItemUSCSyncAssociation;
 import io.akeyless.client.model.ItemVersion;
 import io.akeyless.client.model.LinkedDetails;
+import io.akeyless.client.model.LockingInfo;
 import io.akeyless.client.model.RuleAssigner;
 import io.akeyless.client.model.TargetItemVersion;
 import java.io.IOException;
@@ -228,6 +229,11 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_LINKED_DETAILS)
   @javax.annotation.Nullable
   private LinkedDetails linkedDetails;
+
+  public static final String SERIALIZED_NAME_LOCKING_INFO = "locking_info";
+  @SerializedName(SERIALIZED_NAME_LOCKING_INFO)
+  @javax.annotation.Nullable
+  private LockingInfo lockingInfo;
 
   public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
@@ -957,6 +963,25 @@ public class Item {
   }
 
 
+  public Item lockingInfo(@javax.annotation.Nullable LockingInfo lockingInfo) {
+    this.lockingInfo = lockingInfo;
+    return this;
+  }
+
+  /**
+   * Get lockingInfo
+   * @return lockingInfo
+   */
+  @javax.annotation.Nullable
+  public LockingInfo getLockingInfo() {
+    return lockingInfo;
+  }
+
+  public void setLockingInfo(@javax.annotation.Nullable LockingInfo lockingInfo) {
+    this.lockingInfo = lockingInfo;
+  }
+
+
   public Item modificationDate(@javax.annotation.Nullable OffsetDateTime modificationDate) {
     this.modificationDate = modificationDate;
     return this;
@@ -1206,6 +1231,7 @@ public class Item {
         Objects.equals(this.lastRotationDate, item.lastRotationDate) &&
         Objects.equals(this.lastVersion, item.lastVersion) &&
         Objects.equals(this.linkedDetails, item.linkedDetails) &&
+        Objects.equals(this.lockingInfo, item.lockingInfo) &&
         Objects.equals(this.modificationDate, item.modificationDate) &&
         Objects.equals(this.nextRotationDate, item.nextRotationDate) &&
         Objects.equals(this.protectionKeyName, item.protectionKeyName) &&
@@ -1220,7 +1246,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, lockingInfo, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
   }
 
   @Override
@@ -1260,6 +1286,7 @@ public class Item {
     sb.append("    lastRotationDate: ").append(toIndentedString(lastRotationDate)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    linkedDetails: ").append(toIndentedString(linkedDetails)).append("\n");
+    sb.append("    lockingInfo: ").append(toIndentedString(lockingInfo)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    nextRotationDate: ").append(toIndentedString(nextRotationDate)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
@@ -1325,6 +1352,7 @@ public class Item {
     openapiFields.add("last_rotation_date");
     openapiFields.add("last_version");
     openapiFields.add("linked_details");
+    openapiFields.add("locking_info");
     openapiFields.add("modification_date");
     openapiFields.add("next_rotation_date");
     openapiFields.add("protection_key_name");
@@ -1473,6 +1501,10 @@ public class Item {
       // validate the optional field `linked_details`
       if (jsonObj.get("linked_details") != null && !jsonObj.get("linked_details").isJsonNull()) {
         LinkedDetails.validateJsonElement(jsonObj.get("linked_details"));
+      }
+      // validate the optional field `locking_info`
+      if (jsonObj.get("locking_info") != null && !jsonObj.get("locking_info").isJsonNull()) {
+        LockingInfo.validateJsonElement(jsonObj.get("locking_info"));
       }
       if ((jsonObj.get("protection_key_name") != null && !jsonObj.get("protection_key_name").isJsonNull()) && !jsonObj.get("protection_key_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `protection_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key_name").toString()));

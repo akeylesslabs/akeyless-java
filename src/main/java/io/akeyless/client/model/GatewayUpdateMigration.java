@@ -242,6 +242,11 @@ public class GatewayUpdateMigration {
   @javax.annotation.Nullable
   private String conjurUsername;
 
+  public static final String SERIALIZED_NAME_DELETE_REMOTE = "delete-remote";
+  @SerializedName(SERIALIZED_NAME_DELETE_REMOTE)
+  @javax.annotation.Nullable
+  private Boolean deleteRemote;
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   @javax.annotation.Nullable
@@ -411,6 +416,11 @@ public class GatewayUpdateMigration {
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   @javax.annotation.Nullable
   private String uidToken;
+
+  public static final String SERIALIZED_NAME_USC_NAME = "usc-name";
+  @SerializedName(SERIALIZED_NAME_USC_NAME)
+  @javax.annotation.Nullable
+  private String uscName;
 
   public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use-gw-cloud-identity";
   @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
@@ -1158,6 +1168,25 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration deleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+    return this;
+  }
+
+  /**
+   * Delete the secret from the remote target as well, relevant only when usc-name is not empty (relevant only for HasiCorp Vault migration)
+   * @return deleteRemote
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteRemote() {
+    return deleteRemote;
+  }
+
+  public void setDeleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
+    this.deleteRemote = deleteRemote;
+  }
+
+
   public GatewayUpdateMigration expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
     this.expirationEventIn = expirationEventIn;
     return this;
@@ -1844,6 +1873,25 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration uscName(@javax.annotation.Nullable String uscName) {
+    this.uscName = uscName;
+    return this;
+  }
+
+  /**
+   * Universal Secret Connector name
+   * @return uscName
+   */
+  @javax.annotation.Nullable
+  public String getUscName() {
+    return uscName;
+  }
+
+  public void setUscName(@javax.annotation.Nullable String uscName) {
+    this.uscName = uscName;
+  }
+
+
   public GatewayUpdateMigration useGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
     this.useGwCloudIdentity = useGwCloudIdentity;
     return this;
@@ -1911,6 +1959,7 @@ public class GatewayUpdateMigration {
         Objects.equals(this.conjurApiKey, gatewayUpdateMigration.conjurApiKey) &&
         Objects.equals(this.conjurUrl, gatewayUpdateMigration.conjurUrl) &&
         Objects.equals(this.conjurUsername, gatewayUpdateMigration.conjurUsername) &&
+        Objects.equals(this.deleteRemote, gatewayUpdateMigration.deleteRemote) &&
         Objects.equals(this.expirationEventIn, gatewayUpdateMigration.expirationEventIn) &&
         Objects.equals(this.gcpKey, gatewayUpdateMigration.gcpKey) &&
         Objects.equals(this.gcpProjectId, gatewayUpdateMigration.gcpProjectId) &&
@@ -1945,12 +1994,13 @@ public class GatewayUpdateMigration {
         Objects.equals(this.targetLocation, gatewayUpdateMigration.targetLocation) &&
         Objects.equals(this.token, gatewayUpdateMigration.token) &&
         Objects.equals(this.uidToken, gatewayUpdateMigration.uidToken) &&
+        Objects.equals(this.uscName, gatewayUpdateMigration.uscName) &&
         Objects.equals(this.useGwCloudIdentity, gatewayUpdateMigration.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken, uscName, useGwCloudIdentity);
   }
 
   @Override
@@ -1995,6 +2045,7 @@ public class GatewayUpdateMigration {
     sb.append("    conjurApiKey: ").append(toIndentedString(conjurApiKey)).append("\n");
     sb.append("    conjurUrl: ").append(toIndentedString(conjurUrl)).append("\n");
     sb.append("    conjurUsername: ").append(toIndentedString(conjurUsername)).append("\n");
+    sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
@@ -2029,6 +2080,7 @@ public class GatewayUpdateMigration {
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -2090,6 +2142,7 @@ public class GatewayUpdateMigration {
     openapiFields.add("conjur-api-key");
     openapiFields.add("conjur-url");
     openapiFields.add("conjur-username");
+    openapiFields.add("delete-remote");
     openapiFields.add("expiration-event-in");
     openapiFields.add("gcp-key");
     openapiFields.add("gcp-project-id");
@@ -2124,6 +2177,7 @@ public class GatewayUpdateMigration {
     openapiFields.add("target-location");
     openapiFields.add("token");
     openapiFields.add("uid-token");
+    openapiFields.add("usc-name");
     openapiFields.add("use-gw-cloud-identity");
 
     // a set of required properties/fields (JSON key names)
@@ -2366,6 +2420,9 @@ public class GatewayUpdateMigration {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("usc-name") != null && !jsonObj.get("usc-name").isJsonNull()) && !jsonObj.get("usc-name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usc-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-name").toString()));
       }
   }
 

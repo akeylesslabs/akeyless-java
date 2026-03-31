@@ -22,6 +22,7 @@
 |**migrationTypeName** | **String** |  |  [optional] |
 |**rotatedSecrets** | [**MigrationItems**](MigrationItems.md) |  |  [optional] |
 |**startTime** | **String** |  |  [optional] |
+|**sync** | [**SyncCounters**](SyncCounters.md) |  |  [optional] |
 |**targets** | [**MigrationItems**](MigrationItems.md) |  |  [optional] |
 
 

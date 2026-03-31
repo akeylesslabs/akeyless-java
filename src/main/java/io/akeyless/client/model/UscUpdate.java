@@ -72,6 +72,11 @@ public class UscUpdate {
   @javax.annotation.Nullable
   private String namespace;
 
+  public static final String SERIALIZED_NAME_OBJECT_TYPE = "object-type";
+  @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
+  @javax.annotation.Nullable
+  private String objectType;
+
   public static final String SERIALIZED_NAME_PFX_PASSWORD = "pfx-password";
   @SerializedName(SERIALIZED_NAME_PFX_PASSWORD)
   @javax.annotation.Nullable
@@ -81,6 +86,11 @@ public class UscUpdate {
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   @javax.annotation.Nonnull
   private String secretId;
+
+  public static final String SERIALIZED_NAME_SELECTED_REPOSITORIES = "selected-repositories";
+  @SerializedName(SERIALIZED_NAME_SELECTED_REPOSITORIES)
+  @javax.annotation.Nullable
+  private String selectedRepositories;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -191,6 +201,25 @@ public class UscUpdate {
   }
 
 
+  public UscUpdate objectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+  /**
+   * Get objectType
+   * @return objectType
+   */
+  @javax.annotation.Nullable
+  public String getObjectType() {
+    return objectType;
+  }
+
+  public void setObjectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+  }
+
+
   public UscUpdate pfxPassword(@javax.annotation.Nullable String pfxPassword) {
     this.pfxPassword = pfxPassword;
     return this;
@@ -226,6 +255,25 @@ public class UscUpdate {
 
   public void setSecretId(@javax.annotation.Nonnull String secretId) {
     this.secretId = secretId;
+  }
+
+
+  public UscUpdate selectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
+    return this;
+  }
+
+  /**
+   * GitHub selected repositories (required for GitHub USC when repository-access is &#39;selected&#39; or for repository scope) Comma-separated repository names (e.g., \&quot;repo1,repo2\&quot;)
+   * @return selectedRepositories
+   */
+  @javax.annotation.Nullable
+  public String getSelectedRepositories() {
+    return selectedRepositories;
+  }
+
+  public void setSelectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
   }
 
 
@@ -365,8 +413,10 @@ public class UscUpdate {
         Objects.equals(this.description, uscUpdate.description) &&
         Objects.equals(this.json, uscUpdate.json) &&
         Objects.equals(this.namespace, uscUpdate.namespace) &&
+        Objects.equals(this.objectType, uscUpdate.objectType) &&
         Objects.equals(this.pfxPassword, uscUpdate.pfxPassword) &&
         Objects.equals(this.secretId, uscUpdate.secretId) &&
+        Objects.equals(this.selectedRepositories, uscUpdate.selectedRepositories) &&
         Objects.equals(this.tags, uscUpdate.tags) &&
         Objects.equals(this.token, uscUpdate.token) &&
         Objects.equals(this.uidToken, uscUpdate.uidToken) &&
@@ -377,7 +427,7 @@ public class UscUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, pfxPassword, secretId, tags, token, uidToken, uscEncryptionKey, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, secretId, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
@@ -388,8 +438,10 @@ public class UscUpdate {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pfxPassword: ").append(toIndentedString(pfxPassword)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
+    sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -422,8 +474,10 @@ public class UscUpdate {
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("namespace");
+    openapiFields.add("object-type");
     openapiFields.add("pfx-password");
     openapiFields.add("secret-id");
+    openapiFields.add("selected-repositories");
     openapiFields.add("tags");
     openapiFields.add("token");
     openapiFields.add("uid-token");
@@ -472,11 +526,17 @@ public class UscUpdate {
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
+      if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
+      }
       if ((jsonObj.get("pfx-password") != null && !jsonObj.get("pfx-password").isJsonNull()) && !jsonObj.get("pfx-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pfx-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pfx-password").toString()));
       }
       if (!jsonObj.get("secret-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-id").toString()));
+      }
+      if ((jsonObj.get("selected-repositories") != null && !jsonObj.get("selected-repositories").isJsonNull()) && !jsonObj.get("selected-repositories").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `selected-repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected-repositories").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

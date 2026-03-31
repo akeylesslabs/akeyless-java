@@ -489,6 +489,8 @@ Class | Method | HTTP request | Description
 *V2Api* | [**listSRASessions**](docs/V2Api.md#listSRASessions) | **POST** /list-sra-sessions | 
 *V2Api* | [**listSharedItems**](docs/V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 *V2Api* | [**listTargets**](docs/V2Api.md#listTargets) | **POST** /list-targets | 
+*V2Api* | [**lockItem**](docs/V2Api.md#lockItem) | **POST** /lock-item | 
+*V2Api* | [**lockTarget**](docs/V2Api.md#lockTarget) | **POST** /lock-target | 
 *V2Api* | [**moveObjects**](docs/V2Api.md#moveObjects) | **POST** /move-objects | 
 *V2Api* | [**policiesDelete**](docs/V2Api.md#policiesDelete) | **POST** /policy-delete | 
 *V2Api* | [**policiesGet**](docs/V2Api.md#policiesGet) | **POST** /policy-get | 
@@ -570,6 +572,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
 *V2Api* | [**targetCreateAzure**](docs/V2Api.md#targetCreateAzure) | **POST** /target-create-azure | 
 *V2Api* | [**targetCreateDB**](docs/V2Api.md#targetCreateDB) | **POST** /target-create-db | 
+*V2Api* | [**targetCreateDigiCert**](docs/V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert | 
 *V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
 *V2Api* | [**targetCreateEks**](docs/V2Api.md#targetCreateEks) | **POST** /target-create-eks | 
 *V2Api* | [**targetCreateGcp**](docs/V2Api.md#targetCreateGcp) | **POST** /target-create-gcp | 
@@ -580,6 +583,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateGlobalSign**](docs/V2Api.md#targetCreateGlobalSign) | **POST** /target-create-globalsign | 
 *V2Api* | [**targetCreateGlobalSignAtlas**](docs/V2Api.md#targetCreateGlobalSignAtlas) | **POST** /target-create-globalsign-atlas | 
 *V2Api* | [**targetCreateGodaddy**](docs/V2Api.md#targetCreateGodaddy) | **POST** /target-create-godaddy | 
+*V2Api* | [**targetCreateGoogleTrust**](docs/V2Api.md#targetCreateGoogleTrust) | **POST** /target-create-google-trust | 
 *V2Api* | [**targetCreateHashiVault**](docs/V2Api.md#targetCreateHashiVault) | **POST** /target-create-hashi-vault | 
 *V2Api* | [**targetCreateK8s**](docs/V2Api.md#targetCreateK8s) | **POST** /target-create-k8s | 
 *V2Api* | [**targetCreateLdap**](docs/V2Api.md#targetCreateLdap) | **POST** /target-create-ldap | 
@@ -603,6 +607,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateAws**](docs/V2Api.md#targetUpdateAws) | **POST** /target-update-aws | 
 *V2Api* | [**targetUpdateAzure**](docs/V2Api.md#targetUpdateAzure) | **POST** /target-update-azure | 
 *V2Api* | [**targetUpdateDB**](docs/V2Api.md#targetUpdateDB) | **POST** /target-update-db | 
+*V2Api* | [**targetUpdateDigiCert**](docs/V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert | 
 *V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
 *V2Api* | [**targetUpdateEks**](docs/V2Api.md#targetUpdateEks) | **POST** /target-update-eks | 
 *V2Api* | [**targetUpdateGcp**](docs/V2Api.md#targetUpdateGcp) | **POST** /target-update-gcp | 
@@ -613,6 +618,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateGlobalSign**](docs/V2Api.md#targetUpdateGlobalSign) | **POST** /target-update-globalsign | 
 *V2Api* | [**targetUpdateGlobalSignAtlas**](docs/V2Api.md#targetUpdateGlobalSignAtlas) | **POST** /target-update-globalsign-atlas | 
 *V2Api* | [**targetUpdateGodaddy**](docs/V2Api.md#targetUpdateGodaddy) | **POST** /target-update-godaddy | 
+*V2Api* | [**targetUpdateGoogleTrust**](docs/V2Api.md#targetUpdateGoogleTrust) | **POST** /target-update-google-trust | 
 *V2Api* | [**targetUpdateHashiVault**](docs/V2Api.md#targetUpdateHashiVault) | **POST** /target-update-hashi-vault | 
 *V2Api* | [**targetUpdateK8s**](docs/V2Api.md#targetUpdateK8s) | **POST** /target-update-k8s | 
 *V2Api* | [**targetUpdateLdap**](docs/V2Api.md#targetUpdateLdap) | **POST** /target-update-ldap | 
@@ -634,6 +640,8 @@ Class | Method | HTTP request | Description
 *V2Api* | [**uidListChildren**](docs/V2Api.md#uidListChildren) | **POST** /uid-list-children | 
 *V2Api* | [**uidRevokeToken**](docs/V2Api.md#uidRevokeToken) | **POST** /uid-revoke-token | 
 *V2Api* | [**uidRotateToken**](docs/V2Api.md#uidRotateToken) | **POST** /uid-rotate-token | 
+*V2Api* | [**unlockItem**](docs/V2Api.md#unlockItem) | **POST** /unlock-item | 
+*V2Api* | [**unlockTarget**](docs/V2Api.md#unlockTarget) | **POST** /unlock-target | 
 *V2Api* | [**unwrapToken**](docs/V2Api.md#unwrapToken) | **POST** /unwrap-token | 
 *V2Api* | [**updateAWSTarget**](docs/V2Api.md#updateAWSTarget) | **POST** /update-aws-target | 
 *V2Api* | [**updateAWSTargetDetails**](docs/V2Api.md#updateAWSTargetDetails) | **POST** /update-aws-target-details | 
@@ -1008,6 +1016,7 @@ Class | Method | HTTP request | Description
  - [DesktopAppConf](docs/DesktopAppConf.md)
  - [Detokenize](docs/Detokenize.md)
  - [DetokenizeOutput](docs/DetokenizeOutput.md)
+ - [DigiCertTargetDetails](docs/DigiCertTargetDetails.md)
  - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
  - [DynamicSecretCreateArtifactory](docs/DynamicSecretCreateArtifactory.md)
  - [DynamicSecretCreateAws](docs/DynamicSecretCreateAws.md)
@@ -1368,6 +1377,7 @@ Class | Method | HTTP request | Description
  - [GlobalSignGCCTargetDetails](docs/GlobalSignGCCTargetDetails.md)
  - [GodaddyTargetDetails](docs/GodaddyTargetDetails.md)
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
+ - [GoogleTrustTargetDetails](docs/GoogleTrustTargetDetails.md)
  - [Group](docs/Group.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [GwUpdateRemoteAccessSessionLogsAwsS3](docs/GwUpdateRemoteAccessSessionLogsAwsS3.md)
@@ -1395,6 +1405,7 @@ Class | Method | HTTP request | Description
  - [Item](docs/Item.md)
  - [ItemCustomFieldsDetails](docs/ItemCustomFieldsDetails.md)
  - [ItemGeneralInfo](docs/ItemGeneralInfo.md)
+ - [ItemLockingSetting](docs/ItemLockingSetting.md)
  - [ItemSraStatus](docs/ItemSraStatus.md)
  - [ItemTargetAssociation](docs/ItemTargetAssociation.md)
  - [ItemUSCSyncAssociation](docs/ItemUSCSyncAssociation.md)
@@ -1471,6 +1482,9 @@ Class | Method | HTTP request | Description
  - [ListSraSessionsOutput](docs/ListSraSessionsOutput.md)
  - [ListTargets](docs/ListTargets.md)
  - [ListTargetsOutput](docs/ListTargetsOutput.md)
+ - [LockItem](docs/LockItem.md)
+ - [LockTarget](docs/LockTarget.md)
+ - [LockingInfo](docs/LockingInfo.md)
  - [LogForwardingConfigPart](docs/LogForwardingConfigPart.md)
  - [LogstashLogForwardingConfig](docs/LogstashLogForwardingConfig.md)
  - [LogzIoLogForwardingConfig](docs/LogzIoLogForwardingConfig.md)
@@ -1486,6 +1500,7 @@ Class | Method | HTTP request | Description
  - [MoveObjects](docs/MoveObjects.md)
  - [Name](docs/Name.md)
  - [NativeK8sTargetDetails](docs/NativeK8sTargetDetails.md)
+ - [NetappStorage](docs/NetappStorage.md)
  - [NextAutoRotationEvent](docs/NextAutoRotationEvent.md)
  - [NotiForwarder](docs/NotiForwarder.md)
  - [NotiForwarderDetailsInput](docs/NotiForwarderDetailsInput.md)
@@ -1655,6 +1670,7 @@ Class | Method | HTTP request | Description
  - [StaticSecretDetailsInfo](docs/StaticSecretDetailsInfo.md)
  - [StaticSecretSync](docs/StaticSecretSync.md)
  - [SumologicLogForwardingConfig](docs/SumologicLogForwardingConfig.md)
+ - [SyncCounters](docs/SyncCounters.md)
  - [SyslogLogForwardingConfig](docs/SyslogLogForwardingConfig.md)
  - [SystemAccessCredentialsReplyObj](docs/SystemAccessCredentialsReplyObj.md)
  - [SystemAccessCredsSettings](docs/SystemAccessCredsSettings.md)
@@ -1663,6 +1679,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateAws](docs/TargetCreateAws.md)
  - [TargetCreateAzure](docs/TargetCreateAzure.md)
  - [TargetCreateDB](docs/TargetCreateDB.md)
+ - [TargetCreateDigiCert](docs/TargetCreateDigiCert.md)
  - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
  - [TargetCreateEks](docs/TargetCreateEks.md)
  - [TargetCreateGcp](docs/TargetCreateGcp.md)
@@ -1673,6 +1690,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateGlobalSign](docs/TargetCreateGlobalSign.md)
  - [TargetCreateGlobalSignAtlas](docs/TargetCreateGlobalSignAtlas.md)
  - [TargetCreateGodaddy](docs/TargetCreateGodaddy.md)
+ - [TargetCreateGoogleTrust](docs/TargetCreateGoogleTrust.md)
  - [TargetCreateHashiVault](docs/TargetCreateHashiVault.md)
  - [TargetCreateK8s](docs/TargetCreateK8s.md)
  - [TargetCreateLdap](docs/TargetCreateLdap.md)
@@ -1702,6 +1720,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateAws](docs/TargetUpdateAws.md)
  - [TargetUpdateAzure](docs/TargetUpdateAzure.md)
  - [TargetUpdateDB](docs/TargetUpdateDB.md)
+ - [TargetUpdateDigiCert](docs/TargetUpdateDigiCert.md)
  - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)
  - [TargetUpdateEks](docs/TargetUpdateEks.md)
  - [TargetUpdateGcp](docs/TargetUpdateGcp.md)
@@ -1712,6 +1731,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateGlobalSign](docs/TargetUpdateGlobalSign.md)
  - [TargetUpdateGlobalSignAtlas](docs/TargetUpdateGlobalSignAtlas.md)
  - [TargetUpdateGodaddy](docs/TargetUpdateGodaddy.md)
+ - [TargetUpdateGoogleTrust](docs/TargetUpdateGoogleTrust.md)
  - [TargetUpdateHashiVault](docs/TargetUpdateHashiVault.md)
  - [TargetUpdateK8s](docs/TargetUpdateK8s.md)
  - [TargetUpdateLdap](docs/TargetUpdateLdap.md)
@@ -1744,6 +1764,8 @@ Class | Method | HTTP request | Description
  - [Unconfigure](docs/Unconfigure.md)
  - [UniversalIdentityAccessRules](docs/UniversalIdentityAccessRules.md)
  - [UniversalIdentityDetails](docs/UniversalIdentityDetails.md)
+ - [UnlockItem](docs/UnlockItem.md)
+ - [UnlockTarget](docs/UnlockTarget.md)
  - [UnwrapToken](docs/UnwrapToken.md)
  - [UnwrapTokenOutput](docs/UnwrapTokenOutput.md)
  - [Update](docs/Update.md)

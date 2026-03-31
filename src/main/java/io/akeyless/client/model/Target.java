@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.ItemVersion;
+import io.akeyless.client.model.LockingInfo;
 import io.akeyless.client.model.TargetItemAssociation;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -101,6 +102,11 @@ public class Target {
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
   @javax.annotation.Nullable
   private Integer lastVersion;
+
+  public static final String SERIALIZED_NAME_LOCKING_INFO = "locking_info";
+  @SerializedName(SERIALIZED_NAME_LOCKING_INFO)
+  @javax.annotation.Nullable
+  private LockingInfo lockingInfo;
 
   public static final String SERIALIZED_NAME_MODIFICATION_DATE = "modification_date";
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
@@ -344,6 +350,25 @@ public class Target {
 
   public void setLastVersion(@javax.annotation.Nullable Integer lastVersion) {
     this.lastVersion = lastVersion;
+  }
+
+
+  public Target lockingInfo(@javax.annotation.Nullable LockingInfo lockingInfo) {
+    this.lockingInfo = lockingInfo;
+    return this;
+  }
+
+  /**
+   * Get lockingInfo
+   * @return lockingInfo
+   */
+  @javax.annotation.Nullable
+  public LockingInfo getLockingInfo() {
+    return lockingInfo;
+  }
+
+  public void setLockingInfo(@javax.annotation.Nullable LockingInfo lockingInfo) {
+    this.lockingInfo = lockingInfo;
   }
 
 
@@ -591,6 +616,7 @@ public class Target {
         Objects.equals(this.creationDate, target.creationDate) &&
         Objects.equals(this.isAccessRequestEnabled, target.isAccessRequestEnabled) &&
         Objects.equals(this.lastVersion, target.lastVersion) &&
+        Objects.equals(this.lockingInfo, target.lockingInfo) &&
         Objects.equals(this.modificationDate, target.modificationDate) &&
         Objects.equals(this.parentTargetName, target.parentTargetName) &&
         Objects.equals(this.protectionKeyName, target.protectionKeyName) &&
@@ -606,7 +632,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, isAccessRequestEnabled, lastVersion, modificationDate, parentTargetName, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, isAccessRequestEnabled, lastVersion, lockingInfo, modificationDate, parentTargetName, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
   }
 
   @Override
@@ -622,6 +648,7 @@ public class Target {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
+    sb.append("    lockingInfo: ").append(toIndentedString(lockingInfo)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    parentTargetName: ").append(toIndentedString(parentTargetName)).append("\n");
     sb.append("    protectionKeyName: ").append(toIndentedString(protectionKeyName)).append("\n");
@@ -664,6 +691,7 @@ public class Target {
     openapiFields.add("creation_date");
     openapiFields.add("is_access_request_enabled");
     openapiFields.add("last_version");
+    openapiFields.add("locking_info");
     openapiFields.add("modification_date");
     openapiFields.add("parent_target_name");
     openapiFields.add("protection_key_name");
@@ -713,6 +741,10 @@ public class Target {
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      // validate the optional field `locking_info`
+      if (jsonObj.get("locking_info") != null && !jsonObj.get("locking_info").isJsonNull()) {
+        LockingInfo.validateJsonElement(jsonObj.get("locking_info"));
       }
       if ((jsonObj.get("parent_target_name") != null && !jsonObj.get("parent_target_name").isJsonNull()) && !jsonObj.get("parent_target_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `parent_target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parent_target_name").toString()));

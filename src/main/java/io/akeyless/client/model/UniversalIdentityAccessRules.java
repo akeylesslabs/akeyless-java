@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class UniversalIdentityAccessRules {
+  public static final String SERIALIZED_NAME_CHILD_TTL_LIMIT = "child_ttl_limit";
+  @SerializedName(SERIALIZED_NAME_CHILD_TTL_LIMIT)
+  @javax.annotation.Nullable
+  private Integer childTtlLimit;
+
   public static final String SERIALIZED_NAME_DENY_INHERITANCE = "deny_inheritance";
   @SerializedName(SERIALIZED_NAME_DENY_INHERITANCE)
   @javax.annotation.Nullable
@@ -60,6 +65,11 @@ public class UniversalIdentityAccessRules {
   @javax.annotation.Nullable
   private Boolean denyRotate;
 
+  public static final String SERIALIZED_NAME_TREE_LENGTH = "tree_length";
+  @SerializedName(SERIALIZED_NAME_TREE_LENGTH)
+  @javax.annotation.Nullable
+  private Integer treeLength;
+
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
   @javax.annotation.Nullable
@@ -67,6 +77,25 @@ public class UniversalIdentityAccessRules {
 
   public UniversalIdentityAccessRules() {
   }
+
+  public UniversalIdentityAccessRules childTtlLimit(@javax.annotation.Nullable Integer childTtlLimit) {
+    this.childTtlLimit = childTtlLimit;
+    return this;
+  }
+
+  /**
+   * Get childTtlLimit
+   * @return childTtlLimit
+   */
+  @javax.annotation.Nullable
+  public Integer getChildTtlLimit() {
+    return childTtlLimit;
+  }
+
+  public void setChildTtlLimit(@javax.annotation.Nullable Integer childTtlLimit) {
+    this.childTtlLimit = childTtlLimit;
+  }
+
 
   public UniversalIdentityAccessRules denyInheritance(@javax.annotation.Nullable Boolean denyInheritance) {
     this.denyInheritance = denyInheritance;
@@ -106,6 +135,25 @@ public class UniversalIdentityAccessRules {
   }
 
 
+  public UniversalIdentityAccessRules treeLength(@javax.annotation.Nullable Integer treeLength) {
+    this.treeLength = treeLength;
+    return this;
+  }
+
+  /**
+   * Get treeLength
+   * @return treeLength
+   */
+  @javax.annotation.Nullable
+  public Integer getTreeLength() {
+    return treeLength;
+  }
+
+  public void setTreeLength(@javax.annotation.Nullable Integer treeLength) {
+    this.treeLength = treeLength;
+  }
+
+
   public UniversalIdentityAccessRules ttl(@javax.annotation.Nullable Integer ttl) {
     this.ttl = ttl;
     return this;
@@ -135,22 +183,26 @@ public class UniversalIdentityAccessRules {
       return false;
     }
     UniversalIdentityAccessRules universalIdentityAccessRules = (UniversalIdentityAccessRules) o;
-    return Objects.equals(this.denyInheritance, universalIdentityAccessRules.denyInheritance) &&
+    return Objects.equals(this.childTtlLimit, universalIdentityAccessRules.childTtlLimit) &&
+        Objects.equals(this.denyInheritance, universalIdentityAccessRules.denyInheritance) &&
         Objects.equals(this.denyRotate, universalIdentityAccessRules.denyRotate) &&
+        Objects.equals(this.treeLength, universalIdentityAccessRules.treeLength) &&
         Objects.equals(this.ttl, universalIdentityAccessRules.ttl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(denyInheritance, denyRotate, ttl);
+    return Objects.hash(childTtlLimit, denyInheritance, denyRotate, treeLength, ttl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UniversalIdentityAccessRules {\n");
+    sb.append("    childTtlLimit: ").append(toIndentedString(childTtlLimit)).append("\n");
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
+    sb.append("    treeLength: ").append(toIndentedString(treeLength)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -174,8 +226,10 @@ public class UniversalIdentityAccessRules {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("child_ttl_limit");
     openapiFields.add("deny_inheritance");
     openapiFields.add("deny_rotate");
+    openapiFields.add("tree_length");
     openapiFields.add("ttl");
 
     // a set of required properties/fields (JSON key names)

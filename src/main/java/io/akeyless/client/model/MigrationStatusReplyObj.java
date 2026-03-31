@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.MigrationItems;
+import io.akeyless.client.model.SyncCounters;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -125,6 +126,11 @@ public class MigrationStatusReplyObj {
   @SerializedName(SERIALIZED_NAME_START_TIME)
   @javax.annotation.Nullable
   private String startTime;
+
+  public static final String SERIALIZED_NAME_SYNC = "sync";
+  @SerializedName(SERIALIZED_NAME_SYNC)
+  @javax.annotation.Nullable
+  private SyncCounters sync;
 
   public static final String SERIALIZED_NAME_TARGETS = "targets";
   @SerializedName(SERIALIZED_NAME_TARGETS)
@@ -419,6 +425,25 @@ public class MigrationStatusReplyObj {
   }
 
 
+  public MigrationStatusReplyObj sync(@javax.annotation.Nullable SyncCounters sync) {
+    this.sync = sync;
+    return this;
+  }
+
+  /**
+   * Get sync
+   * @return sync
+   */
+  @javax.annotation.Nullable
+  public SyncCounters getSync() {
+    return sync;
+  }
+
+  public void setSync(@javax.annotation.Nullable SyncCounters sync) {
+    this.sync = sync;
+  }
+
+
   public MigrationStatusReplyObj targets(@javax.annotation.Nullable MigrationItems targets) {
     this.targets = targets;
     return this;
@@ -463,12 +488,13 @@ public class MigrationStatusReplyObj {
         Objects.equals(this.migrationTypeName, migrationStatusReplyObj.migrationTypeName) &&
         Objects.equals(this.rotatedSecrets, migrationStatusReplyObj.rotatedSecrets) &&
         Objects.equals(this.startTime, migrationStatusReplyObj.startTime) &&
+        Objects.equals(this.sync, migrationStatusReplyObj.sync) &&
         Objects.equals(this.targets, migrationStatusReplyObj.targets);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificates, computers, durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, targets);
+    return Objects.hash(certificates, computers, durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, sync, targets);
   }
 
   @Override
@@ -490,6 +516,7 @@ public class MigrationStatusReplyObj {
     sb.append("    migrationTypeName: ").append(toIndentedString(migrationTypeName)).append("\n");
     sb.append("    rotatedSecrets: ").append(toIndentedString(rotatedSecrets)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    sync: ").append(toIndentedString(sync)).append("\n");
     sb.append("    targets: ").append(toIndentedString(targets)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -528,6 +555,7 @@ public class MigrationStatusReplyObj {
     openapiFields.add("migration_type_name");
     openapiFields.add("rotated_secrets");
     openapiFields.add("start_time");
+    openapiFields.add("sync");
     openapiFields.add("targets");
 
     // a set of required properties/fields (JSON key names)
@@ -593,6 +621,10 @@ public class MigrationStatusReplyObj {
       }
       if ((jsonObj.get("start_time") != null && !jsonObj.get("start_time").isJsonNull()) && !jsonObj.get("start_time").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `start_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_time").toString()));
+      }
+      // validate the optional field `sync`
+      if (jsonObj.get("sync") != null && !jsonObj.get("sync").isJsonNull()) {
+        SyncCounters.validateJsonElement(jsonObj.get("sync"));
       }
       // validate the optional field `targets`
       if (jsonObj.get("targets") != null && !jsonObj.get("targets").isJsonNull()) {

@@ -12,6 +12,7 @@ authMethodCreateUniversalIdentity is a command that creates a new auth method th
 |**allowedClientType** | **List&lt;String&gt;** | limit the auth method usage for specific client types [cli,ui,gateway-admin,sdk,mobile,extension] |  [optional] |
 |**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional] |
 |**boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional] |
+|**childTtlLimit** | **Integer** | Maximum child token ttl allowed in uid-create-child-token |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**denyInheritance** | **Boolean** | Deny from root to create children |  [optional] |
 |**denyRotate** | **Boolean** | Deny from the token to rotate |  [optional] |
@@ -24,6 +25,7 @@ authMethodCreateUniversalIdentity is a command that creates a new auth method th
 |**name** | **String** | Auth Method name |  |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
+|**treeLength** | **Integer** | Maximum UID tree depth allowed (child of child of ...) |  [optional] |
 |**ttl** | **Integer** | Token ttl |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 

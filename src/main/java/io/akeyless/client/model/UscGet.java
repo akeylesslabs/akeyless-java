@@ -60,10 +60,20 @@ public class UscGet {
   @javax.annotation.Nullable
   private String namespace;
 
+  public static final String SERIALIZED_NAME_OBJECT_TYPE = "object-type";
+  @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
+  @javax.annotation.Nullable
+  private String objectType;
+
   public static final String SERIALIZED_NAME_SECRET_ID = "secret-id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   @javax.annotation.Nonnull
   private String secretId;
+
+  public static final String SERIALIZED_NAME_SELECTED_REPOSITORIES = "selected-repositories";
+  @SerializedName(SERIALIZED_NAME_SELECTED_REPOSITORIES)
+  @javax.annotation.Nullable
+  private String selectedRepositories;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -126,6 +136,25 @@ public class UscGet {
   }
 
 
+  public UscGet objectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+  /**
+   * Get objectType
+   * @return objectType
+   */
+  @javax.annotation.Nullable
+  public String getObjectType() {
+    return objectType;
+  }
+
+  public void setObjectType(@javax.annotation.Nullable String objectType) {
+    this.objectType = objectType;
+  }
+
+
   public UscGet secretId(@javax.annotation.Nonnull String secretId) {
     this.secretId = secretId;
     return this;
@@ -142,6 +171,25 @@ public class UscGet {
 
   public void setSecretId(@javax.annotation.Nonnull String secretId) {
     this.secretId = secretId;
+  }
+
+
+  public UscGet selectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
+    return this;
+  }
+
+  /**
+   * GitHub selected repositories. For repository scope: repo name. For repository-environment scope: repo/env (format: repo-name/env-name). Required when multiple repos/envs configured.
+   * @return selectedRepositories
+   */
+  @javax.annotation.Nullable
+  public String getSelectedRepositories() {
+    return selectedRepositories;
+  }
+
+  public void setSelectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
   }
 
 
@@ -233,7 +281,9 @@ public class UscGet {
     UscGet uscGet = (UscGet) o;
     return Objects.equals(this.json, uscGet.json) &&
         Objects.equals(this.namespace, uscGet.namespace) &&
+        Objects.equals(this.objectType, uscGet.objectType) &&
         Objects.equals(this.secretId, uscGet.secretId) &&
+        Objects.equals(this.selectedRepositories, uscGet.selectedRepositories) &&
         Objects.equals(this.token, uscGet.token) &&
         Objects.equals(this.uidToken, uscGet.uidToken) &&
         Objects.equals(this.uscName, uscGet.uscName) &&
@@ -242,7 +292,7 @@ public class UscGet {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, namespace, secretId, token, uidToken, uscName, versionId);
+    return Objects.hash(json, namespace, objectType, secretId, selectedRepositories, token, uidToken, uscName, versionId);
   }
 
   @Override
@@ -251,7 +301,9 @@ public class UscGet {
     sb.append("class UscGet {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
+    sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
@@ -280,7 +332,9 @@ public class UscGet {
     openapiFields = new HashSet<String>();
     openapiFields.add("json");
     openapiFields.add("namespace");
+    openapiFields.add("object-type");
     openapiFields.add("secret-id");
+    openapiFields.add("selected-repositories");
     openapiFields.add("token");
     openapiFields.add("uid-token");
     openapiFields.add("usc-name");
@@ -323,8 +377,14 @@ public class UscGet {
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
+      if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
+      }
       if (!jsonObj.get("secret-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-id").toString()));
+      }
+      if ((jsonObj.get("selected-repositories") != null && !jsonObj.get("selected-repositories").isJsonNull()) && !jsonObj.get("selected-repositories").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `selected-repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected-repositories").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

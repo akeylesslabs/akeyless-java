@@ -67,7 +67,7 @@ public class TargetCreateLetsEncrypt {
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String email;
 
   public static final String SERIALIZED_NAME_GCP_PROJECT = "gcp-project";
@@ -185,7 +185,7 @@ public class TargetCreateLetsEncrypt {
   }
 
 
-  public TargetCreateLetsEncrypt email(@javax.annotation.Nullable String email) {
+  public TargetCreateLetsEncrypt email(@javax.annotation.Nonnull String email) {
     this.email = email;
     return this;
   }
@@ -194,12 +194,12 @@ public class TargetCreateLetsEncrypt {
    * Email address for ACME account registration
    * @return email
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(@javax.annotation.Nullable String email) {
+  public void setEmail(@javax.annotation.Nonnull String email) {
     this.email = email;
   }
 
@@ -504,6 +504,7 @@ public class TargetCreateLetsEncrypt {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("email");
     openapiRequiredFields.add("name");
   }
 
@@ -544,7 +545,7 @@ public class TargetCreateLetsEncrypt {
       if ((jsonObj.get("dns-target-creds") != null && !jsonObj.get("dns-target-creds").isJsonNull()) && !jsonObj.get("dns-target-creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns-target-creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-target-creds").toString()));
       }
-      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+      if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("gcp-project") != null && !jsonObj.get("gcp-project").isJsonNull()) && !jsonObj.get("gcp-project").isJsonPrimitive()) {

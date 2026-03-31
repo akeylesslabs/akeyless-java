@@ -31,11 +31,13 @@
 |**isDesktopApp** | **Boolean** |  |  [optional] |
 |**isWeb** | **Boolean** |  |  [optional] |
 |**isolated** | **Boolean** |  |  [optional] |
+|**lockDuringSraSession** | **Boolean** |  |  [optional] |
 |**_native** | **Boolean** |  |  [optional] |
 |**rdGatewayServer** | **String** |  |  [optional] |
 |**rdpUser** | **String** |  |  [optional] |
 |**region** | **String** |  |  [optional] |
 |**rotateAfterDisconnect** | **Boolean** |  |  [optional] |
+|**rotateAfterDisconnectDelayMins** | **Long** |  |  [optional] |
 |**schema** | **String** |  |  [optional] |
 |**sshPassword** | **Boolean** |  |  [optional] |
 |**sshPrivateKey** | **Boolean** |  |  [optional] |

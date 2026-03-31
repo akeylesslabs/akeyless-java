@@ -20,12 +20,13 @@
 |**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
+|**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Current item name |  |
 |**newMetadata** | **String** | Deprecated - use description |  [optional] |
 |**newName** | **String** | New item name |  [optional] |
 |**rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional] |
-|**rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] |  [optional] |
+|**rotateAfterDisconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. |  [optional] |
 |**secureAccessAddHost** | **List&lt;String&gt;** | List of the new hosts that will be attached to SRA servers host |  [optional] |
 |**secureAccessAllowExternalUser** | **String** | Allow providing external user for a domain users [true/false] |  [optional] |
 |**secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) |  [optional] |

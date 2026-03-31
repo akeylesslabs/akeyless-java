@@ -72,6 +72,11 @@ public class AuthMethodUpdateUniversalIdentity {
   @javax.annotation.Nullable
   private List<String> boundIps = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CHILD_TTL_LIMIT = "child-ttl-limit";
+  @SerializedName(SERIALIZED_NAME_CHILD_TTL_LIMIT)
+  @javax.annotation.Nullable
+  private Integer childTtlLimit = 43200;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -136,6 +141,11 @@ public class AuthMethodUpdateUniversalIdentity {
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
   private String token;
+
+  public static final String SERIALIZED_NAME_TREE_LENGTH = "tree-length";
+  @SerializedName(SERIALIZED_NAME_TREE_LENGTH)
+  @javax.annotation.Nullable
+  private Integer treeLength = 200;
 
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
@@ -247,6 +257,25 @@ public class AuthMethodUpdateUniversalIdentity {
 
   public void setBoundIps(@javax.annotation.Nullable List<String> boundIps) {
     this.boundIps = boundIps;
+  }
+
+
+  public AuthMethodUpdateUniversalIdentity childTtlLimit(@javax.annotation.Nullable Integer childTtlLimit) {
+    this.childTtlLimit = childTtlLimit;
+    return this;
+  }
+
+  /**
+   * Maximum child token ttl allowed in uid-create-child-token
+   * @return childTtlLimit
+   */
+  @javax.annotation.Nullable
+  public Integer getChildTtlLimit() {
+    return childTtlLimit;
+  }
+
+  public void setChildTtlLimit(@javax.annotation.Nullable Integer childTtlLimit) {
+    this.childTtlLimit = childTtlLimit;
   }
 
 
@@ -521,6 +550,25 @@ public class AuthMethodUpdateUniversalIdentity {
   }
 
 
+  public AuthMethodUpdateUniversalIdentity treeLength(@javax.annotation.Nullable Integer treeLength) {
+    this.treeLength = treeLength;
+    return this;
+  }
+
+  /**
+   * Maximum UID tree depth allowed (child of child of ...)
+   * @return treeLength
+   */
+  @javax.annotation.Nullable
+  public Integer getTreeLength() {
+    return treeLength;
+  }
+
+  public void setTreeLength(@javax.annotation.Nullable Integer treeLength) {
+    this.treeLength = treeLength;
+  }
+
+
   public AuthMethodUpdateUniversalIdentity ttl(@javax.annotation.Nullable Integer ttl) {
     this.ttl = ttl;
     return this;
@@ -573,6 +621,7 @@ public class AuthMethodUpdateUniversalIdentity {
         Objects.equals(this.allowedClientType, authMethodUpdateUniversalIdentity.allowedClientType) &&
         Objects.equals(this.auditLogsClaims, authMethodUpdateUniversalIdentity.auditLogsClaims) &&
         Objects.equals(this.boundIps, authMethodUpdateUniversalIdentity.boundIps) &&
+        Objects.equals(this.childTtlLimit, authMethodUpdateUniversalIdentity.childTtlLimit) &&
         Objects.equals(this.deleteProtection, authMethodUpdateUniversalIdentity.deleteProtection) &&
         Objects.equals(this.denyInheritance, authMethodUpdateUniversalIdentity.denyInheritance) &&
         Objects.equals(this.denyRotate, authMethodUpdateUniversalIdentity.denyRotate) &&
@@ -586,13 +635,14 @@ public class AuthMethodUpdateUniversalIdentity {
         Objects.equals(this.newName, authMethodUpdateUniversalIdentity.newName) &&
         Objects.equals(this.productType, authMethodUpdateUniversalIdentity.productType) &&
         Objects.equals(this.token, authMethodUpdateUniversalIdentity.token) &&
+        Objects.equals(this.treeLength, authMethodUpdateUniversalIdentity.treeLength) &&
         Objects.equals(this.ttl, authMethodUpdateUniversalIdentity.ttl) &&
         Objects.equals(this.uidToken, authMethodUpdateUniversalIdentity.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, denyInheritance, denyRotate, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, ttl, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, childTtlLimit, deleteProtection, denyInheritance, denyRotate, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, newName, productType, token, treeLength, ttl, uidToken);
   }
 
   @Override
@@ -603,6 +653,7 @@ public class AuthMethodUpdateUniversalIdentity {
     sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
     sb.append("    boundIps: ").append(toIndentedString(boundIps)).append("\n");
+    sb.append("    childTtlLimit: ").append(toIndentedString(childTtlLimit)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    denyInheritance: ").append(toIndentedString(denyInheritance)).append("\n");
     sb.append("    denyRotate: ").append(toIndentedString(denyRotate)).append("\n");
@@ -616,6 +667,7 @@ public class AuthMethodUpdateUniversalIdentity {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    treeLength: ").append(toIndentedString(treeLength)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
@@ -644,6 +696,7 @@ public class AuthMethodUpdateUniversalIdentity {
     openapiFields.add("allowed-client-type");
     openapiFields.add("audit-logs-claims");
     openapiFields.add("bound-ips");
+    openapiFields.add("child-ttl-limit");
     openapiFields.add("delete_protection");
     openapiFields.add("deny-inheritance");
     openapiFields.add("deny-rotate");
@@ -657,6 +710,7 @@ public class AuthMethodUpdateUniversalIdentity {
     openapiFields.add("new-name");
     openapiFields.add("product-type");
     openapiFields.add("token");
+    openapiFields.add("tree-length");
     openapiFields.add("ttl");
     openapiFields.add("uid-token");
 

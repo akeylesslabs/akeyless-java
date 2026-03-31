@@ -85,6 +85,11 @@ public class TargetCreateSplunk {
   @javax.annotation.Nullable
   private String password;
 
+  public static final String SERIALIZED_NAME_SPLUNK_TOKEN = "splunk-token";
+  @SerializedName(SERIALIZED_NAME_SPLUNK_TOKEN)
+  @javax.annotation.Nullable
+  private String splunkToken;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -251,13 +256,32 @@ public class TargetCreateSplunk {
   }
 
 
+  public TargetCreateSplunk splunkToken(@javax.annotation.Nullable String splunkToken) {
+    this.splunkToken = splunkToken;
+    return this;
+  }
+
+  /**
+   * Splunk Token (used when authenticating with token)
+   * @return splunkToken
+   */
+  @javax.annotation.Nullable
+  public String getSplunkToken() {
+    return splunkToken;
+  }
+
+  public void setSplunkToken(@javax.annotation.Nullable String splunkToken) {
+    this.splunkToken = splunkToken;
+  }
+
+
   public TargetCreateSplunk token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
   }
 
   /**
-   * Splunk Token (used when authenticating with token)
+   * Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;)
    * @return token
    */
   @javax.annotation.Nullable
@@ -382,6 +406,7 @@ public class TargetCreateSplunk {
         Objects.equals(this.maxVersions, targetCreateSplunk.maxVersions) &&
         Objects.equals(this.name, targetCreateSplunk.name) &&
         Objects.equals(this.password, targetCreateSplunk.password) &&
+        Objects.equals(this.splunkToken, targetCreateSplunk.splunkToken) &&
         Objects.equals(this.token, targetCreateSplunk.token) &&
         Objects.equals(this.tokenOwner, targetCreateSplunk.tokenOwner) &&
         Objects.equals(this.uidToken, targetCreateSplunk.uidToken) &&
@@ -392,7 +417,7 @@ public class TargetCreateSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, description, json, key, maxVersions, name, password, token, tokenOwner, uidToken, url, useTls, username);
+    return Objects.hash(audience, description, json, key, maxVersions, name, password, splunkToken, token, tokenOwner, uidToken, url, useTls, username);
   }
 
   @Override
@@ -406,6 +431,7 @@ public class TargetCreateSplunk {
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    splunkToken: ").append(toIndentedString(splunkToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenOwner: ").append(toIndentedString(tokenOwner)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -441,6 +467,7 @@ public class TargetCreateSplunk {
     openapiFields.add("max-versions");
     openapiFields.add("name");
     openapiFields.add("password");
+    openapiFields.add("splunk-token");
     openapiFields.add("token");
     openapiFields.add("token-owner");
     openapiFields.add("uid-token");
@@ -499,6 +526,9 @@ public class TargetCreateSplunk {
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+      }
+      if ((jsonObj.get("splunk-token") != null && !jsonObj.get("splunk-token").isJsonNull()) && !jsonObj.get("splunk-token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `splunk-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk-token").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

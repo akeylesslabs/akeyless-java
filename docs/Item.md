@@ -40,6 +40,7 @@
 |**lastRotationDate** | **OffsetDateTime** |  |  [optional] |
 |**lastVersion** | **Integer** |  |  [optional] |
 |**linkedDetails** | [**LinkedDetails**](LinkedDetails.md) |  |  [optional] |
+|**lockingInfo** | [**LockingInfo**](LockingInfo.md) |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**nextRotationDate** | **OffsetDateTime** |  |  [optional] |
 |**protectionKeyName** | **String** |  |  [optional] |

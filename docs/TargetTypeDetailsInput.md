@@ -13,6 +13,7 @@
 |**chefTargetDetails** | [**ChefTargetDetails**](ChefTargetDetails.md) |  |  [optional] |
 |**customTargetDetails** | [**CustomTargetDetails**](CustomTargetDetails.md) |  |  [optional] |
 |**dbTargetDetails** | [**DbTargetDetails**](DbTargetDetails.md) |  |  [optional] |
+|**digicertTargetDetails** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  |  [optional] |
 |**dockerhubTargetDetails** | [**DockerhubTargetDetails**](DockerhubTargetDetails.md) |  |  [optional] |
 |**eksTargetDetails** | [**EKSTargetDetails**](EKSTargetDetails.md) |  |  [optional] |
 |**gcpTargetDetails** | [**GcpTargetDetails**](GcpTargetDetails.md) |  |  [optional] |
@@ -23,6 +24,7 @@
 |**globalsignAtlasTargetDetails** | [**GlobalSignAtlasTargetDetails**](GlobalSignAtlasTargetDetails.md) |  |  [optional] |
 |**globalsignTargetDetails** | [**GlobalSignGCCTargetDetails**](GlobalSignGCCTargetDetails.md) |  |  [optional] |
 |**godaddyTargetDetails** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  |  [optional] |
+|**googleTrustTargetDetails** | [**GoogleTrustTargetDetails**](GoogleTrustTargetDetails.md) |  |  [optional] |
 |**hashiVaultTargetDetails** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  |  [optional] |
 |**ldapTargetDetails** | [**LdapTargetDetails**](LdapTargetDetails.md) |  |  [optional] |
 |**letsencryptTargetDetails** | [**LetsEncryptTargetDetails**](LetsEncryptTargetDetails.md) |  |  [optional] |

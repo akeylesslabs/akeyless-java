@@ -11,7 +11,7 @@ targetCreateLetsEncrypt is a command that creates a new Let's Encrypt target
 |**acmeChallenge** | **String** |  |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP targets |  [optional] |
-|**email** | **String** | Email address for ACME account registration |  [optional] |
+|**email** | **String** | Email address for ACME account registration |  |
 |**gcpProject** | **String** | GCP Cloud DNS: Project ID. Optional - can be derived from service account |  [optional] |
 |**hostedZone** | **String** | AWS Route53 hosted zone ID. Required when dns-target-creds points to AWS target |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

@@ -141,7 +141,7 @@ public class ReverseRBAC {
   }
 
   /**
-   * Type of object (item, am, role)
+   * Type of object (item, am, role, target, sra, ara)
    * @return type
    */
   @javax.annotation.Nonnull

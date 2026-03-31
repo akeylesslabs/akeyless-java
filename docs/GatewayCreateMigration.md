@@ -46,6 +46,7 @@ gatewayCreateMigration is a command that create migration
 |**conjurApiKey** | **String** | Conjur API Key for the specified user (relevant only for Conjur migration). |  [optional] |
 |**conjurUrl** | **String** | Conjur server base URL (relevant only for Conjur migration). If conjur-url is HTTPS and Conjur uses a private CA/self-signed certificate, make the CA bundle available on the Gateway and set CONJUR_SSL_CERT_PATH to its path. |  [optional] |
 |**conjurUsername** | **String** | Conjur username used to authenticate (relevant only for Conjur migration). |  [optional] |
+|**deleteRemote** | **Boolean** | Delete the secret from the remote target as well, relevant only when usc-name is not empty (relevant only for HasiCorp Vault migration) |  [optional] |
 |**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**gcpKey** | **String** | Base64-encoded GCP Service Account private key text with sufficient permissions to Secrets Manager, Minimum required permission is Secret Manager Secret Accessor, e.g. &#39;roles/secretmanager.secretAccessor&#39; (relevant only for GCP migration) |  [optional] |
 |**gcpProjectId** | **String** | GCP Project ID (cross-project override) |  [optional] |
@@ -79,6 +80,7 @@ gatewayCreateMigration is a command that create migration
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**type** | **String** | Migration type (hashi/aws/gcp/k8s/azure_kv/conjur/active_directory/server_inventory/certificate) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
+|**uscName** | **String** | Universal Secret Connector name |  [optional] |
 |**useGwCloudIdentity** | **Boolean** | Use the GW&#39;s Cloud IAM |  [optional] |
 
 

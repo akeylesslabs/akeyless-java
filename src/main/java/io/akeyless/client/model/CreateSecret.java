@@ -99,6 +99,11 @@ public class CreateSecret {
   @javax.annotation.Nullable
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_LOCK_DURING_SRA_SESSION = "lock-during-sra-session";
+  @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
+  @javax.annotation.Nullable
+  private String lockDuringSraSession;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -409,6 +414,25 @@ public class CreateSecret {
 
   public void setJson(@javax.annotation.Nullable Boolean json) {
     this.json = json;
+  }
+
+
+  public CreateSecret lockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+    return this;
+  }
+
+  /**
+   * Lock this secret for read/update while an SRA session is active
+   * @return lockDuringSraSession
+   */
+  @javax.annotation.Nullable
+  public String getLockDuringSraSession() {
+    return lockDuringSraSession;
+  }
+
+  public void setLockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
   }
 
 
@@ -884,6 +908,7 @@ public class CreateSecret {
         Objects.equals(this.injectUrl, createSecret.injectUrl) &&
         Objects.equals(this.itemCustomFields, createSecret.itemCustomFields) &&
         Objects.equals(this.json, createSecret.json) &&
+        Objects.equals(this.lockDuringSraSession, createSecret.lockDuringSraSession) &&
         Objects.equals(this.maxVersions, createSecret.maxVersions) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
@@ -911,7 +936,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, itemCustomFields, json, maxVersions, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
+    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, itemCustomFields, json, lockDuringSraSession, maxVersions, metadata, multilineValue, name, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
   }
 
   @Override
@@ -927,6 +952,7 @@ public class CreateSecret {
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
@@ -981,6 +1007,7 @@ public class CreateSecret {
     openapiFields.add("inject-url");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
+    openapiFields.add("lock-during-sra-session");
     openapiFields.add("max-versions");
     openapiFields.add("metadata");
     openapiFields.add("multiline_value");
@@ -1057,6 +1084,9 @@ public class CreateSecret {
       // ensure the optional json data is an array if present
       if (jsonObj.get("inject-url") != null && !jsonObj.get("inject-url").isJsonNull() && !jsonObj.get("inject-url").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `inject-url` to be an array in the JSON string but got `%s`", jsonObj.get("inject-url").toString()));
+      }
+      if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));

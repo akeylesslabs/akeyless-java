@@ -70,6 +70,11 @@ public class AwsStorage {
   @javax.annotation.Nullable
   private String bucket;
 
+  public static final String SERIALIZED_NAME_ENDPOINT_URL = "endpoint_url";
+  @SerializedName(SERIALIZED_NAME_ENDPOINT_URL)
+  @javax.annotation.Nullable
+  private String endpointUrl;
+
   public static final String SERIALIZED_NAME_PREFIX = "prefix";
   @SerializedName(SERIALIZED_NAME_PREFIX)
   @javax.annotation.Nullable
@@ -159,6 +164,25 @@ public class AwsStorage {
   }
 
 
+  public AwsStorage endpointUrl(@javax.annotation.Nullable String endpointUrl) {
+    this.endpointUrl = endpointUrl;
+    return this;
+  }
+
+  /**
+   * Get endpointUrl
+   * @return endpointUrl
+   */
+  @javax.annotation.Nullable
+  public String getEndpointUrl() {
+    return endpointUrl;
+  }
+
+  public void setEndpointUrl(@javax.annotation.Nullable String endpointUrl) {
+    this.endpointUrl = endpointUrl;
+  }
+
+
   public AwsStorage prefix(@javax.annotation.Nullable String prefix) {
     this.prefix = prefix;
     return this;
@@ -211,13 +235,14 @@ public class AwsStorage {
         Objects.equals(this.accessKeySecret, awsStorage.accessKeySecret) &&
         Objects.equals(this.authType, awsStorage.authType) &&
         Objects.equals(this.bucket, awsStorage.bucket) &&
+        Objects.equals(this.endpointUrl, awsStorage.endpointUrl) &&
         Objects.equals(this.prefix, awsStorage.prefix) &&
         Objects.equals(this.region, awsStorage.region);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, accessKeySecret, authType, bucket, prefix, region);
+    return Objects.hash(accessKeyId, accessKeySecret, authType, bucket, endpointUrl, prefix, region);
   }
 
   @Override
@@ -228,6 +253,7 @@ public class AwsStorage {
     sb.append("    accessKeySecret: ").append(toIndentedString(accessKeySecret)).append("\n");
     sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+    sb.append("    endpointUrl: ").append(toIndentedString(endpointUrl)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("}");
@@ -256,6 +282,7 @@ public class AwsStorage {
     openapiFields.add("access_key_secret");
     openapiFields.add("auth_type");
     openapiFields.add("bucket");
+    openapiFields.add("endpoint_url");
     openapiFields.add("prefix");
     openapiFields.add("region");
 
@@ -295,6 +322,9 @@ public class AwsStorage {
       }
       if ((jsonObj.get("bucket") != null && !jsonObj.get("bucket").isJsonNull()) && !jsonObj.get("bucket").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bucket` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bucket").toString()));
+      }
+      if ((jsonObj.get("endpoint_url") != null && !jsonObj.get("endpoint_url").isJsonNull()) && !jsonObj.get("endpoint_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `endpoint_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpoint_url").toString()));
       }
       if ((jsonObj.get("prefix") != null && !jsonObj.get("prefix").isJsonNull()) && !jsonObj.get("prefix").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prefix").toString()));

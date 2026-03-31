@@ -380,7 +380,7 @@ public class CreateUSC {
   }
 
   /**
-   * The organization name to create the secret in (only relevant for: github-scope&#x3D;organization)
+   * The organization name to create the secret in
    * @return organizationName
    */
   @javax.annotation.Nullable

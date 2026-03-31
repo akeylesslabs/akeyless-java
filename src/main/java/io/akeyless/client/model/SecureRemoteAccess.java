@@ -174,6 +174,11 @@ public class SecureRemoteAccess {
   @javax.annotation.Nullable
   private Boolean isolated;
 
+  public static final String SERIALIZED_NAME_LOCK_DURING_SRA_SESSION = "lock_during_sra_session";
+  @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
+  @javax.annotation.Nullable
+  private Boolean lockDuringSraSession;
+
   public static final String SERIALIZED_NAME_NATIVE = "native";
   @SerializedName(SERIALIZED_NAME_NATIVE)
   @javax.annotation.Nullable
@@ -198,6 +203,11 @@ public class SecureRemoteAccess {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private Boolean rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT_DELAY_MINS = "rotate_after_disconnect_delay_mins";
+  @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT_DELAY_MINS)
+  @javax.annotation.Nullable
+  private Long rotateAfterDisconnectDelayMins;
 
   public static final String SERIALIZED_NAME_SCHEMA = "schema";
   @SerializedName(SERIALIZED_NAME_SCHEMA)
@@ -716,6 +726,25 @@ public class SecureRemoteAccess {
   }
 
 
+  public SecureRemoteAccess lockDuringSraSession(@javax.annotation.Nullable Boolean lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+    return this;
+  }
+
+  /**
+   * Get lockDuringSraSession
+   * @return lockDuringSraSession
+   */
+  @javax.annotation.Nullable
+  public Boolean getLockDuringSraSession() {
+    return lockDuringSraSession;
+  }
+
+  public void setLockDuringSraSession(@javax.annotation.Nullable Boolean lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+  }
+
+
   public SecureRemoteAccess _native(@javax.annotation.Nullable Boolean _native) {
     this._native = _native;
     return this;
@@ -808,6 +837,25 @@ public class SecureRemoteAccess {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable Boolean rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public SecureRemoteAccess rotateAfterDisconnectDelayMins(@javax.annotation.Nullable Long rotateAfterDisconnectDelayMins) {
+    this.rotateAfterDisconnectDelayMins = rotateAfterDisconnectDelayMins;
+    return this;
+  }
+
+  /**
+   * Get rotateAfterDisconnectDelayMins
+   * @return rotateAfterDisconnectDelayMins
+   */
+  @javax.annotation.Nullable
+  public Long getRotateAfterDisconnectDelayMins() {
+    return rotateAfterDisconnectDelayMins;
+  }
+
+  public void setRotateAfterDisconnectDelayMins(@javax.annotation.Nullable Long rotateAfterDisconnectDelayMins) {
+    this.rotateAfterDisconnectDelayMins = rotateAfterDisconnectDelayMins;
   }
 
 
@@ -1051,11 +1099,13 @@ public class SecureRemoteAccess {
         Objects.equals(this.isDesktopApp, secureRemoteAccess.isDesktopApp) &&
         Objects.equals(this.isWeb, secureRemoteAccess.isWeb) &&
         Objects.equals(this.isolated, secureRemoteAccess.isolated) &&
+        Objects.equals(this.lockDuringSraSession, secureRemoteAccess.lockDuringSraSession) &&
         Objects.equals(this._native, secureRemoteAccess._native) &&
         Objects.equals(this.rdGatewayServer, secureRemoteAccess.rdGatewayServer) &&
         Objects.equals(this.rdpUser, secureRemoteAccess.rdpUser) &&
         Objects.equals(this.region, secureRemoteAccess.region) &&
         Objects.equals(this.rotateAfterDisconnect, secureRemoteAccess.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateAfterDisconnectDelayMins, secureRemoteAccess.rotateAfterDisconnectDelayMins) &&
         Objects.equals(this.schema, secureRemoteAccess.schema) &&
         Objects.equals(this.sshPassword, secureRemoteAccess.sshPassword) &&
         Objects.equals(this.sshPrivateKey, secureRemoteAccess.sshPrivateKey) &&
@@ -1070,7 +1120,7 @@ public class SecureRemoteAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, connectionDelaySeconds, dashboardUrl, dbName, domain, enable, endpoint, enforceHostsRestriction, gwClusterId, host, hostProviderType, isCli, isDesktopApp, isWeb, isolated, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
+    return Objects.hash(accountId, allowPortForwarding, allowProvidingExternalUsername, bastionApi, bastionIssuer, bastionIssuerId, bastionSsh, blockConcurrentConnections, blockConcurrentConnectionsLevel, category, connectionDelaySeconds, dashboardUrl, dbName, domain, enable, endpoint, enforceHostsRestriction, gwClusterId, host, hostProviderType, isCli, isDesktopApp, isWeb, isolated, lockDuringSraSession, _native, rdGatewayServer, rdpUser, region, rotateAfterDisconnect, rotateAfterDisconnectDelayMins, schema, sshPassword, sshPrivateKey, sshUser, statusInfo, targetHosts, targets, url, useInternalBastion, webProxy);
   }
 
   @Override
@@ -1101,11 +1151,13 @@ public class SecureRemoteAccess {
     sb.append("    isDesktopApp: ").append(toIndentedString(isDesktopApp)).append("\n");
     sb.append("    isWeb: ").append(toIndentedString(isWeb)).append("\n");
     sb.append("    isolated: ").append(toIndentedString(isolated)).append("\n");
+    sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
     sb.append("    _native: ").append(toIndentedString(_native)).append("\n");
     sb.append("    rdGatewayServer: ").append(toIndentedString(rdGatewayServer)).append("\n");
     sb.append("    rdpUser: ").append(toIndentedString(rdpUser)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateAfterDisconnectDelayMins: ").append(toIndentedString(rotateAfterDisconnectDelayMins)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshPrivateKey: ").append(toIndentedString(sshPrivateKey)).append("\n");
@@ -1162,11 +1214,13 @@ public class SecureRemoteAccess {
     openapiFields.add("is_desktop_app");
     openapiFields.add("is_web");
     openapiFields.add("isolated");
+    openapiFields.add("lock_during_sra_session");
     openapiFields.add("native");
     openapiFields.add("rd_gateway_server");
     openapiFields.add("rdp_user");
     openapiFields.add("region");
     openapiFields.add("rotate_after_disconnect");
+    openapiFields.add("rotate_after_disconnect_delay_mins");
     openapiFields.add("schema");
     openapiFields.add("ssh_password");
     openapiFields.add("ssh_private_key");

@@ -30,6 +30,7 @@
 |**hidePersonalFolder** | **String** | Hide personal folder, if set - users will not be able to use personal folder [true/false] |  [optional] |
 |**hideStaticPassword** | **String** | Hide static secret&#39;s password type [true/false] |  [optional] |
 |**invalidCharacters** | **String** | Characters that cannot be used for items/targets/roles/auths/event_forwarder names. Empty string will enforce nothing. |  [optional] |
+|**itemLockingEnabled** | **String** | Enable item locking feature [true/false] |  [optional] |
 |**itemType** | **String** | VersionSettingsObjectType defines object types for account version settings |  [optional] |
 |**itemsDeletionProtection** | **String** | Set or unset the default behaviour of items deletion protection [true/false] |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
@@ -40,6 +41,7 @@
 |**lockBoundIps** | **String** | Lock bound-ips setting globally in the account. |  [optional] |
 |**lockDefaultKey** | **String** | Lock the account&#39;s default protection key, if set - users will not be able to use a different protection key, relevant only if default-key-name is configured [true/false] |  [optional] |
 |**lockGwBoundIps** | **String** | Lock gw-bound-ips setting in the account. |  [optional] |
+|**lockMaxTtl** | **Long** | Set the maximum TTL for item/target locks in minutes |  [optional] |
 |**maxRotationInterval** | **Integer** | Set the maximum rotation interval for rotated secrets auto rotation settings |  [optional] |
 |**maxRotationIntervalEnable** | **String** | Set a maximum rotation interval for rotated secrets auto rotation settings [true/false] |  [optional] |
 |**maxVersions** | **String** | Max versions |  [optional] |

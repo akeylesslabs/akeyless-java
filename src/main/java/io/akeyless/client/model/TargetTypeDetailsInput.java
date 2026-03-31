@@ -25,6 +25,7 @@ import io.akeyless.client.model.AzureTargetDetails;
 import io.akeyless.client.model.ChefTargetDetails;
 import io.akeyless.client.model.CustomTargetDetails;
 import io.akeyless.client.model.DbTargetDetails;
+import io.akeyless.client.model.DigiCertTargetDetails;
 import io.akeyless.client.model.DockerhubTargetDetails;
 import io.akeyless.client.model.EKSTargetDetails;
 import io.akeyless.client.model.GKETargetDetails;
@@ -35,6 +36,7 @@ import io.akeyless.client.model.GitlabTargetDetails;
 import io.akeyless.client.model.GlobalSignAtlasTargetDetails;
 import io.akeyless.client.model.GlobalSignGCCTargetDetails;
 import io.akeyless.client.model.GodaddyTargetDetails;
+import io.akeyless.client.model.GoogleTrustTargetDetails;
 import io.akeyless.client.model.HashiVaultTargetDetails;
 import io.akeyless.client.model.LdapTargetDetails;
 import io.akeyless.client.model.LetsEncryptTargetDetails;
@@ -113,6 +115,11 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   private DbTargetDetails dbTargetDetails;
 
+  public static final String SERIALIZED_NAME_DIGICERT_TARGET_DETAILS = "digicert_target_details";
+  @SerializedName(SERIALIZED_NAME_DIGICERT_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private DigiCertTargetDetails digicertTargetDetails;
+
   public static final String SERIALIZED_NAME_DOCKERHUB_TARGET_DETAILS = "dockerhub_target_details";
   @SerializedName(SERIALIZED_NAME_DOCKERHUB_TARGET_DETAILS)
   @javax.annotation.Nullable
@@ -162,6 +169,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_GODADDY_TARGET_DETAILS)
   @javax.annotation.Nullable
   private GodaddyTargetDetails godaddyTargetDetails;
+
+  public static final String SERIALIZED_NAME_GOOGLE_TRUST_TARGET_DETAILS = "google_trust_target_details";
+  @SerializedName(SERIALIZED_NAME_GOOGLE_TRUST_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private GoogleTrustTargetDetails googleTrustTargetDetails;
 
   public static final String SERIALIZED_NAME_HASHI_VAULT_TARGET_DETAILS = "hashi_vault_target_details";
   @SerializedName(SERIALIZED_NAME_HASHI_VAULT_TARGET_DETAILS)
@@ -365,6 +377,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput digicertTargetDetails(@javax.annotation.Nullable DigiCertTargetDetails digicertTargetDetails) {
+    this.digicertTargetDetails = digicertTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get digicertTargetDetails
+   * @return digicertTargetDetails
+   */
+  @javax.annotation.Nullable
+  public DigiCertTargetDetails getDigicertTargetDetails() {
+    return digicertTargetDetails;
+  }
+
+  public void setDigicertTargetDetails(@javax.annotation.Nullable DigiCertTargetDetails digicertTargetDetails) {
+    this.digicertTargetDetails = digicertTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput dockerhubTargetDetails(@javax.annotation.Nullable DockerhubTargetDetails dockerhubTargetDetails) {
     this.dockerhubTargetDetails = dockerhubTargetDetails;
     return this;
@@ -552,6 +583,25 @@ public class TargetTypeDetailsInput {
 
   public void setGodaddyTargetDetails(@javax.annotation.Nullable GodaddyTargetDetails godaddyTargetDetails) {
     this.godaddyTargetDetails = godaddyTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput googleTrustTargetDetails(@javax.annotation.Nullable GoogleTrustTargetDetails googleTrustTargetDetails) {
+    this.googleTrustTargetDetails = googleTrustTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get googleTrustTargetDetails
+   * @return googleTrustTargetDetails
+   */
+  @javax.annotation.Nullable
+  public GoogleTrustTargetDetails getGoogleTrustTargetDetails() {
+    return googleTrustTargetDetails;
+  }
+
+  public void setGoogleTrustTargetDetails(@javax.annotation.Nullable GoogleTrustTargetDetails googleTrustTargetDetails) {
+    this.googleTrustTargetDetails = googleTrustTargetDetails;
   }
 
 
@@ -894,6 +944,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.chefTargetDetails, targetTypeDetailsInput.chefTargetDetails) &&
         Objects.equals(this.customTargetDetails, targetTypeDetailsInput.customTargetDetails) &&
         Objects.equals(this.dbTargetDetails, targetTypeDetailsInput.dbTargetDetails) &&
+        Objects.equals(this.digicertTargetDetails, targetTypeDetailsInput.digicertTargetDetails) &&
         Objects.equals(this.dockerhubTargetDetails, targetTypeDetailsInput.dockerhubTargetDetails) &&
         Objects.equals(this.eksTargetDetails, targetTypeDetailsInput.eksTargetDetails) &&
         Objects.equals(this.gcpTargetDetails, targetTypeDetailsInput.gcpTargetDetails) &&
@@ -904,6 +955,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.globalsignAtlasTargetDetails, targetTypeDetailsInput.globalsignAtlasTargetDetails) &&
         Objects.equals(this.globalsignTargetDetails, targetTypeDetailsInput.globalsignTargetDetails) &&
         Objects.equals(this.godaddyTargetDetails, targetTypeDetailsInput.godaddyTargetDetails) &&
+        Objects.equals(this.googleTrustTargetDetails, targetTypeDetailsInput.googleTrustTargetDetails) &&
         Objects.equals(this.hashiVaultTargetDetails, targetTypeDetailsInput.hashiVaultTargetDetails) &&
         Objects.equals(this.ldapTargetDetails, targetTypeDetailsInput.ldapTargetDetails) &&
         Objects.equals(this.letsencryptTargetDetails, targetTypeDetailsInput.letsencryptTargetDetails) &&
@@ -925,7 +977,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -938,6 +990,7 @@ public class TargetTypeDetailsInput {
     sb.append("    chefTargetDetails: ").append(toIndentedString(chefTargetDetails)).append("\n");
     sb.append("    customTargetDetails: ").append(toIndentedString(customTargetDetails)).append("\n");
     sb.append("    dbTargetDetails: ").append(toIndentedString(dbTargetDetails)).append("\n");
+    sb.append("    digicertTargetDetails: ").append(toIndentedString(digicertTargetDetails)).append("\n");
     sb.append("    dockerhubTargetDetails: ").append(toIndentedString(dockerhubTargetDetails)).append("\n");
     sb.append("    eksTargetDetails: ").append(toIndentedString(eksTargetDetails)).append("\n");
     sb.append("    gcpTargetDetails: ").append(toIndentedString(gcpTargetDetails)).append("\n");
@@ -948,6 +1001,7 @@ public class TargetTypeDetailsInput {
     sb.append("    globalsignAtlasTargetDetails: ").append(toIndentedString(globalsignAtlasTargetDetails)).append("\n");
     sb.append("    globalsignTargetDetails: ").append(toIndentedString(globalsignTargetDetails)).append("\n");
     sb.append("    godaddyTargetDetails: ").append(toIndentedString(godaddyTargetDetails)).append("\n");
+    sb.append("    googleTrustTargetDetails: ").append(toIndentedString(googleTrustTargetDetails)).append("\n");
     sb.append("    hashiVaultTargetDetails: ").append(toIndentedString(hashiVaultTargetDetails)).append("\n");
     sb.append("    ldapTargetDetails: ").append(toIndentedString(ldapTargetDetails)).append("\n");
     sb.append("    letsencryptTargetDetails: ").append(toIndentedString(letsencryptTargetDetails)).append("\n");
@@ -993,6 +1047,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("chef_target_details");
     openapiFields.add("custom_target_details");
     openapiFields.add("db_target_details");
+    openapiFields.add("digicert_target_details");
     openapiFields.add("dockerhub_target_details");
     openapiFields.add("eks_target_details");
     openapiFields.add("gcp_target_details");
@@ -1003,6 +1058,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("globalsign_atlas_target_details");
     openapiFields.add("globalsign_target_details");
     openapiFields.add("godaddy_target_details");
+    openapiFields.add("google_trust_target_details");
     openapiFields.add("hashi_vault_target_details");
     openapiFields.add("ldap_target_details");
     openapiFields.add("letsencrypt_target_details");
@@ -1070,6 +1126,10 @@ public class TargetTypeDetailsInput {
       if (jsonObj.get("db_target_details") != null && !jsonObj.get("db_target_details").isJsonNull()) {
         DbTargetDetails.validateJsonElement(jsonObj.get("db_target_details"));
       }
+      // validate the optional field `digicert_target_details`
+      if (jsonObj.get("digicert_target_details") != null && !jsonObj.get("digicert_target_details").isJsonNull()) {
+        DigiCertTargetDetails.validateJsonElement(jsonObj.get("digicert_target_details"));
+      }
       // validate the optional field `dockerhub_target_details`
       if (jsonObj.get("dockerhub_target_details") != null && !jsonObj.get("dockerhub_target_details").isJsonNull()) {
         DockerhubTargetDetails.validateJsonElement(jsonObj.get("dockerhub_target_details"));
@@ -1109,6 +1169,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `godaddy_target_details`
       if (jsonObj.get("godaddy_target_details") != null && !jsonObj.get("godaddy_target_details").isJsonNull()) {
         GodaddyTargetDetails.validateJsonElement(jsonObj.get("godaddy_target_details"));
+      }
+      // validate the optional field `google_trust_target_details`
+      if (jsonObj.get("google_trust_target_details") != null && !jsonObj.get("google_trust_target_details").isJsonNull()) {
+        GoogleTrustTargetDetails.validateJsonElement(jsonObj.get("google_trust_target_details"));
       }
       // validate the optional field `hashi_vault_target_details`
       if (jsonObj.get("hashi_vault_target_details") != null && !jsonObj.get("hashi_vault_target_details").isJsonNull()) {

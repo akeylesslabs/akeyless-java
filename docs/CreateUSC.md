@@ -19,7 +19,7 @@ CreateUSC is a command that creates a Universal Secrets Connector
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**k8sNamespace** | **String** | K8s namespace (Relevant to Kubernetes targets) |  [optional] |
 |**name** | **String** | Universal Secrets Connector name |  |
-|**organizationName** | **String** | The organization name to create the secret in (only relevant for: github-scope&#x3D;organization) |  [optional] |
+|**organizationName** | **String** | The organization name to create the secret in |  [optional] |
 |**repositoryAccess** | **String** |  |  [optional] |
 |**repositoryNames** | **String** | The repository names, comma-separated (only relevant for: github-scope&#x3D;repository) |  [optional] |
 |**tags** | **List&lt;String&gt;** | List of the tags attached to this Universal Secrets Connector |  [optional] |

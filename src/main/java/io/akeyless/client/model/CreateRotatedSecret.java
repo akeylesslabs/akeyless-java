@@ -137,6 +137,11 @@ public class CreateRotatedSecret {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_DURING_SRA_SESSION = "lock-during-sra-session";
+  @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
+  @javax.annotation.Nullable
+  private String lockDuringSraSession;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   @javax.annotation.Nullable
@@ -155,7 +160,7 @@ public class CreateRotatedSecret {
   public static final String SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT = "rotate-after-disconnect";
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
-  private String rotateAfterDisconnect = "false";
+  private String rotateAfterDisconnect;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -653,6 +658,25 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret lockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+    return this;
+  }
+
+  /**
+   * Lock this secret for read/update while an SRA session is active
+   * @return lockDuringSraSession
+   */
+  @javax.annotation.Nullable
+  public String getLockDuringSraSession() {
+    return lockDuringSraSession;
+  }
+
+  public void setLockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
+    this.lockDuringSraSession = lockDuringSraSession;
+  }
+
+
   public CreateRotatedSecret metadata(@javax.annotation.Nullable String metadata) {
     this.metadata = metadata;
     return this;
@@ -716,7 +740,7 @@ public class CreateRotatedSecret {
   }
 
   /**
-   * Rotate the value of the secret after SRA session ends [true/false]
+   * StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect.
    * @return rotateAfterDisconnect
    */
   @javax.annotation.Nullable
@@ -1426,6 +1450,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.hostProvider, createRotatedSecret.hostProvider) &&
         Objects.equals(this.json, createRotatedSecret.json) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
+        Objects.equals(this.lockDuringSraSession, createRotatedSecret.lockDuringSraSession) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
         Objects.equals(this.passwordLength, createRotatedSecret.passwordLength) &&
@@ -1468,7 +1493,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, lockDuringSraSession, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1492,6 +1517,7 @@ public class CreateRotatedSecret {
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
@@ -1569,6 +1595,7 @@ public class CreateRotatedSecret {
     openapiFields.add("host-provider");
     openapiFields.add("json");
     openapiFields.add("key");
+    openapiFields.add("lock-during-sra-session");
     openapiFields.add("metadata");
     openapiFields.add("name");
     openapiFields.add("password-length");
@@ -1690,6 +1717,9 @@ public class CreateRotatedSecret {
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+      }
+      if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));

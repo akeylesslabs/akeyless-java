@@ -11,6 +11,7 @@ gatewayUpdateRemoteAccessRdpRecordings is a command that update remote access rd
 |**awsStorageAccessKeyId** | **String** | AWS access key id. For more information refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html |  [optional] |
 |**awsStorageBucketName** | **String** | The AWS bucket name. For more information refer to https://docs.aws.amazon.com/s3/ |  [optional] |
 |**awsStorageBucketPrefix** | **String** | The folder name in S3 bucket. For more information refer to https://docs.aws.amazon.com/s3/ |  [optional] |
+|**awsStorageEndpointUrl** | **String** | Custom AWS endpoint URL for S3-compatible storage (e.g. a private AWS endpoint) |  [optional] |
 |**awsStorageRegion** | **String** | The region where the storage is located |  [optional] |
 |**awsStorageSecretAccessKey** | **String** | AWS secret access key. For more information refer to https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html |  [optional] |
 |**azureStorageAccountName** | **String** | Azure account name. For more information refer to https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview |  [optional] |

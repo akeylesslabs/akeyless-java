@@ -16,6 +16,7 @@
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
 |**isAccessRequestEnabled** | **Boolean** |  |  [optional] |
 |**lastVersion** | **Integer** |  |  [optional] |
+|**lockingInfo** | [**LockingInfo**](LockingInfo.md) |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**parentTargetName** | **String** |  |  [optional] |
 |**protectionKeyName** | **String** |  |  [optional] |

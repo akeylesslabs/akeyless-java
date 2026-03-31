@@ -16,6 +16,7 @@ uscCreate is a command that creates a new secret in a Universal Secrets Connecto
 |**pfxPassword** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) |  [optional] |
 |**region** | **String** | Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default). |  [optional] |
 |**secretName** | **String** | Name for the new universal secrets |  |
+|**selectedRepositories** | **String** |  |  [optional] |
 |**tags** | **Map&lt;String, String&gt;** | Tags for the universal secrets |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

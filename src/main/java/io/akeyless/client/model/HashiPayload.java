@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class HashiPayload {
+  public static final String SERIALIZED_NAME_DELETE_SYNC_ON_DELETION = "delete_sync_on_deletion";
+  @SerializedName(SERIALIZED_NAME_DELETE_SYNC_ON_DELETION)
+  @javax.annotation.Nullable
+  private Boolean deleteSyncOnDeletion;
+
   public static final String SERIALIZED_NAME_IMPORT_AS_JSON = "import_as_json";
   @SerializedName(SERIALIZED_NAME_IMPORT_AS_JSON)
   @javax.annotation.Nullable
@@ -72,8 +77,32 @@ public class HashiPayload {
   @javax.annotation.Nullable
   private String url;
 
+  public static final String SERIALIZED_NAME_USC_NAME = "usc_name";
+  @SerializedName(SERIALIZED_NAME_USC_NAME)
+  @javax.annotation.Nullable
+  private String uscName;
+
   public HashiPayload() {
   }
+
+  public HashiPayload deleteSyncOnDeletion(@javax.annotation.Nullable Boolean deleteSyncOnDeletion) {
+    this.deleteSyncOnDeletion = deleteSyncOnDeletion;
+    return this;
+  }
+
+  /**
+   * Get deleteSyncOnDeletion
+   * @return deleteSyncOnDeletion
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteSyncOnDeletion() {
+    return deleteSyncOnDeletion;
+  }
+
+  public void setDeleteSyncOnDeletion(@javax.annotation.Nullable Boolean deleteSyncOnDeletion) {
+    this.deleteSyncOnDeletion = deleteSyncOnDeletion;
+  }
+
 
   public HashiPayload importAsJson(@javax.annotation.Nullable Boolean importAsJson) {
     this.importAsJson = importAsJson;
@@ -159,6 +188,25 @@ public class HashiPayload {
   }
 
 
+  public HashiPayload uscName(@javax.annotation.Nullable String uscName) {
+    this.uscName = uscName;
+    return this;
+  }
+
+  /**
+   * Get uscName
+   * @return uscName
+   */
+  @javax.annotation.Nullable
+  public String getUscName() {
+    return uscName;
+  }
+
+  public void setUscName(@javax.annotation.Nullable String uscName) {
+    this.uscName = uscName;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -169,25 +217,29 @@ public class HashiPayload {
       return false;
     }
     HashiPayload hashiPayload = (HashiPayload) o;
-    return Objects.equals(this.importAsJson, hashiPayload.importAsJson) &&
+    return Objects.equals(this.deleteSyncOnDeletion, hashiPayload.deleteSyncOnDeletion) &&
+        Objects.equals(this.importAsJson, hashiPayload.importAsJson) &&
         Objects.equals(this.namespaces, hashiPayload.namespaces) &&
         Objects.equals(this.token, hashiPayload.token) &&
-        Objects.equals(this.url, hashiPayload.url);
+        Objects.equals(this.url, hashiPayload.url) &&
+        Objects.equals(this.uscName, hashiPayload.uscName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(importAsJson, namespaces, token, url);
+    return Objects.hash(deleteSyncOnDeletion, importAsJson, namespaces, token, url, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class HashiPayload {\n");
+    sb.append("    deleteSyncOnDeletion: ").append(toIndentedString(deleteSyncOnDeletion)).append("\n");
     sb.append("    importAsJson: ").append(toIndentedString(importAsJson)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -210,10 +262,12 @@ public class HashiPayload {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("delete_sync_on_deletion");
     openapiFields.add("import_as_json");
     openapiFields.add("namespaces");
     openapiFields.add("token");
     openapiFields.add("url");
+    openapiFields.add("usc_name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -249,6 +303,9 @@ public class HashiPayload {
       }
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+      }
+      if ((jsonObj.get("usc_name") != null && !jsonObj.get("usc_name").isJsonNull()) && !jsonObj.get("usc_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usc_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc_name").toString()));
       }
   }
 

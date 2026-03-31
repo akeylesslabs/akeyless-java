@@ -141,7 +141,7 @@ public class DescribePermissions {
   }
 
   /**
-   * Type of object (item, am, role, target)
+   * Type of object (item, am, role, target, sra, ara)
    * @return type
    */
   @javax.annotation.Nonnull

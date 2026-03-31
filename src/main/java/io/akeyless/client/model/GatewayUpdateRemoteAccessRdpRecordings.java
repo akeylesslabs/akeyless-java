@@ -65,6 +65,11 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
   @javax.annotation.Nullable
   private String awsStorageBucketPrefix;
 
+  public static final String SERIALIZED_NAME_AWS_STORAGE_ENDPOINT_URL = "aws-storage-endpoint-url";
+  @SerializedName(SERIALIZED_NAME_AWS_STORAGE_ENDPOINT_URL)
+  @javax.annotation.Nullable
+  private String awsStorageEndpointUrl;
+
   public static final String SERIALIZED_NAME_AWS_STORAGE_REGION = "aws-storage-region";
   @SerializedName(SERIALIZED_NAME_AWS_STORAGE_REGION)
   @javax.annotation.Nullable
@@ -197,6 +202,25 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
 
   public void setAwsStorageBucketPrefix(@javax.annotation.Nullable String awsStorageBucketPrefix) {
     this.awsStorageBucketPrefix = awsStorageBucketPrefix;
+  }
+
+
+  public GatewayUpdateRemoteAccessRdpRecordings awsStorageEndpointUrl(@javax.annotation.Nullable String awsStorageEndpointUrl) {
+    this.awsStorageEndpointUrl = awsStorageEndpointUrl;
+    return this;
+  }
+
+  /**
+   * Custom AWS endpoint URL for S3-compatible storage (e.g. a private AWS endpoint)
+   * @return awsStorageEndpointUrl
+   */
+  @javax.annotation.Nullable
+  public String getAwsStorageEndpointUrl() {
+    return awsStorageEndpointUrl;
+  }
+
+  public void setAwsStorageEndpointUrl(@javax.annotation.Nullable String awsStorageEndpointUrl) {
+    this.awsStorageEndpointUrl = awsStorageEndpointUrl;
   }
 
 
@@ -498,6 +522,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
     return Objects.equals(this.awsStorageAccessKeyId, gatewayUpdateRemoteAccessRdpRecordings.awsStorageAccessKeyId) &&
         Objects.equals(this.awsStorageBucketName, gatewayUpdateRemoteAccessRdpRecordings.awsStorageBucketName) &&
         Objects.equals(this.awsStorageBucketPrefix, gatewayUpdateRemoteAccessRdpRecordings.awsStorageBucketPrefix) &&
+        Objects.equals(this.awsStorageEndpointUrl, gatewayUpdateRemoteAccessRdpRecordings.awsStorageEndpointUrl) &&
         Objects.equals(this.awsStorageRegion, gatewayUpdateRemoteAccessRdpRecordings.awsStorageRegion) &&
         Objects.equals(this.awsStorageSecretAccessKey, gatewayUpdateRemoteAccessRdpRecordings.awsStorageSecretAccessKey) &&
         Objects.equals(this.azureStorageAccountName, gatewayUpdateRemoteAccessRdpRecordings.azureStorageAccountName) &&
@@ -517,7 +542,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsStorageAccessKeyId, awsStorageBucketName, awsStorageBucketPrefix, awsStorageRegion, awsStorageSecretAccessKey, azureStorageAccountName, azureStorageClientId, azureStorageClientSecret, azureStorageContainerName, azureStorageTenantId, json, rdpSessionRecording, rdpSessionRecordingCompress, rdpSessionRecordingEncryptionKey, rdpSessionRecordingQuality, rdpSessionStorage, token, uidToken);
+    return Objects.hash(awsStorageAccessKeyId, awsStorageBucketName, awsStorageBucketPrefix, awsStorageEndpointUrl, awsStorageRegion, awsStorageSecretAccessKey, azureStorageAccountName, azureStorageClientId, azureStorageClientSecret, azureStorageContainerName, azureStorageTenantId, json, rdpSessionRecording, rdpSessionRecordingCompress, rdpSessionRecordingEncryptionKey, rdpSessionRecordingQuality, rdpSessionStorage, token, uidToken);
   }
 
   @Override
@@ -527,6 +552,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
     sb.append("    awsStorageAccessKeyId: ").append(toIndentedString(awsStorageAccessKeyId)).append("\n");
     sb.append("    awsStorageBucketName: ").append(toIndentedString(awsStorageBucketName)).append("\n");
     sb.append("    awsStorageBucketPrefix: ").append(toIndentedString(awsStorageBucketPrefix)).append("\n");
+    sb.append("    awsStorageEndpointUrl: ").append(toIndentedString(awsStorageEndpointUrl)).append("\n");
     sb.append("    awsStorageRegion: ").append(toIndentedString(awsStorageRegion)).append("\n");
     sb.append("    awsStorageSecretAccessKey: ").append(toIndentedString(awsStorageSecretAccessKey)).append("\n");
     sb.append("    azureStorageAccountName: ").append(toIndentedString(azureStorageAccountName)).append("\n");
@@ -567,6 +593,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
     openapiFields.add("aws-storage-access-key-id");
     openapiFields.add("aws-storage-bucket-name");
     openapiFields.add("aws-storage-bucket-prefix");
+    openapiFields.add("aws-storage-endpoint-url");
     openapiFields.add("aws-storage-region");
     openapiFields.add("aws-storage-secret-access-key");
     openapiFields.add("azure-storage-account-name");
@@ -616,6 +643,9 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
       }
       if ((jsonObj.get("aws-storage-bucket-prefix") != null && !jsonObj.get("aws-storage-bucket-prefix").isJsonNull()) && !jsonObj.get("aws-storage-bucket-prefix").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aws-storage-bucket-prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-bucket-prefix").toString()));
+      }
+      if ((jsonObj.get("aws-storage-endpoint-url") != null && !jsonObj.get("aws-storage-endpoint-url").isJsonNull()) && !jsonObj.get("aws-storage-endpoint-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-endpoint-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-endpoint-url").toString()));
       }
       if ((jsonObj.get("aws-storage-region") != null && !jsonObj.get("aws-storage-region").isJsonNull()) && !jsonObj.get("aws-storage-region").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aws-storage-region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-region").toString()));

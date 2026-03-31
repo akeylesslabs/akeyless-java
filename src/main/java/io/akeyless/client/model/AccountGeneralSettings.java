@@ -27,6 +27,7 @@ import io.akeyless.client.model.DataProtectionSection;
 import io.akeyless.client.model.DefaultAuthMethodSettings;
 import io.akeyless.client.model.DefaultHomePage;
 import io.akeyless.client.model.DynamicSecretMaxTtl;
+import io.akeyless.client.model.ItemLockingSetting;
 import io.akeyless.client.model.PasswordExpirationInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.PasswordScoreSetting;
@@ -139,6 +140,11 @@ public class AccountGeneralSettings {
   @javax.annotation.Nullable
   private Boolean hidePersonalFolder;
 
+  public static final String SERIALIZED_NAME_HIDE_SECRET_REVEAL_COPY = "hide_secret_reveal_copy";
+  @SerializedName(SERIALIZED_NAME_HIDE_SECRET_REVEAL_COPY)
+  @javax.annotation.Nullable
+  private Boolean hideSecretRevealCopy;
+
   public static final String SERIALIZED_NAME_HIDE_STATIC_PASSWORD = "hide_static_password";
   @SerializedName(SERIALIZED_NAME_HIDE_STATIC_PASSWORD)
   @javax.annotation.Nullable
@@ -148,6 +154,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_INVALID_CHARACTERS)
   @javax.annotation.Nullable
   private String invalidCharacters;
+
+  public static final String SERIALIZED_NAME_ITEM_LOCKING = "item_locking";
+  @SerializedName(SERIALIZED_NAME_ITEM_LOCKING)
+  @javax.annotation.Nullable
+  private ItemLockingSetting itemLocking;
 
   public static final String SERIALIZED_NAME_ITEM_USAGE_EVENT = "item_usage_event";
   @SerializedName(SERIALIZED_NAME_ITEM_USAGE_EVENT)
@@ -477,6 +488,25 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings hideSecretRevealCopy(@javax.annotation.Nullable Boolean hideSecretRevealCopy) {
+    this.hideSecretRevealCopy = hideSecretRevealCopy;
+    return this;
+  }
+
+  /**
+   * Get hideSecretRevealCopy
+   * @return hideSecretRevealCopy
+   */
+  @javax.annotation.Nullable
+  public Boolean getHideSecretRevealCopy() {
+    return hideSecretRevealCopy;
+  }
+
+  public void setHideSecretRevealCopy(@javax.annotation.Nullable Boolean hideSecretRevealCopy) {
+    this.hideSecretRevealCopy = hideSecretRevealCopy;
+  }
+
+
   public AccountGeneralSettings hideStaticPassword(@javax.annotation.Nullable Boolean hideStaticPassword) {
     this.hideStaticPassword = hideStaticPassword;
     return this;
@@ -512,6 +542,25 @@ public class AccountGeneralSettings {
 
   public void setInvalidCharacters(@javax.annotation.Nullable String invalidCharacters) {
     this.invalidCharacters = invalidCharacters;
+  }
+
+
+  public AccountGeneralSettings itemLocking(@javax.annotation.Nullable ItemLockingSetting itemLocking) {
+    this.itemLocking = itemLocking;
+    return this;
+  }
+
+  /**
+   * Get itemLocking
+   * @return itemLocking
+   */
+  @javax.annotation.Nullable
+  public ItemLockingSetting getItemLocking() {
+    return itemLocking;
+  }
+
+  public void setItemLocking(@javax.annotation.Nullable ItemLockingSetting itemLocking) {
+    this.itemLocking = itemLocking;
   }
 
 
@@ -692,8 +741,10 @@ public class AccountGeneralSettings {
         Objects.equals(this.dynamicSecretMaxTtl, accountGeneralSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.hidePersonalFolder, accountGeneralSettings.hidePersonalFolder) &&
+        Objects.equals(this.hideSecretRevealCopy, accountGeneralSettings.hideSecretRevealCopy) &&
         Objects.equals(this.hideStaticPassword, accountGeneralSettings.hideStaticPassword) &&
         Objects.equals(this.invalidCharacters, accountGeneralSettings.invalidCharacters) &&
+        Objects.equals(this.itemLocking, accountGeneralSettings.itemLocking) &&
         Objects.equals(this.itemUsageEvent, accountGeneralSettings.itemUsageEvent) &&
         Objects.equals(this.lockDefaultKey, accountGeneralSettings.lockDefaultKey) &&
         Objects.equals(this.passwordExpirationInfo, accountGeneralSettings.passwordExpirationInfo) &&
@@ -706,7 +757,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -728,8 +779,10 @@ public class AccountGeneralSettings {
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    hidePersonalFolder: ").append(toIndentedString(hidePersonalFolder)).append("\n");
+    sb.append("    hideSecretRevealCopy: ").append(toIndentedString(hideSecretRevealCopy)).append("\n");
     sb.append("    hideStaticPassword: ").append(toIndentedString(hideStaticPassword)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
+    sb.append("    itemLocking: ").append(toIndentedString(itemLocking)).append("\n");
     sb.append("    itemUsageEvent: ").append(toIndentedString(itemUsageEvent)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    passwordExpirationInfo: ").append(toIndentedString(passwordExpirationInfo)).append("\n");
@@ -775,8 +828,10 @@ public class AccountGeneralSettings {
     openapiFields.add("dynamic_secret_max_ttl");
     openapiFields.add("enable_request_for_access");
     openapiFields.add("hide_personal_folder");
+    openapiFields.add("hide_secret_reveal_copy");
     openapiFields.add("hide_static_password");
     openapiFields.add("invalid_characters");
+    openapiFields.add("item_locking");
     openapiFields.add("item_usage_event");
     openapiFields.add("lock_default_key");
     openapiFields.add("password_expiration_info");
@@ -856,6 +911,10 @@ public class AccountGeneralSettings {
       }
       if ((jsonObj.get("invalid_characters") != null && !jsonObj.get("invalid_characters").isJsonNull()) && !jsonObj.get("invalid_characters").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `invalid_characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalid_characters").toString()));
+      }
+      // validate the optional field `item_locking`
+      if (jsonObj.get("item_locking") != null && !jsonObj.get("item_locking").isJsonNull()) {
+        ItemLockingSetting.validateJsonElement(jsonObj.get("item_locking"));
       }
       // validate the optional field `item_usage_event`
       if (jsonObj.get("item_usage_event") != null && !jsonObj.get("item_usage_event").isJsonNull()) {

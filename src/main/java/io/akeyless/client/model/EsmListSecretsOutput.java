@@ -58,6 +58,11 @@ public class EsmListSecretsOutput {
   @javax.annotation.Nullable
   private List<SecretInfo> secretsList = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_WARNINGS = "warnings";
+  @SerializedName(SERIALIZED_NAME_WARNINGS)
+  @javax.annotation.Nullable
+  private List<String> warnings = new ArrayList<>();
+
   public EsmListSecretsOutput() {
   }
 
@@ -88,6 +93,33 @@ public class EsmListSecretsOutput {
   }
 
 
+  public EsmListSecretsOutput warnings(@javax.annotation.Nullable List<String> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public EsmListSecretsOutput addWarningsItem(String warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+  /**
+   * Get warnings
+   * @return warnings
+   */
+  @javax.annotation.Nullable
+  public List<String> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(@javax.annotation.Nullable List<String> warnings) {
+    this.warnings = warnings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -98,12 +130,13 @@ public class EsmListSecretsOutput {
       return false;
     }
     EsmListSecretsOutput esmListSecretsOutput = (EsmListSecretsOutput) o;
-    return Objects.equals(this.secretsList, esmListSecretsOutput.secretsList);
+    return Objects.equals(this.secretsList, esmListSecretsOutput.secretsList) &&
+        Objects.equals(this.warnings, esmListSecretsOutput.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secretsList);
+    return Objects.hash(secretsList, warnings);
   }
 
   @Override
@@ -111,6 +144,7 @@ public class EsmListSecretsOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class EsmListSecretsOutput {\n");
     sb.append("    secretsList: ").append(toIndentedString(secretsList)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -134,6 +168,7 @@ public class EsmListSecretsOutput {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("secrets_list");
+    openapiFields.add("warnings");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -173,6 +208,10 @@ public class EsmListSecretsOutput {
             SecretInfo.validateJsonElement(jsonArraysecretsList.get(i));
           };
         }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("warnings") != null && !jsonObj.get("warnings").isJsonNull() && !jsonObj.get("warnings").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `warnings` to be an array in the JSON string but got `%s`", jsonObj.get("warnings").toString()));
       }
   }
 

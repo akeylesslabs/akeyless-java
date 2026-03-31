@@ -299,6 +299,7 @@ docs/DescribeSubClaimsOutput.md
 docs/DesktopAppConf.md
 docs/Detokenize.md
 docs/DetokenizeOutput.md
+docs/DigiCertTargetDetails.md
 docs/DockerhubTargetDetails.md
 docs/DynamicSecretCreateArtifactory.md
 docs/DynamicSecretCreateAws.md
@@ -659,6 +660,7 @@ docs/GlobalSignAtlasTargetDetails.md
 docs/GlobalSignGCCTargetDetails.md
 docs/GodaddyTargetDetails.md
 docs/GoogleChronicleForwardingConfig.md
+docs/GoogleTrustTargetDetails.md
 docs/Group.md
 docs/GwClusterIdentity.md
 docs/GwUpdateRemoteAccessSessionLogsAwsS3.md
@@ -686,6 +688,7 @@ docs/IssuerOverviewInfo.md
 docs/Item.md
 docs/ItemCustomFieldsDetails.md
 docs/ItemGeneralInfo.md
+docs/ItemLockingSetting.md
 docs/ItemSraStatus.md
 docs/ItemTargetAssociation.md
 docs/ItemUSCSyncAssociation.md
@@ -762,6 +765,9 @@ docs/ListSharedItems.md
 docs/ListSraSessionsOutput.md
 docs/ListTargets.md
 docs/ListTargetsOutput.md
+docs/LockItem.md
+docs/LockTarget.md
+docs/LockingInfo.md
 docs/LogForwardingConfigPart.md
 docs/LogstashLogForwardingConfig.md
 docs/LogzIoLogForwardingConfig.md
@@ -777,6 +783,7 @@ docs/MongoDBTargetDetails.md
 docs/MoveObjects.md
 docs/Name.md
 docs/NativeK8sTargetDetails.md
+docs/NetappStorage.md
 docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
 docs/NotiForwarderDetailsInput.md
@@ -946,6 +953,7 @@ docs/StaticSecretDeleteSyncOutput.md
 docs/StaticSecretDetailsInfo.md
 docs/StaticSecretSync.md
 docs/SumologicLogForwardingConfig.md
+docs/SyncCounters.md
 docs/SyslogLogForwardingConfig.md
 docs/SystemAccessCredentialsReplyObj.md
 docs/SystemAccessCredsSettings.md
@@ -954,6 +962,7 @@ docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
 docs/TargetCreateAzure.md
 docs/TargetCreateDB.md
+docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
 docs/TargetCreateEks.md
 docs/TargetCreateGcp.md
@@ -964,6 +973,7 @@ docs/TargetCreateGke.md
 docs/TargetCreateGlobalSign.md
 docs/TargetCreateGlobalSignAtlas.md
 docs/TargetCreateGodaddy.md
+docs/TargetCreateGoogleTrust.md
 docs/TargetCreateHashiVault.md
 docs/TargetCreateK8s.md
 docs/TargetCreateLdap.md
@@ -993,6 +1003,7 @@ docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
 docs/TargetUpdateAzure.md
 docs/TargetUpdateDB.md
+docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
 docs/TargetUpdateEks.md
 docs/TargetUpdateGcp.md
@@ -1003,6 +1014,7 @@ docs/TargetUpdateGke.md
 docs/TargetUpdateGlobalSign.md
 docs/TargetUpdateGlobalSignAtlas.md
 docs/TargetUpdateGodaddy.md
+docs/TargetUpdateGoogleTrust.md
 docs/TargetUpdateHashiVault.md
 docs/TargetUpdateK8s.md
 docs/TargetUpdateLdap.md
@@ -1035,6 +1047,8 @@ docs/UidRotateTokenOutput.md
 docs/Unconfigure.md
 docs/UniversalIdentityAccessRules.md
 docs/UniversalIdentityDetails.md
+docs/UnlockItem.md
+docs/UnlockTarget.md
 docs/UnwrapToken.md
 docs/UnwrapTokenOutput.md
 docs/Update.md
@@ -1500,6 +1514,7 @@ src/main/java/io/akeyless/client/model/DescribeSubClaimsOutput.java
 src/main/java/io/akeyless/client/model/DesktopAppConf.java
 src/main/java/io/akeyless/client/model/Detokenize.java
 src/main/java/io/akeyless/client/model/DetokenizeOutput.java
+src/main/java/io/akeyless/client/model/DigiCertTargetDetails.java
 src/main/java/io/akeyless/client/model/DockerhubTargetDetails.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateArtifactory.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAws.java
@@ -1860,6 +1875,7 @@ src/main/java/io/akeyless/client/model/GlobalSignAtlasTargetDetails.java
 src/main/java/io/akeyless/client/model/GlobalSignGCCTargetDetails.java
 src/main/java/io/akeyless/client/model/GodaddyTargetDetails.java
 src/main/java/io/akeyless/client/model/GoogleChronicleForwardingConfig.java
+src/main/java/io/akeyless/client/model/GoogleTrustTargetDetails.java
 src/main/java/io/akeyless/client/model/Group.java
 src/main/java/io/akeyless/client/model/GwClusterIdentity.java
 src/main/java/io/akeyless/client/model/GwUpdateRemoteAccessSessionLogsAwsS3.java
@@ -1887,6 +1903,7 @@ src/main/java/io/akeyless/client/model/IssuerOverviewInfo.java
 src/main/java/io/akeyless/client/model/Item.java
 src/main/java/io/akeyless/client/model/ItemCustomFieldsDetails.java
 src/main/java/io/akeyless/client/model/ItemGeneralInfo.java
+src/main/java/io/akeyless/client/model/ItemLockingSetting.java
 src/main/java/io/akeyless/client/model/ItemSraStatus.java
 src/main/java/io/akeyless/client/model/ItemTargetAssociation.java
 src/main/java/io/akeyless/client/model/ItemUSCSyncAssociation.java
@@ -1963,6 +1980,9 @@ src/main/java/io/akeyless/client/model/ListSharedItems.java
 src/main/java/io/akeyless/client/model/ListSraSessionsOutput.java
 src/main/java/io/akeyless/client/model/ListTargets.java
 src/main/java/io/akeyless/client/model/ListTargetsOutput.java
+src/main/java/io/akeyless/client/model/LockItem.java
+src/main/java/io/akeyless/client/model/LockTarget.java
+src/main/java/io/akeyless/client/model/LockingInfo.java
 src/main/java/io/akeyless/client/model/LogForwardingConfigPart.java
 src/main/java/io/akeyless/client/model/LogstashLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/LogzIoLogForwardingConfig.java
@@ -1978,6 +1998,7 @@ src/main/java/io/akeyless/client/model/MongoDBTargetDetails.java
 src/main/java/io/akeyless/client/model/MoveObjects.java
 src/main/java/io/akeyless/client/model/Name.java
 src/main/java/io/akeyless/client/model/NativeK8sTargetDetails.java
+src/main/java/io/akeyless/client/model/NetappStorage.java
 src/main/java/io/akeyless/client/model/NextAutoRotationEvent.java
 src/main/java/io/akeyless/client/model/NotiForwarder.java
 src/main/java/io/akeyless/client/model/NotiForwarderDetailsInput.java
@@ -2147,6 +2168,7 @@ src/main/java/io/akeyless/client/model/StaticSecretDeleteSyncOutput.java
 src/main/java/io/akeyless/client/model/StaticSecretDetailsInfo.java
 src/main/java/io/akeyless/client/model/StaticSecretSync.java
 src/main/java/io/akeyless/client/model/SumologicLogForwardingConfig.java
+src/main/java/io/akeyless/client/model/SyncCounters.java
 src/main/java/io/akeyless/client/model/SyslogLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SystemAccessCredentialsReplyObj.java
 src/main/java/io/akeyless/client/model/SystemAccessCredsSettings.java
@@ -2155,6 +2177,7 @@ src/main/java/io/akeyless/client/model/TargetCreateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetCreateAws.java
 src/main/java/io/akeyless/client/model/TargetCreateAzure.java
 src/main/java/io/akeyless/client/model/TargetCreateDB.java
+src/main/java/io/akeyless/client/model/TargetCreateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetCreateDockerhub.java
 src/main/java/io/akeyless/client/model/TargetCreateEks.java
 src/main/java/io/akeyless/client/model/TargetCreateGcp.java
@@ -2165,6 +2188,7 @@ src/main/java/io/akeyless/client/model/TargetCreateGke.java
 src/main/java/io/akeyless/client/model/TargetCreateGlobalSign.java
 src/main/java/io/akeyless/client/model/TargetCreateGlobalSignAtlas.java
 src/main/java/io/akeyless/client/model/TargetCreateGodaddy.java
+src/main/java/io/akeyless/client/model/TargetCreateGoogleTrust.java
 src/main/java/io/akeyless/client/model/TargetCreateHashiVault.java
 src/main/java/io/akeyless/client/model/TargetCreateK8s.java
 src/main/java/io/akeyless/client/model/TargetCreateLdap.java
@@ -2194,6 +2218,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetUpdateAws.java
 src/main/java/io/akeyless/client/model/TargetUpdateAzure.java
 src/main/java/io/akeyless/client/model/TargetUpdateDB.java
+src/main/java/io/akeyless/client/model/TargetUpdateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetUpdateDockerhub.java
 src/main/java/io/akeyless/client/model/TargetUpdateEks.java
 src/main/java/io/akeyless/client/model/TargetUpdateGcp.java
@@ -2204,6 +2229,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateGke.java
 src/main/java/io/akeyless/client/model/TargetUpdateGlobalSign.java
 src/main/java/io/akeyless/client/model/TargetUpdateGlobalSignAtlas.java
 src/main/java/io/akeyless/client/model/TargetUpdateGodaddy.java
+src/main/java/io/akeyless/client/model/TargetUpdateGoogleTrust.java
 src/main/java/io/akeyless/client/model/TargetUpdateHashiVault.java
 src/main/java/io/akeyless/client/model/TargetUpdateK8s.java
 src/main/java/io/akeyless/client/model/TargetUpdateLdap.java
@@ -2236,6 +2262,8 @@ src/main/java/io/akeyless/client/model/UidRotateTokenOutput.java
 src/main/java/io/akeyless/client/model/Unconfigure.java
 src/main/java/io/akeyless/client/model/UniversalIdentityAccessRules.java
 src/main/java/io/akeyless/client/model/UniversalIdentityDetails.java
+src/main/java/io/akeyless/client/model/UnlockItem.java
+src/main/java/io/akeyless/client/model/UnlockTarget.java
 src/main/java/io/akeyless/client/model/UnwrapToken.java
 src/main/java/io/akeyless/client/model/UnwrapTokenOutput.java
 src/main/java/io/akeyless/client/model/Update.java
@@ -2378,13 +2406,17 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/ConjurMigrationTest.java
-src/test/java/io/akeyless/client/model/ConjurPayloadTest.java
-src/test/java/io/akeyless/client/model/DefaultAuthMethodSettingsTest.java
-src/test/java/io/akeyless/client/model/GithubMetadataTest.java
-src/test/java/io/akeyless/client/model/HTTPChallengeInfoTest.java
-src/test/java/io/akeyless/client/model/IssuerOverviewInfoTest.java
-src/test/java/io/akeyless/client/model/ValidateCertificateChallengeOutputTest.java
-src/test/java/io/akeyless/client/model/ValidateCertificateChallengeTest.java
-src/test/java/io/akeyless/client/model/VaultAddressOutputTest.java
-src/test/java/io/akeyless/client/model/VaultAddressTest.java
+src/test/java/io/akeyless/client/model/DigiCertTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/GoogleTrustTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/ItemLockingSettingTest.java
+src/test/java/io/akeyless/client/model/LockItemTest.java
+src/test/java/io/akeyless/client/model/LockTargetTest.java
+src/test/java/io/akeyless/client/model/LockingInfoTest.java
+src/test/java/io/akeyless/client/model/NetappStorageTest.java
+src/test/java/io/akeyless/client/model/SyncCountersTest.java
+src/test/java/io/akeyless/client/model/TargetCreateDigiCertTest.java
+src/test/java/io/akeyless/client/model/TargetCreateGoogleTrustTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateDigiCertTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateGoogleTrustTest.java
+src/test/java/io/akeyless/client/model/UnlockItemTest.java
+src/test/java/io/akeyless/client/model/UnlockTargetTest.java

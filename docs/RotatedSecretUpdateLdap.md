@@ -18,12 +18,13 @@
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional] |
+|**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Rotated secret name |  |
 |**newName** | **String** | New item name |  [optional] |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |
 |**rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional] |
-|**rotateAfterDisconnect** | **String** | Rotate the value of the secret after SRA session ends [true/false] |  [optional] |
+|**rotateAfterDisconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. |  [optional] |
 |**rotatedPassword** | **String** | rotated-username password (relevant only for rotator-type&#x3D;ldap) |  [optional] |
 |**rotatedUsername** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;ldap) |  [optional] |
 |**rotationEventIn** | **List&lt;String&gt;** | How many days before the rotation of the item would you like to be notified |  [optional] |

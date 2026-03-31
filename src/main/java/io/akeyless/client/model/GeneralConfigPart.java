@@ -69,6 +69,11 @@ public class GeneralConfigPart {
   @javax.annotation.Nullable
   private String displayName;
 
+  public static final String SERIALIZED_NAME_ENABLE_JSON_BODY_LIMIT = "enable_json_body_limit";
+  @SerializedName(SERIALIZED_NAME_ENABLE_JSON_BODY_LIMIT)
+  @javax.annotation.Nullable
+  private Boolean enableJsonBodyLimit;
+
   public static final String SERIALIZED_NAME_ENABLE_SNI_PROXY = "enable_sni_proxy";
   @SerializedName(SERIALIZED_NAME_ENABLE_SNI_PROXY)
   @javax.annotation.Nullable
@@ -103,6 +108,11 @@ public class GeneralConfigPart {
   @SerializedName(SERIALIZED_NAME_HVP_ROUTE_VERSION)
   @javax.annotation.Nullable
   private Long hvpRouteVersion;
+
+  public static final String SERIALIZED_NAME_JSON_BODY_LIMIT_MB = "json_body_limit_mb";
+  @SerializedName(SERIALIZED_NAME_JSON_BODY_LIMIT_MB)
+  @javax.annotation.Nullable
+  private Long jsonBodyLimitMb;
 
   public static final String SERIALIZED_NAME_NOTIFY_ON_STATUS_CHANGE = "notify_on_status_change";
   @SerializedName(SERIALIZED_NAME_NOTIFY_ON_STATUS_CHANGE)
@@ -196,6 +206,25 @@ public class GeneralConfigPart {
 
   public void setDisplayName(@javax.annotation.Nullable String displayName) {
     this.displayName = displayName;
+  }
+
+
+  public GeneralConfigPart enableJsonBodyLimit(@javax.annotation.Nullable Boolean enableJsonBodyLimit) {
+    this.enableJsonBodyLimit = enableJsonBodyLimit;
+    return this;
+  }
+
+  /**
+   * Get enableJsonBodyLimit
+   * @return enableJsonBodyLimit
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableJsonBodyLimit() {
+    return enableJsonBodyLimit;
+  }
+
+  public void setEnableJsonBodyLimit(@javax.annotation.Nullable Boolean enableJsonBodyLimit) {
+    this.enableJsonBodyLimit = enableJsonBodyLimit;
   }
 
 
@@ -329,6 +358,25 @@ public class GeneralConfigPart {
 
   public void setHvpRouteVersion(@javax.annotation.Nullable Long hvpRouteVersion) {
     this.hvpRouteVersion = hvpRouteVersion;
+  }
+
+
+  public GeneralConfigPart jsonBodyLimitMb(@javax.annotation.Nullable Long jsonBodyLimitMb) {
+    this.jsonBodyLimitMb = jsonBodyLimitMb;
+    return this;
+  }
+
+  /**
+   * Get jsonBodyLimitMb
+   * @return jsonBodyLimitMb
+   */
+  @javax.annotation.Nullable
+  public Long getJsonBodyLimitMb() {
+    return jsonBodyLimitMb;
+  }
+
+  public void setJsonBodyLimitMb(@javax.annotation.Nullable Long jsonBodyLimitMb) {
+    this.jsonBodyLimitMb = jsonBodyLimitMb;
   }
 
 
@@ -486,6 +534,7 @@ public class GeneralConfigPart {
     return Objects.equals(this.akeylessUrl, generalConfigPart.akeylessUrl) &&
         Objects.equals(this.apiTokenTtl, generalConfigPart.apiTokenTtl) &&
         Objects.equals(this.displayName, generalConfigPart.displayName) &&
+        Objects.equals(this.enableJsonBodyLimit, generalConfigPart.enableJsonBodyLimit) &&
         Objects.equals(this.enableSniProxy, generalConfigPart.enableSniProxy) &&
         Objects.equals(this.enableTls, generalConfigPart.enableTls) &&
         Objects.equals(this.enableTlsConfigure, generalConfigPart.enableTlsConfigure) &&
@@ -493,6 +542,7 @@ public class GeneralConfigPart {
         Objects.equals(this.enableTlsHvp, generalConfigPart.enableTlsHvp) &&
         Objects.equals(this.gwClusterUrl, generalConfigPart.gwClusterUrl) &&
         Objects.equals(this.hvpRouteVersion, generalConfigPart.hvpRouteVersion) &&
+        Objects.equals(this.jsonBodyLimitMb, generalConfigPart.jsonBodyLimitMb) &&
         Objects.equals(this.notifyOnStatusChange, generalConfigPart.notifyOnStatusChange) &&
         Objects.equals(this.tcpPort, generalConfigPart.tcpPort) &&
         Objects.equals(this.tlsCert, generalConfigPart.tlsCert) &&
@@ -504,7 +554,7 @@ public class GeneralConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, hvpRouteVersion, notifyOnStatusChange, tcpPort, tlsCert, tlsCertCommonName, tlsCertExpirationDate, tlsCertExpirationEvents, tlsKey);
+    return Objects.hash(akeylessUrl, apiTokenTtl, displayName, enableJsonBodyLimit, enableSniProxy, enableTls, enableTlsConfigure, enableTlsCurl, enableTlsHvp, gwClusterUrl, hvpRouteVersion, jsonBodyLimitMb, notifyOnStatusChange, tcpPort, tlsCert, tlsCertCommonName, tlsCertExpirationDate, tlsCertExpirationEvents, tlsKey);
   }
 
   @Override
@@ -514,6 +564,7 @@ public class GeneralConfigPart {
     sb.append("    akeylessUrl: ").append(toIndentedString(akeylessUrl)).append("\n");
     sb.append("    apiTokenTtl: ").append(toIndentedString(apiTokenTtl)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("    enableJsonBodyLimit: ").append(toIndentedString(enableJsonBodyLimit)).append("\n");
     sb.append("    enableSniProxy: ").append(toIndentedString(enableSniProxy)).append("\n");
     sb.append("    enableTls: ").append(toIndentedString(enableTls)).append("\n");
     sb.append("    enableTlsConfigure: ").append(toIndentedString(enableTlsConfigure)).append("\n");
@@ -521,6 +572,7 @@ public class GeneralConfigPart {
     sb.append("    enableTlsHvp: ").append(toIndentedString(enableTlsHvp)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    hvpRouteVersion: ").append(toIndentedString(hvpRouteVersion)).append("\n");
+    sb.append("    jsonBodyLimitMb: ").append(toIndentedString(jsonBodyLimitMb)).append("\n");
     sb.append("    notifyOnStatusChange: ").append(toIndentedString(notifyOnStatusChange)).append("\n");
     sb.append("    tcpPort: ").append(toIndentedString(tcpPort)).append("\n");
     sb.append("    tlsCert: ").append(toIndentedString(tlsCert)).append("\n");
@@ -553,6 +605,7 @@ public class GeneralConfigPart {
     openapiFields.add("akeyless_url");
     openapiFields.add("api_token_ttl");
     openapiFields.add("display_name");
+    openapiFields.add("enable_json_body_limit");
     openapiFields.add("enable_sni_proxy");
     openapiFields.add("enable_tls");
     openapiFields.add("enable_tls_configure");
@@ -560,6 +613,7 @@ public class GeneralConfigPart {
     openapiFields.add("enable_tls_hvp");
     openapiFields.add("gw_cluster_url");
     openapiFields.add("hvp_route_version");
+    openapiFields.add("json_body_limit_mb");
     openapiFields.add("notify_on_status_change");
     openapiFields.add("tcp_port");
     openapiFields.add("tls_cert");

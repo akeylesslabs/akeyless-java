@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AwsStorage;
 import io.akeyless.client.model.AzureStorage;
+import io.akeyless.client.model.NetappStorage;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -71,6 +72,11 @@ public class WebBastionRdpRecord {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY)
   @javax.annotation.Nullable
   private String encryptionKey;
+
+  public static final String SERIALIZED_NAME_NETAPP = "netapp";
+  @SerializedName(SERIALIZED_NAME_NETAPP)
+  @javax.annotation.Nullable
+  private NetappStorage netapp;
 
   public static final String SERIALIZED_NAME_RECORDING_QUALITY = "recording_quality";
   @SerializedName(SERIALIZED_NAME_RECORDING_QUALITY)
@@ -161,6 +167,25 @@ public class WebBastionRdpRecord {
   }
 
 
+  public WebBastionRdpRecord netapp(@javax.annotation.Nullable NetappStorage netapp) {
+    this.netapp = netapp;
+    return this;
+  }
+
+  /**
+   * Get netapp
+   * @return netapp
+   */
+  @javax.annotation.Nullable
+  public NetappStorage getNetapp() {
+    return netapp;
+  }
+
+  public void setNetapp(@javax.annotation.Nullable NetappStorage netapp) {
+    this.netapp = netapp;
+  }
+
+
   public WebBastionRdpRecord recordingQuality(@javax.annotation.Nullable String recordingQuality) {
     this.recordingQuality = recordingQuality;
     return this;
@@ -213,13 +238,14 @@ public class WebBastionRdpRecord {
         Objects.equals(this.azure, webBastionRdpRecord.azure) &&
         Objects.equals(this.compress, webBastionRdpRecord.compress) &&
         Objects.equals(this.encryptionKey, webBastionRdpRecord.encryptionKey) &&
+        Objects.equals(this.netapp, webBastionRdpRecord.netapp) &&
         Objects.equals(this.recordingQuality, webBastionRdpRecord.recordingQuality) &&
         Objects.equals(this.storageType, webBastionRdpRecord.storageType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aws, azure, compress, encryptionKey, recordingQuality, storageType);
+    return Objects.hash(aws, azure, compress, encryptionKey, netapp, recordingQuality, storageType);
   }
 
   @Override
@@ -230,6 +256,7 @@ public class WebBastionRdpRecord {
     sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
     sb.append("    compress: ").append(toIndentedString(compress)).append("\n");
     sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
+    sb.append("    netapp: ").append(toIndentedString(netapp)).append("\n");
     sb.append("    recordingQuality: ").append(toIndentedString(recordingQuality)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");
@@ -258,6 +285,7 @@ public class WebBastionRdpRecord {
     openapiFields.add("azure");
     openapiFields.add("compress");
     openapiFields.add("encryption_key");
+    openapiFields.add("netapp");
     openapiFields.add("recording_quality");
     openapiFields.add("storage_type");
 
@@ -296,6 +324,10 @@ public class WebBastionRdpRecord {
       }
       if ((jsonObj.get("encryption_key") != null && !jsonObj.get("encryption_key").isJsonNull()) && !jsonObj.get("encryption_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
+      }
+      // validate the optional field `netapp`
+      if (jsonObj.get("netapp") != null && !jsonObj.get("netapp").isJsonNull()) {
+        NetappStorage.validateJsonElement(jsonObj.get("netapp"));
       }
       if ((jsonObj.get("recording_quality") != null && !jsonObj.get("recording_quality").isJsonNull()) && !jsonObj.get("recording_quality").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `recording_quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recording_quality").toString()));

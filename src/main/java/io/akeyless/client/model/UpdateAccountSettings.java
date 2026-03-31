@@ -167,6 +167,11 @@ public class UpdateAccountSettings {
   @javax.annotation.Nullable
   private String invalidCharacters = "notReceivedInvalidCharacter";
 
+  public static final String SERIALIZED_NAME_ITEM_LOCKING_ENABLED = "item-locking-enabled";
+  @SerializedName(SERIALIZED_NAME_ITEM_LOCKING_ENABLED)
+  @javax.annotation.Nullable
+  private String itemLockingEnabled;
+
   public static final String SERIALIZED_NAME_ITEM_TYPE = "item-type";
   @SerializedName(SERIALIZED_NAME_ITEM_TYPE)
   @javax.annotation.Nullable
@@ -216,6 +221,11 @@ public class UpdateAccountSettings {
   @SerializedName(SERIALIZED_NAME_LOCK_GW_BOUND_IPS)
   @javax.annotation.Nullable
   private String lockGwBoundIps;
+
+  public static final String SERIALIZED_NAME_LOCK_MAX_TTL = "lock-max-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_MAX_TTL)
+  @javax.annotation.Nullable
+  private Long lockMaxTtl;
 
   public static final String SERIALIZED_NAME_MAX_ROTATION_INTERVAL = "max-rotation-interval";
   @SerializedName(SERIALIZED_NAME_MAX_ROTATION_INTERVAL)
@@ -782,6 +792,25 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings itemLockingEnabled(@javax.annotation.Nullable String itemLockingEnabled) {
+    this.itemLockingEnabled = itemLockingEnabled;
+    return this;
+  }
+
+  /**
+   * Enable item locking feature [true/false]
+   * @return itemLockingEnabled
+   */
+  @javax.annotation.Nullable
+  public String getItemLockingEnabled() {
+    return itemLockingEnabled;
+  }
+
+  public void setItemLockingEnabled(@javax.annotation.Nullable String itemLockingEnabled) {
+    this.itemLockingEnabled = itemLockingEnabled;
+  }
+
+
   public UpdateAccountSettings itemType(@javax.annotation.Nullable String itemType) {
     this.itemType = itemType;
     return this;
@@ -969,6 +998,25 @@ public class UpdateAccountSettings {
 
   public void setLockGwBoundIps(@javax.annotation.Nullable String lockGwBoundIps) {
     this.lockGwBoundIps = lockGwBoundIps;
+  }
+
+
+  public UpdateAccountSettings lockMaxTtl(@javax.annotation.Nullable Long lockMaxTtl) {
+    this.lockMaxTtl = lockMaxTtl;
+    return this;
+  }
+
+  /**
+   * Set the maximum TTL for item/target locks in minutes
+   * @return lockMaxTtl
+   */
+  @javax.annotation.Nullable
+  public Long getLockMaxTtl() {
+    return lockMaxTtl;
+  }
+
+  public void setLockMaxTtl(@javax.annotation.Nullable Long lockMaxTtl) {
+    this.lockMaxTtl = lockMaxTtl;
   }
 
 
@@ -1328,6 +1376,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.hidePersonalFolder, updateAccountSettings.hidePersonalFolder) &&
         Objects.equals(this.hideStaticPassword, updateAccountSettings.hideStaticPassword) &&
         Objects.equals(this.invalidCharacters, updateAccountSettings.invalidCharacters) &&
+        Objects.equals(this.itemLockingEnabled, updateAccountSettings.itemLockingEnabled) &&
         Objects.equals(this.itemType, updateAccountSettings.itemType) &&
         Objects.equals(this.itemsDeletionProtection, updateAccountSettings.itemsDeletionProtection) &&
         Objects.equals(this.json, updateAccountSettings.json) &&
@@ -1338,6 +1387,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.lockBoundIps, updateAccountSettings.lockBoundIps) &&
         Objects.equals(this.lockDefaultKey, updateAccountSettings.lockDefaultKey) &&
         Objects.equals(this.lockGwBoundIps, updateAccountSettings.lockGwBoundIps) &&
+        Objects.equals(this.lockMaxTtl, updateAccountSettings.lockMaxTtl) &&
         Objects.equals(this.maxRotationInterval, updateAccountSettings.maxRotationInterval) &&
         Objects.equals(this.maxRotationIntervalEnable, updateAccountSettings.maxRotationIntervalEnable) &&
         Objects.equals(this.maxVersions, updateAccountSettings.maxVersions) &&
@@ -1359,7 +1409,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemLockingEnabled, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, lockMaxTtl, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1389,6 +1439,7 @@ public class UpdateAccountSettings {
     sb.append("    hidePersonalFolder: ").append(toIndentedString(hidePersonalFolder)).append("\n");
     sb.append("    hideStaticPassword: ").append(toIndentedString(hideStaticPassword)).append("\n");
     sb.append("    invalidCharacters: ").append(toIndentedString(invalidCharacters)).append("\n");
+    sb.append("    itemLockingEnabled: ").append(toIndentedString(itemLockingEnabled)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemsDeletionProtection: ").append(toIndentedString(itemsDeletionProtection)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1399,6 +1450,7 @@ public class UpdateAccountSettings {
     sb.append("    lockBoundIps: ").append(toIndentedString(lockBoundIps)).append("\n");
     sb.append("    lockDefaultKey: ").append(toIndentedString(lockDefaultKey)).append("\n");
     sb.append("    lockGwBoundIps: ").append(toIndentedString(lockGwBoundIps)).append("\n");
+    sb.append("    lockMaxTtl: ").append(toIndentedString(lockMaxTtl)).append("\n");
     sb.append("    maxRotationInterval: ").append(toIndentedString(maxRotationInterval)).append("\n");
     sb.append("    maxRotationIntervalEnable: ").append(toIndentedString(maxRotationIntervalEnable)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -1461,6 +1513,7 @@ public class UpdateAccountSettings {
     openapiFields.add("hide-personal-folder");
     openapiFields.add("hide-static-password");
     openapiFields.add("invalid-characters");
+    openapiFields.add("item-locking-enabled");
     openapiFields.add("item-type");
     openapiFields.add("items-deletion-protection");
     openapiFields.add("json");
@@ -1471,6 +1524,7 @@ public class UpdateAccountSettings {
     openapiFields.add("lock-bound-ips");
     openapiFields.add("lock-default-key");
     openapiFields.add("lock-gw-bound-ips");
+    openapiFields.add("lock-max-ttl");
     openapiFields.add("max-rotation-interval");
     openapiFields.add("max-rotation-interval-enable");
     openapiFields.add("max-versions");
@@ -1584,6 +1638,9 @@ public class UpdateAccountSettings {
       }
       if ((jsonObj.get("invalid-characters") != null && !jsonObj.get("invalid-characters").isJsonNull()) && !jsonObj.get("invalid-characters").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `invalid-characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalid-characters").toString()));
+      }
+      if ((jsonObj.get("item-locking-enabled") != null && !jsonObj.get("item-locking-enabled").isJsonNull()) && !jsonObj.get("item-locking-enabled").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `item-locking-enabled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item-locking-enabled").toString()));
       }
       if ((jsonObj.get("item-type") != null && !jsonObj.get("item-type").isJsonNull()) && !jsonObj.get("item-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `item-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item-type").toString()));
