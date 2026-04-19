@@ -709,6 +709,7 @@ import io.akeyless.client.model.RotatedSecretUpdateSnowflake;
 import io.akeyless.client.model.RotatedSecretUpdateSplunk;
 import io.akeyless.client.model.RotatedSecretUpdateSsh;
 import io.akeyless.client.model.RotatedSecretUpdateWindows;
+import io.akeyless.client.model.RuntimeAuthorityCommand;
 import io.akeyless.client.model.SecretSyncOutput;
 import io.akeyless.client.model.SetItemState;
 import io.akeyless.client.model.SetRoleRule;
@@ -20404,7 +20405,7 @@ public class V2Api {
         Object localVarPostBody = dynamicSecretCreateOracleDb;
 
         // create path and map variables
-        String localVarPath = "/dynamic-secret-create-oracle";
+        String localVarPath = "/dynamic-secret-create-oracledb";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -22234,7 +22235,7 @@ public class V2Api {
         Object localVarPostBody = dynamicSecretTmpCredsGet;
 
         // create path and map variables
-        String localVarPath = "/dynamic-secret-tmp-creds-Get";
+        String localVarPath = "/dynamic-secret-tmp-creds-get";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24059,7 +24060,7 @@ public class V2Api {
         Object localVarPostBody = dynamicSecretUpdateHanaDb;
 
         // create path and map variables
-        String localVarPath = "/dynamic-secret-update-hana";
+        String localVarPath = "/dynamic-secret-update-hanadb";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -24452,7 +24453,7 @@ public class V2Api {
         Object localVarPostBody = dynamicSecretUpdateMongoDb;
 
         // create path and map variables
-        String localVarPath = "/dynamic-secret-update-mongo";
+        String localVarPath = "/dynamic-secret-update-mongodb";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -59666,6 +59667,133 @@ public class V2Api {
         okhttp3.Call localVarCall = rotatedSecretUpdateWindowsValidateBeforeCall(rotatedSecretUpdateWindows, _callback);
         Type localVarReturnType = new TypeToken<RotatedSecretUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for runtimeAuthority
+     * @param runtimeAuthorityCommand  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call runtimeAuthorityCall(RuntimeAuthorityCommand runtimeAuthorityCommand, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = runtimeAuthorityCommand;
+
+        // create path and map variables
+        String localVarPath = "/runtime-authority";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call runtimeAuthorityValidateBeforeCall(RuntimeAuthorityCommand runtimeAuthorityCommand, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'runtimeAuthorityCommand' is set
+        if (runtimeAuthorityCommand == null) {
+            throw new ApiException("Missing the required parameter 'runtimeAuthorityCommand' when calling runtimeAuthority(Async)");
+        }
+
+        return runtimeAuthorityCall(runtimeAuthorityCommand, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param runtimeAuthorityCommand  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void runtimeAuthority(RuntimeAuthorityCommand runtimeAuthorityCommand) throws ApiException {
+        runtimeAuthorityWithHttpInfo(runtimeAuthorityCommand);
+    }
+
+    /**
+     * 
+     * 
+     * @param runtimeAuthorityCommand  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> runtimeAuthorityWithHttpInfo(RuntimeAuthorityCommand runtimeAuthorityCommand) throws ApiException {
+        okhttp3.Call localVarCall = runtimeAuthorityValidateBeforeCall(runtimeAuthorityCommand, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param runtimeAuthorityCommand  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call runtimeAuthorityAsync(RuntimeAuthorityCommand runtimeAuthorityCommand, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = runtimeAuthorityValidateBeforeCall(runtimeAuthorityCommand, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
     /**

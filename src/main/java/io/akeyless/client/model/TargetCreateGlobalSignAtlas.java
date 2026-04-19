@@ -60,6 +60,11 @@ public class TargetCreateGlobalSignAtlas {
   @javax.annotation.Nonnull
   private String apiSecret;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -148,6 +153,25 @@ public class TargetCreateGlobalSignAtlas {
 
   public void setApiSecret(@javax.annotation.Nonnull String apiSecret) {
     this.apiSecret = apiSecret;
+  }
+
+
+  public TargetCreateGlobalSignAtlas deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -353,6 +377,7 @@ public class TargetCreateGlobalSignAtlas {
     TargetCreateGlobalSignAtlas targetCreateGlobalSignAtlas = (TargetCreateGlobalSignAtlas) o;
     return Objects.equals(this.apiKey, targetCreateGlobalSignAtlas.apiKey) &&
         Objects.equals(this.apiSecret, targetCreateGlobalSignAtlas.apiSecret) &&
+        Objects.equals(this.deleteProtection, targetCreateGlobalSignAtlas.deleteProtection) &&
         Objects.equals(this.description, targetCreateGlobalSignAtlas.description) &&
         Objects.equals(this.json, targetCreateGlobalSignAtlas.json) &&
         Objects.equals(this.key, targetCreateGlobalSignAtlas.key) &&
@@ -367,7 +392,7 @@ public class TargetCreateGlobalSignAtlas {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiSecret, description, json, key, maxVersions, mtlsCertDataBase64, mtlsKeyDataBase64, name, timeout, token, uidToken);
+    return Objects.hash(apiKey, apiSecret, deleteProtection, description, json, key, maxVersions, mtlsCertDataBase64, mtlsKeyDataBase64, name, timeout, token, uidToken);
   }
 
   @Override
@@ -376,6 +401,7 @@ public class TargetCreateGlobalSignAtlas {
     sb.append("class TargetCreateGlobalSignAtlas {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiSecret: ").append(toIndentedString(apiSecret)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -410,6 +436,7 @@ public class TargetCreateGlobalSignAtlas {
     openapiFields = new HashSet<String>();
     openapiFields.add("api-key");
     openapiFields.add("api-secret");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("key");
@@ -461,6 +488,9 @@ public class TargetCreateGlobalSignAtlas {
       }
       if (!jsonObj.get("api-secret").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `api-secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-secret").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

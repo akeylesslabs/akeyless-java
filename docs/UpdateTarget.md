@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |

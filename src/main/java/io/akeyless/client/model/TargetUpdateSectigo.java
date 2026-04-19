@@ -60,6 +60,11 @@ public class TargetUpdateSectigo {
   @javax.annotation.Nonnull
   private String customerUri;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -168,6 +173,25 @@ public class TargetUpdateSectigo {
 
   public void setCustomerUri(@javax.annotation.Nonnull String customerUri) {
     this.customerUri = customerUri;
+  }
+
+
+  public TargetUpdateSectigo deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -449,6 +473,7 @@ public class TargetUpdateSectigo {
     TargetUpdateSectigo targetUpdateSectigo = (TargetUpdateSectigo) o;
     return Objects.equals(this.certificateProfileId, targetUpdateSectigo.certificateProfileId) &&
         Objects.equals(this.customerUri, targetUpdateSectigo.customerUri) &&
+        Objects.equals(this.deleteProtection, targetUpdateSectigo.deleteProtection) &&
         Objects.equals(this.description, targetUpdateSectigo.description) &&
         Objects.equals(this.externalRequester, targetUpdateSectigo.externalRequester) &&
         Objects.equals(this.json, targetUpdateSectigo.json) &&
@@ -467,7 +492,7 @@ public class TargetUpdateSectigo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateProfileId, customerUri, description, externalRequester, json, keepPrevVersion, key, maxVersions, name, newName, organizationId, password, timeout, token, uidToken, username);
+    return Objects.hash(certificateProfileId, customerUri, deleteProtection, description, externalRequester, json, keepPrevVersion, key, maxVersions, name, newName, organizationId, password, timeout, token, uidToken, username);
   }
 
   @Override
@@ -476,6 +501,7 @@ public class TargetUpdateSectigo {
     sb.append("class TargetUpdateSectigo {\n");
     sb.append("    certificateProfileId: ").append(toIndentedString(certificateProfileId)).append("\n");
     sb.append("    customerUri: ").append(toIndentedString(customerUri)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    externalRequester: ").append(toIndentedString(externalRequester)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -514,6 +540,7 @@ public class TargetUpdateSectigo {
     openapiFields = new HashSet<String>();
     openapiFields.add("certificate-profile-id");
     openapiFields.add("customer-uri");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("external-requester");
     openapiFields.add("json");
@@ -570,6 +597,9 @@ public class TargetUpdateSectigo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("customer-uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customer-uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer-uri").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

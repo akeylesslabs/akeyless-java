@@ -115,6 +115,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.ActiveDirectoryPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AddGatewayAllowedAccessId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AdminsConfigPart.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AgenticRule.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AgenticRules.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AiInsightsConfigPart.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AiInsightsSetting.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.AkeylessGatewayConfig.CustomTypeAdapterFactory());
@@ -992,6 +994,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatorsConfigPart.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RuleAssigner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.Rules.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RuntimeAuthorityCommand.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SAMLAccessRules.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SAMLAttribute.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SSHCertificateIssueDetails.CustomTypeAdapterFactory());
@@ -1004,6 +1007,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SecureRemoteAccess.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.ServerInventoryMigration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.ServerInventoryPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SetDefaultProfile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SetDefaultProfileOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SetItemState.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.SetRoleRule.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.ShareItem.CustomTypeAdapterFactory());

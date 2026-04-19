@@ -60,6 +60,11 @@ public class TargetUpdateLdap {
   @javax.annotation.Nonnull
   private String bindDnPassword;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -163,6 +168,25 @@ public class TargetUpdateLdap {
 
   public void setBindDnPassword(@javax.annotation.Nonnull String bindDnPassword) {
     this.bindDnPassword = bindDnPassword;
+  }
+
+
+  public TargetUpdateLdap deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -425,6 +449,7 @@ public class TargetUpdateLdap {
     TargetUpdateLdap targetUpdateLdap = (TargetUpdateLdap) o;
     return Objects.equals(this.bindDn, targetUpdateLdap.bindDn) &&
         Objects.equals(this.bindDnPassword, targetUpdateLdap.bindDnPassword) &&
+        Objects.equals(this.deleteProtection, targetUpdateLdap.deleteProtection) &&
         Objects.equals(this.description, targetUpdateLdap.description) &&
         Objects.equals(this.json, targetUpdateLdap.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateLdap.keepPrevVersion) &&
@@ -442,7 +467,7 @@ public class TargetUpdateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, maxVersions, name, newName, serverType, token, tokenExpiration, uidToken);
+    return Objects.hash(bindDn, bindDnPassword, deleteProtection, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, maxVersions, name, newName, serverType, token, tokenExpiration, uidToken);
   }
 
   @Override
@@ -451,6 +476,7 @@ public class TargetUpdateLdap {
     sb.append("class TargetUpdateLdap {\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -488,6 +514,7 @@ public class TargetUpdateLdap {
     openapiFields = new HashSet<String>();
     openapiFields.add("bind-dn");
     openapiFields.add("bind-dn-password");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
@@ -543,6 +570,9 @@ public class TargetUpdateLdap {
       }
       if (!jsonObj.get("bind-dn-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `bind-dn-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bind-dn-password").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

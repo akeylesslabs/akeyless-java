@@ -146,7 +146,7 @@ public class DeleteRoleRule {
   }
 
   /**
-   * item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, sra-rule, ara-rule
+   * item-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule, usage-reports-rule, event-rule, event-forwarder-rule, reverse-rbac-rule
    * @return ruleType
    */
   @javax.annotation.Nullable

@@ -10,6 +10,7 @@
 |**artifactoryAdminName** | **String** | Artifactory Admin Name |  |
 |**artifactoryAdminPwd** | **String** | Artifactory Admin password |  |
 |**baseUrl** | **String** | Base URL |  |
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AgenticRules;
 import io.akeyless.client.model.CertificateChainInfo;
 import io.akeyless.client.model.CertificateExpirationEvent;
 import io.akeyless.client.model.CertificateIssueInfo;
@@ -67,6 +68,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class ItemGeneralInfo {
+  public static final String SERIALIZED_NAME_AGENTIC_RULES = "agentic_rules";
+  @SerializedName(SERIALIZED_NAME_AGENTIC_RULES)
+  @javax.annotation.Nullable
+  private AgenticRules agenticRules;
+
   public static final String SERIALIZED_NAME_CERT_ISSUE_DETAILS = "cert_issue_details";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUE_DETAILS)
   @javax.annotation.Nullable
@@ -159,6 +165,25 @@ public class ItemGeneralInfo {
 
   public ItemGeneralInfo() {
   }
+
+  public ItemGeneralInfo agenticRules(@javax.annotation.Nullable AgenticRules agenticRules) {
+    this.agenticRules = agenticRules;
+    return this;
+  }
+
+  /**
+   * Get agenticRules
+   * @return agenticRules
+   */
+  @javax.annotation.Nullable
+  public AgenticRules getAgenticRules() {
+    return agenticRules;
+  }
+
+  public void setAgenticRules(@javax.annotation.Nullable AgenticRules agenticRules) {
+    this.agenticRules = agenticRules;
+  }
+
 
   public ItemGeneralInfo certIssueDetails(@javax.annotation.Nullable CertificateIssueInfo certIssueDetails) {
     this.certIssueDetails = certIssueDetails;
@@ -528,7 +553,8 @@ public class ItemGeneralInfo {
       return false;
     }
     ItemGeneralInfo itemGeneralInfo = (ItemGeneralInfo) o;
-    return Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
+    return Objects.equals(this.agenticRules, itemGeneralInfo.agenticRules) &&
+        Objects.equals(this.certIssueDetails, itemGeneralInfo.certIssueDetails) &&
         Objects.equals(this.certificateChainInfo, itemGeneralInfo.certificateChainInfo) &&
         Objects.equals(this.certificateFormat, itemGeneralInfo.certificateFormat) &&
         Objects.equals(this.certificatesTemplateInfo, itemGeneralInfo.certificatesTemplateInfo) &&
@@ -550,13 +576,14 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, issuerOverviewInfo, nextRotationEvents, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(agenticRules, certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, issuerOverviewInfo, nextRotationEvents, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ItemGeneralInfo {\n");
+    sb.append("    agenticRules: ").append(toIndentedString(agenticRules)).append("\n");
     sb.append("    certIssueDetails: ").append(toIndentedString(certIssueDetails)).append("\n");
     sb.append("    certificateChainInfo: ").append(toIndentedString(certificateChainInfo)).append("\n");
     sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
@@ -597,6 +624,7 @@ public class ItemGeneralInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("agentic_rules");
     openapiFields.add("cert_issue_details");
     openapiFields.add("certificate_chain_info");
     openapiFields.add("certificate_format");
@@ -641,6 +669,10 @@ public class ItemGeneralInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `agentic_rules`
+      if (jsonObj.get("agentic_rules") != null && !jsonObj.get("agentic_rules").isJsonNull()) {
+        AgenticRules.validateJsonElement(jsonObj.get("agentic_rules"));
+      }
       // validate the optional field `cert_issue_details`
       if (jsonObj.get("cert_issue_details") != null && !jsonObj.get("cert_issue_details").isJsonNull()) {
         CertificateIssueInfo.validateJsonElement(jsonObj.get("cert_issue_details"));

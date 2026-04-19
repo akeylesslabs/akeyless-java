@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class TargetCreateRabbitMq {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -102,6 +107,25 @@ public class TargetCreateRabbitMq {
 
   public TargetCreateRabbitMq() {
   }
+
+  public TargetCreateRabbitMq deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
 
   public TargetCreateRabbitMq description(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -303,7 +327,8 @@ public class TargetCreateRabbitMq {
       return false;
     }
     TargetCreateRabbitMq targetCreateRabbitMq = (TargetCreateRabbitMq) o;
-    return Objects.equals(this.description, targetCreateRabbitMq.description) &&
+    return Objects.equals(this.deleteProtection, targetCreateRabbitMq.deleteProtection) &&
+        Objects.equals(this.description, targetCreateRabbitMq.description) &&
         Objects.equals(this.json, targetCreateRabbitMq.json) &&
         Objects.equals(this.key, targetCreateRabbitMq.key) &&
         Objects.equals(this.maxVersions, targetCreateRabbitMq.maxVersions) &&
@@ -317,13 +342,14 @@ public class TargetCreateRabbitMq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, json, key, maxVersions, name, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken);
+    return Objects.hash(deleteProtection, description, json, key, maxVersions, name, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetCreateRabbitMq {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -356,6 +382,7 @@ public class TargetCreateRabbitMq {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("key");
@@ -400,6 +427,9 @@ public class TargetCreateRabbitMq {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

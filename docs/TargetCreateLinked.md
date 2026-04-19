@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**hosts** | **String** | A comma seperated list of server hosts and server descriptions joined by semicolon &#39;;&#39; (i.e. &#39;server-dev.com;My Dev server,server-prod.com;My Prod server description&#39;) |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

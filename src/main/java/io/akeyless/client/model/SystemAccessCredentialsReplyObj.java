@@ -60,6 +60,11 @@ public class SystemAccessCredentialsReplyObj {
   @javax.annotation.Nullable
   private String authCreds;
 
+  public static final String SERIALIZED_NAME_CSRF_TOKEN = "csrf_token";
+  @SerializedName(SERIALIZED_NAME_CSRF_TOKEN)
+  @javax.annotation.Nullable
+  private String csrfToken;
+
   public static final String SERIALIZED_NAME_EXPIRY = "expiry";
   @SerializedName(SERIALIZED_NAME_EXPIRY)
   @javax.annotation.Nullable
@@ -128,6 +133,25 @@ public class SystemAccessCredentialsReplyObj {
 
   public void setAuthCreds(@javax.annotation.Nullable String authCreds) {
     this.authCreds = authCreds;
+  }
+
+
+  public SystemAccessCredentialsReplyObj csrfToken(@javax.annotation.Nullable String csrfToken) {
+    this.csrfToken = csrfToken;
+    return this;
+  }
+
+  /**
+   * CSRF token for synchronizer-token pattern (only populated for WebUI clients)
+   * @return csrfToken
+   */
+  @javax.annotation.Nullable
+  public String getCsrfToken() {
+    return csrfToken;
+  }
+
+  public void setCsrfToken(@javax.annotation.Nullable String csrfToken) {
+    this.csrfToken = csrfToken;
   }
 
 
@@ -257,6 +281,7 @@ public class SystemAccessCredentialsReplyObj {
     SystemAccessCredentialsReplyObj systemAccessCredentialsReplyObj = (SystemAccessCredentialsReplyObj) o;
     return Objects.equals(this.accessId, systemAccessCredentialsReplyObj.accessId) &&
         Objects.equals(this.authCreds, systemAccessCredentialsReplyObj.authCreds) &&
+        Objects.equals(this.csrfToken, systemAccessCredentialsReplyObj.csrfToken) &&
         Objects.equals(this.expiry, systemAccessCredentialsReplyObj.expiry) &&
         Objects.equals(this.kfmCreds, systemAccessCredentialsReplyObj.kfmCreds) &&
         Objects.equals(this.needMfaAppFirstConfig, systemAccessCredentialsReplyObj.needMfaAppFirstConfig) &&
@@ -267,7 +292,7 @@ public class SystemAccessCredentialsReplyObj {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, authCreds, expiry, kfmCreds, needMfaAppFirstConfig, requiredMfa, token, uamCreds);
+    return Objects.hash(accessId, authCreds, csrfToken, expiry, kfmCreds, needMfaAppFirstConfig, requiredMfa, token, uamCreds);
   }
 
   @Override
@@ -276,6 +301,7 @@ public class SystemAccessCredentialsReplyObj {
     sb.append("class SystemAccessCredentialsReplyObj {\n");
     sb.append("    accessId: ").append(toIndentedString(accessId)).append("\n");
     sb.append("    authCreds: ").append(toIndentedString(authCreds)).append("\n");
+    sb.append("    csrfToken: ").append(toIndentedString(csrfToken)).append("\n");
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    kfmCreds: ").append(toIndentedString(kfmCreds)).append("\n");
     sb.append("    needMfaAppFirstConfig: ").append(toIndentedString(needMfaAppFirstConfig)).append("\n");
@@ -306,6 +332,7 @@ public class SystemAccessCredentialsReplyObj {
     openapiFields = new HashSet<String>();
     openapiFields.add("access_id");
     openapiFields.add("auth_creds");
+    openapiFields.add("csrf_token");
     openapiFields.add("expiry");
     openapiFields.add("kfm_creds");
     openapiFields.add("need_mfa_app_first_config");
@@ -343,6 +370,9 @@ public class SystemAccessCredentialsReplyObj {
       }
       if ((jsonObj.get("auth_creds") != null && !jsonObj.get("auth_creds").isJsonNull()) && !jsonObj.get("auth_creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `auth_creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_creds").toString()));
+      }
+      if ((jsonObj.get("csrf_token") != null && !jsonObj.get("csrf_token").isJsonNull()) && !jsonObj.get("csrf_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `csrf_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csrf_token").toString()));
       }
       if ((jsonObj.get("kfm_creds") != null && !jsonObj.get("kfm_creds").isJsonNull()) && !jsonObj.get("kfm_creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `kfm_creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kfm_creds").toString()));

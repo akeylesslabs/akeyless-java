@@ -60,6 +60,11 @@ public class TargetUpdateWindows {
   @javax.annotation.Nullable
   private String connectionType = "credentials";
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -178,6 +183,25 @@ public class TargetUpdateWindows {
 
   public void setConnectionType(@javax.annotation.Nullable String connectionType) {
     this.connectionType = connectionType;
+  }
+
+
+  public TargetUpdateWindows deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -497,6 +521,7 @@ public class TargetUpdateWindows {
     TargetUpdateWindows targetUpdateWindows = (TargetUpdateWindows) o;
     return Objects.equals(this.certificate, targetUpdateWindows.certificate) &&
         Objects.equals(this.connectionType, targetUpdateWindows.connectionType) &&
+        Objects.equals(this.deleteProtection, targetUpdateWindows.deleteProtection) &&
         Objects.equals(this.description, targetUpdateWindows.description) &&
         Objects.equals(this.domain, targetUpdateWindows.domain) &&
         Objects.equals(this.hostname, targetUpdateWindows.hostname) &&
@@ -517,7 +542,7 @@ public class TargetUpdateWindows {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificate, connectionType, description, domain, hostname, json, keepPrevVersion, key, maxVersions, name, newName, parentTargetName, password, port, token, uidToken, useTls, username);
+    return Objects.hash(certificate, connectionType, deleteProtection, description, domain, hostname, json, keepPrevVersion, key, maxVersions, name, newName, parentTargetName, password, port, token, uidToken, useTls, username);
   }
 
   @Override
@@ -526,6 +551,7 @@ public class TargetUpdateWindows {
     sb.append("class TargetUpdateWindows {\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
@@ -566,6 +592,7 @@ public class TargetUpdateWindows {
     openapiFields = new HashSet<String>();
     openapiFields.add("certificate");
     openapiFields.add("connection-type");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("domain");
     openapiFields.add("hostname");
@@ -624,6 +651,9 @@ public class TargetUpdateWindows {
       }
       if ((jsonObj.get("connection-type") != null && !jsonObj.get("connection-type").isJsonNull()) && !jsonObj.get("connection-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `connection-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection-type").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

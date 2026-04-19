@@ -65,6 +65,11 @@ public class TargetUpdateArtifactory {
   @javax.annotation.Nonnull
   private String baseUrl;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -167,6 +172,25 @@ public class TargetUpdateArtifactory {
 
   public void setBaseUrl(@javax.annotation.Nonnull String baseUrl) {
     this.baseUrl = baseUrl;
+  }
+
+
+  public TargetUpdateArtifactory deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -354,6 +378,7 @@ public class TargetUpdateArtifactory {
     return Objects.equals(this.artifactoryAdminName, targetUpdateArtifactory.artifactoryAdminName) &&
         Objects.equals(this.artifactoryAdminPwd, targetUpdateArtifactory.artifactoryAdminPwd) &&
         Objects.equals(this.baseUrl, targetUpdateArtifactory.baseUrl) &&
+        Objects.equals(this.deleteProtection, targetUpdateArtifactory.deleteProtection) &&
         Objects.equals(this.description, targetUpdateArtifactory.description) &&
         Objects.equals(this.json, targetUpdateArtifactory.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateArtifactory.keepPrevVersion) &&
@@ -367,7 +392,7 @@ public class TargetUpdateArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, description, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, baseUrl, deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken);
   }
 
   @Override
@@ -377,6 +402,7 @@ public class TargetUpdateArtifactory {
     sb.append("    artifactoryAdminName: ").append(toIndentedString(artifactoryAdminName)).append("\n");
     sb.append("    artifactoryAdminPwd: ").append(toIndentedString(artifactoryAdminPwd)).append("\n");
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -411,6 +437,7 @@ public class TargetUpdateArtifactory {
     openapiFields.add("artifactory-admin-name");
     openapiFields.add("artifactory-admin-pwd");
     openapiFields.add("base-url");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
@@ -465,6 +492,9 @@ public class TargetUpdateArtifactory {
       }
       if (!jsonObj.get("base-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `base-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("base-url").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

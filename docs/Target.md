@@ -14,6 +14,7 @@
 |**clientPermissions** | **List&lt;String&gt;** |  |  [optional] |
 |**comment** | **String** |  |  [optional] |
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
+|**deleteProtection** | **Boolean** |  |  [optional] |
 |**isAccessRequestEnabled** | **Boolean** |  |  [optional] |
 |**lastVersion** | **Integer** |  |  [optional] |
 |**lockingInfo** | [**LockingInfo**](LockingInfo.md) |  |  [optional] |

@@ -314,6 +314,16 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USC_TAGS = "usc-tags";
+  @SerializedName(SERIALIZED_NAME_USC_TAGS)
+  @javax.annotation.Nullable
+  private String uscTags;
+
+  public static final String SERIALIZED_NAME_USE_TAGS_AS_FILTER = "use-tags-as-filter";
+  @SerializedName(SERIALIZED_NAME_USE_TAGS_AS_FILTER)
+  @javax.annotation.Nullable
+  private String useTagsAsFilter;
+
   public UpdateItem() {
   }
 
@@ -1361,6 +1371,44 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem uscTags(@javax.annotation.Nullable String uscTags) {
+    this.uscTags = uscTags;
+    return this;
+  }
+
+  /**
+   * Comma-separated list of tags to apply to all secrets created/synced on the remote USC  USC items only.
+   * @return uscTags
+   */
+  @javax.annotation.Nullable
+  public String getUscTags() {
+    return uscTags;
+  }
+
+  public void setUscTags(@javax.annotation.Nullable String uscTags) {
+    this.uscTags = uscTags;
+  }
+
+
+  public UpdateItem useTagsAsFilter(@javax.annotation.Nullable String useTagsAsFilter) {
+    this.useTagsAsFilter = useTagsAsFilter;
+    return this;
+  }
+
+  /**
+   * Whether to filter the USC secret list using the specified usc-tags [true/false]  USC items only.
+   * @return useTagsAsFilter
+   */
+  @javax.annotation.Nullable
+  public String getUseTagsAsFilter() {
+    return useTagsAsFilter;
+  }
+
+  public void setUseTagsAsFilter(@javax.annotation.Nullable String useTagsAsFilter) {
+    this.useTagsAsFilter = useTagsAsFilter;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1422,12 +1470,14 @@ public class UpdateItem {
         Objects.equals(this.secureAccessWebBrowsing, updateItem.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, updateItem.secureAccessWebProxy) &&
         Objects.equals(this.token, updateItem.token) &&
-        Objects.equals(this.uidToken, updateItem.uidToken);
+        Objects.equals(this.uidToken, updateItem.uidToken) &&
+        Objects.equals(this.uscTags, updateItem.uscTags) &&
+        Objects.equals(this.useTagsAsFilter, updateItem.useTagsAsFilter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, gcpSmRegions, hostProvider, itemCustomFields, json, lockDuringSraSession, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken);
+    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, gcpSmRegions, hostProvider, itemCustomFields, json, lockDuringSraSession, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken, uscTags, useTagsAsFilter);
   }
 
   @Override
@@ -1486,6 +1536,8 @@ public class UpdateItem {
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    uscTags: ").append(toIndentedString(uscTags)).append("\n");
+    sb.append("    useTagsAsFilter: ").append(toIndentedString(useTagsAsFilter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1560,6 +1612,8 @@ public class UpdateItem {
     openapiFields.add("secure-access-web-proxy");
     openapiFields.add("token");
     openapiFields.add("uid-token");
+    openapiFields.add("usc-tags");
+    openapiFields.add("use-tags-as-filter");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1731,6 +1785,12 @@ public class UpdateItem {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("usc-tags") != null && !jsonObj.get("usc-tags").isJsonNull()) && !jsonObj.get("usc-tags").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usc-tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-tags").toString()));
+      }
+      if ((jsonObj.get("use-tags-as-filter") != null && !jsonObj.get("use-tags-as-filter").isJsonNull()) && !jsonObj.get("use-tags-as-filter").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use-tags-as-filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-tags-as-filter").toString()));
       }
   }
 

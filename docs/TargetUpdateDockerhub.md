@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**dockerhubPassword** | **String** | Password for docker repository |  [optional] |
 |**dockerhubUsername** | **String** | Username for docker repository |  [optional] |

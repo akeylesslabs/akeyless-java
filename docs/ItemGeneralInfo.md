@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**agenticRules** | [**AgenticRules**](AgenticRules.md) |  |  [optional] |
 |**certIssueDetails** | [**CertificateIssueInfo**](CertificateIssueInfo.md) |  |  [optional] |
 |**certificateChainInfo** | [**CertificateChainInfo**](CertificateChainInfo.md) |  |  [optional] |
 |**certificateFormat** | **String** |  |  [optional] |

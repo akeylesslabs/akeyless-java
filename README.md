@@ -254,7 +254,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretCreateMsSql**](docs/V2Api.md#dynamicSecretCreateMsSql) | **POST** /dynamic-secret-create-mssql | 
 *V2Api* | [**dynamicSecretCreateMySql**](docs/V2Api.md#dynamicSecretCreateMySql) | **POST** /dynamic-secret-create-mysql | 
 *V2Api* | [**dynamicSecretCreateOpenAI**](docs/V2Api.md#dynamicSecretCreateOpenAI) | **POST** /dynamic-secret-create-openai | 
-*V2Api* | [**dynamicSecretCreateOracleDb**](docs/V2Api.md#dynamicSecretCreateOracleDb) | **POST** /dynamic-secret-create-oracle | 
+*V2Api* | [**dynamicSecretCreateOracleDb**](docs/V2Api.md#dynamicSecretCreateOracleDb) | **POST** /dynamic-secret-create-oracledb | 
 *V2Api* | [**dynamicSecretCreatePing**](docs/V2Api.md#dynamicSecretCreatePing) | **POST** /dynamic-secret-create-ping | 
 *V2Api* | [**dynamicSecretCreatePostgreSql**](docs/V2Api.md#dynamicSecretCreatePostgreSql) | **POST** /dynamic-secret-create-postgresql | 
 *V2Api* | [**dynamicSecretCreateRabbitMq**](docs/V2Api.md#dynamicSecretCreateRabbitMq) | **POST** /dynamic-secret-create-rabbitmq | 
@@ -268,7 +268,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretGetValue**](docs/V2Api.md#dynamicSecretGetValue) | **POST** /dynamic-secret-get-value | 
 *V2Api* | [**dynamicSecretList**](docs/V2Api.md#dynamicSecretList) | **POST** /dynamic-secret-list | 
 *V2Api* | [**dynamicSecretTmpCredsDelete**](docs/V2Api.md#dynamicSecretTmpCredsDelete) | **POST** /dynamic-secret-tmp-creds-delete | 
-*V2Api* | [**dynamicSecretTmpCredsGet**](docs/V2Api.md#dynamicSecretTmpCredsGet) | **POST** /dynamic-secret-tmp-creds-Get | 
+*V2Api* | [**dynamicSecretTmpCredsGet**](docs/V2Api.md#dynamicSecretTmpCredsGet) | **POST** /dynamic-secret-tmp-creds-get | 
 *V2Api* | [**dynamicSecretTmpCredsUpdate**](docs/V2Api.md#dynamicSecretTmpCredsUpdate) | **POST** /dynamic-secret-tmp-creds-update | 
 *V2Api* | [**dynamicSecretUpdateArtifactory**](docs/V2Api.md#dynamicSecretUpdateArtifactory) | **POST** /dynamic-secret-update-artifactory | 
 *V2Api* | [**dynamicSecretUpdateAws**](docs/V2Api.md#dynamicSecretUpdateAws) | **POST** /dynamic-secret-update-aws | 
@@ -282,10 +282,10 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretUpdateGitlab**](docs/V2Api.md#dynamicSecretUpdateGitlab) | **POST** /dynamic-secret-update-gitlab | 
 *V2Api* | [**dynamicSecretUpdateGke**](docs/V2Api.md#dynamicSecretUpdateGke) | **POST** /dynamic-secret-update-gke | 
 *V2Api* | [**dynamicSecretUpdateGoogleWorkspace**](docs/V2Api.md#dynamicSecretUpdateGoogleWorkspace) | **POST** /dynamic-secret-update-google-workspace | 
-*V2Api* | [**dynamicSecretUpdateHanaDb**](docs/V2Api.md#dynamicSecretUpdateHanaDb) | **POST** /dynamic-secret-update-hana | 
+*V2Api* | [**dynamicSecretUpdateHanaDb**](docs/V2Api.md#dynamicSecretUpdateHanaDb) | **POST** /dynamic-secret-update-hanadb | 
 *V2Api* | [**dynamicSecretUpdateK8s**](docs/V2Api.md#dynamicSecretUpdateK8s) | **POST** /dynamic-secret-update-k8s | 
 *V2Api* | [**dynamicSecretUpdateLdap**](docs/V2Api.md#dynamicSecretUpdateLdap) | **POST** /dynamic-secret-update-ldap | 
-*V2Api* | [**dynamicSecretUpdateMongoDb**](docs/V2Api.md#dynamicSecretUpdateMongoDb) | **POST** /dynamic-secret-update-mongo | 
+*V2Api* | [**dynamicSecretUpdateMongoDb**](docs/V2Api.md#dynamicSecretUpdateMongoDb) | **POST** /dynamic-secret-update-mongodb | 
 *V2Api* | [**dynamicSecretUpdateMsSql**](docs/V2Api.md#dynamicSecretUpdateMsSql) | **POST** /dynamic-secret-update-mssql | 
 *V2Api* | [**dynamicSecretUpdateMySql**](docs/V2Api.md#dynamicSecretUpdateMySql) | **POST** /dynamic-secret-update-mysql | 
 *V2Api* | [**dynamicSecretUpdateOpenAI**](docs/V2Api.md#dynamicSecretUpdateOpenAI) | **POST** /dynamic-secret-update-openai | 
@@ -555,6 +555,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretUpdateSplunk**](docs/V2Api.md#rotatedSecretUpdateSplunk) | **POST** /rotated-secret-update-splunk | 
 *V2Api* | [**rotatedSecretUpdateSsh**](docs/V2Api.md#rotatedSecretUpdateSsh) | **POST** /rotated-secret-update-ssh | 
 *V2Api* | [**rotatedSecretUpdateWindows**](docs/V2Api.md#rotatedSecretUpdateWindows) | **POST** /rotated-secret-update-windows | 
+*V2Api* | [**runtimeAuthority**](docs/V2Api.md#runtimeAuthority) | **POST** /runtime-authority | 
 *V2Api* | [**setItemState**](docs/V2Api.md#setItemState) | **POST** /set-item-state | 
 *V2Api* | [**setRoleRule**](docs/V2Api.md#setRoleRule) | **POST** /set-role-rule | 
 *V2Api* | [**shareItem**](docs/V2Api.md#shareItem) | **POST** /share-item | 
@@ -744,6 +745,8 @@ Class | Method | HTTP request | Description
  - [ActiveDirectoryPayload](docs/ActiveDirectoryPayload.md)
  - [AddGatewayAllowedAccessId](docs/AddGatewayAllowedAccessId.md)
  - [AdminsConfigPart](docs/AdminsConfigPart.md)
+ - [AgenticRule](docs/AgenticRule.md)
+ - [AgenticRules](docs/AgenticRules.md)
  - [AiInsightsConfigPart](docs/AiInsightsConfigPart.md)
  - [AiInsightsSetting](docs/AiInsightsSetting.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
@@ -1621,6 +1624,7 @@ Class | Method | HTTP request | Description
  - [RotatorsConfigPart](docs/RotatorsConfigPart.md)
  - [RuleAssigner](docs/RuleAssigner.md)
  - [Rules](docs/Rules.md)
+ - [RuntimeAuthorityCommand](docs/RuntimeAuthorityCommand.md)
  - [SAMLAccessRules](docs/SAMLAccessRules.md)
  - [SAMLAttribute](docs/SAMLAttribute.md)
  - [SSHCertificateIssueDetails](docs/SSHCertificateIssueDetails.md)
@@ -1633,6 +1637,8 @@ Class | Method | HTTP request | Description
  - [SecureRemoteAccess](docs/SecureRemoteAccess.md)
  - [ServerInventoryMigration](docs/ServerInventoryMigration.md)
  - [ServerInventoryPayload](docs/ServerInventoryPayload.md)
+ - [SetDefaultProfile](docs/SetDefaultProfile.md)
+ - [SetDefaultProfileOutput](docs/SetDefaultProfileOutput.md)
  - [SetItemState](docs/SetItemState.md)
  - [SetRoleRule](docs/SetRoleRule.md)
  - [ShareItem](docs/ShareItem.md)

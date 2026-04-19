@@ -55,6 +55,11 @@ public class TargetCreateLetsEncrypt {
   @javax.annotation.Nullable
   private String acmeChallenge = "http";
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -144,6 +149,25 @@ public class TargetCreateLetsEncrypt {
 
   public void setAcmeChallenge(@javax.annotation.Nullable String acmeChallenge) {
     this.acmeChallenge = acmeChallenge;
+  }
+
+
+  public TargetCreateLetsEncrypt deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -424,6 +448,7 @@ public class TargetCreateLetsEncrypt {
     }
     TargetCreateLetsEncrypt targetCreateLetsEncrypt = (TargetCreateLetsEncrypt) o;
     return Objects.equals(this.acmeChallenge, targetCreateLetsEncrypt.acmeChallenge) &&
+        Objects.equals(this.deleteProtection, targetCreateLetsEncrypt.deleteProtection) &&
         Objects.equals(this.description, targetCreateLetsEncrypt.description) &&
         Objects.equals(this.dnsTargetCreds, targetCreateLetsEncrypt.dnsTargetCreds) &&
         Objects.equals(this.email, targetCreateLetsEncrypt.email) &&
@@ -442,7 +467,7 @@ public class TargetCreateLetsEncrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, description, dnsTargetCreds, email, gcpProject, hostedZone, json, key, letsEncryptUrl, maxVersions, name, resourceGroup, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, deleteProtection, description, dnsTargetCreds, email, gcpProject, hostedZone, json, key, letsEncryptUrl, maxVersions, name, resourceGroup, timeout, token, uidToken);
   }
 
   @Override
@@ -450,6 +475,7 @@ public class TargetCreateLetsEncrypt {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetCreateLetsEncrypt {\n");
     sb.append("    acmeChallenge: ").append(toIndentedString(acmeChallenge)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -487,6 +513,7 @@ public class TargetCreateLetsEncrypt {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("acme-challenge");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("dns-target-creds");
     openapiFields.add("email");
@@ -538,6 +565,9 @@ public class TargetCreateLetsEncrypt {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("acme-challenge") != null && !jsonObj.get("acme-challenge").isJsonNull()) && !jsonObj.get("acme-challenge").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acme-challenge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acme-challenge").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

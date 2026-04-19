@@ -27,6 +27,8 @@ docs/ActiveDirectoryMigration.md
 docs/ActiveDirectoryPayload.md
 docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
+docs/AgenticRule.md
+docs/AgenticRules.md
 docs/AiInsightsConfigPart.md
 docs/AiInsightsSetting.md
 docs/AkeylessGatewayConfig.md
@@ -904,6 +906,7 @@ docs/Rotator.md
 docs/RotatorsConfigPart.md
 docs/RuleAssigner.md
 docs/Rules.md
+docs/RuntimeAuthorityCommand.md
 docs/SAMLAccessRules.md
 docs/SAMLAttribute.md
 docs/SSHCertificateIssueDetails.md
@@ -916,6 +919,8 @@ docs/SectigoTargetDetails.md
 docs/SecureRemoteAccess.md
 docs/ServerInventoryMigration.md
 docs/ServerInventoryPayload.md
+docs/SetDefaultProfile.md
+docs/SetDefaultProfileOutput.md
 docs/SetItemState.md
 docs/SetRoleRule.md
 docs/ShareItem.md
@@ -1242,6 +1247,8 @@ src/main/java/io/akeyless/client/model/ActiveDirectoryMigration.java
 src/main/java/io/akeyless/client/model/ActiveDirectoryPayload.java
 src/main/java/io/akeyless/client/model/AddGatewayAllowedAccessId.java
 src/main/java/io/akeyless/client/model/AdminsConfigPart.java
+src/main/java/io/akeyless/client/model/AgenticRule.java
+src/main/java/io/akeyless/client/model/AgenticRules.java
 src/main/java/io/akeyless/client/model/AiInsightsConfigPart.java
 src/main/java/io/akeyless/client/model/AiInsightsSetting.java
 src/main/java/io/akeyless/client/model/AkeylessGatewayConfig.java
@@ -2119,6 +2126,7 @@ src/main/java/io/akeyless/client/model/Rotator.java
 src/main/java/io/akeyless/client/model/RotatorsConfigPart.java
 src/main/java/io/akeyless/client/model/RuleAssigner.java
 src/main/java/io/akeyless/client/model/Rules.java
+src/main/java/io/akeyless/client/model/RuntimeAuthorityCommand.java
 src/main/java/io/akeyless/client/model/SAMLAccessRules.java
 src/main/java/io/akeyless/client/model/SAMLAttribute.java
 src/main/java/io/akeyless/client/model/SSHCertificateIssueDetails.java
@@ -2131,6 +2139,8 @@ src/main/java/io/akeyless/client/model/SectigoTargetDetails.java
 src/main/java/io/akeyless/client/model/SecureRemoteAccess.java
 src/main/java/io/akeyless/client/model/ServerInventoryMigration.java
 src/main/java/io/akeyless/client/model/ServerInventoryPayload.java
+src/main/java/io/akeyless/client/model/SetDefaultProfile.java
+src/main/java/io/akeyless/client/model/SetDefaultProfileOutput.java
 src/main/java/io/akeyless/client/model/SetItemState.java
 src/main/java/io/akeyless/client/model/SetRoleRule.java
 src/main/java/io/akeyless/client/model/ShareItem.java
@@ -2406,17 +2416,8 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/DigiCertTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/GoogleTrustTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/ItemLockingSettingTest.java
-src/test/java/io/akeyless/client/model/LockItemTest.java
-src/test/java/io/akeyless/client/model/LockTargetTest.java
-src/test/java/io/akeyless/client/model/LockingInfoTest.java
-src/test/java/io/akeyless/client/model/NetappStorageTest.java
-src/test/java/io/akeyless/client/model/SyncCountersTest.java
-src/test/java/io/akeyless/client/model/TargetCreateDigiCertTest.java
-src/test/java/io/akeyless/client/model/TargetCreateGoogleTrustTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateDigiCertTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateGoogleTrustTest.java
-src/test/java/io/akeyless/client/model/UnlockItemTest.java
-src/test/java/io/akeyless/client/model/UnlockTargetTest.java
+src/test/java/io/akeyless/client/model/AgenticRuleTest.java
+src/test/java/io/akeyless/client/model/AgenticRulesTest.java
+src/test/java/io/akeyless/client/model/RuntimeAuthorityCommandTest.java
+src/test/java/io/akeyless/client/model/SetDefaultProfileOutputTest.java
+src/test/java/io/akeyless/client/model/SetDefaultProfileTest.java

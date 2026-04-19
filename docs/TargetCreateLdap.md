@@ -10,6 +10,7 @@ targetCreateLdap is a command that creates a new ldap target
 |------------ | ------------- | ------------- | -------------|
 |**bindDn** | **String** | Bind DN |  |
 |**bindDnPassword** | **String** | Bind DN Password |  |
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |

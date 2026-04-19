@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class TargetUpdateSsh {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -127,6 +132,25 @@ public class TargetUpdateSsh {
 
   public TargetUpdateSsh() {
   }
+
+  public TargetUpdateSsh deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
 
   public TargetUpdateSsh description(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -423,7 +447,8 @@ public class TargetUpdateSsh {
       return false;
     }
     TargetUpdateSsh targetUpdateSsh = (TargetUpdateSsh) o;
-    return Objects.equals(this.description, targetUpdateSsh.description) &&
+    return Objects.equals(this.deleteProtection, targetUpdateSsh.deleteProtection) &&
+        Objects.equals(this.description, targetUpdateSsh.description) &&
         Objects.equals(this.host, targetUpdateSsh.host) &&
         Objects.equals(this.json, targetUpdateSsh.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateSsh.keepPrevVersion) &&
@@ -442,13 +467,14 @@ public class TargetUpdateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, host, json, keepPrevVersion, key, maxVersions, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken);
+    return Objects.hash(deleteProtection, description, host, json, keepPrevVersion, key, maxVersions, name, newName, port, privateKey, privateKeyPassword, sshPassword, sshUsername, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetUpdateSsh {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -486,6 +512,7 @@ public class TargetUpdateSsh {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("host");
     openapiFields.add("json");
@@ -535,6 +562,9 @@ public class TargetUpdateSsh {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

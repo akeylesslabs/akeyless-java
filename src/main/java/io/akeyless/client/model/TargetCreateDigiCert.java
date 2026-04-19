@@ -55,6 +55,11 @@ public class TargetCreateDigiCert {
   @javax.annotation.Nullable
   private String acmeChallenge = "dns";
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -154,6 +159,25 @@ public class TargetCreateDigiCert {
 
   public void setAcmeChallenge(@javax.annotation.Nullable String acmeChallenge) {
     this.acmeChallenge = acmeChallenge;
+  }
+
+
+  public TargetCreateDigiCert deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -472,6 +496,7 @@ public class TargetCreateDigiCert {
     }
     TargetCreateDigiCert targetCreateDigiCert = (TargetCreateDigiCert) o;
     return Objects.equals(this.acmeChallenge, targetCreateDigiCert.acmeChallenge) &&
+        Objects.equals(this.deleteProtection, targetCreateDigiCert.deleteProtection) &&
         Objects.equals(this.description, targetCreateDigiCert.description) &&
         Objects.equals(this.digicertUrl, targetCreateDigiCert.digicertUrl) &&
         Objects.equals(this.dnsTargetCreds, targetCreateDigiCert.dnsTargetCreds) &&
@@ -492,7 +517,7 @@ public class TargetCreateDigiCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, description, digicertUrl, dnsTargetCreds, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, key, maxVersions, name, resourceGroup, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, deleteProtection, description, digicertUrl, dnsTargetCreds, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, key, maxVersions, name, resourceGroup, timeout, token, uidToken);
   }
 
   @Override
@@ -500,6 +525,7 @@ public class TargetCreateDigiCert {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetCreateDigiCert {\n");
     sb.append("    acmeChallenge: ").append(toIndentedString(acmeChallenge)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    digicertUrl: ").append(toIndentedString(digicertUrl)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
@@ -539,6 +565,7 @@ public class TargetCreateDigiCert {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("acme-challenge");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("digicert-url");
     openapiFields.add("dns-target-creds");
@@ -592,6 +619,9 @@ public class TargetCreateDigiCert {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("acme-challenge") != null && !jsonObj.get("acme-challenge").isJsonNull()) && !jsonObj.get("acme-challenge").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `acme-challenge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acme-challenge").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

@@ -93,6 +93,11 @@ public class Target {
   @javax.annotation.Nullable
   private OffsetDateTime creationDate;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private Boolean deleteProtection;
+
   public static final String SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED = "is_access_request_enabled";
   @SerializedName(SERIALIZED_NAME_IS_ACCESS_REQUEST_ENABLED)
   @javax.annotation.Nullable
@@ -312,6 +317,25 @@ public class Target {
 
   public void setCreationDate(@javax.annotation.Nullable OffsetDateTime creationDate) {
     this.creationDate = creationDate;
+  }
+
+
+  public Target deleteProtection(@javax.annotation.Nullable Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Get deleteProtection
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public Boolean getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable Boolean deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -614,6 +638,7 @@ public class Target {
         Objects.equals(this.clientPermissions, target.clientPermissions) &&
         Objects.equals(this.comment, target.comment) &&
         Objects.equals(this.creationDate, target.creationDate) &&
+        Objects.equals(this.deleteProtection, target.deleteProtection) &&
         Objects.equals(this.isAccessRequestEnabled, target.isAccessRequestEnabled) &&
         Objects.equals(this.lastVersion, target.lastVersion) &&
         Objects.equals(this.lockingInfo, target.lockingInfo) &&
@@ -632,7 +657,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, isAccessRequestEnabled, lastVersion, lockingInfo, modificationDate, parentTargetName, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, deleteProtection, isAccessRequestEnabled, lastVersion, lockingInfo, modificationDate, parentTargetName, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
   }
 
   @Override
@@ -646,6 +671,7 @@ public class Target {
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    lockingInfo: ").append(toIndentedString(lockingInfo)).append("\n");
@@ -689,6 +715,7 @@ public class Target {
     openapiFields.add("client_permissions");
     openapiFields.add("comment");
     openapiFields.add("creation_date");
+    openapiFields.add("delete_protection");
     openapiFields.add("is_access_request_enabled");
     openapiFields.add("last_version");
     openapiFields.add("locking_info");

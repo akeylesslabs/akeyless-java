@@ -70,6 +70,11 @@ public class TargetCreateGlobalSign {
   @javax.annotation.Nonnull
   private String contactPhone;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -201,6 +206,25 @@ public class TargetCreateGlobalSign {
 
   public void setContactPhone(@javax.annotation.Nonnull String contactPhone) {
     this.contactPhone = contactPhone;
+  }
+
+
+  public TargetCreateGlobalSign deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -427,6 +451,7 @@ public class TargetCreateGlobalSign {
         Objects.equals(this.contactFirstName, targetCreateGlobalSign.contactFirstName) &&
         Objects.equals(this.contactLastName, targetCreateGlobalSign.contactLastName) &&
         Objects.equals(this.contactPhone, targetCreateGlobalSign.contactPhone) &&
+        Objects.equals(this.deleteProtection, targetCreateGlobalSign.deleteProtection) &&
         Objects.equals(this.description, targetCreateGlobalSign.description) &&
         Objects.equals(this.json, targetCreateGlobalSign.json) &&
         Objects.equals(this.key, targetCreateGlobalSign.key) &&
@@ -442,7 +467,7 @@ public class TargetCreateGlobalSign {
 
   @Override
   public int hashCode() {
-    return Objects.hash(contactEmail, contactFirstName, contactLastName, contactPhone, description, json, key, maxVersions, name, password, profileId, timeout, token, uidToken, username);
+    return Objects.hash(contactEmail, contactFirstName, contactLastName, contactPhone, deleteProtection, description, json, key, maxVersions, name, password, profileId, timeout, token, uidToken, username);
   }
 
   @Override
@@ -453,6 +478,7 @@ public class TargetCreateGlobalSign {
     sb.append("    contactFirstName: ").append(toIndentedString(contactFirstName)).append("\n");
     sb.append("    contactLastName: ").append(toIndentedString(contactLastName)).append("\n");
     sb.append("    contactPhone: ").append(toIndentedString(contactPhone)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -490,6 +516,7 @@ public class TargetCreateGlobalSign {
     openapiFields.add("contact-first-name");
     openapiFields.add("contact-last-name");
     openapiFields.add("contact-phone");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("key");
@@ -553,6 +580,9 @@ public class TargetCreateGlobalSign {
       }
       if (!jsonObj.get("contact-phone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `contact-phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("contact-phone").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

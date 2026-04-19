@@ -105,6 +105,11 @@ public class TargetUpdateDB {
   @javax.annotation.Nonnull
   private String dbType;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -459,6 +464,25 @@ public class TargetUpdateDB {
 
   public void setDbType(@javax.annotation.Nonnull String dbType) {
     this.dbType = dbType;
+  }
+
+
+  public TargetUpdateDB deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -1034,6 +1058,7 @@ public class TargetUpdateDB {
         Objects.equals(this.dbServerCertificates, targetUpdateDB.dbServerCertificates) &&
         Objects.equals(this.dbServerName, targetUpdateDB.dbServerName) &&
         Objects.equals(this.dbType, targetUpdateDB.dbType) &&
+        Objects.equals(this.deleteProtection, targetUpdateDB.deleteProtection) &&
         Objects.equals(this.description, targetUpdateDB.description) &&
         Objects.equals(this.host, targetUpdateDB.host) &&
         Objects.equals(this.json, targetUpdateDB.json) &&
@@ -1067,7 +1092,7 @@ public class TargetUpdateDB {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, deleteProtection, description, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
   @Override
@@ -1085,6 +1110,7 @@ public class TargetUpdateDB {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1147,6 +1173,7 @@ public class TargetUpdateDB {
     openapiFields.add("db-server-certificates");
     openapiFields.add("db-server-name");
     openapiFields.add("db-type");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("host");
     openapiFields.add("json");
@@ -1241,6 +1268,9 @@ public class TargetUpdateDB {
       }
       if (!jsonObj.get("db-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `db-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db-type").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

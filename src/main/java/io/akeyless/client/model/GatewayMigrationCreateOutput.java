@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class GatewayMigrationCreateOutput {
+  public static final String SERIALIZED_NAME_MIGRATION_ID = "migration_id";
+  @SerializedName(SERIALIZED_NAME_MIGRATION_ID)
+  @javax.annotation.Nullable
+  private String migrationId;
+
   public static final String SERIALIZED_NAME_MIGRATION_NAME = "migration_name";
   @SerializedName(SERIALIZED_NAME_MIGRATION_NAME)
   @javax.annotation.Nullable
@@ -57,6 +62,25 @@ public class GatewayMigrationCreateOutput {
 
   public GatewayMigrationCreateOutput() {
   }
+
+  public GatewayMigrationCreateOutput migrationId(@javax.annotation.Nullable String migrationId) {
+    this.migrationId = migrationId;
+    return this;
+  }
+
+  /**
+   * Get migrationId
+   * @return migrationId
+   */
+  @javax.annotation.Nullable
+  public String getMigrationId() {
+    return migrationId;
+  }
+
+  public void setMigrationId(@javax.annotation.Nullable String migrationId) {
+    this.migrationId = migrationId;
+  }
+
 
   public GatewayMigrationCreateOutput migrationName(@javax.annotation.Nullable String migrationName) {
     this.migrationName = migrationName;
@@ -87,18 +111,20 @@ public class GatewayMigrationCreateOutput {
       return false;
     }
     GatewayMigrationCreateOutput gatewayMigrationCreateOutput = (GatewayMigrationCreateOutput) o;
-    return Objects.equals(this.migrationName, gatewayMigrationCreateOutput.migrationName);
+    return Objects.equals(this.migrationId, gatewayMigrationCreateOutput.migrationId) &&
+        Objects.equals(this.migrationName, gatewayMigrationCreateOutput.migrationName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(migrationName);
+    return Objects.hash(migrationId, migrationName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayMigrationCreateOutput {\n");
+    sb.append("    migrationId: ").append(toIndentedString(migrationId)).append("\n");
     sb.append("    migrationName: ").append(toIndentedString(migrationName)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -122,6 +148,7 @@ public class GatewayMigrationCreateOutput {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("migration_id");
     openapiFields.add("migration_name");
 
     // a set of required properties/fields (JSON key names)
@@ -149,6 +176,9 @@ public class GatewayMigrationCreateOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("migration_id") != null && !jsonObj.get("migration_id").isJsonNull()) && !jsonObj.get("migration_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `migration_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_id").toString()));
+      }
       if ((jsonObj.get("migration_name") != null && !jsonObj.get("migration_name").isJsonNull()) && !jsonObj.get("migration_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `migration_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_name").toString()));
       }

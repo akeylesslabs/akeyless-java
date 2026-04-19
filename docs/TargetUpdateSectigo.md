@@ -10,6 +10,7 @@ targetUpdateSectigo is a command that updates an existing Sectigo target
 |------------ | ------------- | ------------- | -------------|
 |**certificateProfileId** | **Long** | Certificate Profile ID in Sectigo account |  |
 |**customerUri** | **String** | Customer Uri of the Sectigo account |  |
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**externalRequester** | **String** | External Requester - a comma separated list of emails |  |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

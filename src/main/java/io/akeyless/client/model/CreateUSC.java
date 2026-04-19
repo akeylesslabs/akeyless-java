@@ -149,10 +149,20 @@ public class CreateUSC {
   @javax.annotation.Nullable
   private String uscPrefix;
 
+  public static final String SERIALIZED_NAME_USC_TAGS = "usc-tags";
+  @SerializedName(SERIALIZED_NAME_USC_TAGS)
+  @javax.annotation.Nullable
+  private String uscTags;
+
   public static final String SERIALIZED_NAME_USE_PREFIX_AS_FILTER = "use-prefix-as-filter";
   @SerializedName(SERIALIZED_NAME_USE_PREFIX_AS_FILTER)
   @javax.annotation.Nullable
   private String usePrefixAsFilter = "false";
+
+  public static final String SERIALIZED_NAME_USE_TAGS_AS_FILTER = "use-tags-as-filter";
+  @SerializedName(SERIALIZED_NAME_USE_TAGS_AS_FILTER)
+  @javax.annotation.Nullable
+  private Boolean useTagsAsFilter;
 
   public CreateUSC() {
   }
@@ -534,6 +544,25 @@ public class CreateUSC {
   }
 
 
+  public CreateUSC uscTags(@javax.annotation.Nullable String uscTags) {
+    this.uscTags = uscTags;
+    return this;
+  }
+
+  /**
+   * Comma-separated list of tags to apply to all secrets created on the remote USC
+   * @return uscTags
+   */
+  @javax.annotation.Nullable
+  public String getUscTags() {
+    return uscTags;
+  }
+
+  public void setUscTags(@javax.annotation.Nullable String uscTags) {
+    this.uscTags = uscTags;
+  }
+
+
   public CreateUSC usePrefixAsFilter(@javax.annotation.Nullable String usePrefixAsFilter) {
     this.usePrefixAsFilter = usePrefixAsFilter;
     return this;
@@ -550,6 +579,25 @@ public class CreateUSC {
 
   public void setUsePrefixAsFilter(@javax.annotation.Nullable String usePrefixAsFilter) {
     this.usePrefixAsFilter = usePrefixAsFilter;
+  }
+
+
+  public CreateUSC useTagsAsFilter(@javax.annotation.Nullable Boolean useTagsAsFilter) {
+    this.useTagsAsFilter = useTagsAsFilter;
+    return this;
+  }
+
+  /**
+   * Filter the USC secret list by the value(s) of --usc-tags. [true|false]
+   * @return useTagsAsFilter
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseTagsAsFilter() {
+    return useTagsAsFilter;
+  }
+
+  public void setUseTagsAsFilter(@javax.annotation.Nullable Boolean useTagsAsFilter) {
+    this.useTagsAsFilter = useTagsAsFilter;
   }
 
 
@@ -582,12 +630,14 @@ public class CreateUSC {
         Objects.equals(this.token, createUSC.token) &&
         Objects.equals(this.uidToken, createUSC.uidToken) &&
         Objects.equals(this.uscPrefix, createUSC.uscPrefix) &&
-        Objects.equals(this.usePrefixAsFilter, createUSC.usePrefixAsFilter);
+        Objects.equals(this.uscTags, createUSC.uscTags) &&
+        Objects.equals(this.usePrefixAsFilter, createUSC.usePrefixAsFilter) &&
+        Objects.equals(this.useTagsAsFilter, createUSC.useTagsAsFilter);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, environmentNames, gcpProjectId, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, usePrefixAsFilter);
+    return Objects.hash(azureKvName, deleteProtection, description, environmentNames, gcpProjectId, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, uscTags, usePrefixAsFilter, useTagsAsFilter);
   }
 
   @Override
@@ -613,7 +663,9 @@ public class CreateUSC {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscPrefix: ").append(toIndentedString(uscPrefix)).append("\n");
+    sb.append("    uscTags: ").append(toIndentedString(uscTags)).append("\n");
     sb.append("    usePrefixAsFilter: ").append(toIndentedString(usePrefixAsFilter)).append("\n");
+    sb.append("    useTagsAsFilter: ").append(toIndentedString(useTagsAsFilter)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -655,7 +707,9 @@ public class CreateUSC {
     openapiFields.add("token");
     openapiFields.add("uid-token");
     openapiFields.add("usc-prefix");
+    openapiFields.add("usc-tags");
     openapiFields.add("use-prefix-as-filter");
+    openapiFields.add("use-tags-as-filter");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -742,6 +796,9 @@ public class CreateUSC {
       }
       if ((jsonObj.get("usc-prefix") != null && !jsonObj.get("usc-prefix").isJsonNull()) && !jsonObj.get("usc-prefix").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `usc-prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-prefix").toString()));
+      }
+      if ((jsonObj.get("usc-tags") != null && !jsonObj.get("usc-tags").isJsonNull()) && !jsonObj.get("usc-tags").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `usc-tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-tags").toString()));
       }
       if ((jsonObj.get("use-prefix-as-filter") != null && !jsonObj.get("use-prefix-as-filter").isJsonNull()) && !jsonObj.get("use-prefix-as-filter").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `use-prefix-as-filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-prefix-as-filter").toString()));

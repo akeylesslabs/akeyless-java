@@ -60,6 +60,11 @@ public class TargetCreateGodaddy {
   @javax.annotation.Nullable
   private String customerId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -163,6 +168,25 @@ public class TargetCreateGodaddy {
 
   public void setCustomerId(@javax.annotation.Nullable String customerId) {
     this.customerId = customerId;
+  }
+
+
+  public TargetCreateGodaddy deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -425,6 +449,7 @@ public class TargetCreateGodaddy {
     TargetCreateGodaddy targetCreateGodaddy = (TargetCreateGodaddy) o;
     return Objects.equals(this.apiKey, targetCreateGodaddy.apiKey) &&
         Objects.equals(this.customerId, targetCreateGodaddy.customerId) &&
+        Objects.equals(this.deleteProtection, targetCreateGodaddy.deleteProtection) &&
         Objects.equals(this.description, targetCreateGodaddy.description) &&
         Objects.equals(this.imapFqdn, targetCreateGodaddy.imapFqdn) &&
         Objects.equals(this.imapPassword, targetCreateGodaddy.imapPassword) &&
@@ -442,7 +467,7 @@ public class TargetCreateGodaddy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, customerId, description, imapFqdn, imapPassword, imapPort, imapUsername, json, key, maxVersions, name, secret, timeout, token, uidToken);
+    return Objects.hash(apiKey, customerId, deleteProtection, description, imapFqdn, imapPassword, imapPort, imapUsername, json, key, maxVersions, name, secret, timeout, token, uidToken);
   }
 
   @Override
@@ -451,6 +476,7 @@ public class TargetCreateGodaddy {
     sb.append("class TargetCreateGodaddy {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    imapFqdn: ").append(toIndentedString(imapFqdn)).append("\n");
     sb.append("    imapPassword: ").append(toIndentedString(imapPassword)).append("\n");
@@ -488,6 +514,7 @@ public class TargetCreateGodaddy {
     openapiFields = new HashSet<String>();
     openapiFields.add("api-key");
     openapiFields.add("customer_id");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("imap-fqdn");
     openapiFields.add("imap-password");
@@ -545,6 +572,9 @@ public class TargetCreateGodaddy {
       }
       if ((jsonObj.get("customer_id") != null && !jsonObj.get("customer_id").isJsonNull()) && !jsonObj.get("customer_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

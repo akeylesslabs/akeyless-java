@@ -70,6 +70,11 @@ public class TargetCreateAzure {
   @javax.annotation.Nullable
   private String connectionType = "credentials";
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -206,6 +211,25 @@ public class TargetCreateAzure {
 
   public void setConnectionType(@javax.annotation.Nullable String connectionType) {
     this.connectionType = connectionType;
+  }
+
+
+  public TargetCreateAzure deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -451,6 +475,7 @@ public class TargetCreateAzure {
         Objects.equals(this.clientId, targetCreateAzure.clientId) &&
         Objects.equals(this.clientSecret, targetCreateAzure.clientSecret) &&
         Objects.equals(this.connectionType, targetCreateAzure.connectionType) &&
+        Objects.equals(this.deleteProtection, targetCreateAzure.deleteProtection) &&
         Objects.equals(this.description, targetCreateAzure.description) &&
         Objects.equals(this.json, targetCreateAzure.json) &&
         Objects.equals(this.key, targetCreateAzure.key) &&
@@ -467,7 +492,7 @@ public class TargetCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureCloud, clientId, clientSecret, connectionType, description, json, key, maxVersions, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(azureCloud, clientId, clientSecret, connectionType, deleteProtection, description, json, key, maxVersions, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -478,6 +503,7 @@ public class TargetCreateAzure {
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -516,6 +542,7 @@ public class TargetCreateAzure {
     openapiFields.add("client-id");
     openapiFields.add("client-secret");
     openapiFields.add("connection-type");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("key");
@@ -573,6 +600,9 @@ public class TargetCreateAzure {
       }
       if ((jsonObj.get("connection-type") != null && !jsonObj.get("connection-type").isJsonNull()) && !jsonObj.get("connection-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `connection-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection-type").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

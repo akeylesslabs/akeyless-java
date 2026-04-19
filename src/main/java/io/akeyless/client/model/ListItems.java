@@ -62,6 +62,11 @@ public class ListItems {
   @javax.annotation.Nullable
   private String advancedFilter;
 
+  public static final String SERIALIZED_NAME_ARA_ONLY = "ara-only";
+  @SerializedName(SERIALIZED_NAME_ARA_ONLY)
+  @javax.annotation.Nullable
+  private Boolean araOnly = false;
+
   public static final String SERIALIZED_NAME_AUTO_PAGINATION = "auto-pagination";
   @SerializedName(SERIALIZED_NAME_AUTO_PAGINATION)
   @javax.annotation.Nullable
@@ -170,6 +175,25 @@ public class ListItems {
 
   public void setAdvancedFilter(@javax.annotation.Nullable String advancedFilter) {
     this.advancedFilter = advancedFilter;
+  }
+
+
+  public ListItems araOnly(@javax.annotation.Nullable Boolean araOnly) {
+    this.araOnly = araOnly;
+    return this;
+  }
+
+  /**
+   * Filter by items with ARA functionality enabled
+   * @return araOnly
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraOnly() {
+    return araOnly;
+  }
+
+  public void setAraOnly(@javax.annotation.Nullable Boolean araOnly) {
+    this.araOnly = araOnly;
   }
 
 
@@ -467,6 +491,7 @@ public class ListItems {
     ListItems listItems = (ListItems) o;
     return Objects.equals(this.accessibility, listItems.accessibility) &&
         Objects.equals(this.advancedFilter, listItems.advancedFilter) &&
+        Objects.equals(this.araOnly, listItems.araOnly) &&
         Objects.equals(this.autoPagination, listItems.autoPagination) &&
         Objects.equals(this.currentFolder, listItems.currentFolder) &&
         Objects.equals(this.filter, listItems.filter) &&
@@ -485,7 +510,7 @@ public class ListItems {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, advancedFilter, autoPagination, currentFolder, filter, json, minimalView, modifiedAfter, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
+    return Objects.hash(accessibility, advancedFilter, araOnly, autoPagination, currentFolder, filter, json, minimalView, modifiedAfter, paginationToken, path, sraOnly, subTypes, tag, token, type, uidToken);
   }
 
   @Override
@@ -494,6 +519,7 @@ public class ListItems {
     sb.append("class ListItems {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    advancedFilter: ").append(toIndentedString(advancedFilter)).append("\n");
+    sb.append("    araOnly: ").append(toIndentedString(araOnly)).append("\n");
     sb.append("    autoPagination: ").append(toIndentedString(autoPagination)).append("\n");
     sb.append("    currentFolder: ").append(toIndentedString(currentFolder)).append("\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
@@ -532,6 +558,7 @@ public class ListItems {
     openapiFields = new HashSet<String>();
     openapiFields.add("accessibility");
     openapiFields.add("advanced-filter");
+    openapiFields.add("ara-only");
     openapiFields.add("auto-pagination");
     openapiFields.add("current-folder");
     openapiFields.add("filter");

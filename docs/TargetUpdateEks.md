@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**eksAccessKeyId** | **String** | Access Key ID |  |
 |**eksClusterCaCert** | **String** | EKS cluster CA certificate |  |

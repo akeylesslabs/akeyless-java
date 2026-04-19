@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class TargetUpdateGitlab {
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -112,6 +117,25 @@ public class TargetUpdateGitlab {
 
   public TargetUpdateGitlab() {
   }
+
+  public TargetUpdateGitlab deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+  }
+
 
   public TargetUpdateGitlab description(@javax.annotation.Nullable String description) {
     this.description = description;
@@ -351,7 +375,8 @@ public class TargetUpdateGitlab {
       return false;
     }
     TargetUpdateGitlab targetUpdateGitlab = (TargetUpdateGitlab) o;
-    return Objects.equals(this.description, targetUpdateGitlab.description) &&
+    return Objects.equals(this.deleteProtection, targetUpdateGitlab.deleteProtection) &&
+        Objects.equals(this.description, targetUpdateGitlab.description) &&
         Objects.equals(this.gitlabAccessToken, targetUpdateGitlab.gitlabAccessToken) &&
         Objects.equals(this.gitlabCertificate, targetUpdateGitlab.gitlabCertificate) &&
         Objects.equals(this.gitlabUrl, targetUpdateGitlab.gitlabUrl) &&
@@ -367,13 +392,14 @@ public class TargetUpdateGitlab {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, gitlabAccessToken, gitlabCertificate, gitlabUrl, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken);
+    return Objects.hash(deleteProtection, description, gitlabAccessToken, gitlabCertificate, gitlabUrl, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetUpdateGitlab {\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gitlabAccessToken: ").append(toIndentedString(gitlabAccessToken)).append("\n");
     sb.append("    gitlabCertificate: ").append(toIndentedString(gitlabCertificate)).append("\n");
@@ -408,6 +434,7 @@ public class TargetUpdateGitlab {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("gitlab-access-token");
     openapiFields.add("gitlab-certificate");
@@ -454,6 +481,9 @@ public class TargetUpdateGitlab {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

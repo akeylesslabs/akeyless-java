@@ -8,6 +8,7 @@ targetCreateK8s is a command that creates a new k8s target
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**k8sAuthType** | **String** | K8S auth type [token/certificate] |  [optional] |

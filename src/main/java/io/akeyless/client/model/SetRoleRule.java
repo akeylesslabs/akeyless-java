@@ -185,7 +185,7 @@ public class SetRoleRule {
   }
 
   /**
-   * item-rule, target-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, sra-rule, ara-rule
+   * item-rule, target-rule, role-rule, auth-method-rule, search-rule, reports-rule, gw-reports-rule, sra-reports-rule, ara-reports-rule, sra-rule, ara-rule
    * @return ruleType
    */
   @javax.annotation.Nullable

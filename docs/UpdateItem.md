@@ -59,6 +59,8 @@
 |**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
+|**uscTags** | **String** | Comma-separated list of tags to apply to all secrets created/synced on the remote USC  USC items only. |  [optional] |
+|**useTagsAsFilter** | **String** | Whether to filter the USC secret list using the specified usc-tags [true/false]  USC items only. |  [optional] |
 
 
 

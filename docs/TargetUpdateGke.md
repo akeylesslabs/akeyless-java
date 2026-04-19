@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**gkeAccountKey** | **String** | GKE Service Account key file path |  [optional] |
 |**gkeClusterCert** | **String** | GKE cluster CA certificate |  [optional] |

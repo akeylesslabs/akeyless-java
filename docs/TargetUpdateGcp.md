@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**gcpKey** | **String** | Base64-encoded service account private key text |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

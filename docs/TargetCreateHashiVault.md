@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**hashiUrl** | **String** | HashiCorp Vault API URL, e.g. https://vault-mgr01:8200 |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

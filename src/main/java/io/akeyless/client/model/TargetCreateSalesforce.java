@@ -80,6 +80,11 @@ public class TargetCreateSalesforce {
   @javax.annotation.Nullable
   private String clientSecret;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -249,6 +254,25 @@ public class TargetCreateSalesforce {
 
   public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
     this.clientSecret = clientSecret;
+  }
+
+
+  public TargetCreateSalesforce deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -477,6 +501,7 @@ public class TargetCreateSalesforce {
         Objects.equals(this.caCertName, targetCreateSalesforce.caCertName) &&
         Objects.equals(this.clientId, targetCreateSalesforce.clientId) &&
         Objects.equals(this.clientSecret, targetCreateSalesforce.clientSecret) &&
+        Objects.equals(this.deleteProtection, targetCreateSalesforce.deleteProtection) &&
         Objects.equals(this.description, targetCreateSalesforce.description) &&
         Objects.equals(this.email, targetCreateSalesforce.email) &&
         Objects.equals(this.json, targetCreateSalesforce.json) &&
@@ -492,7 +517,7 @@ public class TargetCreateSalesforce {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, description, email, json, key, maxVersions, name, password, securityToken, tenantUrl, token, uidToken);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, deleteProtection, description, email, json, key, maxVersions, name, password, securityToken, tenantUrl, token, uidToken);
   }
 
   @Override
@@ -505,6 +530,7 @@ public class TargetCreateSalesforce {
     sb.append("    caCertName: ").append(toIndentedString(caCertName)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -544,6 +570,7 @@ public class TargetCreateSalesforce {
     openapiFields.add("ca-cert-name");
     openapiFields.add("client-id");
     openapiFields.add("client-secret");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("email");
     openapiFields.add("json");
@@ -610,6 +637,9 @@ public class TargetCreateSalesforce {
       }
       if ((jsonObj.get("client-secret") != null && !jsonObj.get("client-secret").isJsonNull()) && !jsonObj.get("client-secret").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `client-secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-secret").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

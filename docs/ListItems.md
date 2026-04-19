@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**accessibility** | **String** | for personal password manager |  [optional] |
 |**advancedFilter** | **String** | Filter by item name/username/website or part of it |  [optional] |
+|**araOnly** | **Boolean** | Filter by items with ARA functionality enabled |  [optional] |
 |**autoPagination** | **String** | Retrieve all items using pagination, when disabled retrieving only first 1000 items |  [optional] |
 |**currentFolder** | **Boolean** | List only items in the current folder (excludes subfolders) |  [optional] |
 |**filter** | **String** | Filter by item name or part of it |  [optional] |

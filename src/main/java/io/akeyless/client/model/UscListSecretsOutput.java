@@ -53,6 +53,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class UscListSecretsOutput {
+  public static final String SERIALIZED_NAME_NEXT_TOKEN = "next_token";
+  @SerializedName(SERIALIZED_NAME_NEXT_TOKEN)
+  @javax.annotation.Nullable
+  private String nextToken;
+
   public static final String SERIALIZED_NAME_SECRETS_LIST = "secrets_list";
   @SerializedName(SERIALIZED_NAME_SECRETS_LIST)
   @javax.annotation.Nullable
@@ -65,6 +70,25 @@ public class UscListSecretsOutput {
 
   public UscListSecretsOutput() {
   }
+
+  public UscListSecretsOutput nextToken(@javax.annotation.Nullable String nextToken) {
+    this.nextToken = nextToken;
+    return this;
+  }
+
+  /**
+   * Get nextToken
+   * @return nextToken
+   */
+  @javax.annotation.Nullable
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  public void setNextToken(@javax.annotation.Nullable String nextToken) {
+    this.nextToken = nextToken;
+  }
+
 
   public UscListSecretsOutput secretsList(@javax.annotation.Nullable List<SecretInfo> secretsList) {
     this.secretsList = secretsList;
@@ -130,19 +154,21 @@ public class UscListSecretsOutput {
       return false;
     }
     UscListSecretsOutput uscListSecretsOutput = (UscListSecretsOutput) o;
-    return Objects.equals(this.secretsList, uscListSecretsOutput.secretsList) &&
+    return Objects.equals(this.nextToken, uscListSecretsOutput.nextToken) &&
+        Objects.equals(this.secretsList, uscListSecretsOutput.secretsList) &&
         Objects.equals(this.warnings, uscListSecretsOutput.warnings);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secretsList, warnings);
+    return Objects.hash(nextToken, secretsList, warnings);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscListSecretsOutput {\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("    secretsList: ").append(toIndentedString(secretsList)).append("\n");
     sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
@@ -167,6 +193,7 @@ public class UscListSecretsOutput {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("next_token");
     openapiFields.add("secrets_list");
     openapiFields.add("warnings");
 
@@ -195,6 +222,9 @@ public class UscListSecretsOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("next_token") != null && !jsonObj.get("next_token").isJsonNull()) && !jsonObj.get("next_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `next_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_token").toString()));
+      }
       if (jsonObj.get("secrets_list") != null && !jsonObj.get("secrets_list").isJsonNull()) {
         JsonArray jsonArraysecretsList = jsonObj.getAsJsonArray("secrets_list");
         if (jsonArraysecretsList != null) {

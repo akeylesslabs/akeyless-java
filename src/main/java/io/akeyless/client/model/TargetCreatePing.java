@@ -60,6 +60,11 @@ public class TargetCreatePing {
   @javax.annotation.Nullable
   private String authorizationPort = "9031";
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -148,6 +153,25 @@ public class TargetCreatePing {
 
   public void setAuthorizationPort(@javax.annotation.Nullable String authorizationPort) {
     this.authorizationPort = authorizationPort;
+  }
+
+
+  public TargetCreatePing deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -353,6 +377,7 @@ public class TargetCreatePing {
     TargetCreatePing targetCreatePing = (TargetCreatePing) o;
     return Objects.equals(this.administrativePort, targetCreatePing.administrativePort) &&
         Objects.equals(this.authorizationPort, targetCreatePing.authorizationPort) &&
+        Objects.equals(this.deleteProtection, targetCreatePing.deleteProtection) &&
         Objects.equals(this.description, targetCreatePing.description) &&
         Objects.equals(this.json, targetCreatePing.json) &&
         Objects.equals(this.key, targetCreatePing.key) &&
@@ -367,7 +392,7 @@ public class TargetCreatePing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(administrativePort, authorizationPort, description, json, key, maxVersions, name, password, pingUrl, privilegedUser, token, uidToken);
+    return Objects.hash(administrativePort, authorizationPort, deleteProtection, description, json, key, maxVersions, name, password, pingUrl, privilegedUser, token, uidToken);
   }
 
   @Override
@@ -376,6 +401,7 @@ public class TargetCreatePing {
     sb.append("class TargetCreatePing {\n");
     sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
     sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -410,6 +436,7 @@ public class TargetCreatePing {
     openapiFields = new HashSet<String>();
     openapiFields.add("administrative-port");
     openapiFields.add("authorization-port");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("json");
     openapiFields.add("key");
@@ -459,6 +486,9 @@ public class TargetCreatePing {
       }
       if ((jsonObj.get("authorization-port") != null && !jsonObj.get("authorization-port").isJsonNull()) && !jsonObj.get("authorization-port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `authorization-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorization-port").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

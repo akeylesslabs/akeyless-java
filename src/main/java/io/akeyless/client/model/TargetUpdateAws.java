@@ -60,6 +60,11 @@ public class TargetUpdateAws {
   @javax.annotation.Nonnull
   private String accessKeyId;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -168,6 +173,25 @@ public class TargetUpdateAws {
 
   public void setAccessKeyId(@javax.annotation.Nonnull String accessKeyId) {
     this.accessKeyId = accessKeyId;
+  }
+
+
+  public TargetUpdateAws deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -449,6 +473,7 @@ public class TargetUpdateAws {
     TargetUpdateAws targetUpdateAws = (TargetUpdateAws) o;
     return Objects.equals(this.accessKey, targetUpdateAws.accessKey) &&
         Objects.equals(this.accessKeyId, targetUpdateAws.accessKeyId) &&
+        Objects.equals(this.deleteProtection, targetUpdateAws.deleteProtection) &&
         Objects.equals(this.description, targetUpdateAws.description) &&
         Objects.equals(this.generateExternalId, targetUpdateAws.generateExternalId) &&
         Objects.equals(this.json, targetUpdateAws.json) &&
@@ -467,7 +492,7 @@ public class TargetUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, description, generateExternalId, json, keepPrevVersion, key, maxVersions, name, newName, region, roleArn, sessionToken, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(accessKey, accessKeyId, deleteProtection, description, generateExternalId, json, keepPrevVersion, key, maxVersions, name, newName, region, roleArn, sessionToken, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -476,6 +501,7 @@ public class TargetUpdateAws {
     sb.append("class TargetUpdateAws {\n");
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    generateExternalId: ").append(toIndentedString(generateExternalId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -514,6 +540,7 @@ public class TargetUpdateAws {
     openapiFields = new HashSet<String>();
     openapiFields.add("access-key");
     openapiFields.add("access-key-id");
+    openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("generate-external-id");
     openapiFields.add("json");
@@ -569,6 +596,9 @@ public class TargetUpdateAws {
       }
       if (!jsonObj.get("access-key-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `access-key-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access-key-id").toString()));
+      }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

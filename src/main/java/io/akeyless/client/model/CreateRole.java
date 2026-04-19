@@ -57,6 +57,11 @@ public class CreateRole {
   @javax.annotation.Nullable
   private String analyticsAccess;
 
+  public static final String SERIALIZED_NAME_ARA_REPORTS_ACCESS = "ara-reports-access";
+  @SerializedName(SERIALIZED_NAME_ARA_REPORTS_ACCESS)
+  @javax.annotation.Nullable
+  private String araReportsAccess;
+
   public static final String SERIALIZED_NAME_AUDIT_ACCESS = "audit-access";
   @SerializedName(SERIALIZED_NAME_AUDIT_ACCESS)
   @javax.annotation.Nullable
@@ -151,6 +156,25 @@ public class CreateRole {
 
   public void setAnalyticsAccess(@javax.annotation.Nullable String analyticsAccess) {
     this.analyticsAccess = analyticsAccess;
+  }
+
+
+  public CreateRole araReportsAccess(@javax.annotation.Nullable String araReportsAccess) {
+    this.araReportsAccess = araReportsAccess;
+    return this;
+  }
+
+  /**
+   * Allow this role to view Agentic Runtime Authority Dashboard. Currently only &#39;none&#39;, &#39;scoped&#39;, &#39;all&#39; values are supported.
+   * @return araReportsAccess
+   */
+  @javax.annotation.Nullable
+  public String getAraReportsAccess() {
+    return araReportsAccess;
+  }
+
+  public void setAraReportsAccess(@javax.annotation.Nullable String araReportsAccess) {
+    this.araReportsAccess = araReportsAccess;
   }
 
 
@@ -458,6 +482,7 @@ public class CreateRole {
     }
     CreateRole createRole = (CreateRole) o;
     return Objects.equals(this.analyticsAccess, createRole.analyticsAccess) &&
+        Objects.equals(this.araReportsAccess, createRole.araReportsAccess) &&
         Objects.equals(this.auditAccess, createRole.auditAccess) &&
         Objects.equals(this.comment, createRole.comment) &&
         Objects.equals(this.deleteProtection, createRole.deleteProtection) &&
@@ -477,7 +502,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, araReportsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -485,6 +510,7 @@ public class CreateRole {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRole {\n");
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
+    sb.append("    araReportsAccess: ").append(toIndentedString(araReportsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -523,6 +549,7 @@ public class CreateRole {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("analytics-access");
+    openapiFields.add("ara-reports-access");
     openapiFields.add("audit-access");
     openapiFields.add("comment");
     openapiFields.add("delete_protection");
@@ -574,6 +601,9 @@ public class CreateRole {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("analytics-access") != null && !jsonObj.get("analytics-access").isJsonNull()) && !jsonObj.get("analytics-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `analytics-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analytics-access").toString()));
+      }
+      if ((jsonObj.get("ara-reports-access") != null && !jsonObj.get("ara-reports-access").isJsonNull()) && !jsonObj.get("ara-reports-access").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ara-reports-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ara-reports-access").toString()));
       }
       if ((jsonObj.get("audit-access") != null && !jsonObj.get("audit-access").isJsonNull()) && !jsonObj.get("audit-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `audit-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audit-access").toString()));

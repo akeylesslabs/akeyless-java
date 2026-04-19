@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**gitlabAccessToken** | **String** | Gitlab access token |  [optional] |
 |**gitlabCertificate** | **String** | Gitlab tls certificate (base64 encoded) |  [optional] |

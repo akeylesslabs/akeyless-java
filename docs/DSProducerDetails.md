@@ -14,6 +14,7 @@
 |**adminPwd** | **String** |  |  [optional] |
 |**adminRotationIntervalDays** | **Long** |  |  [optional] |
 |**administrativePort** | **String** |  |  [optional] |
+|**agenticRules** | [**AgenticRules**](AgenticRules.md) |  |  [optional] |
 |**apiKey** | **String** |  |  [optional] |
 |**apiKeyId** | **String** |  |  [optional] |
 |**artifactoryAdminApikey** | **String** |  |  [optional] |
