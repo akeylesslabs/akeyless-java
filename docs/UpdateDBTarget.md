@@ -11,6 +11,9 @@ updateDBTarget is a command that updates an existing target. [Deprecated: Use ta
 |**azureClientId** | **String** | (Optional) Client id (relevant for \&quot;cloud-service-provider\&quot; only) |  [optional] |
 |**azureClientSecret** | **String** | (Optional) Client secret (relevant for \&quot;cloud-service-provider\&quot; only) |  [optional] |
 |**azureTenantId** | **String** | (Optional) Tenant id (relevant for \&quot;cloud-service-provider\&quot; only) |  [optional] |
+|**clientCertificate** | **String** | Client certificate for mutual TLS |  [optional] |
+|**clientKeyPassphrase** | **String** | Client private key passphrase for mutual TLS |  [optional] |
+|**clientPrivateKey** | **String** | Client private key for mutual TLS |  [optional] |
 |**cloudServiceProvider** | **String** | (Optional) Cloud service provider (currently only supports Azure) |  [optional] |
 |**clusterMode** | **Boolean** | Cluster Mode |  [optional] |
 |**comment** | **String** | Deprecated - use description |  [optional] |
@@ -20,6 +23,7 @@ updateDBTarget is a command that updates an existing target. [Deprecated: Use ta
 |**dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional] |
 |**dbType** | **String** |  |  |
 |**description** | **String** | Description of the object |  [optional] |
+|**enableMtls** | **Boolean** | Enable mutual TLS |  [optional] |
 |**host** | **String** |  |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |

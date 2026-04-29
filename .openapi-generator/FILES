@@ -2416,8 +2416,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AgenticRuleTest.java
-src/test/java/io/akeyless/client/model/AgenticRulesTest.java
-src/test/java/io/akeyless/client/model/RuntimeAuthorityCommandTest.java
-src/test/java/io/akeyless/client/model/SetDefaultProfileOutputTest.java
-src/test/java/io/akeyless/client/model/SetDefaultProfileTest.java

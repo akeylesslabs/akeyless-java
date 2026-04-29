@@ -51,6 +51,21 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class DbTargetDetails {
+  public static final String SERIALIZED_NAME_CLIENT_CERTIFICATE = "client_certificate";
+  @SerializedName(SERIALIZED_NAME_CLIENT_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String clientCertificate;
+
+  public static final String SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE = "client_key_passphrase";
+  @SerializedName(SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE)
+  @javax.annotation.Nullable
+  private String clientKeyPassphrase;
+
+  public static final String SERIALIZED_NAME_CLIENT_PRIVATE_KEY = "client_private_key";
+  @SerializedName(SERIALIZED_NAME_CLIENT_PRIVATE_KEY)
+  @javax.annotation.Nullable
+  private String clientPrivateKey;
+
   public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud_service_provider";
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   @javax.annotation.Nullable
@@ -126,6 +141,11 @@ public class DbTargetDetails {
   @javax.annotation.Nullable
   private String dbUserName;
 
+  public static final String SERIALIZED_NAME_ENABLE_MTLS = "enable_mtls";
+  @SerializedName(SERIALIZED_NAME_ENABLE_MTLS)
+  @javax.annotation.Nullable
+  private Boolean enableMtls;
+
   public static final String SERIALIZED_NAME_ORACLE_WALLET_DETAILS = "oracle_wallet_details";
   @SerializedName(SERIALIZED_NAME_ORACLE_WALLET_DETAILS)
   @javax.annotation.Nullable
@@ -148,6 +168,63 @@ public class DbTargetDetails {
 
   public DbTargetDetails() {
   }
+
+  public DbTargetDetails clientCertificate(@javax.annotation.Nullable String clientCertificate) {
+    this.clientCertificate = clientCertificate;
+    return this;
+  }
+
+  /**
+   * (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field
+   * @return clientCertificate
+   */
+  @javax.annotation.Nullable
+  public String getClientCertificate() {
+    return clientCertificate;
+  }
+
+  public void setClientCertificate(@javax.annotation.Nullable String clientCertificate) {
+    this.clientCertificate = clientCertificate;
+  }
+
+
+  public DbTargetDetails clientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
+    this.clientKeyPassphrase = clientKeyPassphrase;
+    return this;
+  }
+
+  /**
+   * (Optional) ClientKeyPassphrase defines the passphrase for the client private key
+   * @return clientKeyPassphrase
+   */
+  @javax.annotation.Nullable
+  public String getClientKeyPassphrase() {
+    return clientKeyPassphrase;
+  }
+
+  public void setClientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
+    this.clientKeyPassphrase = clientKeyPassphrase;
+  }
+
+
+  public DbTargetDetails clientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
+    this.clientPrivateKey = clientPrivateKey;
+    return this;
+  }
+
+  /**
+   * (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field
+   * @return clientPrivateKey
+   */
+  @javax.annotation.Nullable
+  public String getClientPrivateKey() {
+    return clientPrivateKey;
+  }
+
+  public void setClientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
+    this.clientPrivateKey = clientPrivateKey;
+  }
+
 
   public DbTargetDetails cloudServiceProvider(@javax.annotation.Nullable String cloudServiceProvider) {
     this.cloudServiceProvider = cloudServiceProvider;
@@ -434,6 +511,25 @@ public class DbTargetDetails {
   }
 
 
+  public DbTargetDetails enableMtls(@javax.annotation.Nullable Boolean enableMtls) {
+    this.enableMtls = enableMtls;
+    return this;
+  }
+
+  /**
+   * (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB
+   * @return enableMtls
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableMtls() {
+    return enableMtls;
+  }
+
+  public void setEnableMtls(@javax.annotation.Nullable Boolean enableMtls) {
+    this.enableMtls = enableMtls;
+  }
+
+
   public DbTargetDetails oracleWalletDetails(@javax.annotation.Nullable WalletDetails oracleWalletDetails) {
     this.oracleWalletDetails = oracleWalletDetails;
     return this;
@@ -520,7 +616,10 @@ public class DbTargetDetails {
       return false;
     }
     DbTargetDetails dbTargetDetails = (DbTargetDetails) o;
-    return Objects.equals(this.cloudServiceProvider, dbTargetDetails.cloudServiceProvider) &&
+    return Objects.equals(this.clientCertificate, dbTargetDetails.clientCertificate) &&
+        Objects.equals(this.clientKeyPassphrase, dbTargetDetails.clientKeyPassphrase) &&
+        Objects.equals(this.clientPrivateKey, dbTargetDetails.clientPrivateKey) &&
+        Objects.equals(this.cloudServiceProvider, dbTargetDetails.cloudServiceProvider) &&
         Objects.equals(this.clusterMode, dbTargetDetails.clusterMode) &&
         Objects.equals(this.connectionType, dbTargetDetails.connectionType) &&
         Objects.equals(this.dbClientId, dbTargetDetails.dbClientId) &&
@@ -535,6 +634,7 @@ public class DbTargetDetails {
         Objects.equals(this.dbServerName, dbTargetDetails.dbServerName) &&
         Objects.equals(this.dbTenantId, dbTargetDetails.dbTenantId) &&
         Objects.equals(this.dbUserName, dbTargetDetails.dbUserName) &&
+        Objects.equals(this.enableMtls, dbTargetDetails.enableMtls) &&
         Objects.equals(this.oracleWalletDetails, dbTargetDetails.oracleWalletDetails) &&
         Objects.equals(this.sfAccount, dbTargetDetails.sfAccount) &&
         Objects.equals(this.sslConnectionCertificate, dbTargetDetails.sslConnectionCertificate) &&
@@ -543,13 +643,16 @@ public class DbTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudServiceProvider, clusterMode, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, oracleWalletDetails, sfAccount, sslConnectionCertificate, sslConnectionMode);
+    return Objects.hash(clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, enableMtls, oracleWalletDetails, sfAccount, sslConnectionCertificate, sslConnectionMode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DbTargetDetails {\n");
+    sb.append("    clientCertificate: ").append(toIndentedString(clientCertificate)).append("\n");
+    sb.append("    clientKeyPassphrase: ").append(toIndentedString(clientKeyPassphrase)).append("\n");
+    sb.append("    clientPrivateKey: ").append(toIndentedString(clientPrivateKey)).append("\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
@@ -565,6 +668,7 @@ public class DbTargetDetails {
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    dbTenantId: ").append(toIndentedString(dbTenantId)).append("\n");
     sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
+    sb.append("    enableMtls: ").append(toIndentedString(enableMtls)).append("\n");
     sb.append("    oracleWalletDetails: ").append(toIndentedString(oracleWalletDetails)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
@@ -591,6 +695,9 @@ public class DbTargetDetails {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("client_certificate");
+    openapiFields.add("client_key_passphrase");
+    openapiFields.add("client_private_key");
     openapiFields.add("cloud_service_provider");
     openapiFields.add("cluster_mode");
     openapiFields.add("connection_type");
@@ -606,6 +713,7 @@ public class DbTargetDetails {
     openapiFields.add("db_server_name");
     openapiFields.add("db_tenant_id");
     openapiFields.add("db_user_name");
+    openapiFields.add("enable_mtls");
     openapiFields.add("oracle_wallet_details");
     openapiFields.add("sf_account");
     openapiFields.add("ssl_connection_certificate");
@@ -636,6 +744,15 @@ public class DbTargetDetails {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("client_certificate") != null && !jsonObj.get("client_certificate").isJsonNull()) && !jsonObj.get("client_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_certificate").toString()));
+      }
+      if ((jsonObj.get("client_key_passphrase") != null && !jsonObj.get("client_key_passphrase").isJsonNull()) && !jsonObj.get("client_key_passphrase").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_key_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_key_passphrase").toString()));
+      }
+      if ((jsonObj.get("client_private_key") != null && !jsonObj.get("client_private_key").isJsonNull()) && !jsonObj.get("client_private_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_private_key").toString()));
+      }
       if ((jsonObj.get("cloud_service_provider") != null && !jsonObj.get("cloud_service_provider").isJsonNull()) && !jsonObj.get("cloud_service_provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cloud_service_provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloud_service_provider").toString()));
       }

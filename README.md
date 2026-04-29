@@ -289,7 +289,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretUpdateMsSql**](docs/V2Api.md#dynamicSecretUpdateMsSql) | **POST** /dynamic-secret-update-mssql | 
 *V2Api* | [**dynamicSecretUpdateMySql**](docs/V2Api.md#dynamicSecretUpdateMySql) | **POST** /dynamic-secret-update-mysql | 
 *V2Api* | [**dynamicSecretUpdateOpenAI**](docs/V2Api.md#dynamicSecretUpdateOpenAI) | **POST** /dynamic-secret-update-openai | 
-*V2Api* | [**dynamicSecretUpdateOracleDb**](docs/V2Api.md#dynamicSecretUpdateOracleDb) | **POST** /dynamic-secret-update-oracle | 
+*V2Api* | [**dynamicSecretUpdateOracleDb**](docs/V2Api.md#dynamicSecretUpdateOracleDb) | **POST** /dynamic-secret-update-oracledb | 
 *V2Api* | [**dynamicSecretUpdatePing**](docs/V2Api.md#dynamicSecretUpdatePing) | **POST** /dynamic-secret-update-ping | 
 *V2Api* | [**dynamicSecretUpdatePostgreSql**](docs/V2Api.md#dynamicSecretUpdatePostgreSql) | **POST** /dynamic-secret-update-postgresql | 
 *V2Api* | [**dynamicSecretUpdateRabbitMq**](docs/V2Api.md#dynamicSecretUpdateRabbitMq) | **POST** /dynamic-secret-update-rabbitmq | 

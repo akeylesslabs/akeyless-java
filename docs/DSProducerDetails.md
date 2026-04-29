@@ -62,6 +62,9 @@
 |**chefServerUsername** | **String** |  |  [optional] |
 |**chefSkipSsl** | **Boolean** |  |  [optional] |
 |**clientAuthenticationType** | **String** |  |  [optional] |
+|**clientCertificate** | **String** | (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field |  [optional] |
+|**clientKeyPassphrase** | **String** | (Optional) ClientKeyPassphrase defines the passphrase for the client private key |  [optional] |
+|**clientPrivateKey** | **String** | (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field |  [optional] |
 |**cloudServiceProvider** | **String** |  |  [optional] |
 |**clusterMode** | **Boolean** |  |  [optional] |
 |**connectionType** | **String** |  |  [optional] |
@@ -94,6 +97,7 @@
 |**eksRegion** | **String** |  |  [optional] |
 |**eksSecretAccessKey** | **String** |  |  [optional] |
 |**enableAdminRotation** | **Boolean** |  |  [optional] |
+|**enableMtls** | **Boolean** | (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB |  [optional] |
 |**enforceReplayPrevention** | **Boolean** | relevant for PRIVATE_KEY_JWT client authentication type |  [optional] |
 |**expirationDate** | **OffsetDateTime** |  |  [optional] |
 |**externallyProvidedUser** | **String** |  |  [optional] |

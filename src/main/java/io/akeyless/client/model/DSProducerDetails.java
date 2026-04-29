@@ -336,6 +336,21 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String clientAuthenticationType;
 
+  public static final String SERIALIZED_NAME_CLIENT_CERTIFICATE = "client_certificate";
+  @SerializedName(SERIALIZED_NAME_CLIENT_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String clientCertificate;
+
+  public static final String SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE = "client_key_passphrase";
+  @SerializedName(SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE)
+  @javax.annotation.Nullable
+  private String clientKeyPassphrase;
+
+  public static final String SERIALIZED_NAME_CLIENT_PRIVATE_KEY = "client_private_key";
+  @SerializedName(SERIALIZED_NAME_CLIENT_PRIVATE_KEY)
+  @javax.annotation.Nullable
+  private String clientPrivateKey;
+
   public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud_service_provider";
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   @javax.annotation.Nullable
@@ -495,6 +510,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
   @javax.annotation.Nullable
   private Boolean enableAdminRotation;
+
+  public static final String SERIALIZED_NAME_ENABLE_MTLS = "enable_mtls";
+  @SerializedName(SERIALIZED_NAME_ENABLE_MTLS)
+  @javax.annotation.Nullable
+  private Boolean enableMtls;
 
   public static final String SERIALIZED_NAME_ENFORCE_REPLAY_PREVENTION = "enforce_replay_prevention";
   @SerializedName(SERIALIZED_NAME_ENFORCE_REPLAY_PREVENTION)
@@ -2447,6 +2467,63 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails clientCertificate(@javax.annotation.Nullable String clientCertificate) {
+    this.clientCertificate = clientCertificate;
+    return this;
+  }
+
+  /**
+   * (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field
+   * @return clientCertificate
+   */
+  @javax.annotation.Nullable
+  public String getClientCertificate() {
+    return clientCertificate;
+  }
+
+  public void setClientCertificate(@javax.annotation.Nullable String clientCertificate) {
+    this.clientCertificate = clientCertificate;
+  }
+
+
+  public DSProducerDetails clientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
+    this.clientKeyPassphrase = clientKeyPassphrase;
+    return this;
+  }
+
+  /**
+   * (Optional) ClientKeyPassphrase defines the passphrase for the client private key
+   * @return clientKeyPassphrase
+   */
+  @javax.annotation.Nullable
+  public String getClientKeyPassphrase() {
+    return clientKeyPassphrase;
+  }
+
+  public void setClientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
+    this.clientKeyPassphrase = clientKeyPassphrase;
+  }
+
+
+  public DSProducerDetails clientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
+    this.clientPrivateKey = clientPrivateKey;
+    return this;
+  }
+
+  /**
+   * (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field
+   * @return clientPrivateKey
+   */
+  @javax.annotation.Nullable
+  public String getClientPrivateKey() {
+    return clientPrivateKey;
+  }
+
+  public void setClientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
+    this.clientPrivateKey = clientPrivateKey;
+  }
+
+
   public DSProducerDetails cloudServiceProvider(@javax.annotation.Nullable String cloudServiceProvider) {
     this.cloudServiceProvider = cloudServiceProvider;
     return this;
@@ -3052,6 +3129,25 @@ public class DSProducerDetails {
 
   public void setEnableAdminRotation(@javax.annotation.Nullable Boolean enableAdminRotation) {
     this.enableAdminRotation = enableAdminRotation;
+  }
+
+
+  public DSProducerDetails enableMtls(@javax.annotation.Nullable Boolean enableMtls) {
+    this.enableMtls = enableMtls;
+    return this;
+  }
+
+  /**
+   * (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB
+   * @return enableMtls
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableMtls() {
+    return enableMtls;
+  }
+
+  public void setEnableMtls(@javax.annotation.Nullable Boolean enableMtls) {
+    this.enableMtls = enableMtls;
   }
 
 
@@ -6633,6 +6729,9 @@ public class DSProducerDetails {
         Objects.equals(this.chefServerUsername, dsProducerDetails.chefServerUsername) &&
         Objects.equals(this.chefSkipSsl, dsProducerDetails.chefSkipSsl) &&
         Objects.equals(this.clientAuthenticationType, dsProducerDetails.clientAuthenticationType) &&
+        Objects.equals(this.clientCertificate, dsProducerDetails.clientCertificate) &&
+        Objects.equals(this.clientKeyPassphrase, dsProducerDetails.clientKeyPassphrase) &&
+        Objects.equals(this.clientPrivateKey, dsProducerDetails.clientPrivateKey) &&
         Objects.equals(this.cloudServiceProvider, dsProducerDetails.cloudServiceProvider) &&
         Objects.equals(this.clusterMode, dsProducerDetails.clusterMode) &&
         Objects.equals(this.connectionType, dsProducerDetails.connectionType) &&
@@ -6665,6 +6764,7 @@ public class DSProducerDetails {
         Objects.equals(this.eksRegion, dsProducerDetails.eksRegion) &&
         Objects.equals(this.eksSecretAccessKey, dsProducerDetails.eksSecretAccessKey) &&
         Objects.equals(this.enableAdminRotation, dsProducerDetails.enableAdminRotation) &&
+        Objects.equals(this.enableMtls, dsProducerDetails.enableMtls) &&
         Objects.equals(this.enforceReplayPrevention, dsProducerDetails.enforceReplayPrevention) &&
         Objects.equals(this.expirationDate, dsProducerDetails.expirationDate) &&
         Objects.equals(this.externallyProvidedUser, dsProducerDetails.externallyProvidedUser) &&
@@ -6848,7 +6948,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -6910,6 +7010,9 @@ public class DSProducerDetails {
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    chefSkipSsl: ").append(toIndentedString(chefSkipSsl)).append("\n");
     sb.append("    clientAuthenticationType: ").append(toIndentedString(clientAuthenticationType)).append("\n");
+    sb.append("    clientCertificate: ").append(toIndentedString(clientCertificate)).append("\n");
+    sb.append("    clientKeyPassphrase: ").append(toIndentedString(clientKeyPassphrase)).append("\n");
+    sb.append("    clientPrivateKey: ").append(toIndentedString(clientPrivateKey)).append("\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
@@ -6942,6 +7045,7 @@ public class DSProducerDetails {
     sb.append("    eksRegion: ").append(toIndentedString(eksRegion)).append("\n");
     sb.append("    eksSecretAccessKey: ").append(toIndentedString(eksSecretAccessKey)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
+    sb.append("    enableMtls: ").append(toIndentedString(enableMtls)).append("\n");
     sb.append("    enforceReplayPrevention: ").append(toIndentedString(enforceReplayPrevention)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    externallyProvidedUser: ").append(toIndentedString(externallyProvidedUser)).append("\n");
@@ -7198,6 +7302,9 @@ public class DSProducerDetails {
     openapiFields.add("chef_server_username");
     openapiFields.add("chef_skip_ssl");
     openapiFields.add("client_authentication_type");
+    openapiFields.add("client_certificate");
+    openapiFields.add("client_key_passphrase");
+    openapiFields.add("client_private_key");
     openapiFields.add("cloud_service_provider");
     openapiFields.add("cluster_mode");
     openapiFields.add("connection_type");
@@ -7230,6 +7337,7 @@ public class DSProducerDetails {
     openapiFields.add("eks_region");
     openapiFields.add("eks_secret_access_key");
     openapiFields.add("enable_admin_rotation");
+    openapiFields.add("enable_mtls");
     openapiFields.add("enforce_replay_prevention");
     openapiFields.add("expiration_date");
     openapiFields.add("externally_provided_user");
@@ -7577,6 +7685,15 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("client_authentication_type") != null && !jsonObj.get("client_authentication_type").isJsonNull()) && !jsonObj.get("client_authentication_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `client_authentication_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_authentication_type").toString()));
+      }
+      if ((jsonObj.get("client_certificate") != null && !jsonObj.get("client_certificate").isJsonNull()) && !jsonObj.get("client_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_certificate").toString()));
+      }
+      if ((jsonObj.get("client_key_passphrase") != null && !jsonObj.get("client_key_passphrase").isJsonNull()) && !jsonObj.get("client_key_passphrase").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_key_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_key_passphrase").toString()));
+      }
+      if ((jsonObj.get("client_private_key") != null && !jsonObj.get("client_private_key").isJsonNull()) && !jsonObj.get("client_private_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_private_key").toString()));
       }
       if ((jsonObj.get("cloud_service_provider") != null && !jsonObj.get("cloud_service_provider").isJsonNull()) && !jsonObj.get("cloud_service_provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cloud_service_provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloud_service_provider").toString()));

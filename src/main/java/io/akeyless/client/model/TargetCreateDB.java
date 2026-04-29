@@ -65,6 +65,21 @@ public class TargetCreateDB {
   @javax.annotation.Nullable
   private String azureTenantId;
 
+  public static final String SERIALIZED_NAME_CLIENT_CERTIFICATE = "client-certificate";
+  @SerializedName(SERIALIZED_NAME_CLIENT_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String clientCertificate;
+
+  public static final String SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE = "client-key-passphrase";
+  @SerializedName(SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE)
+  @javax.annotation.Nullable
+  private String clientKeyPassphrase;
+
+  public static final String SERIALIZED_NAME_CLIENT_PRIVATE_KEY = "client-private-key";
+  @SerializedName(SERIALIZED_NAME_CLIENT_PRIVATE_KEY)
+  @javax.annotation.Nullable
+  private String clientPrivateKey;
+
   public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud-service-provider";
   @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
   @javax.annotation.Nullable
@@ -114,6 +129,11 @@ public class TargetCreateDB {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ENABLE_MTLS = "enable-mtls";
+  @SerializedName(SERIALIZED_NAME_ENABLE_MTLS)
+  @javax.annotation.Nullable
+  private Boolean enableMtls;
 
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
@@ -305,6 +325,63 @@ public class TargetCreateDB {
   }
 
 
+  public TargetCreateDB clientCertificate(@javax.annotation.Nullable String clientCertificate) {
+    this.clientCertificate = clientCertificate;
+    return this;
+  }
+
+  /**
+   * Client certificate for mutual TLS
+   * @return clientCertificate
+   */
+  @javax.annotation.Nullable
+  public String getClientCertificate() {
+    return clientCertificate;
+  }
+
+  public void setClientCertificate(@javax.annotation.Nullable String clientCertificate) {
+    this.clientCertificate = clientCertificate;
+  }
+
+
+  public TargetCreateDB clientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
+    this.clientKeyPassphrase = clientKeyPassphrase;
+    return this;
+  }
+
+  /**
+   * Client private key passphrase for mutual TLS
+   * @return clientKeyPassphrase
+   */
+  @javax.annotation.Nullable
+  public String getClientKeyPassphrase() {
+    return clientKeyPassphrase;
+  }
+
+  public void setClientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
+    this.clientKeyPassphrase = clientKeyPassphrase;
+  }
+
+
+  public TargetCreateDB clientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
+    this.clientPrivateKey = clientPrivateKey;
+    return this;
+  }
+
+  /**
+   * Client private key for mutual TLS
+   * @return clientPrivateKey
+   */
+  @javax.annotation.Nullable
+  public String getClientPrivateKey() {
+    return clientPrivateKey;
+  }
+
+  public void setClientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
+    this.clientPrivateKey = clientPrivateKey;
+  }
+
+
   public TargetCreateDB cloudServiceProvider(@javax.annotation.Nullable String cloudServiceProvider) {
     this.cloudServiceProvider = cloudServiceProvider;
     return this;
@@ -492,6 +569,25 @@ public class TargetCreateDB {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public TargetCreateDB enableMtls(@javax.annotation.Nullable Boolean enableMtls) {
+    this.enableMtls = enableMtls;
+    return this;
+  }
+
+  /**
+   * Enable mutual TLS
+   * @return enableMtls
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableMtls() {
+    return enableMtls;
+  }
+
+  public void setEnableMtls(@javax.annotation.Nullable Boolean enableMtls) {
+    this.enableMtls = enableMtls;
   }
 
 
@@ -1002,6 +1098,9 @@ public class TargetCreateDB {
     return Objects.equals(this.azureClientId, targetCreateDB.azureClientId) &&
         Objects.equals(this.azureClientSecret, targetCreateDB.azureClientSecret) &&
         Objects.equals(this.azureTenantId, targetCreateDB.azureTenantId) &&
+        Objects.equals(this.clientCertificate, targetCreateDB.clientCertificate) &&
+        Objects.equals(this.clientKeyPassphrase, targetCreateDB.clientKeyPassphrase) &&
+        Objects.equals(this.clientPrivateKey, targetCreateDB.clientPrivateKey) &&
         Objects.equals(this.cloudServiceProvider, targetCreateDB.cloudServiceProvider) &&
         Objects.equals(this.clusterMode, targetCreateDB.clusterMode) &&
         Objects.equals(this.comment, targetCreateDB.comment) &&
@@ -1012,6 +1111,7 @@ public class TargetCreateDB {
         Objects.equals(this.dbType, targetCreateDB.dbType) &&
         Objects.equals(this.deleteProtection, targetCreateDB.deleteProtection) &&
         Objects.equals(this.description, targetCreateDB.description) &&
+        Objects.equals(this.enableMtls, targetCreateDB.enableMtls) &&
         Objects.equals(this.host, targetCreateDB.host) &&
         Objects.equals(this.json, targetCreateDB.json) &&
         Objects.equals(this.key, targetCreateDB.key) &&
@@ -1042,7 +1142,7 @@ public class TargetCreateDB {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, deleteProtection, description, host, json, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
+    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, deleteProtection, description, enableMtls, host, json, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, userName);
   }
 
   @Override
@@ -1052,6 +1152,9 @@ public class TargetCreateDB {
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
+    sb.append("    clientCertificate: ").append(toIndentedString(clientCertificate)).append("\n");
+    sb.append("    clientKeyPassphrase: ").append(toIndentedString(clientKeyPassphrase)).append("\n");
+    sb.append("    clientPrivateKey: ").append(toIndentedString(clientPrivateKey)).append("\n");
     sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
@@ -1062,6 +1165,7 @@ public class TargetCreateDB {
     sb.append("    dbType: ").append(toIndentedString(dbType)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableMtls: ").append(toIndentedString(enableMtls)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
@@ -1113,6 +1217,9 @@ public class TargetCreateDB {
     openapiFields.add("azure-client-id");
     openapiFields.add("azure-client-secret");
     openapiFields.add("azure-tenant-id");
+    openapiFields.add("client-certificate");
+    openapiFields.add("client-key-passphrase");
+    openapiFields.add("client-private-key");
     openapiFields.add("cloud-service-provider");
     openapiFields.add("cluster-mode");
     openapiFields.add("comment");
@@ -1123,6 +1230,7 @@ public class TargetCreateDB {
     openapiFields.add("db-type");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("enable-mtls");
     openapiFields.add("host");
     openapiFields.add("json");
     openapiFields.add("key");
@@ -1193,6 +1301,15 @@ public class TargetCreateDB {
       }
       if ((jsonObj.get("azure-tenant-id") != null && !jsonObj.get("azure-tenant-id").isJsonNull()) && !jsonObj.get("azure-tenant-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `azure-tenant-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-tenant-id").toString()));
+      }
+      if ((jsonObj.get("client-certificate") != null && !jsonObj.get("client-certificate").isJsonNull()) && !jsonObj.get("client-certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-certificate").toString()));
+      }
+      if ((jsonObj.get("client-key-passphrase") != null && !jsonObj.get("client-key-passphrase").isJsonNull()) && !jsonObj.get("client-key-passphrase").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client-key-passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-key-passphrase").toString()));
+      }
+      if ((jsonObj.get("client-private-key") != null && !jsonObj.get("client-private-key").isJsonNull()) && !jsonObj.get("client-private-key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client-private-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-private-key").toString()));
       }
       if ((jsonObj.get("cloud-service-provider") != null && !jsonObj.get("cloud-service-provider").isJsonNull()) && !jsonObj.get("cloud-service-provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cloud-service-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloud-service-provider").toString()));

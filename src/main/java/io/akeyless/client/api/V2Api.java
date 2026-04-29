@@ -24977,7 +24977,7 @@ public class V2Api {
         Object localVarPostBody = dynamicSecretUpdateOracleDb;
 
         // create path and map variables
-        String localVarPath = "/dynamic-secret-update-oracle";
+        String localVarPath = "/dynamic-secret-update-oracledb";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
