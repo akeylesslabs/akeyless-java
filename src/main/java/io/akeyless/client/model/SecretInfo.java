@@ -55,6 +55,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class SecretInfo {
+  public static final String SERIALIZED_NAME_ACTIVATION_DATE = "activation_date";
+  @SerializedName(SERIALIZED_NAME_ACTIVATION_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime activationDate;
+
   public static final String SERIALIZED_NAME_CREATED = "created";
   @SerializedName(SERIALIZED_NAME_CREATED)
   @javax.annotation.Nullable
@@ -137,6 +142,25 @@ public class SecretInfo {
 
   public SecretInfo() {
   }
+
+  public SecretInfo activationDate(@javax.annotation.Nullable OffsetDateTime activationDate) {
+    this.activationDate = activationDate;
+    return this;
+  }
+
+  /**
+   * Get activationDate
+   * @return activationDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getActivationDate() {
+    return activationDate;
+  }
+
+  public void setActivationDate(@javax.annotation.Nullable OffsetDateTime activationDate) {
+    this.activationDate = activationDate;
+  }
+
 
   public SecretInfo created(@javax.annotation.Nullable OffsetDateTime created) {
     this.created = created;
@@ -460,7 +484,8 @@ public class SecretInfo {
       return false;
     }
     SecretInfo secretInfo = (SecretInfo) o;
-    return Objects.equals(this.created, secretInfo.created) &&
+    return Objects.equals(this.activationDate, secretInfo.activationDate) &&
+        Objects.equals(this.created, secretInfo.created) &&
         Objects.equals(this.description, secretInfo.description) &&
         Objects.equals(this.expiration, secretInfo.expiration) &&
         Objects.equals(this.github, secretInfo.github) &&
@@ -484,7 +509,7 @@ public class SecretInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(created, description, expiration, github, keyId, lastRetrieved, location, name, namespace, region, secretId, status, tags, thumbprint, type, version);
+    return Objects.hash(activationDate, created, description, expiration, github, keyId, lastRetrieved, location, name, namespace, region, secretId, status, tags, thumbprint, type, version);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -498,6 +523,7 @@ public class SecretInfo {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SecretInfo {\n");
+    sb.append("    activationDate: ").append(toIndentedString(activationDate)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
@@ -536,6 +562,7 @@ public class SecretInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("activation_date");
     openapiFields.add("created");
     openapiFields.add("description");
     openapiFields.add("expiration");

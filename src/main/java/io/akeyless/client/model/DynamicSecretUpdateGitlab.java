@@ -99,6 +99,11 @@ public class DynamicSecretUpdateGitlab {
   @javax.annotation.Nullable
   private String groupName;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_INSTALLATION_ORGANIZATION = "installation-organization";
   @SerializedName(SERIALIZED_NAME_INSTALLATION_ORGANIZATION)
   @javax.annotation.Nullable
@@ -123,6 +128,11 @@ public class DynamicSecretUpdateGitlab {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -323,6 +333,33 @@ public class DynamicSecretUpdateGitlab {
   }
 
 
+  public DynamicSecretUpdateGitlab inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateGitlab addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public DynamicSecretUpdateGitlab installationOrganization(@javax.annotation.Nullable String installationOrganization) {
     this.installationOrganization = installationOrganization;
     return this;
@@ -423,6 +460,33 @@ public class DynamicSecretUpdateGitlab {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public DynamicSecretUpdateGitlab outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateGitlab addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -548,11 +612,13 @@ public class DynamicSecretUpdateGitlab {
         Objects.equals(this.gitlabTokenScopes, dynamicSecretUpdateGitlab.gitlabTokenScopes) &&
         Objects.equals(this.gitlabUrl, dynamicSecretUpdateGitlab.gitlabUrl) &&
         Objects.equals(this.groupName, dynamicSecretUpdateGitlab.groupName) &&
+        Objects.equals(this.inputRule, dynamicSecretUpdateGitlab.inputRule) &&
         Objects.equals(this.installationOrganization, dynamicSecretUpdateGitlab.installationOrganization) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateGitlab.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateGitlab.json) &&
         Objects.equals(this.name, dynamicSecretUpdateGitlab.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateGitlab.newName) &&
+        Objects.equals(this.outputRule, dynamicSecretUpdateGitlab.outputRule) &&
         Objects.equals(this.tags, dynamicSecretUpdateGitlab.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateGitlab.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateGitlab.token) &&
@@ -562,7 +628,7 @@ public class DynamicSecretUpdateGitlab {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabRole, gitlabTokenScopes, gitlabUrl, groupName, installationOrganization, itemCustomFields, json, name, newName, tags, targetName, token, ttl, uidToken);
+    return Objects.hash(deleteProtection, description, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabRole, gitlabTokenScopes, gitlabUrl, groupName, inputRule, installationOrganization, itemCustomFields, json, name, newName, outputRule, tags, targetName, token, ttl, uidToken);
   }
 
   @Override
@@ -578,11 +644,13 @@ public class DynamicSecretUpdateGitlab {
     sb.append("    gitlabTokenScopes: ").append(toIndentedString(gitlabTokenScopes)).append("\n");
     sb.append("    gitlabUrl: ").append(toIndentedString(gitlabUrl)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    installationOrganization: ").append(toIndentedString(installationOrganization)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -619,11 +687,13 @@ public class DynamicSecretUpdateGitlab {
     openapiFields.add("gitlab-token-scopes");
     openapiFields.add("gitlab-url");
     openapiFields.add("group-name");
+    openapiFields.add("input-rule");
     openapiFields.add("installation-organization");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("output-rule");
     openapiFields.add("tags");
     openapiFields.add("target-name");
     openapiFields.add("token");
@@ -692,6 +762,10 @@ public class DynamicSecretUpdateGitlab {
       if ((jsonObj.get("group-name") != null && !jsonObj.get("group-name").isJsonNull()) && !jsonObj.get("group-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `group-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group-name").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("installation-organization") != null && !jsonObj.get("installation-organization").isJsonNull()) && !jsonObj.get("installation-organization").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installation-organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installation-organization").toString()));
       }
@@ -700,6 +774,10 @@ public class DynamicSecretUpdateGitlab {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

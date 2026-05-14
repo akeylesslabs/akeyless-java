@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,6 +56,11 @@ public class KmipServerSetup {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
   @javax.annotation.Nullable
   private Long certificateTtl = 90l;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  @javax.annotation.Nullable
+  private List<String> expirationEventIn = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -99,6 +106,33 @@ public class KmipServerSetup {
 
   public void setCertificateTtl(@javax.annotation.Nullable Long certificateTtl) {
     this.certificateTtl = certificateTtl;
+  }
+
+
+  public KmipServerSetup expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public KmipServerSetup addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+  /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+   */
+  @javax.annotation.Nullable
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+  public void setExpirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
   }
 
 
@@ -208,6 +242,7 @@ public class KmipServerSetup {
     }
     KmipServerSetup kmipServerSetup = (KmipServerSetup) o;
     return Objects.equals(this.certificateTtl, kmipServerSetup.certificateTtl) &&
+        Objects.equals(this.expirationEventIn, kmipServerSetup.expirationEventIn) &&
         Objects.equals(this.hostname, kmipServerSetup.hostname) &&
         Objects.equals(this.json, kmipServerSetup.json) &&
         Objects.equals(this.root, kmipServerSetup.root) &&
@@ -217,7 +252,7 @@ public class KmipServerSetup {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateTtl, hostname, json, root, token, uidToken);
+    return Objects.hash(certificateTtl, expirationEventIn, hostname, json, root, token, uidToken);
   }
 
   @Override
@@ -225,6 +260,7 @@ public class KmipServerSetup {
     StringBuilder sb = new StringBuilder();
     sb.append("class KmipServerSetup {\n");
     sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    root: ").append(toIndentedString(root)).append("\n");
@@ -253,6 +289,7 @@ public class KmipServerSetup {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("certificate-ttl");
+    openapiFields.add("expiration-event-in");
     openapiFields.add("hostname");
     openapiFields.add("json");
     openapiFields.add("root");
@@ -293,6 +330,10 @@ public class KmipServerSetup {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+      }
       if (!jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }

@@ -16,10 +16,12 @@ gatewayUpdateProducerEks is a command that updates eks producer [Deprecated: Use
 |**eksClusterName** | **String** | EKS cluster name |  [optional] |
 |**eksRegion** | **String** | Region |  [optional] |
 |**eksSecretAccessKey** | **String** | Secret Access Key |  [optional] |
+|**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |
+|**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
 |**secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access |  [optional] |
 |**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |

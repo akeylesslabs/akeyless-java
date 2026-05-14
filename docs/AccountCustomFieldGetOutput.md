@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**accountId** | **String** |  |  [optional] |
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
-|**deletionDate** | [**NullTime**](NullTime.md) |  |  [optional] |
+|**deletionDate** | **OffsetDateTime** |  |  [optional] |
 |**id** | **Long** |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**name** | **String** |  |  [optional] |

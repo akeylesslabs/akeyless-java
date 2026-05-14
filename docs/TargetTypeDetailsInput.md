@@ -11,6 +11,7 @@
 |**awsTargetDetails** | [**AWSTargetDetails**](AWSTargetDetails.md) |  |  [optional] |
 |**azureTargetDetails** | [**AzureTargetDetails**](AzureTargetDetails.md) |  |  [optional] |
 |**chefTargetDetails** | [**ChefTargetDetails**](ChefTargetDetails.md) |  |  [optional] |
+|**cloudflareTargetDetails** | [**CloudflareTargetDetails**](CloudflareTargetDetails.md) |  |  [optional] |
 |**customTargetDetails** | [**CustomTargetDetails**](CustomTargetDetails.md) |  |  [optional] |
 |**dbTargetDetails** | [**DbTargetDetails**](DbTargetDetails.md) |  |  [optional] |
 |**digicertTargetDetails** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  |  [optional] |

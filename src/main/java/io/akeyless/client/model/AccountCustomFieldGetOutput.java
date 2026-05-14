@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.akeyless.client.model.NullTime;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.Arrays;
@@ -65,7 +64,7 @@ public class AccountCustomFieldGetOutput {
   public static final String SERIALIZED_NAME_DELETION_DATE = "deletion_date";
   @SerializedName(SERIALIZED_NAME_DELETION_DATE)
   @javax.annotation.Nullable
-  private NullTime deletionDate;
+  private OffsetDateTime deletionDate;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -138,7 +137,7 @@ public class AccountCustomFieldGetOutput {
   }
 
 
-  public AccountCustomFieldGetOutput deletionDate(@javax.annotation.Nullable NullTime deletionDate) {
+  public AccountCustomFieldGetOutput deletionDate(@javax.annotation.Nullable OffsetDateTime deletionDate) {
     this.deletionDate = deletionDate;
     return this;
   }
@@ -148,11 +147,11 @@ public class AccountCustomFieldGetOutput {
    * @return deletionDate
    */
   @javax.annotation.Nullable
-  public NullTime getDeletionDate() {
+  public OffsetDateTime getDeletionDate() {
     return deletionDate;
   }
 
-  public void setDeletionDate(@javax.annotation.Nullable NullTime deletionDate) {
+  public void setDeletionDate(@javax.annotation.Nullable OffsetDateTime deletionDate) {
     this.deletionDate = deletionDate;
   }
 
@@ -369,10 +368,6 @@ public class AccountCustomFieldGetOutput {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
-      }
-      // validate the optional field `deletion_date`
-      if (jsonObj.get("deletion_date") != null && !jsonObj.get("deletion_date").isJsonNull()) {
-        NullTime.validateJsonElement(jsonObj.get("deletion_date"));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,6 +57,11 @@ public class GatewayRevokeTmpUsers {
   @javax.annotation.Nullable
   private String host;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -64,6 +71,11 @@ public class GatewayRevokeTmpUsers {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_REVOKE_ALL = "revoke-all";
   @SerializedName(SERIALIZED_NAME_REVOKE_ALL)
@@ -112,6 +124,33 @@ public class GatewayRevokeTmpUsers {
   }
 
 
+  public GatewayRevokeTmpUsers inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public GatewayRevokeTmpUsers addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public GatewayRevokeTmpUsers json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -147,6 +186,33 @@ public class GatewayRevokeTmpUsers {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public GatewayRevokeTmpUsers outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public GatewayRevokeTmpUsers addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -256,8 +322,10 @@ public class GatewayRevokeTmpUsers {
     }
     GatewayRevokeTmpUsers gatewayRevokeTmpUsers = (GatewayRevokeTmpUsers) o;
     return Objects.equals(this.host, gatewayRevokeTmpUsers.host) &&
+        Objects.equals(this.inputRule, gatewayRevokeTmpUsers.inputRule) &&
         Objects.equals(this.json, gatewayRevokeTmpUsers.json) &&
         Objects.equals(this.name, gatewayRevokeTmpUsers.name) &&
+        Objects.equals(this.outputRule, gatewayRevokeTmpUsers.outputRule) &&
         Objects.equals(this.revokeAll, gatewayRevokeTmpUsers.revokeAll) &&
         Objects.equals(this.softDelete, gatewayRevokeTmpUsers.softDelete) &&
         Objects.equals(this.tmpCredsId, gatewayRevokeTmpUsers.tmpCredsId) &&
@@ -267,7 +335,7 @@ public class GatewayRevokeTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, json, name, revokeAll, softDelete, tmpCredsId, token, uidToken);
+    return Objects.hash(host, inputRule, json, name, outputRule, revokeAll, softDelete, tmpCredsId, token, uidToken);
   }
 
   @Override
@@ -275,8 +343,10 @@ public class GatewayRevokeTmpUsers {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayRevokeTmpUsers {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    revokeAll: ").append(toIndentedString(revokeAll)).append("\n");
     sb.append("    softDelete: ").append(toIndentedString(softDelete)).append("\n");
     sb.append("    tmpCredsId: ").append(toIndentedString(tmpCredsId)).append("\n");
@@ -305,8 +375,10 @@ public class GatewayRevokeTmpUsers {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("host");
+    openapiFields.add("input-rule");
     openapiFields.add("json");
     openapiFields.add("name");
+    openapiFields.add("output-rule");
     openapiFields.add("revoke-all");
     openapiFields.add("soft-delete");
     openapiFields.add("tmp-creds-id");
@@ -349,8 +421,16 @@ public class GatewayRevokeTmpUsers {
       if ((jsonObj.get("host") != null && !jsonObj.get("host").isJsonNull()) && !jsonObj.get("host").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("tmp-creds-id") != null && !jsonObj.get("tmp-creds-id").isJsonNull()) && !jsonObj.get("tmp-creds-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tmp-creds-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tmp-creds-id").toString()));

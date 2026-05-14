@@ -15,6 +15,8 @@ uscCreate is a command that creates a new secret in a Universal Secrets Connecto
 |**objectType** | **String** |  |  [optional] |
 |**pfxPassword** | **String** | Optional, the passphrase that protects the private key within the pfx certificate (Relevant only for Azure KV certificates) |  [optional] |
 |**region** | **String** | Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default). |  [optional] |
+|**remoteSecretActivationDate** | **String** | Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ |  [optional] |
+|**remoteSecretExpires** | **String** | Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ |  [optional] |
 |**secretName** | **String** | Name for the new universal secrets |  |
 |**selectedRepositories** | **String** |  |  [optional] |
 |**tags** | **Map&lt;String, String&gt;** | Tags for the universal secrets |  [optional] |

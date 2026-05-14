@@ -467,6 +467,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**importPasswords**](docs/V2Api.md#importPasswords) | **POST** /import-passwords | 
 *V2Api* | [**kmipClientDeleteRule**](docs/V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule | 
 *V2Api* | [**kmipClientSetRule**](docs/V2Api.md#kmipClientSetRule) | **POST** /kmip-client-set-rule | 
+*V2Api* | [**kmipClientUpdate**](docs/V2Api.md#kmipClientUpdate) | **POST** /kmip-client-update | 
 *V2Api* | [**kmipCreateClient**](docs/V2Api.md#kmipCreateClient) | **POST** /kmip-create-client | 
 *V2Api* | [**kmipDeleteClient**](docs/V2Api.md#kmipDeleteClient) | **POST** /kmip-delete-client | 
 *V2Api* | [**kmipDeleteServer**](docs/V2Api.md#kmipDeleteServer) | **DELETE** /kmip-delete-environment | 
@@ -477,6 +478,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**kmipRenewClientCertificate**](docs/V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client | 
 *V2Api* | [**kmipRenewServerCertificate**](docs/V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment | 
 *V2Api* | [**kmipServerSetup**](docs/V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
+*V2Api* | [**kmipServerUpdate**](docs/V2Api.md#kmipServerUpdate) | **POST** /kmip-server-update | 
 *V2Api* | [**kmipSetServerState**](docs/V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
 *V2Api* | [**kubeconfigGenerate**](docs/V2Api.md#kubeconfigGenerate) | **POST** /kubeconfig-generate | 
 *V2Api* | [**listAcmeAccounts**](docs/V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts | 
@@ -572,6 +574,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateArtifactory**](docs/V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory | 
 *V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
 *V2Api* | [**targetCreateAzure**](docs/V2Api.md#targetCreateAzure) | **POST** /target-create-azure | 
+*V2Api* | [**targetCreateCloudflare**](docs/V2Api.md#targetCreateCloudflare) | **POST** /target-create-cloudflare | 
 *V2Api* | [**targetCreateDB**](docs/V2Api.md#targetCreateDB) | **POST** /target-create-db | 
 *V2Api* | [**targetCreateDigiCert**](docs/V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert | 
 *V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
@@ -607,6 +610,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateArtifactory**](docs/V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory | 
 *V2Api* | [**targetUpdateAws**](docs/V2Api.md#targetUpdateAws) | **POST** /target-update-aws | 
 *V2Api* | [**targetUpdateAzure**](docs/V2Api.md#targetUpdateAzure) | **POST** /target-update-azure | 
+*V2Api* | [**targetUpdateCloudflare**](docs/V2Api.md#targetUpdateCloudflare) | **POST** /target-update-cloudflare | 
 *V2Api* | [**targetUpdateDB**](docs/V2Api.md#targetUpdateDB) | **POST** /target-update-db | 
 *V2Api* | [**targetUpdateDigiCert**](docs/V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert | 
 *V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
@@ -731,6 +735,7 @@ Class | Method | HTTP request | Description
  - [AWSTargetDetails](docs/AWSTargetDetails.md)
  - [AccessOrGroupPermissionAssignment](docs/AccessOrGroupPermissionAssignment.md)
  - [AccessPermissionAssignment](docs/AccessPermissionAssignment.md)
+ - [AccountCustomField](docs/AccountCustomField.md)
  - [AccountCustomFieldCreate](docs/AccountCustomFieldCreate.md)
  - [AccountCustomFieldCreateOutput](docs/AccountCustomFieldCreateOutput.md)
  - [AccountCustomFieldDelete](docs/AccountCustomFieldDelete.md)
@@ -846,6 +851,7 @@ Class | Method | HTTP request | Description
  - [ClientData](docs/ClientData.md)
  - [ClientUsageInfo](docs/ClientUsageInfo.md)
  - [ClientsUsageReport](docs/ClientsUsageReport.md)
+ - [CloudflareTargetDetails](docs/CloudflareTargetDetails.md)
  - [ConfigChange](docs/ConfigChange.md)
  - [ConfigHash](docs/ConfigHash.md)
  - [Configure](docs/Configure.md)
@@ -1140,6 +1146,7 @@ Class | Method | HTTP request | Description
  - [FolderDelete](docs/FolderDelete.md)
  - [FolderGet](docs/FolderGet.md)
  - [FolderGetOutput](docs/FolderGetOutput.md)
+ - [FolderUSCSyncConfig](docs/FolderUSCSyncConfig.md)
  - [FolderUpdate](docs/FolderUpdate.md)
  - [GCPAccessRules](docs/GCPAccessRules.md)
  - [GCPPayload](docs/GCPPayload.md)
@@ -1431,6 +1438,8 @@ Class | Method | HTTP request | Description
  - [KerberosConfigPart](docs/KerberosConfigPart.md)
  - [KmipClientDeleteRule](docs/KmipClientDeleteRule.md)
  - [KmipClientSetRule](docs/KmipClientSetRule.md)
+ - [KmipClientUpdate](docs/KmipClientUpdate.md)
+ - [KmipClientUpdateOutput](docs/KmipClientUpdateOutput.md)
  - [KmipCreateClient](docs/KmipCreateClient.md)
  - [KmipCreateClientOutput](docs/KmipCreateClientOutput.md)
  - [KmipDeleteClient](docs/KmipDeleteClient.md)
@@ -1446,6 +1455,8 @@ Class | Method | HTTP request | Description
  - [KmipRenewServerCertificate](docs/KmipRenewServerCertificate.md)
  - [KmipRenewServerCertificateOutput](docs/KmipRenewServerCertificateOutput.md)
  - [KmipServerSetup](docs/KmipServerSetup.md)
+ - [KmipServerUpdate](docs/KmipServerUpdate.md)
+ - [KmipServerUpdateOutput](docs/KmipServerUpdateOutput.md)
  - [KmipSetServerState](docs/KmipSetServerState.md)
  - [KmipSetServerStateOutput](docs/KmipSetServerStateOutput.md)
  - [KubeConfigValue](docs/KubeConfigValue.md)
@@ -1508,7 +1519,6 @@ Class | Method | HTTP request | Description
  - [NotiForwarder](docs/NotiForwarder.md)
  - [NotiForwarderDetailsInput](docs/NotiForwarderDetailsInput.md)
  - [NullString](docs/NullString.md)
- - [NullTime](docs/NullTime.md)
  - [OAuth2AccessRules](docs/OAuth2AccessRules.md)
  - [OAuth2CustomClaim](docs/OAuth2CustomClaim.md)
  - [OCIAccessRules](docs/OCIAccessRules.md)
@@ -1684,6 +1694,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateArtifactory](docs/TargetCreateArtifactory.md)
  - [TargetCreateAws](docs/TargetCreateAws.md)
  - [TargetCreateAzure](docs/TargetCreateAzure.md)
+ - [TargetCreateCloudflare](docs/TargetCreateCloudflare.md)
  - [TargetCreateDB](docs/TargetCreateDB.md)
  - [TargetCreateDigiCert](docs/TargetCreateDigiCert.md)
  - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
@@ -1725,6 +1736,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateArtifactory](docs/TargetUpdateArtifactory.md)
  - [TargetUpdateAws](docs/TargetUpdateAws.md)
  - [TargetUpdateAzure](docs/TargetUpdateAzure.md)
+ - [TargetUpdateCloudflare](docs/TargetUpdateCloudflare.md)
  - [TargetUpdateDB](docs/TargetUpdateDB.md)
  - [TargetUpdateDigiCert](docs/TargetUpdateDigiCert.md)
  - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)

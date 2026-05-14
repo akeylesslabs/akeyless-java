@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -59,6 +61,11 @@ public class KmipCreateClient {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
   @javax.annotation.Nullable
   private Long certificateTtl = 90l;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
+  @javax.annotation.Nullable
+  private List<String> expirationEventIn = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -118,6 +125,33 @@ public class KmipCreateClient {
 
   public void setCertificateTtl(@javax.annotation.Nullable Long certificateTtl) {
     this.certificateTtl = certificateTtl;
+  }
+
+
+  public KmipCreateClient expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
+    return this;
+  }
+
+  public KmipCreateClient addExpirationEventInItem(String expirationEventInItem) {
+    if (this.expirationEventIn == null) {
+      this.expirationEventIn = new ArrayList<>();
+    }
+    this.expirationEventIn.add(expirationEventInItem);
+    return this;
+  }
+
+  /**
+   * How many days before the expiration of the certificate would you like to be notified.
+   * @return expirationEventIn
+   */
+  @javax.annotation.Nullable
+  public List<String> getExpirationEventIn() {
+    return expirationEventIn;
+  }
+
+  public void setExpirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
+    this.expirationEventIn = expirationEventIn;
   }
 
 
@@ -209,6 +243,7 @@ public class KmipCreateClient {
     KmipCreateClient kmipCreateClient = (KmipCreateClient) o;
     return Objects.equals(this.activateKeysOnCreation, kmipCreateClient.activateKeysOnCreation) &&
         Objects.equals(this.certificateTtl, kmipCreateClient.certificateTtl) &&
+        Objects.equals(this.expirationEventIn, kmipCreateClient.expirationEventIn) &&
         Objects.equals(this.json, kmipCreateClient.json) &&
         Objects.equals(this.name, kmipCreateClient.name) &&
         Objects.equals(this.token, kmipCreateClient.token) &&
@@ -217,7 +252,7 @@ public class KmipCreateClient {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activateKeysOnCreation, certificateTtl, json, name, token, uidToken);
+    return Objects.hash(activateKeysOnCreation, certificateTtl, expirationEventIn, json, name, token, uidToken);
   }
 
   @Override
@@ -226,6 +261,7 @@ public class KmipCreateClient {
     sb.append("class KmipCreateClient {\n");
     sb.append("    activateKeysOnCreation: ").append(toIndentedString(activateKeysOnCreation)).append("\n");
     sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
+    sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -254,6 +290,7 @@ public class KmipCreateClient {
     openapiFields = new HashSet<String>();
     openapiFields.add("activate-keys-on-creation");
     openapiFields.add("certificate-ttl");
+    openapiFields.add("expiration-event-in");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("token");
@@ -294,6 +331,10 @@ public class KmipCreateClient {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("activate-keys-on-creation") != null && !jsonObj.get("activate-keys-on-creation").isJsonNull()) && !jsonObj.get("activate-keys-on-creation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `activate-keys-on-creation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("activate-keys-on-creation").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

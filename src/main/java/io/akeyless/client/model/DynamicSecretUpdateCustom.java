@@ -79,6 +79,11 @@ public class DynamicSecretUpdateCustom {
   @javax.annotation.Nullable
   private Boolean enableAdminRotation = false;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -98,6 +103,11 @@ public class DynamicSecretUpdateCustom {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
@@ -242,6 +252,33 @@ public class DynamicSecretUpdateCustom {
   }
 
 
+  public DynamicSecretUpdateCustom inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateCustom addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public DynamicSecretUpdateCustom itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -323,6 +360,33 @@ public class DynamicSecretUpdateCustom {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public DynamicSecretUpdateCustom outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateCustom addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -520,10 +584,12 @@ public class DynamicSecretUpdateCustom {
         Objects.equals(this.deleteProtection, dynamicSecretUpdateCustom.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateCustom.description) &&
         Objects.equals(this.enableAdminRotation, dynamicSecretUpdateCustom.enableAdminRotation) &&
+        Objects.equals(this.inputRule, dynamicSecretUpdateCustom.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateCustom.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateCustom.json) &&
         Objects.equals(this.name, dynamicSecretUpdateCustom.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateCustom.newName) &&
+        Objects.equals(this.outputRule, dynamicSecretUpdateCustom.outputRule) &&
         Objects.equals(this.payload, dynamicSecretUpdateCustom.payload) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretUpdateCustom.producerEncryptionKeyName) &&
         Objects.equals(this.revokeSyncUrl, dynamicSecretUpdateCustom.revokeSyncUrl) &&
@@ -537,7 +603,7 @@ public class DynamicSecretUpdateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, description, enableAdminRotation, itemCustomFields, json, name, newName, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
+    return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, description, enableAdminRotation, inputRule, itemCustomFields, json, name, newName, outputRule, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, tags, timeoutSec, token, uidToken, userTtl);
   }
 
   @Override
@@ -549,10 +615,12 @@ public class DynamicSecretUpdateCustom {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
@@ -589,10 +657,12 @@ public class DynamicSecretUpdateCustom {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("enable-admin-rotation");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("output-rule");
     openapiFields.add("payload");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("revoke-sync-url");
@@ -647,11 +717,19 @@ public class DynamicSecretUpdateCustom {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonNull()) && !jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));

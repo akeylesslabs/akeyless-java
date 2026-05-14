@@ -84,6 +84,11 @@ public class DynamicSecretCreateRdp {
   @javax.annotation.Nullable
   private String fixedUserOnly = "false";
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -98,6 +103,11 @@ public class DynamicSecretCreateRdp {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -326,6 +336,33 @@ public class DynamicSecretCreateRdp {
   }
 
 
+  public DynamicSecretCreateRdp inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretCreateRdp addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public DynamicSecretCreateRdp itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -388,6 +425,33 @@ public class DynamicSecretCreateRdp {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public DynamicSecretCreateRdp outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretCreateRdp addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -841,9 +905,11 @@ public class DynamicSecretCreateRdp {
         Objects.equals(this.description, dynamicSecretCreateRdp.description) &&
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretCreateRdp.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, dynamicSecretCreateRdp.fixedUserOnly) &&
+        Objects.equals(this.inputRule, dynamicSecretCreateRdp.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretCreateRdp.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretCreateRdp.json) &&
         Objects.equals(this.name, dynamicSecretCreateRdp.name) &&
+        Objects.equals(this.outputRule, dynamicSecretCreateRdp.outputRule) &&
         Objects.equals(this.passwordLength, dynamicSecretCreateRdp.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateRdp.producerEncryptionKeyName) &&
         Objects.equals(this.rdpAdminName, dynamicSecretCreateRdp.rdpAdminName) &&
@@ -870,7 +936,7 @@ public class DynamicSecretCreateRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, itemCustomFields, json, name, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(allowUserExtendSession, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -883,9 +949,11 @@ public class DynamicSecretCreateRdp {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    rdpAdminName: ").append(toIndentedString(rdpAdminName)).append("\n");
@@ -936,9 +1004,11 @@ public class DynamicSecretCreateRdp {
     openapiFields.add("description");
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("fixed-user-only");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("name");
+    openapiFields.add("output-rule");
     openapiFields.add("password-length");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("rdp-admin-name");
@@ -1010,8 +1080,16 @@ public class DynamicSecretCreateRdp {
       if ((jsonObj.get("fixed-user-only") != null && !jsonObj.get("fixed-user-only").isJsonNull()) && !jsonObj.get("fixed-user-only").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `fixed-user-only` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fixed-user-only").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));

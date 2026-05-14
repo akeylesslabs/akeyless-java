@@ -104,6 +104,11 @@ public class DynamicSecretUpdateLdap {
   @javax.annotation.Nullable
   private String hostProvider;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -133,6 +138,11 @@ public class DynamicSecretUpdateLdap {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -417,6 +427,33 @@ public class DynamicSecretUpdateLdap {
   }
 
 
+  public DynamicSecretUpdateLdap inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateLdap addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public DynamicSecretUpdateLdap itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -536,6 +573,33 @@ public class DynamicSecretUpdateLdap {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public DynamicSecretUpdateLdap outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateLdap addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -925,12 +989,14 @@ public class DynamicSecretUpdateLdap {
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretUpdateLdap.fixedUserClaimKeyname) &&
         Objects.equals(this.groupDn, dynamicSecretUpdateLdap.groupDn) &&
         Objects.equals(this.hostProvider, dynamicSecretUpdateLdap.hostProvider) &&
+        Objects.equals(this.inputRule, dynamicSecretUpdateLdap.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateLdap.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateLdap.json) &&
         Objects.equals(this.ldapCaCert, dynamicSecretUpdateLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, dynamicSecretUpdateLdap.ldapUrl) &&
         Objects.equals(this.name, dynamicSecretUpdateLdap.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateLdap.newName) &&
+        Objects.equals(this.outputRule, dynamicSecretUpdateLdap.outputRule) &&
         Objects.equals(this.passwordLength, dynamicSecretUpdateLdap.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretUpdateLdap.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, dynamicSecretUpdateLdap.secureAccessBastionIssuer) &&
@@ -953,7 +1019,7 @@ public class DynamicSecretUpdateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, itemCustomFields, json, ldapCaCert, ldapUrl, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -970,12 +1036,14 @@ public class DynamicSecretUpdateLdap {
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -1026,12 +1094,14 @@ public class DynamicSecretUpdateLdap {
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("group-dn");
     openapiFields.add("host-provider");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("ldap-ca-cert");
     openapiFields.add("ldap-url");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("output-rule");
     openapiFields.add("password-length");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("secure-access-bastion-issuer");
@@ -1114,6 +1184,10 @@ public class DynamicSecretUpdateLdap {
       if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("ldap-ca-cert") != null && !jsonObj.get("ldap-ca-cert").isJsonNull()) && !jsonObj.get("ldap-ca-cert").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ldap-ca-cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-ca-cert").toString()));
       }
@@ -1125,6 +1199,10 @@ public class DynamicSecretUpdateLdap {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));

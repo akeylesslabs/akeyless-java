@@ -16,10 +16,12 @@ dynamicSecretUpdateGoogleWorkspace is a command that updates a Google Workspace 
 |**gcpKey** | **String** | Base64-encoded service account private key text |  [optional] |
 |**groupEmail** | **String** | A group email, relevant only for group access-mode |  [optional] |
 |**groupRole** | **String** |  |  [optional] |
+|**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Dynamic secret name |  |
 |**newName** | **String** | Dynamic secret name |  [optional] |
+|**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
 |**roleName** | **String** | Name of the admin role to assign to the user, relevant only for role access-mode |  [optional] |
 |**roleScope** | **String** |  |  [optional] |

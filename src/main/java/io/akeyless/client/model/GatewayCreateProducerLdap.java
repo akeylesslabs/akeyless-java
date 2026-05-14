@@ -99,6 +99,11 @@ public class GatewayCreateProducerLdap {
   @javax.annotation.Nullable
   private String hostProvider;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -123,6 +128,11 @@ public class GatewayCreateProducerLdap {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -388,6 +398,33 @@ public class GatewayCreateProducerLdap {
   }
 
 
+  public GatewayCreateProducerLdap inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public GatewayCreateProducerLdap addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public GatewayCreateProducerLdap itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -488,6 +525,33 @@ public class GatewayCreateProducerLdap {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public GatewayCreateProducerLdap outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public GatewayCreateProducerLdap addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -876,11 +940,13 @@ public class GatewayCreateProducerLdap {
         Objects.equals(this.fixedUserClaimKeyname, gatewayCreateProducerLdap.fixedUserClaimKeyname) &&
         Objects.equals(this.groupDn, gatewayCreateProducerLdap.groupDn) &&
         Objects.equals(this.hostProvider, gatewayCreateProducerLdap.hostProvider) &&
+        Objects.equals(this.inputRule, gatewayCreateProducerLdap.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayCreateProducerLdap.itemCustomFields) &&
         Objects.equals(this.json, gatewayCreateProducerLdap.json) &&
         Objects.equals(this.ldapCaCert, gatewayCreateProducerLdap.ldapCaCert) &&
         Objects.equals(this.ldapUrl, gatewayCreateProducerLdap.ldapUrl) &&
         Objects.equals(this.name, gatewayCreateProducerLdap.name) &&
+        Objects.equals(this.outputRule, gatewayCreateProducerLdap.outputRule) &&
         Objects.equals(this.passwordLength, gatewayCreateProducerLdap.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerLdap.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerLdap.secureAccessBastionIssuer) &&
@@ -903,7 +969,7 @@ public class GatewayCreateProducerLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, itemCustomFields, json, ldapCaCert, ldapUrl, name, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -919,11 +985,13 @@ public class GatewayCreateProducerLdap {
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -973,11 +1041,13 @@ public class GatewayCreateProducerLdap {
     openapiFields.add("fixed-user-claim-keyname");
     openapiFields.add("group-dn");
     openapiFields.add("host-provider");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("ldap-ca-cert");
     openapiFields.add("ldap-url");
     openapiFields.add("name");
+    openapiFields.add("output-rule");
     openapiFields.add("password-length");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("secure-access-bastion-issuer");
@@ -1057,6 +1127,10 @@ public class GatewayCreateProducerLdap {
       if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("ldap-ca-cert") != null && !jsonObj.get("ldap-ca-cert").isJsonNull()) && !jsonObj.get("ldap-ca-cert").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ldap-ca-cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-ca-cert").toString()));
       }
@@ -1065,6 +1139,10 @@ public class GatewayCreateProducerLdap {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));

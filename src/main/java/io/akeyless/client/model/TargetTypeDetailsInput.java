@@ -23,6 +23,7 @@ import io.akeyless.client.model.AWSTargetDetails;
 import io.akeyless.client.model.ArtifactoryTargetDetails;
 import io.akeyless.client.model.AzureTargetDetails;
 import io.akeyless.client.model.ChefTargetDetails;
+import io.akeyless.client.model.CloudflareTargetDetails;
 import io.akeyless.client.model.CustomTargetDetails;
 import io.akeyless.client.model.DbTargetDetails;
 import io.akeyless.client.model.DigiCertTargetDetails;
@@ -104,6 +105,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_CHEF_TARGET_DETAILS)
   @javax.annotation.Nullable
   private ChefTargetDetails chefTargetDetails;
+
+  public static final String SERIALIZED_NAME_CLOUDFLARE_TARGET_DETAILS = "cloudflare_target_details";
+  @SerializedName(SERIALIZED_NAME_CLOUDFLARE_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private CloudflareTargetDetails cloudflareTargetDetails;
 
   public static final String SERIALIZED_NAME_CUSTOM_TARGET_DETAILS = "custom_target_details";
   @SerializedName(SERIALIZED_NAME_CUSTOM_TARGET_DETAILS)
@@ -336,6 +342,25 @@ public class TargetTypeDetailsInput {
 
   public void setChefTargetDetails(@javax.annotation.Nullable ChefTargetDetails chefTargetDetails) {
     this.chefTargetDetails = chefTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput cloudflareTargetDetails(@javax.annotation.Nullable CloudflareTargetDetails cloudflareTargetDetails) {
+    this.cloudflareTargetDetails = cloudflareTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get cloudflareTargetDetails
+   * @return cloudflareTargetDetails
+   */
+  @javax.annotation.Nullable
+  public CloudflareTargetDetails getCloudflareTargetDetails() {
+    return cloudflareTargetDetails;
+  }
+
+  public void setCloudflareTargetDetails(@javax.annotation.Nullable CloudflareTargetDetails cloudflareTargetDetails) {
+    this.cloudflareTargetDetails = cloudflareTargetDetails;
   }
 
 
@@ -942,6 +967,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.awsTargetDetails, targetTypeDetailsInput.awsTargetDetails) &&
         Objects.equals(this.azureTargetDetails, targetTypeDetailsInput.azureTargetDetails) &&
         Objects.equals(this.chefTargetDetails, targetTypeDetailsInput.chefTargetDetails) &&
+        Objects.equals(this.cloudflareTargetDetails, targetTypeDetailsInput.cloudflareTargetDetails) &&
         Objects.equals(this.customTargetDetails, targetTypeDetailsInput.customTargetDetails) &&
         Objects.equals(this.dbTargetDetails, targetTypeDetailsInput.dbTargetDetails) &&
         Objects.equals(this.digicertTargetDetails, targetTypeDetailsInput.digicertTargetDetails) &&
@@ -977,7 +1003,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, cloudflareTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -988,6 +1014,7 @@ public class TargetTypeDetailsInput {
     sb.append("    awsTargetDetails: ").append(toIndentedString(awsTargetDetails)).append("\n");
     sb.append("    azureTargetDetails: ").append(toIndentedString(azureTargetDetails)).append("\n");
     sb.append("    chefTargetDetails: ").append(toIndentedString(chefTargetDetails)).append("\n");
+    sb.append("    cloudflareTargetDetails: ").append(toIndentedString(cloudflareTargetDetails)).append("\n");
     sb.append("    customTargetDetails: ").append(toIndentedString(customTargetDetails)).append("\n");
     sb.append("    dbTargetDetails: ").append(toIndentedString(dbTargetDetails)).append("\n");
     sb.append("    digicertTargetDetails: ").append(toIndentedString(digicertTargetDetails)).append("\n");
@@ -1045,6 +1072,7 @@ public class TargetTypeDetailsInput {
     openapiFields.add("aws_target_details");
     openapiFields.add("azure_target_details");
     openapiFields.add("chef_target_details");
+    openapiFields.add("cloudflare_target_details");
     openapiFields.add("custom_target_details");
     openapiFields.add("db_target_details");
     openapiFields.add("digicert_target_details");
@@ -1117,6 +1145,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `chef_target_details`
       if (jsonObj.get("chef_target_details") != null && !jsonObj.get("chef_target_details").isJsonNull()) {
         ChefTargetDetails.validateJsonElement(jsonObj.get("chef_target_details"));
+      }
+      // validate the optional field `cloudflare_target_details`
+      if (jsonObj.get("cloudflare_target_details") != null && !jsonObj.get("cloudflare_target_details").isJsonNull()) {
+        CloudflareTargetDetails.validateJsonElement(jsonObj.get("cloudflare_target_details"));
       }
       // validate the optional field `custom_target_details`
       if (jsonObj.get("custom_target_details") != null && !jsonObj.get("custom_target_details").isJsonNull()) {

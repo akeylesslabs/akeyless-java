@@ -79,6 +79,11 @@ public class DynamicSecretUpdateGithub {
   @javax.annotation.Nullable
   private String githubBaseUrl = "https://api.github.com/";
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_INSTALLATION_ID = "installation-id";
   @SerializedName(SERIALIZED_NAME_INSTALLATION_ID)
   @javax.annotation.Nullable
@@ -113,6 +118,11 @@ public class DynamicSecretUpdateGithub {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -244,6 +254,33 @@ public class DynamicSecretUpdateGithub {
 
   public void setGithubBaseUrl(@javax.annotation.Nullable String githubBaseUrl) {
     this.githubBaseUrl = githubBaseUrl;
+  }
+
+
+  public DynamicSecretUpdateGithub inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateGithub addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
   }
 
 
@@ -385,6 +422,33 @@ public class DynamicSecretUpdateGithub {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public DynamicSecretUpdateGithub outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretUpdateGithub addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -560,6 +624,7 @@ public class DynamicSecretUpdateGithub {
         Objects.equals(this.githubAppId, dynamicSecretUpdateGithub.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, dynamicSecretUpdateGithub.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, dynamicSecretUpdateGithub.githubBaseUrl) &&
+        Objects.equals(this.inputRule, dynamicSecretUpdateGithub.inputRule) &&
         Objects.equals(this.installationId, dynamicSecretUpdateGithub.installationId) &&
         Objects.equals(this.installationOrganization, dynamicSecretUpdateGithub.installationOrganization) &&
         Objects.equals(this.installationRepository, dynamicSecretUpdateGithub.installationRepository) &&
@@ -567,6 +632,7 @@ public class DynamicSecretUpdateGithub {
         Objects.equals(this.json, dynamicSecretUpdateGithub.json) &&
         Objects.equals(this.name, dynamicSecretUpdateGithub.name) &&
         Objects.equals(this.newName, dynamicSecretUpdateGithub.newName) &&
+        Objects.equals(this.outputRule, dynamicSecretUpdateGithub.outputRule) &&
         Objects.equals(this.tags, dynamicSecretUpdateGithub.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateGithub.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateGithub.token) &&
@@ -578,7 +644,7 @@ public class DynamicSecretUpdateGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, newName, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
+    return Objects.hash(deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, newName, outputRule, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
   }
 
   @Override
@@ -590,6 +656,7 @@ public class DynamicSecretUpdateGithub {
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    installationId: ").append(toIndentedString(installationId)).append("\n");
     sb.append("    installationOrganization: ").append(toIndentedString(installationOrganization)).append("\n");
     sb.append("    installationRepository: ").append(toIndentedString(installationRepository)).append("\n");
@@ -597,6 +664,7 @@ public class DynamicSecretUpdateGithub {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -631,6 +699,7 @@ public class DynamicSecretUpdateGithub {
     openapiFields.add("github-app-id");
     openapiFields.add("github-app-private-key");
     openapiFields.add("github-base-url");
+    openapiFields.add("input-rule");
     openapiFields.add("installation-id");
     openapiFields.add("installation-organization");
     openapiFields.add("installation-repository");
@@ -638,6 +707,7 @@ public class DynamicSecretUpdateGithub {
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("output-rule");
     openapiFields.add("tags");
     openapiFields.add("target-name");
     openapiFields.add("token");
@@ -691,6 +761,10 @@ public class DynamicSecretUpdateGithub {
       if ((jsonObj.get("github-base-url") != null && !jsonObj.get("github-base-url").isJsonNull()) && !jsonObj.get("github-base-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `github-base-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("github-base-url").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("installation-organization") != null && !jsonObj.get("installation-organization").isJsonNull()) && !jsonObj.get("installation-organization").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `installation-organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installation-organization").toString()));
       }
@@ -702,6 +776,10 @@ public class DynamicSecretUpdateGithub {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

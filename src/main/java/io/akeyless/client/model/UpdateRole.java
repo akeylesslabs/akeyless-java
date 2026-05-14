@@ -90,6 +90,11 @@ public class UpdateRole {
   @javax.annotation.Nullable
   private String gwAnalyticsAccess;
 
+  public static final String SERIALIZED_NAME_ISI_ACCESS = "isi-access";
+  @SerializedName(SERIALIZED_NAME_ISI_ACCESS)
+  @javax.annotation.Nullable
+  private String isiAccess;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -290,6 +295,25 @@ public class UpdateRole {
   }
 
 
+  public UpdateRole isiAccess(@javax.annotation.Nullable String isiAccess) {
+    this.isiAccess = isiAccess;
+    return this;
+  }
+
+  /**
+   * Allow this role to access Identity &amp; Secrets Intelligence. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported.
+   * @return isiAccess
+   */
+  @javax.annotation.Nullable
+  public String getIsiAccess() {
+    return isiAccess;
+  }
+
+  public void setIsiAccess(@javax.annotation.Nullable String isiAccess) {
+    this.isiAccess = isiAccess;
+  }
+
+
   public UpdateRole json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -479,6 +503,7 @@ public class UpdateRole {
         Objects.equals(this.eventCenterAccess, updateRole.eventCenterAccess) &&
         Objects.equals(this.eventForwarderAccess, updateRole.eventForwarderAccess) &&
         Objects.equals(this.gwAnalyticsAccess, updateRole.gwAnalyticsAccess) &&
+        Objects.equals(this.isiAccess, updateRole.isiAccess) &&
         Objects.equals(this.json, updateRole.json) &&
         Objects.equals(this.name, updateRole.name) &&
         Objects.equals(this.newComment, updateRole.newComment) &&
@@ -492,7 +517,7 @@ public class UpdateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, araReportsAccess, auditAccess, deleteProtection, description, eventCenterAccess, eventForwarderAccess, gwAnalyticsAccess, json, name, newComment, newName, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, araReportsAccess, auditAccess, deleteProtection, description, eventCenterAccess, eventForwarderAccess, gwAnalyticsAccess, isiAccess, json, name, newComment, newName, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -507,6 +532,7 @@ public class UpdateRole {
     sb.append("    eventCenterAccess: ").append(toIndentedString(eventCenterAccess)).append("\n");
     sb.append("    eventForwarderAccess: ").append(toIndentedString(eventForwarderAccess)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
+    sb.append("    isiAccess: ").append(toIndentedString(isiAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newComment: ").append(toIndentedString(newComment)).append("\n");
@@ -546,6 +572,7 @@ public class UpdateRole {
     openapiFields.add("event-center-access");
     openapiFields.add("event-forwarder-access");
     openapiFields.add("gw-analytics-access");
+    openapiFields.add("isi-access");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-comment");
@@ -612,6 +639,9 @@ public class UpdateRole {
       }
       if ((jsonObj.get("gw-analytics-access") != null && !jsonObj.get("gw-analytics-access").isJsonNull()) && !jsonObj.get("gw-analytics-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gw-analytics-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw-analytics-access").toString()));
+      }
+      if ((jsonObj.get("isi-access") != null && !jsonObj.get("isi-access").isJsonNull()) && !jsonObj.get("isi-access").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `isi-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("isi-access").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.FolderUSCSyncConfig;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -102,6 +103,11 @@ public class GetFolderOutput {
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_USC_SYNC_CONFIGS = "usc_sync_configs";
+  @SerializedName(SERIALIZED_NAME_USC_SYNC_CONFIGS)
+  @javax.annotation.Nullable
+  private List<FolderUSCSyncConfig> uscSyncConfigs = new ArrayList<>();
 
   public GetFolderOutput() {
   }
@@ -304,6 +310,33 @@ public class GetFolderOutput {
   }
 
 
+  public GetFolderOutput uscSyncConfigs(@javax.annotation.Nullable List<FolderUSCSyncConfig> uscSyncConfigs) {
+    this.uscSyncConfigs = uscSyncConfigs;
+    return this;
+  }
+
+  public GetFolderOutput addUscSyncConfigsItem(FolderUSCSyncConfig uscSyncConfigsItem) {
+    if (this.uscSyncConfigs == null) {
+      this.uscSyncConfigs = new ArrayList<>();
+    }
+    this.uscSyncConfigs.add(uscSyncConfigsItem);
+    return this;
+  }
+
+  /**
+   * Get uscSyncConfigs
+   * @return uscSyncConfigs
+   */
+  @javax.annotation.Nullable
+  public List<FolderUSCSyncConfig> getUscSyncConfigs() {
+    return uscSyncConfigs;
+  }
+
+  public void setUscSyncConfigs(@javax.annotation.Nullable List<FolderUSCSyncConfig> uscSyncConfigs) {
+    this.uscSyncConfigs = uscSyncConfigs;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -323,12 +356,13 @@ public class GetFolderOutput {
         Objects.equals(this.folderName, getFolderOutput.folderName) &&
         Objects.equals(this.metadata, getFolderOutput.metadata) &&
         Objects.equals(this.modificationDate, getFolderOutput.modificationDate) &&
-        Objects.equals(this.tags, getFolderOutput.tags);
+        Objects.equals(this.tags, getFolderOutput.tags) &&
+        Objects.equals(this.uscSyncConfigs, getFolderOutput.uscSyncConfigs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessibility, creationDate, deleteProtection, folderId, folderName, metadata, modificationDate, tags);
+    return Objects.hash(accessDate, accessDateDisplay, accessibility, creationDate, deleteProtection, folderId, folderName, metadata, modificationDate, tags, uscSyncConfigs);
   }
 
   @Override
@@ -345,6 +379,7 @@ public class GetFolderOutput {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    uscSyncConfigs: ").append(toIndentedString(uscSyncConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -377,6 +412,7 @@ public class GetFolderOutput {
     openapiFields.add("metadata");
     openapiFields.add("modification_date");
     openapiFields.add("tags");
+    openapiFields.add("usc_sync_configs");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -415,6 +451,20 @@ public class GetFolderOutput {
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if (jsonObj.get("usc_sync_configs") != null && !jsonObj.get("usc_sync_configs").isJsonNull()) {
+        JsonArray jsonArrayuscSyncConfigs = jsonObj.getAsJsonArray("usc_sync_configs");
+        if (jsonArrayuscSyncConfigs != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("usc_sync_configs").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `usc_sync_configs` to be an array in the JSON string but got `%s`", jsonObj.get("usc_sync_configs").toString()));
+          }
+
+          // validate the optional field `usc_sync_configs` (array)
+          for (int i = 0; i < jsonArrayuscSyncConfigs.size(); i++) {
+            FolderUSCSyncConfig.validateJsonElement(jsonArrayuscSyncConfigs.get(i));
+          };
+        }
       }
   }
 

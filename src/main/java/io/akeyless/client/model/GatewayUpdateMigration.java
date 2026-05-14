@@ -267,6 +267,11 @@ public class GatewayUpdateMigration {
   @javax.annotation.Nullable
   private String hashiJson = "true";
 
+  public static final String SERIALIZED_NAME_HASHI_METADATA_MODE = "hashi-metadata-mode";
+  @SerializedName(SERIALIZED_NAME_HASHI_METADATA_MODE)
+  @javax.annotation.Nullable
+  private String hashiMetadataMode;
+
   public static final String SERIALIZED_NAME_HASHI_NS = "hashi-ns";
   @SerializedName(SERIALIZED_NAME_HASHI_NS)
   @javax.annotation.Nullable
@@ -1271,6 +1276,25 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration hashiMetadataMode(@javax.annotation.Nullable String hashiMetadataMode) {
+    this.hashiMetadataMode = hashiMetadataMode;
+    return this;
+  }
+
+  /**
+   * Controls the amount of HashiCorp Vault secret metadata migrated with each secret value. Options: none|minimal|full
+   * @return hashiMetadataMode
+   */
+  @javax.annotation.Nullable
+  public String getHashiMetadataMode() {
+    return hashiMetadataMode;
+  }
+
+  public void setHashiMetadataMode(@javax.annotation.Nullable String hashiMetadataMode) {
+    this.hashiMetadataMode = hashiMetadataMode;
+  }
+
+
   public GatewayUpdateMigration hashiNs(@javax.annotation.Nullable List<String> hashiNs) {
     this.hashiNs = hashiNs;
     return this;
@@ -1964,6 +1988,7 @@ public class GatewayUpdateMigration {
         Objects.equals(this.gcpKey, gatewayUpdateMigration.gcpKey) &&
         Objects.equals(this.gcpProjectId, gatewayUpdateMigration.gcpProjectId) &&
         Objects.equals(this.hashiJson, gatewayUpdateMigration.hashiJson) &&
+        Objects.equals(this.hashiMetadataMode, gatewayUpdateMigration.hashiMetadataMode) &&
         Objects.equals(this.hashiNs, gatewayUpdateMigration.hashiNs) &&
         Objects.equals(this.hashiToken, gatewayUpdateMigration.hashiToken) &&
         Objects.equals(this.hashiUrl, gatewayUpdateMigration.hashiUrl) &&
@@ -2000,7 +2025,7 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken, uscName, useGwCloudIdentity);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiMetadataMode, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken, uscName, useGwCloudIdentity);
   }
 
   @Override
@@ -2050,6 +2075,7 @@ public class GatewayUpdateMigration {
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    hashiJson: ").append(toIndentedString(hashiJson)).append("\n");
+    sb.append("    hashiMetadataMode: ").append(toIndentedString(hashiMetadataMode)).append("\n");
     sb.append("    hashiNs: ").append(toIndentedString(hashiNs)).append("\n");
     sb.append("    hashiToken: ").append(toIndentedString(hashiToken)).append("\n");
     sb.append("    hashiUrl: ").append(toIndentedString(hashiUrl)).append("\n");
@@ -2147,6 +2173,7 @@ public class GatewayUpdateMigration {
     openapiFields.add("gcp-key");
     openapiFields.add("gcp-project-id");
     openapiFields.add("hashi-json");
+    openapiFields.add("hashi-metadata-mode");
     openapiFields.add("hashi-ns");
     openapiFields.add("hashi-token");
     openapiFields.add("hashi-url");
@@ -2338,6 +2365,9 @@ public class GatewayUpdateMigration {
       }
       if ((jsonObj.get("hashi-json") != null && !jsonObj.get("hashi-json").isJsonNull()) && !jsonObj.get("hashi-json").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hashi-json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashi-json").toString()));
+      }
+      if ((jsonObj.get("hashi-metadata-mode") != null && !jsonObj.get("hashi-metadata-mode").isJsonNull()) && !jsonObj.get("hashi-metadata-mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hashi-metadata-mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hashi-metadata-mode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("hashi-ns") != null && !jsonObj.get("hashi-ns").isJsonNull() && !jsonObj.get("hashi-ns").isJsonArray()) {

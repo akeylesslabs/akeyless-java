@@ -94,6 +94,11 @@ public class RotatedSecretCreateSplunk {
   @javax.annotation.Nullable
   private String hecTokenName;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -118,6 +123,11 @@ public class RotatedSecretCreateSplunk {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -339,6 +349,33 @@ public class RotatedSecretCreateSplunk {
   }
 
 
+  public RotatedSecretCreateSplunk inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public RotatedSecretCreateSplunk addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input)
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public RotatedSecretCreateSplunk itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -439,6 +476,33 @@ public class RotatedSecretCreateSplunk {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public RotatedSecretCreateSplunk outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public RotatedSecretCreateSplunk addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -723,11 +787,13 @@ public class RotatedSecretCreateSplunk {
         Objects.equals(this.expirationDate, rotatedSecretCreateSplunk.expirationDate) &&
         Objects.equals(this.hecToken, rotatedSecretCreateSplunk.hecToken) &&
         Objects.equals(this.hecTokenName, rotatedSecretCreateSplunk.hecTokenName) &&
+        Objects.equals(this.inputRule, rotatedSecretCreateSplunk.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretCreateSplunk.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateSplunk.json) &&
         Objects.equals(this.key, rotatedSecretCreateSplunk.key) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateSplunk.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateSplunk.name) &&
+        Objects.equals(this.outputRule, rotatedSecretCreateSplunk.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateSplunk.passwordLength) &&
         Objects.equals(this.rotatedPassword, rotatedSecretCreateSplunk.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretCreateSplunk.rotatedUsername) &&
@@ -745,7 +811,7 @@ public class RotatedSecretCreateSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, hecTokenName, itemCustomFields, json, key, maxVersions, name, passwordLength, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, splunkToken, tags, targetName, token, tokenOwner, uidToken);
+    return Objects.hash(audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, hecTokenName, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, splunkToken, tags, targetName, token, tokenOwner, uidToken);
   }
 
   @Override
@@ -760,11 +826,13 @@ public class RotatedSecretCreateSplunk {
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    hecToken: ").append(toIndentedString(hecToken)).append("\n");
     sb.append("    hecTokenName: ").append(toIndentedString(hecTokenName)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
@@ -808,11 +876,13 @@ public class RotatedSecretCreateSplunk {
     openapiFields.add("expiration-date");
     openapiFields.add("hec-token");
     openapiFields.add("hec-token-name");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("key");
     openapiFields.add("max-versions");
     openapiFields.add("name");
+    openapiFields.add("output-rule");
     openapiFields.add("password-length");
     openapiFields.add("rotated-password");
     openapiFields.add("rotated-username");
@@ -886,6 +956,10 @@ public class RotatedSecretCreateSplunk {
       if ((jsonObj.get("hec-token-name") != null && !jsonObj.get("hec-token-name").isJsonNull()) && !jsonObj.get("hec-token-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hec-token-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hec-token-name").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
@@ -894,6 +968,10 @@ public class RotatedSecretCreateSplunk {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));

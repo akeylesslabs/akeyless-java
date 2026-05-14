@@ -13,6 +13,7 @@ docs/AWSSecretsMigration.md
 docs/AWSTargetDetails.md
 docs/AccessOrGroupPermissionAssignment.md
 docs/AccessPermissionAssignment.md
+docs/AccountCustomField.md
 docs/AccountCustomFieldCreate.md
 docs/AccountCustomFieldCreateOutput.md
 docs/AccountCustomFieldDelete.md
@@ -128,6 +129,7 @@ docs/ClassicKeyTargetInfo.md
 docs/ClientData.md
 docs/ClientUsageInfo.md
 docs/ClientsUsageReport.md
+docs/CloudflareTargetDetails.md
 docs/ConfigChange.md
 docs/ConfigHash.md
 docs/Configure.md
@@ -422,6 +424,7 @@ docs/FolderCreateOutput.md
 docs/FolderDelete.md
 docs/FolderGet.md
 docs/FolderGetOutput.md
+docs/FolderUSCSyncConfig.md
 docs/FolderUpdate.md
 docs/GCPAccessRules.md
 docs/GCPPayload.md
@@ -713,6 +716,8 @@ docs/KerberosAuthMethodInfo.md
 docs/KerberosConfigPart.md
 docs/KmipClientDeleteRule.md
 docs/KmipClientSetRule.md
+docs/KmipClientUpdate.md
+docs/KmipClientUpdateOutput.md
 docs/KmipCreateClient.md
 docs/KmipCreateClientOutput.md
 docs/KmipDeleteClient.md
@@ -728,6 +733,8 @@ docs/KmipRenewClientCertificateOutput.md
 docs/KmipRenewServerCertificate.md
 docs/KmipRenewServerCertificateOutput.md
 docs/KmipServerSetup.md
+docs/KmipServerUpdate.md
+docs/KmipServerUpdateOutput.md
 docs/KmipSetServerState.md
 docs/KmipSetServerStateOutput.md
 docs/KubeConfigValue.md
@@ -790,7 +797,6 @@ docs/NextAutoRotationEvent.md
 docs/NotiForwarder.md
 docs/NotiForwarderDetailsInput.md
 docs/NullString.md
-docs/NullTime.md
 docs/OAuth2AccessRules.md
 docs/OAuth2CustomClaim.md
 docs/OCIAccessRules.md
@@ -966,6 +972,7 @@ docs/Target.md
 docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
 docs/TargetCreateAzure.md
+docs/TargetCreateCloudflare.md
 docs/TargetCreateDB.md
 docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
@@ -1007,6 +1014,7 @@ docs/TargetTypeDetailsInput.md
 docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
 docs/TargetUpdateAzure.md
+docs/TargetUpdateCloudflare.md
 docs/TargetUpdateDB.md
 docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
@@ -1233,6 +1241,7 @@ src/main/java/io/akeyless/client/model/AWSTargetDetails.java
 src/main/java/io/akeyless/client/model/AbstractOpenApiSchema.java
 src/main/java/io/akeyless/client/model/AccessOrGroupPermissionAssignment.java
 src/main/java/io/akeyless/client/model/AccessPermissionAssignment.java
+src/main/java/io/akeyless/client/model/AccountCustomField.java
 src/main/java/io/akeyless/client/model/AccountCustomFieldCreate.java
 src/main/java/io/akeyless/client/model/AccountCustomFieldCreateOutput.java
 src/main/java/io/akeyless/client/model/AccountCustomFieldDelete.java
@@ -1348,6 +1357,7 @@ src/main/java/io/akeyless/client/model/ClassicKeyTargetInfo.java
 src/main/java/io/akeyless/client/model/ClientData.java
 src/main/java/io/akeyless/client/model/ClientUsageInfo.java
 src/main/java/io/akeyless/client/model/ClientsUsageReport.java
+src/main/java/io/akeyless/client/model/CloudflareTargetDetails.java
 src/main/java/io/akeyless/client/model/ConfigChange.java
 src/main/java/io/akeyless/client/model/ConfigHash.java
 src/main/java/io/akeyless/client/model/Configure.java
@@ -1642,6 +1652,7 @@ src/main/java/io/akeyless/client/model/FolderCreateOutput.java
 src/main/java/io/akeyless/client/model/FolderDelete.java
 src/main/java/io/akeyless/client/model/FolderGet.java
 src/main/java/io/akeyless/client/model/FolderGetOutput.java
+src/main/java/io/akeyless/client/model/FolderUSCSyncConfig.java
 src/main/java/io/akeyless/client/model/FolderUpdate.java
 src/main/java/io/akeyless/client/model/GCPAccessRules.java
 src/main/java/io/akeyless/client/model/GCPPayload.java
@@ -1933,6 +1944,8 @@ src/main/java/io/akeyless/client/model/KerberosAuthMethodInfo.java
 src/main/java/io/akeyless/client/model/KerberosConfigPart.java
 src/main/java/io/akeyless/client/model/KmipClientDeleteRule.java
 src/main/java/io/akeyless/client/model/KmipClientSetRule.java
+src/main/java/io/akeyless/client/model/KmipClientUpdate.java
+src/main/java/io/akeyless/client/model/KmipClientUpdateOutput.java
 src/main/java/io/akeyless/client/model/KmipCreateClient.java
 src/main/java/io/akeyless/client/model/KmipCreateClientOutput.java
 src/main/java/io/akeyless/client/model/KmipDeleteClient.java
@@ -1948,6 +1961,8 @@ src/main/java/io/akeyless/client/model/KmipRenewClientCertificateOutput.java
 src/main/java/io/akeyless/client/model/KmipRenewServerCertificate.java
 src/main/java/io/akeyless/client/model/KmipRenewServerCertificateOutput.java
 src/main/java/io/akeyless/client/model/KmipServerSetup.java
+src/main/java/io/akeyless/client/model/KmipServerUpdate.java
+src/main/java/io/akeyless/client/model/KmipServerUpdateOutput.java
 src/main/java/io/akeyless/client/model/KmipSetServerState.java
 src/main/java/io/akeyless/client/model/KmipSetServerStateOutput.java
 src/main/java/io/akeyless/client/model/KubeConfigValue.java
@@ -2010,7 +2025,6 @@ src/main/java/io/akeyless/client/model/NextAutoRotationEvent.java
 src/main/java/io/akeyless/client/model/NotiForwarder.java
 src/main/java/io/akeyless/client/model/NotiForwarderDetailsInput.java
 src/main/java/io/akeyless/client/model/NullString.java
-src/main/java/io/akeyless/client/model/NullTime.java
 src/main/java/io/akeyless/client/model/OAuth2AccessRules.java
 src/main/java/io/akeyless/client/model/OAuth2CustomClaim.java
 src/main/java/io/akeyless/client/model/OCIAccessRules.java
@@ -2186,6 +2200,7 @@ src/main/java/io/akeyless/client/model/Target.java
 src/main/java/io/akeyless/client/model/TargetCreateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetCreateAws.java
 src/main/java/io/akeyless/client/model/TargetCreateAzure.java
+src/main/java/io/akeyless/client/model/TargetCreateCloudflare.java
 src/main/java/io/akeyless/client/model/TargetCreateDB.java
 src/main/java/io/akeyless/client/model/TargetCreateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetCreateDockerhub.java
@@ -2227,6 +2242,7 @@ src/main/java/io/akeyless/client/model/TargetTypeDetailsInput.java
 src/main/java/io/akeyless/client/model/TargetUpdateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetUpdateAws.java
 src/main/java/io/akeyless/client/model/TargetUpdateAzure.java
+src/main/java/io/akeyless/client/model/TargetUpdateCloudflare.java
 src/main/java/io/akeyless/client/model/TargetUpdateDB.java
 src/main/java/io/akeyless/client/model/TargetUpdateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetUpdateDockerhub.java
@@ -2416,3 +2432,12 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/AccountCustomFieldTest.java
+src/test/java/io/akeyless/client/model/CloudflareTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/FolderUSCSyncConfigTest.java
+src/test/java/io/akeyless/client/model/KmipClientUpdateOutputTest.java
+src/test/java/io/akeyless/client/model/KmipClientUpdateTest.java
+src/test/java/io/akeyless/client/model/KmipServerUpdateOutputTest.java
+src/test/java/io/akeyless/client/model/KmipServerUpdateTest.java
+src/test/java/io/akeyless/client/model/TargetCreateCloudflareTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateCloudflareTest.java

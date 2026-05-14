@@ -70,6 +70,11 @@ public class TargetUpdateDigiCert {
   @javax.annotation.Nullable
   private String dnsTargetCreds;
 
+  public static final String SERIALIZED_NAME_DNS_ZONE = "dns-zone";
+  @SerializedName(SERIALIZED_NAME_DNS_ZONE)
+  @javax.annotation.Nullable
+  private String dnsZone;
+
   public static final String SERIALIZED_NAME_EAB_HMAC_KEY = "eab-hmac-key";
   @SerializedName(SERIALIZED_NAME_EAB_HMAC_KEY)
   @javax.annotation.Nullable
@@ -211,7 +216,7 @@ public class TargetUpdateDigiCert {
   }
 
   /**
-   * Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP
+   * Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare
    * @return dnsTargetCreds
    */
   @javax.annotation.Nullable
@@ -221,6 +226,25 @@ public class TargetUpdateDigiCert {
 
   public void setDnsTargetCreds(@javax.annotation.Nullable String dnsTargetCreds) {
     this.dnsTargetCreds = dnsTargetCreds;
+  }
+
+
+  public TargetUpdateDigiCert dnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
+    return this;
+  }
+
+  /**
+   * Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare
+   * @return dnsZone
+   */
+  @javax.annotation.Nullable
+  public String getDnsZone() {
+    return dnsZone;
+  }
+
+  public void setDnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
   }
 
 
@@ -523,6 +547,7 @@ public class TargetUpdateDigiCert {
         Objects.equals(this.description, targetUpdateDigiCert.description) &&
         Objects.equals(this.digicertUrl, targetUpdateDigiCert.digicertUrl) &&
         Objects.equals(this.dnsTargetCreds, targetUpdateDigiCert.dnsTargetCreds) &&
+        Objects.equals(this.dnsZone, targetUpdateDigiCert.dnsZone) &&
         Objects.equals(this.eabHmacKey, targetUpdateDigiCert.eabHmacKey) &&
         Objects.equals(this.eabKeyId, targetUpdateDigiCert.eabKeyId) &&
         Objects.equals(this.email, targetUpdateDigiCert.email) &&
@@ -542,7 +567,7 @@ public class TargetUpdateDigiCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, description, digicertUrl, dnsTargetCreds, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, description, digicertUrl, dnsTargetCreds, dnsZone, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
   }
 
   @Override
@@ -553,6 +578,7 @@ public class TargetUpdateDigiCert {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    digicertUrl: ").append(toIndentedString(digicertUrl)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
+    sb.append("    dnsZone: ").append(toIndentedString(dnsZone)).append("\n");
     sb.append("    eabHmacKey: ").append(toIndentedString(eabHmacKey)).append("\n");
     sb.append("    eabKeyId: ").append(toIndentedString(eabKeyId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -594,6 +620,7 @@ public class TargetUpdateDigiCert {
     openapiFields.add("description");
     openapiFields.add("digicert-url");
     openapiFields.add("dns-target-creds");
+    openapiFields.add("dns-zone");
     openapiFields.add("eab-hmac-key");
     openapiFields.add("eab-key-id");
     openapiFields.add("email");
@@ -655,6 +682,9 @@ public class TargetUpdateDigiCert {
       }
       if ((jsonObj.get("dns-target-creds") != null && !jsonObj.get("dns-target-creds").isJsonNull()) && !jsonObj.get("dns-target-creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns-target-creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-target-creds").toString()));
+      }
+      if ((jsonObj.get("dns-zone") != null && !jsonObj.get("dns-zone").isJsonNull()) && !jsonObj.get("dns-zone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dns-zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-zone").toString()));
       }
       if ((jsonObj.get("eab-hmac-key") != null && !jsonObj.get("eab-hmac-key").isJsonNull()) && !jsonObj.get("eab-hmac-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `eab-hmac-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eab-hmac-key").toString()));

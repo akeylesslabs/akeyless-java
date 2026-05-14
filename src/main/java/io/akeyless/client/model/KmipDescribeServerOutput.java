@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.CertificateExpirationEvent;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -72,6 +73,11 @@ public class KmipDescribeServerOutput {
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL_IN_SECONDS)
   @javax.annotation.Nullable
   private Long certificateTtlInSeconds;
+
+  public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
+  @javax.annotation.Nullable
+  private List<CertificateExpirationEvent> expirationEvents = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
   @SerializedName(SERIALIZED_NAME_HOSTNAME)
@@ -170,6 +176,33 @@ public class KmipDescribeServerOutput {
   }
 
 
+  public KmipDescribeServerOutput expirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> expirationEvents) {
+    this.expirationEvents = expirationEvents;
+    return this;
+  }
+
+  public KmipDescribeServerOutput addExpirationEventsItem(CertificateExpirationEvent expirationEventsItem) {
+    if (this.expirationEvents == null) {
+      this.expirationEvents = new ArrayList<>();
+    }
+    this.expirationEvents.add(expirationEventsItem);
+    return this;
+  }
+
+  /**
+   * Get expirationEvents
+   * @return expirationEvents
+   */
+  @javax.annotation.Nullable
+  public List<CertificateExpirationEvent> getExpirationEvents() {
+    return expirationEvents;
+  }
+
+  public void setExpirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> expirationEvents) {
+    this.expirationEvents = expirationEvents;
+  }
+
+
   public KmipDescribeServerOutput hostname(@javax.annotation.Nullable String hostname) {
     this.hostname = hostname;
     return this;
@@ -222,13 +255,14 @@ public class KmipDescribeServerOutput {
         Objects.equals(this.caCert, kmipDescribeServerOutput.caCert) &&
         Objects.equals(this.certificateIssueDate, kmipDescribeServerOutput.certificateIssueDate) &&
         Objects.equals(this.certificateTtlInSeconds, kmipDescribeServerOutput.certificateTtlInSeconds) &&
+        Objects.equals(this.expirationEvents, kmipDescribeServerOutput.expirationEvents) &&
         Objects.equals(this.hostname, kmipDescribeServerOutput.hostname) &&
         Objects.equals(this.root, kmipDescribeServerOutput.root);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, caCert, certificateIssueDate, certificateTtlInSeconds, hostname, root);
+    return Objects.hash(active, caCert, certificateIssueDate, certificateTtlInSeconds, expirationEvents, hostname, root);
   }
 
   @Override
@@ -239,6 +273,7 @@ public class KmipDescribeServerOutput {
     sb.append("    caCert: ").append(toIndentedString(caCert)).append("\n");
     sb.append("    certificateIssueDate: ").append(toIndentedString(certificateIssueDate)).append("\n");
     sb.append("    certificateTtlInSeconds: ").append(toIndentedString(certificateTtlInSeconds)).append("\n");
+    sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    root: ").append(toIndentedString(root)).append("\n");
     sb.append("}");
@@ -267,6 +302,7 @@ public class KmipDescribeServerOutput {
     openapiFields.add("ca_cert");
     openapiFields.add("certificate_issue_date");
     openapiFields.add("certificate_ttl_in_seconds");
+    openapiFields.add("expiration_events");
     openapiFields.add("hostname");
     openapiFields.add("root");
 
@@ -298,6 +334,20 @@ public class KmipDescribeServerOutput {
       // ensure the optional json data is an array if present
       if (jsonObj.get("ca_cert") != null && !jsonObj.get("ca_cert").isJsonNull() && !jsonObj.get("ca_cert").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `ca_cert` to be an array in the JSON string but got `%s`", jsonObj.get("ca_cert").toString()));
+      }
+      if (jsonObj.get("expiration_events") != null && !jsonObj.get("expiration_events").isJsonNull()) {
+        JsonArray jsonArrayexpirationEvents = jsonObj.getAsJsonArray("expiration_events");
+        if (jsonArrayexpirationEvents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("expiration_events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+          }
+
+          // validate the optional field `expiration_events` (array)
+          for (int i = 0; i < jsonArrayexpirationEvents.size(); i++) {
+            CertificateExpirationEvent.validateJsonElement(jsonArrayexpirationEvents.get(i));
+          };
+        }
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));

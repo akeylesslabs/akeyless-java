@@ -365,6 +365,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**importPasswords**](V2Api.md#importPasswords) | **POST** /import-passwords |  |
 | [**kmipClientDeleteRule**](V2Api.md#kmipClientDeleteRule) | **POST** /kmip-client-delete-rule |  |
 | [**kmipClientSetRule**](V2Api.md#kmipClientSetRule) | **POST** /kmip-client-set-rule |  |
+| [**kmipClientUpdate**](V2Api.md#kmipClientUpdate) | **POST** /kmip-client-update |  |
 | [**kmipCreateClient**](V2Api.md#kmipCreateClient) | **POST** /kmip-create-client |  |
 | [**kmipDeleteClient**](V2Api.md#kmipDeleteClient) | **POST** /kmip-delete-client |  |
 | [**kmipDeleteServer**](V2Api.md#kmipDeleteServer) | **DELETE** /kmip-delete-environment |  |
@@ -375,6 +376,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**kmipRenewClientCertificate**](V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client |  |
 | [**kmipRenewServerCertificate**](V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment |  |
 | [**kmipServerSetup**](V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment |  |
+| [**kmipServerUpdate**](V2Api.md#kmipServerUpdate) | **POST** /kmip-server-update |  |
 | [**kmipSetServerState**](V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state |  |
 | [**kubeconfigGenerate**](V2Api.md#kubeconfigGenerate) | **POST** /kubeconfig-generate |  |
 | [**listAcmeAccounts**](V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts |  |
@@ -470,6 +472,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetCreateArtifactory**](V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory |  |
 | [**targetCreateAws**](V2Api.md#targetCreateAws) | **POST** /target-create-aws |  |
 | [**targetCreateAzure**](V2Api.md#targetCreateAzure) | **POST** /target-create-azure |  |
+| [**targetCreateCloudflare**](V2Api.md#targetCreateCloudflare) | **POST** /target-create-cloudflare |  |
 | [**targetCreateDB**](V2Api.md#targetCreateDB) | **POST** /target-create-db |  |
 | [**targetCreateDigiCert**](V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert |  |
 | [**targetCreateDockerhub**](V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub |  |
@@ -505,6 +508,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetUpdateArtifactory**](V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory |  |
 | [**targetUpdateAws**](V2Api.md#targetUpdateAws) | **POST** /target-update-aws |  |
 | [**targetUpdateAzure**](V2Api.md#targetUpdateAzure) | **POST** /target-update-azure |  |
+| [**targetUpdateCloudflare**](V2Api.md#targetUpdateCloudflare) | **POST** /target-update-cloudflare |  |
 | [**targetUpdateDB**](V2Api.md#targetUpdateDB) | **POST** /target-update-db |  |
 | [**targetUpdateDigiCert**](V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert |  |
 | [**targetUpdateDockerhub**](V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub |  |
@@ -804,7 +808,7 @@ No authorization required
 
 <a id="accountCustomFieldList"></a>
 # **accountCustomFieldList**
-> Object accountCustomFieldList(accountCustomFieldList)
+> List&lt;AccountCustomField&gt; accountCustomFieldList(accountCustomFieldList)
 
 List all account custom fields.
 
@@ -827,7 +831,7 @@ public class Example {
     V2Api apiInstance = new V2Api(defaultClient);
     AccountCustomFieldList accountCustomFieldList = new AccountCustomFieldList(); // AccountCustomFieldList | 
     try {
-      Object result = apiInstance.accountCustomFieldList(accountCustomFieldList);
+      List<AccountCustomField> result = apiInstance.accountCustomFieldList(accountCustomFieldList);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling V2Api#accountCustomFieldList");
@@ -848,7 +852,7 @@ public class Example {
 
 ### Return type
 
-**Object**
+[**List&lt;AccountCustomField&gt;**](AccountCustomField.md)
 
 ### Authorization
 
@@ -22637,6 +22641,67 @@ No authorization required
 | **200** | kmipClientSetRuleResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="kmipClientUpdate"></a>
+# **kmipClientUpdate**
+> KmipClientUpdateOutput kmipClientUpdate(kmipClientUpdate)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    KmipClientUpdate kmipClientUpdate = new KmipClientUpdate(); // KmipClientUpdate | 
+    try {
+      KmipClientUpdateOutput result = apiInstance.kmipClientUpdate(kmipClientUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kmipClientUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kmipClientUpdate** | [**KmipClientUpdate**](KmipClientUpdate.md)|  | [optional] |
+
+### Return type
+
+[**KmipClientUpdateOutput**](KmipClientUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | kmipClientUpdateResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="kmipCreateClient"></a>
 # **kmipCreateClient**
 > KmipCreateClientOutput kmipCreateClient(kmipCreateClient)
@@ -23245,6 +23310,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | kmipServerSetupResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="kmipServerUpdate"></a>
+# **kmipServerUpdate**
+> KmipServerUpdateOutput kmipServerUpdate(kmipServerUpdate)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    KmipServerUpdate kmipServerUpdate = new KmipServerUpdate(); // KmipServerUpdate | 
+    try {
+      KmipServerUpdateOutput result = apiInstance.kmipServerUpdate(kmipServerUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kmipServerUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kmipServerUpdate** | [**KmipServerUpdate**](KmipServerUpdate.md)|  | [optional] |
+
+### Return type
+
+[**KmipServerUpdateOutput**](KmipServerUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | kmipServerUpdateResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="kmipSetServerState"></a>
@@ -29032,6 +29158,67 @@ No authorization required
 | **201** | targetCreateAzureResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="targetCreateCloudflare"></a>
+# **targetCreateCloudflare**
+> TargetCreateOutput targetCreateCloudflare(targetCreateCloudflare)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateCloudflare targetCreateCloudflare = new TargetCreateCloudflare(); // TargetCreateCloudflare | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateCloudflare(targetCreateCloudflare);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateCloudflare");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateCloudflare** | [**TargetCreateCloudflare**](TargetCreateCloudflare.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateCloudflareResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="targetCreateDB"></a>
 # **targetCreateDB**
 > TargetCreateOutput targetCreateDB(targetCreateDB)
@@ -31165,6 +31352,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetUpdateAzureResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetUpdateCloudflare"></a>
+# **targetUpdateCloudflare**
+> TargetUpdateOutput targetUpdateCloudflare(targetUpdateCloudflare)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateCloudflare targetUpdateCloudflare = new TargetUpdateCloudflare(); // TargetUpdateCloudflare | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateCloudflare(targetUpdateCloudflare);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateCloudflare");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateCloudflare** | [**TargetUpdateCloudflare**](TargetUpdateCloudflare.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateCloudflareResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetUpdateDB"></a>

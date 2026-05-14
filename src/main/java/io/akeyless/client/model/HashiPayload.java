@@ -62,6 +62,11 @@ public class HashiPayload {
   @javax.annotation.Nullable
   private Boolean importAsJson;
 
+  public static final String SERIALIZED_NAME_METADATA_MODE = "metadata_mode";
+  @SerializedName(SERIALIZED_NAME_METADATA_MODE)
+  @javax.annotation.Nullable
+  private String metadataMode;
+
   public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
   @SerializedName(SERIALIZED_NAME_NAMESPACES)
   @javax.annotation.Nullable
@@ -120,6 +125,25 @@ public class HashiPayload {
 
   public void setImportAsJson(@javax.annotation.Nullable Boolean importAsJson) {
     this.importAsJson = importAsJson;
+  }
+
+
+  public HashiPayload metadataMode(@javax.annotation.Nullable String metadataMode) {
+    this.metadataMode = metadataMode;
+    return this;
+  }
+
+  /**
+   * Get metadataMode
+   * @return metadataMode
+   */
+  @javax.annotation.Nullable
+  public String getMetadataMode() {
+    return metadataMode;
+  }
+
+  public void setMetadataMode(@javax.annotation.Nullable String metadataMode) {
+    this.metadataMode = metadataMode;
   }
 
 
@@ -219,6 +243,7 @@ public class HashiPayload {
     HashiPayload hashiPayload = (HashiPayload) o;
     return Objects.equals(this.deleteSyncOnDeletion, hashiPayload.deleteSyncOnDeletion) &&
         Objects.equals(this.importAsJson, hashiPayload.importAsJson) &&
+        Objects.equals(this.metadataMode, hashiPayload.metadataMode) &&
         Objects.equals(this.namespaces, hashiPayload.namespaces) &&
         Objects.equals(this.token, hashiPayload.token) &&
         Objects.equals(this.url, hashiPayload.url) &&
@@ -227,7 +252,7 @@ public class HashiPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteSyncOnDeletion, importAsJson, namespaces, token, url, uscName);
+    return Objects.hash(deleteSyncOnDeletion, importAsJson, metadataMode, namespaces, token, url, uscName);
   }
 
   @Override
@@ -236,6 +261,7 @@ public class HashiPayload {
     sb.append("class HashiPayload {\n");
     sb.append("    deleteSyncOnDeletion: ").append(toIndentedString(deleteSyncOnDeletion)).append("\n");
     sb.append("    importAsJson: ").append(toIndentedString(importAsJson)).append("\n");
+    sb.append("    metadataMode: ").append(toIndentedString(metadataMode)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -264,6 +290,7 @@ public class HashiPayload {
     openapiFields = new HashSet<String>();
     openapiFields.add("delete_sync_on_deletion");
     openapiFields.add("import_as_json");
+    openapiFields.add("metadata_mode");
     openapiFields.add("namespaces");
     openapiFields.add("token");
     openapiFields.add("url");
@@ -294,6 +321,9 @@ public class HashiPayload {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("metadata_mode") != null && !jsonObj.get("metadata_mode").isJsonNull()) && !jsonObj.get("metadata_mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata_mode").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("namespaces") != null && !jsonObj.get("namespaces").isJsonNull() && !jsonObj.get("namespaces").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));

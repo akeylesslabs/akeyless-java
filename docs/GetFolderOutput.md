@@ -18,6 +18,7 @@ GetFolderOutput is the result of the getFolder operation
 |**metadata** | **String** |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
+|**uscSyncConfigs** | [**List&lt;FolderUSCSyncConfig&gt;**](FolderUSCSyncConfig.md) |  |  [optional] |
 
 
 

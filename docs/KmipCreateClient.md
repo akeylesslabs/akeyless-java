@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**activateKeysOnCreation** | **String** | If set to &#39;true&#39;, newly created keys on the client will be set to an &#39;active&#39; state |  [optional] |
 |**certificateTtl** | **Long** | Client certificate TTL in days |  [optional] |
+|**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Client name |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

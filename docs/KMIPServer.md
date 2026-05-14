@@ -12,6 +12,7 @@
 |**certificate** | **List&lt;Integer&gt;** |  |  [optional] |
 |**certificateIssueDate** | **OffsetDateTime** |  |  [optional] |
 |**certificateTtlInSeconds** | **Long** |  |  [optional] |
+|**expirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
 |**hostname** | **String** |  |  [optional] |
 |**root** | **String** |  |  [optional] |
 

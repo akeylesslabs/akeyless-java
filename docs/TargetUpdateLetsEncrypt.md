@@ -11,7 +11,8 @@ targetUpdateLetsEncrypt is a command that updates an existing Let's Encrypt targ
 |**acmeChallenge** | **String** |  |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
-|**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP targets |  [optional] |
+|**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP, Cloudflare targets |  [optional] |
+|**dnsZone** | **String** | Cloudflare DNS zone identifier. Required when dns-target-creds points to Cloudflare target |  [optional] |
 |**email** | **String** | Email address for ACME account registration |  |
 |**gcpProject** | **String** | GCP Cloud DNS: Project ID. Optional - can be derived from service account |  [optional] |
 |**hostedZone** | **String** | AWS Route53 hosted zone ID. Required when dns-target-creds points to AWS target |  [optional] |

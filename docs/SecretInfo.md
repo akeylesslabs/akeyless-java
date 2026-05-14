@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**activationDate** | **OffsetDateTime** |  |  [optional] |
 |**created** | **OffsetDateTime** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**expiration** | **OffsetDateTime** |  |  [optional] |

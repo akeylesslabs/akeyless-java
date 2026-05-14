@@ -102,6 +102,11 @@ public class CreateRole {
   @javax.annotation.Nullable
   private String gwAnalyticsAccess;
 
+  public static final String SERIALIZED_NAME_ISI_ACCESS = "isi-access";
+  @SerializedName(SERIALIZED_NAME_ISI_ACCESS)
+  @javax.annotation.Nullable
+  private String isiAccess;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -338,6 +343,25 @@ public class CreateRole {
   }
 
 
+  public CreateRole isiAccess(@javax.annotation.Nullable String isiAccess) {
+    this.isiAccess = isiAccess;
+    return this;
+  }
+
+  /**
+   * Allow this role to access Identity &amp; Secrets Intelligence. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported.
+   * @return isiAccess
+   */
+  @javax.annotation.Nullable
+  public String getIsiAccess() {
+    return isiAccess;
+  }
+
+  public void setIsiAccess(@javax.annotation.Nullable String isiAccess) {
+    this.isiAccess = isiAccess;
+  }
+
+
   public CreateRole json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -491,6 +515,7 @@ public class CreateRole {
         Objects.equals(this.eventForwardersAccess, createRole.eventForwardersAccess) &&
         Objects.equals(this.eventForwardersName, createRole.eventForwardersName) &&
         Objects.equals(this.gwAnalyticsAccess, createRole.gwAnalyticsAccess) &&
+        Objects.equals(this.isiAccess, createRole.isiAccess) &&
         Objects.equals(this.json, createRole.json) &&
         Objects.equals(this.name, createRole.name) &&
         Objects.equals(this.reverseRbacAccess, createRole.reverseRbacAccess) &&
@@ -502,7 +527,7 @@ public class CreateRole {
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, araReportsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, araReportsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, isiAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
   }
 
   @Override
@@ -519,6 +544,7 @@ public class CreateRole {
     sb.append("    eventForwardersAccess: ").append(toIndentedString(eventForwardersAccess)).append("\n");
     sb.append("    eventForwardersName: ").append(toIndentedString(eventForwardersName)).append("\n");
     sb.append("    gwAnalyticsAccess: ").append(toIndentedString(gwAnalyticsAccess)).append("\n");
+    sb.append("    isiAccess: ").append(toIndentedString(isiAccess)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    reverseRbacAccess: ").append(toIndentedString(reverseRbacAccess)).append("\n");
@@ -558,6 +584,7 @@ public class CreateRole {
     openapiFields.add("event-forwarders-access");
     openapiFields.add("event-forwarders-name");
     openapiFields.add("gw-analytics-access");
+    openapiFields.add("isi-access");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("reverse-rbac-access");
@@ -629,6 +656,9 @@ public class CreateRole {
       }
       if ((jsonObj.get("gw-analytics-access") != null && !jsonObj.get("gw-analytics-access").isJsonNull()) && !jsonObj.get("gw-analytics-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `gw-analytics-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw-analytics-access").toString()));
+      }
+      if ((jsonObj.get("isi-access") != null && !jsonObj.get("isi-access").isJsonNull()) && !jsonObj.get("isi-access").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `isi-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("isi-access").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

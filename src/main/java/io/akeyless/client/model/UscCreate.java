@@ -87,6 +87,16 @@ public class UscCreate {
   @javax.annotation.Nullable
   private String region;
 
+  public static final String SERIALIZED_NAME_REMOTE_SECRET_ACTIVATION_DATE = "remote-secret-activation-date";
+  @SerializedName(SERIALIZED_NAME_REMOTE_SECRET_ACTIVATION_DATE)
+  @javax.annotation.Nullable
+  private String remoteSecretActivationDate;
+
+  public static final String SERIALIZED_NAME_REMOTE_SECRET_EXPIRES = "remote-secret-expires";
+  @SerializedName(SERIALIZED_NAME_REMOTE_SECRET_EXPIRES)
+  @javax.annotation.Nullable
+  private String remoteSecretExpires;
+
   public static final String SERIALIZED_NAME_SECRET_NAME = "secret-name";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
   @javax.annotation.Nonnull
@@ -260,6 +270,44 @@ public class UscCreate {
 
   public void setRegion(@javax.annotation.Nullable String region) {
     this.region = region;
+  }
+
+
+  public UscCreate remoteSecretActivationDate(@javax.annotation.Nullable String remoteSecretActivationDate) {
+    this.remoteSecretActivationDate = remoteSecretActivationDate;
+    return this;
+  }
+
+  /**
+   * Activation date for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ
+   * @return remoteSecretActivationDate
+   */
+  @javax.annotation.Nullable
+  public String getRemoteSecretActivationDate() {
+    return remoteSecretActivationDate;
+  }
+
+  public void setRemoteSecretActivationDate(@javax.annotation.Nullable String remoteSecretActivationDate) {
+    this.remoteSecretActivationDate = remoteSecretActivationDate;
+  }
+
+
+  public UscCreate remoteSecretExpires(@javax.annotation.Nullable String remoteSecretExpires) {
+    this.remoteSecretExpires = remoteSecretExpires;
+    return this;
+  }
+
+  /**
+   * Expiration time for the secret on the remote endpoint, in UTC format: YYYY-MM-DDTHH:MM:SSZ
+   * @return remoteSecretExpires
+   */
+  @javax.annotation.Nullable
+  public String getRemoteSecretExpires() {
+    return remoteSecretExpires;
+  }
+
+  public void setRemoteSecretExpires(@javax.annotation.Nullable String remoteSecretExpires) {
+    this.remoteSecretExpires = remoteSecretExpires;
   }
 
 
@@ -440,6 +488,8 @@ public class UscCreate {
         Objects.equals(this.objectType, uscCreate.objectType) &&
         Objects.equals(this.pfxPassword, uscCreate.pfxPassword) &&
         Objects.equals(this.region, uscCreate.region) &&
+        Objects.equals(this.remoteSecretActivationDate, uscCreate.remoteSecretActivationDate) &&
+        Objects.equals(this.remoteSecretExpires, uscCreate.remoteSecretExpires) &&
         Objects.equals(this.secretName, uscCreate.secretName) &&
         Objects.equals(this.selectedRepositories, uscCreate.selectedRepositories) &&
         Objects.equals(this.tags, uscCreate.tags) &&
@@ -452,7 +502,7 @@ public class UscCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, region, secretName, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
+    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, region, remoteSecretActivationDate, remoteSecretExpires, secretName, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
@@ -466,6 +516,8 @@ public class UscCreate {
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pfxPassword: ").append(toIndentedString(pfxPassword)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    remoteSecretActivationDate: ").append(toIndentedString(remoteSecretActivationDate)).append("\n");
+    sb.append("    remoteSecretExpires: ").append(toIndentedString(remoteSecretExpires)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -503,6 +555,8 @@ public class UscCreate {
     openapiFields.add("object-type");
     openapiFields.add("pfx-password");
     openapiFields.add("region");
+    openapiFields.add("remote-secret-activation-date");
+    openapiFields.add("remote-secret-expires");
     openapiFields.add("secret-name");
     openapiFields.add("selected-repositories");
     openapiFields.add("tags");
@@ -561,6 +615,12 @@ public class UscCreate {
       }
       if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
+      }
+      if ((jsonObj.get("remote-secret-activation-date") != null && !jsonObj.get("remote-secret-activation-date").isJsonNull()) && !jsonObj.get("remote-secret-activation-date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remote-secret-activation-date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote-secret-activation-date").toString()));
+      }
+      if ((jsonObj.get("remote-secret-expires") != null && !jsonObj.get("remote-secret-expires").isJsonNull()) && !jsonObj.get("remote-secret-expires").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `remote-secret-expires` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote-secret-expires").toString()));
       }
       if (!jsonObj.get("secret-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-name").toString()));

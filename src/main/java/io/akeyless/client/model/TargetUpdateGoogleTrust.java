@@ -70,6 +70,11 @@ public class TargetUpdateGoogleTrust {
   @javax.annotation.Nullable
   private String dnsTargetCreds;
 
+  public static final String SERIALIZED_NAME_DNS_ZONE = "dns-zone";
+  @SerializedName(SERIALIZED_NAME_DNS_ZONE)
+  @javax.annotation.Nullable
+  private String dnsZone;
+
   public static final String SERIALIZED_NAME_EAB_HMAC_KEY = "eab-hmac-key";
   @SerializedName(SERIALIZED_NAME_EAB_HMAC_KEY)
   @javax.annotation.Nullable
@@ -216,7 +221,7 @@ public class TargetUpdateGoogleTrust {
   }
 
   /**
-   * Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP
+   * Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare
    * @return dnsTargetCreds
    */
   @javax.annotation.Nullable
@@ -226,6 +231,25 @@ public class TargetUpdateGoogleTrust {
 
   public void setDnsTargetCreds(@javax.annotation.Nullable String dnsTargetCreds) {
     this.dnsTargetCreds = dnsTargetCreds;
+  }
+
+
+  public TargetUpdateGoogleTrust dnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
+    return this;
+  }
+
+  /**
+   * Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare
+   * @return dnsZone
+   */
+  @javax.annotation.Nullable
+  public String getDnsZone() {
+    return dnsZone;
+  }
+
+  public void setDnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
   }
 
 
@@ -547,6 +571,7 @@ public class TargetUpdateGoogleTrust {
         Objects.equals(this.deleteProtection, targetUpdateGoogleTrust.deleteProtection) &&
         Objects.equals(this.description, targetUpdateGoogleTrust.description) &&
         Objects.equals(this.dnsTargetCreds, targetUpdateGoogleTrust.dnsTargetCreds) &&
+        Objects.equals(this.dnsZone, targetUpdateGoogleTrust.dnsZone) &&
         Objects.equals(this.eabHmacKey, targetUpdateGoogleTrust.eabHmacKey) &&
         Objects.equals(this.eabKeyId, targetUpdateGoogleTrust.eabKeyId) &&
         Objects.equals(this.email, targetUpdateGoogleTrust.email) &&
@@ -567,7 +592,7 @@ public class TargetUpdateGoogleTrust {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, deleteProtection, description, dnsTargetCreds, eabHmacKey, eabKeyId, email, gcpProject, googleTrustUrl, hostedZone, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, deleteProtection, description, dnsTargetCreds, dnsZone, eabHmacKey, eabKeyId, email, gcpProject, googleTrustUrl, hostedZone, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
   }
 
   @Override
@@ -578,6 +603,7 @@ public class TargetUpdateGoogleTrust {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
+    sb.append("    dnsZone: ").append(toIndentedString(dnsZone)).append("\n");
     sb.append("    eabHmacKey: ").append(toIndentedString(eabHmacKey)).append("\n");
     sb.append("    eabKeyId: ").append(toIndentedString(eabKeyId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
@@ -620,6 +646,7 @@ public class TargetUpdateGoogleTrust {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("dns-target-creds");
+    openapiFields.add("dns-zone");
     openapiFields.add("eab-hmac-key");
     openapiFields.add("eab-key-id");
     openapiFields.add("email");
@@ -682,6 +709,9 @@ public class TargetUpdateGoogleTrust {
       }
       if ((jsonObj.get("dns-target-creds") != null && !jsonObj.get("dns-target-creds").isJsonNull()) && !jsonObj.get("dns-target-creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns-target-creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-target-creds").toString()));
+      }
+      if ((jsonObj.get("dns-zone") != null && !jsonObj.get("dns-zone").isJsonNull()) && !jsonObj.get("dns-zone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dns-zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-zone").toString()));
       }
       if ((jsonObj.get("eab-hmac-key") != null && !jsonObj.get("eab-hmac-key").isJsonNull()) && !jsonObj.get("eab-hmac-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `eab-hmac-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eab-hmac-key").toString()));

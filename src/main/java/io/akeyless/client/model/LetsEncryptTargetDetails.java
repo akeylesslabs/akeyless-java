@@ -80,6 +80,11 @@ public class LetsEncryptTargetDetails {
   @javax.annotation.Nullable
   private String dnsTargetType;
 
+  public static final String SERIALIZED_NAME_DNS_ZONE = "dns_zone";
+  @SerializedName(SERIALIZED_NAME_DNS_ZONE)
+  @javax.annotation.Nullable
+  private String dnsZone;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   @javax.annotation.Nullable
@@ -222,6 +227,25 @@ public class LetsEncryptTargetDetails {
   }
 
 
+  public LetsEncryptTargetDetails dnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
+    return this;
+  }
+
+  /**
+   * Cloudflare zone identifier Required when DNSTargetType is Cloudflare
+   * @return dnsZone
+   */
+  @javax.annotation.Nullable
+  public String getDnsZone() {
+    return dnsZone;
+  }
+
+  public void setDnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
+  }
+
+
   public LetsEncryptTargetDetails email(@javax.annotation.Nullable String email) {
     this.email = email;
     return this;
@@ -333,6 +357,7 @@ public class LetsEncryptTargetDetails {
         Objects.equals(this.challengeType, letsEncryptTargetDetails.challengeType) &&
         Objects.equals(this.dnsTargetName, letsEncryptTargetDetails.dnsTargetName) &&
         Objects.equals(this.dnsTargetType, letsEncryptTargetDetails.dnsTargetType) &&
+        Objects.equals(this.dnsZone, letsEncryptTargetDetails.dnsZone) &&
         Objects.equals(this.email, letsEncryptTargetDetails.email) &&
         Objects.equals(this.gcpProject, letsEncryptTargetDetails.gcpProject) &&
         Objects.equals(this.hostedZone, letsEncryptTargetDetails.hostedZone) &&
@@ -342,7 +367,7 @@ public class LetsEncryptTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountKeyPem, accountUrl, acmeEnvironment, challengeType, dnsTargetName, dnsTargetType, email, gcpProject, hostedZone, resourceGroup, timeout);
+    return Objects.hash(accountKeyPem, accountUrl, acmeEnvironment, challengeType, dnsTargetName, dnsTargetType, dnsZone, email, gcpProject, hostedZone, resourceGroup, timeout);
   }
 
   @Override
@@ -355,6 +380,7 @@ public class LetsEncryptTargetDetails {
     sb.append("    challengeType: ").append(toIndentedString(challengeType)).append("\n");
     sb.append("    dnsTargetName: ").append(toIndentedString(dnsTargetName)).append("\n");
     sb.append("    dnsTargetType: ").append(toIndentedString(dnsTargetType)).append("\n");
+    sb.append("    dnsZone: ").append(toIndentedString(dnsZone)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    gcpProject: ").append(toIndentedString(gcpProject)).append("\n");
     sb.append("    hostedZone: ").append(toIndentedString(hostedZone)).append("\n");
@@ -388,6 +414,7 @@ public class LetsEncryptTargetDetails {
     openapiFields.add("challenge_type");
     openapiFields.add("dns_target_name");
     openapiFields.add("dns_target_type");
+    openapiFields.add("dns_zone");
     openapiFields.add("email");
     openapiFields.add("gcp_project");
     openapiFields.add("hosted_zone");
@@ -436,6 +463,9 @@ public class LetsEncryptTargetDetails {
       }
       if ((jsonObj.get("dns_target_type") != null && !jsonObj.get("dns_target_type").isJsonNull()) && !jsonObj.get("dns_target_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns_target_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns_target_type").toString()));
+      }
+      if ((jsonObj.get("dns_zone") != null && !jsonObj.get("dns_zone").isJsonNull()) && !jsonObj.get("dns_zone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dns_zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns_zone").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));

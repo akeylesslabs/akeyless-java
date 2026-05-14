@@ -94,6 +94,11 @@ public class RotatedSecretUpdateSplunk {
   @javax.annotation.Nullable
   private String hecToken;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -128,6 +133,11 @@ public class RotatedSecretUpdateSplunk {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -337,6 +347,33 @@ public class RotatedSecretUpdateSplunk {
   }
 
 
+  public RotatedSecretUpdateSplunk inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public RotatedSecretUpdateSplunk addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input)
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public RotatedSecretUpdateSplunk itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -475,6 +512,33 @@ public class RotatedSecretUpdateSplunk {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public RotatedSecretUpdateSplunk outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public RotatedSecretUpdateSplunk addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -683,6 +747,7 @@ public class RotatedSecretUpdateSplunk {
         Objects.equals(this.description, rotatedSecretUpdateSplunk.description) &&
         Objects.equals(this.expirationDate, rotatedSecretUpdateSplunk.expirationDate) &&
         Objects.equals(this.hecToken, rotatedSecretUpdateSplunk.hecToken) &&
+        Objects.equals(this.inputRule, rotatedSecretUpdateSplunk.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretUpdateSplunk.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateSplunk.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateSplunk.keepPrevVersion) &&
@@ -690,6 +755,7 @@ public class RotatedSecretUpdateSplunk {
         Objects.equals(this.maxVersions, rotatedSecretUpdateSplunk.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateSplunk.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateSplunk.newName) &&
+        Objects.equals(this.outputRule, rotatedSecretUpdateSplunk.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateSplunk.passwordLength) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateSplunk.rmTag) &&
         Objects.equals(this.rotationEventIn, rotatedSecretUpdateSplunk.rotationEventIn) &&
@@ -703,7 +769,7 @@ public class RotatedSecretUpdateSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, splunkToken, token, tokenOwner, uidToken);
+    return Objects.hash(addTag, audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, inputRule, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, splunkToken, token, tokenOwner, uidToken);
   }
 
   @Override
@@ -718,6 +784,7 @@ public class RotatedSecretUpdateSplunk {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    hecToken: ").append(toIndentedString(hecToken)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -725,6 +792,7 @@ public class RotatedSecretUpdateSplunk {
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
@@ -764,6 +832,7 @@ public class RotatedSecretUpdateSplunk {
     openapiFields.add("description");
     openapiFields.add("expiration-date");
     openapiFields.add("hec-token");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("keep-prev-version");
@@ -771,6 +840,7 @@ public class RotatedSecretUpdateSplunk {
     openapiFields.add("max-versions");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("output-rule");
     openapiFields.add("password-length");
     openapiFields.add("rm-tag");
     openapiFields.add("rotation-event-in");
@@ -839,6 +909,10 @@ public class RotatedSecretUpdateSplunk {
       if ((jsonObj.get("hec-token") != null && !jsonObj.get("hec-token").isJsonNull()) && !jsonObj.get("hec-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hec-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hec-token").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("keep-prev-version") != null && !jsonObj.get("keep-prev-version").isJsonNull()) && !jsonObj.get("keep-prev-version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));
       }
@@ -853,6 +927,10 @@ public class RotatedSecretUpdateSplunk {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));

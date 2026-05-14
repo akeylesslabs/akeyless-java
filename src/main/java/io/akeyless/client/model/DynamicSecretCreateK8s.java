@@ -69,6 +69,11 @@ public class DynamicSecretCreateK8s {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -143,6 +148,11 @@ public class DynamicSecretCreateK8s {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME = "producer-encryption-key-name";
   @SerializedName(SERIALIZED_NAME_PRODUCER_ENCRYPTION_KEY_NAME)
@@ -286,6 +296,33 @@ public class DynamicSecretCreateK8s {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretCreateK8s inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretCreateK8s addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
   }
 
 
@@ -579,6 +616,33 @@ public class DynamicSecretCreateK8s {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public DynamicSecretCreateK8s outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretCreateK8s addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -926,6 +990,7 @@ public class DynamicSecretCreateK8s {
     return Objects.equals(this.customUsernameTemplate, dynamicSecretCreateK8s.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateK8s.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateK8s.description) &&
+        Objects.equals(this.inputRule, dynamicSecretCreateK8s.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretCreateK8s.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretCreateK8s.json) &&
         Objects.equals(this.k8sAllowedNamespaces, dynamicSecretCreateK8s.k8sAllowedNamespaces) &&
@@ -941,6 +1006,7 @@ public class DynamicSecretCreateK8s {
         Objects.equals(this.k8sServiceAccount, dynamicSecretCreateK8s.k8sServiceAccount) &&
         Objects.equals(this.k8sServiceAccountType, dynamicSecretCreateK8s.k8sServiceAccountType) &&
         Objects.equals(this.name, dynamicSecretCreateK8s.name) &&
+        Objects.equals(this.outputRule, dynamicSecretCreateK8s.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateK8s.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, dynamicSecretCreateK8s.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessBastionIssuer, dynamicSecretCreateK8s.secureAccessBastionIssuer) &&
@@ -962,7 +1028,7 @@ public class DynamicSecretCreateK8s {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
@@ -972,6 +1038,7 @@ public class DynamicSecretCreateK8s {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    k8sAllowedNamespaces: ").append(toIndentedString(k8sAllowedNamespaces)).append("\n");
@@ -987,6 +1054,7 @@ public class DynamicSecretCreateK8s {
     sb.append("    k8sServiceAccount: ").append(toIndentedString(k8sServiceAccount)).append("\n");
     sb.append("    k8sServiceAccountType: ").append(toIndentedString(k8sServiceAccountType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -1029,6 +1097,7 @@ public class DynamicSecretCreateK8s {
     openapiFields.add("custom-username-template");
     openapiFields.add("delete_protection");
     openapiFields.add("description");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("k8s-allowed-namespaces");
@@ -1044,6 +1113,7 @@ public class DynamicSecretCreateK8s {
     openapiFields.add("k8s-service-account");
     openapiFields.add("k8s-service-account-type");
     openapiFields.add("name");
+    openapiFields.add("output-rule");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("secure-access-allow-port-forwading");
     openapiFields.add("secure-access-bastion-issuer");
@@ -1104,6 +1174,10 @@ public class DynamicSecretCreateK8s {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("k8s-allowed-namespaces") != null && !jsonObj.get("k8s-allowed-namespaces").isJsonNull()) && !jsonObj.get("k8s-allowed-namespaces").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `k8s-allowed-namespaces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s-allowed-namespaces").toString()));
       }
@@ -1142,6 +1216,10 @@ public class DynamicSecretCreateK8s {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));

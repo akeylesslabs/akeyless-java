@@ -64,6 +64,11 @@ public class GatewayUpdateProducerMongo {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -148,6 +153,11 @@ public class GatewayUpdateProducerMongo {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -257,6 +267,33 @@ public class GatewayUpdateProducerMongo {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerMongo inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public GatewayUpdateProducerMongo addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
   }
 
 
@@ -591,6 +628,33 @@ public class GatewayUpdateProducerMongo {
   }
 
 
+  public GatewayUpdateProducerMongo outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public GatewayUpdateProducerMongo addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+  }
+
+
   public GatewayUpdateProducerMongo passwordLength(@javax.annotation.Nullable String passwordLength) {
     this.passwordLength = passwordLength;
     return this;
@@ -885,6 +949,7 @@ public class GatewayUpdateProducerMongo {
     GatewayUpdateProducerMongo gatewayUpdateProducerMongo = (GatewayUpdateProducerMongo) o;
     return Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerMongo.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerMongo.deleteProtection) &&
+        Objects.equals(this.inputRule, gatewayUpdateProducerMongo.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerMongo.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerMongo.json) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, gatewayUpdateProducerMongo.mongodbAtlasApiPrivateKey) &&
@@ -902,6 +967,7 @@ public class GatewayUpdateProducerMongo {
         Objects.equals(this.mongodbUsername, gatewayUpdateProducerMongo.mongodbUsername) &&
         Objects.equals(this.name, gatewayUpdateProducerMongo.name) &&
         Objects.equals(this.newName, gatewayUpdateProducerMongo.newName) &&
+        Objects.equals(this.outputRule, gatewayUpdateProducerMongo.outputRule) &&
         Objects.equals(this.passwordLength, gatewayUpdateProducerMongo.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayUpdateProducerMongo.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayUpdateProducerMongo.secureAccessBastionIssuer) &&
@@ -920,7 +986,7 @@ public class GatewayUpdateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -929,6 +995,7 @@ public class GatewayUpdateProducerMongo {
     sb.append("class GatewayUpdateProducerMongo {\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
@@ -946,6 +1013,7 @@ public class GatewayUpdateProducerMongo {
     sb.append("    mongodbUsername: ").append(toIndentedString(mongodbUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -984,6 +1052,7 @@ public class GatewayUpdateProducerMongo {
     openapiFields = new HashSet<String>();
     openapiFields.add("custom-username-template");
     openapiFields.add("delete_protection");
+    openapiFields.add("input-rule");
     openapiFields.add("item-custom-fields");
     openapiFields.add("json");
     openapiFields.add("mongodb-atlas-api-private-key");
@@ -1001,6 +1070,7 @@ public class GatewayUpdateProducerMongo {
     openapiFields.add("mongodb-username");
     openapiFields.add("name");
     openapiFields.add("new-name");
+    openapiFields.add("output-rule");
     openapiFields.add("password-length");
     openapiFields.add("producer-encryption-key-name");
     openapiFields.add("secure-access-bastion-issuer");
@@ -1055,6 +1125,10 @@ public class GatewayUpdateProducerMongo {
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("mongodb-atlas-api-private-key") != null && !jsonObj.get("mongodb-atlas-api-private-key").isJsonNull()) && !jsonObj.get("mongodb-atlas-api-private-key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mongodb-atlas-api-private-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb-atlas-api-private-key").toString()));
       }
@@ -1099,6 +1173,10 @@ public class GatewayUpdateProducerMongo {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));

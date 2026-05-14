@@ -11,7 +11,8 @@ targetCreateGoogleTrust is a command that creates a new Google Trust target
 |**acmeChallenge** | **String** | ACME challenge type. Options: [dns] |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
-|**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP |  [optional] |
+|**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare |  [optional] |
+|**dnsZone** | **String** | Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare |  [optional] |
 |**eabHmacKey** | **String** | External Account Binding HMAC key (required for ACME account bootstrap on create) |  [optional] |
 |**eabKeyId** | **String** | External Account Binding key identifier (required for ACME account bootstrap on create) |  [optional] |
 |**email** | **String** | Email address for ACME account registration |  |

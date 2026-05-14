@@ -11,7 +11,8 @@ targetUpdateDigiCert is a command that updates an existing DigiCert target
 |**acmeChallenge** | **String** | ACME challenge type. Options: [dns] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**digicertUrl** | **String** | DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo] |  [optional] |
-|**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP |  [optional] |
+|**dnsTargetCreds** | **String** | Name of existing cloud target for DNS credentials. Required when challenge type is dns. Supported providers: AWS, Azure, GCP, Cloudflare |  [optional] |
+|**dnsZone** | **String** | Cloudflare DNS zone identifier. Required when DNS credentials target is Cloudflare |  [optional] |
 |**eabHmacKey** | **String** | External Account Binding HMAC key (required for ACME account bootstrap on create) |  [optional] |
 |**eabKeyId** | **String** | External Account Binding key identifier (required for ACME account bootstrap on create) |  [optional] |
 |**email** | **String** | Email address for ACME account registration |  |

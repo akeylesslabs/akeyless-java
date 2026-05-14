@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,6 +57,11 @@ public class DynamicSecretTmpCredsUpdate {
   @javax.annotation.Nonnull
   private String host;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -69,6 +76,11 @@ public class DynamicSecretTmpCredsUpdate {
   @SerializedName(SERIALIZED_NAME_NEW_TTL_MIN)
   @javax.annotation.Nonnull
   private Long newTtlMin;
+
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TMP_CREDS_ID = "tmp-creds-id";
   @SerializedName(SERIALIZED_NAME_TMP_CREDS_ID)
@@ -104,6 +116,33 @@ public class DynamicSecretTmpCredsUpdate {
 
   public void setHost(@javax.annotation.Nonnull String host) {
     this.host = host;
+  }
+
+
+  public DynamicSecretTmpCredsUpdate inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public DynamicSecretTmpCredsUpdate addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout).
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
   }
 
 
@@ -161,6 +200,33 @@ public class DynamicSecretTmpCredsUpdate {
 
   public void setNewTtlMin(@javax.annotation.Nonnull Long newTtlMin) {
     this.newTtlMin = newTtlMin;
+  }
+
+
+  public DynamicSecretTmpCredsUpdate outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public DynamicSecretTmpCredsUpdate addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
   }
 
 
@@ -232,9 +298,11 @@ public class DynamicSecretTmpCredsUpdate {
     }
     DynamicSecretTmpCredsUpdate dynamicSecretTmpCredsUpdate = (DynamicSecretTmpCredsUpdate) o;
     return Objects.equals(this.host, dynamicSecretTmpCredsUpdate.host) &&
+        Objects.equals(this.inputRule, dynamicSecretTmpCredsUpdate.inputRule) &&
         Objects.equals(this.json, dynamicSecretTmpCredsUpdate.json) &&
         Objects.equals(this.name, dynamicSecretTmpCredsUpdate.name) &&
         Objects.equals(this.newTtlMin, dynamicSecretTmpCredsUpdate.newTtlMin) &&
+        Objects.equals(this.outputRule, dynamicSecretTmpCredsUpdate.outputRule) &&
         Objects.equals(this.tmpCredsId, dynamicSecretTmpCredsUpdate.tmpCredsId) &&
         Objects.equals(this.token, dynamicSecretTmpCredsUpdate.token) &&
         Objects.equals(this.uidToken, dynamicSecretTmpCredsUpdate.uidToken);
@@ -242,7 +310,7 @@ public class DynamicSecretTmpCredsUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, json, name, newTtlMin, tmpCredsId, token, uidToken);
+    return Objects.hash(host, inputRule, json, name, newTtlMin, outputRule, tmpCredsId, token, uidToken);
   }
 
   @Override
@@ -250,9 +318,11 @@ public class DynamicSecretTmpCredsUpdate {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretTmpCredsUpdate {\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newTtlMin: ").append(toIndentedString(newTtlMin)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    tmpCredsId: ").append(toIndentedString(tmpCredsId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -279,9 +349,11 @@ public class DynamicSecretTmpCredsUpdate {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("host");
+    openapiFields.add("input-rule");
     openapiFields.add("json");
     openapiFields.add("name");
     openapiFields.add("new-ttl-min");
+    openapiFields.add("output-rule");
     openapiFields.add("tmp-creds-id");
     openapiFields.add("token");
     openapiFields.add("uid-token");
@@ -325,8 +397,16 @@ public class DynamicSecretTmpCredsUpdate {
       if (!jsonObj.get("host").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if (!jsonObj.get("tmp-creds-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `tmp-creds-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tmp-creds-id").toString()));

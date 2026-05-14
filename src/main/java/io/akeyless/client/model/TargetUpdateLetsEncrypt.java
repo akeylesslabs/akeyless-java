@@ -70,6 +70,11 @@ public class TargetUpdateLetsEncrypt {
   @javax.annotation.Nullable
   private String dnsTargetCreds;
 
+  public static final String SERIALIZED_NAME_DNS_ZONE = "dns-zone";
+  @SerializedName(SERIALIZED_NAME_DNS_ZONE)
+  @javax.annotation.Nullable
+  private String dnsZone;
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   @javax.annotation.Nonnull
@@ -206,7 +211,7 @@ public class TargetUpdateLetsEncrypt {
   }
 
   /**
-   * Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP targets
+   * Name of existing cloud target for DNS credentials. Required when acme-challenge&#x3D;dns. Supported: AWS, Azure, GCP, Cloudflare targets
    * @return dnsTargetCreds
    */
   @javax.annotation.Nullable
@@ -216,6 +221,25 @@ public class TargetUpdateLetsEncrypt {
 
   public void setDnsTargetCreds(@javax.annotation.Nullable String dnsTargetCreds) {
     this.dnsTargetCreds = dnsTargetCreds;
+  }
+
+
+  public TargetUpdateLetsEncrypt dnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
+    return this;
+  }
+
+  /**
+   * Cloudflare DNS zone identifier. Required when dns-target-creds points to Cloudflare target
+   * @return dnsZone
+   */
+  @javax.annotation.Nullable
+  public String getDnsZone() {
+    return dnsZone;
+  }
+
+  public void setDnsZone(@javax.annotation.Nullable String dnsZone) {
+    this.dnsZone = dnsZone;
   }
 
 
@@ -499,6 +523,7 @@ public class TargetUpdateLetsEncrypt {
         Objects.equals(this.deleteProtection, targetUpdateLetsEncrypt.deleteProtection) &&
         Objects.equals(this.description, targetUpdateLetsEncrypt.description) &&
         Objects.equals(this.dnsTargetCreds, targetUpdateLetsEncrypt.dnsTargetCreds) &&
+        Objects.equals(this.dnsZone, targetUpdateLetsEncrypt.dnsZone) &&
         Objects.equals(this.email, targetUpdateLetsEncrypt.email) &&
         Objects.equals(this.gcpProject, targetUpdateLetsEncrypt.gcpProject) &&
         Objects.equals(this.hostedZone, targetUpdateLetsEncrypt.hostedZone) &&
@@ -517,7 +542,7 @@ public class TargetUpdateLetsEncrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, deleteProtection, description, dnsTargetCreds, email, gcpProject, hostedZone, json, keepPrevVersion, key, letsEncryptUrl, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, deleteProtection, description, dnsTargetCreds, dnsZone, email, gcpProject, hostedZone, json, keepPrevVersion, key, letsEncryptUrl, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
   }
 
   @Override
@@ -528,6 +553,7 @@ public class TargetUpdateLetsEncrypt {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
+    sb.append("    dnsZone: ").append(toIndentedString(dnsZone)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    gcpProject: ").append(toIndentedString(gcpProject)).append("\n");
     sb.append("    hostedZone: ").append(toIndentedString(hostedZone)).append("\n");
@@ -568,6 +594,7 @@ public class TargetUpdateLetsEncrypt {
     openapiFields.add("delete_protection");
     openapiFields.add("description");
     openapiFields.add("dns-target-creds");
+    openapiFields.add("dns-zone");
     openapiFields.add("email");
     openapiFields.add("gcp-project");
     openapiFields.add("hosted-zone");
@@ -628,6 +655,9 @@ public class TargetUpdateLetsEncrypt {
       }
       if ((jsonObj.get("dns-target-creds") != null && !jsonObj.get("dns-target-creds").isJsonNull()) && !jsonObj.get("dns-target-creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `dns-target-creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-target-creds").toString()));
+      }
+      if ((jsonObj.get("dns-zone") != null && !jsonObj.get("dns-zone").isJsonNull()) && !jsonObj.get("dns-zone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dns-zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-zone").toString()));
       }
       if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));

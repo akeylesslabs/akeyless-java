@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import io.akeyless.client.model.AccountCustomField;
 import io.akeyless.client.model.AccountCustomFieldCreate;
 import io.akeyless.client.model.AccountCustomFieldCreateOutput;
 import io.akeyless.client.model.AccountCustomFieldDelete;
@@ -587,6 +588,8 @@ import io.akeyless.client.model.KMIPClientUpdateResponse;
 import io.akeyless.client.model.KMIPEnvironmentCreateResponse;
 import io.akeyless.client.model.KmipClientDeleteRule;
 import io.akeyless.client.model.KmipClientSetRule;
+import io.akeyless.client.model.KmipClientUpdate;
+import io.akeyless.client.model.KmipClientUpdateOutput;
 import io.akeyless.client.model.KmipCreateClient;
 import io.akeyless.client.model.KmipCreateClientOutput;
 import io.akeyless.client.model.KmipDeleteClient;
@@ -602,6 +605,8 @@ import io.akeyless.client.model.KmipRenewClientCertificateOutput;
 import io.akeyless.client.model.KmipRenewServerCertificate;
 import io.akeyless.client.model.KmipRenewServerCertificateOutput;
 import io.akeyless.client.model.KmipServerSetup;
+import io.akeyless.client.model.KmipServerUpdate;
+import io.akeyless.client.model.KmipServerUpdateOutput;
 import io.akeyless.client.model.KmipSetServerState;
 import io.akeyless.client.model.KmipSetServerStateOutput;
 import io.akeyless.client.model.KubeconfigGenerateOutput;
@@ -739,6 +744,7 @@ import io.akeyless.client.model.Target;
 import io.akeyless.client.model.TargetCreateArtifactory;
 import io.akeyless.client.model.TargetCreateAws;
 import io.akeyless.client.model.TargetCreateAzure;
+import io.akeyless.client.model.TargetCreateCloudflare;
 import io.akeyless.client.model.TargetCreateDB;
 import io.akeyless.client.model.TargetCreateDigiCert;
 import io.akeyless.client.model.TargetCreateDockerhub;
@@ -775,6 +781,7 @@ import io.akeyless.client.model.TargetList;
 import io.akeyless.client.model.TargetUpdateArtifactory;
 import io.akeyless.client.model.TargetUpdateAws;
 import io.akeyless.client.model.TargetUpdateAzure;
+import io.akeyless.client.model.TargetUpdateCloudflare;
 import io.akeyless.client.model.TargetUpdateDB;
 import io.akeyless.client.model.TargetUpdateDigiCert;
 import io.akeyless.client.model.TargetUpdateDockerhub;
@@ -1450,7 +1457,7 @@ public class V2Api {
      * List all account custom fields.
      * Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
      * @param accountCustomFieldList  (required)
-     * @return Object
+     * @return List&lt;AccountCustomField&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1460,8 +1467,8 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public Object accountCustomFieldList(AccountCustomFieldList accountCustomFieldList) throws ApiException {
-        ApiResponse<Object> localVarResp = accountCustomFieldListWithHttpInfo(accountCustomFieldList);
+    public List<AccountCustomField> accountCustomFieldList(AccountCustomFieldList accountCustomFieldList) throws ApiException {
+        ApiResponse<List<AccountCustomField>> localVarResp = accountCustomFieldListWithHttpInfo(accountCustomFieldList);
         return localVarResp.getData();
     }
 
@@ -1469,7 +1476,7 @@ public class V2Api {
      * List all account custom fields.
      * Returns a list of all custom fields configured for the account, optionally filtered by object and object type.
      * @param accountCustomFieldList  (required)
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;List&lt;AccountCustomField&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -1479,9 +1486,9 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> accountCustomFieldListWithHttpInfo(AccountCustomFieldList accountCustomFieldList) throws ApiException {
+    public ApiResponse<List<AccountCustomField>> accountCustomFieldListWithHttpInfo(AccountCustomFieldList accountCustomFieldList) throws ApiException {
         okhttp3.Call localVarCall = accountCustomFieldListValidateBeforeCall(accountCustomFieldList, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<AccountCustomField>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1500,10 +1507,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call accountCustomFieldListAsync(AccountCustomFieldList accountCustomFieldList, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call accountCustomFieldListAsync(AccountCustomFieldList accountCustomFieldList, final ApiCallback<List<AccountCustomField>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = accountCustomFieldListValidateBeforeCall(accountCustomFieldList, _callback);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<AccountCustomField>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -48226,6 +48233,132 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for kmipClientUpdate
+     * @param kmipClientUpdate  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipClientUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipClientUpdateCall(KmipClientUpdate kmipClientUpdate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = kmipClientUpdate;
+
+        // create path and map variables
+        String localVarPath = "/kmip-client-update";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call kmipClientUpdateValidateBeforeCall(KmipClientUpdate kmipClientUpdate, final ApiCallback _callback) throws ApiException {
+        return kmipClientUpdateCall(kmipClientUpdate, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipClientUpdate  (optional)
+     * @return KmipClientUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipClientUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KmipClientUpdateOutput kmipClientUpdate(KmipClientUpdate kmipClientUpdate) throws ApiException {
+        ApiResponse<KmipClientUpdateOutput> localVarResp = kmipClientUpdateWithHttpInfo(kmipClientUpdate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipClientUpdate  (optional)
+     * @return ApiResponse&lt;KmipClientUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipClientUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KmipClientUpdateOutput> kmipClientUpdateWithHttpInfo(KmipClientUpdate kmipClientUpdate) throws ApiException {
+        okhttp3.Call localVarCall = kmipClientUpdateValidateBeforeCall(kmipClientUpdate, null);
+        Type localVarReturnType = new TypeToken<KmipClientUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param kmipClientUpdate  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipClientUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipClientUpdateAsync(KmipClientUpdate kmipClientUpdate, final ApiCallback<KmipClientUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = kmipClientUpdateValidateBeforeCall(kmipClientUpdate, _callback);
+        Type localVarReturnType = new TypeToken<KmipClientUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for kmipCreateClient
      * @param kmipCreateClient  (optional)
      * @param _callback Callback for upload/download progress
@@ -49482,6 +49615,132 @@ public class V2Api {
 
         okhttp3.Call localVarCall = kmipServerSetupValidateBeforeCall(kmipServerSetup, _callback);
         Type localVarReturnType = new TypeToken<KMIPEnvironmentCreateResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for kmipServerUpdate
+     * @param kmipServerUpdate  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipServerUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipServerUpdateCall(KmipServerUpdate kmipServerUpdate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = kmipServerUpdate;
+
+        // create path and map variables
+        String localVarPath = "/kmip-server-update";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call kmipServerUpdateValidateBeforeCall(KmipServerUpdate kmipServerUpdate, final ApiCallback _callback) throws ApiException {
+        return kmipServerUpdateCall(kmipServerUpdate, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipServerUpdate  (optional)
+     * @return KmipServerUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipServerUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KmipServerUpdateOutput kmipServerUpdate(KmipServerUpdate kmipServerUpdate) throws ApiException {
+        ApiResponse<KmipServerUpdateOutput> localVarResp = kmipServerUpdateWithHttpInfo(kmipServerUpdate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipServerUpdate  (optional)
+     * @return ApiResponse&lt;KmipServerUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipServerUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KmipServerUpdateOutput> kmipServerUpdateWithHttpInfo(KmipServerUpdate kmipServerUpdate) throws ApiException {
+        okhttp3.Call localVarCall = kmipServerUpdateValidateBeforeCall(kmipServerUpdate, null);
+        Type localVarReturnType = new TypeToken<KmipServerUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param kmipServerUpdate  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipServerUpdateResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipServerUpdateAsync(KmipServerUpdate kmipServerUpdate, final ApiCallback<KmipServerUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = kmipServerUpdateValidateBeforeCall(kmipServerUpdate, _callback);
+        Type localVarReturnType = new TypeToken<KmipServerUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -61893,6 +62152,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateCloudflare
+     * @param targetCreateCloudflare  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateCloudflareCall(TargetCreateCloudflare targetCreateCloudflare, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateCloudflare;
+
+        // create path and map variables
+        String localVarPath = "/target-create-cloudflare";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateCloudflareValidateBeforeCall(TargetCreateCloudflare targetCreateCloudflare, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateCloudflare' is set
+        if (targetCreateCloudflare == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateCloudflare' when calling targetCreateCloudflare(Async)");
+        }
+
+        return targetCreateCloudflareCall(targetCreateCloudflare, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateCloudflare  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateCloudflare(TargetCreateCloudflare targetCreateCloudflare) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateCloudflareWithHttpInfo(targetCreateCloudflare);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateCloudflare  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateCloudflareWithHttpInfo(TargetCreateCloudflare targetCreateCloudflare) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateCloudflareValidateBeforeCall(targetCreateCloudflare, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateCloudflare  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateCloudflareAsync(TargetCreateCloudflare targetCreateCloudflare, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateCloudflareValidateBeforeCall(targetCreateCloudflare, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateDB
      * @param targetCreateDB  (required)
      * @param _callback Callback for upload/download progress
@@ -66473,6 +66863,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateAzureAsync(TargetUpdateAzure targetUpdateAzure, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateAzureValidateBeforeCall(targetUpdateAzure, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateCloudflare
+     * @param targetUpdateCloudflare  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateCloudflareCall(TargetUpdateCloudflare targetUpdateCloudflare, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateCloudflare;
+
+        // create path and map variables
+        String localVarPath = "/target-update-cloudflare";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateCloudflareValidateBeforeCall(TargetUpdateCloudflare targetUpdateCloudflare, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateCloudflare' is set
+        if (targetUpdateCloudflare == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateCloudflare' when calling targetUpdateCloudflare(Async)");
+        }
+
+        return targetUpdateCloudflareCall(targetUpdateCloudflare, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateCloudflare  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateCloudflare(TargetUpdateCloudflare targetUpdateCloudflare) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateCloudflareWithHttpInfo(targetUpdateCloudflare);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateCloudflare  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateCloudflareWithHttpInfo(TargetUpdateCloudflare targetUpdateCloudflare) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateCloudflareValidateBeforeCall(targetUpdateCloudflare, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateCloudflare  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCloudflareResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateCloudflareAsync(TargetUpdateCloudflare targetUpdateCloudflare, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateCloudflareValidateBeforeCall(targetUpdateCloudflare, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
