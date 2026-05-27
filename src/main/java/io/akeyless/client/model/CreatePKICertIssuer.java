@@ -94,6 +94,11 @@ public class CreatePKICertIssuer {
   @javax.annotation.Nullable
   private Boolean autoRenew;
 
+  public static final String SERIALIZED_NAME_BASIC_CONSTRAINTS = "basic-constraints";
+  @SerializedName(SERIALIZED_NAME_BASIC_CONSTRAINTS)
+  @javax.annotation.Nullable
+  private String basicConstraints;
+
   public static final String SERIALIZED_NAME_CA_TARGET = "ca-target";
   @SerializedName(SERIALIZED_NAME_CA_TARGET)
   @javax.annotation.Nullable
@@ -446,6 +451,25 @@ public class CreatePKICertIssuer {
 
   public void setAutoRenew(@javax.annotation.Nullable Boolean autoRenew) {
     this.autoRenew = autoRenew;
+  }
+
+
+  public CreatePKICertIssuer basicConstraints(@javax.annotation.Nullable String basicConstraints) {
+    this.basicConstraints = basicConstraints;
+    return this;
+  }
+
+  /**
+   * Defines the X.509 Basic Constraints extension for certificates issued by this PKI issuer template
+   * @return basicConstraints
+   */
+  @javax.annotation.Nullable
+  public String getBasicConstraints() {
+    return basicConstraints;
+  }
+
+  public void setBasicConstraints(@javax.annotation.Nullable String basicConstraints) {
+    this.basicConstraints = basicConstraints;
   }
 
 
@@ -1251,6 +1275,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.allowedIpSans, createPKICertIssuer.allowedIpSans) &&
         Objects.equals(this.allowedUriSans, createPKICertIssuer.allowedUriSans) &&
         Objects.equals(this.autoRenew, createPKICertIssuer.autoRenew) &&
+        Objects.equals(this.basicConstraints, createPKICertIssuer.basicConstraints) &&
         Objects.equals(this.caTarget, createPKICertIssuer.caTarget) &&
         Objects.equals(this.clientFlag, createPKICertIssuer.clientFlag) &&
         Objects.equals(this.codeSigningFlag, createPKICertIssuer.codeSigningFlag) &&
@@ -1295,7 +1320,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, basicConstraints, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1310,6 +1335,7 @@ public class CreatePKICertIssuer {
     sb.append("    allowedIpSans: ").append(toIndentedString(allowedIpSans)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
     sb.append("    autoRenew: ").append(toIndentedString(autoRenew)).append("\n");
+    sb.append("    basicConstraints: ").append(toIndentedString(basicConstraints)).append("\n");
     sb.append("    caTarget: ").append(toIndentedString(caTarget)).append("\n");
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
     sb.append("    codeSigningFlag: ").append(toIndentedString(codeSigningFlag)).append("\n");
@@ -1380,6 +1406,7 @@ public class CreatePKICertIssuer {
     openapiFields.add("allowed-ip-sans");
     openapiFields.add("allowed-uri-sans");
     openapiFields.add("auto-renew");
+    openapiFields.add("basic-constraints");
     openapiFields.add("ca-target");
     openapiFields.add("client-flag");
     openapiFields.add("code-signing-flag");
@@ -1466,6 +1493,9 @@ public class CreatePKICertIssuer {
       }
       if ((jsonObj.get("allowed-uri-sans") != null && !jsonObj.get("allowed-uri-sans").isJsonNull()) && !jsonObj.get("allowed-uri-sans").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed-uri-sans` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-uri-sans").toString()));
+      }
+      if ((jsonObj.get("basic-constraints") != null && !jsonObj.get("basic-constraints").isJsonNull()) && !jsonObj.get("basic-constraints").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `basic-constraints` to be a primitive type in the JSON string but got `%s`", jsonObj.get("basic-constraints").toString()));
       }
       if ((jsonObj.get("ca-target") != null && !jsonObj.get("ca-target").isJsonNull()) && !jsonObj.get("ca-target").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `ca-target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ca-target").toString()));

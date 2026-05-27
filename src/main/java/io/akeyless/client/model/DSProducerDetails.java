@@ -23,6 +23,7 @@ import io.akeyless.client.model.AWSGatewayCloudIdentityExternalIdOpt;
 import io.akeyless.client.model.AgenticRules;
 import io.akeyless.client.model.ItemCustomFieldsDetails;
 import io.akeyless.client.model.ItemTargetAssociation;
+import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.SecureRemoteAccess;
 import io.akeyless.client.model.WalletDetails;
 import java.io.IOException;
@@ -1106,6 +1107,11 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String passwordPolicy;
 
+  public static final String SERIALIZED_NAME_PASSWORD_POLICY_INFO = "password_policy_info";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY_INFO)
+  @javax.annotation.Nullable
+  private PasswordPolicyInfo passwordPolicyInfo;
+
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   @javax.annotation.Nullable
@@ -1125,6 +1131,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_POSTGRES_REVOCATION_STATEMENTS)
   @javax.annotation.Nullable
   private String postgresRevocationStatements;
+
+  public static final String SERIALIZED_NAME_PRESERVE_EXISTING_PASSWORD_SETTINGS = "preserve_existing_password_settings";
+  @SerializedName(SERIALIZED_NAME_PRESERVE_EXISTING_PASSWORD_SETTINGS)
+  @javax.annotation.Nullable
+  private Boolean preserveExistingPasswordSettings;
 
   public static final String SERIALIZED_NAME_PRIVILEGED_USER = "privileged_user";
   @SerializedName(SERIALIZED_NAME_PRIVILEGED_USER)
@@ -5465,6 +5476,25 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails passwordPolicyInfo(@javax.annotation.Nullable PasswordPolicyInfo passwordPolicyInfo) {
+    this.passwordPolicyInfo = passwordPolicyInfo;
+    return this;
+  }
+
+  /**
+   * Get passwordPolicyInfo
+   * @return passwordPolicyInfo
+   */
+  @javax.annotation.Nullable
+  public PasswordPolicyInfo getPasswordPolicyInfo() {
+    return passwordPolicyInfo;
+  }
+
+  public void setPasswordPolicyInfo(@javax.annotation.Nullable PasswordPolicyInfo passwordPolicyInfo) {
+    this.passwordPolicyInfo = passwordPolicyInfo;
+  }
+
+
   public DSProducerDetails payload(@javax.annotation.Nullable String payload) {
     this.payload = payload;
     return this;
@@ -5538,6 +5568,25 @@ public class DSProducerDetails {
 
   public void setPostgresRevocationStatements(@javax.annotation.Nullable String postgresRevocationStatements) {
     this.postgresRevocationStatements = postgresRevocationStatements;
+  }
+
+
+  public DSProducerDetails preserveExistingPasswordSettings(@javax.annotation.Nullable Boolean preserveExistingPasswordSettings) {
+    this.preserveExistingPasswordSettings = preserveExistingPasswordSettings;
+    return this;
+  }
+
+  /**
+   * Internal marker for DS update flows: when true, keep the persisted password settings and merge explicit rule updates on top.
+   * @return preserveExistingPasswordSettings
+   */
+  @javax.annotation.Nullable
+  public Boolean getPreserveExistingPasswordSettings() {
+    return preserveExistingPasswordSettings;
+  }
+
+  public void setPreserveExistingPasswordSettings(@javax.annotation.Nullable Boolean preserveExistingPasswordSettings) {
+    this.preserveExistingPasswordSettings = preserveExistingPasswordSettings;
   }
 
 
@@ -6883,10 +6932,12 @@ public class DSProducerDetails {
         Objects.equals(this.password, dsProducerDetails.password) &&
         Objects.equals(this.passwordLength, dsProducerDetails.passwordLength) &&
         Objects.equals(this.passwordPolicy, dsProducerDetails.passwordPolicy) &&
+        Objects.equals(this.passwordPolicyInfo, dsProducerDetails.passwordPolicyInfo) &&
         Objects.equals(this.payload, dsProducerDetails.payload) &&
         Objects.equals(this.pingUrl, dsProducerDetails.pingUrl) &&
         Objects.equals(this.postgresCreationStatements, dsProducerDetails.postgresCreationStatements) &&
         Objects.equals(this.postgresRevocationStatements, dsProducerDetails.postgresRevocationStatements) &&
+        Objects.equals(this.preserveExistingPasswordSettings, dsProducerDetails.preserveExistingPasswordSettings) &&
         Objects.equals(this.privilegedUser, dsProducerDetails.privilegedUser) &&
         Objects.equals(this.projectId, dsProducerDetails.projectId) &&
         Objects.equals(this.rabbitmqServerPassword, dsProducerDetails.rabbitmqServerPassword) &&
@@ -6948,7 +6999,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, passwordPolicyInfo, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, preserveExistingPasswordSettings, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -7164,10 +7215,12 @@ public class DSProducerDetails {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
+    sb.append("    passwordPolicyInfo: ").append(toIndentedString(passwordPolicyInfo)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    pingUrl: ").append(toIndentedString(pingUrl)).append("\n");
     sb.append("    postgresCreationStatements: ").append(toIndentedString(postgresCreationStatements)).append("\n");
     sb.append("    postgresRevocationStatements: ").append(toIndentedString(postgresRevocationStatements)).append("\n");
+    sb.append("    preserveExistingPasswordSettings: ").append(toIndentedString(preserveExistingPasswordSettings)).append("\n");
     sb.append("    privilegedUser: ").append(toIndentedString(privilegedUser)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
@@ -7456,10 +7509,12 @@ public class DSProducerDetails {
     openapiFields.add("password");
     openapiFields.add("password_length");
     openapiFields.add("password_policy");
+    openapiFields.add("password_policy_info");
     openapiFields.add("payload");
     openapiFields.add("ping_url");
     openapiFields.add("postgres_creation_statements");
     openapiFields.add("postgres_revocation_statements");
+    openapiFields.add("preserve_existing_password_settings");
     openapiFields.add("privileged_user");
     openapiFields.add("project_id");
     openapiFields.add("rabbitmq_server_password");
@@ -8131,6 +8186,10 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("password_policy") != null && !jsonObj.get("password_policy").isJsonNull()) && !jsonObj.get("password_policy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password_policy").toString()));
+      }
+      // validate the optional field `password_policy_info`
+      if (jsonObj.get("password_policy_info") != null && !jsonObj.get("password_policy_info").isJsonNull()) {
+        PasswordPolicyInfo.validateJsonElement(jsonObj.get("password_policy_info"));
       }
       if ((jsonObj.get("payload") != null && !jsonObj.get("payload").isJsonNull()) && !jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));

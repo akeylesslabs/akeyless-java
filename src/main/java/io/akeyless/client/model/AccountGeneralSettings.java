@@ -140,6 +140,11 @@ public class AccountGeneralSettings {
   @javax.annotation.Nullable
   private Boolean enableRequestForAccess;
 
+  public static final String SERIALIZED_NAME_ENABLE_SEARCH_HISTORY = "enable_search_history";
+  @SerializedName(SERIALIZED_NAME_ENABLE_SEARCH_HISTORY)
+  @javax.annotation.Nullable
+  private Boolean enableSearchHistory;
+
   public static final String SERIALIZED_NAME_HIDE_PERSONAL_FOLDER = "hide_personal_folder";
   @SerializedName(SERIALIZED_NAME_HIDE_PERSONAL_FOLDER)
   @javax.annotation.Nullable
@@ -493,6 +498,25 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings enableSearchHistory(@javax.annotation.Nullable Boolean enableSearchHistory) {
+    this.enableSearchHistory = enableSearchHistory;
+    return this;
+  }
+
+  /**
+   * Get enableSearchHistory
+   * @return enableSearchHistory
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableSearchHistory() {
+    return enableSearchHistory;
+  }
+
+  public void setEnableSearchHistory(@javax.annotation.Nullable Boolean enableSearchHistory) {
+    this.enableSearchHistory = enableSearchHistory;
+  }
+
+
   public AccountGeneralSettings hidePersonalFolder(@javax.annotation.Nullable Boolean hidePersonalFolder) {
     this.hidePersonalFolder = hidePersonalFolder;
     return this;
@@ -765,6 +789,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.defaultHomePage, accountGeneralSettings.defaultHomePage) &&
         Objects.equals(this.dynamicSecretMaxTtl, accountGeneralSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
+        Objects.equals(this.enableSearchHistory, accountGeneralSettings.enableSearchHistory) &&
         Objects.equals(this.hidePersonalFolder, accountGeneralSettings.hidePersonalFolder) &&
         Objects.equals(this.hideSecretRevealCopy, accountGeneralSettings.hideSecretRevealCopy) &&
         Objects.equals(this.hideStaticPassword, accountGeneralSettings.hideStaticPassword) &&
@@ -782,7 +807,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -804,6 +829,7 @@ public class AccountGeneralSettings {
     sb.append("    defaultHomePage: ").append(toIndentedString(defaultHomePage)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
+    sb.append("    enableSearchHistory: ").append(toIndentedString(enableSearchHistory)).append("\n");
     sb.append("    hidePersonalFolder: ").append(toIndentedString(hidePersonalFolder)).append("\n");
     sb.append("    hideSecretRevealCopy: ").append(toIndentedString(hideSecretRevealCopy)).append("\n");
     sb.append("    hideStaticPassword: ").append(toIndentedString(hideStaticPassword)).append("\n");
@@ -854,6 +880,7 @@ public class AccountGeneralSettings {
     openapiFields.add("default_home_page");
     openapiFields.add("dynamic_secret_max_ttl");
     openapiFields.add("enable_request_for_access");
+    openapiFields.add("enable_search_history");
     openapiFields.add("hide_personal_folder");
     openapiFields.add("hide_secret_reveal_copy");
     openapiFields.add("hide_static_password");

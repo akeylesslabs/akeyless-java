@@ -100,6 +100,16 @@ public class PKICertificateIssueDetails {
   @javax.annotation.Nullable
   private Boolean autoRenewCertificate;
 
+  public static final String SERIALIZED_NAME_BASIC_CONSTRAINTS = "basic_constraints";
+  @SerializedName(SERIALIZED_NAME_BASIC_CONSTRAINTS)
+  @javax.annotation.Nullable
+  private String basicConstraints;
+
+  public static final String SERIALIZED_NAME_BASIC_CONSTRAINTS_CRITICAL = "basic_constraints_critical";
+  @SerializedName(SERIALIZED_NAME_BASIC_CONSTRAINTS_CRITICAL)
+  @javax.annotation.Nullable
+  private Boolean basicConstraintsCritical;
+
   public static final String SERIALIZED_NAME_BASIC_CONSTRAINTS_VALID_FOR_NON_CA = "basic_constraints_valid_for_non_ca";
   @SerializedName(SERIALIZED_NAME_BASIC_CONSTRAINTS_VALID_FOR_NON_CA)
   @javax.annotation.Nullable
@@ -473,6 +483,44 @@ public class PKICertificateIssueDetails {
 
   public void setAutoRenewCertificate(@javax.annotation.Nullable Boolean autoRenewCertificate) {
     this.autoRenewCertificate = autoRenewCertificate;
+  }
+
+
+  public PKICertificateIssueDetails basicConstraints(@javax.annotation.Nullable String basicConstraints) {
+    this.basicConstraints = basicConstraints;
+    return this;
+  }
+
+  /**
+   * Get basicConstraints
+   * @return basicConstraints
+   */
+  @javax.annotation.Nullable
+  public String getBasicConstraints() {
+    return basicConstraints;
+  }
+
+  public void setBasicConstraints(@javax.annotation.Nullable String basicConstraints) {
+    this.basicConstraints = basicConstraints;
+  }
+
+
+  public PKICertificateIssueDetails basicConstraintsCritical(@javax.annotation.Nullable Boolean basicConstraintsCritical) {
+    this.basicConstraintsCritical = basicConstraintsCritical;
+    return this;
+  }
+
+  /**
+   * Get basicConstraintsCritical
+   * @return basicConstraintsCritical
+   */
+  @javax.annotation.Nullable
+  public Boolean getBasicConstraintsCritical() {
+    return basicConstraintsCritical;
+  }
+
+  public void setBasicConstraintsCritical(@javax.annotation.Nullable Boolean basicConstraintsCritical) {
+    this.basicConstraintsCritical = basicConstraintsCritical;
   }
 
 
@@ -1213,6 +1261,8 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.allowedIpSans, pkICertificateIssueDetails.allowedIpSans) &&
         Objects.equals(this.allowedUriSans, pkICertificateIssueDetails.allowedUriSans) &&
         Objects.equals(this.autoRenewCertificate, pkICertificateIssueDetails.autoRenewCertificate) &&
+        Objects.equals(this.basicConstraints, pkICertificateIssueDetails.basicConstraints) &&
+        Objects.equals(this.basicConstraintsCritical, pkICertificateIssueDetails.basicConstraintsCritical) &&
         Objects.equals(this.basicConstraintsValidForNonCa, pkICertificateIssueDetails.basicConstraintsValidForNonCa) &&
         Objects.equals(this.certificateAuthorityMode, pkICertificateIssueDetails.certificateAuthorityMode) &&
         Objects.equals(this.clientFlag, pkICertificateIssueDetails.clientFlag) &&
@@ -1251,7 +1301,7 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, streetAddress);
+    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraints, basicConstraintsCritical, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, streetAddress);
   }
 
   @Override
@@ -1267,6 +1317,8 @@ public class PKICertificateIssueDetails {
     sb.append("    allowedIpSans: ").append(toIndentedString(allowedIpSans)).append("\n");
     sb.append("    allowedUriSans: ").append(toIndentedString(allowedUriSans)).append("\n");
     sb.append("    autoRenewCertificate: ").append(toIndentedString(autoRenewCertificate)).append("\n");
+    sb.append("    basicConstraints: ").append(toIndentedString(basicConstraints)).append("\n");
+    sb.append("    basicConstraintsCritical: ").append(toIndentedString(basicConstraintsCritical)).append("\n");
     sb.append("    basicConstraintsValidForNonCa: ").append(toIndentedString(basicConstraintsValidForNonCa)).append("\n");
     sb.append("    certificateAuthorityMode: ").append(toIndentedString(certificateAuthorityMode)).append("\n");
     sb.append("    clientFlag: ").append(toIndentedString(clientFlag)).append("\n");
@@ -1332,6 +1384,8 @@ public class PKICertificateIssueDetails {
     openapiFields.add("allowed_ip_sans");
     openapiFields.add("allowed_uri_sans");
     openapiFields.add("auto_renew_certificate");
+    openapiFields.add("basic_constraints");
+    openapiFields.add("basic_constraints_critical");
     openapiFields.add("basic_constraints_valid_for_non_ca");
     openapiFields.add("certificate_authority_mode");
     openapiFields.add("client_flag");
@@ -1403,6 +1457,9 @@ public class PKICertificateIssueDetails {
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_uri_sans") != null && !jsonObj.get("allowed_uri_sans").isJsonNull() && !jsonObj.get("allowed_uri_sans").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `allowed_uri_sans` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_uri_sans").toString()));
+      }
+      if ((jsonObj.get("basic_constraints") != null && !jsonObj.get("basic_constraints").isJsonNull()) && !jsonObj.get("basic_constraints").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `basic_constraints` to be a primitive type in the JSON string but got `%s`", jsonObj.get("basic_constraints").toString()));
       }
       if ((jsonObj.get("certificate_authority_mode") != null && !jsonObj.get("certificate_authority_mode").isJsonNull()) && !jsonObj.get("certificate_authority_mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `certificate_authority_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_authority_mode").toString()));

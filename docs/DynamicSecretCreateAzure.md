@@ -34,6 +34,10 @@ dynamicSecretCreateAzure is a command that creates azure dynamic secret
 |**targetName** | **String** | Target name |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
+|**useCapitalLetters** | **String** | Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false] |  [optional] |
+|**useLowerLetters** | **String** | Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false] |  [optional] |
+|**useNumbers** | **String** | Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false] |  [optional] |
+|**useSpecialCharacters** | **String** |  |  [optional] |
 |**userGroupObjId** | **String** | User Group Object Id |  [optional] |
 |**userPortalAccess** | **Boolean** | Azure User portal access |  [optional] |
 |**userPrincipalName** | **String** | User Principal Name |  [optional] |

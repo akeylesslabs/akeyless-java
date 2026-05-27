@@ -216,10 +216,12 @@
 |**password** | **String** |  |  [optional] |
 |**passwordLength** | **Long** |  |  [optional] |
 |**passwordPolicy** | **String** |  |  [optional] |
+|**passwordPolicyInfo** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional] |
 |**payload** | **String** |  |  [optional] |
 |**pingUrl** | **String** |  |  [optional] |
 |**postgresCreationStatements** | **String** |  |  [optional] |
 |**postgresRevocationStatements** | **String** |  |  [optional] |
+|**preserveExistingPasswordSettings** | **Boolean** | Internal marker for DS update flows: when true, keep the persisted password settings and merge explicit rule updates on top. |  [optional] |
 |**privilegedUser** | **String** |  |  [optional] |
 |**projectId** | **String** |  |  [optional] |
 |**rabbitmqServerPassword** | **String** |  |  [optional] |

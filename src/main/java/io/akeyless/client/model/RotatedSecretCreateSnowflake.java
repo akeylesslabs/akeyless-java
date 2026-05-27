@@ -174,6 +174,26 @@ public class RotatedSecretCreateSnowflake {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USE_CAPITAL_LETTERS = "use-capital-letters";
+  @SerializedName(SERIALIZED_NAME_USE_CAPITAL_LETTERS)
+  @javax.annotation.Nullable
+  private String useCapitalLetters;
+
+  public static final String SERIALIZED_NAME_USE_LOWER_LETTERS = "use-lower-letters";
+  @SerializedName(SERIALIZED_NAME_USE_LOWER_LETTERS)
+  @javax.annotation.Nullable
+  private String useLowerLetters;
+
+  public static final String SERIALIZED_NAME_USE_NUMBERS = "use-numbers";
+  @SerializedName(SERIALIZED_NAME_USE_NUMBERS)
+  @javax.annotation.Nullable
+  private String useNumbers;
+
+  public static final String SERIALIZED_NAME_USE_SPECIAL_CHARACTERS = "use-special-characters";
+  @SerializedName(SERIALIZED_NAME_USE_SPECIAL_CHARACTERS)
+  @javax.annotation.Nullable
+  private String useSpecialCharacters;
+
   public RotatedSecretCreateSnowflake() {
   }
 
@@ -673,6 +693,82 @@ public class RotatedSecretCreateSnowflake {
   }
 
 
+  public RotatedSecretCreateSnowflake useCapitalLetters(@javax.annotation.Nullable String useCapitalLetters) {
+    this.useCapitalLetters = useCapitalLetters;
+    return this;
+  }
+
+  /**
+   * Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false]
+   * @return useCapitalLetters
+   */
+  @javax.annotation.Nullable
+  public String getUseCapitalLetters() {
+    return useCapitalLetters;
+  }
+
+  public void setUseCapitalLetters(@javax.annotation.Nullable String useCapitalLetters) {
+    this.useCapitalLetters = useCapitalLetters;
+  }
+
+
+  public RotatedSecretCreateSnowflake useLowerLetters(@javax.annotation.Nullable String useLowerLetters) {
+    this.useLowerLetters = useLowerLetters;
+    return this;
+  }
+
+  /**
+   * Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false]
+   * @return useLowerLetters
+   */
+  @javax.annotation.Nullable
+  public String getUseLowerLetters() {
+    return useLowerLetters;
+  }
+
+  public void setUseLowerLetters(@javax.annotation.Nullable String useLowerLetters) {
+    this.useLowerLetters = useLowerLetters;
+  }
+
+
+  public RotatedSecretCreateSnowflake useNumbers(@javax.annotation.Nullable String useNumbers) {
+    this.useNumbers = useNumbers;
+    return this;
+  }
+
+  /**
+   * Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false]
+   * @return useNumbers
+   */
+  @javax.annotation.Nullable
+  public String getUseNumbers() {
+    return useNumbers;
+  }
+
+  public void setUseNumbers(@javax.annotation.Nullable String useNumbers) {
+    this.useNumbers = useNumbers;
+  }
+
+
+  public RotatedSecretCreateSnowflake useSpecialCharacters(@javax.annotation.Nullable String useSpecialCharacters) {
+    this.useSpecialCharacters = useSpecialCharacters;
+    return this;
+  }
+
+  /**
+   * Get useSpecialCharacters
+   * @return useSpecialCharacters
+   */
+  @javax.annotation.Nullable
+  public String getUseSpecialCharacters() {
+    return useSpecialCharacters;
+  }
+
+  public void setUseSpecialCharacters(@javax.annotation.Nullable String useSpecialCharacters) {
+    this.useSpecialCharacters = useSpecialCharacters;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -706,12 +802,16 @@ public class RotatedSecretCreateSnowflake {
         Objects.equals(this.tags, rotatedSecretCreateSnowflake.tags) &&
         Objects.equals(this.targetName, rotatedSecretCreateSnowflake.targetName) &&
         Objects.equals(this.token, rotatedSecretCreateSnowflake.token) &&
-        Objects.equals(this.uidToken, rotatedSecretCreateSnowflake.uidToken);
+        Objects.equals(this.uidToken, rotatedSecretCreateSnowflake.uidToken) &&
+        Objects.equals(this.useCapitalLetters, rotatedSecretCreateSnowflake.useCapitalLetters) &&
+        Objects.equals(this.useLowerLetters, rotatedSecretCreateSnowflake.useLowerLetters) &&
+        Objects.equals(this.useNumbers, rotatedSecretCreateSnowflake.useNumbers) &&
+        Objects.equals(this.useSpecialCharacters, rotatedSecretCreateSnowflake.useSpecialCharacters);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, privateKey, privateKeyFileName, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, tags, targetName, token, uidToken);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, privateKey, privateKeyFileName, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -742,6 +842,10 @@ public class RotatedSecretCreateSnowflake {
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    useCapitalLetters: ").append(toIndentedString(useCapitalLetters)).append("\n");
+    sb.append("    useLowerLetters: ").append(toIndentedString(useLowerLetters)).append("\n");
+    sb.append("    useNumbers: ").append(toIndentedString(useNumbers)).append("\n");
+    sb.append("    useSpecialCharacters: ").append(toIndentedString(useSpecialCharacters)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -788,6 +892,10 @@ public class RotatedSecretCreateSnowflake {
     openapiFields.add("target-name");
     openapiFields.add("token");
     openapiFields.add("uid-token");
+    openapiFields.add("use-capital-letters");
+    openapiFields.add("use-lower-letters");
+    openapiFields.add("use-numbers");
+    openapiFields.add("use-special-characters");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -890,6 +998,18 @@ public class RotatedSecretCreateSnowflake {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("use-capital-letters") != null && !jsonObj.get("use-capital-letters").isJsonNull()) && !jsonObj.get("use-capital-letters").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use-capital-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-capital-letters").toString()));
+      }
+      if ((jsonObj.get("use-lower-letters") != null && !jsonObj.get("use-lower-letters").isJsonNull()) && !jsonObj.get("use-lower-letters").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use-lower-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-lower-letters").toString()));
+      }
+      if ((jsonObj.get("use-numbers") != null && !jsonObj.get("use-numbers").isJsonNull()) && !jsonObj.get("use-numbers").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use-numbers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-numbers").toString()));
+      }
+      if ((jsonObj.get("use-special-characters") != null && !jsonObj.get("use-special-characters").isJsonNull()) && !jsonObj.get("use-special-characters").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use-special-characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-special-characters").toString()));
       }
   }
 

@@ -1051,7 +1051,7 @@ public class RotatedSecretUpdateCustom {
   }
 
   /**
-   * Password must contain capital letters [true/false]
+   * Specifies whether the generated temporary password must contain at least one uppercase character from the ISO basic Latin alphabet (A to Z). [true/false]
    * @return useCapitalLetters
    */
   @javax.annotation.Nullable
@@ -1070,7 +1070,7 @@ public class RotatedSecretUpdateCustom {
   }
 
   /**
-   * Password must contain lower case letters [true/false]
+   * Specifies whether the generated temporary password must contain at least one lowercase character from the ISO basic Latin alphabet (a to z). [true/false]
    * @return useLowerLetters
    */
   @javax.annotation.Nullable
@@ -1089,7 +1089,7 @@ public class RotatedSecretUpdateCustom {
   }
 
   /**
-   * Password must contain numbers [true/false]
+   * Specifies whether the generated temporary password must contain at least one numeric character (0 to 9). [true/false]
    * @return useNumbers
    */
   @javax.annotation.Nullable
@@ -1108,7 +1108,7 @@ public class RotatedSecretUpdateCustom {
   }
 
   /**
-   * Password must contain special characters [true/false]
+   * Get useSpecialCharacters
    * @return useSpecialCharacters
    */
   @javax.annotation.Nullable

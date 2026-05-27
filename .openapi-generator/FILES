@@ -2432,12 +2432,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AccountCustomFieldTest.java
-src/test/java/io/akeyless/client/model/CloudflareTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/FolderUSCSyncConfigTest.java
-src/test/java/io/akeyless/client/model/KmipClientUpdateOutputTest.java
-src/test/java/io/akeyless/client/model/KmipClientUpdateTest.java
-src/test/java/io/akeyless/client/model/KmipServerUpdateOutputTest.java
-src/test/java/io/akeyless/client/model/KmipServerUpdateTest.java
-src/test/java/io/akeyless/client/model/TargetCreateCloudflareTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateCloudflareTest.java

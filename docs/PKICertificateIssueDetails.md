@@ -16,6 +16,8 @@
 |**allowedIpSans** | **List&lt;String&gt;** |  |  [optional] |
 |**allowedUriSans** | **List&lt;String&gt;** |  |  [optional] |
 |**autoRenewCertificate** | **Boolean** |  |  [optional] |
+|**basicConstraints** | **String** |  |  [optional] |
+|**basicConstraintsCritical** | **Boolean** |  |  [optional] |
 |**basicConstraintsValidForNonCa** | **Boolean** |  |  [optional] |
 |**certificateAuthorityMode** | **String** |  |  [optional] |
 |**clientFlag** | **Boolean** |  |  [optional] |
