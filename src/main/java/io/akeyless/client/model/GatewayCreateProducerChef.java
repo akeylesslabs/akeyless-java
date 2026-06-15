@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayCreateProducerChef is a command that creates chef producer [Deprecated: Use dynamic-secret-create-chef command]
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayCreateProducerChef {
   public static final String SERIALIZED_NAME_CHEF_ORGS = "chef-orgs";
   @SerializedName(SERIALIZED_NAME_CHEF_ORGS)
@@ -717,10 +717,7 @@ public class GatewayCreateProducerChef {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -729,34 +726,10 @@ public class GatewayCreateProducerChef {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("chef-orgs");
-    openapiFields.add("chef-server-key");
-    openapiFields.add("chef-server-url");
-    openapiFields.add("chef-server-username");
-    openapiFields.add("custom-username-template");
-    openapiFields.add("delete_protection");
-    openapiFields.add("input-rule");
-    openapiFields.add("item-custom-fields");
-    openapiFields.add("json");
-    openapiFields.add("name");
-    openapiFields.add("output-rule");
-    openapiFields.add("password-length");
-    openapiFields.add("producer-encryption-key-name");
-    openapiFields.add("skip-ssl");
-    openapiFields.add("tags");
-    openapiFields.add("target-name");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("use-capital-letters");
-    openapiFields.add("use-lower-letters");
-    openapiFields.add("use-numbers");
-    openapiFields.add("use-special-characters");
-    openapiFields.add("user-ttl");
+    openapiFields = new HashSet<String>(Arrays.asList("chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip-ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -768,7 +741,7 @@ public class GatewayCreateProducerChef {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayCreateProducerChef.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayCreateProducerChef is not found in the empty JSON string", GatewayCreateProducerChef.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayCreateProducerChef is not found in the empty JSON string", GatewayCreateProducerChef.openapiRequiredFields.toString()));
         }
       }
 
@@ -776,79 +749,79 @@ public class GatewayCreateProducerChef {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayCreateProducerChef.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayCreateProducerChef` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayCreateProducerChef` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GatewayCreateProducerChef.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("chef-orgs") != null && !jsonObj.get("chef-orgs").isJsonNull()) && !jsonObj.get("chef-orgs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `chef-orgs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-orgs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chef-orgs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-orgs").toString()));
       }
       if ((jsonObj.get("chef-server-key") != null && !jsonObj.get("chef-server-key").isJsonNull()) && !jsonObj.get("chef-server-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `chef-server-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-server-key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chef-server-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-server-key").toString()));
       }
       if ((jsonObj.get("chef-server-url") != null && !jsonObj.get("chef-server-url").isJsonNull()) && !jsonObj.get("chef-server-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `chef-server-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-server-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chef-server-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-server-url").toString()));
       }
       if ((jsonObj.get("chef-server-username") != null && !jsonObj.get("chef-server-username").isJsonNull()) && !jsonObj.get("chef-server-username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `chef-server-username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-server-username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `chef-server-username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("chef-server-username").toString()));
       }
       if ((jsonObj.get("custom-username-template") != null && !jsonObj.get("custom-username-template").isJsonNull()) && !jsonObj.get("custom-username-template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `custom-username-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom-username-template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `custom-username-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom-username-template").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       if ((jsonObj.get("target-name") != null && !jsonObj.get("target-name").isJsonNull()) && !jsonObj.get("target-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("use-capital-letters") != null && !jsonObj.get("use-capital-letters").isJsonNull()) && !jsonObj.get("use-capital-letters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-capital-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-capital-letters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-capital-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-capital-letters").toString()));
       }
       if ((jsonObj.get("use-lower-letters") != null && !jsonObj.get("use-lower-letters").isJsonNull()) && !jsonObj.get("use-lower-letters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-lower-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-lower-letters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-lower-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-lower-letters").toString()));
       }
       if ((jsonObj.get("use-numbers") != null && !jsonObj.get("use-numbers").isJsonNull()) && !jsonObj.get("use-numbers").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-numbers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-numbers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-numbers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-numbers").toString()));
       }
       if ((jsonObj.get("use-special-characters") != null && !jsonObj.get("use-special-characters").isJsonNull()) && !jsonObj.get("use-special-characters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-special-characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-special-characters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-special-characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-special-characters").toString()));
       }
       if ((jsonObj.get("user-ttl") != null && !jsonObj.get("user-ttl").isJsonNull()) && !jsonObj.get("user-ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user-ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user-ttl").toString()));
       }
   }
 

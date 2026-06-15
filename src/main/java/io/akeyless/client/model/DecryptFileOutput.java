@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * DecryptFileOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DecryptFileOutput {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -135,10 +135,7 @@ public class DecryptFileOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class DecryptFileOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("path");
-    openapiFields.add("plain_text");
+    openapiFields = new HashSet<String>(Arrays.asList("path", "plain_text"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class DecryptFileOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DecryptFileOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DecryptFileOutput is not found in the empty JSON string", DecryptFileOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DecryptFileOutput is not found in the empty JSON string", DecryptFileOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class DecryptFileOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DecryptFileOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DecryptFileOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DecryptFileOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
       if ((jsonObj.get("plain_text") != null && !jsonObj.get("plain_text").isJsonNull()) && !jsonObj.get("plain_text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `plain_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plain_text").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `plain_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("plain_text").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * KmipServerUpdateOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KmipServerUpdateOutput {
   public static final String SERIALIZED_NAME_UPDATED = "updated";
   @SerializedName(SERIALIZED_NAME_UPDATED)
@@ -109,10 +109,7 @@ public class KmipServerUpdateOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -121,11 +118,10 @@ public class KmipServerUpdateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("updated");
+    openapiFields = new HashSet<String>(Arrays.asList("updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -137,7 +133,7 @@ public class KmipServerUpdateOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KmipServerUpdateOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KmipServerUpdateOutput is not found in the empty JSON string", KmipServerUpdateOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KmipServerUpdateOutput is not found in the empty JSON string", KmipServerUpdateOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -145,7 +141,7 @@ public class KmipServerUpdateOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KmipServerUpdateOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KmipServerUpdateOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KmipServerUpdateOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * AdminsConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AdminsConfigPart {
   public static final String SERIALIZED_NAME_ADMINS_MIGRATION_STATUS = "admins_migration_status";
   @SerializedName(SERIALIZED_NAME_ADMINS_MIGRATION_STATUS)
@@ -146,10 +146,7 @@ public class AdminsConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -158,12 +155,10 @@ public class AdminsConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("admins_migration_status");
-    openapiFields.add("allowed_access");
+    openapiFields = new HashSet<String>(Arrays.asList("admins_migration_status", "allowed_access"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -175,7 +170,7 @@ public class AdminsConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AdminsConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AdminsConfigPart is not found in the empty JSON string", AdminsConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AdminsConfigPart is not found in the empty JSON string", AdminsConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -183,7 +178,7 @@ public class AdminsConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AdminsConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AdminsConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AdminsConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

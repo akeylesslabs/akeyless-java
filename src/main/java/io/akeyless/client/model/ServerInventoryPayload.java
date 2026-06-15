@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * ServerInventoryPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ServerInventoryPayload {
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto_rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
@@ -337,10 +337,7 @@ public class ServerInventoryPayload {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -349,19 +346,10 @@ public class ServerInventoryPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auto_rotate");
-    openapiFields.add("auto_rotate_interval_in_days");
-    openapiFields.add("auto_rotate_rotation_hour");
-    openapiFields.add("enable_rdp_sra");
-    openapiFields.add("migration_target_id");
-    openapiFields.add("server_targets_path_template");
-    openapiFields.add("user_groups");
-    openapiFields.add("users_ignore_list");
-    openapiFields.add("users_rotated_secrets_path_template");
+    openapiFields = new HashSet<String>(Arrays.asList("auto_rotate", "auto_rotate_interval_in_days", "auto_rotate_rotation_hour", "enable_rdp_sra", "migration_target_id", "server_targets_path_template", "user_groups", "users_ignore_list", "users_rotated_secrets_path_template"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -373,7 +361,7 @@ public class ServerInventoryPayload {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ServerInventoryPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ServerInventoryPayload is not found in the empty JSON string", ServerInventoryPayload.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ServerInventoryPayload is not found in the empty JSON string", ServerInventoryPayload.openapiRequiredFields.toString()));
         }
       }
 
@@ -381,19 +369,19 @@ public class ServerInventoryPayload {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ServerInventoryPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ServerInventoryPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ServerInventoryPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("server_targets_path_template") != null && !jsonObj.get("server_targets_path_template").isJsonNull()) && !jsonObj.get("server_targets_path_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `server_targets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_targets_path_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server_targets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server_targets_path_template").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_groups") != null && !jsonObj.get("user_groups").isJsonNull() && !jsonObj.get("user_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_groups` to be an array in the JSON string but got `%s`", jsonObj.get("user_groups").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_groups` to be an array in the JSON string but got `%s`", jsonObj.get("user_groups").toString()));
       }
       if ((jsonObj.get("users_rotated_secrets_path_template") != null && !jsonObj.get("users_rotated_secrets_path_template").isJsonNull()) && !jsonObj.get("users_rotated_secrets_path_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `users_rotated_secrets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("users_rotated_secrets_path_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users_rotated_secrets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("users_rotated_secrets_path_template").toString()));
       }
   }
 

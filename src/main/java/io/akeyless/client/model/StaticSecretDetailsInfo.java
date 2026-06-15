@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * StaticSecretDetailsInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class StaticSecretDetailsInfo {
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
@@ -276,10 +276,7 @@ public class StaticSecretDetailsInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -288,17 +285,10 @@ public class StaticSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("format");
-    openapiFields.add("max_versions");
-    openapiFields.add("notify_on_change_event");
-    openapiFields.add("password_security_info");
-    openapiFields.add("username");
-    openapiFields.add("website");
-    openapiFields.add("websites");
+    openapiFields = new HashSet<String>(Arrays.asList("format", "max_versions", "notify_on_change_event", "password_security_info", "username", "website", "websites"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -310,7 +300,7 @@ public class StaticSecretDetailsInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StaticSecretDetailsInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StaticSecretDetailsInfo is not found in the empty JSON string", StaticSecretDetailsInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StaticSecretDetailsInfo is not found in the empty JSON string", StaticSecretDetailsInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -318,26 +308,26 @@ public class StaticSecretDetailsInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StaticSecretDetailsInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StaticSecretDetailsInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StaticSecretDetailsInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
       }
       // validate the optional field `password_security_info`
       if (jsonObj.get("password_security_info") != null && !jsonObj.get("password_security_info").isJsonNull()) {
         PasswordSecurityInfo.validateJsonElement(jsonObj.get("password_security_info"));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       if ((jsonObj.get("website") != null && !jsonObj.get("website").isJsonNull()) && !jsonObj.get("website").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `website` to be a primitive type in the JSON string but got `%s`", jsonObj.get("website").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `website` to be a primitive type in the JSON string but got `%s`", jsonObj.get("website").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("websites") != null && !jsonObj.get("websites").isJsonNull() && !jsonObj.get("websites").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `websites` to be an array in the JSON string but got `%s`", jsonObj.get("websites").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `websites` to be an array in the JSON string but got `%s`", jsonObj.get("websites").toString()));
       }
   }
 

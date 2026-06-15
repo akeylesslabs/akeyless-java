@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * LdapTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class LdapTargetDetails {
   public static final String SERIALIZED_NAME_IMPLEMENTATION_TYPE = "implementation_type";
   @SerializedName(SERIALIZED_NAME_IMPLEMENTATION_TYPE)
@@ -265,10 +265,7 @@ public class LdapTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -277,17 +274,10 @@ public class LdapTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("implementation_type");
-    openapiFields.add("ldap_audience");
-    openapiFields.add("ldap_bind_dn");
-    openapiFields.add("ldap_bind_password");
-    openapiFields.add("ldap_certificate");
-    openapiFields.add("ldap_token_expiration");
-    openapiFields.add("ldap_url");
+    openapiFields = new HashSet<String>(Arrays.asList("implementation_type", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_token_expiration", "ldap_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -299,7 +289,7 @@ public class LdapTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LdapTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LdapTargetDetails is not found in the empty JSON string", LdapTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LdapTargetDetails is not found in the empty JSON string", LdapTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,30 +297,30 @@ public class LdapTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LdapTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LdapTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LdapTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("implementation_type") != null && !jsonObj.get("implementation_type").isJsonNull()) && !jsonObj.get("implementation_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `implementation_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("implementation_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `implementation_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("implementation_type").toString()));
       }
       if ((jsonObj.get("ldap_audience") != null && !jsonObj.get("ldap_audience").isJsonNull()) && !jsonObj.get("ldap_audience").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_audience").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_audience").toString()));
       }
       if ((jsonObj.get("ldap_bind_dn") != null && !jsonObj.get("ldap_bind_dn").isJsonNull()) && !jsonObj.get("ldap_bind_dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_bind_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_bind_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_dn").toString()));
       }
       if ((jsonObj.get("ldap_bind_password") != null && !jsonObj.get("ldap_bind_password").isJsonNull()) && !jsonObj.get("ldap_bind_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_bind_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_bind_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_password").toString()));
       }
       if ((jsonObj.get("ldap_certificate") != null && !jsonObj.get("ldap_certificate").isJsonNull()) && !jsonObj.get("ldap_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_certificate").toString()));
       }
       if ((jsonObj.get("ldap_token_expiration") != null && !jsonObj.get("ldap_token_expiration").isJsonNull()) && !jsonObj.get("ldap_token_expiration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_token_expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_token_expiration").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_token_expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_token_expiration").toString()));
       }
       if ((jsonObj.get("ldap_url") != null && !jsonObj.get("ldap_url").isJsonNull()) && !jsonObj.get("ldap_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_url").toString()));
       }
   }
 

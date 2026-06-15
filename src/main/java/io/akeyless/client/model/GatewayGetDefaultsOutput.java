@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GatewayGetDefaultsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayGetDefaultsOutput {
   public static final String SERIALIZED_NAME_CERTIFICATE_ACCESS_ID = "certificate_access_id";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_ACCESS_ID)
@@ -239,10 +239,7 @@ public class GatewayGetDefaultsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class GatewayGetDefaultsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate_access_id");
-    openapiFields.add("default_protection_key_id");
-    openapiFields.add("hvp_route_version");
-    openapiFields.add("notify_on_status_change");
-    openapiFields.add("oidc_access_id");
-    openapiFields.add("saml_access_id");
+    openapiFields = new HashSet<String>(Arrays.asList("certificate_access_id", "default_protection_key_id", "hvp_route_version", "notify_on_status_change", "oidc_access_id", "saml_access_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class GatewayGetDefaultsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayGetDefaultsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayGetDefaultsOutput is not found in the empty JSON string", GatewayGetDefaultsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayGetDefaultsOutput is not found in the empty JSON string", GatewayGetDefaultsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,21 +271,21 @@ public class GatewayGetDefaultsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayGetDefaultsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayGetDefaultsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayGetDefaultsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificate_access_id") != null && !jsonObj.get("certificate_access_id").isJsonNull()) && !jsonObj.get("certificate_access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_access_id").toString()));
       }
       if ((jsonObj.get("default_protection_key_id") != null && !jsonObj.get("default_protection_key_id").isJsonNull()) && !jsonObj.get("default_protection_key_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default_protection_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_protection_key_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `default_protection_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_protection_key_id").toString()));
       }
       if ((jsonObj.get("oidc_access_id") != null && !jsonObj.get("oidc_access_id").isJsonNull()) && !jsonObj.get("oidc_access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oidc_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oidc_access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oidc_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oidc_access_id").toString()));
       }
       if ((jsonObj.get("saml_access_id") != null && !jsonObj.get("saml_access_id").isJsonNull()) && !jsonObj.get("saml_access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saml_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saml_access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `saml_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saml_access_id").toString()));
       }
   }
 

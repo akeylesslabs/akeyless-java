@@ -61,7 +61,7 @@ import io.akeyless.client.JSON;
 /**
  * MigrationsConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class MigrationsConfigPart {
   public static final String SERIALIZED_NAME_ACTIVE_DIRECTORY_MIGRATIONS = "active_directory_migrations";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DIRECTORY_MIGRATIONS)
@@ -470,10 +470,7 @@ public class MigrationsConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -482,21 +479,10 @@ public class MigrationsConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("active_directory_migrations");
-    openapiFields.add("aws_secrets_migrations");
-    openapiFields.add("azure_kv_migrations");
-    openapiFields.add("certificate_migrations");
-    openapiFields.add("conjur_migrations");
-    openapiFields.add("gcp_secrets_migrations");
-    openapiFields.add("hashi_migrations");
-    openapiFields.add("k8s_migrations");
-    openapiFields.add("mock_migrations");
-    openapiFields.add("one_password_migrations");
-    openapiFields.add("server_inventory_migrations");
+    openapiFields = new HashSet<String>(Arrays.asList("active_directory_migrations", "aws_secrets_migrations", "azure_kv_migrations", "certificate_migrations", "conjur_migrations", "gcp_secrets_migrations", "hashi_migrations", "k8s_migrations", "mock_migrations", "one_password_migrations", "server_inventory_migrations"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -508,7 +494,7 @@ public class MigrationsConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MigrationsConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MigrationsConfigPart is not found in the empty JSON string", MigrationsConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MigrationsConfigPart is not found in the empty JSON string", MigrationsConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -516,7 +502,7 @@ public class MigrationsConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MigrationsConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MigrationsConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MigrationsConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -525,7 +511,7 @@ public class MigrationsConfigPart {
         if (jsonArrayactiveDirectoryMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("active_directory_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `active_directory_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("active_directory_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `active_directory_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("active_directory_migrations").toString()));
           }
 
           // validate the optional field `active_directory_migrations` (array)
@@ -539,7 +525,7 @@ public class MigrationsConfigPart {
         if (jsonArrayawsSecretsMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("aws_secrets_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `aws_secrets_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("aws_secrets_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_secrets_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("aws_secrets_migrations").toString()));
           }
 
           // validate the optional field `aws_secrets_migrations` (array)
@@ -553,7 +539,7 @@ public class MigrationsConfigPart {
         if (jsonArrayazureKvMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("azure_kv_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `azure_kv_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("azure_kv_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_kv_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("azure_kv_migrations").toString()));
           }
 
           // validate the optional field `azure_kv_migrations` (array)
@@ -567,7 +553,7 @@ public class MigrationsConfigPart {
         if (jsonArraycertificateMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("certificate_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `certificate_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("certificate_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("certificate_migrations").toString()));
           }
 
           // validate the optional field `certificate_migrations` (array)
@@ -581,7 +567,7 @@ public class MigrationsConfigPart {
         if (jsonArrayconjurMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("conjur_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `conjur_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("conjur_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conjur_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("conjur_migrations").toString()));
           }
 
           // validate the optional field `conjur_migrations` (array)
@@ -595,7 +581,7 @@ public class MigrationsConfigPart {
         if (jsonArraygcpSecretsMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("gcp_secrets_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `gcp_secrets_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("gcp_secrets_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp_secrets_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("gcp_secrets_migrations").toString()));
           }
 
           // validate the optional field `gcp_secrets_migrations` (array)
@@ -609,7 +595,7 @@ public class MigrationsConfigPart {
         if (jsonArrayhashiMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("hashi_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `hashi_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("hashi_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hashi_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("hashi_migrations").toString()));
           }
 
           // validate the optional field `hashi_migrations` (array)
@@ -623,7 +609,7 @@ public class MigrationsConfigPart {
         if (jsonArrayk8sMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("k8s_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `k8s_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("k8s_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("k8s_migrations").toString()));
           }
 
           // validate the optional field `k8s_migrations` (array)
@@ -637,7 +623,7 @@ public class MigrationsConfigPart {
         if (jsonArraymockMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("mock_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `mock_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("mock_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mock_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("mock_migrations").toString()));
           }
 
           // validate the optional field `mock_migrations` (array)
@@ -651,7 +637,7 @@ public class MigrationsConfigPart {
         if (jsonArrayonePasswordMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("one_password_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `one_password_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("one_password_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `one_password_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("one_password_migrations").toString()));
           }
 
           // validate the optional field `one_password_migrations` (array)
@@ -665,7 +651,7 @@ public class MigrationsConfigPart {
         if (jsonArrayserverInventoryMigrations != null) {
           // ensure the json data is an array
           if (!jsonObj.get("server_inventory_migrations").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `server_inventory_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("server_inventory_migrations").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server_inventory_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("server_inventory_migrations").toString()));
           }
 
           // validate the optional field `server_inventory_migrations` (array)

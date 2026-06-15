@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GitlabTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GitlabTargetDetails {
   public static final String SERIALIZED_NAME_GITLAB_ACCESS_TOKEN = "gitlab_access_token";
   @SerializedName(SERIALIZED_NAME_GITLAB_ACCESS_TOKEN)
@@ -161,10 +161,7 @@ public class GitlabTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class GitlabTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("gitlab_access_token");
-    openapiFields.add("gitlab_certificate");
-    openapiFields.add("gitlab_url");
+    openapiFields = new HashSet<String>(Arrays.asList("gitlab_access_token", "gitlab_certificate", "gitlab_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class GitlabTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GitlabTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GitlabTargetDetails is not found in the empty JSON string", GitlabTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GitlabTargetDetails is not found in the empty JSON string", GitlabTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class GitlabTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GitlabTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GitlabTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GitlabTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gitlab_access_token") != null && !jsonObj.get("gitlab_access_token").isJsonNull()) && !jsonObj.get("gitlab_access_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab_access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab_access_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab_access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab_access_token").toString()));
       }
       if ((jsonObj.get("gitlab_certificate") != null && !jsonObj.get("gitlab_certificate").isJsonNull()) && !jsonObj.get("gitlab_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab_certificate").toString()));
       }
       if ((jsonObj.get("gitlab_url") != null && !jsonObj.get("gitlab_url").isJsonNull()) && !jsonObj.get("gitlab_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab_url").toString()));
       }
   }
 

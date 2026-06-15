@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * dynamicSecretCreateGitlab is a command that creates gitlab dynamic secret
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretCreateGitlab {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -639,10 +639,7 @@ public class DynamicSecretCreateGitlab {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -651,33 +648,10 @@ public class DynamicSecretCreateGitlab {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_protection");
-    openapiFields.add("description");
-    openapiFields.add("gitlab-access-token");
-    openapiFields.add("gitlab-access-type");
-    openapiFields.add("gitlab-certificate");
-    openapiFields.add("gitlab-role");
-    openapiFields.add("gitlab-token-scopes");
-    openapiFields.add("gitlab-url");
-    openapiFields.add("group-name");
-    openapiFields.add("input-rule");
-    openapiFields.add("installation-organization");
-    openapiFields.add("item-custom-fields");
-    openapiFields.add("json");
-    openapiFields.add("name");
-    openapiFields.add("output-rule");
-    openapiFields.add("tags");
-    openapiFields.add("target-name");
-    openapiFields.add("token");
-    openapiFields.add("ttl");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "gitlab-access-token", "gitlab-access-type", "gitlab-certificate", "gitlab-role", "gitlab-token-scopes", "gitlab-url", "group-name", "input-rule", "installation-organization", "item-custom-fields", "json", "name", "output-rule", "tags", "target-name", "token", "ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("gitlab-access-type");
-    openapiRequiredFields.add("gitlab-token-scopes");
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("gitlab-access-type", "gitlab-token-scopes", "name"));
   }
 
   /**
@@ -689,7 +663,7 @@ public class DynamicSecretCreateGitlab {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DynamicSecretCreateGitlab.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DynamicSecretCreateGitlab is not found in the empty JSON string", DynamicSecretCreateGitlab.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DynamicSecretCreateGitlab is not found in the empty JSON string", DynamicSecretCreateGitlab.openapiRequiredFields.toString()));
         }
       }
 
@@ -697,73 +671,73 @@ public class DynamicSecretCreateGitlab {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DynamicSecretCreateGitlab.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DynamicSecretCreateGitlab` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DynamicSecretCreateGitlab` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : DynamicSecretCreateGitlab.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("gitlab-access-token") != null && !jsonObj.get("gitlab-access-token").isJsonNull()) && !jsonObj.get("gitlab-access-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab-access-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-access-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab-access-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-access-token").toString()));
       }
       if (!jsonObj.get("gitlab-access-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab-access-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-access-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab-access-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-access-type").toString()));
       }
       if ((jsonObj.get("gitlab-certificate") != null && !jsonObj.get("gitlab-certificate").isJsonNull()) && !jsonObj.get("gitlab-certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-certificate").toString()));
       }
       if ((jsonObj.get("gitlab-role") != null && !jsonObj.get("gitlab-role").isJsonNull()) && !jsonObj.get("gitlab-role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab-role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-role").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab-role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-role").toString()));
       }
       if (!jsonObj.get("gitlab-token-scopes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab-token-scopes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-token-scopes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab-token-scopes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-token-scopes").toString()));
       }
       if ((jsonObj.get("gitlab-url") != null && !jsonObj.get("gitlab-url").isJsonNull()) && !jsonObj.get("gitlab-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gitlab-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gitlab-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gitlab-url").toString()));
       }
       if ((jsonObj.get("group-name") != null && !jsonObj.get("group-name").isJsonNull()) && !jsonObj.get("group-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `group-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group-name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
       }
       if ((jsonObj.get("installation-organization") != null && !jsonObj.get("installation-organization").isJsonNull()) && !jsonObj.get("installation-organization").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `installation-organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installation-organization").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `installation-organization` to be a primitive type in the JSON string but got `%s`", jsonObj.get("installation-organization").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       if ((jsonObj.get("target-name") != null && !jsonObj.get("target-name").isJsonNull()) && !jsonObj.get("target-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("ttl") != null && !jsonObj.get("ttl").isJsonNull()) && !jsonObj.get("ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

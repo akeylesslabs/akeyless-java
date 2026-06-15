@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * VaultlessTokenizerInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class VaultlessTokenizerInfo {
   public static final String SERIALIZED_NAME_EMAIL_TOKENIZER_INFO = "email_tokenizer_info";
   @SerializedName(SERIALIZED_NAME_EMAIL_TOKENIZER_INFO)
@@ -241,10 +241,7 @@ public class VaultlessTokenizerInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -253,16 +250,10 @@ public class VaultlessTokenizerInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("email_tokenizer_info");
-    openapiFields.add("key_name");
-    openapiFields.add("regexp_tokenizer_info");
-    openapiFields.add("template_type");
-    openapiFields.add("tweak");
-    openapiFields.add("tweak_type");
+    openapiFields = new HashSet<String>(Arrays.asList("email_tokenizer_info", "key_name", "regexp_tokenizer_info", "template_type", "tweak", "tweak_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -274,7 +265,7 @@ public class VaultlessTokenizerInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!VaultlessTokenizerInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VaultlessTokenizerInfo is not found in the empty JSON string", VaultlessTokenizerInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VaultlessTokenizerInfo is not found in the empty JSON string", VaultlessTokenizerInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -282,7 +273,7 @@ public class VaultlessTokenizerInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!VaultlessTokenizerInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VaultlessTokenizerInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VaultlessTokenizerInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -291,20 +282,20 @@ public class VaultlessTokenizerInfo {
         EmailTokenizerInfo.validateJsonElement(jsonObj.get("email_tokenizer_info"));
       }
       if ((jsonObj.get("key_name") != null && !jsonObj.get("key_name").isJsonNull()) && !jsonObj.get("key_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_name").toString()));
       }
       // validate the optional field `regexp_tokenizer_info`
       if (jsonObj.get("regexp_tokenizer_info") != null && !jsonObj.get("regexp_tokenizer_info").isJsonNull()) {
         RegexpTokenizerInfo.validateJsonElement(jsonObj.get("regexp_tokenizer_info"));
       }
       if ((jsonObj.get("template_type") != null && !jsonObj.get("template_type").isJsonNull()) && !jsonObj.get("template_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `template_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `template_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("template_type").toString()));
       }
       if ((jsonObj.get("tweak") != null && !jsonObj.get("tweak").isJsonNull()) && !jsonObj.get("tweak").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tweak` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tweak").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tweak` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tweak").toString()));
       }
       if ((jsonObj.get("tweak_type") != null && !jsonObj.get("tweak_type").isJsonNull()) && !jsonObj.get("tweak_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tweak_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tweak_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tweak_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tweak_type").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * SshBastionSessionTermination
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SshBastionSessionTermination {
   public static final String SERIALIZED_NAME_API_PASSWORD = "api_password";
   @SerializedName(SERIALIZED_NAME_API_PASSWORD)
@@ -213,10 +213,7 @@ public class SshBastionSessionTermination {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class SshBastionSessionTermination {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("api_password");
-    openapiFields.add("api_token");
-    openapiFields.add("api_url");
-    openapiFields.add("api_username");
-    openapiFields.add("enabled");
+    openapiFields = new HashSet<String>(Arrays.asList("api_password", "api_token", "api_url", "api_username", "enabled"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class SshBastionSessionTermination {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SshBastionSessionTermination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SshBastionSessionTermination is not found in the empty JSON string", SshBastionSessionTermination.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SshBastionSessionTermination is not found in the empty JSON string", SshBastionSessionTermination.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,21 +245,21 @@ public class SshBastionSessionTermination {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SshBastionSessionTermination.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SshBastionSessionTermination` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SshBastionSessionTermination` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("api_password") != null && !jsonObj.get("api_password").isJsonNull()) && !jsonObj.get("api_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_password").toString()));
       }
       if ((jsonObj.get("api_token") != null && !jsonObj.get("api_token").isJsonNull()) && !jsonObj.get("api_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_token").toString()));
       }
       if ((jsonObj.get("api_url") != null && !jsonObj.get("api_url").isJsonNull()) && !jsonObj.get("api_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_url").toString()));
       }
       if ((jsonObj.get("api_username") != null && !jsonObj.get("api_username").isJsonNull()) && !jsonObj.get("api_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_username").toString()));
       }
   }
 

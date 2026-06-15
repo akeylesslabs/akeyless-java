@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * AwsS3LogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AwsS3LogForwardingConfig {
   public static final String SERIALIZED_NAME_AWS_ACCESS_ID = "aws_access_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_ID)
@@ -291,10 +291,7 @@ public class AwsS3LogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -303,18 +300,10 @@ public class AwsS3LogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("aws_access_id");
-    openapiFields.add("aws_access_key");
-    openapiFields.add("aws_auth_type");
-    openapiFields.add("aws_region");
-    openapiFields.add("aws_role_arn");
-    openapiFields.add("aws_use_gateway_cloud_identity");
-    openapiFields.add("bucket_name");
-    openapiFields.add("log_folder");
+    openapiFields = new HashSet<String>(Arrays.asList("aws_access_id", "aws_access_key", "aws_auth_type", "aws_region", "aws_role_arn", "aws_use_gateway_cloud_identity", "bucket_name", "log_folder"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -326,7 +315,7 @@ public class AwsS3LogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AwsS3LogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AwsS3LogForwardingConfig is not found in the empty JSON string", AwsS3LogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AwsS3LogForwardingConfig is not found in the empty JSON string", AwsS3LogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -334,30 +323,30 @@ public class AwsS3LogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AwsS3LogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AwsS3LogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AwsS3LogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("aws_access_id") != null && !jsonObj.get("aws_access_id").isJsonNull()) && !jsonObj.get("aws_access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_access_id").toString()));
       }
       if ((jsonObj.get("aws_access_key") != null && !jsonObj.get("aws_access_key").isJsonNull()) && !jsonObj.get("aws_access_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws_access_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_access_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_access_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_access_key").toString()));
       }
       if ((jsonObj.get("aws_auth_type") != null && !jsonObj.get("aws_auth_type").isJsonNull()) && !jsonObj.get("aws_auth_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws_auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_auth_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_auth_type").toString()));
       }
       if ((jsonObj.get("aws_region") != null && !jsonObj.get("aws_region").isJsonNull()) && !jsonObj.get("aws_region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws_region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_region").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_region").toString()));
       }
       if ((jsonObj.get("aws_role_arn") != null && !jsonObj.get("aws_role_arn").isJsonNull()) && !jsonObj.get("aws_role_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws_role_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_role_arn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_role_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_role_arn").toString()));
       }
       if ((jsonObj.get("bucket_name") != null && !jsonObj.get("bucket_name").isJsonNull()) && !jsonObj.get("bucket_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bucket_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bucket_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bucket_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bucket_name").toString()));
       }
       if ((jsonObj.get("log_folder") != null && !jsonObj.get("log_folder").isJsonNull()) && !jsonObj.get("log_folder").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `log_folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("log_folder").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `log_folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("log_folder").toString()));
       }
   }
 

@@ -31,6 +31,7 @@ import io.akeyless.client.model.ItemLockingSetting;
 import io.akeyless.client.model.PasswordExpirationInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
 import io.akeyless.client.model.PasswordScoreSetting;
+import io.akeyless.client.model.PersonalFolderGlobalMappingSettings;
 import io.akeyless.client.model.RotationSecretMaxInterval;
 import io.akeyless.client.model.SharingPolicyInfo;
 import io.akeyless.client.model.UsageEventSetting;
@@ -63,7 +64,7 @@ import io.akeyless.client.JSON;
 /**
  * AccountGeneralSettings describes general settings for an account
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AccountGeneralSettings {
   public static final String SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_ITEM_ID = "account_default_key_item_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_ITEM_ID)
@@ -194,6 +195,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_PASSWORD_SCORE)
   @javax.annotation.Nullable
   private PasswordScoreSetting passwordScore;
+
+  public static final String SERIALIZED_NAME_PERSONAL_FOLDER_GLOBAL_MAPPING = "personal_folder_global_mapping";
+  @SerializedName(SERIALIZED_NAME_PERSONAL_FOLDER_GLOBAL_MAPPING)
+  @javax.annotation.Nullable
+  private PersonalFolderGlobalMappingSettings personalFolderGlobalMapping;
 
   public static final String SERIALIZED_NAME_PROTECT_ITEMS_BY_DEFAULT = "protect_items_by_default";
   @SerializedName(SERIALIZED_NAME_PROTECT_ITEMS_BY_DEFAULT)
@@ -707,6 +713,25 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings personalFolderGlobalMapping(@javax.annotation.Nullable PersonalFolderGlobalMappingSettings personalFolderGlobalMapping) {
+    this.personalFolderGlobalMapping = personalFolderGlobalMapping;
+    return this;
+  }
+
+  /**
+   * Get personalFolderGlobalMapping
+   * @return personalFolderGlobalMapping
+   */
+  @javax.annotation.Nullable
+  public PersonalFolderGlobalMappingSettings getPersonalFolderGlobalMapping() {
+    return personalFolderGlobalMapping;
+  }
+
+  public void setPersonalFolderGlobalMapping(@javax.annotation.Nullable PersonalFolderGlobalMappingSettings personalFolderGlobalMapping) {
+    this.personalFolderGlobalMapping = personalFolderGlobalMapping;
+  }
+
+
   public AccountGeneralSettings protectItemsByDefault(@javax.annotation.Nullable Boolean protectItemsByDefault) {
     this.protectItemsByDefault = protectItemsByDefault;
     return this;
@@ -800,6 +825,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.passwordExpirationInfo, accountGeneralSettings.passwordExpirationInfo) &&
         Objects.equals(this.passwordPolicy, accountGeneralSettings.passwordPolicy) &&
         Objects.equals(this.passwordScore, accountGeneralSettings.passwordScore) &&
+        Objects.equals(this.personalFolderGlobalMapping, accountGeneralSettings.personalFolderGlobalMapping) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
         Objects.equals(this.rotationSecretMaxInterval, accountGeneralSettings.rotationSecretMaxInterval) &&
         Objects.equals(this.sharingPolicy, accountGeneralSettings.sharingPolicy);
@@ -807,7 +833,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -840,6 +866,7 @@ public class AccountGeneralSettings {
     sb.append("    passwordExpirationInfo: ").append(toIndentedString(passwordExpirationInfo)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
     sb.append("    passwordScore: ").append(toIndentedString(passwordScore)).append("\n");
+    sb.append("    personalFolderGlobalMapping: ").append(toIndentedString(personalFolderGlobalMapping)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
     sb.append("    rotationSecretMaxInterval: ").append(toIndentedString(rotationSecretMaxInterval)).append("\n");
     sb.append("    sharingPolicy: ").append(toIndentedString(sharingPolicy)).append("\n");
@@ -852,10 +879,7 @@ public class AccountGeneralSettings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -864,39 +888,10 @@ public class AccountGeneralSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account_default_key_item_id");
-    openapiFields.add("account_default_key_name");
-    openapiFields.add("ai_insights");
-    openapiFields.add("allow_auto_fill");
-    openapiFields.add("allow_passkeys");
-    openapiFields.add("allowed_client_types");
-    openapiFields.add("allowed_clients_ips");
-    openapiFields.add("allowed_gateways_ips");
-    openapiFields.add("auth_usage_event");
-    openapiFields.add("certificate_expiration_events");
-    openapiFields.add("data_protection_section");
-    openapiFields.add("default_auth_method");
-    openapiFields.add("default_home_page");
-    openapiFields.add("dynamic_secret_max_ttl");
-    openapiFields.add("enable_request_for_access");
-    openapiFields.add("enable_search_history");
-    openapiFields.add("hide_personal_folder");
-    openapiFields.add("hide_secret_reveal_copy");
-    openapiFields.add("hide_static_password");
-    openapiFields.add("invalid_characters");
-    openapiFields.add("item_locking");
-    openapiFields.add("item_usage_event");
-    openapiFields.add("lock_default_key");
-    openapiFields.add("password_expiration_info");
-    openapiFields.add("password_policy");
-    openapiFields.add("password_score");
-    openapiFields.add("protect_items_by_default");
-    openapiFields.add("rotation_secret_max_interval");
-    openapiFields.add("sharing_policy");
+    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "ai_insights", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "enable_request_for_access", "enable_search_history", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -908,7 +903,7 @@ public class AccountGeneralSettings {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AccountGeneralSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountGeneralSettings is not found in the empty JSON string", AccountGeneralSettings.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AccountGeneralSettings is not found in the empty JSON string", AccountGeneralSettings.openapiRequiredFields.toString()));
         }
       }
 
@@ -916,12 +911,12 @@ public class AccountGeneralSettings {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AccountGeneralSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountGeneralSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AccountGeneralSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("account_default_key_name") != null && !jsonObj.get("account_default_key_name").isJsonNull()) && !jsonObj.get("account_default_key_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_default_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_default_key_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_default_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_default_key_name").toString()));
       }
       // validate the optional field `ai_insights`
       if (jsonObj.get("ai_insights") != null && !jsonObj.get("ai_insights").isJsonNull()) {
@@ -964,7 +959,7 @@ public class AccountGeneralSettings {
         DynamicSecretMaxTtl.validateJsonElement(jsonObj.get("dynamic_secret_max_ttl"));
       }
       if ((jsonObj.get("invalid_characters") != null && !jsonObj.get("invalid_characters").isJsonNull()) && !jsonObj.get("invalid_characters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `invalid_characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalid_characters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `invalid_characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalid_characters").toString()));
       }
       // validate the optional field `item_locking`
       if (jsonObj.get("item_locking") != null && !jsonObj.get("item_locking").isJsonNull()) {
@@ -985,6 +980,10 @@ public class AccountGeneralSettings {
       // validate the optional field `password_score`
       if (jsonObj.get("password_score") != null && !jsonObj.get("password_score").isJsonNull()) {
         PasswordScoreSetting.validateJsonElement(jsonObj.get("password_score"));
+      }
+      // validate the optional field `personal_folder_global_mapping`
+      if (jsonObj.get("personal_folder_global_mapping") != null && !jsonObj.get("personal_folder_global_mapping").isJsonNull()) {
+        PersonalFolderGlobalMappingSettings.validateJsonElement(jsonObj.get("personal_folder_global_mapping"));
       }
       // validate the optional field `rotation_secret_max_interval`
       if (jsonObj.get("rotation_secret_max_interval") != null && !jsonObj.get("rotation_secret_max_interval").isJsonNull()) {

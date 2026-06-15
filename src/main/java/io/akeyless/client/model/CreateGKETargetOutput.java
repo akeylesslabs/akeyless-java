@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * CreateGKETargetOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CreateGKETargetOutput {
   public static final String SERIALIZED_NAME_TARGET_ID = "target_id";
   @SerializedName(SERIALIZED_NAME_TARGET_ID)
@@ -109,10 +109,7 @@ public class CreateGKETargetOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -121,11 +118,10 @@ public class CreateGKETargetOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("target_id");
+    openapiFields = new HashSet<String>(Arrays.asList("target_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -137,7 +133,7 @@ public class CreateGKETargetOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateGKETargetOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateGKETargetOutput is not found in the empty JSON string", CreateGKETargetOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateGKETargetOutput is not found in the empty JSON string", CreateGKETargetOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -145,7 +141,7 @@ public class CreateGKETargetOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateGKETargetOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateGKETargetOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateGKETargetOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

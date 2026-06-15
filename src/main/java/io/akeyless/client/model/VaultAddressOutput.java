@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * VaultAddressOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class VaultAddressOutput {
   public static final String SERIALIZED_NAME_API_GW_URL = "api_gw_url";
   @SerializedName(SERIALIZED_NAME_API_GW_URL)
@@ -135,10 +135,7 @@ public class VaultAddressOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class VaultAddressOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("api_gw_url");
-    openapiFields.add("vault_url");
+    openapiFields = new HashSet<String>(Arrays.asList("api_gw_url", "vault_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class VaultAddressOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!VaultAddressOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VaultAddressOutput is not found in the empty JSON string", VaultAddressOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VaultAddressOutput is not found in the empty JSON string", VaultAddressOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class VaultAddressOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!VaultAddressOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VaultAddressOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VaultAddressOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("api_gw_url") != null && !jsonObj.get("api_gw_url").isJsonNull()) && !jsonObj.get("api_gw_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_gw_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_gw_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_gw_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_gw_url").toString()));
       }
       if ((jsonObj.get("vault_url") != null && !jsonObj.get("vault_url").isJsonNull()) && !jsonObj.get("vault_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vault_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vault_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_url").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * StaticSecretDeleteSyncOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class StaticSecretDeleteSyncOutput {
   public static final String SERIALIZED_NAME_SECRET_NAME = "secret-name";
   @SerializedName(SERIALIZED_NAME_SECRET_NAME)
@@ -135,10 +135,7 @@ public class StaticSecretDeleteSyncOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class StaticSecretDeleteSyncOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("secret-name");
-    openapiFields.add("usc-name");
+    openapiFields = new HashSet<String>(Arrays.asList("secret-name", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class StaticSecretDeleteSyncOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StaticSecretDeleteSyncOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StaticSecretDeleteSyncOutput is not found in the empty JSON string", StaticSecretDeleteSyncOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StaticSecretDeleteSyncOutput is not found in the empty JSON string", StaticSecretDeleteSyncOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class StaticSecretDeleteSyncOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StaticSecretDeleteSyncOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StaticSecretDeleteSyncOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StaticSecretDeleteSyncOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("secret-name") != null && !jsonObj.get("secret-name").isJsonNull()) && !jsonObj.get("secret-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-name").toString()));
       }
       if ((jsonObj.get("usc-name") != null && !jsonObj.get("usc-name").isJsonNull()) && !jsonObj.get("usc-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `usc-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usc-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc-name").toString()));
       }
   }
 

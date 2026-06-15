@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * importPasswords is a command that import passwords
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ImportPasswords {
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
@@ -317,10 +317,7 @@ public class ImportPasswords {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -329,20 +326,10 @@ public class ImportPasswords {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("accessibility");
-    openapiFields.add("format");
-    openapiFields.add("import-path");
-    openapiFields.add("json");
-    openapiFields.add("protection_key");
-    openapiFields.add("target-folder");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("update-mode");
+    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "format", "import-path", "json", "protection_key", "target-folder", "token", "uid-token", "update-mode"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("import-path");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("import-path"));
   }
 
   /**
@@ -354,7 +341,7 @@ public class ImportPasswords {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ImportPasswords.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ImportPasswords is not found in the empty JSON string", ImportPasswords.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ImportPasswords is not found in the empty JSON string", ImportPasswords.openapiRequiredFields.toString()));
         }
       }
 
@@ -362,40 +349,40 @@ public class ImportPasswords {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ImportPasswords.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImportPasswords` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ImportPasswords` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : ImportPasswords.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("accessibility") != null && !jsonObj.get("accessibility").isJsonNull()) && !jsonObj.get("accessibility").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `accessibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessibility").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessibility").toString()));
       }
       if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
       }
       if (!jsonObj.get("import-path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `import-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import-path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `import-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("import-path").toString()));
       }
       if ((jsonObj.get("protection_key") != null && !jsonObj.get("protection_key").isJsonNull()) && !jsonObj.get("protection_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
       }
       if ((jsonObj.get("target-folder") != null && !jsonObj.get("target-folder").isJsonNull()) && !jsonObj.get("target-folder").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-folder").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-folder").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("update-mode") != null && !jsonObj.get("update-mode").isJsonNull()) && !jsonObj.get("update-mode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `update-mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("update-mode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `update-mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("update-mode").toString()));
       }
   }
 

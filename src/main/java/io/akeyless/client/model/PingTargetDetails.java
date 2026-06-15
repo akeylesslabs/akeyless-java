@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * PingTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class PingTargetDetails {
   public static final String SERIALIZED_NAME_ADMINISTRATIVE_PORT = "administrative_port";
   @SerializedName(SERIALIZED_NAME_ADMINISTRATIVE_PORT)
@@ -213,10 +213,7 @@ public class PingTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class PingTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("administrative_port");
-    openapiFields.add("authorization_port");
-    openapiFields.add("ping_url");
-    openapiFields.add("privileged_user");
-    openapiFields.add("user_password");
+    openapiFields = new HashSet<String>(Arrays.asList("administrative_port", "authorization_port", "ping_url", "privileged_user", "user_password"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class PingTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PingTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PingTargetDetails is not found in the empty JSON string", PingTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PingTargetDetails is not found in the empty JSON string", PingTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,24 +245,24 @@ public class PingTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PingTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PingTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PingTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("administrative_port") != null && !jsonObj.get("administrative_port").isJsonNull()) && !jsonObj.get("administrative_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `administrative_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("administrative_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `administrative_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("administrative_port").toString()));
       }
       if ((jsonObj.get("authorization_port") != null && !jsonObj.get("authorization_port").isJsonNull()) && !jsonObj.get("authorization_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authorization_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorization_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authorization_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorization_port").toString()));
       }
       if ((jsonObj.get("ping_url") != null && !jsonObj.get("ping_url").isJsonNull()) && !jsonObj.get("ping_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping_url").toString()));
       }
       if ((jsonObj.get("privileged_user") != null && !jsonObj.get("privileged_user").isJsonNull()) && !jsonObj.get("privileged_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `privileged_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("privileged_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `privileged_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("privileged_user").toString()));
       }
       if ((jsonObj.get("user_password") != null && !jsonObj.get("user_password").isJsonNull()) && !jsonObj.get("user_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_password").toString()));
       }
   }
 

@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * GwClusterIdentity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GwClusterIdentity {
   public static final String SERIALIZED_NAME_ACTION_ALLOWED = "action_allowed";
   @SerializedName(SERIALIZED_NAME_ACTION_ALLOWED)
@@ -552,10 +552,7 @@ public class GwClusterIdentity {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -564,27 +561,10 @@ public class GwClusterIdentity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("action_allowed");
-    openapiFields.add("allowed");
-    openapiFields.add("allowed_access_ids");
-    openapiFields.add("cluster_name");
-    openapiFields.add("cluster_url");
-    openapiFields.add("current_gw");
-    openapiFields.add("customer_fragment_ids");
-    openapiFields.add("customer_fragments");
-    openapiFields.add("default_protection_key_id");
-    openapiFields.add("default_secret_location");
-    openapiFields.add("display_name");
-    openapiFields.add("id");
-    openapiFields.add("is_kerberos_auth_enabled");
-    openapiFields.add("is_ldap_auth_enabled");
-    openapiFields.add("serverless_type");
-    openapiFields.add("status");
-    openapiFields.add("status_description");
+    openapiFields = new HashSet<String>(Arrays.asList("action_allowed", "allowed", "allowed_access_ids", "cluster_name", "cluster_url", "current_gw", "customer_fragment_ids", "customer_fragments", "default_protection_key_id", "default_secret_location", "display_name", "id", "is_kerberos_auth_enabled", "is_ldap_auth_enabled", "serverless_type", "status", "status_description"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -596,7 +576,7 @@ public class GwClusterIdentity {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GwClusterIdentity.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GwClusterIdentity is not found in the empty JSON string", GwClusterIdentity.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GwClusterIdentity is not found in the empty JSON string", GwClusterIdentity.openapiRequiredFields.toString()));
         }
       }
 
@@ -604,30 +584,30 @@ public class GwClusterIdentity {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GwClusterIdentity.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GwClusterIdentity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GwClusterIdentity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_access_ids") != null && !jsonObj.get("allowed_access_ids").isJsonNull() && !jsonObj.get("allowed_access_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_access_ids` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_access_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_access_ids` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_access_ids").toString()));
       }
       if ((jsonObj.get("cluster_name") != null && !jsonObj.get("cluster_name").isJsonNull()) && !jsonObj.get("cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
       }
       if ((jsonObj.get("cluster_url") != null && !jsonObj.get("cluster_url").isJsonNull()) && !jsonObj.get("cluster_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_url").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("customer_fragment_ids") != null && !jsonObj.get("customer_fragment_ids").isJsonNull() && !jsonObj.get("customer_fragment_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customer_fragment_ids` to be an array in the JSON string but got `%s`", jsonObj.get("customer_fragment_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer_fragment_ids` to be an array in the JSON string but got `%s`", jsonObj.get("customer_fragment_ids").toString()));
       }
       if (jsonObj.get("customer_fragments") != null && !jsonObj.get("customer_fragments").isJsonNull()) {
         JsonArray jsonArraycustomerFragments = jsonObj.getAsJsonArray("customer_fragments");
         if (jsonArraycustomerFragments != null) {
           // ensure the json data is an array
           if (!jsonObj.get("customer_fragments").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `customer_fragments` to be an array in the JSON string but got `%s`", jsonObj.get("customer_fragments").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer_fragments` to be an array in the JSON string but got `%s`", jsonObj.get("customer_fragments").toString()));
           }
 
           // validate the optional field `customer_fragments` (array)
@@ -637,19 +617,19 @@ public class GwClusterIdentity {
         }
       }
       if ((jsonObj.get("default_secret_location") != null && !jsonObj.get("default_secret_location").isJsonNull()) && !jsonObj.get("default_secret_location").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default_secret_location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_secret_location").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `default_secret_location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_secret_location").toString()));
       }
       if ((jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull()) && !jsonObj.get("display_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
       }
       if ((jsonObj.get("serverless_type") != null && !jsonObj.get("serverless_type").isJsonNull()) && !jsonObj.get("serverless_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `serverless_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serverless_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `serverless_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serverless_type").toString()));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if ((jsonObj.get("status_description") != null && !jsonObj.get("status_description").isJsonNull()) && !jsonObj.get("status_description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status_description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status_description").toString()));
       }
   }
 

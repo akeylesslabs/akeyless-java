@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayUpdateRemoteAccessDesktopApp is a command that update remote access desktop app config
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateRemoteAccessDesktopApp {
   public static final String SERIALIZED_NAME_DESKTOP_APP_SECURE_WEB_ACCESS_URL = "desktop-app-secure-web-access-url";
   @SerializedName(SERIALIZED_NAME_DESKTOP_APP_SECURE_WEB_ACCESS_URL)
@@ -239,10 +239,7 @@ public class GatewayUpdateRemoteAccessDesktopApp {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class GatewayUpdateRemoteAccessDesktopApp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("desktop-app-secure-web-access-url");
-    openapiFields.add("desktop-app-secure-web-proxy");
-    openapiFields.add("desktop-app-ssh-cert-issuer");
-    openapiFields.add("json");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("desktop-app-secure-web-access-url", "desktop-app-secure-web-proxy", "desktop-app-ssh-cert-issuer", "json", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class GatewayUpdateRemoteAccessDesktopApp {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateRemoteAccessDesktopApp.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateRemoteAccessDesktopApp is not found in the empty JSON string", GatewayUpdateRemoteAccessDesktopApp.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateRemoteAccessDesktopApp is not found in the empty JSON string", GatewayUpdateRemoteAccessDesktopApp.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,24 +271,24 @@ public class GatewayUpdateRemoteAccessDesktopApp {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateRemoteAccessDesktopApp.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateRemoteAccessDesktopApp` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateRemoteAccessDesktopApp` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("desktop-app-secure-web-access-url") != null && !jsonObj.get("desktop-app-secure-web-access-url").isJsonNull()) && !jsonObj.get("desktop-app-secure-web-access-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `desktop-app-secure-web-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("desktop-app-secure-web-access-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `desktop-app-secure-web-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("desktop-app-secure-web-access-url").toString()));
       }
       if ((jsonObj.get("desktop-app-secure-web-proxy") != null && !jsonObj.get("desktop-app-secure-web-proxy").isJsonNull()) && !jsonObj.get("desktop-app-secure-web-proxy").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `desktop-app-secure-web-proxy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("desktop-app-secure-web-proxy").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `desktop-app-secure-web-proxy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("desktop-app-secure-web-proxy").toString()));
       }
       if ((jsonObj.get("desktop-app-ssh-cert-issuer") != null && !jsonObj.get("desktop-app-ssh-cert-issuer").isJsonNull()) && !jsonObj.get("desktop-app-ssh-cert-issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `desktop-app-ssh-cert-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("desktop-app-ssh-cert-issuer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `desktop-app-ssh-cert-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("desktop-app-ssh-cert-issuer").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

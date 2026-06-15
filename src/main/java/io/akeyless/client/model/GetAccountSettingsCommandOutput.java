@@ -54,7 +54,7 @@ import io.akeyless.client.JSON;
 /**
  * GetAccountSettingsCommandOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GetAccountSettingsCommandOutput {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -349,10 +349,7 @@ public class GetAccountSettingsCommandOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -361,20 +358,10 @@ public class GetAccountSettingsCommandOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account_id");
-    openapiFields.add("address");
-    openapiFields.add("company_name");
-    openapiFields.add("email");
-    openapiFields.add("general_settings");
-    openapiFields.add("object_version_settings");
-    openapiFields.add("phone");
-    openapiFields.add("secret_management");
-    openapiFields.add("secure_remote_access");
-    openapiFields.add("system_access_creds_settings");
+    openapiFields = new HashSet<String>(Arrays.asList("account_id", "address", "company_name", "email", "general_settings", "object_version_settings", "phone", "secret_management", "secure_remote_access", "system_access_creds_settings"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -386,7 +373,7 @@ public class GetAccountSettingsCommandOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetAccountSettingsCommandOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetAccountSettingsCommandOutput is not found in the empty JSON string", GetAccountSettingsCommandOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetAccountSettingsCommandOutput is not found in the empty JSON string", GetAccountSettingsCommandOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -394,22 +381,22 @@ public class GetAccountSettingsCommandOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetAccountSettingsCommandOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetAccountSettingsCommandOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetAccountSettingsCommandOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
       // validate the optional field `address`
       if (jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) {
         CustomerFullAddress.validateJsonElement(jsonObj.get("address"));
       }
       if ((jsonObj.get("company_name") != null && !jsonObj.get("company_name").isJsonNull()) && !jsonObj.get("company_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `company_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `company_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company_name").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       // validate the optional field `general_settings`
       if (jsonObj.get("general_settings") != null && !jsonObj.get("general_settings").isJsonNull()) {
@@ -420,7 +407,7 @@ public class GetAccountSettingsCommandOutput {
         AccountObjectVersionSettingsOutput.validateJsonElement(jsonObj.get("object_version_settings"));
       }
       if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()) && !jsonObj.get("phone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
       }
       // validate the optional field `secret_management`
       if (jsonObj.get("secret_management") != null && !jsonObj.get("secret_management").isJsonNull()) {

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * TokenizeOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class TokenizeOutput {
   public static final String SERIALIZED_NAME_RESULT = "result";
   @SerializedName(SERIALIZED_NAME_RESULT)
@@ -135,10 +135,7 @@ public class TokenizeOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class TokenizeOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("result");
-    openapiFields.add("tweak");
+    openapiFields = new HashSet<String>(Arrays.asList("result", "tweak"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class TokenizeOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TokenizeOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenizeOutput is not found in the empty JSON string", TokenizeOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TokenizeOutput is not found in the empty JSON string", TokenizeOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class TokenizeOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TokenizeOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TokenizeOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TokenizeOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) && !jsonObj.get("result").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `result` to be a primitive type in the JSON string but got `%s`", jsonObj.get("result").toString()));
       }
       if ((jsonObj.get("tweak") != null && !jsonObj.get("tweak").isJsonNull()) && !jsonObj.get("tweak").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tweak` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tweak").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tweak` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tweak").toString()));
       }
   }
 

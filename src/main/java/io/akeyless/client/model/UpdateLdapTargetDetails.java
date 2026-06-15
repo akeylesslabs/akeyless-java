@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * UpdateLdapTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UpdateLdapTargetDetails {
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
@@ -421,10 +421,7 @@ public class UpdateLdapTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -433,24 +430,10 @@ public class UpdateLdapTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("bind-dn");
-    openapiFields.add("bind-dn-password");
-    openapiFields.add("json");
-    openapiFields.add("keep-prev-version");
-    openapiFields.add("key");
-    openapiFields.add("ldap-ca-cert");
-    openapiFields.add("ldap-url");
-    openapiFields.add("name");
-    openapiFields.add("new-version");
-    openapiFields.add("protection_key");
-    openapiFields.add("token");
-    openapiFields.add("token-expiration");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "name", "new-version", "protection_key", "token", "token-expiration", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -462,7 +445,7 @@ public class UpdateLdapTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UpdateLdapTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateLdapTargetDetails is not found in the empty JSON string", UpdateLdapTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UpdateLdapTargetDetails is not found in the empty JSON string", UpdateLdapTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -470,49 +453,49 @@ public class UpdateLdapTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateLdapTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateLdapTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UpdateLdapTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UpdateLdapTargetDetails.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("bind-dn") != null && !jsonObj.get("bind-dn").isJsonNull()) && !jsonObj.get("bind-dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bind-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bind-dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bind-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bind-dn").toString()));
       }
       if ((jsonObj.get("bind-dn-password") != null && !jsonObj.get("bind-dn-password").isJsonNull()) && !jsonObj.get("bind-dn-password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bind-dn-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bind-dn-password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bind-dn-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bind-dn-password").toString()));
       }
       if ((jsonObj.get("keep-prev-version") != null && !jsonObj.get("keep-prev-version").isJsonNull()) && !jsonObj.get("keep-prev-version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
       if ((jsonObj.get("ldap-ca-cert") != null && !jsonObj.get("ldap-ca-cert").isJsonNull()) && !jsonObj.get("ldap-ca-cert").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap-ca-cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-ca-cert").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap-ca-cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-ca-cert").toString()));
       }
       if ((jsonObj.get("ldap-url") != null && !jsonObj.get("ldap-url").isJsonNull()) && !jsonObj.get("ldap-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-url").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("protection_key") != null && !jsonObj.get("protection_key").isJsonNull()) && !jsonObj.get("protection_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("token-expiration") != null && !jsonObj.get("token-expiration").isJsonNull()) && !jsonObj.get("token-expiration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token-expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token-expiration").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token-expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token-expiration").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * WindowsServiceAttributes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class WindowsServiceAttributes {
   public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection_type";
   @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
@@ -213,10 +213,7 @@ public class WindowsServiceAttributes {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class WindowsServiceAttributes {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("connection_type");
-    openapiFields.add("iis_app_pool");
-    openapiFields.add("port");
-    openapiFields.add("skip_restart");
-    openapiFields.add("use_tls");
+    openapiFields = new HashSet<String>(Arrays.asList("connection_type", "iis_app_pool", "port", "skip_restart", "use_tls"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class WindowsServiceAttributes {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!WindowsServiceAttributes.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WindowsServiceAttributes is not found in the empty JSON string", WindowsServiceAttributes.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WindowsServiceAttributes is not found in the empty JSON string", WindowsServiceAttributes.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,15 +245,15 @@ public class WindowsServiceAttributes {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WindowsServiceAttributes.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WindowsServiceAttributes` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `WindowsServiceAttributes` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("connection_type") != null && !jsonObj.get("connection_type").isJsonNull()) && !jsonObj.get("connection_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
       }
       if ((jsonObj.get("port") != null && !jsonObj.get("port").isJsonNull()) && !jsonObj.get("port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port").toString()));
       }
   }
 

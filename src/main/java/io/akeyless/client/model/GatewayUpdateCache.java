@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayUpdateCache is a command that updates cache settings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateCache {
   public static final String SERIALIZED_NAME_BACKUP_INTERVAL = "backup-interval";
   @SerializedName(SERIALIZED_NAME_BACKUP_INTERVAL)
@@ -291,10 +291,7 @@ public class GatewayUpdateCache {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -303,18 +300,10 @@ public class GatewayUpdateCache {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("backup-interval");
-    openapiFields.add("enable-cache");
-    openapiFields.add("enable-proactive");
-    openapiFields.add("json");
-    openapiFields.add("minimum-fetch-interval");
-    openapiFields.add("stale-timeout");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("backup-interval", "enable-cache", "enable-proactive", "json", "minimum-fetch-interval", "stale-timeout", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -326,7 +315,7 @@ public class GatewayUpdateCache {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateCache.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateCache is not found in the empty JSON string", GatewayUpdateCache.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateCache is not found in the empty JSON string", GatewayUpdateCache.openapiRequiredFields.toString()));
         }
       }
 
@@ -334,30 +323,30 @@ public class GatewayUpdateCache {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateCache.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateCache` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateCache` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("backup-interval") != null && !jsonObj.get("backup-interval").isJsonNull()) && !jsonObj.get("backup-interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `backup-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup-interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backup-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup-interval").toString()));
       }
       if ((jsonObj.get("enable-cache") != null && !jsonObj.get("enable-cache").isJsonNull()) && !jsonObj.get("enable-cache").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enable-cache` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-cache").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-cache` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-cache").toString()));
       }
       if ((jsonObj.get("enable-proactive") != null && !jsonObj.get("enable-proactive").isJsonNull()) && !jsonObj.get("enable-proactive").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enable-proactive` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-proactive").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-proactive` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-proactive").toString()));
       }
       if ((jsonObj.get("minimum-fetch-interval") != null && !jsonObj.get("minimum-fetch-interval").isJsonNull()) && !jsonObj.get("minimum-fetch-interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `minimum-fetch-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("minimum-fetch-interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `minimum-fetch-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("minimum-fetch-interval").toString()));
       }
       if ((jsonObj.get("stale-timeout") != null && !jsonObj.get("stale-timeout").isJsonNull()) && !jsonObj.get("stale-timeout").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `stale-timeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stale-timeout").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `stale-timeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("stale-timeout").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

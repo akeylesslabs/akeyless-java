@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -49,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * EsmGetSecretOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EsmGetSecretOutput {
   public static final String SERIALIZED_NAME_BINARY_VALUE = "binary_value";
   @SerializedName(SERIALIZED_NAME_BINARY_VALUE)
@@ -80,6 +82,21 @@ public class EsmGetSecretOutput {
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nullable
   private String value;
+
+  public static final String SERIALIZED_NAME_VERSION_ID = "version_id";
+  @SerializedName(SERIALIZED_NAME_VERSION_ID)
+  @javax.annotation.Nullable
+  private String versionId;
+
+  public static final String SERIALIZED_NAME_VERSION_IDS = "version_ids";
+  @SerializedName(SERIALIZED_NAME_VERSION_IDS)
+  @javax.annotation.Nullable
+  private List<String> versionIds = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_WARNINGS = "warnings";
+  @SerializedName(SERIALIZED_NAME_WARNINGS)
+  @javax.annotation.Nullable
+  private List<String> warnings = new ArrayList<>();
 
   public EsmGetSecretOutput() {
   }
@@ -198,6 +215,79 @@ public class EsmGetSecretOutput {
   }
 
 
+  public EsmGetSecretOutput versionId(@javax.annotation.Nullable String versionId) {
+    this.versionId = versionId;
+    return this;
+  }
+
+  /**
+   * Get versionId
+   * @return versionId
+   */
+  @javax.annotation.Nullable
+  public String getVersionId() {
+    return versionId;
+  }
+
+  public void setVersionId(@javax.annotation.Nullable String versionId) {
+    this.versionId = versionId;
+  }
+
+
+  public EsmGetSecretOutput versionIds(@javax.annotation.Nullable List<String> versionIds) {
+    this.versionIds = versionIds;
+    return this;
+  }
+
+  public EsmGetSecretOutput addVersionIdsItem(String versionIdsItem) {
+    if (this.versionIds == null) {
+      this.versionIds = new ArrayList<>();
+    }
+    this.versionIds.add(versionIdsItem);
+    return this;
+  }
+
+  /**
+   * Get versionIds
+   * @return versionIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getVersionIds() {
+    return versionIds;
+  }
+
+  public void setVersionIds(@javax.annotation.Nullable List<String> versionIds) {
+    this.versionIds = versionIds;
+  }
+
+
+  public EsmGetSecretOutput warnings(@javax.annotation.Nullable List<String> warnings) {
+    this.warnings = warnings;
+    return this;
+  }
+
+  public EsmGetSecretOutput addWarningsItem(String warningsItem) {
+    if (this.warnings == null) {
+      this.warnings = new ArrayList<>();
+    }
+    this.warnings.add(warningsItem);
+    return this;
+  }
+
+  /**
+   * Get warnings
+   * @return warnings
+   */
+  @javax.annotation.Nullable
+  public List<String> getWarnings() {
+    return warnings;
+  }
+
+  public void setWarnings(@javax.annotation.Nullable List<String> warnings) {
+    this.warnings = warnings;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -213,7 +303,10 @@ public class EsmGetSecretOutput {
         Objects.equals(this.id, esmGetSecretOutput.id) &&
         Objects.equals(this.metadata, esmGetSecretOutput.metadata) &&
         Objects.equals(this.name, esmGetSecretOutput.name) &&
-        Objects.equals(this.value, esmGetSecretOutput.value);
+        Objects.equals(this.value, esmGetSecretOutput.value) &&
+        Objects.equals(this.versionId, esmGetSecretOutput.versionId) &&
+        Objects.equals(this.versionIds, esmGetSecretOutput.versionIds) &&
+        Objects.equals(this.warnings, esmGetSecretOutput.warnings);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -222,7 +315,7 @@ public class EsmGetSecretOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, encryptionKey, id, metadata, name, value);
+    return Objects.hash(binaryValue, encryptionKey, id, metadata, name, value, versionId, versionIds, warnings);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -242,6 +335,9 @@ public class EsmGetSecretOutput {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
+    sb.append("    versionIds: ").append(toIndentedString(versionIds)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -251,10 +347,7 @@ public class EsmGetSecretOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -263,16 +356,10 @@ public class EsmGetSecretOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("binary_value");
-    openapiFields.add("encryption_key");
-    openapiFields.add("id");
-    openapiFields.add("metadata");
-    openapiFields.add("name");
-    openapiFields.add("value");
+    openapiFields = new HashSet<String>(Arrays.asList("binary_value", "encryption_key", "id", "metadata", "name", "value", "version_id", "version_ids", "warnings"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -284,7 +371,7 @@ public class EsmGetSecretOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EsmGetSecretOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EsmGetSecretOutput is not found in the empty JSON string", EsmGetSecretOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EsmGetSecretOutput is not found in the empty JSON string", EsmGetSecretOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -292,21 +379,32 @@ public class EsmGetSecretOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EsmGetSecretOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EsmGetSecretOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EsmGetSecretOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("encryption_key") != null && !jsonObj.get("encryption_key").isJsonNull()) && !jsonObj.get("encryption_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      if ((jsonObj.get("version_id") != null && !jsonObj.get("version_id").isJsonNull()) && !jsonObj.get("version_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version_id").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("version_ids") != null && !jsonObj.get("version_ids").isJsonNull() && !jsonObj.get("version_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_ids` to be an array in the JSON string but got `%s`", jsonObj.get("version_ids").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("warnings") != null && !jsonObj.get("warnings").isJsonNull() && !jsonObj.get("warnings").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `warnings` to be an array in the JSON string but got `%s`", jsonObj.get("warnings").toString()));
       }
   }
 

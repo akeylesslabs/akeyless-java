@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * GatewayCreateProducerAwsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayCreateProducerAwsOutput {
   public static final String SERIALIZED_NAME_PRODUCER_DETAILS = "producer_details";
   @SerializedName(SERIALIZED_NAME_PRODUCER_DETAILS)
@@ -110,10 +110,7 @@ public class GatewayCreateProducerAwsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -122,11 +119,10 @@ public class GatewayCreateProducerAwsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("producer_details");
+    openapiFields = new HashSet<String>(Arrays.asList("producer_details"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -138,7 +134,7 @@ public class GatewayCreateProducerAwsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayCreateProducerAwsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayCreateProducerAwsOutput is not found in the empty JSON string", GatewayCreateProducerAwsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayCreateProducerAwsOutput is not found in the empty JSON string", GatewayCreateProducerAwsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -146,7 +142,7 @@ public class GatewayCreateProducerAwsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayCreateProducerAwsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayCreateProducerAwsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayCreateProducerAwsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

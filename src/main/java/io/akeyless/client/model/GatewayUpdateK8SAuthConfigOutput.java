@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * GatewayUpdateK8SAuthConfigOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateK8SAuthConfigOutput {
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
@@ -162,10 +162,7 @@ public class GatewayUpdateK8SAuthConfigOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -174,13 +171,10 @@ public class GatewayUpdateK8SAuthConfigOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cluster_id");
-    openapiFields.add("parts_change");
-    openapiFields.add("total_hash");
+    openapiFields = new HashSet<String>(Arrays.asList("cluster_id", "parts_change", "total_hash"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -192,7 +186,7 @@ public class GatewayUpdateK8SAuthConfigOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateK8SAuthConfigOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateK8SAuthConfigOutput is not found in the empty JSON string", GatewayUpdateK8SAuthConfigOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateK8SAuthConfigOutput is not found in the empty JSON string", GatewayUpdateK8SAuthConfigOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -200,19 +194,19 @@ public class GatewayUpdateK8SAuthConfigOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateK8SAuthConfigOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateK8SAuthConfigOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateK8SAuthConfigOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cluster_id") != null && !jsonObj.get("cluster_id").isJsonNull()) && !jsonObj.get("cluster_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_id").toString()));
       }
       // validate the optional field `parts_change`
       if (jsonObj.get("parts_change") != null && !jsonObj.get("parts_change").isJsonNull()) {
         ConfigChange.validateJsonElement(jsonObj.get("parts_change"));
       }
       if ((jsonObj.get("total_hash") != null && !jsonObj.get("total_hash").isJsonNull()) && !jsonObj.get("total_hash").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_hash").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `total_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_hash").toString()));
       }
   }
 

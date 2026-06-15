@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * OAuth2AccessRules contains access rules specific to OAuth2 authentication method.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class OAuth2AccessRules {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
@@ -336,10 +336,7 @@ public class OAuth2AccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -348,19 +345,10 @@ public class OAuth2AccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("audience");
-    openapiFields.add("authorized_gw_cluster_name");
-    openapiFields.add("bound_claims");
-    openapiFields.add("bound_clients_id");
-    openapiFields.add("certificate");
-    openapiFields.add("issuer");
-    openapiFields.add("jwks_json_data");
-    openapiFields.add("jwks_uri");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("audience", "authorized_gw_cluster_name", "bound_claims", "bound_clients_id", "certificate", "issuer", "jwks_json_data", "jwks_uri", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -372,7 +360,7 @@ public class OAuth2AccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!OAuth2AccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OAuth2AccessRules is not found in the empty JSON string", OAuth2AccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OAuth2AccessRules is not found in the empty JSON string", OAuth2AccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -380,22 +368,22 @@ public class OAuth2AccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!OAuth2AccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OAuth2AccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OAuth2AccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull()) && !jsonObj.get("audience").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
       }
       if ((jsonObj.get("authorized_gw_cluster_name") != null && !jsonObj.get("authorized_gw_cluster_name").isJsonNull()) && !jsonObj.get("authorized_gw_cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authorized_gw_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorized_gw_cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authorized_gw_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorized_gw_cluster_name").toString()));
       }
       if (jsonObj.get("bound_claims") != null && !jsonObj.get("bound_claims").isJsonNull()) {
         JsonArray jsonArrayboundClaims = jsonObj.getAsJsonArray("bound_claims");
         if (jsonArrayboundClaims != null) {
           // ensure the json data is an array
           if (!jsonObj.get("bound_claims").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `bound_claims` to be an array in the JSON string but got `%s`", jsonObj.get("bound_claims").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_claims` to be an array in the JSON string but got `%s`", jsonObj.get("bound_claims").toString()));
           }
 
           // validate the optional field `bound_claims` (array)
@@ -406,22 +394,22 @@ public class OAuth2AccessRules {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_clients_id") != null && !jsonObj.get("bound_clients_id").isJsonNull() && !jsonObj.get("bound_clients_id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_clients_id` to be an array in the JSON string but got `%s`", jsonObj.get("bound_clients_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_clients_id` to be an array in the JSON string but got `%s`", jsonObj.get("bound_clients_id").toString()));
       }
       if ((jsonObj.get("certificate") != null && !jsonObj.get("certificate").isJsonNull()) && !jsonObj.get("certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate").toString()));
       }
       if ((jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonNull()) && !jsonObj.get("issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
       }
       if ((jsonObj.get("jwks_json_data") != null && !jsonObj.get("jwks_json_data").isJsonNull()) && !jsonObj.get("jwks_json_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jwks_json_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_json_data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `jwks_json_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_json_data").toString()));
       }
       if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull()) && !jsonObj.get("jwks_uri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_uri").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_uri").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

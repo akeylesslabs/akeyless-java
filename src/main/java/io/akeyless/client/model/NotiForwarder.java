@@ -54,7 +54,7 @@ import io.akeyless.client.JSON;
 /**
  * NotiForwarder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class NotiForwarder {
   public static final String SERIALIZED_NAME_AUTH_TYPE = "auth_type";
   @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
@@ -857,10 +857,7 @@ public class NotiForwarder {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -869,38 +866,10 @@ public class NotiForwarder {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auth_type");
-    openapiFields.add("client_id");
-    openapiFields.add("client_permissions");
-    openapiFields.add("comment");
-    openapiFields.add("creation_date");
-    openapiFields.add("endpoint");
-    openapiFields.add("event_types");
-    openapiFields.add("gateway_cluster_id");
-    openapiFields.add("include_error");
-    openapiFields.add("is_enabled");
-    openapiFields.add("last_version");
-    openapiFields.add("modification_date");
-    openapiFields.add("noti_forwarder_id");
-    openapiFields.add("noti_forwarder_name");
-    openapiFields.add("noti_forwarder_type");
-    openapiFields.add("noti_forwarder_versions");
-    openapiFields.add("override_url");
-    openapiFields.add("paths");
-    openapiFields.add("protection_key");
-    openapiFields.add("runner_type");
-    openapiFields.add("slack_noti_forwarder_public_details");
-    openapiFields.add("teams_noti_forwarder_public_details");
-    openapiFields.add("timespan_in_seconds");
-    openapiFields.add("to_emails");
-    openapiFields.add("user_email");
-    openapiFields.add("username");
-    openapiFields.add("webhook_noti_forwarder_public_details");
-    openapiFields.add("with_customer_fragment");
+    openapiFields = new HashSet<String>(Arrays.asList("auth_type", "client_id", "client_permissions", "comment", "creation_date", "endpoint", "event_types", "gateway_cluster_id", "include_error", "is_enabled", "last_version", "modification_date", "noti_forwarder_id", "noti_forwarder_name", "noti_forwarder_type", "noti_forwarder_versions", "override_url", "paths", "protection_key", "runner_type", "slack_noti_forwarder_public_details", "teams_noti_forwarder_public_details", "timespan_in_seconds", "to_emails", "user_email", "username", "webhook_noti_forwarder_public_details", "with_customer_fragment"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -912,7 +881,7 @@ public class NotiForwarder {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NotiForwarder.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NotiForwarder is not found in the empty JSON string", NotiForwarder.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NotiForwarder is not found in the empty JSON string", NotiForwarder.openapiRequiredFields.toString()));
         }
       }
 
@@ -920,42 +889,42 @@ public class NotiForwarder {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NotiForwarder.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotiForwarder` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NotiForwarder` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("auth_type") != null && !jsonObj.get("auth_type").isJsonNull()) && !jsonObj.get("auth_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
       }
       if ((jsonObj.get("client_id") != null && !jsonObj.get("client_id").isJsonNull()) && !jsonObj.get("client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("client_permissions") != null && !jsonObj.get("client_permissions").isJsonNull() && !jsonObj.get("client_permissions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_permissions` to be an array in the JSON string but got `%s`", jsonObj.get("client_permissions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_permissions` to be an array in the JSON string but got `%s`", jsonObj.get("client_permissions").toString()));
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
       if ((jsonObj.get("endpoint") != null && !jsonObj.get("endpoint").isJsonNull()) && !jsonObj.get("endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpoint").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("event_types") != null && !jsonObj.get("event_types").isJsonNull() && !jsonObj.get("event_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `event_types` to be an array in the JSON string but got `%s`", jsonObj.get("event_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event_types` to be an array in the JSON string but got `%s`", jsonObj.get("event_types").toString()));
       }
       if ((jsonObj.get("noti_forwarder_name") != null && !jsonObj.get("noti_forwarder_name").isJsonNull()) && !jsonObj.get("noti_forwarder_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `noti_forwarder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("noti_forwarder_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `noti_forwarder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("noti_forwarder_name").toString()));
       }
       if ((jsonObj.get("noti_forwarder_type") != null && !jsonObj.get("noti_forwarder_type").isJsonNull()) && !jsonObj.get("noti_forwarder_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `noti_forwarder_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("noti_forwarder_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `noti_forwarder_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("noti_forwarder_type").toString()));
       }
       if (jsonObj.get("noti_forwarder_versions") != null && !jsonObj.get("noti_forwarder_versions").isJsonNull()) {
         JsonArray jsonArraynotiForwarderVersions = jsonObj.getAsJsonArray("noti_forwarder_versions");
         if (jsonArraynotiForwarderVersions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("noti_forwarder_versions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `noti_forwarder_versions` to be an array in the JSON string but got `%s`", jsonObj.get("noti_forwarder_versions").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `noti_forwarder_versions` to be an array in the JSON string but got `%s`", jsonObj.get("noti_forwarder_versions").toString()));
           }
 
           // validate the optional field `noti_forwarder_versions` (array)
@@ -965,24 +934,24 @@ public class NotiForwarder {
         }
       }
       if ((jsonObj.get("override_url") != null && !jsonObj.get("override_url").isJsonNull()) && !jsonObj.get("override_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `override_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("override_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `override_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("override_url").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("paths") != null && !jsonObj.get("paths").isJsonNull() && !jsonObj.get("paths").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `paths` to be an array in the JSON string but got `%s`", jsonObj.get("paths").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `paths` to be an array in the JSON string but got `%s`", jsonObj.get("paths").toString()));
       }
       if ((jsonObj.get("protection_key") != null && !jsonObj.get("protection_key").isJsonNull()) && !jsonObj.get("protection_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
       }
       if ((jsonObj.get("runner_type") != null && !jsonObj.get("runner_type").isJsonNull()) && !jsonObj.get("runner_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `runner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runner_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `runner_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runner_type").toString()));
       }
       if (jsonObj.get("to_emails") != null && !jsonObj.get("to_emails").isJsonNull()) {
         JsonArray jsonArraytoEmails = jsonObj.getAsJsonArray("to_emails");
         if (jsonArraytoEmails != null) {
           // ensure the json data is an array
           if (!jsonObj.get("to_emails").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `to_emails` to be an array in the JSON string but got `%s`", jsonObj.get("to_emails").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `to_emails` to be an array in the JSON string but got `%s`", jsonObj.get("to_emails").toString()));
           }
 
           // validate the optional field `to_emails` (array)
@@ -992,10 +961,10 @@ public class NotiForwarder {
         }
       }
       if ((jsonObj.get("user_email") != null && !jsonObj.get("user_email").isJsonNull()) && !jsonObj.get("user_email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_email").toString()));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       // validate the optional field `webhook_noti_forwarder_public_details`
       if (jsonObj.get("webhook_noti_forwarder_public_details") != null && !jsonObj.get("webhook_noti_forwarder_public_details").isJsonNull()) {

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * Connect is a command that performs secure remote access
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class Connect {
   public static final String SERIALIZED_NAME_HELPER = "Helper";
   @SerializedName(SERIALIZED_NAME_HELPER)
@@ -733,10 +733,7 @@ public class Connect {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -745,35 +742,10 @@ public class Connect {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("Helper");
-    openapiFields.add("RcFileOverride");
-    openapiFields.add("bastion-ctrl-path");
-    openapiFields.add("bastion-ctrl-port");
-    openapiFields.add("bastion-ctrl-proto");
-    openapiFields.add("bastion-ctrl-subdomain");
-    openapiFields.add("cert-issuer-name");
-    openapiFields.add("gateway-url");
-    openapiFields.add("identity-file");
-    openapiFields.add("json");
-    openapiFields.add("justification");
-    openapiFields.add("name");
-    openapiFields.add("sra-ctrl-path");
-    openapiFields.add("sra-ctrl-port");
-    openapiFields.add("sra-ctrl-proto");
-    openapiFields.add("sra-ctrl-subdomain");
-    openapiFields.add("ssh-command");
-    openapiFields.add("ssh-extra-args");
-    openapiFields.add("ssh-legacy-signing-alg");
-    openapiFields.add("target");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("use-ssh-agent");
-    openapiFields.add("via-bastion");
-    openapiFields.add("via-sra");
+    openapiFields = new HashSet<String>(Arrays.asList("Helper", "RcFileOverride", "bastion-ctrl-path", "bastion-ctrl-port", "bastion-ctrl-proto", "bastion-ctrl-subdomain", "cert-issuer-name", "gateway-url", "identity-file", "json", "justification", "name", "sra-ctrl-path", "sra-ctrl-port", "sra-ctrl-proto", "sra-ctrl-subdomain", "ssh-command", "ssh-extra-args", "ssh-legacy-signing-alg", "target", "token", "uid-token", "use-ssh-agent", "via-bastion", "via-sra"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -785,7 +757,7 @@ public class Connect {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Connect.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Connect is not found in the empty JSON string", Connect.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Connect is not found in the empty JSON string", Connect.openapiRequiredFields.toString()));
         }
       }
 
@@ -793,72 +765,72 @@ public class Connect {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Connect.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Connect` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Connect` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("RcFileOverride") != null && !jsonObj.get("RcFileOverride").isJsonNull()) && !jsonObj.get("RcFileOverride").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `RcFileOverride` to be a primitive type in the JSON string but got `%s`", jsonObj.get("RcFileOverride").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `RcFileOverride` to be a primitive type in the JSON string but got `%s`", jsonObj.get("RcFileOverride").toString()));
       }
       if ((jsonObj.get("bastion-ctrl-path") != null && !jsonObj.get("bastion-ctrl-path").isJsonNull()) && !jsonObj.get("bastion-ctrl-path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bastion-ctrl-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bastion-ctrl-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-path").toString()));
       }
       if ((jsonObj.get("bastion-ctrl-port") != null && !jsonObj.get("bastion-ctrl-port").isJsonNull()) && !jsonObj.get("bastion-ctrl-port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bastion-ctrl-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bastion-ctrl-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-port").toString()));
       }
       if ((jsonObj.get("bastion-ctrl-proto") != null && !jsonObj.get("bastion-ctrl-proto").isJsonNull()) && !jsonObj.get("bastion-ctrl-proto").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bastion-ctrl-proto` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-proto").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bastion-ctrl-proto` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-proto").toString()));
       }
       if ((jsonObj.get("bastion-ctrl-subdomain") != null && !jsonObj.get("bastion-ctrl-subdomain").isJsonNull()) && !jsonObj.get("bastion-ctrl-subdomain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bastion-ctrl-subdomain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-subdomain").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bastion-ctrl-subdomain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bastion-ctrl-subdomain").toString()));
       }
       if ((jsonObj.get("cert-issuer-name") != null && !jsonObj.get("cert-issuer-name").isJsonNull()) && !jsonObj.get("cert-issuer-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert-issuer-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-issuer-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert-issuer-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-issuer-name").toString()));
       }
       if ((jsonObj.get("gateway-url") != null && !jsonObj.get("gateway-url").isJsonNull()) && !jsonObj.get("gateway-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gateway-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gateway-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gateway-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gateway-url").toString()));
       }
       if ((jsonObj.get("identity-file") != null && !jsonObj.get("identity-file").isJsonNull()) && !jsonObj.get("identity-file").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `identity-file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity-file").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `identity-file` to be a primitive type in the JSON string but got `%s`", jsonObj.get("identity-file").toString()));
       }
       if ((jsonObj.get("justification") != null && !jsonObj.get("justification").isJsonNull()) && !jsonObj.get("justification").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `justification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("justification").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `justification` to be a primitive type in the JSON string but got `%s`", jsonObj.get("justification").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("sra-ctrl-path") != null && !jsonObj.get("sra-ctrl-path").isJsonNull()) && !jsonObj.get("sra-ctrl-path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sra-ctrl-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sra-ctrl-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-path").toString()));
       }
       if ((jsonObj.get("sra-ctrl-port") != null && !jsonObj.get("sra-ctrl-port").isJsonNull()) && !jsonObj.get("sra-ctrl-port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sra-ctrl-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sra-ctrl-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-port").toString()));
       }
       if ((jsonObj.get("sra-ctrl-proto") != null && !jsonObj.get("sra-ctrl-proto").isJsonNull()) && !jsonObj.get("sra-ctrl-proto").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sra-ctrl-proto` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-proto").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sra-ctrl-proto` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-proto").toString()));
       }
       if ((jsonObj.get("sra-ctrl-subdomain") != null && !jsonObj.get("sra-ctrl-subdomain").isJsonNull()) && !jsonObj.get("sra-ctrl-subdomain").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sra-ctrl-subdomain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-subdomain").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sra-ctrl-subdomain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sra-ctrl-subdomain").toString()));
       }
       if ((jsonObj.get("ssh-command") != null && !jsonObj.get("ssh-command").isJsonNull()) && !jsonObj.get("ssh-command").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh-command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh-command").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh-command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh-command").toString()));
       }
       if ((jsonObj.get("ssh-extra-args") != null && !jsonObj.get("ssh-extra-args").isJsonNull()) && !jsonObj.get("ssh-extra-args").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh-extra-args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh-extra-args").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh-extra-args` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh-extra-args").toString()));
       }
       if ((jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull()) && !jsonObj.get("target").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("via-bastion") != null && !jsonObj.get("via-bastion").isJsonNull()) && !jsonObj.get("via-bastion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `via-bastion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("via-bastion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `via-bastion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("via-bastion").toString()));
       }
       if ((jsonObj.get("via-sra") != null && !jsonObj.get("via-sra").isJsonNull()) && !jsonObj.get("via-sra").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `via-sra` to be a primitive type in the JSON string but got `%s`", jsonObj.get("via-sra").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `via-sra` to be a primitive type in the JSON string but got `%s`", jsonObj.get("via-sra").toString()));
       }
   }
 

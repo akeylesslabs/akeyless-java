@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * deactivateAcmeAccount is a command that Deactivates \\ Deletes an acme external account
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DeactivateAcmeAccount {
   public static final String SERIALIZED_NAME_ACME_ACCOUNT_ID = "acme-account-id";
   @SerializedName(SERIALIZED_NAME_ACME_ACCOUNT_ID)
@@ -239,10 +239,7 @@ public class DeactivateAcmeAccount {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,18 +248,10 @@ public class DeactivateAcmeAccount {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("acme-account-id");
-    openapiFields.add("cert-issuer-name");
-    openapiFields.add("delete-account");
-    openapiFields.add("json");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("acme-account-id", "cert-issuer-name", "delete-account", "json", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("acme-account-id");
-    openapiRequiredFields.add("cert-issuer-name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("acme-account-id", "cert-issuer-name"));
   }
 
   /**
@@ -274,7 +263,7 @@ public class DeactivateAcmeAccount {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DeactivateAcmeAccount.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DeactivateAcmeAccount is not found in the empty JSON string", DeactivateAcmeAccount.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DeactivateAcmeAccount is not found in the empty JSON string", DeactivateAcmeAccount.openapiRequiredFields.toString()));
         }
       }
 
@@ -282,28 +271,28 @@ public class DeactivateAcmeAccount {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DeactivateAcmeAccount.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeactivateAcmeAccount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DeactivateAcmeAccount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : DeactivateAcmeAccount.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("acme-account-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `acme-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acme-account-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `acme-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acme-account-id").toString()));
       }
       if (!jsonObj.get("cert-issuer-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert-issuer-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-issuer-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert-issuer-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-issuer-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

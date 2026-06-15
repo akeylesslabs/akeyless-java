@@ -221,7 +221,10 @@ All URIs are relative to *https://api.akeyless.io*
 | [**exportClassicKey**](V2Api.md#exportClassicKey) | **POST** /export-classic-key |  |
 | [**folderCreate**](V2Api.md#folderCreate) | **POST** /folder-create |  |
 | [**folderDelete**](V2Api.md#folderDelete) | **POST** /folder-delete |  |
+| [**folderDeleteSync**](V2Api.md#folderDeleteSync) | **POST** /folder-delete-sync |  |
 | [**folderGet**](V2Api.md#folderGet) | **POST** /folder-get |  |
+| [**folderSync**](V2Api.md#folderSync) | **POST** /folder-sync |  |
+| [**folderSyncAll**](V2Api.md#folderSyncAll) | **POST** /folder-sync-all |  |
 | [**folderUpdate**](V2Api.md#folderUpdate) | **POST** /folder-update |  |
 | [**gatewayCreateAllowedAccess**](V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access |  |
 | [**gatewayCreateK8SAuthConfig**](V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config |  |
@@ -417,6 +420,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretCreateDockerhub**](V2Api.md#rotatedSecretCreateDockerhub) | **POST** /rotated-secret-create-dockerhub |  |
 | [**rotatedSecretCreateGcp**](V2Api.md#rotatedSecretCreateGcp) | **POST** /rotated-secret-create-gcp |  |
 | [**rotatedSecretCreateHanadb**](V2Api.md#rotatedSecretCreateHanadb) | **POST** /rotated-secret-create-hanadb |  |
+| [**rotatedSecretCreateHashiVault**](V2Api.md#rotatedSecretCreateHashiVault) | **POST** /rotated-secret-create-hashi-vault |  |
 | [**rotatedSecretCreateLdap**](V2Api.md#rotatedSecretCreateLdap) | **POST** /rotated-secret-create-ldap |  |
 | [**rotatedSecretCreateMongodb**](V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb |  |
 | [**rotatedSecretCreateMssql**](V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql |  |
@@ -442,6 +446,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretUpdateDockerhub**](V2Api.md#rotatedSecretUpdateDockerhub) | **POST** /rotated-secret-update-dockerhub |  |
 | [**rotatedSecretUpdateGcp**](V2Api.md#rotatedSecretUpdateGcp) | **POST** /rotated-secret-update-gcp |  |
 | [**rotatedSecretUpdateHanadb**](V2Api.md#rotatedSecretUpdateHanadb) | **POST** /rotated-secret-update-hanadb |  |
+| [**rotatedSecretUpdateHashiVault**](V2Api.md#rotatedSecretUpdateHashiVault) | **POST** /rotated-secret-update-hashi-vault |  |
 | [**rotatedSecretUpdateLdap**](V2Api.md#rotatedSecretUpdateLdap) | **POST** /rotated-secret-update-ldap |  |
 | [**rotatedSecretUpdateMongodb**](V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb |  |
 | [**rotatedSecretUpdateMssql**](V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql |  |
@@ -13862,6 +13867,67 @@ No authorization required
 | **200** | folderDeleteResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="folderDeleteSync"></a>
+# **folderDeleteSync**
+> FolderDeleteSyncOutput folderDeleteSync(folderDeleteSync)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    FolderDeleteSync folderDeleteSync = new FolderDeleteSync(); // FolderDeleteSync | 
+    try {
+      FolderDeleteSyncOutput result = apiInstance.folderDeleteSync(folderDeleteSync);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#folderDeleteSync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **folderDeleteSync** | [**FolderDeleteSync**](FolderDeleteSync.md)|  | |
+
+### Return type
+
+[**FolderDeleteSyncOutput**](FolderDeleteSyncOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="folderGet"></a>
 # **folderGet**
 > FolderGetOutput folderGet(folderGet)
@@ -13921,6 +13987,128 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | folderGetResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="folderSync"></a>
+# **folderSync**
+> FolderSyncOutput folderSync(folderSync)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    FolderSync folderSync = new FolderSync(); // FolderSync | 
+    try {
+      FolderSyncOutput result = apiInstance.folderSync(folderSync);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#folderSync");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **folderSync** | [**FolderSync**](FolderSync.md)|  | |
+
+### Return type
+
+[**FolderSyncOutput**](FolderSyncOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="folderSyncAll"></a>
+# **folderSyncAll**
+> FolderSyncAllOutput folderSyncAll(folderSyncAll)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    FolderSyncAll folderSyncAll = new FolderSyncAll(); // FolderSyncAll | 
+    try {
+      FolderSyncAllOutput result = apiInstance.folderSyncAll(folderSyncAll);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#folderSyncAll");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **folderSyncAll** | [**FolderSyncAll**](FolderSyncAll.md)|  | |
+
+### Return type
+
+[**FolderSyncAllOutput**](FolderSyncAllOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="folderUpdate"></a>
@@ -25804,6 +25992,67 @@ No authorization required
 | **200** | rotatedSecretCreateHanadbResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="rotatedSecretCreateHashiVault"></a>
+# **rotatedSecretCreateHashiVault**
+> RotatedSecretCreateOutput rotatedSecretCreateHashiVault(rotatedSecretCreateHashiVault)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretCreateHashiVault rotatedSecretCreateHashiVault = new RotatedSecretCreateHashiVault(); // RotatedSecretCreateHashiVault | 
+    try {
+      RotatedSecretCreateOutput result = apiInstance.rotatedSecretCreateHashiVault(rotatedSecretCreateHashiVault);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretCreateHashiVault");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretCreateHashiVault** | [**RotatedSecretCreateHashiVault**](RotatedSecretCreateHashiVault.md)|  | |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | rotatedSecretCreateHashiVaultResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="rotatedSecretCreateLdap"></a>
 # **rotatedSecretCreateLdap**
 > RotatedSecretCreateOutput rotatedSecretCreateLdap(rotatedSecretCreateLdap)
@@ -27327,6 +27576,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | rotatedSecretUpdateHanadbResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="rotatedSecretUpdateHashiVault"></a>
+# **rotatedSecretUpdateHashiVault**
+> RotatedSecretUpdateOutput rotatedSecretUpdateHashiVault(rotatedSecretUpdateHashiVault)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretUpdateHashiVault rotatedSecretUpdateHashiVault = new RotatedSecretUpdateHashiVault(); // RotatedSecretUpdateHashiVault | 
+    try {
+      RotatedSecretUpdateOutput result = apiInstance.rotatedSecretUpdateHashiVault(rotatedSecretUpdateHashiVault);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretUpdateHashiVault");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretUpdateHashiVault** | [**RotatedSecretUpdateHashiVault**](RotatedSecretUpdateHashiVault.md)|  | |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | rotatedSecretUpdateHashiVaultResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="rotatedSecretUpdateLdap"></a>

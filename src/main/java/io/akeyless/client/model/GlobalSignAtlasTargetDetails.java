@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GlobalSignAtlasTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GlobalSignAtlasTargetDetails {
   public static final String SERIALIZED_NAME_API_KEY = "api_key";
   @SerializedName(SERIALIZED_NAME_API_KEY)
@@ -213,10 +213,7 @@ public class GlobalSignAtlasTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class GlobalSignAtlasTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("api_key");
-    openapiFields.add("api_secret");
-    openapiFields.add("mtls_cert");
-    openapiFields.add("mtls_key");
-    openapiFields.add("timeout");
+    openapiFields = new HashSet<String>(Arrays.asList("api_key", "api_secret", "mtls_cert", "mtls_key", "timeout"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class GlobalSignAtlasTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GlobalSignAtlasTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GlobalSignAtlasTargetDetails is not found in the empty JSON string", GlobalSignAtlasTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GlobalSignAtlasTargetDetails is not found in the empty JSON string", GlobalSignAtlasTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,21 +245,21 @@ public class GlobalSignAtlasTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GlobalSignAtlasTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GlobalSignAtlasTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GlobalSignAtlasTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()) && !jsonObj.get("api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
       }
       if ((jsonObj.get("api_secret") != null && !jsonObj.get("api_secret").isJsonNull()) && !jsonObj.get("api_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_secret").toString()));
       }
       if ((jsonObj.get("mtls_cert") != null && !jsonObj.get("mtls_cert").isJsonNull()) && !jsonObj.get("mtls_cert").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mtls_cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mtls_cert").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mtls_cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mtls_cert").toString()));
       }
       if ((jsonObj.get("mtls_key") != null && !jsonObj.get("mtls_key").isJsonNull()) && !jsonObj.get("mtls_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mtls_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mtls_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mtls_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mtls_key").toString()));
       }
   }
 

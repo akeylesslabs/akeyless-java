@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ConjurPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ConjurPayload {
   public static final String SERIALIZED_NAME_CONJUR_ACCOUNT = "conjur_account";
   @SerializedName(SERIALIZED_NAME_CONJUR_ACCOUNT)
@@ -187,10 +187,7 @@ public class ConjurPayload {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class ConjurPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("conjur_account");
-    openapiFields.add("conjur_api_key");
-    openapiFields.add("conjur_url");
-    openapiFields.add("conjur_username");
+    openapiFields = new HashSet<String>(Arrays.asList("conjur_account", "conjur_api_key", "conjur_url", "conjur_username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class ConjurPayload {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ConjurPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ConjurPayload is not found in the empty JSON string", ConjurPayload.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConjurPayload is not found in the empty JSON string", ConjurPayload.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,21 +219,21 @@ public class ConjurPayload {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ConjurPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConjurPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConjurPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("conjur_account") != null && !jsonObj.get("conjur_account").isJsonNull()) && !jsonObj.get("conjur_account").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conjur_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_account").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conjur_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_account").toString()));
       }
       if ((jsonObj.get("conjur_api_key") != null && !jsonObj.get("conjur_api_key").isJsonNull()) && !jsonObj.get("conjur_api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conjur_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_api_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conjur_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_api_key").toString()));
       }
       if ((jsonObj.get("conjur_url") != null && !jsonObj.get("conjur_url").isJsonNull()) && !jsonObj.get("conjur_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conjur_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conjur_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_url").toString()));
       }
       if ((jsonObj.get("conjur_username") != null && !jsonObj.get("conjur_username").isJsonNull()) && !jsonObj.get("conjur_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conjur_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conjur_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur_username").toString()));
       }
   }
 

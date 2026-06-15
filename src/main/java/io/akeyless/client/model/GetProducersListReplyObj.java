@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * GetProducersListReplyObj
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GetProducersListReplyObj {
   public static final String SERIALIZED_NAME_PRODUCERS = "producers";
   @SerializedName(SERIALIZED_NAME_PRODUCERS)
@@ -158,10 +158,7 @@ public class GetProducersListReplyObj {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -170,12 +167,10 @@ public class GetProducersListReplyObj {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("producers");
-    openapiFields.add("producers_errors");
+    openapiFields = new HashSet<String>(Arrays.asList("producers", "producers_errors"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -187,7 +182,7 @@ public class GetProducersListReplyObj {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetProducersListReplyObj.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetProducersListReplyObj is not found in the empty JSON string", GetProducersListReplyObj.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetProducersListReplyObj is not found in the empty JSON string", GetProducersListReplyObj.openapiRequiredFields.toString()));
         }
       }
 
@@ -195,7 +190,7 @@ public class GetProducersListReplyObj {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetProducersListReplyObj.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetProducersListReplyObj` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetProducersListReplyObj` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -204,7 +199,7 @@ public class GetProducersListReplyObj {
         if (jsonArrayproducers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("producers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `producers` to be an array in the JSON string but got `%s`", jsonObj.get("producers").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producers` to be an array in the JSON string but got `%s`", jsonObj.get("producers").toString()));
           }
 
           // validate the optional field `producers` (array)

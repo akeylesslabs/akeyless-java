@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * gwUpdateRemoteAccessSessionLogsLogstash is a command that updates session log forwarding config (logstash target)
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GwUpdateRemoteAccessSessionLogsLogstash {
   public static final String SERIALIZED_NAME_DNS = "dns";
   @SerializedName(SERIALIZED_NAME_DNS)
@@ -343,10 +343,7 @@ public class GwUpdateRemoteAccessSessionLogsLogstash {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -355,20 +352,10 @@ public class GwUpdateRemoteAccessSessionLogsLogstash {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("dns");
-    openapiFields.add("enable");
-    openapiFields.add("enable-tls");
-    openapiFields.add("json");
-    openapiFields.add("output-format");
-    openapiFields.add("protocol");
-    openapiFields.add("pull-interval");
-    openapiFields.add("tls-certificate");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("dns", "enable", "enable-tls", "json", "output-format", "protocol", "pull-interval", "tls-certificate", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -380,7 +367,7 @@ public class GwUpdateRemoteAccessSessionLogsLogstash {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GwUpdateRemoteAccessSessionLogsLogstash.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GwUpdateRemoteAccessSessionLogsLogstash is not found in the empty JSON string", GwUpdateRemoteAccessSessionLogsLogstash.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GwUpdateRemoteAccessSessionLogsLogstash is not found in the empty JSON string", GwUpdateRemoteAccessSessionLogsLogstash.openapiRequiredFields.toString()));
         }
       }
 
@@ -388,33 +375,33 @@ public class GwUpdateRemoteAccessSessionLogsLogstash {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GwUpdateRemoteAccessSessionLogsLogstash.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GwUpdateRemoteAccessSessionLogsLogstash` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GwUpdateRemoteAccessSessionLogsLogstash` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("dns") != null && !jsonObj.get("dns").isJsonNull()) && !jsonObj.get("dns").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dns` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns").toString()));
       }
       if ((jsonObj.get("enable") != null && !jsonObj.get("enable").isJsonNull()) && !jsonObj.get("enable").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable").toString()));
       }
       if ((jsonObj.get("output-format") != null && !jsonObj.get("output-format").isJsonNull()) && !jsonObj.get("output-format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `output-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("output-format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("output-format").toString()));
       }
       if ((jsonObj.get("protocol") != null && !jsonObj.get("protocol").isJsonNull()) && !jsonObj.get("protocol").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protocol").toString()));
       }
       if ((jsonObj.get("pull-interval") != null && !jsonObj.get("pull-interval").isJsonNull()) && !jsonObj.get("pull-interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pull-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pull-interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pull-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pull-interval").toString()));
       }
       if ((jsonObj.get("tls-certificate") != null && !jsonObj.get("tls-certificate").isJsonNull()) && !jsonObj.get("tls-certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tls-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls-certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tls-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls-certificate").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

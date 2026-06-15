@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * AzureStorage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AzureStorage {
   public static final String SERIALIZED_NAME_AUTH_TYPE = "auth_type";
   @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
@@ -239,10 +239,7 @@ public class AzureStorage {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class AzureStorage {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auth_type");
-    openapiFields.add("client_id");
-    openapiFields.add("client_secret");
-    openapiFields.add("storage_account");
-    openapiFields.add("storage_container_name");
-    openapiFields.add("tenant_id");
+    openapiFields = new HashSet<String>(Arrays.asList("auth_type", "client_id", "client_secret", "storage_account", "storage_container_name", "tenant_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class AzureStorage {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AzureStorage.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AzureStorage is not found in the empty JSON string", AzureStorage.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AzureStorage is not found in the empty JSON string", AzureStorage.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,27 +271,27 @@ public class AzureStorage {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AzureStorage.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AzureStorage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AzureStorage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("auth_type") != null && !jsonObj.get("auth_type").isJsonNull()) && !jsonObj.get("auth_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
       }
       if ((jsonObj.get("client_id") != null && !jsonObj.get("client_id").isJsonNull()) && !jsonObj.get("client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
       }
       if ((jsonObj.get("client_secret") != null && !jsonObj.get("client_secret").isJsonNull()) && !jsonObj.get("client_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
       }
       if ((jsonObj.get("storage_account") != null && !jsonObj.get("storage_account").isJsonNull()) && !jsonObj.get("storage_account").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storage_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_account").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_account").toString()));
       }
       if ((jsonObj.get("storage_container_name") != null && !jsonObj.get("storage_container_name").isJsonNull()) && !jsonObj.get("storage_container_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storage_container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_container_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage_container_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_container_name").toString()));
       }
       if ((jsonObj.get("tenant_id") != null && !jsonObj.get("tenant_id").isJsonNull()) && !jsonObj.get("tenant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));
       }
   }
 

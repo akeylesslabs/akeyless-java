@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * GetFolderOutput is the result of the getFolder operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GetFolderOutput {
   public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
@@ -389,10 +389,7 @@ public class GetFolderOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -401,21 +398,10 @@ public class GetFolderOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_date");
-    openapiFields.add("access_date_display");
-    openapiFields.add("accessibility");
-    openapiFields.add("creation_date");
-    openapiFields.add("delete_protection");
-    openapiFields.add("folder_id");
-    openapiFields.add("folder_name");
-    openapiFields.add("metadata");
-    openapiFields.add("modification_date");
-    openapiFields.add("tags");
-    openapiFields.add("usc_sync_configs");
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "accessibility", "creation_date", "delete_protection", "folder_id", "folder_name", "metadata", "modification_date", "tags", "usc_sync_configs"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -427,7 +413,7 @@ public class GetFolderOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetFolderOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetFolderOutput is not found in the empty JSON string", GetFolderOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetFolderOutput is not found in the empty JSON string", GetFolderOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -435,29 +421,29 @@ public class GetFolderOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetFolderOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetFolderOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetFolderOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_date_display") != null && !jsonObj.get("access_date_display").isJsonNull()) && !jsonObj.get("access_date_display").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
       }
       if ((jsonObj.get("folder_name") != null && !jsonObj.get("folder_name").isJsonNull()) && !jsonObj.get("folder_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `folder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `folder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_name").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       if (jsonObj.get("usc_sync_configs") != null && !jsonObj.get("usc_sync_configs").isJsonNull()) {
         JsonArray jsonArrayuscSyncConfigs = jsonObj.getAsJsonArray("usc_sync_configs");
         if (jsonArrayuscSyncConfigs != null) {
           // ensure the json data is an array
           if (!jsonObj.get("usc_sync_configs").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `usc_sync_configs` to be an array in the JSON string but got `%s`", jsonObj.get("usc_sync_configs").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usc_sync_configs` to be an array in the JSON string but got `%s`", jsonObj.get("usc_sync_configs").toString()));
           }
 
           // validate the optional field `usc_sync_configs` (array)

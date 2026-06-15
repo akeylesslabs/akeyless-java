@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * SharingItemFullInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SharingItemFullInfo {
   public static final String SERIALIZED_NAME_ASSIGNERS = "assigners";
   @SerializedName(SERIALIZED_NAME_ASSIGNERS)
@@ -414,10 +414,7 @@ public class SharingItemFullInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -426,22 +423,10 @@ public class SharingItemFullInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("assigners");
-    openapiFields.add("capabilities");
-    openapiFields.add("cb");
-    openapiFields.add("is_limit_access");
-    openapiFields.add("item_id");
-    openapiFields.add("name");
-    openapiFields.add("number_of_access_used");
-    openapiFields.add("number_of_allowed_access");
-    openapiFields.add("path");
-    openapiFields.add("start_time");
-    openapiFields.add("ttl");
-    openapiFields.add("type");
+    openapiFields = new HashSet<String>(Arrays.asList("assigners", "capabilities", "cb", "is_limit_access", "item_id", "name", "number_of_access_used", "number_of_allowed_access", "path", "start_time", "ttl", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -453,7 +438,7 @@ public class SharingItemFullInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SharingItemFullInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SharingItemFullInfo is not found in the empty JSON string", SharingItemFullInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SharingItemFullInfo is not found in the empty JSON string", SharingItemFullInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -461,7 +446,7 @@ public class SharingItemFullInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SharingItemFullInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SharingItemFullInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SharingItemFullInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -470,7 +455,7 @@ public class SharingItemFullInfo {
         if (jsonArrayassigners != null) {
           // ensure the json data is an array
           if (!jsonObj.get("assigners").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `assigners` to be an array in the JSON string but got `%s`", jsonObj.get("assigners").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `assigners` to be an array in the JSON string but got `%s`", jsonObj.get("assigners").toString()));
           }
 
           // validate the optional field `assigners` (array)
@@ -481,16 +466,16 @@ public class SharingItemFullInfo {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("capabilities") != null && !jsonObj.get("capabilities").isJsonNull() && !jsonObj.get("capabilities").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `capabilities` to be an array in the JSON string but got `%s`", jsonObj.get("capabilities").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

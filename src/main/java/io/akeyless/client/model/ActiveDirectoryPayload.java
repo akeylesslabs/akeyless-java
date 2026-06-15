@@ -53,7 +53,7 @@ import io.akeyless.client.JSON;
 /**
  * ActiveDirectoryPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ActiveDirectoryPayload {
   public static final String SERIALIZED_NAME_ACTIVE_DIRECTORY_TARGET_ID = "active_directory_target_id";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DIRECTORY_TARGET_ID)
@@ -796,10 +796,7 @@ public class ActiveDirectoryPayload {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -808,36 +805,10 @@ public class ActiveDirectoryPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("active_directory_target_id");
-    openapiFields.add("ai_certificate_discovery");
-    openapiFields.add("auto_rotate");
-    openapiFields.add("auto_rotate_interval_in_days");
-    openapiFields.add("auto_rotate_rotation_hour");
-    openapiFields.add("certificates_expiration_events");
-    openapiFields.add("certificates_path_template");
-    openapiFields.add("computer_base_dn");
-    openapiFields.add("discover_iis_apps");
-    openapiFields.add("discover_local_users");
-    openapiFields.add("discover_services");
-    openapiFields.add("discovery_types");
-    openapiFields.add("domain_name");
-    openapiFields.add("domain_server_targets_path_template");
-    openapiFields.add("domain_users_rotated_secrets_path_template");
-    openapiFields.add("enable_rdp_sra");
-    openapiFields.add("local_users_ignore_list");
-    openapiFields.add("local_users_rotated_secrets_path_template");
-    openapiFields.add("os_filter");
-    openapiFields.add("ssh_port");
-    openapiFields.add("target_format");
-    openapiFields.add("targets_type");
-    openapiFields.add("user_base_dn");
-    openapiFields.add("user_groups");
-    openapiFields.add("winrm_over_http");
-    openapiFields.add("winrm_port");
+    openapiFields = new HashSet<String>(Arrays.asList("active_directory_target_id", "ai_certificate_discovery", "auto_rotate", "auto_rotate_interval_in_days", "auto_rotate_rotation_hour", "certificates_expiration_events", "certificates_path_template", "computer_base_dn", "discover_iis_apps", "discover_local_users", "discover_services", "discovery_types", "domain_name", "domain_server_targets_path_template", "domain_users_rotated_secrets_path_template", "enable_rdp_sra", "local_users_ignore_list", "local_users_rotated_secrets_path_template", "os_filter", "ssh_port", "target_format", "targets_type", "user_base_dn", "user_groups", "winrm_over_http", "winrm_port"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -849,7 +820,7 @@ public class ActiveDirectoryPayload {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ActiveDirectoryPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ActiveDirectoryPayload is not found in the empty JSON string", ActiveDirectoryPayload.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ActiveDirectoryPayload is not found in the empty JSON string", ActiveDirectoryPayload.openapiRequiredFields.toString()));
         }
       }
 
@@ -857,7 +828,7 @@ public class ActiveDirectoryPayload {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ActiveDirectoryPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ActiveDirectoryPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ActiveDirectoryPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -866,7 +837,7 @@ public class ActiveDirectoryPayload {
         if (jsonArraycertificatesExpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("certificates_expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `certificates_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("certificates_expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificates_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("certificates_expiration_events").toString()));
           }
 
           // validate the optional field `certificates_expiration_events` (array)
@@ -876,48 +847,48 @@ public class ActiveDirectoryPayload {
         }
       }
       if ((jsonObj.get("certificates_path_template") != null && !jsonObj.get("certificates_path_template").isJsonNull()) && !jsonObj.get("certificates_path_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificates_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificates_path_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificates_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificates_path_template").toString()));
       }
       if ((jsonObj.get("computer_base_dn") != null && !jsonObj.get("computer_base_dn").isJsonNull()) && !jsonObj.get("computer_base_dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `computer_base_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("computer_base_dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `computer_base_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("computer_base_dn").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("discovery_types") != null && !jsonObj.get("discovery_types").isJsonNull() && !jsonObj.get("discovery_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `discovery_types` to be an array in the JSON string but got `%s`", jsonObj.get("discovery_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `discovery_types` to be an array in the JSON string but got `%s`", jsonObj.get("discovery_types").toString()));
       }
       if ((jsonObj.get("domain_name") != null && !jsonObj.get("domain_name").isJsonNull()) && !jsonObj.get("domain_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_name").toString()));
       }
       if ((jsonObj.get("domain_server_targets_path_template") != null && !jsonObj.get("domain_server_targets_path_template").isJsonNull()) && !jsonObj.get("domain_server_targets_path_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domain_server_targets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_server_targets_path_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain_server_targets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_server_targets_path_template").toString()));
       }
       if ((jsonObj.get("domain_users_rotated_secrets_path_template") != null && !jsonObj.get("domain_users_rotated_secrets_path_template").isJsonNull()) && !jsonObj.get("domain_users_rotated_secrets_path_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domain_users_rotated_secrets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_users_rotated_secrets_path_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `domain_users_rotated_secrets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_users_rotated_secrets_path_template").toString()));
       }
       if ((jsonObj.get("local_users_rotated_secrets_path_template") != null && !jsonObj.get("local_users_rotated_secrets_path_template").isJsonNull()) && !jsonObj.get("local_users_rotated_secrets_path_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `local_users_rotated_secrets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_users_rotated_secrets_path_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `local_users_rotated_secrets_path_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("local_users_rotated_secrets_path_template").toString()));
       }
       if ((jsonObj.get("os_filter") != null && !jsonObj.get("os_filter").isJsonNull()) && !jsonObj.get("os_filter").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `os_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_filter").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `os_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_filter").toString()));
       }
       if ((jsonObj.get("ssh_port") != null && !jsonObj.get("ssh_port").isJsonNull()) && !jsonObj.get("ssh_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_port").toString()));
       }
       if ((jsonObj.get("target_format") != null && !jsonObj.get("target_format").isJsonNull()) && !jsonObj.get("target_format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_format").toString()));
       }
       if ((jsonObj.get("targets_type") != null && !jsonObj.get("targets_type").isJsonNull()) && !jsonObj.get("targets_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `targets_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targets_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targets_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targets_type").toString()));
       }
       if ((jsonObj.get("user_base_dn") != null && !jsonObj.get("user_base_dn").isJsonNull()) && !jsonObj.get("user_base_dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_base_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_base_dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_base_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_base_dn").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_groups") != null && !jsonObj.get("user_groups").isJsonNull() && !jsonObj.get("user_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_groups` to be an array in the JSON string but got `%s`", jsonObj.get("user_groups").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_groups` to be an array in the JSON string but got `%s`", jsonObj.get("user_groups").toString()));
       }
       if ((jsonObj.get("winrm_port") != null && !jsonObj.get("winrm_port").isJsonNull()) && !jsonObj.get("winrm_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `winrm_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("winrm_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `winrm_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("winrm_port").toString()));
       }
   }
 

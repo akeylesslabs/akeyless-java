@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GCPPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GCPPayload {
   public static final String SERIALIZED_NAME_GCP_CREDENTIALS_JSON = "gcp_credentials_json";
   @SerializedName(SERIALIZED_NAME_GCP_CREDENTIALS_JSON)
@@ -161,10 +161,7 @@ public class GCPPayload {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class GCPPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("gcp_credentials_json");
-    openapiFields.add("project_id");
-    openapiFields.add("use_gw_cloud_identity");
+    openapiFields = new HashSet<String>(Arrays.asList("gcp_credentials_json", "project_id", "use_gw_cloud_identity"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class GCPPayload {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GCPPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GCPPayload is not found in the empty JSON string", GCPPayload.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GCPPayload is not found in the empty JSON string", GCPPayload.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,15 +193,15 @@ public class GCPPayload {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GCPPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GCPPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GCPPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gcp_credentials_json") != null && !jsonObj.get("gcp_credentials_json").isJsonNull()) && !jsonObj.get("gcp_credentials_json").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp_credentials_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_credentials_json").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp_credentials_json` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_credentials_json").toString()));
       }
       if ((jsonObj.get("project_id") != null && !jsonObj.get("project_id").isJsonNull()) && !jsonObj.get("project_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_id").toString()));
       }
   }
 

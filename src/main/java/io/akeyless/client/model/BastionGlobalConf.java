@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * BastionGlobalConf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class BastionGlobalConf {
   public static final String SERIALIZED_NAME_ALLOWED_BASTION_URLS = "allowed_bastion_urls";
   @SerializedName(SERIALIZED_NAME_ALLOWED_BASTION_URLS)
@@ -249,10 +249,7 @@ public class BastionGlobalConf {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -261,16 +258,10 @@ public class BastionGlobalConf {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed_bastion_urls");
-    openapiFields.add("allowed_ssh_url");
-    openapiFields.add("default_session_ttl_minutes");
-    openapiFields.add("legacy_signing_alg");
-    openapiFields.add("rdp_username_sub_claim");
-    openapiFields.add("ssh_username_sub_claim");
+    openapiFields = new HashSet<String>(Arrays.asList("allowed_bastion_urls", "allowed_ssh_url", "default_session_ttl_minutes", "legacy_signing_alg", "rdp_username_sub_claim", "ssh_username_sub_claim"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -282,7 +273,7 @@ public class BastionGlobalConf {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!BastionGlobalConf.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BastionGlobalConf is not found in the empty JSON string", BastionGlobalConf.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BastionGlobalConf is not found in the empty JSON string", BastionGlobalConf.openapiRequiredFields.toString()));
         }
       }
 
@@ -290,22 +281,22 @@ public class BastionGlobalConf {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BastionGlobalConf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BastionGlobalConf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BastionGlobalConf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_bastion_urls") != null && !jsonObj.get("allowed_bastion_urls").isJsonNull() && !jsonObj.get("allowed_bastion_urls").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_bastion_urls` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_bastion_urls").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_bastion_urls` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_bastion_urls").toString()));
       }
       if ((jsonObj.get("allowed_ssh_url") != null && !jsonObj.get("allowed_ssh_url").isJsonNull()) && !jsonObj.get("allowed_ssh_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_ssh_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed_ssh_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_ssh_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed_ssh_url").toString()));
       }
       if ((jsonObj.get("rdp_username_sub_claim") != null && !jsonObj.get("rdp_username_sub_claim").isJsonNull()) && !jsonObj.get("rdp_username_sub_claim").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rdp_username_sub_claim` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp_username_sub_claim").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rdp_username_sub_claim` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp_username_sub_claim").toString()));
       }
       if ((jsonObj.get("ssh_username_sub_claim") != null && !jsonObj.get("ssh_username_sub_claim").isJsonNull()) && !jsonObj.get("ssh_username_sub_claim").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh_username_sub_claim` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_username_sub_claim").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh_username_sub_claim` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_username_sub_claim").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GetCertificateValueOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GetCertificateValueOutput {
   public static final String SERIALIZED_NAME_CERTIFICATE_PEM = "certificate_pem";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PEM)
@@ -135,10 +135,7 @@ public class GetCertificateValueOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class GetCertificateValueOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate_pem");
-    openapiFields.add("private_key_pem");
+    openapiFields = new HashSet<String>(Arrays.asList("certificate_pem", "private_key_pem"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class GetCertificateValueOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetCertificateValueOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetCertificateValueOutput is not found in the empty JSON string", GetCertificateValueOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetCertificateValueOutput is not found in the empty JSON string", GetCertificateValueOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class GetCertificateValueOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetCertificateValueOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetCertificateValueOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetCertificateValueOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificate_pem") != null && !jsonObj.get("certificate_pem").isJsonNull()) && !jsonObj.get("certificate_pem").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_pem").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_pem").toString()));
       }
       if ((jsonObj.get("private_key_pem") != null && !jsonObj.get("private_key_pem").isJsonNull()) && !jsonObj.get("private_key_pem").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `private_key_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private_key_pem").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `private_key_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private_key_pem").toString()));
       }
   }
 

@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * ConfigChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ConfigChange {
   public static final String SERIALIZED_NAME_CONFIG_HASH = "config_hash";
   @SerializedName(SERIALIZED_NAME_CONFIG_HASH)
@@ -217,10 +217,7 @@ public class ConfigChange {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -229,15 +226,10 @@ public class ConfigChange {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("config_hash");
-    openapiFields.add("last_change");
-    openapiFields.add("last_status");
-    openapiFields.add("required_activity");
-    openapiFields.add("update_stamp");
+    openapiFields = new HashSet<String>(Arrays.asList("config_hash", "last_change", "last_status", "required_activity", "update_stamp"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -249,7 +241,7 @@ public class ConfigChange {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ConfigChange.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigChange is not found in the empty JSON string", ConfigChange.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConfigChange is not found in the empty JSON string", ConfigChange.openapiRequiredFields.toString()));
         }
       }
 
@@ -257,7 +249,7 @@ public class ConfigChange {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ConfigChange.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigChange` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConfigChange` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

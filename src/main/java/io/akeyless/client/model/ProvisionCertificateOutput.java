@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * ProvisionCertificateOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ProvisionCertificateOutput {
   public static final String SERIALIZED_NAME_FAIL_MESSAGE = "FailMessage";
   @SerializedName(SERIALIZED_NAME_FAIL_MESSAGE)
@@ -198,10 +198,7 @@ public class ProvisionCertificateOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -210,14 +207,10 @@ public class ProvisionCertificateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("FailMessage");
-    openapiFields.add("SuccessMessage");
-    openapiFields.add("host_names");
-    openapiFields.add("provisioned_at");
+    openapiFields = new HashSet<String>(Arrays.asList("FailMessage", "SuccessMessage", "host_names", "provisioned_at"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -229,7 +222,7 @@ public class ProvisionCertificateOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ProvisionCertificateOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ProvisionCertificateOutput is not found in the empty JSON string", ProvisionCertificateOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ProvisionCertificateOutput is not found in the empty JSON string", ProvisionCertificateOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -237,19 +230,19 @@ public class ProvisionCertificateOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ProvisionCertificateOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ProvisionCertificateOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ProvisionCertificateOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("FailMessage") != null && !jsonObj.get("FailMessage").isJsonNull()) && !jsonObj.get("FailMessage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `FailMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("FailMessage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `FailMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("FailMessage").toString()));
       }
       if ((jsonObj.get("SuccessMessage") != null && !jsonObj.get("SuccessMessage").isJsonNull()) && !jsonObj.get("SuccessMessage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `SuccessMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SuccessMessage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SuccessMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SuccessMessage").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("host_names") != null && !jsonObj.get("host_names").isJsonNull() && !jsonObj.get("host_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `host_names` to be an array in the JSON string but got `%s`", jsonObj.get("host_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host_names` to be an array in the JSON string but got `%s`", jsonObj.get("host_names").toString()));
       }
   }
 

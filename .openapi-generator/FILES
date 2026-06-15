@@ -422,8 +422,14 @@ docs/ExternalKMSKeyId.md
 docs/FolderCreate.md
 docs/FolderCreateOutput.md
 docs/FolderDelete.md
+docs/FolderDeleteSync.md
+docs/FolderDeleteSyncOutput.md
 docs/FolderGet.md
 docs/FolderGetOutput.md
+docs/FolderSync.md
+docs/FolderSyncAll.md
+docs/FolderSyncAllOutput.md
+docs/FolderSyncOutput.md
 docs/FolderUSCSyncConfig.md
 docs/FolderUpdate.md
 docs/GCPAccessRules.md
@@ -815,6 +821,7 @@ docs/PasswordScoreInfo.md
 docs/PasswordScoreSetting.md
 docs/PasswordSecurityInfo.md
 docs/PathRule.md
+docs/PersonalFolderGlobalMappingSettings.md
 docs/PingTargetDetails.md
 docs/PoliciesCreateOutput.md
 docs/PoliciesDelete.md
@@ -864,6 +871,7 @@ docs/RotatedSecretCreateCustom.md
 docs/RotatedSecretCreateDockerhub.md
 docs/RotatedSecretCreateGcp.md
 docs/RotatedSecretCreateHanadb.md
+docs/RotatedSecretCreateHashiVault.md
 docs/RotatedSecretCreateLdap.md
 docs/RotatedSecretCreateMongodb.md
 docs/RotatedSecretCreateMssql.md
@@ -893,6 +901,7 @@ docs/RotatedSecretUpdateCustom.md
 docs/RotatedSecretUpdateDockerhub.md
 docs/RotatedSecretUpdateGcp.md
 docs/RotatedSecretUpdateHanadb.md
+docs/RotatedSecretUpdateHashiVault.md
 docs/RotatedSecretUpdateLdap.md
 docs/RotatedSecretUpdateMongodb.md
 docs/RotatedSecretUpdateMssql.md
@@ -1650,8 +1659,14 @@ src/main/java/io/akeyless/client/model/ExternalKMSKeyId.java
 src/main/java/io/akeyless/client/model/FolderCreate.java
 src/main/java/io/akeyless/client/model/FolderCreateOutput.java
 src/main/java/io/akeyless/client/model/FolderDelete.java
+src/main/java/io/akeyless/client/model/FolderDeleteSync.java
+src/main/java/io/akeyless/client/model/FolderDeleteSyncOutput.java
 src/main/java/io/akeyless/client/model/FolderGet.java
 src/main/java/io/akeyless/client/model/FolderGetOutput.java
+src/main/java/io/akeyless/client/model/FolderSync.java
+src/main/java/io/akeyless/client/model/FolderSyncAll.java
+src/main/java/io/akeyless/client/model/FolderSyncAllOutput.java
+src/main/java/io/akeyless/client/model/FolderSyncOutput.java
 src/main/java/io/akeyless/client/model/FolderUSCSyncConfig.java
 src/main/java/io/akeyless/client/model/FolderUpdate.java
 src/main/java/io/akeyless/client/model/GCPAccessRules.java
@@ -2043,6 +2058,7 @@ src/main/java/io/akeyless/client/model/PasswordScoreInfo.java
 src/main/java/io/akeyless/client/model/PasswordScoreSetting.java
 src/main/java/io/akeyless/client/model/PasswordSecurityInfo.java
 src/main/java/io/akeyless/client/model/PathRule.java
+src/main/java/io/akeyless/client/model/PersonalFolderGlobalMappingSettings.java
 src/main/java/io/akeyless/client/model/PingTargetDetails.java
 src/main/java/io/akeyless/client/model/PoliciesCreateOutput.java
 src/main/java/io/akeyless/client/model/PoliciesDelete.java
@@ -2092,6 +2108,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreateCustom.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateDockerhub.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateGcp.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateHanadb.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateHashiVault.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateLdap.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMongodb.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMssql.java
@@ -2121,6 +2138,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretUpdateCustom.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateDockerhub.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateGcp.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateHanadb.java
+src/main/java/io/akeyless/client/model/RotatedSecretUpdateHashiVault.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateLdap.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMongodb.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMssql.java
@@ -2432,3 +2450,12 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/FolderDeleteSyncOutputTest.java
+src/test/java/io/akeyless/client/model/FolderDeleteSyncTest.java
+src/test/java/io/akeyless/client/model/FolderSyncAllOutputTest.java
+src/test/java/io/akeyless/client/model/FolderSyncAllTest.java
+src/test/java/io/akeyless/client/model/FolderSyncOutputTest.java
+src/test/java/io/akeyless/client/model/FolderSyncTest.java
+src/test/java/io/akeyless/client/model/PersonalFolderGlobalMappingSettingsTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateHashiVaultTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretUpdateHashiVaultTest.java

@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * CertAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CertAccessRules {
   public static final String SERIALIZED_NAME_ALLOWED_CORS = "allowed_cors";
   @SerializedName(SERIALIZED_NAME_ALLOWED_CORS)
@@ -435,10 +435,7 @@ public class CertAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -447,21 +444,10 @@ public class CertAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed_cors");
-    openapiFields.add("bound_common_names");
-    openapiFields.add("bound_dns_sans");
-    openapiFields.add("bound_email_sans");
-    openapiFields.add("bound_extensions");
-    openapiFields.add("bound_organizational_units");
-    openapiFields.add("bound_uri_sans");
-    openapiFields.add("certificate");
-    openapiFields.add("require_crl_dp");
-    openapiFields.add("revoked_cert_ids");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("allowed_cors", "bound_common_names", "bound_dns_sans", "bound_email_sans", "bound_extensions", "bound_organizational_units", "bound_uri_sans", "certificate", "require_crl_dp", "revoked_cert_ids", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -473,7 +459,7 @@ public class CertAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CertAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CertAccessRules is not found in the empty JSON string", CertAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CertAccessRules is not found in the empty JSON string", CertAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -481,47 +467,47 @@ public class CertAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CertAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CertAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CertAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_cors") != null && !jsonObj.get("allowed_cors").isJsonNull() && !jsonObj.get("allowed_cors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_cors` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_cors").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_cors` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_cors").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_common_names") != null && !jsonObj.get("bound_common_names").isJsonNull() && !jsonObj.get("bound_common_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_common_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_common_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_common_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_common_names").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_dns_sans") != null && !jsonObj.get("bound_dns_sans").isJsonNull() && !jsonObj.get("bound_dns_sans").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_dns_sans` to be an array in the JSON string but got `%s`", jsonObj.get("bound_dns_sans").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_dns_sans` to be an array in the JSON string but got `%s`", jsonObj.get("bound_dns_sans").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_email_sans") != null && !jsonObj.get("bound_email_sans").isJsonNull() && !jsonObj.get("bound_email_sans").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_email_sans` to be an array in the JSON string but got `%s`", jsonObj.get("bound_email_sans").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_email_sans` to be an array in the JSON string but got `%s`", jsonObj.get("bound_email_sans").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_extensions") != null && !jsonObj.get("bound_extensions").isJsonNull() && !jsonObj.get("bound_extensions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_extensions` to be an array in the JSON string but got `%s`", jsonObj.get("bound_extensions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_extensions` to be an array in the JSON string but got `%s`", jsonObj.get("bound_extensions").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_organizational_units") != null && !jsonObj.get("bound_organizational_units").isJsonNull() && !jsonObj.get("bound_organizational_units").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_organizational_units` to be an array in the JSON string but got `%s`", jsonObj.get("bound_organizational_units").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_organizational_units` to be an array in the JSON string but got `%s`", jsonObj.get("bound_organizational_units").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_uri_sans") != null && !jsonObj.get("bound_uri_sans").isJsonNull() && !jsonObj.get("bound_uri_sans").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_uri_sans` to be an array in the JSON string but got `%s`", jsonObj.get("bound_uri_sans").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_uri_sans` to be an array in the JSON string but got `%s`", jsonObj.get("bound_uri_sans").toString()));
       }
       if ((jsonObj.get("certificate") != null && !jsonObj.get("certificate").isJsonNull()) && !jsonObj.get("certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("revoked_cert_ids") != null && !jsonObj.get("revoked_cert_ids").isJsonNull() && !jsonObj.get("revoked_cert_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `revoked_cert_ids` to be an array in the JSON string but got `%s`", jsonObj.get("revoked_cert_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `revoked_cert_ids` to be an array in the JSON string but got `%s`", jsonObj.get("revoked_cert_ids").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

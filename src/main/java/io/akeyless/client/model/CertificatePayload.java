@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * CertificatePayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CertificatePayload {
   public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
@@ -285,10 +285,7 @@ public class CertificatePayload {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -297,17 +294,10 @@ public class CertificatePayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("expiration_events");
-    openapiFields.add("folder");
-    openapiFields.add("max_dial_timeout");
-    openapiFields.add("max_scan_duration");
-    openapiFields.add("max_workers");
-    openapiFields.add("port_ranges");
-    openapiFields.add("targets");
+    openapiFields = new HashSet<String>(Arrays.asList("expiration_events", "folder", "max_dial_timeout", "max_scan_duration", "max_workers", "port_ranges", "targets"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -319,7 +309,7 @@ public class CertificatePayload {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CertificatePayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CertificatePayload is not found in the empty JSON string", CertificatePayload.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CertificatePayload is not found in the empty JSON string", CertificatePayload.openapiRequiredFields.toString()));
         }
       }
 
@@ -327,7 +317,7 @@ public class CertificatePayload {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CertificatePayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CertificatePayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CertificatePayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -336,7 +326,7 @@ public class CertificatePayload {
         if (jsonArrayexpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
           }
 
           // validate the optional field `expiration_events` (array)
@@ -346,17 +336,17 @@ public class CertificatePayload {
         }
       }
       if ((jsonObj.get("folder") != null && !jsonObj.get("folder").isJsonNull()) && !jsonObj.get("folder").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `folder` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder").toString()));
       }
       if ((jsonObj.get("port_ranges") != null && !jsonObj.get("port_ranges").isJsonNull()) && !jsonObj.get("port_ranges").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `port_ranges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port_ranges").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port_ranges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port_ranges").toString()));
       }
       if (jsonObj.get("targets") != null && !jsonObj.get("targets").isJsonNull()) {
         JsonArray jsonArraytargets = jsonObj.getAsJsonArray("targets");
         if (jsonArraytargets != null) {
           // ensure the json data is an array
           if (!jsonObj.get("targets").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `targets` to be an array in the JSON string but got `%s`", jsonObj.get("targets").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targets` to be an array in the JSON string but got `%s`", jsonObj.get("targets").toString()));
           }
 
           // validate the optional field `targets` (array)

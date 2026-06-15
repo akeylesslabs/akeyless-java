@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * RegexpTokenizerInfo represents a general Regexp tokenization template
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RegexpTokenizerInfo {
   public static final String SERIALIZED_NAME_ALPHABET = "alphabet";
   @SerializedName(SERIALIZED_NAME_ALPHABET)
@@ -187,10 +187,7 @@ public class RegexpTokenizerInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class RegexpTokenizerInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alphabet");
-    openapiFields.add("decoding_template");
-    openapiFields.add("encoding_template");
-    openapiFields.add("pattern");
+    openapiFields = new HashSet<String>(Arrays.asList("alphabet", "decoding_template", "encoding_template", "pattern"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class RegexpTokenizerInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RegexpTokenizerInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RegexpTokenizerInfo is not found in the empty JSON string", RegexpTokenizerInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RegexpTokenizerInfo is not found in the empty JSON string", RegexpTokenizerInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,21 +219,21 @@ public class RegexpTokenizerInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RegexpTokenizerInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RegexpTokenizerInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RegexpTokenizerInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("alphabet") != null && !jsonObj.get("alphabet").isJsonNull()) && !jsonObj.get("alphabet").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alphabet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alphabet").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alphabet` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alphabet").toString()));
       }
       if ((jsonObj.get("decoding_template") != null && !jsonObj.get("decoding_template").isJsonNull()) && !jsonObj.get("decoding_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `decoding_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decoding_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `decoding_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("decoding_template").toString()));
       }
       if ((jsonObj.get("encoding_template") != null && !jsonObj.get("encoding_template").isJsonNull()) && !jsonObj.get("encoding_template").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encoding_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encoding_template").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encoding_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encoding_template").toString()));
       }
       if ((jsonObj.get("pattern") != null && !jsonObj.get("pattern").isJsonNull()) && !jsonObj.get("pattern").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pattern").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pattern").toString()));
       }
   }
 

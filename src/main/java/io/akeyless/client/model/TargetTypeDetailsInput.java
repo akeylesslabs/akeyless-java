@@ -84,7 +84,7 @@ import io.akeyless.client.JSON;
 /**
  * TargetTypeDetailsInput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class TargetTypeDetailsInput {
   public static final String SERIALIZED_NAME_ARTIFACTORY_TARGET_DETAILS = "artifactory_target_details";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_TARGET_DETAILS)
@@ -1055,10 +1055,7 @@ public class TargetTypeDetailsInput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1067,46 +1064,10 @@ public class TargetTypeDetailsInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("artifactory_target_details");
-    openapiFields.add("aws_target_details");
-    openapiFields.add("azure_target_details");
-    openapiFields.add("chef_target_details");
-    openapiFields.add("cloudflare_target_details");
-    openapiFields.add("custom_target_details");
-    openapiFields.add("db_target_details");
-    openapiFields.add("digicert_target_details");
-    openapiFields.add("dockerhub_target_details");
-    openapiFields.add("eks_target_details");
-    openapiFields.add("gcp_target_details");
-    openapiFields.add("gemini_target_details");
-    openapiFields.add("github_target_details");
-    openapiFields.add("gitlab_target_details");
-    openapiFields.add("gke_target_details");
-    openapiFields.add("globalsign_atlas_target_details");
-    openapiFields.add("globalsign_target_details");
-    openapiFields.add("godaddy_target_details");
-    openapiFields.add("google_trust_target_details");
-    openapiFields.add("hashi_vault_target_details");
-    openapiFields.add("ldap_target_details");
-    openapiFields.add("letsencrypt_target_details");
-    openapiFields.add("linked_target_details");
-    openapiFields.add("mongo_db_target_details");
-    openapiFields.add("native_k8s_target_details");
-    openapiFields.add("openai_target_details");
-    openapiFields.add("ping_target_details");
-    openapiFields.add("rabbit_mq_target_details");
-    openapiFields.add("salesforce_target_details");
-    openapiFields.add("sectigo_target_details");
-    openapiFields.add("splunk_target_details");
-    openapiFields.add("ssh_target_details");
-    openapiFields.add("venafi_target_details");
-    openapiFields.add("web_target_details");
-    openapiFields.add("windows_target_details");
-    openapiFields.add("zerossl_target_details");
+    openapiFields = new HashSet<String>(Arrays.asList("artifactory_target_details", "aws_target_details", "azure_target_details", "chef_target_details", "cloudflare_target_details", "custom_target_details", "db_target_details", "digicert_target_details", "dockerhub_target_details", "eks_target_details", "gcp_target_details", "gemini_target_details", "github_target_details", "gitlab_target_details", "gke_target_details", "globalsign_atlas_target_details", "globalsign_target_details", "godaddy_target_details", "google_trust_target_details", "hashi_vault_target_details", "ldap_target_details", "letsencrypt_target_details", "linked_target_details", "mongo_db_target_details", "native_k8s_target_details", "openai_target_details", "ping_target_details", "rabbit_mq_target_details", "salesforce_target_details", "sectigo_target_details", "splunk_target_details", "ssh_target_details", "venafi_target_details", "web_target_details", "windows_target_details", "zerossl_target_details"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -1118,7 +1079,7 @@ public class TargetTypeDetailsInput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TargetTypeDetailsInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TargetTypeDetailsInput is not found in the empty JSON string", TargetTypeDetailsInput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TargetTypeDetailsInput is not found in the empty JSON string", TargetTypeDetailsInput.openapiRequiredFields.toString()));
         }
       }
 
@@ -1126,7 +1087,7 @@ public class TargetTypeDetailsInput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TargetTypeDetailsInput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TargetTypeDetailsInput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TargetTypeDetailsInput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

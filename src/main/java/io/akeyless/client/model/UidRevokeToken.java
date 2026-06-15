@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * UidRevokeToken
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UidRevokeToken {
   public static final String SERIALIZED_NAME_AUTH_METHOD_NAME = "auth-method-name";
   @SerializedName(SERIALIZED_NAME_AUTH_METHOD_NAME)
@@ -239,10 +239,7 @@ public class UidRevokeToken {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,18 +248,10 @@ public class UidRevokeToken {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auth-method-name");
-    openapiFields.add("json");
-    openapiFields.add("revoke-token");
-    openapiFields.add("revoke-type");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("auth-method-name", "json", "revoke-token", "revoke-type", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("revoke-token");
-    openapiRequiredFields.add("revoke-type");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("revoke-token", "revoke-type"));
   }
 
   /**
@@ -274,7 +263,7 @@ public class UidRevokeToken {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UidRevokeToken.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UidRevokeToken is not found in the empty JSON string", UidRevokeToken.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UidRevokeToken is not found in the empty JSON string", UidRevokeToken.openapiRequiredFields.toString()));
         }
       }
 
@@ -282,31 +271,31 @@ public class UidRevokeToken {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UidRevokeToken.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UidRevokeToken` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UidRevokeToken` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UidRevokeToken.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("auth-method-name") != null && !jsonObj.get("auth-method-name").isJsonNull()) && !jsonObj.get("auth-method-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth-method-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-method-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth-method-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-method-name").toString()));
       }
       if (!jsonObj.get("revoke-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `revoke-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("revoke-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `revoke-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("revoke-token").toString()));
       }
       if (!jsonObj.get("revoke-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `revoke-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("revoke-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `revoke-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("revoke-type").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

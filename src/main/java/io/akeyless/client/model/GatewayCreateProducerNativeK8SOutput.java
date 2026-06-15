@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * GatewayCreateProducerNativeK8SOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayCreateProducerNativeK8SOutput {
   public static final String SERIALIZED_NAME_PRODUCER_DETAILS = "producer_details";
   @SerializedName(SERIALIZED_NAME_PRODUCER_DETAILS)
@@ -110,10 +110,7 @@ public class GatewayCreateProducerNativeK8SOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -122,11 +119,10 @@ public class GatewayCreateProducerNativeK8SOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("producer_details");
+    openapiFields = new HashSet<String>(Arrays.asList("producer_details"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -138,7 +134,7 @@ public class GatewayCreateProducerNativeK8SOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayCreateProducerNativeK8SOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayCreateProducerNativeK8SOutput is not found in the empty JSON string", GatewayCreateProducerNativeK8SOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayCreateProducerNativeK8SOutput is not found in the empty JSON string", GatewayCreateProducerNativeK8SOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -146,7 +142,7 @@ public class GatewayCreateProducerNativeK8SOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayCreateProducerNativeK8SOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayCreateProducerNativeK8SOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayCreateProducerNativeK8SOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

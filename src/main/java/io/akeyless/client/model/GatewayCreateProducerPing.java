@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayCreateProducerPing is a command that creates ping producer [Deprecated: Use dynamic-secret-create-ping command]
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayCreateProducerPing {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -871,10 +871,7 @@ public class GatewayCreateProducerPing {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -883,39 +880,10 @@ public class GatewayCreateProducerPing {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_protection");
-    openapiFields.add("input-rule");
-    openapiFields.add("item-custom-fields");
-    openapiFields.add("json");
-    openapiFields.add("name");
-    openapiFields.add("output-rule");
-    openapiFields.add("ping-administrative-port");
-    openapiFields.add("ping-atm-id");
-    openapiFields.add("ping-authorization-port");
-    openapiFields.add("ping-cert-subject-dn");
-    openapiFields.add("ping-client-authentication-type");
-    openapiFields.add("ping-enforce-replay-prevention");
-    openapiFields.add("ping-grant-types");
-    openapiFields.add("ping-issuer-dn");
-    openapiFields.add("ping-jwks");
-    openapiFields.add("ping-jwks-url");
-    openapiFields.add("ping-password");
-    openapiFields.add("ping-privileged-user");
-    openapiFields.add("ping-redirect-uris");
-    openapiFields.add("ping-restricted-scopes");
-    openapiFields.add("ping-signing-algo");
-    openapiFields.add("ping-url");
-    openapiFields.add("producer-encryption-key-name");
-    openapiFields.add("tags");
-    openapiFields.add("target-name");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("user-ttl");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "ping-administrative-port", "ping-atm-id", "ping-authorization-port", "ping-cert-subject-dn", "ping-client-authentication-type", "ping-enforce-replay-prevention", "ping-grant-types", "ping-issuer-dn", "ping-jwks", "ping-jwks-url", "ping-password", "ping-privileged-user", "ping-redirect-uris", "ping-restricted-scopes", "ping-signing-algo", "ping-url", "producer-encryption-key-name", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -927,7 +895,7 @@ public class GatewayCreateProducerPing {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayCreateProducerPing.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayCreateProducerPing is not found in the empty JSON string", GatewayCreateProducerPing.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayCreateProducerPing is not found in the empty JSON string", GatewayCreateProducerPing.openapiRequiredFields.toString()));
         }
       }
 
@@ -935,100 +903,100 @@ public class GatewayCreateProducerPing {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayCreateProducerPing.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayCreateProducerPing` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayCreateProducerPing` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GatewayCreateProducerPing.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("ping-administrative-port") != null && !jsonObj.get("ping-administrative-port").isJsonNull()) && !jsonObj.get("ping-administrative-port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-administrative-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-administrative-port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-administrative-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-administrative-port").toString()));
       }
       if ((jsonObj.get("ping-atm-id") != null && !jsonObj.get("ping-atm-id").isJsonNull()) && !jsonObj.get("ping-atm-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-atm-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-atm-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-atm-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-atm-id").toString()));
       }
       if ((jsonObj.get("ping-authorization-port") != null && !jsonObj.get("ping-authorization-port").isJsonNull()) && !jsonObj.get("ping-authorization-port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-authorization-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-authorization-port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-authorization-port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-authorization-port").toString()));
       }
       if ((jsonObj.get("ping-cert-subject-dn") != null && !jsonObj.get("ping-cert-subject-dn").isJsonNull()) && !jsonObj.get("ping-cert-subject-dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-cert-subject-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-cert-subject-dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-cert-subject-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-cert-subject-dn").toString()));
       }
       if ((jsonObj.get("ping-client-authentication-type") != null && !jsonObj.get("ping-client-authentication-type").isJsonNull()) && !jsonObj.get("ping-client-authentication-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-client-authentication-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-client-authentication-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-client-authentication-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-client-authentication-type").toString()));
       }
       if ((jsonObj.get("ping-enforce-replay-prevention") != null && !jsonObj.get("ping-enforce-replay-prevention").isJsonNull()) && !jsonObj.get("ping-enforce-replay-prevention").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-enforce-replay-prevention` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-enforce-replay-prevention").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-enforce-replay-prevention` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-enforce-replay-prevention").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ping-grant-types") != null && !jsonObj.get("ping-grant-types").isJsonNull() && !jsonObj.get("ping-grant-types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-grant-types` to be an array in the JSON string but got `%s`", jsonObj.get("ping-grant-types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-grant-types` to be an array in the JSON string but got `%s`", jsonObj.get("ping-grant-types").toString()));
       }
       if ((jsonObj.get("ping-issuer-dn") != null && !jsonObj.get("ping-issuer-dn").isJsonNull()) && !jsonObj.get("ping-issuer-dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-issuer-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-issuer-dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-issuer-dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-issuer-dn").toString()));
       }
       if ((jsonObj.get("ping-jwks") != null && !jsonObj.get("ping-jwks").isJsonNull()) && !jsonObj.get("ping-jwks").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-jwks` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-jwks").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-jwks` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-jwks").toString()));
       }
       if ((jsonObj.get("ping-jwks-url") != null && !jsonObj.get("ping-jwks-url").isJsonNull()) && !jsonObj.get("ping-jwks-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-jwks-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-jwks-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-jwks-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-jwks-url").toString()));
       }
       if ((jsonObj.get("ping-password") != null && !jsonObj.get("ping-password").isJsonNull()) && !jsonObj.get("ping-password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-password").toString()));
       }
       if ((jsonObj.get("ping-privileged-user") != null && !jsonObj.get("ping-privileged-user").isJsonNull()) && !jsonObj.get("ping-privileged-user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-privileged-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-privileged-user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-privileged-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-privileged-user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ping-redirect-uris") != null && !jsonObj.get("ping-redirect-uris").isJsonNull() && !jsonObj.get("ping-redirect-uris").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-redirect-uris` to be an array in the JSON string but got `%s`", jsonObj.get("ping-redirect-uris").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-redirect-uris` to be an array in the JSON string but got `%s`", jsonObj.get("ping-redirect-uris").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ping-restricted-scopes") != null && !jsonObj.get("ping-restricted-scopes").isJsonNull() && !jsonObj.get("ping-restricted-scopes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-restricted-scopes` to be an array in the JSON string but got `%s`", jsonObj.get("ping-restricted-scopes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-restricted-scopes` to be an array in the JSON string but got `%s`", jsonObj.get("ping-restricted-scopes").toString()));
       }
       if ((jsonObj.get("ping-signing-algo") != null && !jsonObj.get("ping-signing-algo").isJsonNull()) && !jsonObj.get("ping-signing-algo").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-signing-algo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-signing-algo").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-signing-algo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-signing-algo").toString()));
       }
       if ((jsonObj.get("ping-url") != null && !jsonObj.get("ping-url").isJsonNull()) && !jsonObj.get("ping-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ping-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ping-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ping-url").toString()));
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       if ((jsonObj.get("target-name") != null && !jsonObj.get("target-name").isJsonNull()) && !jsonObj.get("target-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("user-ttl") != null && !jsonObj.get("user-ttl").isJsonNull()) && !jsonObj.get("user-ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user-ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user-ttl").toString()));
       }
   }
 

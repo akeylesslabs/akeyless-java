@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * Group
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class Group {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -329,10 +329,7 @@ public class Group {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -341,19 +338,10 @@ public class Group {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account_id");
-    openapiFields.add("creation_date");
-    openapiFields.add("description");
-    openapiFields.add("group_alias");
-    openapiFields.add("group_id");
-    openapiFields.add("group_name");
-    openapiFields.add("is_subclaims_with_operator");
-    openapiFields.add("modification_date");
-    openapiFields.add("user_assignments");
+    openapiFields = new HashSet<String>(Arrays.asList("account_id", "creation_date", "description", "group_alias", "group_id", "group_name", "is_subclaims_with_operator", "modification_date", "user_assignments"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -365,7 +353,7 @@ public class Group {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Group.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Group is not found in the empty JSON string", Group.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Group is not found in the empty JSON string", Group.openapiRequiredFields.toString()));
         }
       }
 
@@ -373,31 +361,31 @@ public class Group {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Group.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Group` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Group` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("group_alias") != null && !jsonObj.get("group_alias").isJsonNull()) && !jsonObj.get("group_alias").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `group_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_alias").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_alias").toString()));
       }
       if ((jsonObj.get("group_id") != null && !jsonObj.get("group_id").isJsonNull()) && !jsonObj.get("group_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `group_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_id").toString()));
       }
       if ((jsonObj.get("group_name") != null && !jsonObj.get("group_name").isJsonNull()) && !jsonObj.get("group_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_name").toString()));
       }
       if (jsonObj.get("user_assignments") != null && !jsonObj.get("user_assignments").isJsonNull()) {
         JsonArray jsonArrayuserAssignments = jsonObj.getAsJsonArray("user_assignments");
         if (jsonArrayuserAssignments != null) {
           // ensure the json data is an array
           if (!jsonObj.get("user_assignments").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `user_assignments` to be an array in the JSON string but got `%s`", jsonObj.get("user_assignments").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_assignments` to be an array in the JSON string but got `%s`", jsonObj.get("user_assignments").toString()));
           }
 
           // validate the optional field `user_assignments` (array)

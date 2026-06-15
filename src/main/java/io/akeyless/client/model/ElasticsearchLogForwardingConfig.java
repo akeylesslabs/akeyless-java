@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ElasticsearchLogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ElasticsearchLogForwardingConfig {
   public static final String SERIALIZED_NAME_ELASTICSEARCH_API_KEY = "elasticsearch_api_key";
   @SerializedName(SERIALIZED_NAME_ELASTICSEARCH_API_KEY)
@@ -343,10 +343,7 @@ public class ElasticsearchLogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -355,20 +352,10 @@ public class ElasticsearchLogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("elasticsearch_api_key");
-    openapiFields.add("elasticsearch_auth_type");
-    openapiFields.add("elasticsearch_cloud_id");
-    openapiFields.add("elasticsearch_enable_tls");
-    openapiFields.add("elasticsearch_index");
-    openapiFields.add("elasticsearch_nodes");
-    openapiFields.add("elasticsearch_password");
-    openapiFields.add("elasticsearch_server_type");
-    openapiFields.add("elasticsearch_tls_certificate");
-    openapiFields.add("elasticsearch_user_name");
+    openapiFields = new HashSet<String>(Arrays.asList("elasticsearch_api_key", "elasticsearch_auth_type", "elasticsearch_cloud_id", "elasticsearch_enable_tls", "elasticsearch_index", "elasticsearch_nodes", "elasticsearch_password", "elasticsearch_server_type", "elasticsearch_tls_certificate", "elasticsearch_user_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -380,7 +367,7 @@ public class ElasticsearchLogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ElasticsearchLogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ElasticsearchLogForwardingConfig is not found in the empty JSON string", ElasticsearchLogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ElasticsearchLogForwardingConfig is not found in the empty JSON string", ElasticsearchLogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -388,36 +375,36 @@ public class ElasticsearchLogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ElasticsearchLogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ElasticsearchLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ElasticsearchLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("elasticsearch_api_key") != null && !jsonObj.get("elasticsearch_api_key").isJsonNull()) && !jsonObj.get("elasticsearch_api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_api_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_api_key").toString()));
       }
       if ((jsonObj.get("elasticsearch_auth_type") != null && !jsonObj.get("elasticsearch_auth_type").isJsonNull()) && !jsonObj.get("elasticsearch_auth_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_auth_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_auth_type").toString()));
       }
       if ((jsonObj.get("elasticsearch_cloud_id") != null && !jsonObj.get("elasticsearch_cloud_id").isJsonNull()) && !jsonObj.get("elasticsearch_cloud_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_cloud_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_cloud_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_cloud_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_cloud_id").toString()));
       }
       if ((jsonObj.get("elasticsearch_index") != null && !jsonObj.get("elasticsearch_index").isJsonNull()) && !jsonObj.get("elasticsearch_index").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_index` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_index").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_index` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_index").toString()));
       }
       if ((jsonObj.get("elasticsearch_nodes") != null && !jsonObj.get("elasticsearch_nodes").isJsonNull()) && !jsonObj.get("elasticsearch_nodes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_nodes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_nodes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_nodes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_nodes").toString()));
       }
       if ((jsonObj.get("elasticsearch_password") != null && !jsonObj.get("elasticsearch_password").isJsonNull()) && !jsonObj.get("elasticsearch_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_password").toString()));
       }
       if ((jsonObj.get("elasticsearch_server_type") != null && !jsonObj.get("elasticsearch_server_type").isJsonNull()) && !jsonObj.get("elasticsearch_server_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_server_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_server_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_server_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_server_type").toString()));
       }
       if ((jsonObj.get("elasticsearch_tls_certificate") != null && !jsonObj.get("elasticsearch_tls_certificate").isJsonNull()) && !jsonObj.get("elasticsearch_tls_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_tls_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_tls_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_tls_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_tls_certificate").toString()));
       }
       if ((jsonObj.get("elasticsearch_user_name") != null && !jsonObj.get("elasticsearch_user_name").isJsonNull()) && !jsonObj.get("elasticsearch_user_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `elasticsearch_user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_user_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `elasticsearch_user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("elasticsearch_user_name").toString()));
       }
   }
 

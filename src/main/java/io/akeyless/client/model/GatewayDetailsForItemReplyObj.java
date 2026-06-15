@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * GatewayDetailsForItemReplyObj
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayDetailsForItemReplyObj {
   public static final String SERIALIZED_NAME_CLUSTER_ID = "cluster_id";
   @SerializedName(SERIALIZED_NAME_CLUSTER_ID)
@@ -214,10 +214,7 @@ public class GatewayDetailsForItemReplyObj {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -226,15 +223,10 @@ public class GatewayDetailsForItemReplyObj {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cluster_id");
-    openapiFields.add("cluster_name");
-    openapiFields.add("cluster_url");
-    openapiFields.add("desktop_app");
-    openapiFields.add("is_cluster_available");
+    openapiFields = new HashSet<String>(Arrays.asList("cluster_id", "cluster_name", "cluster_url", "desktop_app", "is_cluster_available"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -246,7 +238,7 @@ public class GatewayDetailsForItemReplyObj {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayDetailsForItemReplyObj.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayDetailsForItemReplyObj is not found in the empty JSON string", GatewayDetailsForItemReplyObj.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayDetailsForItemReplyObj is not found in the empty JSON string", GatewayDetailsForItemReplyObj.openapiRequiredFields.toString()));
         }
       }
 
@@ -254,15 +246,15 @@ public class GatewayDetailsForItemReplyObj {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayDetailsForItemReplyObj.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayDetailsForItemReplyObj` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayDetailsForItemReplyObj` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cluster_name") != null && !jsonObj.get("cluster_name").isJsonNull()) && !jsonObj.get("cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
       }
       if ((jsonObj.get("cluster_url") != null && !jsonObj.get("cluster_url").isJsonNull()) && !jsonObj.get("cluster_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_url").toString()));
       }
       // validate the optional field `desktop_app`
       if (jsonObj.get("desktop_app") != null && !jsonObj.get("desktop_app").isJsonNull()) {

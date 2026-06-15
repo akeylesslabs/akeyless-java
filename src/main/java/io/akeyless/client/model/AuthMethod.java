@@ -55,7 +55,7 @@ import io.akeyless.client.JSON;
 /**
  * AuthMethod
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AuthMethod {
   public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
@@ -564,10 +564,7 @@ public class AuthMethod {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -576,27 +573,10 @@ public class AuthMethod {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_date");
-    openapiFields.add("access_date_display");
-    openapiFields.add("access_info");
-    openapiFields.add("account_id");
-    openapiFields.add("associated_gw_ids");
-    openapiFields.add("auth_method_access_id");
-    openapiFields.add("auth_method_additional_data");
-    openapiFields.add("auth_method_id");
-    openapiFields.add("auth_method_name");
-    openapiFields.add("auth_method_roles_assoc");
-    openapiFields.add("client_permissions");
-    openapiFields.add("creation_date");
-    openapiFields.add("delete_protection");
-    openapiFields.add("description");
-    openapiFields.add("expiration_events");
-    openapiFields.add("is_approved");
-    openapiFields.add("modification_date");
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -608,7 +588,7 @@ public class AuthMethod {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AuthMethod.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthMethod is not found in the empty JSON string", AuthMethod.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AuthMethod is not found in the empty JSON string", AuthMethod.openapiRequiredFields.toString()));
         }
       }
 
@@ -616,40 +596,40 @@ public class AuthMethod {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AuthMethod.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthMethod` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AuthMethod` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_date_display") != null && !jsonObj.get("access_date_display").isJsonNull()) && !jsonObj.get("access_date_display").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
       }
       // validate the optional field `access_info`
       if (jsonObj.get("access_info") != null && !jsonObj.get("access_info").isJsonNull()) {
         AuthMethodAccessInfo.validateJsonElement(jsonObj.get("access_info"));
       }
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("associated_gw_ids") != null && !jsonObj.get("associated_gw_ids").isJsonNull() && !jsonObj.get("associated_gw_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `associated_gw_ids` to be an array in the JSON string but got `%s`", jsonObj.get("associated_gw_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `associated_gw_ids` to be an array in the JSON string but got `%s`", jsonObj.get("associated_gw_ids").toString()));
       }
       if ((jsonObj.get("auth_method_access_id") != null && !jsonObj.get("auth_method_access_id").isJsonNull()) && !jsonObj.get("auth_method_access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_method_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_method_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_access_id").toString()));
       }
       // validate the optional field `auth_method_additional_data`
       if (jsonObj.get("auth_method_additional_data") != null && !jsonObj.get("auth_method_additional_data").isJsonNull()) {
         AuthMethodAdditionalData.validateJsonElement(jsonObj.get("auth_method_additional_data"));
       }
       if ((jsonObj.get("auth_method_name") != null && !jsonObj.get("auth_method_name").isJsonNull()) && !jsonObj.get("auth_method_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_method_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_method_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_name").toString()));
       }
       if (jsonObj.get("auth_method_roles_assoc") != null && !jsonObj.get("auth_method_roles_assoc").isJsonNull()) {
         JsonArray jsonArrayauthMethodRolesAssoc = jsonObj.getAsJsonArray("auth_method_roles_assoc");
         if (jsonArrayauthMethodRolesAssoc != null) {
           // ensure the json data is an array
           if (!jsonObj.get("auth_method_roles_assoc").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `auth_method_roles_assoc` to be an array in the JSON string but got `%s`", jsonObj.get("auth_method_roles_assoc").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_method_roles_assoc` to be an array in the JSON string but got `%s`", jsonObj.get("auth_method_roles_assoc").toString()));
           }
 
           // validate the optional field `auth_method_roles_assoc` (array)
@@ -660,17 +640,17 @@ public class AuthMethod {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("client_permissions") != null && !jsonObj.get("client_permissions").isJsonNull() && !jsonObj.get("client_permissions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_permissions` to be an array in the JSON string but got `%s`", jsonObj.get("client_permissions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_permissions` to be an array in the JSON string but got `%s`", jsonObj.get("client_permissions").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if (jsonObj.get("expiration_events") != null && !jsonObj.get("expiration_events").isJsonNull()) {
         JsonArray jsonArrayexpirationEvents = jsonObj.getAsJsonArray("expiration_events");
         if (jsonArrayexpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
           }
 
           // validate the optional field `expiration_events` (array)

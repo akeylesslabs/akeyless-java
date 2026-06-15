@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * MigrationStatusReplyObj
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class MigrationStatusReplyObj {
   public static final String SERIALIZED_NAME_CERTIFICATES = "certificates";
   @SerializedName(SERIALIZED_NAME_CERTIFICATES)
@@ -527,10 +527,7 @@ public class MigrationStatusReplyObj {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -539,27 +536,10 @@ public class MigrationStatusReplyObj {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificates");
-    openapiFields.add("computers");
-    openapiFields.add("duration_time");
-    openapiFields.add("error");
-    openapiFields.add("last_status_message");
-    openapiFields.add("max_name_length");
-    openapiFields.add("max_value_length");
-    openapiFields.add("migration_id");
-    openapiFields.add("migration_items");
-    openapiFields.add("migration_name");
-    openapiFields.add("migration_state");
-    openapiFields.add("migration_type");
-    openapiFields.add("migration_type_name");
-    openapiFields.add("rotated_secrets");
-    openapiFields.add("start_time");
-    openapiFields.add("sync");
-    openapiFields.add("targets");
+    openapiFields = new HashSet<String>(Arrays.asList("certificates", "computers", "duration_time", "error", "last_status_message", "max_name_length", "max_value_length", "migration_id", "migration_items", "migration_name", "migration_state", "migration_type", "migration_type_name", "rotated_secrets", "start_time", "sync", "targets"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -571,7 +551,7 @@ public class MigrationStatusReplyObj {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MigrationStatusReplyObj.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MigrationStatusReplyObj is not found in the empty JSON string", MigrationStatusReplyObj.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MigrationStatusReplyObj is not found in the empty JSON string", MigrationStatusReplyObj.openapiRequiredFields.toString()));
         }
       }
 
@@ -579,7 +559,7 @@ public class MigrationStatusReplyObj {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MigrationStatusReplyObj.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MigrationStatusReplyObj` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MigrationStatusReplyObj` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -588,39 +568,39 @@ public class MigrationStatusReplyObj {
         MigrationItems.validateJsonElement(jsonObj.get("certificates"));
       }
       if ((jsonObj.get("duration_time") != null && !jsonObj.get("duration_time").isJsonNull()) && !jsonObj.get("duration_time").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `duration_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("duration_time").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `duration_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("duration_time").toString()));
       }
       if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
       }
       if ((jsonObj.get("last_status_message") != null && !jsonObj.get("last_status_message").isJsonNull()) && !jsonObj.get("last_status_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_status_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_status_message").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_status_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_status_message").toString()));
       }
       if ((jsonObj.get("migration_id") != null && !jsonObj.get("migration_id").isJsonNull()) && !jsonObj.get("migration_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `migration_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `migration_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_id").toString()));
       }
       // validate the optional field `migration_items`
       if (jsonObj.get("migration_items") != null && !jsonObj.get("migration_items").isJsonNull()) {
         MigrationItems.validateJsonElement(jsonObj.get("migration_items"));
       }
       if ((jsonObj.get("migration_name") != null && !jsonObj.get("migration_name").isJsonNull()) && !jsonObj.get("migration_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `migration_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `migration_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_name").toString()));
       }
       if ((jsonObj.get("migration_state") != null && !jsonObj.get("migration_state").isJsonNull()) && !jsonObj.get("migration_state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `migration_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_state").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `migration_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_state").toString()));
       }
       if ((jsonObj.get("migration_type") != null && !jsonObj.get("migration_type").isJsonNull()) && !jsonObj.get("migration_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `migration_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `migration_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_type").toString()));
       }
       if ((jsonObj.get("migration_type_name") != null && !jsonObj.get("migration_type_name").isJsonNull()) && !jsonObj.get("migration_type_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `migration_type_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_type_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `migration_type_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("migration_type_name").toString()));
       }
       // validate the optional field `rotated_secrets`
       if (jsonObj.get("rotated_secrets") != null && !jsonObj.get("rotated_secrets").isJsonNull()) {
         MigrationItems.validateJsonElement(jsonObj.get("rotated_secrets"));
       }
       if ((jsonObj.get("start_time") != null && !jsonObj.get("start_time").isJsonNull()) && !jsonObj.get("start_time").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `start_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_time").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `start_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("start_time").toString()));
       }
       // validate the optional field `sync`
       if (jsonObj.get("sync") != null && !jsonObj.get("sync").isJsonNull()) {

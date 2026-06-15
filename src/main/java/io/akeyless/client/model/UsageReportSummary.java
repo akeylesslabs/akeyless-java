@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * UsageReportSummary
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UsageReportSummary {
   public static final String SERIALIZED_NAME_CLIENTS_BY_AUTH_METHOD_TYPES = "clients_by_auth_method_types";
   @SerializedName(SERIALIZED_NAME_CLIENTS_BY_AUTH_METHOD_TYPES)
@@ -257,10 +257,7 @@ public class UsageReportSummary {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -269,16 +266,10 @@ public class UsageReportSummary {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("clients_by_auth_method_types");
-    openapiFields.add("product");
-    openapiFields.add("secrets_by_types");
-    openapiFields.add("time");
-    openapiFields.add("total_clients");
-    openapiFields.add("total_secrets");
+    openapiFields = new HashSet<String>(Arrays.asList("clients_by_auth_method_types", "product", "secrets_by_types", "time", "total_clients", "total_secrets"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -290,7 +281,7 @@ public class UsageReportSummary {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UsageReportSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UsageReportSummary is not found in the empty JSON string", UsageReportSummary.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UsageReportSummary is not found in the empty JSON string", UsageReportSummary.openapiRequiredFields.toString()));
         }
       }
 
@@ -298,12 +289,12 @@ public class UsageReportSummary {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UsageReportSummary.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UsageReportSummary` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UsageReportSummary` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) && !jsonObj.get("product").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `product` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `product` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product").toString()));
       }
   }
 

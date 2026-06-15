@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * AttributeTypeAndValue mirrors the ASN.1 structure of the same name in RFC 5280, Section 4.1.2.4.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AttributeTypeAndValue {
   public static final String SERIALIZED_NAME_TYPE = "Type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -157,10 +157,7 @@ public class AttributeTypeAndValue {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -169,12 +166,10 @@ public class AttributeTypeAndValue {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("Type");
-    openapiFields.add("Value");
+    openapiFields = new HashSet<String>(Arrays.asList("Type", "Value"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -186,7 +181,7 @@ public class AttributeTypeAndValue {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AttributeTypeAndValue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AttributeTypeAndValue is not found in the empty JSON string", AttributeTypeAndValue.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AttributeTypeAndValue is not found in the empty JSON string", AttributeTypeAndValue.openapiRequiredFields.toString()));
         }
       }
 
@@ -194,13 +189,13 @@ public class AttributeTypeAndValue {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AttributeTypeAndValue.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AttributeTypeAndValue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AttributeTypeAndValue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("Type") != null && !jsonObj.get("Type").isJsonNull() && !jsonObj.get("Type").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Type` to be an array in the JSON string but got `%s`", jsonObj.get("Type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Type` to be an array in the JSON string but got `%s`", jsonObj.get("Type").toString()));
       }
   }
 

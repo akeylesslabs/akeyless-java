@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayUpdateRemoteAccessRdpRecordings is a command that update remote access rdp recording config
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateRemoteAccessRdpRecordings {
   public static final String SERIALIZED_NAME_AWS_STORAGE_ACCESS_KEY_ID = "aws-storage-access-key-id";
   @SerializedName(SERIALIZED_NAME_AWS_STORAGE_ACCESS_KEY_ID)
@@ -577,10 +577,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -589,29 +586,10 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("aws-storage-access-key-id");
-    openapiFields.add("aws-storage-bucket-name");
-    openapiFields.add("aws-storage-bucket-prefix");
-    openapiFields.add("aws-storage-endpoint-url");
-    openapiFields.add("aws-storage-region");
-    openapiFields.add("aws-storage-secret-access-key");
-    openapiFields.add("azure-storage-account-name");
-    openapiFields.add("azure-storage-client-id");
-    openapiFields.add("azure-storage-client-secret");
-    openapiFields.add("azure-storage-container-name");
-    openapiFields.add("azure-storage-tenant-id");
-    openapiFields.add("json");
-    openapiFields.add("rdp-session-recording");
-    openapiFields.add("rdp-session-recording-compress");
-    openapiFields.add("rdp-session-recording-encryption-key");
-    openapiFields.add("rdp-session-recording-quality");
-    openapiFields.add("rdp-session-storage");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("aws-storage-access-key-id", "aws-storage-bucket-name", "aws-storage-bucket-prefix", "aws-storage-endpoint-url", "aws-storage-region", "aws-storage-secret-access-key", "azure-storage-account-name", "azure-storage-client-id", "azure-storage-client-secret", "azure-storage-container-name", "azure-storage-tenant-id", "json", "rdp-session-recording", "rdp-session-recording-compress", "rdp-session-recording-encryption-key", "rdp-session-recording-quality", "rdp-session-storage", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -623,7 +601,7 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateRemoteAccessRdpRecordings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateRemoteAccessRdpRecordings is not found in the empty JSON string", GatewayUpdateRemoteAccessRdpRecordings.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateRemoteAccessRdpRecordings is not found in the empty JSON string", GatewayUpdateRemoteAccessRdpRecordings.openapiRequiredFields.toString()));
         }
       }
 
@@ -631,60 +609,60 @@ public class GatewayUpdateRemoteAccessRdpRecordings {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateRemoteAccessRdpRecordings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateRemoteAccessRdpRecordings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateRemoteAccessRdpRecordings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("aws-storage-access-key-id") != null && !jsonObj.get("aws-storage-access-key-id").isJsonNull()) && !jsonObj.get("aws-storage-access-key-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-access-key-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-access-key-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-storage-access-key-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-access-key-id").toString()));
       }
       if ((jsonObj.get("aws-storage-bucket-name") != null && !jsonObj.get("aws-storage-bucket-name").isJsonNull()) && !jsonObj.get("aws-storage-bucket-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-bucket-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-bucket-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-storage-bucket-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-bucket-name").toString()));
       }
       if ((jsonObj.get("aws-storage-bucket-prefix") != null && !jsonObj.get("aws-storage-bucket-prefix").isJsonNull()) && !jsonObj.get("aws-storage-bucket-prefix").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-bucket-prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-bucket-prefix").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-storage-bucket-prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-bucket-prefix").toString()));
       }
       if ((jsonObj.get("aws-storage-endpoint-url") != null && !jsonObj.get("aws-storage-endpoint-url").isJsonNull()) && !jsonObj.get("aws-storage-endpoint-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-endpoint-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-endpoint-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-storage-endpoint-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-endpoint-url").toString()));
       }
       if ((jsonObj.get("aws-storage-region") != null && !jsonObj.get("aws-storage-region").isJsonNull()) && !jsonObj.get("aws-storage-region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-region").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-storage-region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-region").toString()));
       }
       if ((jsonObj.get("aws-storage-secret-access-key") != null && !jsonObj.get("aws-storage-secret-access-key").isJsonNull()) && !jsonObj.get("aws-storage-secret-access-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `aws-storage-secret-access-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-secret-access-key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-storage-secret-access-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-storage-secret-access-key").toString()));
       }
       if ((jsonObj.get("azure-storage-account-name") != null && !jsonObj.get("azure-storage-account-name").isJsonNull()) && !jsonObj.get("azure-storage-account-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure-storage-account-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-account-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure-storage-account-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-account-name").toString()));
       }
       if ((jsonObj.get("azure-storage-client-id") != null && !jsonObj.get("azure-storage-client-id").isJsonNull()) && !jsonObj.get("azure-storage-client-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure-storage-client-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-client-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure-storage-client-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-client-id").toString()));
       }
       if ((jsonObj.get("azure-storage-client-secret") != null && !jsonObj.get("azure-storage-client-secret").isJsonNull()) && !jsonObj.get("azure-storage-client-secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure-storage-client-secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-client-secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure-storage-client-secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-client-secret").toString()));
       }
       if ((jsonObj.get("azure-storage-container-name") != null && !jsonObj.get("azure-storage-container-name").isJsonNull()) && !jsonObj.get("azure-storage-container-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure-storage-container-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-container-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure-storage-container-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-container-name").toString()));
       }
       if ((jsonObj.get("azure-storage-tenant-id") != null && !jsonObj.get("azure-storage-tenant-id").isJsonNull()) && !jsonObj.get("azure-storage-tenant-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure-storage-tenant-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-tenant-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure-storage-tenant-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-storage-tenant-id").toString()));
       }
       if ((jsonObj.get("rdp-session-recording") != null && !jsonObj.get("rdp-session-recording").isJsonNull()) && !jsonObj.get("rdp-session-recording").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rdp-session-recording` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rdp-session-recording` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording").toString()));
       }
       if ((jsonObj.get("rdp-session-recording-encryption-key") != null && !jsonObj.get("rdp-session-recording-encryption-key").isJsonNull()) && !jsonObj.get("rdp-session-recording-encryption-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rdp-session-recording-encryption-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording-encryption-key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rdp-session-recording-encryption-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording-encryption-key").toString()));
       }
       if ((jsonObj.get("rdp-session-recording-quality") != null && !jsonObj.get("rdp-session-recording-quality").isJsonNull()) && !jsonObj.get("rdp-session-recording-quality").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rdp-session-recording-quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording-quality").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rdp-session-recording-quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-recording-quality").toString()));
       }
       if ((jsonObj.get("rdp-session-storage") != null && !jsonObj.get("rdp-session-storage").isJsonNull()) && !jsonObj.get("rdp-session-storage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rdp-session-storage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-storage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rdp-session-storage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-session-storage").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

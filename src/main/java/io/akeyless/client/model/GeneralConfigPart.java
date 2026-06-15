@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * GeneralConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GeneralConfigPart {
   public static final String SERIALIZED_NAME_AKEYLESS_URL = "akeyless_url";
   @SerializedName(SERIALIZED_NAME_AKEYLESS_URL)
@@ -589,10 +589,7 @@ public class GeneralConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -601,29 +598,10 @@ public class GeneralConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("akeyless_url");
-    openapiFields.add("api_token_ttl");
-    openapiFields.add("display_name");
-    openapiFields.add("enable_json_body_limit");
-    openapiFields.add("enable_sni_proxy");
-    openapiFields.add("enable_tls");
-    openapiFields.add("enable_tls_configure");
-    openapiFields.add("enable_tls_curl");
-    openapiFields.add("enable_tls_hvp");
-    openapiFields.add("gw_cluster_url");
-    openapiFields.add("hvp_route_version");
-    openapiFields.add("json_body_limit_mb");
-    openapiFields.add("notify_on_status_change");
-    openapiFields.add("tcp_port");
-    openapiFields.add("tls_cert");
-    openapiFields.add("tls_cert_common_name");
-    openapiFields.add("tls_cert_expiration_date");
-    openapiFields.add("tls_cert_expiration_events");
-    openapiFields.add("tls_key");
+    openapiFields = new HashSet<String>(Arrays.asList("akeyless_url", "api_token_ttl", "display_name", "enable_json_body_limit", "enable_sni_proxy", "enable_tls", "enable_tls_configure", "enable_tls_curl", "enable_tls_hvp", "gw_cluster_url", "hvp_route_version", "json_body_limit_mb", "notify_on_status_change", "tcp_port", "tls_cert", "tls_cert_common_name", "tls_cert_expiration_date", "tls_cert_expiration_events", "tls_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -635,7 +613,7 @@ public class GeneralConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GeneralConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GeneralConfigPart is not found in the empty JSON string", GeneralConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GeneralConfigPart is not found in the empty JSON string", GeneralConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -643,37 +621,37 @@ public class GeneralConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GeneralConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GeneralConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GeneralConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("akeyless_url") != null && !jsonObj.get("akeyless_url").isJsonNull()) && !jsonObj.get("akeyless_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `akeyless_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("akeyless_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `akeyless_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("akeyless_url").toString()));
       }
       if ((jsonObj.get("api_token_ttl") != null && !jsonObj.get("api_token_ttl").isJsonNull()) && !jsonObj.get("api_token_ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_token_ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_token_ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_token_ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_token_ttl").toString()));
       }
       if ((jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull()) && !jsonObj.get("display_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
       }
       if ((jsonObj.get("gw_cluster_url") != null && !jsonObj.get("gw_cluster_url").isJsonNull()) && !jsonObj.get("gw_cluster_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gw_cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw_cluster_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gw_cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw_cluster_url").toString()));
       }
       if ((jsonObj.get("tcp_port") != null && !jsonObj.get("tcp_port").isJsonNull()) && !jsonObj.get("tcp_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tcp_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tcp_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tcp_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tcp_port").toString()));
       }
       if ((jsonObj.get("tls_cert") != null && !jsonObj.get("tls_cert").isJsonNull()) && !jsonObj.get("tls_cert").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tls_cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_cert").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tls_cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_cert").toString()));
       }
       if ((jsonObj.get("tls_cert_common_name") != null && !jsonObj.get("tls_cert_common_name").isJsonNull()) && !jsonObj.get("tls_cert_common_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tls_cert_common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_cert_common_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tls_cert_common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_cert_common_name").toString()));
       }
       if (jsonObj.get("tls_cert_expiration_events") != null && !jsonObj.get("tls_cert_expiration_events").isJsonNull()) {
         JsonArray jsonArraytlsCertExpirationEvents = jsonObj.getAsJsonArray("tls_cert_expiration_events");
         if (jsonArraytlsCertExpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("tls_cert_expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `tls_cert_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("tls_cert_expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tls_cert_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("tls_cert_expiration_events").toString()));
           }
 
           // validate the optional field `tls_cert_expiration_events` (array)
@@ -683,7 +661,7 @@ public class GeneralConfigPart {
         }
       }
       if ((jsonObj.get("tls_key") != null && !jsonObj.get("tls_key").isJsonNull()) && !jsonObj.get("tls_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tls_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tls_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tls_key").toString()));
       }
   }
 

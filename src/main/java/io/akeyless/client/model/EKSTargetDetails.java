@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * EKSTargetDetails defines details related to connecting to a EKS (Elastic Container Service) target
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EKSTargetDetails {
   public static final String SERIALIZED_NAME_EKS_ACCESS_KEY_ID = "eks_access_key_id";
   @SerializedName(SERIALIZED_NAME_EKS_ACCESS_KEY_ID)
@@ -265,10 +265,7 @@ public class EKSTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -277,17 +274,10 @@ public class EKSTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("eks_access_key_id");
-    openapiFields.add("eks_cluster_ca_certificate");
-    openapiFields.add("eks_cluster_endpoint");
-    openapiFields.add("eks_cluster_name");
-    openapiFields.add("eks_region");
-    openapiFields.add("eks_secret_access_key");
-    openapiFields.add("use_gw_cloud_identity");
+    openapiFields = new HashSet<String>(Arrays.asList("eks_access_key_id", "eks_cluster_ca_certificate", "eks_cluster_endpoint", "eks_cluster_name", "eks_region", "eks_secret_access_key", "use_gw_cloud_identity"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -299,7 +289,7 @@ public class EKSTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EKSTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EKSTargetDetails is not found in the empty JSON string", EKSTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EKSTargetDetails is not found in the empty JSON string", EKSTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,27 +297,27 @@ public class EKSTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EKSTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EKSTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EKSTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("eks_access_key_id") != null && !jsonObj.get("eks_access_key_id").isJsonNull()) && !jsonObj.get("eks_access_key_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks_access_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_access_key_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks_access_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_access_key_id").toString()));
       }
       if ((jsonObj.get("eks_cluster_ca_certificate") != null && !jsonObj.get("eks_cluster_ca_certificate").isJsonNull()) && !jsonObj.get("eks_cluster_ca_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks_cluster_ca_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_cluster_ca_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks_cluster_ca_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_cluster_ca_certificate").toString()));
       }
       if ((jsonObj.get("eks_cluster_endpoint") != null && !jsonObj.get("eks_cluster_endpoint").isJsonNull()) && !jsonObj.get("eks_cluster_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks_cluster_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_cluster_endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks_cluster_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_cluster_endpoint").toString()));
       }
       if ((jsonObj.get("eks_cluster_name") != null && !jsonObj.get("eks_cluster_name").isJsonNull()) && !jsonObj.get("eks_cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_cluster_name").toString()));
       }
       if ((jsonObj.get("eks_region") != null && !jsonObj.get("eks_region").isJsonNull()) && !jsonObj.get("eks_region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks_region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_region").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks_region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_region").toString()));
       }
       if ((jsonObj.get("eks_secret_access_key") != null && !jsonObj.get("eks_secret_access_key").isJsonNull()) && !jsonObj.get("eks_secret_access_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks_secret_access_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_secret_access_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks_secret_access_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks_secret_access_key").toString()));
       }
   }
 

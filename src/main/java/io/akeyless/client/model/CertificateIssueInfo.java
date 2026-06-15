@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * CertificateIssueInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CertificateIssueInfo {
   public static final String SERIALIZED_NAME_CERT_ISSUER_TYPE = "cert_issuer_type";
   @SerializedName(SERIALIZED_NAME_CERT_ISSUER_TYPE)
@@ -189,10 +189,7 @@ public class CertificateIssueInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -201,14 +198,10 @@ public class CertificateIssueInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cert_issuer_type");
-    openapiFields.add("max_ttl");
-    openapiFields.add("pki_cert_issuer_details");
-    openapiFields.add("ssh_cert_issuer_details");
+    openapiFields = new HashSet<String>(Arrays.asList("cert_issuer_type", "max_ttl", "pki_cert_issuer_details", "ssh_cert_issuer_details"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -220,7 +213,7 @@ public class CertificateIssueInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CertificateIssueInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CertificateIssueInfo is not found in the empty JSON string", CertificateIssueInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CertificateIssueInfo is not found in the empty JSON string", CertificateIssueInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -228,12 +221,12 @@ public class CertificateIssueInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CertificateIssueInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CertificateIssueInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CertificateIssueInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cert_issuer_type") != null && !jsonObj.get("cert_issuer_type").isJsonNull()) && !jsonObj.get("cert_issuer_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert_issuer_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert_issuer_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert_issuer_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert_issuer_type").toString()));
       }
       // validate the optional field `pki_cert_issuer_details`
       if (jsonObj.get("pki_cert_issuer_details") != null && !jsonObj.get("pki_cert_issuer_details").isJsonNull()) {

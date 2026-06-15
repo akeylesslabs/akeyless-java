@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * ScanResults contains detailed results from a certificate scan
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ScanResults {
   public static final String SERIALIZED_NAME_COUNT_EXISTING = "CountExisting";
   @SerializedName(SERIALIZED_NAME_COUNT_EXISTING)
@@ -310,10 +310,7 @@ public class ScanResults {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -322,18 +319,10 @@ public class ScanResults {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("CountExisting");
-    openapiFields.add("CountFailed");
-    openapiFields.add("CountHosts");
-    openapiFields.add("CountNew");
-    openapiFields.add("CountSubdomains");
-    openapiFields.add("Error");
-    openapiFields.add("FailedTargets");
-    openapiFields.add("ItemNames");
+    openapiFields = new HashSet<String>(Arrays.asList("CountExisting", "CountFailed", "CountHosts", "CountNew", "CountSubdomains", "Error", "FailedTargets", "ItemNames"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -345,7 +334,7 @@ public class ScanResults {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ScanResults.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ScanResults is not found in the empty JSON string", ScanResults.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ScanResults is not found in the empty JSON string", ScanResults.openapiRequiredFields.toString()));
         }
       }
 
@@ -353,19 +342,19 @@ public class ScanResults {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ScanResults.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ScanResults` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ScanResults` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("Error") != null && !jsonObj.get("Error").isJsonNull()) && !jsonObj.get("Error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Error").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Error").toString()));
       }
       if (jsonObj.get("FailedTargets") != null && !jsonObj.get("FailedTargets").isJsonNull()) {
         JsonArray jsonArrayfailedTargets = jsonObj.getAsJsonArray("FailedTargets");
         if (jsonArrayfailedTargets != null) {
           // ensure the json data is an array
           if (!jsonObj.get("FailedTargets").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `FailedTargets` to be an array in the JSON string but got `%s`", jsonObj.get("FailedTargets").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `FailedTargets` to be an array in the JSON string but got `%s`", jsonObj.get("FailedTargets").toString()));
           }
 
           // validate the optional field `FailedTargets` (array)
@@ -376,7 +365,7 @@ public class ScanResults {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("ItemNames") != null && !jsonObj.get("ItemNames").isJsonNull() && !jsonObj.get("ItemNames").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ItemNames` to be an array in the JSON string but got `%s`", jsonObj.get("ItemNames").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ItemNames` to be an array in the JSON string but got `%s`", jsonObj.get("ItemNames").toString()));
       }
   }
 

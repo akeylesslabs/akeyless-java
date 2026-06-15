@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * SplunkLogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SplunkLogForwardingConfig {
   public static final String SERIALIZED_NAME_SPLUNK_ENABLE_BATCH = "splunk_enable_batch";
   @SerializedName(SERIALIZED_NAME_SPLUNK_ENABLE_BATCH)
@@ -291,10 +291,7 @@ public class SplunkLogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -303,18 +300,10 @@ public class SplunkLogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("splunk_enable_batch");
-    openapiFields.add("splunk_enable_tls");
-    openapiFields.add("splunk_index");
-    openapiFields.add("splunk_source");
-    openapiFields.add("splunk_sourcetype");
-    openapiFields.add("splunk_tls_certificate");
-    openapiFields.add("splunk_token");
-    openapiFields.add("splunk_url");
+    openapiFields = new HashSet<String>(Arrays.asList("splunk_enable_batch", "splunk_enable_tls", "splunk_index", "splunk_source", "splunk_sourcetype", "splunk_tls_certificate", "splunk_token", "splunk_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -326,7 +315,7 @@ public class SplunkLogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SplunkLogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SplunkLogForwardingConfig is not found in the empty JSON string", SplunkLogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SplunkLogForwardingConfig is not found in the empty JSON string", SplunkLogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -334,30 +323,30 @@ public class SplunkLogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SplunkLogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SplunkLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SplunkLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("splunk_enable_batch") != null && !jsonObj.get("splunk_enable_batch").isJsonNull()) && !jsonObj.get("splunk_enable_batch").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_enable_batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_enable_batch").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_enable_batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_enable_batch").toString()));
       }
       if ((jsonObj.get("splunk_index") != null && !jsonObj.get("splunk_index").isJsonNull()) && !jsonObj.get("splunk_index").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_index` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_index").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_index` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_index").toString()));
       }
       if ((jsonObj.get("splunk_source") != null && !jsonObj.get("splunk_source").isJsonNull()) && !jsonObj.get("splunk_source").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_source").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_source").toString()));
       }
       if ((jsonObj.get("splunk_sourcetype") != null && !jsonObj.get("splunk_sourcetype").isJsonNull()) && !jsonObj.get("splunk_sourcetype").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_sourcetype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_sourcetype").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_sourcetype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_sourcetype").toString()));
       }
       if ((jsonObj.get("splunk_tls_certificate") != null && !jsonObj.get("splunk_tls_certificate").isJsonNull()) && !jsonObj.get("splunk_tls_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_tls_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_tls_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_tls_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_tls_certificate").toString()));
       }
       if ((jsonObj.get("splunk_token") != null && !jsonObj.get("splunk_token").isJsonNull()) && !jsonObj.get("splunk_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_token").toString()));
       }
       if ((jsonObj.get("splunk_url") != null && !jsonObj.get("splunk_url").isJsonNull()) && !jsonObj.get("splunk_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `splunk_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk_url").toString()));
       }
   }
 

@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * MigrationsConfigLastChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class MigrationsConfigLastChange {
   public static final String SERIALIZED_NAME_CHANGED_MIGRATIONS = "changed_migrations";
   @SerializedName(SERIALIZED_NAME_CHANGED_MIGRATIONS)
@@ -187,10 +187,7 @@ public class MigrationsConfigLastChange {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,13 +196,10 @@ public class MigrationsConfigLastChange {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("changed_migrations");
-    openapiFields.add("created_migrations");
-    openapiFields.add("deleted_migrations");
+    openapiFields = new HashSet<String>(Arrays.asList("changed_migrations", "created_migrations", "deleted_migrations"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -217,7 +211,7 @@ public class MigrationsConfigLastChange {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MigrationsConfigLastChange.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MigrationsConfigLastChange is not found in the empty JSON string", MigrationsConfigLastChange.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MigrationsConfigLastChange is not found in the empty JSON string", MigrationsConfigLastChange.openapiRequiredFields.toString()));
         }
       }
 
@@ -225,21 +219,21 @@ public class MigrationsConfigLastChange {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MigrationsConfigLastChange.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MigrationsConfigLastChange` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MigrationsConfigLastChange` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("changed_migrations") != null && !jsonObj.get("changed_migrations").isJsonNull() && !jsonObj.get("changed_migrations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `changed_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("changed_migrations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `changed_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("changed_migrations").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("created_migrations") != null && !jsonObj.get("created_migrations").isJsonNull() && !jsonObj.get("created_migrations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `created_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("created_migrations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `created_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("created_migrations").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("deleted_migrations") != null && !jsonObj.get("deleted_migrations").isJsonNull() && !jsonObj.get("deleted_migrations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deleted_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("deleted_migrations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `deleted_migrations` to be an array in the JSON string but got `%s`", jsonObj.get("deleted_migrations").toString()));
       }
   }
 

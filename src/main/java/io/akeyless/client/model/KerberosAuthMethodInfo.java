@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * KerberosAuthMethodInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KerberosAuthMethodInfo {
   public static final String SERIALIZED_NAME_KERBEROS_KEYTAB = "kerberos_keytab";
   @SerializedName(SERIALIZED_NAME_KERBEROS_KEYTAB)
@@ -395,10 +395,7 @@ public class KerberosAuthMethodInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -407,22 +404,10 @@ public class KerberosAuthMethodInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("kerberos_keytab");
-    openapiFields.add("kerberos_krb5_conf");
-    openapiFields.add("ldap_anonymous_search");
-    openapiFields.add("ldap_bind_dn");
-    openapiFields.add("ldap_bind_password");
-    openapiFields.add("ldap_certificate");
-    openapiFields.add("ldap_group_attr");
-    openapiFields.add("ldap_group_dn");
-    openapiFields.add("ldap_group_filter");
-    openapiFields.add("ldap_url_address");
-    openapiFields.add("ldap_user_attr");
-    openapiFields.add("ldap_user_dn");
+    openapiFields = new HashSet<String>(Arrays.asList("kerberos_keytab", "kerberos_krb5_conf", "ldap_anonymous_search", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_group_attr", "ldap_group_dn", "ldap_group_filter", "ldap_url_address", "ldap_user_attr", "ldap_user_dn"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -434,7 +419,7 @@ public class KerberosAuthMethodInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KerberosAuthMethodInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KerberosAuthMethodInfo is not found in the empty JSON string", KerberosAuthMethodInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KerberosAuthMethodInfo is not found in the empty JSON string", KerberosAuthMethodInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -442,42 +427,42 @@ public class KerberosAuthMethodInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KerberosAuthMethodInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KerberosAuthMethodInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KerberosAuthMethodInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("kerberos_keytab") != null && !jsonObj.get("kerberos_keytab").isJsonNull()) && !jsonObj.get("kerberos_keytab").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kerberos_keytab` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kerberos_keytab").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kerberos_keytab` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kerberos_keytab").toString()));
       }
       if ((jsonObj.get("kerberos_krb5_conf") != null && !jsonObj.get("kerberos_krb5_conf").isJsonNull()) && !jsonObj.get("kerberos_krb5_conf").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kerberos_krb5_conf` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kerberos_krb5_conf").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kerberos_krb5_conf` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kerberos_krb5_conf").toString()));
       }
       if ((jsonObj.get("ldap_bind_dn") != null && !jsonObj.get("ldap_bind_dn").isJsonNull()) && !jsonObj.get("ldap_bind_dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_bind_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_bind_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_dn").toString()));
       }
       if ((jsonObj.get("ldap_bind_password") != null && !jsonObj.get("ldap_bind_password").isJsonNull()) && !jsonObj.get("ldap_bind_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_bind_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_bind_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_bind_password").toString()));
       }
       if ((jsonObj.get("ldap_certificate") != null && !jsonObj.get("ldap_certificate").isJsonNull()) && !jsonObj.get("ldap_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_certificate").toString()));
       }
       if ((jsonObj.get("ldap_group_attr") != null && !jsonObj.get("ldap_group_attr").isJsonNull()) && !jsonObj.get("ldap_group_attr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_group_attr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_group_attr").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_group_attr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_group_attr").toString()));
       }
       if ((jsonObj.get("ldap_group_dn") != null && !jsonObj.get("ldap_group_dn").isJsonNull()) && !jsonObj.get("ldap_group_dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_group_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_group_dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_group_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_group_dn").toString()));
       }
       if ((jsonObj.get("ldap_group_filter") != null && !jsonObj.get("ldap_group_filter").isJsonNull()) && !jsonObj.get("ldap_group_filter").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_group_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_group_filter").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_group_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_group_filter").toString()));
       }
       if ((jsonObj.get("ldap_url_address") != null && !jsonObj.get("ldap_url_address").isJsonNull()) && !jsonObj.get("ldap_url_address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_url_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_url_address").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_url_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_url_address").toString()));
       }
       if ((jsonObj.get("ldap_user_attr") != null && !jsonObj.get("ldap_user_attr").isJsonNull()) && !jsonObj.get("ldap_user_attr").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_user_attr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_user_attr").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_user_attr` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_user_attr").toString()));
       }
       if ((jsonObj.get("ldap_user_dn") != null && !jsonObj.get("ldap_user_dn").isJsonNull()) && !jsonObj.get("ldap_user_dn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ldap_user_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_user_dn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_user_dn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_user_dn").toString()));
       }
   }
 

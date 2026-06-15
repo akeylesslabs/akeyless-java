@@ -48,12 +48,17 @@ import io.akeyless.client.JSON;
 /**
  * FolderUSCSyncConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class FolderUSCSyncConfig {
   public static final String SERIALIZED_NAME_DELETE_REMOTE = "delete_remote";
   @SerializedName(SERIALIZED_NAME_DELETE_REMOTE)
   @javax.annotation.Nullable
   private Boolean deleteRemote;
+
+  public static final String SERIALIZED_NAME_ENGINE_NAME = "engine_name";
+  @SerializedName(SERIALIZED_NAME_ENGINE_NAME)
+  @javax.annotation.Nullable
+  private String engineName;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
@@ -89,6 +94,25 @@ public class FolderUSCSyncConfig {
 
   public void setDeleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
     this.deleteRemote = deleteRemote;
+  }
+
+
+  public FolderUSCSyncConfig engineName(@javax.annotation.Nullable String engineName) {
+    this.engineName = engineName;
+    return this;
+  }
+
+  /**
+   * Get engineName
+   * @return engineName
+   */
+  @javax.annotation.Nullable
+  public String getEngineName() {
+    return engineName;
+  }
+
+  public void setEngineName(@javax.annotation.Nullable String engineName) {
+    this.engineName = engineName;
   }
 
 
@@ -160,6 +184,7 @@ public class FolderUSCSyncConfig {
     }
     FolderUSCSyncConfig folderUSCSyncConfig = (FolderUSCSyncConfig) o;
     return Objects.equals(this.deleteRemote, folderUSCSyncConfig.deleteRemote) &&
+        Objects.equals(this.engineName, folderUSCSyncConfig.engineName) &&
         Objects.equals(this.namespace, folderUSCSyncConfig.namespace) &&
         Objects.equals(this.uscItemId, folderUSCSyncConfig.uscItemId) &&
         Objects.equals(this.uscItemName, folderUSCSyncConfig.uscItemName);
@@ -167,7 +192,7 @@ public class FolderUSCSyncConfig {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteRemote, namespace, uscItemId, uscItemName);
+    return Objects.hash(deleteRemote, engineName, namespace, uscItemId, uscItemName);
   }
 
   @Override
@@ -175,6 +200,7 @@ public class FolderUSCSyncConfig {
     StringBuilder sb = new StringBuilder();
     sb.append("class FolderUSCSyncConfig {\n");
     sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
+    sb.append("    engineName: ").append(toIndentedString(engineName)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    uscItemId: ").append(toIndentedString(uscItemId)).append("\n");
     sb.append("    uscItemName: ").append(toIndentedString(uscItemName)).append("\n");
@@ -187,10 +213,7 @@ public class FolderUSCSyncConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +222,10 @@ public class FolderUSCSyncConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_remote");
-    openapiFields.add("namespace");
-    openapiFields.add("usc_item_id");
-    openapiFields.add("usc_item_name");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_remote", "engine_name", "namespace", "usc_item_id", "usc_item_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +237,7 @@ public class FolderUSCSyncConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!FolderUSCSyncConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in FolderUSCSyncConfig is not found in the empty JSON string", FolderUSCSyncConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in FolderUSCSyncConfig is not found in the empty JSON string", FolderUSCSyncConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,15 +245,18 @@ public class FolderUSCSyncConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!FolderUSCSyncConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `FolderUSCSyncConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `FolderUSCSyncConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("engine_name") != null && !jsonObj.get("engine_name").isJsonNull()) && !jsonObj.get("engine_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `engine_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("engine_name").toString()));
+      }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
       if ((jsonObj.get("usc_item_name") != null && !jsonObj.get("usc_item_name").isJsonNull()) && !jsonObj.get("usc_item_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `usc_item_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc_item_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usc_item_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc_item_name").toString()));
       }
   }
 

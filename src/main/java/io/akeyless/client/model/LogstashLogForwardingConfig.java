@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * LogstashLogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class LogstashLogForwardingConfig {
   public static final String SERIALIZED_NAME_LOGSTASH_DNS = "logstash_dns";
   @SerializedName(SERIALIZED_NAME_LOGSTASH_DNS)
@@ -187,10 +187,7 @@ public class LogstashLogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class LogstashLogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("logstash_dns");
-    openapiFields.add("logstash_enable_tls");
-    openapiFields.add("logstash_protocol");
-    openapiFields.add("logstash_tls_certificate");
+    openapiFields = new HashSet<String>(Arrays.asList("logstash_dns", "logstash_enable_tls", "logstash_protocol", "logstash_tls_certificate"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class LogstashLogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LogstashLogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LogstashLogForwardingConfig is not found in the empty JSON string", LogstashLogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LogstashLogForwardingConfig is not found in the empty JSON string", LogstashLogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,18 +219,18 @@ public class LogstashLogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LogstashLogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LogstashLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LogstashLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("logstash_dns") != null && !jsonObj.get("logstash_dns").isJsonNull()) && !jsonObj.get("logstash_dns").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logstash_dns` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logstash_dns").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `logstash_dns` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logstash_dns").toString()));
       }
       if ((jsonObj.get("logstash_protocol") != null && !jsonObj.get("logstash_protocol").isJsonNull()) && !jsonObj.get("logstash_protocol").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logstash_protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logstash_protocol").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `logstash_protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logstash_protocol").toString()));
       }
       if ((jsonObj.get("logstash_tls_certificate") != null && !jsonObj.get("logstash_tls_certificate").isJsonNull()) && !jsonObj.get("logstash_tls_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logstash_tls_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logstash_tls_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `logstash_tls_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logstash_tls_certificate").toString()));
       }
   }
 

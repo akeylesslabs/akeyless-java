@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * ListItemsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ListItemsOutput {
   public static final String SERIALIZED_NAME_HAS_NEXT = "has_next";
   @SerializedName(SERIALIZED_NAME_HAS_NEXT)
@@ -172,10 +172,7 @@ public class ListItemsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -184,13 +181,10 @@ public class ListItemsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("has_next");
-    openapiFields.add("items");
-    openapiFields.add("next_page");
+    openapiFields = new HashSet<String>(Arrays.asList("has_next", "items", "next_page"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -202,7 +196,7 @@ public class ListItemsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ListItemsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListItemsOutput is not found in the empty JSON string", ListItemsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ListItemsOutput is not found in the empty JSON string", ListItemsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -210,7 +204,7 @@ public class ListItemsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ListItemsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListItemsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ListItemsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -219,7 +213,7 @@ public class ListItemsOutput {
         if (jsonArrayitems != null) {
           // ensure the json data is an array
           if (!jsonObj.get("items").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
           }
 
           // validate the optional field `items` (array)
@@ -229,7 +223,7 @@ public class ListItemsOutput {
         }
       }
       if ((jsonObj.get("next_page") != null && !jsonObj.get("next_page").isJsonNull()) && !jsonObj.get("next_page").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `next_page` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_page").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `next_page` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_page").toString()));
       }
   }
 

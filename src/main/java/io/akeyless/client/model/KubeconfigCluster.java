@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * KubeconfigCluster
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KubeconfigCluster {
   public static final String SERIALIZED_NAME_CERTIFICATE_AUTHORITY = "certificate-authority";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_AUTHORITY)
@@ -161,10 +161,7 @@ public class KubeconfigCluster {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class KubeconfigCluster {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate-authority");
-    openapiFields.add("certificate-authority-data");
-    openapiFields.add("server");
+    openapiFields = new HashSet<String>(Arrays.asList("certificate-authority", "certificate-authority-data", "server"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class KubeconfigCluster {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KubeconfigCluster.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KubeconfigCluster is not found in the empty JSON string", KubeconfigCluster.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KubeconfigCluster is not found in the empty JSON string", KubeconfigCluster.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class KubeconfigCluster {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KubeconfigCluster.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KubeconfigCluster` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KubeconfigCluster` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificate-authority") != null && !jsonObj.get("certificate-authority").isJsonNull()) && !jsonObj.get("certificate-authority").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate-authority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-authority").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-authority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-authority").toString()));
       }
       if ((jsonObj.get("certificate-authority-data") != null && !jsonObj.get("certificate-authority-data").isJsonNull()) && !jsonObj.get("certificate-authority-data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate-authority-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-authority-data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-authority-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-authority-data").toString()));
       }
       if ((jsonObj.get("server") != null && !jsonObj.get("server").isJsonNull()) && !jsonObj.get("server").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `server` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server").toString()));
       }
   }
 

@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * KmipDescribeServerOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KmipDescribeServerOutput {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -285,10 +285,7 @@ public class KmipDescribeServerOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -297,17 +294,10 @@ public class KmipDescribeServerOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("active");
-    openapiFields.add("ca_cert");
-    openapiFields.add("certificate_issue_date");
-    openapiFields.add("certificate_ttl_in_seconds");
-    openapiFields.add("expiration_events");
-    openapiFields.add("hostname");
-    openapiFields.add("root");
+    openapiFields = new HashSet<String>(Arrays.asList("active", "ca_cert", "certificate_issue_date", "certificate_ttl_in_seconds", "expiration_events", "hostname", "root"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -319,7 +309,7 @@ public class KmipDescribeServerOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KmipDescribeServerOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KmipDescribeServerOutput is not found in the empty JSON string", KmipDescribeServerOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KmipDescribeServerOutput is not found in the empty JSON string", KmipDescribeServerOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -327,20 +317,20 @@ public class KmipDescribeServerOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KmipDescribeServerOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KmipDescribeServerOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KmipDescribeServerOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("ca_cert") != null && !jsonObj.get("ca_cert").isJsonNull() && !jsonObj.get("ca_cert").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ca_cert` to be an array in the JSON string but got `%s`", jsonObj.get("ca_cert").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ca_cert` to be an array in the JSON string but got `%s`", jsonObj.get("ca_cert").toString()));
       }
       if (jsonObj.get("expiration_events") != null && !jsonObj.get("expiration_events").isJsonNull()) {
         JsonArray jsonArrayexpirationEvents = jsonObj.getAsJsonArray("expiration_events");
         if (jsonArrayexpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
           }
 
           // validate the optional field `expiration_events` (array)
@@ -350,10 +340,10 @@ public class KmipDescribeServerOutput {
         }
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
       }
       if ((jsonObj.get("root") != null && !jsonObj.get("root").isJsonNull()) && !jsonObj.get("root").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `root` to be a primitive type in the JSON string but got `%s`", jsonObj.get("root").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `root` to be a primitive type in the JSON string but got `%s`", jsonObj.get("root").toString()));
       }
   }
 

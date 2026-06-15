@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * KubeconfigContext
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KubeconfigContext {
   public static final String SERIALIZED_NAME_CLUSTER = "cluster";
   @SerializedName(SERIALIZED_NAME_CLUSTER)
@@ -161,10 +161,7 @@ public class KubeconfigContext {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class KubeconfigContext {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cluster");
-    openapiFields.add("namespace");
-    openapiFields.add("user");
+    openapiFields = new HashSet<String>(Arrays.asList("cluster", "namespace", "user"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class KubeconfigContext {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KubeconfigContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KubeconfigContext is not found in the empty JSON string", KubeconfigContext.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KubeconfigContext is not found in the empty JSON string", KubeconfigContext.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class KubeconfigContext {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KubeconfigContext.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KubeconfigContext` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KubeconfigContext` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cluster") != null && !jsonObj.get("cluster").isJsonNull()) && !jsonObj.get("cluster").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
       if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
   }
 

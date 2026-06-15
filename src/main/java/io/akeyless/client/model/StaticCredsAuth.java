@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * staticCredsAuth is a command that creates a temporary access profile using the provided static credentials.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class StaticCredsAuth {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access-id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -187,10 +187,7 @@ public class StaticCredsAuth {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class StaticCredsAuth {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access-id");
-    openapiFields.add("admin-email");
-    openapiFields.add("creds");
-    openapiFields.add("json");
+    openapiFields = new HashSet<String>(Arrays.asList("access-id", "admin-email", "creds", "json"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class StaticCredsAuth {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!StaticCredsAuth.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StaticCredsAuth is not found in the empty JSON string", StaticCredsAuth.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in StaticCredsAuth is not found in the empty JSON string", StaticCredsAuth.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,18 +219,18 @@ public class StaticCredsAuth {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!StaticCredsAuth.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StaticCredsAuth` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `StaticCredsAuth` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access-id") != null && !jsonObj.get("access-id").isJsonNull()) && !jsonObj.get("access-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access-id").toString()));
       }
       if ((jsonObj.get("admin-email") != null && !jsonObj.get("admin-email").isJsonNull()) && !jsonObj.get("admin-email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `admin-email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin-email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `admin-email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("admin-email").toString()));
       }
       if ((jsonObj.get("creds") != null && !jsonObj.get("creds").isJsonNull()) && !jsonObj.get("creds").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creds").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("creds").toString()));
       }
   }
 

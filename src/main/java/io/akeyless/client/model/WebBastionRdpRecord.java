@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * WebBastionRdpRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class WebBastionRdpRecord {
   public static final String SERIALIZED_NAME_AWS = "aws";
   @SerializedName(SERIALIZED_NAME_AWS)
@@ -268,10 +268,7 @@ public class WebBastionRdpRecord {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -280,17 +277,10 @@ public class WebBastionRdpRecord {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("aws");
-    openapiFields.add("azure");
-    openapiFields.add("compress");
-    openapiFields.add("encryption_key");
-    openapiFields.add("netapp");
-    openapiFields.add("recording_quality");
-    openapiFields.add("storage_type");
+    openapiFields = new HashSet<String>(Arrays.asList("aws", "azure", "compress", "encryption_key", "netapp", "recording_quality", "storage_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -302,7 +292,7 @@ public class WebBastionRdpRecord {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!WebBastionRdpRecord.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebBastionRdpRecord is not found in the empty JSON string", WebBastionRdpRecord.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WebBastionRdpRecord is not found in the empty JSON string", WebBastionRdpRecord.openapiRequiredFields.toString()));
         }
       }
 
@@ -310,7 +300,7 @@ public class WebBastionRdpRecord {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WebBastionRdpRecord.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebBastionRdpRecord` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `WebBastionRdpRecord` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -323,17 +313,17 @@ public class WebBastionRdpRecord {
         AzureStorage.validateJsonElement(jsonObj.get("azure"));
       }
       if ((jsonObj.get("encryption_key") != null && !jsonObj.get("encryption_key").isJsonNull()) && !jsonObj.get("encryption_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encryption_key").toString()));
       }
       // validate the optional field `netapp`
       if (jsonObj.get("netapp") != null && !jsonObj.get("netapp").isJsonNull()) {
         NetappStorage.validateJsonElement(jsonObj.get("netapp"));
       }
       if ((jsonObj.get("recording_quality") != null && !jsonObj.get("recording_quality").isJsonNull()) && !jsonObj.get("recording_quality").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `recording_quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recording_quality").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recording_quality` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recording_quality").toString()));
       }
       if ((jsonObj.get("storage_type") != null && !jsonObj.get("storage_type").isJsonNull()) && !jsonObj.get("storage_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storage_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage_type").toString()));
       }
   }
 

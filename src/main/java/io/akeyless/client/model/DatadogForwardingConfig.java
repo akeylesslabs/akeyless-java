@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * DatadogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DatadogForwardingConfig {
   public static final String SERIALIZED_NAME_DATADOG_API_KEY = "datadog_api_key";
   @SerializedName(SERIALIZED_NAME_DATADOG_API_KEY)
@@ -213,10 +213,7 @@ public class DatadogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class DatadogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("datadog_api_key");
-    openapiFields.add("datadog_host");
-    openapiFields.add("datadog_log_service");
-    openapiFields.add("datadog_log_source");
-    openapiFields.add("datadog_log_tags");
+    openapiFields = new HashSet<String>(Arrays.asList("datadog_api_key", "datadog_host", "datadog_log_service", "datadog_log_source", "datadog_log_tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class DatadogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DatadogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DatadogForwardingConfig is not found in the empty JSON string", DatadogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DatadogForwardingConfig is not found in the empty JSON string", DatadogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,24 +245,24 @@ public class DatadogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DatadogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DatadogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DatadogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("datadog_api_key") != null && !jsonObj.get("datadog_api_key").isJsonNull()) && !jsonObj.get("datadog_api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datadog_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_api_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadog_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_api_key").toString()));
       }
       if ((jsonObj.get("datadog_host") != null && !jsonObj.get("datadog_host").isJsonNull()) && !jsonObj.get("datadog_host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datadog_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_host").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadog_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_host").toString()));
       }
       if ((jsonObj.get("datadog_log_service") != null && !jsonObj.get("datadog_log_service").isJsonNull()) && !jsonObj.get("datadog_log_service").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datadog_log_service` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_log_service").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadog_log_service` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_log_service").toString()));
       }
       if ((jsonObj.get("datadog_log_source") != null && !jsonObj.get("datadog_log_source").isJsonNull()) && !jsonObj.get("datadog_log_source").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datadog_log_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_log_source").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadog_log_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_log_source").toString()));
       }
       if ((jsonObj.get("datadog_log_tags") != null && !jsonObj.get("datadog_log_tags").isJsonNull()) && !jsonObj.get("datadog_log_tags").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `datadog_log_tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_log_tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `datadog_log_tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("datadog_log_tags").toString()));
       }
   }
 

@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * SAMLAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SAMLAccessRules {
   public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS = "allowed_redirect_URIs";
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS)
@@ -232,10 +232,7 @@ public class SAMLAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -244,15 +241,10 @@ public class SAMLAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed_redirect_URIs");
-    openapiFields.add("bound_attributes");
-    openapiFields.add("idp_metadata_url");
-    openapiFields.add("idp_metadata_xml");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("allowed_redirect_URIs", "bound_attributes", "idp_metadata_url", "idp_metadata_xml", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -264,7 +256,7 @@ public class SAMLAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SAMLAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SAMLAccessRules is not found in the empty JSON string", SAMLAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SAMLAccessRules is not found in the empty JSON string", SAMLAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -272,20 +264,20 @@ public class SAMLAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SAMLAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SAMLAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SAMLAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_redirect_URIs") != null && !jsonObj.get("allowed_redirect_URIs").isJsonNull() && !jsonObj.get("allowed_redirect_URIs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_redirect_URIs` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_redirect_URIs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_redirect_URIs` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_redirect_URIs").toString()));
       }
       if (jsonObj.get("bound_attributes") != null && !jsonObj.get("bound_attributes").isJsonNull()) {
         JsonArray jsonArrayboundAttributes = jsonObj.getAsJsonArray("bound_attributes");
         if (jsonArrayboundAttributes != null) {
           // ensure the json data is an array
           if (!jsonObj.get("bound_attributes").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `bound_attributes` to be an array in the JSON string but got `%s`", jsonObj.get("bound_attributes").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_attributes` to be an array in the JSON string but got `%s`", jsonObj.get("bound_attributes").toString()));
           }
 
           // validate the optional field `bound_attributes` (array)
@@ -295,13 +287,13 @@ public class SAMLAccessRules {
         }
       }
       if ((jsonObj.get("idp_metadata_url") != null && !jsonObj.get("idp_metadata_url").isJsonNull()) && !jsonObj.get("idp_metadata_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `idp_metadata_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idp_metadata_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `idp_metadata_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idp_metadata_url").toString()));
       }
       if ((jsonObj.get("idp_metadata_xml") != null && !jsonObj.get("idp_metadata_xml").isJsonNull()) && !jsonObj.get("idp_metadata_xml").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `idp_metadata_xml` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idp_metadata_xml").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `idp_metadata_xml` to be a primitive type in the JSON string but got `%s`", jsonObj.get("idp_metadata_xml").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

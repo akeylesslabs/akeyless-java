@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * KubernetesAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KubernetesAccessRules {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -291,10 +291,7 @@ public class KubernetesAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -303,17 +300,10 @@ public class KubernetesAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alg");
-    openapiFields.add("audience");
-    openapiFields.add("bound_namespaces");
-    openapiFields.add("bound_pod_names");
-    openapiFields.add("bound_service_account_names");
-    openapiFields.add("gen_key_pair");
-    openapiFields.add("pub_key");
+    openapiFields = new HashSet<String>(Arrays.asList("alg", "audience", "bound_namespaces", "bound_pod_names", "bound_service_account_names", "gen_key_pair", "pub_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -325,7 +315,7 @@ public class KubernetesAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KubernetesAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KubernetesAccessRules is not found in the empty JSON string", KubernetesAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KubernetesAccessRules is not found in the empty JSON string", KubernetesAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -333,33 +323,33 @@ public class KubernetesAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KubernetesAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KubernetesAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KubernetesAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("alg") != null && !jsonObj.get("alg").isJsonNull()) && !jsonObj.get("alg").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
       }
       if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull()) && !jsonObj.get("audience").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_namespaces") != null && !jsonObj.get("bound_namespaces").isJsonNull() && !jsonObj.get("bound_namespaces").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("bound_namespaces").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("bound_namespaces").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_pod_names") != null && !jsonObj.get("bound_pod_names").isJsonNull() && !jsonObj.get("bound_pod_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_pod_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_pod_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_pod_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_pod_names").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_service_account_names") != null && !jsonObj.get("bound_service_account_names").isJsonNull() && !jsonObj.get("bound_service_account_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_service_account_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_service_account_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_service_account_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_service_account_names").toString()));
       }
       if ((jsonObj.get("gen_key_pair") != null && !jsonObj.get("gen_key_pair").isJsonNull()) && !jsonObj.get("gen_key_pair").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gen_key_pair` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gen_key_pair").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gen_key_pair` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gen_key_pair").toString()));
       }
       if ((jsonObj.get("pub_key") != null && !jsonObj.get("pub_key").isJsonNull()) && !jsonObj.get("pub_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pub_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pub_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pub_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pub_key").toString()));
       }
   }
 

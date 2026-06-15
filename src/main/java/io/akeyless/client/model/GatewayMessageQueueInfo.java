@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GatewayMessageQueueInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayMessageQueueInfo {
   public static final String SERIALIZED_NAME_BROADCAST_QUEUE_NAME_A = "broadcast_queue_name_a";
   @SerializedName(SERIALIZED_NAME_BROADCAST_QUEUE_NAME_A)
@@ -187,10 +187,7 @@ public class GatewayMessageQueueInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class GatewayMessageQueueInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("broadcast_queue_name_a");
-    openapiFields.add("mq_type");
-    openapiFields.add("queue_name");
-    openapiFields.add("queue_url");
+    openapiFields = new HashSet<String>(Arrays.asList("broadcast_queue_name_a", "mq_type", "queue_name", "queue_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class GatewayMessageQueueInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayMessageQueueInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayMessageQueueInfo is not found in the empty JSON string", GatewayMessageQueueInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayMessageQueueInfo is not found in the empty JSON string", GatewayMessageQueueInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,21 +219,21 @@ public class GatewayMessageQueueInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayMessageQueueInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayMessageQueueInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayMessageQueueInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("broadcast_queue_name_a") != null && !jsonObj.get("broadcast_queue_name_a").isJsonNull()) && !jsonObj.get("broadcast_queue_name_a").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `broadcast_queue_name_a` to be a primitive type in the JSON string but got `%s`", jsonObj.get("broadcast_queue_name_a").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `broadcast_queue_name_a` to be a primitive type in the JSON string but got `%s`", jsonObj.get("broadcast_queue_name_a").toString()));
       }
       if ((jsonObj.get("mq_type") != null && !jsonObj.get("mq_type").isJsonNull()) && !jsonObj.get("mq_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mq_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mq_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mq_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mq_type").toString()));
       }
       if ((jsonObj.get("queue_name") != null && !jsonObj.get("queue_name").isJsonNull()) && !jsonObj.get("queue_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `queue_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `queue_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue_name").toString()));
       }
       if ((jsonObj.get("queue_url") != null && !jsonObj.get("queue_url").isJsonNull()) && !jsonObj.get("queue_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `queue_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `queue_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue_url").toString()));
       }
   }
 

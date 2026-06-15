@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * LeadershipConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class LeadershipConfigPart {
   public static final String SERIALIZED_NAME_OPEN_LEADERSHIP = "open_leadership";
   @SerializedName(SERIALIZED_NAME_OPEN_LEADERSHIP)
@@ -119,10 +119,7 @@ public class LeadershipConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -131,11 +128,10 @@ public class LeadershipConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("open_leadership");
+    openapiFields = new HashSet<String>(Arrays.asList("open_leadership"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -147,7 +143,7 @@ public class LeadershipConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LeadershipConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LeadershipConfigPart is not found in the empty JSON string", LeadershipConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LeadershipConfigPart is not found in the empty JSON string", LeadershipConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -155,13 +151,13 @@ public class LeadershipConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LeadershipConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LeadershipConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LeadershipConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("open_leadership") != null && !jsonObj.get("open_leadership").isJsonNull() && !jsonObj.get("open_leadership").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `open_leadership` to be an array in the JSON string but got `%s`", jsonObj.get("open_leadership").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `open_leadership` to be an array in the JSON string but got `%s`", jsonObj.get("open_leadership").toString()));
       }
   }
 

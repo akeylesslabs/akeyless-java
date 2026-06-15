@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * K8SAuthsConfigLastChange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class K8SAuthsConfigLastChange {
   public static final String SERIALIZED_NAME_CHANGED_K8S_AUTHS_IDS = "changed_k8s_auths_ids";
   @SerializedName(SERIALIZED_NAME_CHANGED_K8S_AUTHS_IDS)
@@ -187,10 +187,7 @@ public class K8SAuthsConfigLastChange {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,13 +196,10 @@ public class K8SAuthsConfigLastChange {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("changed_k8s_auths_ids");
-    openapiFields.add("created_k8s_auths_ids");
-    openapiFields.add("deleted_k8s_auths_ids");
+    openapiFields = new HashSet<String>(Arrays.asList("changed_k8s_auths_ids", "created_k8s_auths_ids", "deleted_k8s_auths_ids"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -217,7 +211,7 @@ public class K8SAuthsConfigLastChange {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!K8SAuthsConfigLastChange.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in K8SAuthsConfigLastChange is not found in the empty JSON string", K8SAuthsConfigLastChange.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in K8SAuthsConfigLastChange is not found in the empty JSON string", K8SAuthsConfigLastChange.openapiRequiredFields.toString()));
         }
       }
 
@@ -225,21 +219,21 @@ public class K8SAuthsConfigLastChange {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!K8SAuthsConfigLastChange.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `K8SAuthsConfigLastChange` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `K8SAuthsConfigLastChange` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("changed_k8s_auths_ids") != null && !jsonObj.get("changed_k8s_auths_ids").isJsonNull() && !jsonObj.get("changed_k8s_auths_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `changed_k8s_auths_ids` to be an array in the JSON string but got `%s`", jsonObj.get("changed_k8s_auths_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `changed_k8s_auths_ids` to be an array in the JSON string but got `%s`", jsonObj.get("changed_k8s_auths_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("created_k8s_auths_ids") != null && !jsonObj.get("created_k8s_auths_ids").isJsonNull() && !jsonObj.get("created_k8s_auths_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `created_k8s_auths_ids` to be an array in the JSON string but got `%s`", jsonObj.get("created_k8s_auths_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `created_k8s_auths_ids` to be an array in the JSON string but got `%s`", jsonObj.get("created_k8s_auths_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("deleted_k8s_auths_ids") != null && !jsonObj.get("deleted_k8s_auths_ids").isJsonNull() && !jsonObj.get("deleted_k8s_auths_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deleted_k8s_auths_ids` to be an array in the JSON string but got `%s`", jsonObj.get("deleted_k8s_auths_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `deleted_k8s_auths_ids` to be an array in the JSON string but got `%s`", jsonObj.get("deleted_k8s_auths_ids").toString()));
       }
   }
 

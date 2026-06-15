@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * RotateOidcClientOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotateOidcClientOutput {
   public static final String SERIALIZED_NAME_NEW_SECRET = "new_secret";
   @SerializedName(SERIALIZED_NAME_NEW_SECRET)
@@ -109,10 +109,7 @@ public class RotateOidcClientOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -121,11 +118,10 @@ public class RotateOidcClientOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("new_secret");
+    openapiFields = new HashSet<String>(Arrays.asList("new_secret"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -137,7 +133,7 @@ public class RotateOidcClientOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RotateOidcClientOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RotateOidcClientOutput is not found in the empty JSON string", RotateOidcClientOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RotateOidcClientOutput is not found in the empty JSON string", RotateOidcClientOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -145,12 +141,12 @@ public class RotateOidcClientOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RotateOidcClientOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RotateOidcClientOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RotateOidcClientOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("new_secret") != null && !jsonObj.get("new_secret").isJsonNull()) && !jsonObj.get("new_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new_secret").toString()));
       }
   }
 

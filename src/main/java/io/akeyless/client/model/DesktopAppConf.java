@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * DesktopAppConf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DesktopAppConf {
   public static final String SERIALIZED_NAME_DEFAULT_CERT_ISSUER_ID = "default_cert_issuer_id";
   @SerializedName(SERIALIZED_NAME_DEFAULT_CERT_ISSUER_ID)
@@ -187,10 +187,7 @@ public class DesktopAppConf {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class DesktopAppConf {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("default_cert_issuer_id");
-    openapiFields.add("default_cert_issuer_name");
-    openapiFields.add("secure_web_access_url");
-    openapiFields.add("secure_web_proxy_url");
+    openapiFields = new HashSet<String>(Arrays.asList("default_cert_issuer_id", "default_cert_issuer_name", "secure_web_access_url", "secure_web_proxy_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class DesktopAppConf {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DesktopAppConf.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DesktopAppConf is not found in the empty JSON string", DesktopAppConf.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DesktopAppConf is not found in the empty JSON string", DesktopAppConf.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,18 +219,18 @@ public class DesktopAppConf {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DesktopAppConf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DesktopAppConf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DesktopAppConf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("default_cert_issuer_name") != null && !jsonObj.get("default_cert_issuer_name").isJsonNull()) && !jsonObj.get("default_cert_issuer_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default_cert_issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_cert_issuer_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `default_cert_issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_cert_issuer_name").toString()));
       }
       if ((jsonObj.get("secure_web_access_url") != null && !jsonObj.get("secure_web_access_url").isJsonNull()) && !jsonObj.get("secure_web_access_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure_web_access_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure_web_access_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure_web_access_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure_web_access_url").toString()));
       }
       if ((jsonObj.get("secure_web_proxy_url") != null && !jsonObj.get("secure_web_proxy_url").isJsonNull()) && !jsonObj.get("secure_web_proxy_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure_web_proxy_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure_web_proxy_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure_web_proxy_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure_web_proxy_url").toString()));
       }
   }
 

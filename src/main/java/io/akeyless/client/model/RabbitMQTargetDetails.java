@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * RabbitMQTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RabbitMQTargetDetails {
   public static final String SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD = "rabbitmq_server_password";
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_PASSWORD)
@@ -161,10 +161,7 @@ public class RabbitMQTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class RabbitMQTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("rabbitmq_server_password");
-    openapiFields.add("rabbitmq_server_uri");
-    openapiFields.add("rabbitmq_server_user");
+    openapiFields = new HashSet<String>(Arrays.asList("rabbitmq_server_password", "rabbitmq_server_uri", "rabbitmq_server_user"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class RabbitMQTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RabbitMQTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RabbitMQTargetDetails is not found in the empty JSON string", RabbitMQTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RabbitMQTargetDetails is not found in the empty JSON string", RabbitMQTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class RabbitMQTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RabbitMQTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RabbitMQTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RabbitMQTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("rabbitmq_server_password") != null && !jsonObj.get("rabbitmq_server_password").isJsonNull()) && !jsonObj.get("rabbitmq_server_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rabbitmq_server_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rabbitmq_server_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_password").toString()));
       }
       if ((jsonObj.get("rabbitmq_server_uri") != null && !jsonObj.get("rabbitmq_server_uri").isJsonNull()) && !jsonObj.get("rabbitmq_server_uri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rabbitmq_server_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_uri").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rabbitmq_server_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_uri").toString()));
       }
       if ((jsonObj.get("rabbitmq_server_user") != null && !jsonObj.get("rabbitmq_server_user").isJsonNull()) && !jsonObj.get("rabbitmq_server_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rabbitmq_server_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rabbitmq_server_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq_server_user").toString()));
       }
   }
 

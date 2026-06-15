@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * eventForwarderCreateWebhook is a command that creates webhook event forwarder
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EventForwarderCreateWebhook {
   public static final String SERIALIZED_NAME_AUTH_METHODS_EVENT_SOURCE_LOCATIONS = "auth-methods-event-source-locations";
   @SerializedName(SERIALIZED_NAME_AUTH_METHODS_EVENT_SOURCE_LOCATIONS)
@@ -671,10 +671,7 @@ public class EventForwarderCreateWebhook {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -683,34 +680,10 @@ public class EventForwarderCreateWebhook {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auth-methods-event-source-locations");
-    openapiFields.add("auth-token");
-    openapiFields.add("auth-type");
-    openapiFields.add("client-cert-data");
-    openapiFields.add("description");
-    openapiFields.add("event-types");
-    openapiFields.add("every");
-    openapiFields.add("gateways-event-source-locations");
-    openapiFields.add("items-event-source-locations");
-    openapiFields.add("json");
-    openapiFields.add("key");
-    openapiFields.add("name");
-    openapiFields.add("password");
-    openapiFields.add("private-key-data");
-    openapiFields.add("runner-type");
-    openapiFields.add("server-certificates");
-    openapiFields.add("targets-event-source-locations");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("url");
-    openapiFields.add("username");
+    openapiFields = new HashSet<String>(Arrays.asList("auth-methods-event-source-locations", "auth-token", "auth-type", "client-cert-data", "description", "event-types", "every", "gateways-event-source-locations", "items-event-source-locations", "json", "key", "name", "password", "private-key-data", "runner-type", "server-certificates", "targets-event-source-locations", "token", "uid-token", "url", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("gateways-event-source-locations");
-    openapiRequiredFields.add("name");
-    openapiRequiredFields.add("runner-type");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("gateways-event-source-locations", "name", "runner-type"));
   }
 
   /**
@@ -722,7 +695,7 @@ public class EventForwarderCreateWebhook {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EventForwarderCreateWebhook.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EventForwarderCreateWebhook is not found in the empty JSON string", EventForwarderCreateWebhook.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EventForwarderCreateWebhook is not found in the empty JSON string", EventForwarderCreateWebhook.openapiRequiredFields.toString()));
         }
       }
 
@@ -730,83 +703,83 @@ public class EventForwarderCreateWebhook {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EventForwarderCreateWebhook.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventForwarderCreateWebhook` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EventForwarderCreateWebhook` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : EventForwarderCreateWebhook.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("auth-methods-event-source-locations") != null && !jsonObj.get("auth-methods-event-source-locations").isJsonNull() && !jsonObj.get("auth-methods-event-source-locations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth-methods-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("auth-methods-event-source-locations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth-methods-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("auth-methods-event-source-locations").toString()));
       }
       if ((jsonObj.get("auth-token") != null && !jsonObj.get("auth-token").isJsonNull()) && !jsonObj.get("auth-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-token").toString()));
       }
       if ((jsonObj.get("auth-type") != null && !jsonObj.get("auth-type").isJsonNull()) && !jsonObj.get("auth-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-type").toString()));
       }
       if ((jsonObj.get("client-cert-data") != null && !jsonObj.get("client-cert-data").isJsonNull()) && !jsonObj.get("client-cert-data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client-cert-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-cert-data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client-cert-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client-cert-data").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("event-types") != null && !jsonObj.get("event-types").isJsonNull() && !jsonObj.get("event-types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `event-types` to be an array in the JSON string but got `%s`", jsonObj.get("event-types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event-types` to be an array in the JSON string but got `%s`", jsonObj.get("event-types").toString()));
       }
       if ((jsonObj.get("every") != null && !jsonObj.get("every").isJsonNull()) && !jsonObj.get("every").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `every` to be a primitive type in the JSON string but got `%s`", jsonObj.get("every").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `every` to be a primitive type in the JSON string but got `%s`", jsonObj.get("every").toString()));
       }
       // ensure the required json array is present
       if (jsonObj.get("gateways-event-source-locations") == null) {
         throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
       } else if (!jsonObj.get("gateways-event-source-locations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gateways-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("gateways-event-source-locations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gateways-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("gateways-event-source-locations").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("items-event-source-locations") != null && !jsonObj.get("items-event-source-locations").isJsonNull() && !jsonObj.get("items-event-source-locations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `items-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("items-event-source-locations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("items-event-source-locations").toString()));
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("private-key-data") != null && !jsonObj.get("private-key-data").isJsonNull()) && !jsonObj.get("private-key-data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `private-key-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private-key-data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `private-key-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private-key-data").toString()));
       }
       if (!jsonObj.get("runner-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `runner-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runner-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `runner-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("runner-type").toString()));
       }
       if ((jsonObj.get("server-certificates") != null && !jsonObj.get("server-certificates").isJsonNull()) && !jsonObj.get("server-certificates").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `server-certificates` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server-certificates").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server-certificates` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server-certificates").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("targets-event-source-locations") != null && !jsonObj.get("targets-event-source-locations").isJsonNull() && !jsonObj.get("targets-event-source-locations").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `targets-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("targets-event-source-locations").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `targets-event-source-locations` to be an array in the JSON string but got `%s`", jsonObj.get("targets-event-source-locations").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

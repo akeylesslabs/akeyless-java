@@ -53,7 +53,7 @@ import io.akeyless.client.JSON;
 /**
  * Role
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class Role {
   public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
@@ -390,10 +390,7 @@ public class Role {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -402,21 +399,10 @@ public class Role {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_date");
-    openapiFields.add("access_date_display");
-    openapiFields.add("client_permissions");
-    openapiFields.add("comment");
-    openapiFields.add("creation_date");
-    openapiFields.add("delete_protection");
-    openapiFields.add("modification_date");
-    openapiFields.add("role_auth_methods_assoc");
-    openapiFields.add("role_id");
-    openapiFields.add("role_name");
-    openapiFields.add("rules");
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "client_permissions", "comment", "creation_date", "delete_protection", "modification_date", "role_auth_methods_assoc", "role_id", "role_name", "rules"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -428,7 +414,7 @@ public class Role {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Role.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Role is not found in the empty JSON string", Role.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Role is not found in the empty JSON string", Role.openapiRequiredFields.toString()));
         }
       }
 
@@ -436,26 +422,26 @@ public class Role {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Role.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Role` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Role` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_date_display") != null && !jsonObj.get("access_date_display").isJsonNull()) && !jsonObj.get("access_date_display").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("client_permissions") != null && !jsonObj.get("client_permissions").isJsonNull() && !jsonObj.get("client_permissions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_permissions` to be an array in the JSON string but got `%s`", jsonObj.get("client_permissions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_permissions` to be an array in the JSON string but got `%s`", jsonObj.get("client_permissions").toString()));
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
       if (jsonObj.get("role_auth_methods_assoc") != null && !jsonObj.get("role_auth_methods_assoc").isJsonNull()) {
         JsonArray jsonArrayroleAuthMethodsAssoc = jsonObj.getAsJsonArray("role_auth_methods_assoc");
         if (jsonArrayroleAuthMethodsAssoc != null) {
           // ensure the json data is an array
           if (!jsonObj.get("role_auth_methods_assoc").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `role_auth_methods_assoc` to be an array in the JSON string but got `%s`", jsonObj.get("role_auth_methods_assoc").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role_auth_methods_assoc` to be an array in the JSON string but got `%s`", jsonObj.get("role_auth_methods_assoc").toString()));
           }
 
           // validate the optional field `role_auth_methods_assoc` (array)
@@ -465,7 +451,7 @@ public class Role {
         }
       }
       if ((jsonObj.get("role_name") != null && !jsonObj.get("role_name").isJsonNull()) && !jsonObj.get("role_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_name").toString()));
       }
       // validate the optional field `rules`
       if (jsonObj.get("rules") != null && !jsonObj.get("rules").isJsonNull()) {

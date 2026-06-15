@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * TmpUserData
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class TmpUserData {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -303,10 +303,7 @@ public class TmpUserData {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -315,18 +312,10 @@ public class TmpUserData {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_id");
-    openapiFields.add("creation_date");
-    openapiFields.add("custom_ttl");
-    openapiFields.add("dynamic_secret_type");
-    openapiFields.add("encrypted_secret");
-    openapiFields.add("host");
-    openapiFields.add("id");
-    openapiFields.add("sub_claims");
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "creation_date", "custom_ttl", "dynamic_secret_type", "encrypted_secret", "host", "id", "sub_claims"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -338,7 +327,7 @@ public class TmpUserData {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TmpUserData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TmpUserData is not found in the empty JSON string", TmpUserData.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TmpUserData is not found in the empty JSON string", TmpUserData.openapiRequiredFields.toString()));
         }
       }
 
@@ -346,24 +335,24 @@ public class TmpUserData {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TmpUserData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TmpUserData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TmpUserData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id") != null && !jsonObj.get("access_id").isJsonNull()) && !jsonObj.get("access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
       }
       if ((jsonObj.get("dynamic_secret_type") != null && !jsonObj.get("dynamic_secret_type").isJsonNull()) && !jsonObj.get("dynamic_secret_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `dynamic_secret_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dynamic_secret_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dynamic_secret_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dynamic_secret_type").toString()));
       }
       if ((jsonObj.get("encrypted_secret") != null && !jsonObj.get("encrypted_secret").isJsonNull()) && !jsonObj.get("encrypted_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `encrypted_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encrypted_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encrypted_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encrypted_secret").toString()));
       }
       if ((jsonObj.get("host") != null && !jsonObj.get("host").isJsonNull()) && !jsonObj.get("host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
   }
 

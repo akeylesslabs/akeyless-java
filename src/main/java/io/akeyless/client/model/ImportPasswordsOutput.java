@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ImportPasswordsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ImportPasswordsOutput {
   public static final String SERIALIZED_NAME_IMPORTED = "imported";
   @SerializedName(SERIALIZED_NAME_IMPORTED)
@@ -187,10 +187,7 @@ public class ImportPasswordsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class ImportPasswordsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("imported");
-    openapiFields.add("passwords_in_file");
-    openapiFields.add("successfully_parsed");
-    openapiFields.add("updated");
+    openapiFields = new HashSet<String>(Arrays.asList("imported", "passwords_in_file", "successfully_parsed", "updated"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class ImportPasswordsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ImportPasswordsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ImportPasswordsOutput is not found in the empty JSON string", ImportPasswordsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ImportPasswordsOutput is not found in the empty JSON string", ImportPasswordsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,7 +219,7 @@ public class ImportPasswordsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ImportPasswordsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ImportPasswordsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ImportPasswordsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

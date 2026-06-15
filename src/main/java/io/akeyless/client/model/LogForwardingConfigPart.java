@@ -58,7 +58,7 @@ import io.akeyless.client.JSON;
 /**
  * LogForwardingConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class LogForwardingConfigPart {
   public static final String SERIALIZED_NAME_AWS_S3_CONFIG = "aws_s3_config";
   @SerializedName(SERIALIZED_NAME_AWS_S3_CONFIG)
@@ -483,10 +483,7 @@ public class LogForwardingConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -495,25 +492,10 @@ public class LogForwardingConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("aws_s3_config");
-    openapiFields.add("azure_analytics_config");
-    openapiFields.add("datadog_config");
-    openapiFields.add("elasticsearch_config");
-    openapiFields.add("google_chronicle_config");
-    openapiFields.add("json_output");
-    openapiFields.add("logan_enable");
-    openapiFields.add("logan_url");
-    openapiFields.add("logstash_config");
-    openapiFields.add("logz_io_config");
-    openapiFields.add("pull_interval_sec");
-    openapiFields.add("splunk_config");
-    openapiFields.add("sumo_logic_config");
-    openapiFields.add("syslog_config");
-    openapiFields.add("target_log_type");
+    openapiFields = new HashSet<String>(Arrays.asList("aws_s3_config", "azure_analytics_config", "datadog_config", "elasticsearch_config", "google_chronicle_config", "json_output", "logan_enable", "logan_url", "logstash_config", "logz_io_config", "pull_interval_sec", "splunk_config", "sumo_logic_config", "syslog_config", "target_log_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -525,7 +507,7 @@ public class LogForwardingConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LogForwardingConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LogForwardingConfigPart is not found in the empty JSON string", LogForwardingConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LogForwardingConfigPart is not found in the empty JSON string", LogForwardingConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -533,7 +515,7 @@ public class LogForwardingConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LogForwardingConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LogForwardingConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LogForwardingConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -558,7 +540,7 @@ public class LogForwardingConfigPart {
         GoogleChronicleForwardingConfig.validateJsonElement(jsonObj.get("google_chronicle_config"));
       }
       if ((jsonObj.get("logan_url") != null && !jsonObj.get("logan_url").isJsonNull()) && !jsonObj.get("logan_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logan_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logan_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `logan_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logan_url").toString()));
       }
       // validate the optional field `logstash_config`
       if (jsonObj.get("logstash_config") != null && !jsonObj.get("logstash_config").isJsonNull()) {
@@ -569,7 +551,7 @@ public class LogForwardingConfigPart {
         LogzIoLogForwardingConfig.validateJsonElement(jsonObj.get("logz_io_config"));
       }
       if ((jsonObj.get("pull_interval_sec") != null && !jsonObj.get("pull_interval_sec").isJsonNull()) && !jsonObj.get("pull_interval_sec").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pull_interval_sec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pull_interval_sec").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pull_interval_sec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pull_interval_sec").toString()));
       }
       // validate the optional field `splunk_config`
       if (jsonObj.get("splunk_config") != null && !jsonObj.get("splunk_config").isJsonNull()) {
@@ -584,7 +566,7 @@ public class LogForwardingConfigPart {
         SyslogLogForwardingConfig.validateJsonElement(jsonObj.get("syslog_config"));
       }
       if ((jsonObj.get("target_log_type") != null && !jsonObj.get("target_log_type").isJsonNull()) && !jsonObj.get("target_log_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_log_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_log_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_log_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_log_type").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * var s NullString err :&#x3D; db.QueryRow(\&quot;SELECT name FROM foo WHERE id&#x3D;?\&quot;, id).Scan(&amp;s) ... if s.Valid { use s.String } else { NULL value }
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class NullString {
   public static final String SERIALIZED_NAME_STRING = "String";
   @SerializedName(SERIALIZED_NAME_STRING)
@@ -135,10 +135,7 @@ public class NullString {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class NullString {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("String");
-    openapiFields.add("Valid");
+    openapiFields = new HashSet<String>(Arrays.asList("String", "Valid"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class NullString {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NullString.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NullString is not found in the empty JSON string", NullString.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NullString is not found in the empty JSON string", NullString.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,12 +167,12 @@ public class NullString {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NullString.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NullString` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NullString` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("String") != null && !jsonObj.get("String").isJsonNull()) && !jsonObj.get("String").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `String` to be a primitive type in the JSON string but got `%s`", jsonObj.get("String").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `String` to be a primitive type in the JSON string but got `%s`", jsonObj.get("String").toString()));
       }
   }
 

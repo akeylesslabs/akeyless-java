@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * NativeK8sTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class NativeK8sTargetDetails {
   public static final String SERIALIZED_NAME_K8S_AUTH_TYPE = "k8s_auth_type";
   @SerializedName(SERIALIZED_NAME_K8S_AUTH_TYPE)
@@ -291,10 +291,7 @@ public class NativeK8sTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -303,18 +300,10 @@ public class NativeK8sTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("k8s_auth_type");
-    openapiFields.add("k8s_bearer_token");
-    openapiFields.add("k8s_client_cert_data");
-    openapiFields.add("k8s_client_key_data");
-    openapiFields.add("k8s_cluster_ca_certificate");
-    openapiFields.add("k8s_cluster_endpoint");
-    openapiFields.add("k8s_cluster_name");
-    openapiFields.add("use_gw_service_account");
+    openapiFields = new HashSet<String>(Arrays.asList("k8s_auth_type", "k8s_bearer_token", "k8s_client_cert_data", "k8s_client_key_data", "k8s_cluster_ca_certificate", "k8s_cluster_endpoint", "k8s_cluster_name", "use_gw_service_account"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -326,7 +315,7 @@ public class NativeK8sTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NativeK8sTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NativeK8sTargetDetails is not found in the empty JSON string", NativeK8sTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NativeK8sTargetDetails is not found in the empty JSON string", NativeK8sTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -334,30 +323,30 @@ public class NativeK8sTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NativeK8sTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NativeK8sTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NativeK8sTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("k8s_auth_type") != null && !jsonObj.get("k8s_auth_type").isJsonNull()) && !jsonObj.get("k8s_auth_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_auth_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_auth_type").toString()));
       }
       if ((jsonObj.get("k8s_bearer_token") != null && !jsonObj.get("k8s_bearer_token").isJsonNull()) && !jsonObj.get("k8s_bearer_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_bearer_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_bearer_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_bearer_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_bearer_token").toString()));
       }
       if ((jsonObj.get("k8s_client_cert_data") != null && !jsonObj.get("k8s_client_cert_data").isJsonNull()) && !jsonObj.get("k8s_client_cert_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_client_cert_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_client_cert_data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_client_cert_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_client_cert_data").toString()));
       }
       if ((jsonObj.get("k8s_client_key_data") != null && !jsonObj.get("k8s_client_key_data").isJsonNull()) && !jsonObj.get("k8s_client_key_data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_client_key_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_client_key_data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_client_key_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_client_key_data").toString()));
       }
       if ((jsonObj.get("k8s_cluster_ca_certificate") != null && !jsonObj.get("k8s_cluster_ca_certificate").isJsonNull()) && !jsonObj.get("k8s_cluster_ca_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_cluster_ca_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_cluster_ca_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_cluster_ca_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_cluster_ca_certificate").toString()));
       }
       if ((jsonObj.get("k8s_cluster_endpoint") != null && !jsonObj.get("k8s_cluster_endpoint").isJsonNull()) && !jsonObj.get("k8s_cluster_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_cluster_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_cluster_endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_cluster_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_cluster_endpoint").toString()));
       }
       if ((jsonObj.get("k8s_cluster_name") != null && !jsonObj.get("k8s_cluster_name").isJsonNull()) && !jsonObj.get("k8s_cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_cluster_name").toString()));
       }
   }
 

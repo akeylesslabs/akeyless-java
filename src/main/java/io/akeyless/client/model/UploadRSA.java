@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * UploadRSA
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UploadRSA {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -553,10 +553,7 @@ public class UploadRSA {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -565,29 +562,10 @@ public class UploadRSA {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alg");
-    openapiFields.add("cert-file-data");
-    openapiFields.add("certificate-format");
-    openapiFields.add("customer-frg-id");
-    openapiFields.add("delete_protection");
-    openapiFields.add("description");
-    openapiFields.add("expiration-event-in");
-    openapiFields.add("item-custom-fields");
-    openapiFields.add("json");
-    openapiFields.add("metadata");
-    openapiFields.add("name");
-    openapiFields.add("overwrite");
-    openapiFields.add("rsa-file-data");
-    openapiFields.add("split-level");
-    openapiFields.add("tag");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("alg", "cert-file-data", "certificate-format", "customer-frg-id", "delete_protection", "description", "expiration-event-in", "item-custom-fields", "json", "metadata", "name", "overwrite", "rsa-file-data", "split-level", "tag", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("alg");
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("alg", "name"));
   }
 
   /**
@@ -599,7 +577,7 @@ public class UploadRSA {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UploadRSA.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UploadRSA is not found in the empty JSON string", UploadRSA.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UploadRSA is not found in the empty JSON string", UploadRSA.openapiRequiredFields.toString()));
         }
       }
 
@@ -607,60 +585,60 @@ public class UploadRSA {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UploadRSA.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UploadRSA` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UploadRSA` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UploadRSA.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("alg").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
       }
       if ((jsonObj.get("cert-file-data") != null && !jsonObj.get("cert-file-data").isJsonNull()) && !jsonObj.get("cert-file-data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert-file-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-file-data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert-file-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-file-data").toString()));
       }
       if ((jsonObj.get("certificate-format") != null && !jsonObj.get("certificate-format").isJsonNull()) && !jsonObj.get("certificate-format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-format").toString()));
       }
       if ((jsonObj.get("customer-frg-id") != null && !jsonObj.get("customer-frg-id").isJsonNull()) && !jsonObj.get("customer-frg-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customer-frg-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer-frg-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer-frg-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer-frg-id").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("overwrite") != null && !jsonObj.get("overwrite").isJsonNull()) && !jsonObj.get("overwrite").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `overwrite` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overwrite").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `overwrite` to be a primitive type in the JSON string but got `%s`", jsonObj.get("overwrite").toString()));
       }
       if ((jsonObj.get("rsa-file-data") != null && !jsonObj.get("rsa-file-data").isJsonNull()) && !jsonObj.get("rsa-file-data").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rsa-file-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rsa-file-data").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rsa-file-data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rsa-file-data").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tag") != null && !jsonObj.get("tag").isJsonNull() && !jsonObj.get("tag").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tag` to be an array in the JSON string but got `%s`", jsonObj.get("tag").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tag` to be an array in the JSON string but got `%s`", jsonObj.get("tag").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

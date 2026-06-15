@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * AzureLogAnalyticsForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AzureLogAnalyticsForwardingConfig {
   public static final String SERIALIZED_NAME_AZURE_ENABLE_BATCH = "azure_enable_batch";
   @SerializedName(SERIALIZED_NAME_AZURE_ENABLE_BATCH)
@@ -161,10 +161,7 @@ public class AzureLogAnalyticsForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class AzureLogAnalyticsForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("azure_enable_batch");
-    openapiFields.add("azure_workspace_id");
-    openapiFields.add("azure_workspace_key");
+    openapiFields = new HashSet<String>(Arrays.asList("azure_enable_batch", "azure_workspace_id", "azure_workspace_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class AzureLogAnalyticsForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AzureLogAnalyticsForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AzureLogAnalyticsForwardingConfig is not found in the empty JSON string", AzureLogAnalyticsForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AzureLogAnalyticsForwardingConfig is not found in the empty JSON string", AzureLogAnalyticsForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class AzureLogAnalyticsForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AzureLogAnalyticsForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AzureLogAnalyticsForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AzureLogAnalyticsForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("azure_enable_batch") != null && !jsonObj.get("azure_enable_batch").isJsonNull()) && !jsonObj.get("azure_enable_batch").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_enable_batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_enable_batch").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_enable_batch` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_enable_batch").toString()));
       }
       if ((jsonObj.get("azure_workspace_id") != null && !jsonObj.get("azure_workspace_id").isJsonNull()) && !jsonObj.get("azure_workspace_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_workspace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_workspace_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_workspace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_workspace_id").toString()));
       }
       if ((jsonObj.get("azure_workspace_key") != null && !jsonObj.get("azure_workspace_key").isJsonNull()) && !jsonObj.get("azure_workspace_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_workspace_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_workspace_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_workspace_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_workspace_key").toString()));
       }
   }
 

@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * it exposes object_types and intentionally hides enforce_on_items/enforce_on_targets.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class PolicyOutput {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -351,10 +351,7 @@ public class PolicyOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -363,19 +360,10 @@ public class PolicyOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account_id");
-    openapiFields.add("allowed_algorithms");
-    openapiFields.add("allowed_key_names");
-    openapiFields.add("allowed_key_types");
-    openapiFields.add("id");
-    openapiFields.add("max_rotation_interval_days");
-    openapiFields.add("object_types");
-    openapiFields.add("path");
-    openapiFields.add("type");
+    openapiFields = new HashSet<String>(Arrays.asList("account_id", "allowed_algorithms", "allowed_key_names", "allowed_key_types", "id", "max_rotation_interval_days", "object_types", "path", "type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -387,7 +375,7 @@ public class PolicyOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PolicyOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PolicyOutput is not found in the empty JSON string", PolicyOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PolicyOutput is not found in the empty JSON string", PolicyOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -395,37 +383,37 @@ public class PolicyOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PolicyOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PolicyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PolicyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_algorithms") != null && !jsonObj.get("allowed_algorithms").isJsonNull() && !jsonObj.get("allowed_algorithms").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_algorithms` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_algorithms").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_algorithms` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_algorithms").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_key_names") != null && !jsonObj.get("allowed_key_names").isJsonNull() && !jsonObj.get("allowed_key_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_key_names` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_key_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_key_names` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_key_names").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_key_types") != null && !jsonObj.get("allowed_key_types").isJsonNull() && !jsonObj.get("allowed_key_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_key_types` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_key_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_key_types` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_key_types").toString()));
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("object_types") != null && !jsonObj.get("object_types").isJsonNull() && !jsonObj.get("object_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `object_types` to be an array in the JSON string but got `%s`", jsonObj.get("object_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object_types` to be an array in the JSON string but got `%s`", jsonObj.get("object_types").toString()));
       }
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
   }
 

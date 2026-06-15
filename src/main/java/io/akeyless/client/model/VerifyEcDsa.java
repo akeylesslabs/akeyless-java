@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * verifyEcDsa is a command that verifies an ECDSA signature using a sha hash algorithm matching the key size
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class VerifyEcDsa {
   public static final String SERIALIZED_NAME_DISPLAY_ID = "display-id";
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
@@ -343,10 +343,7 @@ public class VerifyEcDsa {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -355,22 +352,10 @@ public class VerifyEcDsa {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("display-id");
-    openapiFields.add("item-id");
-    openapiFields.add("json");
-    openapiFields.add("key-name");
-    openapiFields.add("message");
-    openapiFields.add("prehashed");
-    openapiFields.add("signature");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("version");
+    openapiFields = new HashSet<String>(Arrays.asList("display-id", "item-id", "json", "key-name", "message", "prehashed", "signature", "token", "uid-token", "version"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("message");
-    openapiRequiredFields.add("signature");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("message", "signature"));
   }
 
   /**
@@ -382,7 +367,7 @@ public class VerifyEcDsa {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!VerifyEcDsa.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VerifyEcDsa is not found in the empty JSON string", VerifyEcDsa.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VerifyEcDsa is not found in the empty JSON string", VerifyEcDsa.openapiRequiredFields.toString()));
         }
       }
 
@@ -390,34 +375,34 @@ public class VerifyEcDsa {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!VerifyEcDsa.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VerifyEcDsa` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VerifyEcDsa` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : VerifyEcDsa.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("display-id") != null && !jsonObj.get("display-id").isJsonNull()) && !jsonObj.get("display-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display-id").toString()));
       }
       if ((jsonObj.get("key-name") != null && !jsonObj.get("key-name").isJsonNull()) && !jsonObj.get("key-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-name").toString()));
       }
       if (!jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
       if (!jsonObj.get("signature").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `signature` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signature").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * SshBastionConf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SshBastionConf {
   public static final String SERIALIZED_NAME_HIDE_SESSION_RECORDING = "hide_session_recording";
   @SerializedName(SERIALIZED_NAME_HIDE_SESSION_RECORDING)
@@ -189,10 +189,7 @@ public class SshBastionConf {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -201,14 +198,10 @@ public class SshBastionConf {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("hide_session_recording");
-    openapiFields.add("kexalgs");
-    openapiFields.add("log_forwarding");
-    openapiFields.add("session_termination");
+    openapiFields = new HashSet<String>(Arrays.asList("hide_session_recording", "kexalgs", "log_forwarding", "session_termination"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -220,7 +213,7 @@ public class SshBastionConf {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SshBastionConf.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SshBastionConf is not found in the empty JSON string", SshBastionConf.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SshBastionConf is not found in the empty JSON string", SshBastionConf.openapiRequiredFields.toString()));
         }
       }
 
@@ -228,12 +221,12 @@ public class SshBastionConf {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SshBastionConf.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SshBastionConf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SshBastionConf` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("kexalgs") != null && !jsonObj.get("kexalgs").isJsonNull()) && !jsonObj.get("kexalgs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kexalgs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kexalgs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kexalgs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kexalgs").toString()));
       }
       // validate the optional field `log_forwarding`
       if (jsonObj.get("log_forwarding") != null && !jsonObj.get("log_forwarding").isJsonNull()) {

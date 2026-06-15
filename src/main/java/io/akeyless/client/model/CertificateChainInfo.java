@@ -54,7 +54,7 @@ import io.akeyless.client.JSON;
 /**
  * CertificateChainInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CertificateChainInfo {
   public static final String SERIALIZED_NAME_AUTO_RENEW_CERTIFICATE = "auto_renew_certificate";
   @SerializedName(SERIALIZED_NAME_AUTO_RENEW_CERTIFICATE)
@@ -599,10 +599,7 @@ public class CertificateChainInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -611,29 +608,10 @@ public class CertificateChainInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auto_renew_certificate");
-    openapiFields.add("certificate_chain");
-    openapiFields.add("certificate_format");
-    openapiFields.add("certificate_has_private_key");
-    openapiFields.add("certificate_issuer_gw_cluster_id");
-    openapiFields.add("certificate_issuer_gw_cluster_url");
-    openapiFields.add("certificate_issuer_item_id");
-    openapiFields.add("certificate_issuer_name");
-    openapiFields.add("certificate_pem");
-    openapiFields.add("certificate_status");
-    openapiFields.add("common_name");
-    openapiFields.add("csr_pem");
-    openapiFields.add("error_message");
-    openapiFields.add("expiration_date");
-    openapiFields.add("expiration_events");
-    openapiFields.add("external_ca_id");
-    openapiFields.add("issuance_status");
-    openapiFields.add("not_before");
-    openapiFields.add("renew_before_expiration_in_days");
+    openapiFields = new HashSet<String>(Arrays.asList("auto_renew_certificate", "certificate_chain", "certificate_format", "certificate_has_private_key", "certificate_issuer_gw_cluster_id", "certificate_issuer_gw_cluster_url", "certificate_issuer_item_id", "certificate_issuer_name", "certificate_pem", "certificate_status", "common_name", "csr_pem", "error_message", "expiration_date", "expiration_events", "external_ca_id", "issuance_status", "not_before", "renew_before_expiration_in_days"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -645,7 +623,7 @@ public class CertificateChainInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CertificateChainInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CertificateChainInfo is not found in the empty JSON string", CertificateChainInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CertificateChainInfo is not found in the empty JSON string", CertificateChainInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -653,7 +631,7 @@ public class CertificateChainInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CertificateChainInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CertificateChainInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CertificateChainInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -662,7 +640,7 @@ public class CertificateChainInfo {
         if (jsonArraycertificateChain != null) {
           // ensure the json data is an array
           if (!jsonObj.get("certificate_chain").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `certificate_chain` to be an array in the JSON string but got `%s`", jsonObj.get("certificate_chain").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_chain` to be an array in the JSON string but got `%s`", jsonObj.get("certificate_chain").toString()));
           }
 
           // validate the optional field `certificate_chain` (array)
@@ -672,35 +650,35 @@ public class CertificateChainInfo {
         }
       }
       if ((jsonObj.get("certificate_format") != null && !jsonObj.get("certificate_format").isJsonNull()) && !jsonObj.get("certificate_format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_format").toString()));
       }
       if ((jsonObj.get("certificate_issuer_gw_cluster_url") != null && !jsonObj.get("certificate_issuer_gw_cluster_url").isJsonNull()) && !jsonObj.get("certificate_issuer_gw_cluster_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_issuer_gw_cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_issuer_gw_cluster_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_issuer_gw_cluster_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_issuer_gw_cluster_url").toString()));
       }
       if ((jsonObj.get("certificate_issuer_name") != null && !jsonObj.get("certificate_issuer_name").isJsonNull()) && !jsonObj.get("certificate_issuer_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_issuer_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_issuer_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_issuer_name").toString()));
       }
       if ((jsonObj.get("certificate_pem") != null && !jsonObj.get("certificate_pem").isJsonNull()) && !jsonObj.get("certificate_pem").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_pem").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_pem").toString()));
       }
       if ((jsonObj.get("certificate_status") != null && !jsonObj.get("certificate_status").isJsonNull()) && !jsonObj.get("certificate_status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_status").toString()));
       }
       if ((jsonObj.get("common_name") != null && !jsonObj.get("common_name").isJsonNull()) && !jsonObj.get("common_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("common_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `common_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("common_name").toString()));
       }
       if ((jsonObj.get("csr_pem") != null && !jsonObj.get("csr_pem").isJsonNull()) && !jsonObj.get("csr_pem").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `csr_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csr_pem").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `csr_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csr_pem").toString()));
       }
       if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
       }
       if (jsonObj.get("expiration_events") != null && !jsonObj.get("expiration_events").isJsonNull()) {
         JsonArray jsonArrayexpirationEvents = jsonObj.getAsJsonArray("expiration_events");
         if (jsonArrayexpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
           }
 
           // validate the optional field `expiration_events` (array)
@@ -714,7 +692,7 @@ public class CertificateChainInfo {
         NullString.validateJsonElement(jsonObj.get("external_ca_id"));
       }
       if ((jsonObj.get("issuance_status") != null && !jsonObj.get("issuance_status").isJsonNull()) && !jsonObj.get("issuance_status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuance_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuance_status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuance_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuance_status").toString()));
       }
   }
 

@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * AzureTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AzureTargetDetails {
   public static final String SERIALIZED_NAME_AZURE_CLIENT_ID = "azure_client_id";
   @SerializedName(SERIALIZED_NAME_AZURE_CLIENT_ID)
@@ -396,10 +396,7 @@ public class AzureTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -408,22 +405,10 @@ public class AzureTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("azure_client_id");
-    openapiFields.add("azure_client_secret");
-    openapiFields.add("azure_cloud");
-    openapiFields.add("azure_resource_group_name");
-    openapiFields.add("azure_resource_name");
-    openapiFields.add("azure_subscription_id");
-    openapiFields.add("azure_tenant_id");
-    openapiFields.add("azure_username");
-    openapiFields.add("connection_type");
-    openapiFields.add("expiration_date");
-    openapiFields.add("grace_rotated_secret_key");
-    openapiFields.add("use_gw_cloud_identity");
+    openapiFields = new HashSet<String>(Arrays.asList("azure_client_id", "azure_client_secret", "azure_cloud", "azure_resource_group_name", "azure_resource_name", "azure_subscription_id", "azure_tenant_id", "azure_username", "connection_type", "expiration_date", "grace_rotated_secret_key", "use_gw_cloud_identity"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -435,7 +420,7 @@ public class AzureTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AzureTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AzureTargetDetails is not found in the empty JSON string", AzureTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AzureTargetDetails is not found in the empty JSON string", AzureTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -443,39 +428,39 @@ public class AzureTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AzureTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AzureTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AzureTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("azure_client_id") != null && !jsonObj.get("azure_client_id").isJsonNull()) && !jsonObj.get("azure_client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_client_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_client_id").toString()));
       }
       if ((jsonObj.get("azure_client_secret") != null && !jsonObj.get("azure_client_secret").isJsonNull()) && !jsonObj.get("azure_client_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_client_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_client_secret").toString()));
       }
       if ((jsonObj.get("azure_cloud") != null && !jsonObj.get("azure_cloud").isJsonNull()) && !jsonObj.get("azure_cloud").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_cloud").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_cloud").toString()));
       }
       if ((jsonObj.get("azure_resource_group_name") != null && !jsonObj.get("azure_resource_group_name").isJsonNull()) && !jsonObj.get("azure_resource_group_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_resource_group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_resource_group_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_resource_group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_resource_group_name").toString()));
       }
       if ((jsonObj.get("azure_resource_name") != null && !jsonObj.get("azure_resource_name").isJsonNull()) && !jsonObj.get("azure_resource_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_resource_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_resource_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_resource_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_resource_name").toString()));
       }
       if ((jsonObj.get("azure_subscription_id") != null && !jsonObj.get("azure_subscription_id").isJsonNull()) && !jsonObj.get("azure_subscription_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_subscription_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_subscription_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_subscription_id").toString()));
       }
       if ((jsonObj.get("azure_tenant_id") != null && !jsonObj.get("azure_tenant_id").isJsonNull()) && !jsonObj.get("azure_tenant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_tenant_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_tenant_id").toString()));
       }
       if ((jsonObj.get("azure_username") != null && !jsonObj.get("azure_username").isJsonNull()) && !jsonObj.get("azure_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_username").toString()));
       }
       if ((jsonObj.get("connection_type") != null && !jsonObj.get("connection_type").isJsonNull()) && !jsonObj.get("connection_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
       }
       if ((jsonObj.get("grace_rotated_secret_key") != null && !jsonObj.get("grace_rotated_secret_key").isJsonNull()) && !jsonObj.get("grace_rotated_secret_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grace_rotated_secret_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotated_secret_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace_rotated_secret_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotated_secret_key").toString()));
       }
   }
 

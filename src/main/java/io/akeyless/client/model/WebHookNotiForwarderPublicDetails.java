@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * WebHookNotiForwarderPublicDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class WebHookNotiForwarderPublicDetails {
   public static final String SERIALIZED_NAME_AUTH_TYPE = "auth_type";
   @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
@@ -161,10 +161,7 @@ public class WebHookNotiForwarderPublicDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class WebHookNotiForwarderPublicDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("auth_type");
-    openapiFields.add("endpoint_url");
-    openapiFields.add("username");
+    openapiFields = new HashSet<String>(Arrays.asList("auth_type", "endpoint_url", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class WebHookNotiForwarderPublicDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!WebHookNotiForwarderPublicDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebHookNotiForwarderPublicDetails is not found in the empty JSON string", WebHookNotiForwarderPublicDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WebHookNotiForwarderPublicDetails is not found in the empty JSON string", WebHookNotiForwarderPublicDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class WebHookNotiForwarderPublicDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WebHookNotiForwarderPublicDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebHookNotiForwarderPublicDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `WebHookNotiForwarderPublicDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("auth_type") != null && !jsonObj.get("auth_type").isJsonNull()) && !jsonObj.get("auth_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
       }
       if ((jsonObj.get("endpoint_url") != null && !jsonObj.get("endpoint_url").isJsonNull()) && !jsonObj.get("endpoint_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endpoint_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpoint_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `endpoint_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("endpoint_url").toString()));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

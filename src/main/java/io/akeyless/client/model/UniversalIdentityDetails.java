@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * UniversalIdentityDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UniversalIdentityDetails {
   public static final String SERIALIZED_NAME_MAX_DEPTH = "max_depth";
   @SerializedName(SERIALIZED_NAME_MAX_DEPTH)
@@ -162,10 +162,7 @@ public class UniversalIdentityDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -174,13 +171,10 @@ public class UniversalIdentityDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("max_depth");
-    openapiFields.add("number_of_tokens");
-    openapiFields.add("root");
+    openapiFields = new HashSet<String>(Arrays.asList("max_depth", "number_of_tokens", "root"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -192,7 +186,7 @@ public class UniversalIdentityDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UniversalIdentityDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UniversalIdentityDetails is not found in the empty JSON string", UniversalIdentityDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UniversalIdentityDetails is not found in the empty JSON string", UniversalIdentityDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -200,7 +194,7 @@ public class UniversalIdentityDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UniversalIdentityDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UniversalIdentityDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UniversalIdentityDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

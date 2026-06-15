@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * VenafiTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class VenafiTargetDetails {
   public static final String SERIALIZED_NAME_VENAFI_API_KEY = "venafi_api_key";
   @SerializedName(SERIALIZED_NAME_VENAFI_API_KEY)
@@ -317,10 +317,7 @@ public class VenafiTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -329,19 +326,10 @@ public class VenafiTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("venafi_api_key");
-    openapiFields.add("venafi_base_url");
-    openapiFields.add("venafi_tpp_access_token");
-    openapiFields.add("venafi_tpp_client_id");
-    openapiFields.add("venafi_tpp_password");
-    openapiFields.add("venafi_tpp_refresh_token");
-    openapiFields.add("venafi_tpp_username");
-    openapiFields.add("venafi_use_tpp");
-    openapiFields.add("venafi_zone");
+    openapiFields = new HashSet<String>(Arrays.asList("venafi_api_key", "venafi_base_url", "venafi_tpp_access_token", "venafi_tpp_client_id", "venafi_tpp_password", "venafi_tpp_refresh_token", "venafi_tpp_username", "venafi_use_tpp", "venafi_zone"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -353,7 +341,7 @@ public class VenafiTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!VenafiTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in VenafiTargetDetails is not found in the empty JSON string", VenafiTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in VenafiTargetDetails is not found in the empty JSON string", VenafiTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -361,33 +349,33 @@ public class VenafiTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!VenafiTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `VenafiTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `VenafiTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("venafi_api_key") != null && !jsonObj.get("venafi_api_key").isJsonNull()) && !jsonObj.get("venafi_api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_api_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_api_key").toString()));
       }
       if ((jsonObj.get("venafi_base_url") != null && !jsonObj.get("venafi_base_url").isJsonNull()) && !jsonObj.get("venafi_base_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_base_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_base_url").toString()));
       }
       if ((jsonObj.get("venafi_tpp_access_token") != null && !jsonObj.get("venafi_tpp_access_token").isJsonNull()) && !jsonObj.get("venafi_tpp_access_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_tpp_access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_access_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_tpp_access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_access_token").toString()));
       }
       if ((jsonObj.get("venafi_tpp_client_id") != null && !jsonObj.get("venafi_tpp_client_id").isJsonNull()) && !jsonObj.get("venafi_tpp_client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_tpp_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_client_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_tpp_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_client_id").toString()));
       }
       if ((jsonObj.get("venafi_tpp_password") != null && !jsonObj.get("venafi_tpp_password").isJsonNull()) && !jsonObj.get("venafi_tpp_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_tpp_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_tpp_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_password").toString()));
       }
       if ((jsonObj.get("venafi_tpp_refresh_token") != null && !jsonObj.get("venafi_tpp_refresh_token").isJsonNull()) && !jsonObj.get("venafi_tpp_refresh_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_tpp_refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_refresh_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_tpp_refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_refresh_token").toString()));
       }
       if ((jsonObj.get("venafi_tpp_username") != null && !jsonObj.get("venafi_tpp_username").isJsonNull()) && !jsonObj.get("venafi_tpp_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_tpp_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_tpp_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_tpp_username").toString()));
       }
       if ((jsonObj.get("venafi_zone") != null && !jsonObj.get("venafi_zone").isJsonNull()) && !jsonObj.get("venafi_zone").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `venafi_zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_zone").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `venafi_zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("venafi_zone").toString()));
       }
   }
 

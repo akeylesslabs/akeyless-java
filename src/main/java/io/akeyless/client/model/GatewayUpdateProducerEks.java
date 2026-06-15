@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayUpdateProducerEks is a command that updates eks producer [Deprecated: Use dynamic-secret-update-eks command]
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateProducerEks {
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
@@ -821,10 +821,7 @@ public class GatewayUpdateProducerEks {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -833,38 +830,10 @@ public class GatewayUpdateProducerEks {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_protection");
-    openapiFields.add("eks-access-key-id");
-    openapiFields.add("eks-assume-role");
-    openapiFields.add("eks-cluster-ca-cert");
-    openapiFields.add("eks-cluster-endpoint");
-    openapiFields.add("eks-cluster-name");
-    openapiFields.add("eks-region");
-    openapiFields.add("eks-secret-access-key");
-    openapiFields.add("input-rule");
-    openapiFields.add("item-custom-fields");
-    openapiFields.add("json");
-    openapiFields.add("name");
-    openapiFields.add("new-name");
-    openapiFields.add("output-rule");
-    openapiFields.add("producer-encryption-key-name");
-    openapiFields.add("secure-access-allow-port-forwading");
-    openapiFields.add("secure-access-bastion-issuer");
-    openapiFields.add("secure-access-certificate-issuer");
-    openapiFields.add("secure-access-cluster-endpoint");
-    openapiFields.add("secure-access-delay");
-    openapiFields.add("secure-access-enable");
-    openapiFields.add("secure-access-web");
-    openapiFields.add("tags");
-    openapiFields.add("target-name");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("user-ttl");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "eks-access-key-id", "eks-assume-role", "eks-cluster-ca-cert", "eks-cluster-endpoint", "eks-cluster-name", "eks-region", "eks-secret-access-key", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -876,7 +845,7 @@ public class GatewayUpdateProducerEks {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateProducerEks.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateProducerEks is not found in the empty JSON string", GatewayUpdateProducerEks.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateProducerEks is not found in the empty JSON string", GatewayUpdateProducerEks.openapiRequiredFields.toString()));
         }
       }
 
@@ -884,85 +853,85 @@ public class GatewayUpdateProducerEks {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateProducerEks.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateProducerEks` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateProducerEks` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GatewayUpdateProducerEks.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("eks-access-key-id") != null && !jsonObj.get("eks-access-key-id").isJsonNull()) && !jsonObj.get("eks-access-key-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-access-key-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-access-key-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-access-key-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-access-key-id").toString()));
       }
       if ((jsonObj.get("eks-assume-role") != null && !jsonObj.get("eks-assume-role").isJsonNull()) && !jsonObj.get("eks-assume-role").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-assume-role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-assume-role").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-assume-role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-assume-role").toString()));
       }
       if ((jsonObj.get("eks-cluster-ca-cert") != null && !jsonObj.get("eks-cluster-ca-cert").isJsonNull()) && !jsonObj.get("eks-cluster-ca-cert").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-cluster-ca-cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-cluster-ca-cert").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-cluster-ca-cert` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-cluster-ca-cert").toString()));
       }
       if ((jsonObj.get("eks-cluster-endpoint") != null && !jsonObj.get("eks-cluster-endpoint").isJsonNull()) && !jsonObj.get("eks-cluster-endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-cluster-endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-cluster-endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-cluster-endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-cluster-endpoint").toString()));
       }
       if ((jsonObj.get("eks-cluster-name") != null && !jsonObj.get("eks-cluster-name").isJsonNull()) && !jsonObj.get("eks-cluster-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-cluster-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-cluster-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-cluster-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-cluster-name").toString()));
       }
       if ((jsonObj.get("eks-region") != null && !jsonObj.get("eks-region").isJsonNull()) && !jsonObj.get("eks-region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-region").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-region").toString()));
       }
       if ((jsonObj.get("eks-secret-access-key") != null && !jsonObj.get("eks-secret-access-key").isJsonNull()) && !jsonObj.get("eks-secret-access-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `eks-secret-access-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-secret-access-key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `eks-secret-access-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("eks-secret-access-key").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
       }
       if ((jsonObj.get("secure-access-bastion-issuer") != null && !jsonObj.get("secure-access-bastion-issuer").isJsonNull()) && !jsonObj.get("secure-access-bastion-issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure-access-bastion-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-bastion-issuer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-bastion-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-bastion-issuer").toString()));
       }
       if ((jsonObj.get("secure-access-certificate-issuer") != null && !jsonObj.get("secure-access-certificate-issuer").isJsonNull()) && !jsonObj.get("secure-access-certificate-issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure-access-certificate-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-certificate-issuer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-certificate-issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-certificate-issuer").toString()));
       }
       if ((jsonObj.get("secure-access-cluster-endpoint") != null && !jsonObj.get("secure-access-cluster-endpoint").isJsonNull()) && !jsonObj.get("secure-access-cluster-endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure-access-cluster-endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-cluster-endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-cluster-endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-cluster-endpoint").toString()));
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
       }
       if ((jsonObj.get("target-name") != null && !jsonObj.get("target-name").isJsonNull()) && !jsonObj.get("target-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("user-ttl") != null && !jsonObj.get("user-ttl").isJsonNull()) && !jsonObj.get("user-ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user-ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user-ttl").toString()));
       }
   }
 

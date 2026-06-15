@@ -34,6 +34,7 @@ AccountGeneralSettings describes general settings for an account
 |**passwordExpirationInfo** | [**PasswordExpirationInfo**](PasswordExpirationInfo.md) |  |  [optional] |
 |**passwordPolicy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional] |
 |**passwordScore** | [**PasswordScoreSetting**](PasswordScoreSetting.md) |  |  [optional] |
+|**personalFolderGlobalMapping** | [**PersonalFolderGlobalMappingSettings**](PersonalFolderGlobalMappingSettings.md) |  |  [optional] |
 |**protectItemsByDefault** | **Boolean** |  |  [optional] |
 |**rotationSecretMaxInterval** | [**RotationSecretMaxInterval**](RotationSecretMaxInterval.md) |  |  [optional] |
 |**sharingPolicy** | [**SharingPolicyInfo**](SharingPolicyInfo.md) |  |  [optional] |

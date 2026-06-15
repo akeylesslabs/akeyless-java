@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * listSRASessions is a command that returns sra sessions of the given user
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ListSRASessions {
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
@@ -231,10 +231,7 @@ public class ListSRASessions {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -243,15 +240,10 @@ public class ListSRASessions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("json");
-    openapiFields.add("resource-type");
-    openapiFields.add("status-type");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("json", "resource-type", "status-type", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -263,7 +255,7 @@ public class ListSRASessions {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ListSRASessions.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListSRASessions is not found in the empty JSON string", ListSRASessions.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ListSRASessions is not found in the empty JSON string", ListSRASessions.openapiRequiredFields.toString()));
         }
       }
 
@@ -271,23 +263,23 @@ public class ListSRASessions {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ListSRASessions.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ListSRASessions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ListSRASessions` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("resource-type") != null && !jsonObj.get("resource-type").isJsonNull() && !jsonObj.get("resource-type").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resource-type` to be an array in the JSON string but got `%s`", jsonObj.get("resource-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource-type` to be an array in the JSON string but got `%s`", jsonObj.get("resource-type").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("status-type") != null && !jsonObj.get("status-type").isJsonNull() && !jsonObj.get("status-type").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status-type` to be an array in the JSON string but got `%s`", jsonObj.get("status-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status-type` to be an array in the JSON string but got `%s`", jsonObj.get("status-type").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

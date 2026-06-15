@@ -54,7 +54,7 @@ import io.akeyless.client.JSON;
 /**
  * ShareItemOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ShareItemOutput {
   public static final String SERIALIZED_NAME_EMAIL_ERROR = "email_error";
   @SerializedName(SERIALIZED_NAME_EMAIL_ERROR)
@@ -277,10 +277,7 @@ public class ShareItemOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -289,16 +286,10 @@ public class ShareItemOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("email_error");
-    openapiFields.add("items_error");
-    openapiFields.add("s_token");
-    openapiFields.add("shared_users");
-    openapiFields.add("shared_users_full_info");
-    openapiFields.add("sharing_url");
+    openapiFields = new HashSet<String>(Arrays.asList("email_error", "items_error", "s_token", "shared_users", "shared_users_full_info", "sharing_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -310,7 +301,7 @@ public class ShareItemOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ShareItemOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ShareItemOutput is not found in the empty JSON string", ShareItemOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ShareItemOutput is not found in the empty JSON string", ShareItemOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -318,7 +309,7 @@ public class ShareItemOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ShareItemOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ShareItemOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ShareItemOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -327,7 +318,7 @@ public class ShareItemOutput {
         if (jsonArrayitemsError != null) {
           // ensure the json data is an array
           if (!jsonObj.get("items_error").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `items_error` to be an array in the JSON string but got `%s`", jsonObj.get("items_error").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `items_error` to be an array in the JSON string but got `%s`", jsonObj.get("items_error").toString()));
           }
 
           // validate the optional field `items_error` (array)
@@ -337,18 +328,18 @@ public class ShareItemOutput {
         }
       }
       if ((jsonObj.get("s_token") != null && !jsonObj.get("s_token").isJsonNull()) && !jsonObj.get("s_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `s_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("s_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `s_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("s_token").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("shared_users") != null && !jsonObj.get("shared_users").isJsonNull() && !jsonObj.get("shared_users").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `shared_users` to be an array in the JSON string but got `%s`", jsonObj.get("shared_users").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `shared_users` to be an array in the JSON string but got `%s`", jsonObj.get("shared_users").toString()));
       }
       if (jsonObj.get("shared_users_full_info") != null && !jsonObj.get("shared_users_full_info").isJsonNull()) {
         JsonArray jsonArraysharedUsersFullInfo = jsonObj.getAsJsonArray("shared_users_full_info");
         if (jsonArraysharedUsersFullInfo != null) {
           // ensure the json data is an array
           if (!jsonObj.get("shared_users_full_info").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `shared_users_full_info` to be an array in the JSON string but got `%s`", jsonObj.get("shared_users_full_info").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `shared_users_full_info` to be an array in the JSON string but got `%s`", jsonObj.get("shared_users_full_info").toString()));
           }
 
           // validate the optional field `shared_users_full_info` (array)
@@ -358,7 +349,7 @@ public class ShareItemOutput {
         }
       }
       if ((jsonObj.get("sharing_url") != null && !jsonObj.get("sharing_url").isJsonNull()) && !jsonObj.get("sharing_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sharing_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sharing_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sharing_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sharing_url").toString()));
       }
   }
 

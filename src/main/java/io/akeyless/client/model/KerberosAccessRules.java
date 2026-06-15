@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * KerberosAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KerberosAccessRules {
   public static final String SERIALIZED_NAME_SIGN_PUBLIC_KEY = "sign_public_key";
   @SerializedName(SERIALIZED_NAME_SIGN_PUBLIC_KEY)
@@ -135,10 +135,7 @@ public class KerberosAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class KerberosAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sign_public_key");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("sign_public_key", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class KerberosAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KerberosAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KerberosAccessRules is not found in the empty JSON string", KerberosAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KerberosAccessRules is not found in the empty JSON string", KerberosAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class KerberosAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KerberosAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KerberosAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KerberosAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("sign_public_key") != null && !jsonObj.get("sign_public_key").isJsonNull()) && !jsonObj.get("sign_public_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sign_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sign_public_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sign_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sign_public_key").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

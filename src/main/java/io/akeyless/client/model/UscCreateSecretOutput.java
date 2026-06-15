@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * UscCreateSecretOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscCreateSecretOutput {
   public static final String SERIALIZED_NAME_SECRET_ID = "secret_id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
@@ -135,10 +135,7 @@ public class UscCreateSecretOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class UscCreateSecretOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("secret_id");
-    openapiFields.add("version_id");
+    openapiFields = new HashSet<String>(Arrays.asList("secret_id", "version_id"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class UscCreateSecretOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UscCreateSecretOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UscCreateSecretOutput is not found in the empty JSON string", UscCreateSecretOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UscCreateSecretOutput is not found in the empty JSON string", UscCreateSecretOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class UscCreateSecretOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UscCreateSecretOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UscCreateSecretOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UscCreateSecretOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("secret_id") != null && !jsonObj.get("secret_id").isJsonNull()) && !jsonObj.get("secret_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
       }
       if ((jsonObj.get("version_id") != null && !jsonObj.get("version_id").isJsonNull()) && !jsonObj.get("version_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `version_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version_id").toString()));
       }
   }
 

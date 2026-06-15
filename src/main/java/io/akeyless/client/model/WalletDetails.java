@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * WalletDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class WalletDetails {
   public static final String SERIALIZED_NAME_LOGIN_TYPE = "login_type";
   @SerializedName(SERIALIZED_NAME_LOGIN_TYPE)
@@ -161,10 +161,7 @@ public class WalletDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class WalletDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("login_type");
-    openapiFields.add("p12_data_base64");
-    openapiFields.add("sso_data_base64");
+    openapiFields = new HashSet<String>(Arrays.asList("login_type", "p12_data_base64", "sso_data_base64"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class WalletDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!WalletDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WalletDetails is not found in the empty JSON string", WalletDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in WalletDetails is not found in the empty JSON string", WalletDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class WalletDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!WalletDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WalletDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `WalletDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("login_type") != null && !jsonObj.get("login_type").isJsonNull()) && !jsonObj.get("login_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `login_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("login_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `login_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("login_type").toString()));
       }
       if ((jsonObj.get("p12_data_base64") != null && !jsonObj.get("p12_data_base64").isJsonNull()) && !jsonObj.get("p12_data_base64").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `p12_data_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("p12_data_base64").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `p12_data_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("p12_data_base64").toString()));
       }
       if ((jsonObj.get("sso_data_base64") != null && !jsonObj.get("sso_data_base64").isJsonNull()) && !jsonObj.get("sso_data_base64").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sso_data_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sso_data_base64").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sso_data_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sso_data_base64").toString()));
       }
   }
 

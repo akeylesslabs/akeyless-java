@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * CacheConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CacheConfigPart {
   public static final String SERIALIZED_NAME_CACHE_ENABLE = "cache_enable";
   @SerializedName(SERIALIZED_NAME_CACHE_ENABLE)
@@ -265,10 +265,7 @@ public class CacheConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -277,17 +274,10 @@ public class CacheConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cache_enable");
-    openapiFields.add("cache_encryption_key");
-    openapiFields.add("cache_ttl");
-    openapiFields.add("new_proactive_cache_enable");
-    openapiFields.add("proactive_cache_dump_interval");
-    openapiFields.add("proactive_cache_enable");
-    openapiFields.add("proactive_cache_minimum_fetching_time");
+    openapiFields = new HashSet<String>(Arrays.asList("cache_enable", "cache_encryption_key", "cache_ttl", "new_proactive_cache_enable", "proactive_cache_dump_interval", "proactive_cache_enable", "proactive_cache_minimum_fetching_time"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -299,7 +289,7 @@ public class CacheConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CacheConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CacheConfigPart is not found in the empty JSON string", CacheConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CacheConfigPart is not found in the empty JSON string", CacheConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,21 +297,21 @@ public class CacheConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CacheConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CacheConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CacheConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cache_encryption_key") != null && !jsonObj.get("cache_encryption_key").isJsonNull()) && !jsonObj.get("cache_encryption_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cache_encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cache_encryption_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cache_encryption_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cache_encryption_key").toString()));
       }
       if ((jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) && !jsonObj.get("cache_ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cache_ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cache_ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cache_ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cache_ttl").toString()));
       }
       if ((jsonObj.get("proactive_cache_dump_interval") != null && !jsonObj.get("proactive_cache_dump_interval").isJsonNull()) && !jsonObj.get("proactive_cache_dump_interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `proactive_cache_dump_interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proactive_cache_dump_interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `proactive_cache_dump_interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proactive_cache_dump_interval").toString()));
       }
       if ((jsonObj.get("proactive_cache_minimum_fetching_time") != null && !jsonObj.get("proactive_cache_minimum_fetching_time").isJsonNull()) && !jsonObj.get("proactive_cache_minimum_fetching_time").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `proactive_cache_minimum_fetching_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proactive_cache_minimum_fetching_time").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `proactive_cache_minimum_fetching_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("proactive_cache_minimum_fetching_time").toString()));
       }
   }
 

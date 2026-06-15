@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * AllowedClientType
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AllowedClientType {
   public static final String SERIALIZED_NAME_CLIENT_TYPES = "client_types";
   @SerializedName(SERIALIZED_NAME_CLIENT_TYPES)
@@ -145,10 +145,7 @@ public class AllowedClientType {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -157,12 +154,10 @@ public class AllowedClientType {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("client_types");
-    openapiFields.add("lock");
+    openapiFields = new HashSet<String>(Arrays.asList("client_types", "lock"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,7 +169,7 @@ public class AllowedClientType {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AllowedClientType.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AllowedClientType is not found in the empty JSON string", AllowedClientType.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AllowedClientType is not found in the empty JSON string", AllowedClientType.openapiRequiredFields.toString()));
         }
       }
 
@@ -182,13 +177,13 @@ public class AllowedClientType {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AllowedClientType.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AllowedClientType` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AllowedClientType` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("client_types") != null && !jsonObj.get("client_types").isJsonNull() && !jsonObj.get("client_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_types` to be an array in the JSON string but got `%s`", jsonObj.get("client_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_types` to be an array in the JSON string but got `%s`", jsonObj.get("client_types").toString()));
       }
   }
 

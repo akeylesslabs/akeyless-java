@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ZeroSSLTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ZeroSSLTargetDetails {
   public static final String SERIALIZED_NAME_API_KEY = "api_key";
   @SerializedName(SERIALIZED_NAME_API_KEY)
@@ -265,10 +265,7 @@ public class ZeroSSLTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -277,17 +274,10 @@ public class ZeroSSLTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("api_key");
-    openapiFields.add("imap_fqdn");
-    openapiFields.add("imap_password");
-    openapiFields.add("imap_port");
-    openapiFields.add("imap_user");
-    openapiFields.add("timeout");
-    openapiFields.add("validation_email");
+    openapiFields = new HashSet<String>(Arrays.asList("api_key", "imap_fqdn", "imap_password", "imap_port", "imap_user", "timeout", "validation_email"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -299,7 +289,7 @@ public class ZeroSSLTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ZeroSSLTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ZeroSSLTargetDetails is not found in the empty JSON string", ZeroSSLTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ZeroSSLTargetDetails is not found in the empty JSON string", ZeroSSLTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,27 +297,27 @@ public class ZeroSSLTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ZeroSSLTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ZeroSSLTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ZeroSSLTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()) && !jsonObj.get("api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
       }
       if ((jsonObj.get("imap_fqdn") != null && !jsonObj.get("imap_fqdn").isJsonNull()) && !jsonObj.get("imap_fqdn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `imap_fqdn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_fqdn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imap_fqdn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_fqdn").toString()));
       }
       if ((jsonObj.get("imap_password") != null && !jsonObj.get("imap_password").isJsonNull()) && !jsonObj.get("imap_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `imap_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imap_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_password").toString()));
       }
       if ((jsonObj.get("imap_port") != null && !jsonObj.get("imap_port").isJsonNull()) && !jsonObj.get("imap_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `imap_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imap_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_port").toString()));
       }
       if ((jsonObj.get("imap_user") != null && !jsonObj.get("imap_user").isJsonNull()) && !jsonObj.get("imap_user").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `imap_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_user").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `imap_user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imap_user").toString()));
       }
       if ((jsonObj.get("validation_email") != null && !jsonObj.get("validation_email").isJsonNull()) && !jsonObj.get("validation_email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `validation_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validation_email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `validation_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("validation_email").toString()));
       }
   }
 

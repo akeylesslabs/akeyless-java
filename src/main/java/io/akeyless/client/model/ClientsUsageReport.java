@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * ClientsUsageReport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ClientsUsageReport {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -225,10 +225,7 @@ public class ClientsUsageReport {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -237,15 +234,10 @@ public class ClientsUsageReport {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account_id");
-    openapiFields.add("clients");
-    openapiFields.add("product");
-    openapiFields.add("time");
-    openapiFields.add("total_clients");
+    openapiFields = new HashSet<String>(Arrays.asList("account_id", "clients", "product", "time", "total_clients"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -257,7 +249,7 @@ public class ClientsUsageReport {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ClientsUsageReport.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ClientsUsageReport is not found in the empty JSON string", ClientsUsageReport.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ClientsUsageReport is not found in the empty JSON string", ClientsUsageReport.openapiRequiredFields.toString()));
         }
       }
 
@@ -265,19 +257,19 @@ public class ClientsUsageReport {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ClientsUsageReport.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ClientsUsageReport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ClientsUsageReport` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
       if (jsonObj.get("clients") != null && !jsonObj.get("clients").isJsonNull()) {
         JsonArray jsonArrayclients = jsonObj.getAsJsonArray("clients");
         if (jsonArrayclients != null) {
           // ensure the json data is an array
           if (!jsonObj.get("clients").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `clients` to be an array in the JSON string but got `%s`", jsonObj.get("clients").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `clients` to be an array in the JSON string but got `%s`", jsonObj.get("clients").toString()));
           }
 
           // validate the optional field `clients` (array)
@@ -287,7 +279,7 @@ public class ClientsUsageReport {
         }
       }
       if ((jsonObj.get("product") != null && !jsonObj.get("product").isJsonNull()) && !jsonObj.get("product").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `product` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `product` to be a primitive type in the JSON string but got `%s`", jsonObj.get("product").toString()));
       }
   }
 

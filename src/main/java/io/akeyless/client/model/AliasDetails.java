@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * AliasDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AliasDetails {
   public static final String SERIALIZED_NAME_ACCOUNT_ALIAS = "account-alias";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ALIAS)
@@ -161,10 +161,7 @@ public class AliasDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,15 +170,10 @@ public class AliasDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account-alias");
-    openapiFields.add("auth-method-name");
-    openapiFields.add("json");
+    openapiFields = new HashSet<String>(Arrays.asList("account-alias", "auth-method-name", "json"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("account-alias");
-    openapiRequiredFields.add("auth-method-name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("account-alias", "auth-method-name"));
   }
 
   /**
@@ -193,7 +185,7 @@ public class AliasDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AliasDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AliasDetails is not found in the empty JSON string", AliasDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AliasDetails is not found in the empty JSON string", AliasDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -201,22 +193,22 @@ public class AliasDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AliasDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AliasDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AliasDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : AliasDetails.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("account-alias").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account-alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account-alias").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account-alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account-alias").toString()));
       }
       if (!jsonObj.get("auth-method-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth-method-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-method-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth-method-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth-method-name").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ExternalKMSKeyId
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ExternalKMSKeyId {
   public static final String SERIALIZED_NAME_KEY_ID = "key_id";
   @SerializedName(SERIALIZED_NAME_KEY_ID)
@@ -135,10 +135,7 @@ public class ExternalKMSKeyId {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class ExternalKMSKeyId {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("key_id");
-    openapiFields.add("key_reference");
+    openapiFields = new HashSet<String>(Arrays.asList("key_id", "key_reference"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class ExternalKMSKeyId {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ExternalKMSKeyId.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExternalKMSKeyId is not found in the empty JSON string", ExternalKMSKeyId.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ExternalKMSKeyId is not found in the empty JSON string", ExternalKMSKeyId.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class ExternalKMSKeyId {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExternalKMSKeyId.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExternalKMSKeyId` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ExternalKMSKeyId` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("key_id") != null && !jsonObj.get("key_id").isJsonNull()) && !jsonObj.get("key_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_id").toString()));
       }
       if ((jsonObj.get("key_reference") != null && !jsonObj.get("key_reference").isJsonNull()) && !jsonObj.get("key_reference").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_reference").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_reference` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_reference").toString()));
       }
   }
 

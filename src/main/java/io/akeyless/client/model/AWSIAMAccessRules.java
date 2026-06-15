@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * AWSIAMAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AWSIAMAccessRules {
   public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
@@ -375,10 +375,7 @@ public class AWSIAMAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -387,19 +384,10 @@ public class AWSIAMAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("account_id");
-    openapiFields.add("arn");
-    openapiFields.add("resource_id");
-    openapiFields.add("role_id");
-    openapiFields.add("role_name");
-    openapiFields.add("sts_endpoint");
-    openapiFields.add("unique_identifier");
-    openapiFields.add("user_id");
-    openapiFields.add("user_name");
+    openapiFields = new HashSet<String>(Arrays.asList("account_id", "arn", "resource_id", "role_id", "role_name", "sts_endpoint", "unique_identifier", "user_id", "user_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -411,7 +399,7 @@ public class AWSIAMAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AWSIAMAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AWSIAMAccessRules is not found in the empty JSON string", AWSIAMAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AWSIAMAccessRules is not found in the empty JSON string", AWSIAMAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -419,43 +407,43 @@ public class AWSIAMAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AWSIAMAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AWSIAMAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AWSIAMAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull() && !jsonObj.get("account_id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be an array in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `account_id` to be an array in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("arn") != null && !jsonObj.get("arn").isJsonNull() && !jsonObj.get("arn").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `arn` to be an array in the JSON string but got `%s`", jsonObj.get("arn").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `arn` to be an array in the JSON string but got `%s`", jsonObj.get("arn").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("resource_id") != null && !jsonObj.get("resource_id").isJsonNull() && !jsonObj.get("resource_id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resource_id` to be an array in the JSON string but got `%s`", jsonObj.get("resource_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource_id` to be an array in the JSON string but got `%s`", jsonObj.get("resource_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("role_id") != null && !jsonObj.get("role_id").isJsonNull() && !jsonObj.get("role_id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_id` to be an array in the JSON string but got `%s`", jsonObj.get("role_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role_id` to be an array in the JSON string but got `%s`", jsonObj.get("role_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("role_name") != null && !jsonObj.get("role_name").isJsonNull() && !jsonObj.get("role_name").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_name` to be an array in the JSON string but got `%s`", jsonObj.get("role_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role_name` to be an array in the JSON string but got `%s`", jsonObj.get("role_name").toString()));
       }
       if ((jsonObj.get("sts_endpoint") != null && !jsonObj.get("sts_endpoint").isJsonNull()) && !jsonObj.get("sts_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sts_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sts_endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sts_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sts_endpoint").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull() && !jsonObj.get("user_id").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be an array in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_id` to be an array in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("user_name") != null && !jsonObj.get("user_name").isJsonNull() && !jsonObj.get("user_name").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_name` to be an array in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_name` to be an array in the JSON string but got `%s`", jsonObj.get("user_name").toString()));
       }
   }
 

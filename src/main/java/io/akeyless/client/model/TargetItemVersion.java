@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * TargetItemVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class TargetItemVersion {
   public static final String SERIALIZED_NAME_ACCESS_DATE = "access_date";
   @SerializedName(SERIALIZED_NAME_ACCESS_DATE)
@@ -475,10 +475,7 @@ public class TargetItemVersion {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -487,25 +484,10 @@ public class TargetItemVersion {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_date");
-    openapiFields.add("access_date_display");
-    openapiFields.add("access_id");
-    openapiFields.add("certificate_version_info");
-    openapiFields.add("creation_date");
-    openapiFields.add("customer_fragment_id");
-    openapiFields.add("deletion_date");
-    openapiFields.add("item_version_state");
-    openapiFields.add("latest_version");
-    openapiFields.add("modification_date");
-    openapiFields.add("protection_key_name");
-    openapiFields.add("target_name");
-    openapiFields.add("unique_identifier");
-    openapiFields.add("version");
-    openapiFields.add("with_customer_fragment");
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_id", "certificate_version_info", "creation_date", "customer_fragment_id", "deletion_date", "item_version_state", "latest_version", "modification_date", "protection_key_name", "target_name", "unique_identifier", "version", "with_customer_fragment"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -517,7 +499,7 @@ public class TargetItemVersion {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!TargetItemVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TargetItemVersion is not found in the empty JSON string", TargetItemVersion.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in TargetItemVersion is not found in the empty JSON string", TargetItemVersion.openapiRequiredFields.toString()));
         }
       }
 
@@ -525,34 +507,34 @@ public class TargetItemVersion {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TargetItemVersion.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TargetItemVersion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `TargetItemVersion` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_date_display") != null && !jsonObj.get("access_date_display").isJsonNull()) && !jsonObj.get("access_date_display").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_date_display` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_date_display").toString()));
       }
       if ((jsonObj.get("access_id") != null && !jsonObj.get("access_id").isJsonNull()) && !jsonObj.get("access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
       }
       // validate the optional field `certificate_version_info`
       if (jsonObj.get("certificate_version_info") != null && !jsonObj.get("certificate_version_info").isJsonNull()) {
         CertificateVersionInfo.validateJsonElement(jsonObj.get("certificate_version_info"));
       }
       if ((jsonObj.get("customer_fragment_id") != null && !jsonObj.get("customer_fragment_id").isJsonNull()) && !jsonObj.get("customer_fragment_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customer_fragment_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_fragment_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer_fragment_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_fragment_id").toString()));
       }
       if ((jsonObj.get("item_version_state") != null && !jsonObj.get("item_version_state").isJsonNull()) && !jsonObj.get("item_version_state").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `item_version_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_version_state").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `item_version_state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_version_state").toString()));
       }
       if ((jsonObj.get("protection_key_name") != null && !jsonObj.get("protection_key_name").isJsonNull()) && !jsonObj.get("protection_key_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protection_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key_name").toString()));
       }
       if ((jsonObj.get("target_name") != null && !jsonObj.get("target_name").isJsonNull()) && !jsonObj.get("target_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_name").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

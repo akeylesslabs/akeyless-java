@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * GCPAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GCPAccessRules {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
@@ -361,10 +361,7 @@ public class GCPAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -373,19 +370,10 @@ public class GCPAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("audience");
-    openapiFields.add("bound_labels");
-    openapiFields.add("bound_projects");
-    openapiFields.add("bound_regions");
-    openapiFields.add("bound_service_accounts");
-    openapiFields.add("bound_zones");
-    openapiFields.add("service_account");
-    openapiFields.add("type");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("audience", "bound_labels", "bound_projects", "bound_regions", "bound_service_accounts", "bound_zones", "service_account", "type", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -397,7 +385,7 @@ public class GCPAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GCPAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GCPAccessRules is not found in the empty JSON string", GCPAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GCPAccessRules is not found in the empty JSON string", GCPAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -405,37 +393,37 @@ public class GCPAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GCPAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GCPAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GCPAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull()) && !jsonObj.get("audience").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_projects") != null && !jsonObj.get("bound_projects").isJsonNull() && !jsonObj.get("bound_projects").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_projects` to be an array in the JSON string but got `%s`", jsonObj.get("bound_projects").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_projects` to be an array in the JSON string but got `%s`", jsonObj.get("bound_projects").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_regions") != null && !jsonObj.get("bound_regions").isJsonNull() && !jsonObj.get("bound_regions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_regions` to be an array in the JSON string but got `%s`", jsonObj.get("bound_regions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_regions` to be an array in the JSON string but got `%s`", jsonObj.get("bound_regions").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_service_accounts") != null && !jsonObj.get("bound_service_accounts").isJsonNull() && !jsonObj.get("bound_service_accounts").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_service_accounts` to be an array in the JSON string but got `%s`", jsonObj.get("bound_service_accounts").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_service_accounts` to be an array in the JSON string but got `%s`", jsonObj.get("bound_service_accounts").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_zones") != null && !jsonObj.get("bound_zones").isJsonNull() && !jsonObj.get("bound_zones").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_zones` to be an array in the JSON string but got `%s`", jsonObj.get("bound_zones").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_zones` to be an array in the JSON string but got `%s`", jsonObj.get("bound_zones").toString()));
       }
       if ((jsonObj.get("service_account") != null && !jsonObj.get("service_account").isJsonNull()) && !jsonObj.get("service_account").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `service_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_account").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `service_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service_account").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

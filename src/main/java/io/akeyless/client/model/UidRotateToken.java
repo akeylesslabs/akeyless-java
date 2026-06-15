@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * uidRotateToken is a command that rotates an Akeyless Universal Identity token.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UidRotateToken {
   public static final String SERIALIZED_NAME_FORK = "fork";
   @SerializedName(SERIALIZED_NAME_FORK)
@@ -213,10 +213,7 @@ public class UidRotateToken {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class UidRotateToken {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("fork");
-    openapiFields.add("json");
-    openapiFields.add("send-manual-ack-token");
-    openapiFields.add("uid-token");
-    openapiFields.add("with-manual-ack");
+    openapiFields = new HashSet<String>(Arrays.asList("fork", "json", "send-manual-ack-token", "uid-token", "with-manual-ack"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class UidRotateToken {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UidRotateToken.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UidRotateToken is not found in the empty JSON string", UidRotateToken.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UidRotateToken is not found in the empty JSON string", UidRotateToken.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,15 +245,15 @@ public class UidRotateToken {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UidRotateToken.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UidRotateToken` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UidRotateToken` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("send-manual-ack-token") != null && !jsonObj.get("send-manual-ack-token").isJsonNull()) && !jsonObj.get("send-manual-ack-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `send-manual-ack-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send-manual-ack-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `send-manual-ack-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("send-manual-ack-token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

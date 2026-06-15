@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * PasswordScoreInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class PasswordScoreInfo {
   public static final String SERIALIZED_NAME_SCORE = "score";
   @SerializedName(SERIALIZED_NAME_SCORE)
@@ -171,10 +171,7 @@ public class PasswordScoreInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -183,13 +180,10 @@ public class PasswordScoreInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("score");
-    openapiFields.add("status");
-    openapiFields.add("suggestions");
+    openapiFields = new HashSet<String>(Arrays.asList("score", "status", "suggestions"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -201,7 +195,7 @@ public class PasswordScoreInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PasswordScoreInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PasswordScoreInfo is not found in the empty JSON string", PasswordScoreInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PasswordScoreInfo is not found in the empty JSON string", PasswordScoreInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -209,16 +203,16 @@ public class PasswordScoreInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PasswordScoreInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PasswordScoreInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PasswordScoreInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("suggestions") != null && !jsonObj.get("suggestions").isJsonNull() && !jsonObj.get("suggestions").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `suggestions` to be an array in the JSON string but got `%s`", jsonObj.get("suggestions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `suggestions` to be an array in the JSON string but got `%s`", jsonObj.get("suggestions").toString()));
       }
   }
 

@@ -65,7 +65,7 @@ import io.akeyless.client.JSON;
 /**
  * AuthMethodAccessInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AuthMethodAccessInfo {
   public static final String SERIALIZED_NAME_ACCESS_EXPIRES = "access_expires";
   @SerializedName(SERIALIZED_NAME_ACCESS_EXPIRES)
@@ -808,10 +808,7 @@ public class AuthMethodAccessInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -820,36 +817,10 @@ public class AuthMethodAccessInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_expires");
-    openapiFields.add("access_id_alias");
-    openapiFields.add("allowed_client_type");
-    openapiFields.add("api_key_access_rules");
-    openapiFields.add("audit_logs_claims");
-    openapiFields.add("aws_iam_access_rules");
-    openapiFields.add("azure_ad_access_rules");
-    openapiFields.add("cert_access_rules");
-    openapiFields.add("cidr_whitelist");
-    openapiFields.add("email_pass_access_rules");
-    openapiFields.add("force_sub_claims");
-    openapiFields.add("gcp_access_rules");
-    openapiFields.add("gw_cidr_whitelist");
-    openapiFields.add("huawei_access_rules");
-    openapiFields.add("jwt_ttl");
-    openapiFields.add("k8s_access_rules");
-    openapiFields.add("kerberos_access_rules");
-    openapiFields.add("ldap_access_rules");
-    openapiFields.add("oauth2_access_rules");
-    openapiFields.add("oci_access_rules");
-    openapiFields.add("oidc_access_rules");
-    openapiFields.add("product_types");
-    openapiFields.add("rules_type");
-    openapiFields.add("saml_access_rules");
-    openapiFields.add("sub_claims_delimiters");
-    openapiFields.add("universal_identity_access_rules");
+    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "universal_identity_access_rules"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -861,7 +832,7 @@ public class AuthMethodAccessInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AuthMethodAccessInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AuthMethodAccessInfo is not found in the empty JSON string", AuthMethodAccessInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AuthMethodAccessInfo is not found in the empty JSON string", AuthMethodAccessInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -869,16 +840,16 @@ public class AuthMethodAccessInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AuthMethodAccessInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AuthMethodAccessInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AuthMethodAccessInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id_alias") != null && !jsonObj.get("access_id_alias").isJsonNull()) && !jsonObj.get("access_id_alias").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_id_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id_alias").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id_alias").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_client_type") != null && !jsonObj.get("allowed_client_type").isJsonNull() && !jsonObj.get("allowed_client_type").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_client_type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_client_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_client_type` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_client_type").toString()));
       }
       // validate the optional field `api_key_access_rules`
       if (jsonObj.get("api_key_access_rules") != null && !jsonObj.get("api_key_access_rules").isJsonNull()) {
@@ -886,7 +857,7 @@ public class AuthMethodAccessInfo {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("audit_logs_claims") != null && !jsonObj.get("audit_logs_claims").isJsonNull() && !jsonObj.get("audit_logs_claims").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audit_logs_claims` to be an array in the JSON string but got `%s`", jsonObj.get("audit_logs_claims").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audit_logs_claims` to be an array in the JSON string but got `%s`", jsonObj.get("audit_logs_claims").toString()));
       }
       // validate the optional field `aws_iam_access_rules`
       if (jsonObj.get("aws_iam_access_rules") != null && !jsonObj.get("aws_iam_access_rules").isJsonNull()) {
@@ -901,7 +872,7 @@ public class AuthMethodAccessInfo {
         CertAccessRules.validateJsonElement(jsonObj.get("cert_access_rules"));
       }
       if ((jsonObj.get("cidr_whitelist") != null && !jsonObj.get("cidr_whitelist").isJsonNull()) && !jsonObj.get("cidr_whitelist").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cidr_whitelist` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cidr_whitelist").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cidr_whitelist` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cidr_whitelist").toString()));
       }
       // validate the optional field `email_pass_access_rules`
       if (jsonObj.get("email_pass_access_rules") != null && !jsonObj.get("email_pass_access_rules").isJsonNull()) {
@@ -912,7 +883,7 @@ public class AuthMethodAccessInfo {
         GCPAccessRules.validateJsonElement(jsonObj.get("gcp_access_rules"));
       }
       if ((jsonObj.get("gw_cidr_whitelist") != null && !jsonObj.get("gw_cidr_whitelist").isJsonNull()) && !jsonObj.get("gw_cidr_whitelist").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gw_cidr_whitelist` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw_cidr_whitelist").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gw_cidr_whitelist` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gw_cidr_whitelist").toString()));
       }
       // validate the optional field `huawei_access_rules`
       if (jsonObj.get("huawei_access_rules") != null && !jsonObj.get("huawei_access_rules").isJsonNull()) {
@@ -944,10 +915,10 @@ public class AuthMethodAccessInfo {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product_types") != null && !jsonObj.get("product_types").isJsonNull() && !jsonObj.get("product_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `product_types` to be an array in the JSON string but got `%s`", jsonObj.get("product_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `product_types` to be an array in the JSON string but got `%s`", jsonObj.get("product_types").toString()));
       }
       if ((jsonObj.get("rules_type") != null && !jsonObj.get("rules_type").isJsonNull()) && !jsonObj.get("rules_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rules_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rules_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rules_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rules_type").toString()));
       }
       // validate the optional field `saml_access_rules`
       if (jsonObj.get("saml_access_rules") != null && !jsonObj.get("saml_access_rules").isJsonNull()) {
@@ -955,7 +926,7 @@ public class AuthMethodAccessInfo {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("sub_claims_delimiters") != null && !jsonObj.get("sub_claims_delimiters").isJsonNull() && !jsonObj.get("sub_claims_delimiters").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sub_claims_delimiters` to be an array in the JSON string but got `%s`", jsonObj.get("sub_claims_delimiters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sub_claims_delimiters` to be an array in the JSON string but got `%s`", jsonObj.get("sub_claims_delimiters").toString()));
       }
       // validate the optional field `universal_identity_access_rules`
       if (jsonObj.get("universal_identity_access_rules") != null && !jsonObj.get("universal_identity_access_rules").isJsonNull()) {

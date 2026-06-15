@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GcpTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GcpTargetDetails {
   public static final String SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL = "gcp_service_account_email";
   @SerializedName(SERIALIZED_NAME_GCP_SERVICE_ACCOUNT_EMAIL)
@@ -239,10 +239,7 @@ public class GcpTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class GcpTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("gcp_service_account_email");
-    openapiFields.add("gcp_service_account_key");
-    openapiFields.add("gcp_service_account_key_base64");
-    openapiFields.add("gcp_service_account_key_id");
-    openapiFields.add("grace_rotated_secret_key");
-    openapiFields.add("use_gw_cloud_identity");
+    openapiFields = new HashSet<String>(Arrays.asList("gcp_service_account_email", "gcp_service_account_key", "gcp_service_account_key_base64", "gcp_service_account_key_id", "grace_rotated_secret_key", "use_gw_cloud_identity"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class GcpTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GcpTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GcpTargetDetails is not found in the empty JSON string", GcpTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GcpTargetDetails is not found in the empty JSON string", GcpTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,24 +271,24 @@ public class GcpTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GcpTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GcpTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GcpTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gcp_service_account_email") != null && !jsonObj.get("gcp_service_account_email").isJsonNull()) && !jsonObj.get("gcp_service_account_email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp_service_account_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp_service_account_email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_email").toString()));
       }
       if ((jsonObj.get("gcp_service_account_key") != null && !jsonObj.get("gcp_service_account_key").isJsonNull()) && !jsonObj.get("gcp_service_account_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp_service_account_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp_service_account_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_key").toString()));
       }
       if ((jsonObj.get("gcp_service_account_key_base64") != null && !jsonObj.get("gcp_service_account_key_base64").isJsonNull()) && !jsonObj.get("gcp_service_account_key_base64").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp_service_account_key_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_key_base64").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp_service_account_key_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_key_base64").toString()));
       }
       if ((jsonObj.get("gcp_service_account_key_id") != null && !jsonObj.get("gcp_service_account_key_id").isJsonNull()) && !jsonObj.get("gcp_service_account_key_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gcp_service_account_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_key_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp_service_account_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp_service_account_key_id").toString()));
       }
       if ((jsonObj.get("grace_rotated_secret_key") != null && !jsonObj.get("grace_rotated_secret_key").isJsonNull()) && !jsonObj.get("grace_rotated_secret_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grace_rotated_secret_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotated_secret_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace_rotated_secret_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotated_secret_key").toString()));
       }
   }
 

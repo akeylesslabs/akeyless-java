@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * getKubeExecCreds is a command that gets credentials for authentication with Kubernetes cluster based on a PKI cert issuer.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GetKubeExecCreds {
   public static final String SERIALIZED_NAME_ALT_NAMES = "alt-names";
   @SerializedName(SERIALIZED_NAME_ALT_NAMES)
@@ -447,10 +447,7 @@ public class GetKubeExecCreds {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -459,25 +456,10 @@ public class GetKubeExecCreds {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alt-names");
-    openapiFields.add("api-version");
-    openapiFields.add("cert-issuer-name");
-    openapiFields.add("common-name");
-    openapiFields.add("csr-data-base64");
-    openapiFields.add("extended-key-usage");
-    openapiFields.add("extra-extensions");
-    openapiFields.add("json");
-    openapiFields.add("key-data-base64");
-    openapiFields.add("max-path-len");
-    openapiFields.add("token");
-    openapiFields.add("ttl");
-    openapiFields.add("uid-token");
-    openapiFields.add("uri-sans");
+    openapiFields = new HashSet<String>(Arrays.asList("alt-names", "api-version", "cert-issuer-name", "common-name", "csr-data-base64", "extended-key-usage", "extra-extensions", "json", "key-data-base64", "max-path-len", "token", "ttl", "uid-token", "uri-sans"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("cert-issuer-name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("cert-issuer-name"));
   }
 
   /**
@@ -489,7 +471,7 @@ public class GetKubeExecCreds {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GetKubeExecCreds.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetKubeExecCreds is not found in the empty JSON string", GetKubeExecCreds.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetKubeExecCreds is not found in the empty JSON string", GetKubeExecCreds.openapiRequiredFields.toString()));
         }
       }
 
@@ -497,52 +479,52 @@ public class GetKubeExecCreds {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GetKubeExecCreds.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetKubeExecCreds` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetKubeExecCreds` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GetKubeExecCreds.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("alt-names") != null && !jsonObj.get("alt-names").isJsonNull()) && !jsonObj.get("alt-names").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alt-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alt-names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alt-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alt-names").toString()));
       }
       if ((jsonObj.get("api-version") != null && !jsonObj.get("api-version").isJsonNull()) && !jsonObj.get("api-version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-version").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-version").toString()));
       }
       if (!jsonObj.get("cert-issuer-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert-issuer-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-issuer-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert-issuer-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-issuer-name").toString()));
       }
       if ((jsonObj.get("common-name") != null && !jsonObj.get("common-name").isJsonNull()) && !jsonObj.get("common-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `common-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("common-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `common-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("common-name").toString()));
       }
       if ((jsonObj.get("csr-data-base64") != null && !jsonObj.get("csr-data-base64").isJsonNull()) && !jsonObj.get("csr-data-base64").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `csr-data-base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csr-data-base64").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `csr-data-base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("csr-data-base64").toString()));
       }
       if ((jsonObj.get("extended-key-usage") != null && !jsonObj.get("extended-key-usage").isJsonNull()) && !jsonObj.get("extended-key-usage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `extended-key-usage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended-key-usage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `extended-key-usage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended-key-usage").toString()));
       }
       if ((jsonObj.get("extra-extensions") != null && !jsonObj.get("extra-extensions").isJsonNull()) && !jsonObj.get("extra-extensions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `extra-extensions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extra-extensions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `extra-extensions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extra-extensions").toString()));
       }
       if ((jsonObj.get("key-data-base64") != null && !jsonObj.get("key-data-base64").isJsonNull()) && !jsonObj.get("key-data-base64").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key-data-base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-data-base64").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-data-base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-data-base64").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("ttl") != null && !jsonObj.get("ttl").isJsonNull()) && !jsonObj.get("ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("uri-sans") != null && !jsonObj.get("uri-sans").isJsonNull()) && !jsonObj.get("uri-sans").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uri-sans` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri-sans").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uri-sans` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri-sans").toString()));
       }
   }
 

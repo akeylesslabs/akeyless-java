@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * KubeconfigExec
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KubeconfigExec {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -197,10 +197,7 @@ public class KubeconfigExec {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -209,14 +206,10 @@ public class KubeconfigExec {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("apiVersion");
-    openapiFields.add("args");
-    openapiFields.add("command");
-    openapiFields.add("interactiveMode");
+    openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "args", "command", "interactiveMode"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -228,7 +221,7 @@ public class KubeconfigExec {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KubeconfigExec.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KubeconfigExec is not found in the empty JSON string", KubeconfigExec.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KubeconfigExec is not found in the empty JSON string", KubeconfigExec.openapiRequiredFields.toString()));
         }
       }
 
@@ -236,22 +229,22 @@ public class KubeconfigExec {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KubeconfigExec.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KubeconfigExec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KubeconfigExec` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("args") != null && !jsonObj.get("args").isJsonNull() && !jsonObj.get("args").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `args` to be an array in the JSON string but got `%s`", jsonObj.get("args").toString()));
       }
       if ((jsonObj.get("command") != null && !jsonObj.get("command").isJsonNull()) && !jsonObj.get("command").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("command").toString()));
       }
       if ((jsonObj.get("interactiveMode") != null && !jsonObj.get("interactiveMode").isJsonNull()) && !jsonObj.get("interactiveMode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `interactiveMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("interactiveMode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `interactiveMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("interactiveMode").toString()));
       }
   }
 

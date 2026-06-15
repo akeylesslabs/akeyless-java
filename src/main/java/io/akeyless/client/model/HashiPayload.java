@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * HashiPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class HashiPayload {
   public static final String SERIALIZED_NAME_DELETE_SYNC_ON_DELETION = "delete_sync_on_deletion";
   @SerializedName(SERIALIZED_NAME_DELETE_SYNC_ON_DELETION)
@@ -275,10 +275,7 @@ public class HashiPayload {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -287,17 +284,10 @@ public class HashiPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_sync_on_deletion");
-    openapiFields.add("import_as_json");
-    openapiFields.add("metadata_mode");
-    openapiFields.add("namespaces");
-    openapiFields.add("token");
-    openapiFields.add("url");
-    openapiFields.add("usc_name");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_sync_on_deletion", "import_as_json", "metadata_mode", "namespaces", "token", "url", "usc_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -309,7 +299,7 @@ public class HashiPayload {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!HashiPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in HashiPayload is not found in the empty JSON string", HashiPayload.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HashiPayload is not found in the empty JSON string", HashiPayload.openapiRequiredFields.toString()));
         }
       }
 
@@ -317,25 +307,25 @@ public class HashiPayload {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HashiPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HashiPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HashiPayload` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("metadata_mode") != null && !jsonObj.get("metadata_mode").isJsonNull()) && !jsonObj.get("metadata_mode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `metadata_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata_mode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metadata_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata_mode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("namespaces") != null && !jsonObj.get("namespaces").isJsonNull() && !jsonObj.get("namespaces").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespaces` to be an array in the JSON string but got `%s`", jsonObj.get("namespaces").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
       }
       if ((jsonObj.get("usc_name") != null && !jsonObj.get("usc_name").isJsonNull()) && !jsonObj.get("usc_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `usc_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usc_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usc_name").toString()));
       }
   }
 

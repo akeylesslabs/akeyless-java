@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * ResponseStopShareItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ResponseStopShareItem {
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
@@ -146,10 +146,7 @@ public class ResponseStopShareItem {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -158,12 +155,10 @@ public class ResponseStopShareItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("errors");
-    openapiFields.add("item_name");
+    openapiFields = new HashSet<String>(Arrays.asList("errors", "item_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -175,7 +170,7 @@ public class ResponseStopShareItem {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ResponseStopShareItem.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ResponseStopShareItem is not found in the empty JSON string", ResponseStopShareItem.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ResponseStopShareItem is not found in the empty JSON string", ResponseStopShareItem.openapiRequiredFields.toString()));
         }
       }
 
@@ -183,7 +178,7 @@ public class ResponseStopShareItem {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ResponseStopShareItem.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResponseStopShareItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ResponseStopShareItem` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -192,7 +187,7 @@ public class ResponseStopShareItem {
         if (jsonArrayerrors != null) {
           // ensure the json data is an array
           if (!jsonObj.get("errors").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
           }
 
           // validate the optional field `errors` (array)
@@ -202,7 +197,7 @@ public class ResponseStopShareItem {
         }
       }
       if ((jsonObj.get("item_name") != null && !jsonObj.get("item_name").isJsonNull()) && !jsonObj.get("item_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `item_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `item_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_name").toString()));
       }
   }
 

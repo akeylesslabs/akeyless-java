@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ExportClassicKeyOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ExportClassicKeyOutput {
   public static final String SERIALIZED_NAME_CERTIFICATE_PEM = "certificatePem";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PEM)
@@ -187,10 +187,7 @@ public class ExportClassicKeyOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class ExportClassicKeyOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificatePem");
-    openapiFields.add("key");
-    openapiFields.add("ssh");
-    openapiFields.add("wrapping-iv");
+    openapiFields = new HashSet<String>(Arrays.asList("certificatePem", "key", "ssh", "wrapping-iv"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class ExportClassicKeyOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ExportClassicKeyOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ExportClassicKeyOutput is not found in the empty JSON string", ExportClassicKeyOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ExportClassicKeyOutput is not found in the empty JSON string", ExportClassicKeyOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,21 +219,21 @@ public class ExportClassicKeyOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ExportClassicKeyOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ExportClassicKeyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ExportClassicKeyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificatePem") != null && !jsonObj.get("certificatePem").isJsonNull()) && !jsonObj.get("certificatePem").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificatePem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificatePem").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificatePem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificatePem").toString()));
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
       if ((jsonObj.get("ssh") != null && !jsonObj.get("ssh").isJsonNull()) && !jsonObj.get("ssh").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh").toString()));
       }
       if ((jsonObj.get("wrapping-iv") != null && !jsonObj.get("wrapping-iv").isJsonNull()) && !jsonObj.get("wrapping-iv").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wrapping-iv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wrapping-iv").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wrapping-iv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wrapping-iv").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * HashiVaultTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class HashiVaultTargetDetails {
   public static final String SERIALIZED_NAME_VAULT_NAMESPACES = "vault_namespaces";
   @SerializedName(SERIALIZED_NAME_VAULT_NAMESPACES)
@@ -161,10 +161,7 @@ public class HashiVaultTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class HashiVaultTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("vault_namespaces");
-    openapiFields.add("vault_token");
-    openapiFields.add("vault_url");
+    openapiFields = new HashSet<String>(Arrays.asList("vault_namespaces", "vault_token", "vault_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class HashiVaultTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!HashiVaultTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in HashiVaultTargetDetails is not found in the empty JSON string", HashiVaultTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HashiVaultTargetDetails is not found in the empty JSON string", HashiVaultTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class HashiVaultTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HashiVaultTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HashiVaultTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HashiVaultTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("vault_namespaces") != null && !jsonObj.get("vault_namespaces").isJsonNull()) && !jsonObj.get("vault_namespaces").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vault_namespaces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_namespaces").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vault_namespaces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_namespaces").toString()));
       }
       if ((jsonObj.get("vault_token") != null && !jsonObj.get("vault_token").isJsonNull()) && !jsonObj.get("vault_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vault_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vault_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_token").toString()));
       }
       if ((jsonObj.get("vault_url") != null && !jsonObj.get("vault_url").isJsonNull()) && !jsonObj.get("vault_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `vault_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `vault_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_url").toString()));
       }
   }
 

@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * Name represents an X.509 distinguished name. This only includes the common elements of a DN. Note that Name is only an approximation of the X.509 structure. If an accurate representation is needed, asn1.Unmarshal the raw subject or issuer as an [RDNSequence].
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class Name {
   public static final String SERIALIZED_NAME_COUNTRY = "Country";
   @SerializedName(SERIALIZED_NAME_COUNTRY)
@@ -282,10 +282,7 @@ public class Name {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -294,16 +291,10 @@ public class Name {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("Country");
-    openapiFields.add("ExtraNames");
-    openapiFields.add("Locality");
-    openapiFields.add("Names");
-    openapiFields.add("SerialNumber");
-    openapiFields.add("StreetAddress");
+    openapiFields = new HashSet<String>(Arrays.asList("Country", "ExtraNames", "Locality", "Names", "SerialNumber", "StreetAddress"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -315,7 +306,7 @@ public class Name {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!Name.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Name is not found in the empty JSON string", Name.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Name is not found in the empty JSON string", Name.openapiRequiredFields.toString()));
         }
       }
 
@@ -323,20 +314,20 @@ public class Name {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Name.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Name` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Name` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("Country") != null && !jsonObj.get("Country").isJsonNull() && !jsonObj.get("Country").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Country` to be an array in the JSON string but got `%s`", jsonObj.get("Country").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Country` to be an array in the JSON string but got `%s`", jsonObj.get("Country").toString()));
       }
       if (jsonObj.get("ExtraNames") != null && !jsonObj.get("ExtraNames").isJsonNull()) {
         JsonArray jsonArrayextraNames = jsonObj.getAsJsonArray("ExtraNames");
         if (jsonArrayextraNames != null) {
           // ensure the json data is an array
           if (!jsonObj.get("ExtraNames").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `ExtraNames` to be an array in the JSON string but got `%s`", jsonObj.get("ExtraNames").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ExtraNames` to be an array in the JSON string but got `%s`", jsonObj.get("ExtraNames").toString()));
           }
 
           // validate the optional field `ExtraNames` (array)
@@ -347,14 +338,14 @@ public class Name {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("Locality") != null && !jsonObj.get("Locality").isJsonNull() && !jsonObj.get("Locality").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `Locality` to be an array in the JSON string but got `%s`", jsonObj.get("Locality").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Locality` to be an array in the JSON string but got `%s`", jsonObj.get("Locality").toString()));
       }
       if (jsonObj.get("Names") != null && !jsonObj.get("Names").isJsonNull()) {
         JsonArray jsonArraynames = jsonObj.getAsJsonArray("Names");
         if (jsonArraynames != null) {
           // ensure the json data is an array
           if (!jsonObj.get("Names").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `Names` to be an array in the JSON string but got `%s`", jsonObj.get("Names").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Names` to be an array in the JSON string but got `%s`", jsonObj.get("Names").toString()));
           }
 
           // validate the optional field `Names` (array)
@@ -364,11 +355,11 @@ public class Name {
         }
       }
       if ((jsonObj.get("SerialNumber") != null && !jsonObj.get("SerialNumber").isJsonNull()) && !jsonObj.get("SerialNumber").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `SerialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SerialNumber").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SerialNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SerialNumber").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("StreetAddress") != null && !jsonObj.get("StreetAddress").isJsonNull() && !jsonObj.get("StreetAddress").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `StreetAddress` to be an array in the JSON string but got `%s`", jsonObj.get("StreetAddress").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `StreetAddress` to be an array in the JSON string but got `%s`", jsonObj.get("StreetAddress").toString()));
       }
   }
 

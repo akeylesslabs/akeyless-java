@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * EmailPassAccessRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EmailPassAccessRules {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -240,10 +240,7 @@ public class EmailPassAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -252,16 +249,10 @@ public class EmailPassAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alg");
-    openapiFields.add("email");
-    openapiFields.add("enc_email_with_shared_key");
-    openapiFields.add("hash_pass");
-    openapiFields.add("last_reset_password");
-    openapiFields.add("mfa_type");
+    openapiFields = new HashSet<String>(Arrays.asList("alg", "email", "enc_email_with_shared_key", "hash_pass", "last_reset_password", "mfa_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -273,7 +264,7 @@ public class EmailPassAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EmailPassAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EmailPassAccessRules is not found in the empty JSON string", EmailPassAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EmailPassAccessRules is not found in the empty JSON string", EmailPassAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -281,24 +272,24 @@ public class EmailPassAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EmailPassAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EmailPassAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EmailPassAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("alg") != null && !jsonObj.get("alg").isJsonNull()) && !jsonObj.get("alg").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("enc_email_with_shared_key") != null && !jsonObj.get("enc_email_with_shared_key").isJsonNull()) && !jsonObj.get("enc_email_with_shared_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `enc_email_with_shared_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enc_email_with_shared_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enc_email_with_shared_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enc_email_with_shared_key").toString()));
       }
       if ((jsonObj.get("hash_pass") != null && !jsonObj.get("hash_pass").isJsonNull()) && !jsonObj.get("hash_pass").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hash_pass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_pass").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hash_pass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash_pass").toString()));
       }
       if ((jsonObj.get("mfa_type") != null && !jsonObj.get("mfa_type").isJsonNull()) && !jsonObj.get("mfa_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mfa_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mfa_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mfa_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mfa_type").toString()));
       }
   }
 

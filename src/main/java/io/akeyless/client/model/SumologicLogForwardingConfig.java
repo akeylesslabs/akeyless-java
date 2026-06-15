@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * SumologicLogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SumologicLogForwardingConfig {
   public static final String SERIALIZED_NAME_SUMO_LOGIC_ENDPOINT = "sumo_logic_endpoint";
   @SerializedName(SERIALIZED_NAME_SUMO_LOGIC_ENDPOINT)
@@ -161,10 +161,7 @@ public class SumologicLogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class SumologicLogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sumo_logic_endpoint");
-    openapiFields.add("sumo_logic_host");
-    openapiFields.add("sumo_logic_tags");
+    openapiFields = new HashSet<String>(Arrays.asList("sumo_logic_endpoint", "sumo_logic_host", "sumo_logic_tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class SumologicLogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SumologicLogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SumologicLogForwardingConfig is not found in the empty JSON string", SumologicLogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SumologicLogForwardingConfig is not found in the empty JSON string", SumologicLogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class SumologicLogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SumologicLogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SumologicLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SumologicLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("sumo_logic_endpoint") != null && !jsonObj.get("sumo_logic_endpoint").isJsonNull()) && !jsonObj.get("sumo_logic_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sumo_logic_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sumo_logic_endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sumo_logic_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sumo_logic_endpoint").toString()));
       }
       if ((jsonObj.get("sumo_logic_host") != null && !jsonObj.get("sumo_logic_host").isJsonNull()) && !jsonObj.get("sumo_logic_host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sumo_logic_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sumo_logic_host").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sumo_logic_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sumo_logic_host").toString()));
       }
       if ((jsonObj.get("sumo_logic_tags") != null && !jsonObj.get("sumo_logic_tags").isJsonNull()) && !jsonObj.get("sumo_logic_tags").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sumo_logic_tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sumo_logic_tags").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sumo_logic_tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sumo_logic_tags").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GKETargetDetails defines details related to connecting to a GKE (Google Kubernetes Engine) target
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GKETargetDetails {
   public static final String SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE = "gke_cluster_ca_certificate";
   @SerializedName(SERIALIZED_NAME_GKE_CLUSTER_CA_CERTIFICATE)
@@ -239,10 +239,7 @@ public class GKETargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class GKETargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("gke_cluster_ca_certificate");
-    openapiFields.add("gke_cluster_endpoint");
-    openapiFields.add("gke_cluster_name");
-    openapiFields.add("gke_service_account_key");
-    openapiFields.add("gke_service_account_name");
-    openapiFields.add("use_gw_cloud_identity");
+    openapiFields = new HashSet<String>(Arrays.asList("gke_cluster_ca_certificate", "gke_cluster_endpoint", "gke_cluster_name", "gke_service_account_key", "gke_service_account_name", "use_gw_cloud_identity"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class GKETargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GKETargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GKETargetDetails is not found in the empty JSON string", GKETargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GKETargetDetails is not found in the empty JSON string", GKETargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,24 +271,24 @@ public class GKETargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GKETargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GKETargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GKETargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("gke_cluster_ca_certificate") != null && !jsonObj.get("gke_cluster_ca_certificate").isJsonNull()) && !jsonObj.get("gke_cluster_ca_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gke_cluster_ca_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_cluster_ca_certificate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gke_cluster_ca_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_cluster_ca_certificate").toString()));
       }
       if ((jsonObj.get("gke_cluster_endpoint") != null && !jsonObj.get("gke_cluster_endpoint").isJsonNull()) && !jsonObj.get("gke_cluster_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gke_cluster_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_cluster_endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gke_cluster_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_cluster_endpoint").toString()));
       }
       if ((jsonObj.get("gke_cluster_name") != null && !jsonObj.get("gke_cluster_name").isJsonNull()) && !jsonObj.get("gke_cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gke_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gke_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_cluster_name").toString()));
       }
       if ((jsonObj.get("gke_service_account_key") != null && !jsonObj.get("gke_service_account_key").isJsonNull()) && !jsonObj.get("gke_service_account_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gke_service_account_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_service_account_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gke_service_account_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_service_account_key").toString()));
       }
       if ((jsonObj.get("gke_service_account_name") != null && !jsonObj.get("gke_service_account_name").isJsonNull()) && !jsonObj.get("gke_service_account_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `gke_service_account_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_service_account_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gke_service_account_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gke_service_account_name").toString()));
       }
   }
 

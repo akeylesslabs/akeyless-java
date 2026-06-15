@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * KubeconfigGenerateOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KubeconfigGenerateOutput {
   public static final String SERIALIZED_NAME_CONFLICTED_CLUSTERS_NAMES = "conflicted_clusters_names";
   @SerializedName(SERIALIZED_NAME_CONFLICTED_CLUSTERS_NAMES)
@@ -180,10 +180,7 @@ public class KubeconfigGenerateOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -192,13 +189,10 @@ public class KubeconfigGenerateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("conflicted_clusters_names");
-    openapiFields.add("data");
-    openapiFields.add("errors");
+    openapiFields = new HashSet<String>(Arrays.asList("conflicted_clusters_names", "data", "errors"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -210,7 +204,7 @@ public class KubeconfigGenerateOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KubeconfigGenerateOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KubeconfigGenerateOutput is not found in the empty JSON string", KubeconfigGenerateOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KubeconfigGenerateOutput is not found in the empty JSON string", KubeconfigGenerateOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -218,13 +212,13 @@ public class KubeconfigGenerateOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KubeconfigGenerateOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KubeconfigGenerateOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KubeconfigGenerateOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("conflicted_clusters_names") != null && !jsonObj.get("conflicted_clusters_names").isJsonNull() && !jsonObj.get("conflicted_clusters_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conflicted_clusters_names` to be an array in the JSON string but got `%s`", jsonObj.get("conflicted_clusters_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conflicted_clusters_names` to be an array in the JSON string but got `%s`", jsonObj.get("conflicted_clusters_names").toString()));
       }
       // validate the optional field `data`
       if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
@@ -232,7 +226,7 @@ public class KubeconfigGenerateOutput {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("errors") != null && !jsonObj.get("errors").isJsonNull() && !jsonObj.get("errors").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `errors` to be an array in the JSON string but got `%s`", jsonObj.get("errors").toString()));
       }
   }
 

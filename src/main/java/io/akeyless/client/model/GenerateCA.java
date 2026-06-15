@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GenerateCA is a command that creates a new PKI CA and Intermediate issuers
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GenerateCA {
   public static final String SERIALIZED_NAME_ALG = "alg";
   @SerializedName(SERIALIZED_NAME_ALG)
@@ -421,10 +421,7 @@ public class GenerateCA {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -433,26 +430,10 @@ public class GenerateCA {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("alg");
-    openapiFields.add("allowed-domains");
-    openapiFields.add("delete_protection");
-    openapiFields.add("extended-key-usage");
-    openapiFields.add("json");
-    openapiFields.add("key-type");
-    openapiFields.add("max-path-len");
-    openapiFields.add("pki-chain-name");
-    openapiFields.add("protection-key-name");
-    openapiFields.add("split-level");
-    openapiFields.add("token");
-    openapiFields.add("ttl");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("alg", "allowed-domains", "delete_protection", "extended-key-usage", "json", "key-type", "max-path-len", "pki-chain-name", "protection-key-name", "split-level", "token", "ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("allowed-domains");
-    openapiRequiredFields.add("pki-chain-name");
-    openapiRequiredFields.add("ttl");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("allowed-domains", "pki-chain-name", "ttl"));
   }
 
   /**
@@ -464,7 +445,7 @@ public class GenerateCA {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GenerateCA.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GenerateCA is not found in the empty JSON string", GenerateCA.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GenerateCA is not found in the empty JSON string", GenerateCA.openapiRequiredFields.toString()));
         }
       }
 
@@ -472,46 +453,46 @@ public class GenerateCA {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GenerateCA.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GenerateCA` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GenerateCA` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : GenerateCA.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("alg") != null && !jsonObj.get("alg").isJsonNull()) && !jsonObj.get("alg").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alg").toString()));
       }
       if (!jsonObj.get("allowed-domains").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed-domains` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-domains").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed-domains` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-domains").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("extended-key-usage") != null && !jsonObj.get("extended-key-usage").isJsonNull()) && !jsonObj.get("extended-key-usage").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `extended-key-usage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended-key-usage").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `extended-key-usage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended-key-usage").toString()));
       }
       if ((jsonObj.get("key-type") != null && !jsonObj.get("key-type").isJsonNull()) && !jsonObj.get("key-type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-type").toString()));
       }
       if (!jsonObj.get("pki-chain-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pki-chain-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pki-chain-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pki-chain-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pki-chain-name").toString()));
       }
       if ((jsonObj.get("protection-key-name") != null && !jsonObj.get("protection-key-name").isJsonNull()) && !jsonObj.get("protection-key-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protection-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection-key-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection-key-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if (!jsonObj.get("ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

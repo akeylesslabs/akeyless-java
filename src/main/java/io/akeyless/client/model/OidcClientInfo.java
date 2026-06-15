@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * OidcClientInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class OidcClientInfo {
   public static final String SERIALIZED_NAME_ACCESS_PERMISSION_ASSIGNMENT = "access_permission_assignment";
   @SerializedName(SERIALIZED_NAME_ACCESS_PERMISSION_ASSIGNMENT)
@@ -402,10 +402,7 @@ public class OidcClientInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -414,20 +411,10 @@ public class OidcClientInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_permission_assignment");
-    openapiFields.add("audience");
-    openapiFields.add("client_id");
-    openapiFields.add("grant_types");
-    openapiFields.add("issuer_url");
-    openapiFields.add("logout_uris");
-    openapiFields.add("public");
-    openapiFields.add("redirect_uris");
-    openapiFields.add("response_types");
-    openapiFields.add("scopes");
+    openapiFields = new HashSet<String>(Arrays.asList("access_permission_assignment", "audience", "client_id", "grant_types", "issuer_url", "logout_uris", "public", "redirect_uris", "response_types", "scopes"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -439,7 +426,7 @@ public class OidcClientInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!OidcClientInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OidcClientInfo is not found in the empty JSON string", OidcClientInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OidcClientInfo is not found in the empty JSON string", OidcClientInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -447,7 +434,7 @@ public class OidcClientInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!OidcClientInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OidcClientInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OidcClientInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -456,7 +443,7 @@ public class OidcClientInfo {
         if (jsonArrayaccessPermissionAssignment != null) {
           // ensure the json data is an array
           if (!jsonObj.get("access_permission_assignment").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `access_permission_assignment` to be an array in the JSON string but got `%s`", jsonObj.get("access_permission_assignment").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_permission_assignment` to be an array in the JSON string but got `%s`", jsonObj.get("access_permission_assignment").toString()));
           }
 
           // validate the optional field `access_permission_assignment` (array)
@@ -467,33 +454,33 @@ public class OidcClientInfo {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull() && !jsonObj.get("audience").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audience` to be an array in the JSON string but got `%s`", jsonObj.get("audience").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audience` to be an array in the JSON string but got `%s`", jsonObj.get("audience").toString()));
       }
       if ((jsonObj.get("client_id") != null && !jsonObj.get("client_id").isJsonNull()) && !jsonObj.get("client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("grant_types") != null && !jsonObj.get("grant_types").isJsonNull() && !jsonObj.get("grant_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grant_types` to be an array in the JSON string but got `%s`", jsonObj.get("grant_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grant_types` to be an array in the JSON string but got `%s`", jsonObj.get("grant_types").toString()));
       }
       if ((jsonObj.get("issuer_url") != null && !jsonObj.get("issuer_url").isJsonNull()) && !jsonObj.get("issuer_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuer_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer_url").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("logout_uris") != null && !jsonObj.get("logout_uris").isJsonNull() && !jsonObj.get("logout_uris").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `logout_uris` to be an array in the JSON string but got `%s`", jsonObj.get("logout_uris").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `logout_uris` to be an array in the JSON string but got `%s`", jsonObj.get("logout_uris").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("redirect_uris") != null && !jsonObj.get("redirect_uris").isJsonNull() && !jsonObj.get("redirect_uris").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `redirect_uris` to be an array in the JSON string but got `%s`", jsonObj.get("redirect_uris").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `redirect_uris` to be an array in the JSON string but got `%s`", jsonObj.get("redirect_uris").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("response_types") != null && !jsonObj.get("response_types").isJsonNull() && !jsonObj.get("response_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `response_types` to be an array in the JSON string but got `%s`", jsonObj.get("response_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `response_types` to be an array in the JSON string but got `%s`", jsonObj.get("response_types").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("scopes") != null && !jsonObj.get("scopes").isJsonNull() && !jsonObj.get("scopes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scopes` to be an array in the JSON string but got `%s`", jsonObj.get("scopes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scopes` to be an array in the JSON string but got `%s`", jsonObj.get("scopes").toString()));
       }
   }
 

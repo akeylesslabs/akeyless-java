@@ -66,7 +66,7 @@ import io.akeyless.client.JSON;
 /**
  * ItemGeneralInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ItemGeneralInfo {
   public static final String SERIALIZED_NAME_AGENTIC_RULES = "agentic_rules";
   @SerializedName(SERIALIZED_NAME_AGENTIC_RULES)
@@ -611,10 +611,7 @@ public class ItemGeneralInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -623,29 +620,10 @@ public class ItemGeneralInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("agentic_rules");
-    openapiFields.add("cert_issue_details");
-    openapiFields.add("certificate_chain_info");
-    openapiFields.add("certificate_format");
-    openapiFields.add("certificates_template_info");
-    openapiFields.add("classic_key_details");
-    openapiFields.add("cluster_gw_url");
-    openapiFields.add("display_metadata");
-    openapiFields.add("dynamic_secret_producer_details");
-    openapiFields.add("expiration_events");
-    openapiFields.add("importer_info");
-    openapiFields.add("issuer_overview_info");
-    openapiFields.add("next_rotation_events");
-    openapiFields.add("oidc_client_info");
-    openapiFields.add("password_policy");
-    openapiFields.add("rotated_secret_details");
-    openapiFields.add("secure_remote_access_details");
-    openapiFields.add("static_secret_info");
-    openapiFields.add("tokenizer_info");
+    openapiFields = new HashSet<String>(Arrays.asList("agentic_rules", "cert_issue_details", "certificate_chain_info", "certificate_format", "certificates_template_info", "classic_key_details", "cluster_gw_url", "display_metadata", "dynamic_secret_producer_details", "expiration_events", "importer_info", "issuer_overview_info", "next_rotation_events", "oidc_client_info", "password_policy", "rotated_secret_details", "secure_remote_access_details", "static_secret_info", "tokenizer_info"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -657,7 +635,7 @@ public class ItemGeneralInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ItemGeneralInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ItemGeneralInfo is not found in the empty JSON string", ItemGeneralInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ItemGeneralInfo is not found in the empty JSON string", ItemGeneralInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -665,7 +643,7 @@ public class ItemGeneralInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ItemGeneralInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ItemGeneralInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ItemGeneralInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -682,7 +660,7 @@ public class ItemGeneralInfo {
         CertificateChainInfo.validateJsonElement(jsonObj.get("certificate_chain_info"));
       }
       if ((jsonObj.get("certificate_format") != null && !jsonObj.get("certificate_format").isJsonNull()) && !jsonObj.get("certificate_format").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_format").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_format").toString()));
       }
       // validate the optional field `certificates_template_info`
       if (jsonObj.get("certificates_template_info") != null && !jsonObj.get("certificates_template_info").isJsonNull()) {
@@ -693,10 +671,10 @@ public class ItemGeneralInfo {
         ClassicKeyDetailsInfo.validateJsonElement(jsonObj.get("classic_key_details"));
       }
       if ((jsonObj.get("cluster_gw_url") != null && !jsonObj.get("cluster_gw_url").isJsonNull()) && !jsonObj.get("cluster_gw_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_gw_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_gw_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_gw_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_gw_url").toString()));
       }
       if ((jsonObj.get("display_metadata") != null && !jsonObj.get("display_metadata").isJsonNull()) && !jsonObj.get("display_metadata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_metadata").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display_metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_metadata").toString()));
       }
       // validate the optional field `dynamic_secret_producer_details`
       if (jsonObj.get("dynamic_secret_producer_details") != null && !jsonObj.get("dynamic_secret_producer_details").isJsonNull()) {
@@ -707,7 +685,7 @@ public class ItemGeneralInfo {
         if (jsonArrayexpirationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("expiration_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("expiration_events").toString()));
           }
 
           // validate the optional field `expiration_events` (array)
@@ -729,7 +707,7 @@ public class ItemGeneralInfo {
         if (jsonArraynextRotationEvents != null) {
           // ensure the json data is an array
           if (!jsonObj.get("next_rotation_events").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `next_rotation_events` to be an array in the JSON string but got `%s`", jsonObj.get("next_rotation_events").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `next_rotation_events` to be an array in the JSON string but got `%s`", jsonObj.get("next_rotation_events").toString()));
           }
 
           // validate the optional field `next_rotation_events` (array)

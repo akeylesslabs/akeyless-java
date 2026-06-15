@@ -53,7 +53,7 @@ import io.akeyless.client.JSON;
 /**
  * KubeConfigValue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KubeConfigValue {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -268,10 +268,7 @@ public class KubeConfigValue {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -280,16 +277,10 @@ public class KubeConfigValue {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("apiVersion");
-    openapiFields.add("clusters");
-    openapiFields.add("contexts");
-    openapiFields.add("current-context");
-    openapiFields.add("kind");
-    openapiFields.add("users");
+    openapiFields = new HashSet<String>(Arrays.asList("apiVersion", "clusters", "contexts", "current-context", "kind", "users"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -301,7 +292,7 @@ public class KubeConfigValue {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KubeConfigValue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KubeConfigValue is not found in the empty JSON string", KubeConfigValue.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KubeConfigValue is not found in the empty JSON string", KubeConfigValue.openapiRequiredFields.toString()));
         }
       }
 
@@ -309,19 +300,19 @@ public class KubeConfigValue {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KubeConfigValue.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KubeConfigValue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KubeConfigValue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
       }
       if (jsonObj.get("clusters") != null && !jsonObj.get("clusters").isJsonNull()) {
         JsonArray jsonArrayclusters = jsonObj.getAsJsonArray("clusters");
         if (jsonArrayclusters != null) {
           // ensure the json data is an array
           if (!jsonObj.get("clusters").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `clusters` to be an array in the JSON string but got `%s`", jsonObj.get("clusters").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `clusters` to be an array in the JSON string but got `%s`", jsonObj.get("clusters").toString()));
           }
 
           // validate the optional field `clusters` (array)
@@ -335,7 +326,7 @@ public class KubeConfigValue {
         if (jsonArraycontexts != null) {
           // ensure the json data is an array
           if (!jsonObj.get("contexts").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `contexts` to be an array in the JSON string but got `%s`", jsonObj.get("contexts").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `contexts` to be an array in the JSON string but got `%s`", jsonObj.get("contexts").toString()));
           }
 
           // validate the optional field `contexts` (array)
@@ -345,17 +336,17 @@ public class KubeConfigValue {
         }
       }
       if ((jsonObj.get("current-context") != null && !jsonObj.get("current-context").isJsonNull()) && !jsonObj.get("current-context").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `current-context` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current-context").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `current-context` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current-context").toString()));
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
       if (jsonObj.get("users") != null && !jsonObj.get("users").isJsonNull()) {
         JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
         if (jsonArrayusers != null) {
           // ensure the json data is an array
           if (!jsonObj.get("users").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
           }
 
           // validate the optional field `users` (array)

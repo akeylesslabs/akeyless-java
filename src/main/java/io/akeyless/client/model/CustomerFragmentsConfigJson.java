@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * CustomerFragmentsConfigJson
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CustomerFragmentsConfigJson {
   public static final String SERIALIZED_NAME_CUSTOMER_FRAGMENTS = "customer_fragments";
   @SerializedName(SERIALIZED_NAME_CUSTOMER_FRAGMENTS)
@@ -120,10 +120,7 @@ public class CustomerFragmentsConfigJson {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -132,11 +129,10 @@ public class CustomerFragmentsConfigJson {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("customer_fragments");
+    openapiFields = new HashSet<String>(Arrays.asList("customer_fragments"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -148,7 +144,7 @@ public class CustomerFragmentsConfigJson {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CustomerFragmentsConfigJson.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomerFragmentsConfigJson is not found in the empty JSON string", CustomerFragmentsConfigJson.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomerFragmentsConfigJson is not found in the empty JSON string", CustomerFragmentsConfigJson.openapiRequiredFields.toString()));
         }
       }
 
@@ -156,7 +152,7 @@ public class CustomerFragmentsConfigJson {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomerFragmentsConfigJson.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomerFragmentsConfigJson` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomerFragmentsConfigJson` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -165,7 +161,7 @@ public class CustomerFragmentsConfigJson {
         if (jsonArraycustomerFragments != null) {
           // ensure the json data is an array
           if (!jsonObj.get("customer_fragments").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `customer_fragments` to be an array in the JSON string but got `%s`", jsonObj.get("customer_fragments").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer_fragments` to be an array in the JSON string but got `%s`", jsonObj.get("customer_fragments").toString()));
           }
 
           // validate the optional field `customer_fragments` (array)

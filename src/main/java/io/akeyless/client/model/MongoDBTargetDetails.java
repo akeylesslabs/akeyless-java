@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * MongoDBTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class MongoDBTargetDetails {
   public static final String SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY = "mongodb_atlas_api_private_key";
   @SerializedName(SERIALIZED_NAME_MONGODB_ATLAS_API_PRIVATE_KEY)
@@ -369,10 +369,7 @@ public class MongoDBTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -381,21 +378,10 @@ public class MongoDBTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("mongodb_atlas_api_private_key");
-    openapiFields.add("mongodb_atlas_api_public_key");
-    openapiFields.add("mongodb_atlas_project_id");
-    openapiFields.add("mongodb_db_name");
-    openapiFields.add("mongodb_default_auth_db");
-    openapiFields.add("mongodb_host_port");
-    openapiFields.add("mongodb_is_atlas");
-    openapiFields.add("mongodb_password");
-    openapiFields.add("mongodb_uri_connection");
-    openapiFields.add("mongodb_uri_options");
-    openapiFields.add("mongodb_username");
+    openapiFields = new HashSet<String>(Arrays.asList("mongodb_atlas_api_private_key", "mongodb_atlas_api_public_key", "mongodb_atlas_project_id", "mongodb_db_name", "mongodb_default_auth_db", "mongodb_host_port", "mongodb_is_atlas", "mongodb_password", "mongodb_uri_connection", "mongodb_uri_options", "mongodb_username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -407,7 +393,7 @@ public class MongoDBTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!MongoDBTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MongoDBTargetDetails is not found in the empty JSON string", MongoDBTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in MongoDBTargetDetails is not found in the empty JSON string", MongoDBTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -415,39 +401,39 @@ public class MongoDBTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MongoDBTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MongoDBTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `MongoDBTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("mongodb_atlas_api_private_key") != null && !jsonObj.get("mongodb_atlas_api_private_key").isJsonNull()) && !jsonObj.get("mongodb_atlas_api_private_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_atlas_api_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_atlas_api_private_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_atlas_api_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_atlas_api_private_key").toString()));
       }
       if ((jsonObj.get("mongodb_atlas_api_public_key") != null && !jsonObj.get("mongodb_atlas_api_public_key").isJsonNull()) && !jsonObj.get("mongodb_atlas_api_public_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_atlas_api_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_atlas_api_public_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_atlas_api_public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_atlas_api_public_key").toString()));
       }
       if ((jsonObj.get("mongodb_atlas_project_id") != null && !jsonObj.get("mongodb_atlas_project_id").isJsonNull()) && !jsonObj.get("mongodb_atlas_project_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_atlas_project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_atlas_project_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_atlas_project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_atlas_project_id").toString()));
       }
       if ((jsonObj.get("mongodb_db_name") != null && !jsonObj.get("mongodb_db_name").isJsonNull()) && !jsonObj.get("mongodb_db_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_db_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_db_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_db_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_db_name").toString()));
       }
       if ((jsonObj.get("mongodb_default_auth_db") != null && !jsonObj.get("mongodb_default_auth_db").isJsonNull()) && !jsonObj.get("mongodb_default_auth_db").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_default_auth_db` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_default_auth_db").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_default_auth_db` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_default_auth_db").toString()));
       }
       if ((jsonObj.get("mongodb_host_port") != null && !jsonObj.get("mongodb_host_port").isJsonNull()) && !jsonObj.get("mongodb_host_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_host_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_host_port").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_host_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_host_port").toString()));
       }
       if ((jsonObj.get("mongodb_password") != null && !jsonObj.get("mongodb_password").isJsonNull()) && !jsonObj.get("mongodb_password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_password").toString()));
       }
       if ((jsonObj.get("mongodb_uri_connection") != null && !jsonObj.get("mongodb_uri_connection").isJsonNull()) && !jsonObj.get("mongodb_uri_connection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_uri_connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_uri_connection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_uri_connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_uri_connection").toString()));
       }
       if ((jsonObj.get("mongodb_uri_options") != null && !jsonObj.get("mongodb_uri_options").isJsonNull()) && !jsonObj.get("mongodb_uri_options").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_uri_options` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_uri_options").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_uri_options` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_uri_options").toString()));
       }
       if ((jsonObj.get("mongodb_username") != null && !jsonObj.get("mongodb_username").isJsonNull()) && !jsonObj.get("mongodb_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mongodb_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mongodb_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mongodb_username").toString()));
       }
   }
 

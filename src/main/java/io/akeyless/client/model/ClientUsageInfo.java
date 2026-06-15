@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ClientUsageInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ClientUsageInfo {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -213,10 +213,7 @@ public class ClientUsageInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class ClientUsageInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_id");
-    openapiFields.add("access_type");
-    openapiFields.add("auth_method_name");
-    openapiFields.add("client_unique_id");
-    openapiFields.add("exceeded_clients");
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "access_type", "auth_method_name", "client_unique_id", "exceeded_clients"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class ClientUsageInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ClientUsageInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ClientUsageInfo is not found in the empty JSON string", ClientUsageInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ClientUsageInfo is not found in the empty JSON string", ClientUsageInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,21 +245,21 @@ public class ClientUsageInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ClientUsageInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ClientUsageInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ClientUsageInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id") != null && !jsonObj.get("access_id").isJsonNull()) && !jsonObj.get("access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
       }
       if ((jsonObj.get("access_type") != null && !jsonObj.get("access_type").isJsonNull()) && !jsonObj.get("access_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_type").toString()));
       }
       if ((jsonObj.get("auth_method_name") != null && !jsonObj.get("auth_method_name").isJsonNull()) && !jsonObj.get("auth_method_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_method_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_method_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_name").toString()));
       }
       if ((jsonObj.get("client_unique_id") != null && !jsonObj.get("client_unique_id").isJsonNull()) && !jsonObj.get("client_unique_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_unique_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_unique_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_unique_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_unique_id").toString()));
       }
   }
 

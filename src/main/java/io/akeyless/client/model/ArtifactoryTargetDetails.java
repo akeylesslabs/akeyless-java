@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ArtifactoryTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ArtifactoryTargetDetails {
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY = "artifactory_admin_apikey";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_APIKEY)
@@ -161,10 +161,7 @@ public class ArtifactoryTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class ArtifactoryTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("artifactory_admin_apikey");
-    openapiFields.add("artifactory_admin_username");
-    openapiFields.add("artifactory_base_url");
+    openapiFields = new HashSet<String>(Arrays.asList("artifactory_admin_apikey", "artifactory_admin_username", "artifactory_base_url"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class ArtifactoryTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ArtifactoryTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ArtifactoryTargetDetails is not found in the empty JSON string", ArtifactoryTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ArtifactoryTargetDetails is not found in the empty JSON string", ArtifactoryTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class ArtifactoryTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ArtifactoryTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ArtifactoryTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ArtifactoryTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("artifactory_admin_apikey") != null && !jsonObj.get("artifactory_admin_apikey").isJsonNull()) && !jsonObj.get("artifactory_admin_apikey").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `artifactory_admin_apikey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_admin_apikey").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifactory_admin_apikey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_admin_apikey").toString()));
       }
       if ((jsonObj.get("artifactory_admin_username") != null && !jsonObj.get("artifactory_admin_username").isJsonNull()) && !jsonObj.get("artifactory_admin_username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `artifactory_admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_admin_username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifactory_admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_admin_username").toString()));
       }
       if ((jsonObj.get("artifactory_base_url") != null && !jsonObj.get("artifactory_base_url").isJsonNull()) && !jsonObj.get("artifactory_base_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `artifactory_base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_base_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifactory_base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_base_url").toString()));
       }
   }
 

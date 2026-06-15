@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * ReverseRBACClient
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ReverseRBACClient {
   public static final String SERIALIZED_NAME_ASSOCS = "assocs";
   @SerializedName(SERIALIZED_NAME_ASSOCS)
@@ -172,10 +172,7 @@ public class ReverseRBACClient {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -184,13 +181,10 @@ public class ReverseRBACClient {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("assocs");
-    openapiFields.add("auth_method_id");
-    openapiFields.add("auth_method_name");
+    openapiFields = new HashSet<String>(Arrays.asList("assocs", "auth_method_id", "auth_method_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -202,7 +196,7 @@ public class ReverseRBACClient {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ReverseRBACClient.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ReverseRBACClient is not found in the empty JSON string", ReverseRBACClient.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ReverseRBACClient is not found in the empty JSON string", ReverseRBACClient.openapiRequiredFields.toString()));
         }
       }
 
@@ -210,7 +204,7 @@ public class ReverseRBACClient {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ReverseRBACClient.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ReverseRBACClient` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ReverseRBACClient` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -219,7 +213,7 @@ public class ReverseRBACClient {
         if (jsonArrayassocs != null) {
           // ensure the json data is an array
           if (!jsonObj.get("assocs").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `assocs` to be an array in the JSON string but got `%s`", jsonObj.get("assocs").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `assocs` to be an array in the JSON string but got `%s`", jsonObj.get("assocs").toString()));
           }
 
           // validate the optional field `assocs` (array)
@@ -229,7 +223,7 @@ public class ReverseRBACClient {
         }
       }
       if ((jsonObj.get("auth_method_name") != null && !jsonObj.get("auth_method_name").isJsonNull()) && !jsonObj.get("auth_method_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auth_method_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_method_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_method_name").toString()));
       }
   }
 

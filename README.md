@@ -2,7 +2,7 @@
 
 Akeyless API
 - API version: 3.0
-  - Generator version: 7.10.0
+  - Generator version: 7.22.0
 
 The purpose of this application is to provide access to Akeyless API.
 
@@ -323,7 +323,10 @@ Class | Method | HTTP request | Description
 *V2Api* | [**exportClassicKey**](docs/V2Api.md#exportClassicKey) | **POST** /export-classic-key | 
 *V2Api* | [**folderCreate**](docs/V2Api.md#folderCreate) | **POST** /folder-create | 
 *V2Api* | [**folderDelete**](docs/V2Api.md#folderDelete) | **POST** /folder-delete | 
+*V2Api* | [**folderDeleteSync**](docs/V2Api.md#folderDeleteSync) | **POST** /folder-delete-sync | 
 *V2Api* | [**folderGet**](docs/V2Api.md#folderGet) | **POST** /folder-get | 
+*V2Api* | [**folderSync**](docs/V2Api.md#folderSync) | **POST** /folder-sync | 
+*V2Api* | [**folderSyncAll**](docs/V2Api.md#folderSyncAll) | **POST** /folder-sync-all | 
 *V2Api* | [**folderUpdate**](docs/V2Api.md#folderUpdate) | **POST** /folder-update | 
 *V2Api* | [**gatewayCreateAllowedAccess**](docs/V2Api.md#gatewayCreateAllowedAccess) | **POST** /gateway-create-allowed-access | 
 *V2Api* | [**gatewayCreateK8SAuthConfig**](docs/V2Api.md#gatewayCreateK8SAuthConfig) | **POST** /gateway-create-k8s-auth-config | 
@@ -519,6 +522,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretCreateDockerhub**](docs/V2Api.md#rotatedSecretCreateDockerhub) | **POST** /rotated-secret-create-dockerhub | 
 *V2Api* | [**rotatedSecretCreateGcp**](docs/V2Api.md#rotatedSecretCreateGcp) | **POST** /rotated-secret-create-gcp | 
 *V2Api* | [**rotatedSecretCreateHanadb**](docs/V2Api.md#rotatedSecretCreateHanadb) | **POST** /rotated-secret-create-hanadb | 
+*V2Api* | [**rotatedSecretCreateHashiVault**](docs/V2Api.md#rotatedSecretCreateHashiVault) | **POST** /rotated-secret-create-hashi-vault | 
 *V2Api* | [**rotatedSecretCreateLdap**](docs/V2Api.md#rotatedSecretCreateLdap) | **POST** /rotated-secret-create-ldap | 
 *V2Api* | [**rotatedSecretCreateMongodb**](docs/V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb | 
 *V2Api* | [**rotatedSecretCreateMssql**](docs/V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql | 
@@ -544,6 +548,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretUpdateDockerhub**](docs/V2Api.md#rotatedSecretUpdateDockerhub) | **POST** /rotated-secret-update-dockerhub | 
 *V2Api* | [**rotatedSecretUpdateGcp**](docs/V2Api.md#rotatedSecretUpdateGcp) | **POST** /rotated-secret-update-gcp | 
 *V2Api* | [**rotatedSecretUpdateHanadb**](docs/V2Api.md#rotatedSecretUpdateHanadb) | **POST** /rotated-secret-update-hanadb | 
+*V2Api* | [**rotatedSecretUpdateHashiVault**](docs/V2Api.md#rotatedSecretUpdateHashiVault) | **POST** /rotated-secret-update-hashi-vault | 
 *V2Api* | [**rotatedSecretUpdateLdap**](docs/V2Api.md#rotatedSecretUpdateLdap) | **POST** /rotated-secret-update-ldap | 
 *V2Api* | [**rotatedSecretUpdateMongodb**](docs/V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb | 
 *V2Api* | [**rotatedSecretUpdateMssql**](docs/V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql | 
@@ -1144,8 +1149,14 @@ Class | Method | HTTP request | Description
  - [FolderCreate](docs/FolderCreate.md)
  - [FolderCreateOutput](docs/FolderCreateOutput.md)
  - [FolderDelete](docs/FolderDelete.md)
+ - [FolderDeleteSync](docs/FolderDeleteSync.md)
+ - [FolderDeleteSyncOutput](docs/FolderDeleteSyncOutput.md)
  - [FolderGet](docs/FolderGet.md)
  - [FolderGetOutput](docs/FolderGetOutput.md)
+ - [FolderSync](docs/FolderSync.md)
+ - [FolderSyncAll](docs/FolderSyncAll.md)
+ - [FolderSyncAllOutput](docs/FolderSyncAllOutput.md)
+ - [FolderSyncOutput](docs/FolderSyncOutput.md)
  - [FolderUSCSyncConfig](docs/FolderUSCSyncConfig.md)
  - [FolderUpdate](docs/FolderUpdate.md)
  - [GCPAccessRules](docs/GCPAccessRules.md)
@@ -1537,6 +1548,7 @@ Class | Method | HTTP request | Description
  - [PasswordScoreSetting](docs/PasswordScoreSetting.md)
  - [PasswordSecurityInfo](docs/PasswordSecurityInfo.md)
  - [PathRule](docs/PathRule.md)
+ - [PersonalFolderGlobalMappingSettings](docs/PersonalFolderGlobalMappingSettings.md)
  - [PingTargetDetails](docs/PingTargetDetails.md)
  - [PoliciesCreateOutput](docs/PoliciesCreateOutput.md)
  - [PoliciesDelete](docs/PoliciesDelete.md)
@@ -1586,6 +1598,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateDockerhub](docs/RotatedSecretCreateDockerhub.md)
  - [RotatedSecretCreateGcp](docs/RotatedSecretCreateGcp.md)
  - [RotatedSecretCreateHanadb](docs/RotatedSecretCreateHanadb.md)
+ - [RotatedSecretCreateHashiVault](docs/RotatedSecretCreateHashiVault.md)
  - [RotatedSecretCreateLdap](docs/RotatedSecretCreateLdap.md)
  - [RotatedSecretCreateMongodb](docs/RotatedSecretCreateMongodb.md)
  - [RotatedSecretCreateMssql](docs/RotatedSecretCreateMssql.md)
@@ -1615,6 +1628,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretUpdateDockerhub](docs/RotatedSecretUpdateDockerhub.md)
  - [RotatedSecretUpdateGcp](docs/RotatedSecretUpdateGcp.md)
  - [RotatedSecretUpdateHanadb](docs/RotatedSecretUpdateHanadb.md)
+ - [RotatedSecretUpdateHashiVault](docs/RotatedSecretUpdateHashiVault.md)
  - [RotatedSecretUpdateLdap](docs/RotatedSecretUpdateLdap.md)
  - [RotatedSecretUpdateMongodb](docs/RotatedSecretUpdateMongodb.md)
  - [RotatedSecretUpdateMssql](docs/RotatedSecretUpdateMssql.md)

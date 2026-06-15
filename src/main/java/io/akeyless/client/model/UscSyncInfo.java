@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * UscSyncInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscSyncInfo {
   public static final String SERIALIZED_NAME_DELETE_REMOTE = "delete_remote";
   @SerializedName(SERIALIZED_NAME_DELETE_REMOTE)
@@ -239,10 +239,7 @@ public class UscSyncInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class UscSyncInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_remote");
-    openapiFields.add("jq_secret_filter");
-    openapiFields.add("last_error");
-    openapiFields.add("namespace");
-    openapiFields.add("secret_id");
-    openapiFields.add("secret_name");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_remote", "jq_secret_filter", "last_error", "namespace", "secret_id", "secret_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class UscSyncInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!UscSyncInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UscSyncInfo is not found in the empty JSON string", UscSyncInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in UscSyncInfo is not found in the empty JSON string", UscSyncInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,24 +271,24 @@ public class UscSyncInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UscSyncInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UscSyncInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `UscSyncInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("jq_secret_filter") != null && !jsonObj.get("jq_secret_filter").isJsonNull()) && !jsonObj.get("jq_secret_filter").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jq_secret_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jq_secret_filter").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `jq_secret_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jq_secret_filter").toString()));
       }
       if ((jsonObj.get("last_error") != null && !jsonObj.get("last_error").isJsonNull()) && !jsonObj.get("last_error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_error").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_error").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
       if ((jsonObj.get("secret_id") != null && !jsonObj.get("secret_id").isJsonNull()) && !jsonObj.get("secret_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
       }
       if ((jsonObj.get("secret_name") != null && !jsonObj.get("secret_name").isJsonNull()) && !jsonObj.get("secret_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secret_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_name").toString()));
       }
   }
 

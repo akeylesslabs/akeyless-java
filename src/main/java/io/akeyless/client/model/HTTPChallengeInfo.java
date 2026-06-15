@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * HTTPChallengeInfo contains HTTP-01 challenge details for user display
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class HTTPChallengeInfo {
   public static final String SERIALIZED_NAME_FILE_CONTENT = "file_content";
   @SerializedName(SERIALIZED_NAME_FILE_CONTENT)
@@ -213,10 +213,7 @@ public class HTTPChallengeInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class HTTPChallengeInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("file_content");
-    openapiFields.add("file_path");
-    openapiFields.add("instructions");
-    openapiFields.add("key_auth");
-    openapiFields.add("token");
+    openapiFields = new HashSet<String>(Arrays.asList("file_content", "file_path", "instructions", "key_auth", "token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class HTTPChallengeInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!HTTPChallengeInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in HTTPChallengeInfo is not found in the empty JSON string", HTTPChallengeInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in HTTPChallengeInfo is not found in the empty JSON string", HTTPChallengeInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,24 +245,24 @@ public class HTTPChallengeInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HTTPChallengeInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HTTPChallengeInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `HTTPChallengeInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("file_content") != null && !jsonObj.get("file_content").isJsonNull()) && !jsonObj.get("file_content").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `file_content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_content").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file_content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_content").toString()));
       }
       if ((jsonObj.get("file_path") != null && !jsonObj.get("file_path").isJsonNull()) && !jsonObj.get("file_path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `file_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `file_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("file_path").toString()));
       }
       if ((jsonObj.get("instructions") != null && !jsonObj.get("instructions").isJsonNull()) && !jsonObj.get("instructions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `instructions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
       }
       if ((jsonObj.get("key_auth") != null && !jsonObj.get("key_auth").isJsonNull()) && !jsonObj.get("key_auth").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_auth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_auth").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_auth` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_auth").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
   }
 

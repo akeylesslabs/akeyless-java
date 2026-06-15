@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * LogzIoLogForwardingConfig
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class LogzIoLogForwardingConfig {
   public static final String SERIALIZED_NAME_TARGET_LOGZ_IO_PROTOCOL = "target_logz_io_protocol";
   @SerializedName(SERIALIZED_NAME_TARGET_LOGZ_IO_PROTOCOL)
@@ -135,10 +135,7 @@ public class LogzIoLogForwardingConfig {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class LogzIoLogForwardingConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("target_logz_io_protocol");
-    openapiFields.add("target_logz_io_token");
+    openapiFields = new HashSet<String>(Arrays.asList("target_logz_io_protocol", "target_logz_io_token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class LogzIoLogForwardingConfig {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!LogzIoLogForwardingConfig.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LogzIoLogForwardingConfig is not found in the empty JSON string", LogzIoLogForwardingConfig.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LogzIoLogForwardingConfig is not found in the empty JSON string", LogzIoLogForwardingConfig.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class LogzIoLogForwardingConfig {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LogzIoLogForwardingConfig.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LogzIoLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LogzIoLogForwardingConfig` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("target_logz_io_protocol") != null && !jsonObj.get("target_logz_io_protocol").isJsonNull()) && !jsonObj.get("target_logz_io_protocol").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_logz_io_protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_logz_io_protocol").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_logz_io_protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_logz_io_protocol").toString()));
       }
       if ((jsonObj.get("target_logz_io_token") != null && !jsonObj.get("target_logz_io_token").isJsonNull()) && !jsonObj.get("target_logz_io_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_logz_io_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_logz_io_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_logz_io_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_logz_io_token").toString()));
       }
   }
 

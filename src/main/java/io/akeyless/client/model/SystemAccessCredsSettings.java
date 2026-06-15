@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * SystemAccessCredsSettings describes system access credential settings for account by minutes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SystemAccessCredsSettings {
   public static final String SERIALIZED_NAME_JWT_TTL_DEFAULT = "jwt_ttl_default";
   @SerializedName(SERIALIZED_NAME_JWT_TTL_DEFAULT)
@@ -161,10 +161,7 @@ public class SystemAccessCredsSettings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class SystemAccessCredsSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("jwt_ttl_default");
-    openapiFields.add("jwt_ttl_maximum");
-    openapiFields.add("jwt_ttl_minimum");
+    openapiFields = new HashSet<String>(Arrays.asList("jwt_ttl_default", "jwt_ttl_maximum", "jwt_ttl_minimum"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class SystemAccessCredsSettings {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SystemAccessCredsSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SystemAccessCredsSettings is not found in the empty JSON string", SystemAccessCredsSettings.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SystemAccessCredsSettings is not found in the empty JSON string", SystemAccessCredsSettings.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,7 +193,7 @@ public class SystemAccessCredsSettings {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SystemAccessCredsSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SystemAccessCredsSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SystemAccessCredsSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

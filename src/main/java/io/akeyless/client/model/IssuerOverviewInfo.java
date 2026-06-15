@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * IssuerOverviewInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class IssuerOverviewInfo {
   public static final String SERIALIZED_NAME_CERTIFICATE_AUTHORITY_MODE = "certificate_authority_mode";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_AUTHORITY_MODE)
@@ -162,10 +162,7 @@ public class IssuerOverviewInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -174,13 +171,10 @@ public class IssuerOverviewInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate_authority_mode");
-    openapiFields.add("expiration_date");
-    openapiFields.add("key_type");
+    openapiFields = new HashSet<String>(Arrays.asList("certificate_authority_mode", "expiration_date", "key_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -192,7 +186,7 @@ public class IssuerOverviewInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!IssuerOverviewInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IssuerOverviewInfo is not found in the empty JSON string", IssuerOverviewInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in IssuerOverviewInfo is not found in the empty JSON string", IssuerOverviewInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -200,15 +194,15 @@ public class IssuerOverviewInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IssuerOverviewInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IssuerOverviewInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `IssuerOverviewInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificate_authority_mode") != null && !jsonObj.get("certificate_authority_mode").isJsonNull()) && !jsonObj.get("certificate_authority_mode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `certificate_authority_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_authority_mode").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_authority_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_authority_mode").toString()));
       }
       if ((jsonObj.get("key_type") != null && !jsonObj.get("key_type").isJsonNull()) && !jsonObj.get("key_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_type").toString()));
       }
   }
 

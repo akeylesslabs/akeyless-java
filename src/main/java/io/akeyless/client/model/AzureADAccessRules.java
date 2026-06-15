@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * AzureADAccessRules contains access rules specific to Azure Active Directory authentication.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AzureADAccessRules {
   public static final String SERIALIZED_NAME_AD_ENDPOINT = "ad_endpoint";
   @SerializedName(SERIALIZED_NAME_AD_ENDPOINT)
@@ -513,10 +513,7 @@ public class AzureADAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -525,24 +522,10 @@ public class AzureADAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("ad_endpoint");
-    openapiFields.add("azure_cloud");
-    openapiFields.add("bound_group_ids");
-    openapiFields.add("bound_resource_groups");
-    openapiFields.add("bound_resource_ids");
-    openapiFields.add("bound_resource_names");
-    openapiFields.add("bound_resource_providers");
-    openapiFields.add("bound_resource_types");
-    openapiFields.add("bound_service_principal_ids");
-    openapiFields.add("bound_subscription_ids");
-    openapiFields.add("bound_tenant_id");
-    openapiFields.add("issuer");
-    openapiFields.add("jwks_uri");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("ad_endpoint", "azure_cloud", "bound_group_ids", "bound_resource_groups", "bound_resource_ids", "bound_resource_names", "bound_resource_providers", "bound_resource_types", "bound_service_principal_ids", "bound_subscription_ids", "bound_tenant_id", "issuer", "jwks_uri", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -554,7 +537,7 @@ public class AzureADAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AzureADAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AzureADAccessRules is not found in the empty JSON string", AzureADAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AzureADAccessRules is not found in the empty JSON string", AzureADAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -562,59 +545,59 @@ public class AzureADAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AzureADAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AzureADAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AzureADAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("ad_endpoint") != null && !jsonObj.get("ad_endpoint").isJsonNull()) && !jsonObj.get("ad_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ad_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad_endpoint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ad_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ad_endpoint").toString()));
       }
       if ((jsonObj.get("azure_cloud") != null && !jsonObj.get("azure_cloud").isJsonNull()) && !jsonObj.get("azure_cloud").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `azure_cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_cloud").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure_cloud` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure_cloud").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_group_ids") != null && !jsonObj.get("bound_group_ids").isJsonNull() && !jsonObj.get("bound_group_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_group_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_group_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_group_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_group_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_resource_groups") != null && !jsonObj.get("bound_resource_groups").isJsonNull() && !jsonObj.get("bound_resource_groups").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_resource_groups` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_groups").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_resource_groups` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_groups").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_resource_ids") != null && !jsonObj.get("bound_resource_ids").isJsonNull() && !jsonObj.get("bound_resource_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_resource_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_resource_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_resource_names") != null && !jsonObj.get("bound_resource_names").isJsonNull() && !jsonObj.get("bound_resource_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_resource_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_names").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_resource_names` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_names").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_resource_providers") != null && !jsonObj.get("bound_resource_providers").isJsonNull() && !jsonObj.get("bound_resource_providers").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_resource_providers` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_providers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_resource_providers` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_providers").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_resource_types") != null && !jsonObj.get("bound_resource_types").isJsonNull() && !jsonObj.get("bound_resource_types").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_resource_types` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_types").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_resource_types` to be an array in the JSON string but got `%s`", jsonObj.get("bound_resource_types").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_service_principal_ids") != null && !jsonObj.get("bound_service_principal_ids").isJsonNull() && !jsonObj.get("bound_service_principal_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_service_principal_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_service_principal_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_service_principal_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_service_principal_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("bound_subscription_ids") != null && !jsonObj.get("bound_subscription_ids").isJsonNull() && !jsonObj.get("bound_subscription_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_subscription_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_subscription_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_subscription_ids` to be an array in the JSON string but got `%s`", jsonObj.get("bound_subscription_ids").toString()));
       }
       if ((jsonObj.get("bound_tenant_id") != null && !jsonObj.get("bound_tenant_id").isJsonNull()) && !jsonObj.get("bound_tenant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `bound_tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bound_tenant_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bound_tenant_id").toString()));
       }
       if ((jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonNull()) && !jsonObj.get("issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
       }
       if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull()) && !jsonObj.get("jwks_uri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_uri").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jwks_uri").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

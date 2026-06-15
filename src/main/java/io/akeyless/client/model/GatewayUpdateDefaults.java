@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayUpdateDefaults is a command that updates defaults settings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateDefaults {
   public static final String SERIALIZED_NAME_CERT_ACCESS_ID = "cert-access-id";
   @SerializedName(SERIALIZED_NAME_CERT_ACCESS_ID)
@@ -317,10 +317,7 @@ public class GatewayUpdateDefaults {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -329,19 +326,10 @@ public class GatewayUpdateDefaults {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cert-access-id");
-    openapiFields.add("event-on-status-change");
-    openapiFields.add("hvp-route-version");
-    openapiFields.add("json");
-    openapiFields.add("key");
-    openapiFields.add("oidc-access-id");
-    openapiFields.add("saml-access-id");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("cert-access-id", "event-on-status-change", "hvp-route-version", "json", "key", "oidc-access-id", "saml-access-id", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -353,7 +341,7 @@ public class GatewayUpdateDefaults {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateDefaults.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateDefaults is not found in the empty JSON string", GatewayUpdateDefaults.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateDefaults is not found in the empty JSON string", GatewayUpdateDefaults.openapiRequiredFields.toString()));
         }
       }
 
@@ -361,30 +349,30 @@ public class GatewayUpdateDefaults {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateDefaults.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateDefaults` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateDefaults` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cert-access-id") != null && !jsonObj.get("cert-access-id").isJsonNull()) && !jsonObj.get("cert-access-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cert-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-access-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-access-id").toString()));
       }
       if ((jsonObj.get("event-on-status-change") != null && !jsonObj.get("event-on-status-change").isJsonNull()) && !jsonObj.get("event-on-status-change").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `event-on-status-change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event-on-status-change").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event-on-status-change` to be a primitive type in the JSON string but got `%s`", jsonObj.get("event-on-status-change").toString()));
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
       if ((jsonObj.get("oidc-access-id") != null && !jsonObj.get("oidc-access-id").isJsonNull()) && !jsonObj.get("oidc-access-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `oidc-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oidc-access-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oidc-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oidc-access-id").toString()));
       }
       if ((jsonObj.get("saml-access-id") != null && !jsonObj.get("saml-access-id").isJsonNull()) && !jsonObj.get("saml-access-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saml-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saml-access-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `saml-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saml-access-id").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

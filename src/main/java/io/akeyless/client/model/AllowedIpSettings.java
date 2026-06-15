@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * AllowedIpSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AllowedIpSettings {
   public static final String SERIALIZED_NAME_CIDR_WHITELIST = "cidr_whitelist";
   @SerializedName(SERIALIZED_NAME_CIDR_WHITELIST)
@@ -135,10 +135,7 @@ public class AllowedIpSettings {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class AllowedIpSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("cidr_whitelist");
-    openapiFields.add("lock");
+    openapiFields = new HashSet<String>(Arrays.asList("cidr_whitelist", "lock"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class AllowedIpSettings {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AllowedIpSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AllowedIpSettings is not found in the empty JSON string", AllowedIpSettings.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AllowedIpSettings is not found in the empty JSON string", AllowedIpSettings.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,12 +167,12 @@ public class AllowedIpSettings {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AllowedIpSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AllowedIpSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AllowedIpSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("cidr_whitelist") != null && !jsonObj.get("cidr_whitelist").isJsonNull()) && !jsonObj.get("cidr_whitelist").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cidr_whitelist` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cidr_whitelist").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cidr_whitelist` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cidr_whitelist").toString()));
       }
   }
 

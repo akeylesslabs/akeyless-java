@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * SraInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SraInfo {
   public static final String SERIALIZED_NAME_SLA = "sla";
   @SerializedName(SERIALIZED_NAME_SLA)
@@ -161,10 +161,7 @@ public class SraInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -173,13 +170,10 @@ public class SraInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("sla");
-    openapiFields.add("tier");
-    openapiFields.add("user_type");
+    openapiFields = new HashSet<String>(Arrays.asList("sla", "tier", "user_type"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -191,7 +185,7 @@ public class SraInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SraInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SraInfo is not found in the empty JSON string", SraInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SraInfo is not found in the empty JSON string", SraInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -199,18 +193,18 @@ public class SraInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SraInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SraInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SraInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("sla") != null && !jsonObj.get("sla").isJsonNull()) && !jsonObj.get("sla").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sla` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sla").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sla` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sla").toString()));
       }
       if ((jsonObj.get("tier") != null && !jsonObj.get("tier").isJsonNull()) && !jsonObj.get("tier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tier").toString()));
       }
       if ((jsonObj.get("user_type") != null && !jsonObj.get("user_type").isJsonNull()) && !jsonObj.get("user_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_type").toString()));
       }
   }
 

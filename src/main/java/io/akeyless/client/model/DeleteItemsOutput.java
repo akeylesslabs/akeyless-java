@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * DeleteItemsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DeleteItemsOutput {
   public static final String SERIALIZED_NAME_DELETED_ITEMS = "deleted_items";
   @SerializedName(SERIALIZED_NAME_DELETED_ITEMS)
@@ -181,10 +181,7 @@ public class DeleteItemsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -193,13 +190,10 @@ public class DeleteItemsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("deleted_items");
-    openapiFields.add("failed_deleted_items");
-    openapiFields.add("path");
+    openapiFields = new HashSet<String>(Arrays.asList("deleted_items", "failed_deleted_items", "path"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -211,7 +205,7 @@ public class DeleteItemsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DeleteItemsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DeleteItemsOutput is not found in the empty JSON string", DeleteItemsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DeleteItemsOutput is not found in the empty JSON string", DeleteItemsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -219,16 +213,16 @@ public class DeleteItemsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DeleteItemsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DeleteItemsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DeleteItemsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("deleted_items") != null && !jsonObj.get("deleted_items").isJsonNull() && !jsonObj.get("deleted_items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `deleted_items` to be an array in the JSON string but got `%s`", jsonObj.get("deleted_items").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `deleted_items` to be an array in the JSON string but got `%s`", jsonObj.get("deleted_items").toString()));
       }
       if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
       }
   }
 

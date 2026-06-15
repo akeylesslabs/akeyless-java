@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * CreatePasskeyOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CreatePasskeyOutput {
   public static final String SERIALIZED_NAME_CLASSIC_KEY_ID = "classic_key_id";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_ID)
@@ -187,10 +187,7 @@ public class CreatePasskeyOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -199,14 +196,10 @@ public class CreatePasskeyOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("classic_key_id");
-    openapiFields.add("classic_key_name");
-    openapiFields.add("classic_key_type");
-    openapiFields.add("public_key");
+    openapiFields = new HashSet<String>(Arrays.asList("classic_key_id", "classic_key_name", "classic_key_type", "public_key"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -218,7 +211,7 @@ public class CreatePasskeyOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreatePasskeyOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreatePasskeyOutput is not found in the empty JSON string", CreatePasskeyOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreatePasskeyOutput is not found in the empty JSON string", CreatePasskeyOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -226,21 +219,21 @@ public class CreatePasskeyOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreatePasskeyOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreatePasskeyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreatePasskeyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("classic_key_id") != null && !jsonObj.get("classic_key_id").isJsonNull()) && !jsonObj.get("classic_key_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `classic_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `classic_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_id").toString()));
       }
       if ((jsonObj.get("classic_key_name") != null && !jsonObj.get("classic_key_name").isJsonNull()) && !jsonObj.get("classic_key_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `classic_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `classic_key_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_name").toString()));
       }
       if ((jsonObj.get("classic_key_type") != null && !jsonObj.get("classic_key_type").isJsonNull()) && !jsonObj.get("classic_key_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `classic_key_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `classic_key_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_type").toString()));
       }
       if ((jsonObj.get("public_key") != null && !jsonObj.get("public_key").isJsonNull()) && !jsonObj.get("public_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
       }
   }
 

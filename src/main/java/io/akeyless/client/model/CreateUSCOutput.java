@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * CreateUSCOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CreateUSCOutput {
   public static final String SERIALIZED_NAME_UNIVERSAL_SECRETS_CONNECTOR_ID = "universal_secrets_connector_id";
   @SerializedName(SERIALIZED_NAME_UNIVERSAL_SECRETS_CONNECTOR_ID)
@@ -135,10 +135,7 @@ public class CreateUSCOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class CreateUSCOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("universal_secrets_connector_id");
-    openapiFields.add("universal_secrets_connector_name");
+    openapiFields = new HashSet<String>(Arrays.asList("universal_secrets_connector_id", "universal_secrets_connector_name"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class CreateUSCOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CreateUSCOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateUSCOutput is not found in the empty JSON string", CreateUSCOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CreateUSCOutput is not found in the empty JSON string", CreateUSCOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,12 +167,12 @@ public class CreateUSCOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateUSCOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateUSCOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CreateUSCOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("universal_secrets_connector_name") != null && !jsonObj.get("universal_secrets_connector_name").isJsonNull()) && !jsonObj.get("universal_secrets_connector_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `universal_secrets_connector_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("universal_secrets_connector_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `universal_secrets_connector_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("universal_secrets_connector_name").toString()));
       }
   }
 

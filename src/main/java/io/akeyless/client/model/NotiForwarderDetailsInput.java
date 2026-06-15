@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * NotiForwarderDetailsInput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class NotiForwarderDetailsInput {
   public static final String SERIALIZED_NAME_APP_PRIVATE_KEY_PEM_BASE64 = "app_private_key_pem_base64";
   @SerializedName(SERIALIZED_NAME_APP_PRIVATE_KEY_PEM_BASE64)
@@ -242,10 +242,7 @@ public class NotiForwarderDetailsInput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -254,16 +251,10 @@ public class NotiForwarderDetailsInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("app_private_key_pem_base64");
-    openapiFields.add("client_secret");
-    openapiFields.add("password");
-    openapiFields.add("slack_noti_forwarder_details");
-    openapiFields.add("teams_noti_forwarder_details");
-    openapiFields.add("webhook_noti_forwarder_details");
+    openapiFields = new HashSet<String>(Arrays.asList("app_private_key_pem_base64", "client_secret", "password", "slack_noti_forwarder_details", "teams_noti_forwarder_details", "webhook_noti_forwarder_details"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -275,7 +266,7 @@ public class NotiForwarderDetailsInput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!NotiForwarderDetailsInput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in NotiForwarderDetailsInput is not found in the empty JSON string", NotiForwarderDetailsInput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in NotiForwarderDetailsInput is not found in the empty JSON string", NotiForwarderDetailsInput.openapiRequiredFields.toString()));
         }
       }
 
@@ -283,18 +274,18 @@ public class NotiForwarderDetailsInput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NotiForwarderDetailsInput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotiForwarderDetailsInput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `NotiForwarderDetailsInput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("app_private_key_pem_base64") != null && !jsonObj.get("app_private_key_pem_base64").isJsonNull()) && !jsonObj.get("app_private_key_pem_base64").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `app_private_key_pem_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_private_key_pem_base64").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `app_private_key_pem_base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_private_key_pem_base64").toString()));
       }
       if ((jsonObj.get("client_secret") != null && !jsonObj.get("client_secret").isJsonNull()) && !jsonObj.get("client_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       // validate the optional field `slack_noti_forwarder_details`
       if (jsonObj.get("slack_noti_forwarder_details") != null && !jsonObj.get("slack_noti_forwarder_details").isJsonNull()) {

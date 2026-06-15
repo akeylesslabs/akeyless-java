@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * SraSessionEntryOut
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SraSessionEntryOut {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -475,10 +475,7 @@ public class SraSessionEntryOut {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -487,25 +484,10 @@ public class SraSessionEntryOut {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_id");
-    openapiFields.add("client_type");
-    openapiFields.add("cluster_unique_id");
-    openapiFields.add("connection_type");
-    openapiFields.add("end_time");
-    openapiFields.add("error_msg");
-    openapiFields.add("gateway_info");
-    openapiFields.add("instance_id");
-    openapiFields.add("secret_name");
-    openapiFields.add("session_id");
-    openapiFields.add("start_time");
-    openapiFields.add("status");
-    openapiFields.add("target_host");
-    openapiFields.add("ttl");
-    openapiFields.add("user_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "client_type", "cluster_unique_id", "connection_type", "end_time", "error_msg", "gateway_info", "instance_id", "secret_name", "session_id", "start_time", "status", "target_host", "ttl", "user_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -517,7 +499,7 @@ public class SraSessionEntryOut {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SraSessionEntryOut.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SraSessionEntryOut is not found in the empty JSON string", SraSessionEntryOut.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SraSessionEntryOut is not found in the empty JSON string", SraSessionEntryOut.openapiRequiredFields.toString()));
         }
       }
 
@@ -525,46 +507,46 @@ public class SraSessionEntryOut {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SraSessionEntryOut.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SraSessionEntryOut` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SraSessionEntryOut` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id") != null && !jsonObj.get("access_id").isJsonNull()) && !jsonObj.get("access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
       }
       if ((jsonObj.get("client_type") != null && !jsonObj.get("client_type").isJsonNull()) && !jsonObj.get("client_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_type").toString()));
       }
       if ((jsonObj.get("connection_type") != null && !jsonObj.get("connection_type").isJsonNull()) && !jsonObj.get("connection_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
       }
       if ((jsonObj.get("error_msg") != null && !jsonObj.get("error_msg").isJsonNull()) && !jsonObj.get("error_msg").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `error_msg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_msg").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `error_msg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_msg").toString()));
       }
       // validate the optional field `gateway_info`
       if (jsonObj.get("gateway_info") != null && !jsonObj.get("gateway_info").isJsonNull()) {
         GatewayNameInfo.validateJsonElement(jsonObj.get("gateway_info"));
       }
       if ((jsonObj.get("instance_id") != null && !jsonObj.get("instance_id").isJsonNull()) && !jsonObj.get("instance_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `instance_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instance_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `instance_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instance_id").toString()));
       }
       if ((jsonObj.get("secret_name") != null && !jsonObj.get("secret_name").isJsonNull()) && !jsonObj.get("secret_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secret_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_name").toString()));
       }
       if ((jsonObj.get("session_id") != null && !jsonObj.get("session_id").isJsonNull()) && !jsonObj.get("session_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `session_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `session_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session_id").toString()));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
       if ((jsonObj.get("target_host") != null && !jsonObj.get("target_host").isJsonNull()) && !jsonObj.get("target_host").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_host").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_host").toString()));
       }
       if ((jsonObj.get("ttl") != null && !jsonObj.get("ttl").isJsonNull()) && !jsonObj.get("ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));
       }
       if ((jsonObj.get("user_identifier") != null && !jsonObj.get("user_identifier").isJsonNull()) && !jsonObj.get("user_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_identifier").toString()));
       }
   }
 

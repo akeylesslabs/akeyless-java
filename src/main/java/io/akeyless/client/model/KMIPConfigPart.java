@@ -54,7 +54,7 @@ import io.akeyless.client.JSON;
 /**
  * KMIPConfigPart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KMIPConfigPart {
   public static final String SERIALIZED_NAME_CLIENTS = "clients";
   @SerializedName(SERIALIZED_NAME_CLIENTS)
@@ -217,10 +217,7 @@ public class KMIPConfigPart {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -229,14 +226,10 @@ public class KMIPConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("clients");
-    openapiFields.add("key_enc");
-    openapiFields.add("server");
-    openapiFields.add("server_enc");
+    openapiFields = new HashSet<String>(Arrays.asList("clients", "key_enc", "server", "server_enc"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -248,7 +241,7 @@ public class KMIPConfigPart {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!KMIPConfigPart.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in KMIPConfigPart is not found in the empty JSON string", KMIPConfigPart.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in KMIPConfigPart is not found in the empty JSON string", KMIPConfigPart.openapiRequiredFields.toString()));
         }
       }
 
@@ -256,13 +249,13 @@ public class KMIPConfigPart {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!KMIPConfigPart.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `KMIPConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `KMIPConfigPart` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("key_enc") != null && !jsonObj.get("key_enc").isJsonNull() && !jsonObj.get("key_enc").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_enc` to be an array in the JSON string but got `%s`", jsonObj.get("key_enc").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_enc` to be an array in the JSON string but got `%s`", jsonObj.get("key_enc").toString()));
       }
       // validate the optional field `server`
       if (jsonObj.get("server") != null && !jsonObj.get("server").isJsonNull()) {
@@ -270,7 +263,7 @@ public class KMIPConfigPart {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("server_enc") != null && !jsonObj.get("server_enc").isJsonNull() && !jsonObj.get("server_enc").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `server_enc` to be an array in the JSON string but got `%s`", jsonObj.get("server_enc").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server_enc` to be an array in the JSON string but got `%s`", jsonObj.get("server_enc").toString()));
       }
   }
 

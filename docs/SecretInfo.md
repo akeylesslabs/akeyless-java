@@ -24,6 +24,8 @@
 |**thumbprint** | **String** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**version** | **Long** |  |  [optional] |
+|**versionId** | **String** |  |  [optional] |
+|**versionIds** | **List&lt;String&gt;** |  |  [optional] |
 
 
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * DynamicSecretProducerInfo The dynamic secret producer info This parameter relevant and required only in case of create update dynamic secret.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretProducerInfo {
   public static final String SERIALIZED_NAME_FAILURE_MESSAGE = "failure_message";
   @SerializedName(SERIALIZED_NAME_FAILURE_MESSAGE)
@@ -317,10 +317,7 @@ public class DynamicSecretProducerInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -329,19 +326,10 @@ public class DynamicSecretProducerInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("failure_message");
-    openapiFields.add("gw_cluster_id");
-    openapiFields.add("k8s_allowed_namespaces");
-    openapiFields.add("k8s_dynamic_mode");
-    openapiFields.add("producer_last_keep_alive");
-    openapiFields.add("producer_metadata");
-    openapiFields.add("producer_status");
-    openapiFields.add("producer_type");
-    openapiFields.add("user_ttl");
+    openapiFields = new HashSet<String>(Arrays.asList("failure_message", "gw_cluster_id", "k8s_allowed_namespaces", "k8s_dynamic_mode", "producer_last_keep_alive", "producer_metadata", "producer_status", "producer_type", "user_ttl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -353,7 +341,7 @@ public class DynamicSecretProducerInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!DynamicSecretProducerInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in DynamicSecretProducerInfo is not found in the empty JSON string", DynamicSecretProducerInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in DynamicSecretProducerInfo is not found in the empty JSON string", DynamicSecretProducerInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -361,30 +349,30 @@ public class DynamicSecretProducerInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DynamicSecretProducerInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DynamicSecretProducerInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `DynamicSecretProducerInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("failure_message") != null && !jsonObj.get("failure_message").isJsonNull()) && !jsonObj.get("failure_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `failure_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failure_message").toString()));
       }
       if ((jsonObj.get("k8s_allowed_namespaces") != null && !jsonObj.get("k8s_allowed_namespaces").isJsonNull()) && !jsonObj.get("k8s_allowed_namespaces").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `k8s_allowed_namespaces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_allowed_namespaces").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `k8s_allowed_namespaces` to be a primitive type in the JSON string but got `%s`", jsonObj.get("k8s_allowed_namespaces").toString()));
       }
       if ((jsonObj.get("producer_last_keep_alive") != null && !jsonObj.get("producer_last_keep_alive").isJsonNull()) && !jsonObj.get("producer_last_keep_alive").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer_last_keep_alive` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_last_keep_alive").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer_last_keep_alive` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_last_keep_alive").toString()));
       }
       if ((jsonObj.get("producer_metadata") != null && !jsonObj.get("producer_metadata").isJsonNull()) && !jsonObj.get("producer_metadata").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer_metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_metadata").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer_metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_metadata").toString()));
       }
       if ((jsonObj.get("producer_status") != null && !jsonObj.get("producer_status").isJsonNull()) && !jsonObj.get("producer_status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_status").toString()));
       }
       if ((jsonObj.get("producer_type") != null && !jsonObj.get("producer_type").isJsonNull()) && !jsonObj.get("producer_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `producer_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer_type").toString()));
       }
       if ((jsonObj.get("user_ttl") != null && !jsonObj.get("user_ttl").isJsonNull()) && !jsonObj.get("user_ttl").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_ttl").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `user_ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_ttl").toString()));
       }
   }
 

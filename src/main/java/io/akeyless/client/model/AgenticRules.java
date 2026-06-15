@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * AgenticRules
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AgenticRules {
   public static final String SERIALIZED_NAME_INPUT_RULES = "input_rules";
   @SerializedName(SERIALIZED_NAME_INPUT_RULES)
@@ -154,10 +154,7 @@ public class AgenticRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -166,12 +163,10 @@ public class AgenticRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("input_rules");
-    openapiFields.add("output_rules");
+    openapiFields = new HashSet<String>(Arrays.asList("input_rules", "output_rules"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -183,7 +178,7 @@ public class AgenticRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AgenticRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AgenticRules is not found in the empty JSON string", AgenticRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AgenticRules is not found in the empty JSON string", AgenticRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -191,7 +186,7 @@ public class AgenticRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AgenticRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AgenticRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AgenticRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -200,7 +195,7 @@ public class AgenticRules {
         if (jsonArrayinputRules != null) {
           // ensure the json data is an array
           if (!jsonObj.get("input_rules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `input_rules` to be an array in the JSON string but got `%s`", jsonObj.get("input_rules").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input_rules` to be an array in the JSON string but got `%s`", jsonObj.get("input_rules").toString()));
           }
 
           // validate the optional field `input_rules` (array)
@@ -214,7 +209,7 @@ public class AgenticRules {
         if (jsonArrayoutputRules != null) {
           // ensure the json data is an array
           if (!jsonObj.get("output_rules").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `output_rules` to be an array in the JSON string but got `%s`", jsonObj.get("output_rules").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output_rules` to be an array in the JSON string but got `%s`", jsonObj.get("output_rules").toString()));
           }
 
           // validate the optional field `output_rules` (array)

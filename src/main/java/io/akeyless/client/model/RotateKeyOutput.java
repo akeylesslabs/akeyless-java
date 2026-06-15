@@ -49,7 +49,7 @@ import io.akeyless.client.JSON;
 /**
  * RotateKeyOutput defines output of RotateKey operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotateKeyOutput {
   public static final String SERIALIZED_NAME_CLASSIC_KEY_GW_URL = "classic_key_gw_url";
   @SerializedName(SERIALIZED_NAME_CLASSIC_KEY_GW_URL)
@@ -188,10 +188,7 @@ public class RotateKeyOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -200,14 +197,10 @@ public class RotateKeyOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("classic_key_gw_url");
-    openapiFields.add("item_type");
-    openapiFields.add("new_item_version");
-    openapiFields.add("next_rotation_date");
+    openapiFields = new HashSet<String>(Arrays.asList("classic_key_gw_url", "item_type", "new_item_version", "next_rotation_date"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -219,7 +212,7 @@ public class RotateKeyOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RotateKeyOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RotateKeyOutput is not found in the empty JSON string", RotateKeyOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RotateKeyOutput is not found in the empty JSON string", RotateKeyOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -227,15 +220,15 @@ public class RotateKeyOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RotateKeyOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RotateKeyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RotateKeyOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("classic_key_gw_url") != null && !jsonObj.get("classic_key_gw_url").isJsonNull()) && !jsonObj.get("classic_key_gw_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `classic_key_gw_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_gw_url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `classic_key_gw_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("classic_key_gw_url").toString()));
       }
       if ((jsonObj.get("item_type") != null && !jsonObj.get("item_type").isJsonNull()) && !jsonObj.get("item_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `item_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `item_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("item_type").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * ValidateTokenOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ValidateTokenOutput {
   public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
   @SerializedName(SERIALIZED_NAME_EXPIRATION)
@@ -213,10 +213,7 @@ public class ValidateTokenOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class ValidateTokenOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("expiration");
-    openapiFields.add("is_valid");
-    openapiFields.add("last_rotate");
-    openapiFields.add("reason");
-    openapiFields.add("ttl");
+    openapiFields = new HashSet<String>(Arrays.asList("expiration", "is_valid", "last_rotate", "reason", "ttl"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class ValidateTokenOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!ValidateTokenOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ValidateTokenOutput is not found in the empty JSON string", ValidateTokenOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ValidateTokenOutput is not found in the empty JSON string", ValidateTokenOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,18 +245,18 @@ public class ValidateTokenOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ValidateTokenOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ValidateTokenOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ValidateTokenOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("expiration") != null && !jsonObj.get("expiration").isJsonNull()) && !jsonObj.get("expiration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiration").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expiration").toString()));
       }
       if ((jsonObj.get("last_rotate") != null && !jsonObj.get("last_rotate").isJsonNull()) && !jsonObj.get("last_rotate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_rotate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_rotate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_rotate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_rotate").toString()));
       }
       if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
       }
   }
 

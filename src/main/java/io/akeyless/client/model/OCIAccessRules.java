@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * OCIAccessRules contains access rules specific to Oracle cloud instance / user authentication
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class OCIAccessRules {
   public static final String SERIALIZED_NAME_GROUP_OCIDS = "group_ocids";
   @SerializedName(SERIALIZED_NAME_GROUP_OCIDS)
@@ -145,10 +145,7 @@ public class OCIAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -157,12 +154,10 @@ public class OCIAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("group_ocids");
-    openapiFields.add("tenant_ocid");
+    openapiFields = new HashSet<String>(Arrays.asList("group_ocids", "tenant_ocid"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -174,7 +169,7 @@ public class OCIAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!OCIAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OCIAccessRules is not found in the empty JSON string", OCIAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OCIAccessRules is not found in the empty JSON string", OCIAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -182,16 +177,16 @@ public class OCIAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!OCIAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OCIAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OCIAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("group_ocids") != null && !jsonObj.get("group_ocids").isJsonNull() && !jsonObj.get("group_ocids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `group_ocids` to be an array in the JSON string but got `%s`", jsonObj.get("group_ocids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_ocids` to be an array in the JSON string but got `%s`", jsonObj.get("group_ocids").toString()));
       }
       if ((jsonObj.get("tenant_ocid") != null && !jsonObj.get("tenant_ocid").isJsonNull()) && !jsonObj.get("tenant_ocid").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenant_ocid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_ocid").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenant_ocid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_ocid").toString()));
       }
   }
 

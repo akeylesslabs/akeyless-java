@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * EsmListSecretsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class EsmListSecretsOutput {
   public static final String SERIALIZED_NAME_NEXT_TOKEN = "next_token";
   @SerializedName(SERIALIZED_NAME_NEXT_TOKEN)
@@ -180,10 +180,7 @@ public class EsmListSecretsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -192,13 +189,10 @@ public class EsmListSecretsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("next_token");
-    openapiFields.add("secrets_list");
-    openapiFields.add("warnings");
+    openapiFields = new HashSet<String>(Arrays.asList("next_token", "secrets_list", "warnings"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -210,7 +204,7 @@ public class EsmListSecretsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!EsmListSecretsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EsmListSecretsOutput is not found in the empty JSON string", EsmListSecretsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in EsmListSecretsOutput is not found in the empty JSON string", EsmListSecretsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -218,19 +212,19 @@ public class EsmListSecretsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EsmListSecretsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EsmListSecretsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `EsmListSecretsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("next_token") != null && !jsonObj.get("next_token").isJsonNull()) && !jsonObj.get("next_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `next_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `next_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_token").toString()));
       }
       if (jsonObj.get("secrets_list") != null && !jsonObj.get("secrets_list").isJsonNull()) {
         JsonArray jsonArraysecretsList = jsonObj.getAsJsonArray("secrets_list");
         if (jsonArraysecretsList != null) {
           // ensure the json data is an array
           if (!jsonObj.get("secrets_list").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `secrets_list` to be an array in the JSON string but got `%s`", jsonObj.get("secrets_list").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secrets_list` to be an array in the JSON string but got `%s`", jsonObj.get("secrets_list").toString()));
           }
 
           // validate the optional field `secrets_list` (array)
@@ -241,7 +235,7 @@ public class EsmListSecretsOutput {
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("warnings") != null && !jsonObj.get("warnings").isJsonNull() && !jsonObj.get("warnings").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `warnings` to be an array in the JSON string but got `%s`", jsonObj.get("warnings").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `warnings` to be an array in the JSON string but got `%s`", jsonObj.get("warnings").toString()));
       }
   }
 

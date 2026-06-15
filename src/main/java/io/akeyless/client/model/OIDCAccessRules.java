@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * OIDCAccessRules contains access rules specific to Open Id Connect authentication method.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class OIDCAccessRules {
   public static final String SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS = "allowed_redirect_URIs";
   @SerializedName(SERIALIZED_NAME_ALLOWED_REDIRECT_U_R_IS)
@@ -62,6 +62,11 @@ public class OIDCAccessRules {
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   @javax.annotation.Nullable
   private String audience;
+
+  public static final String SERIALIZED_NAME_AUTHORIZED_GW_CLUSTER_NAME = "authorized_gw_cluster_name";
+  @SerializedName(SERIALIZED_NAME_AUTHORIZED_GW_CLUSTER_NAME)
+  @javax.annotation.Nullable
+  private String authorizedGwClusterName;
 
   public static final String SERIALIZED_NAME_BOUND_CLAIMS = "bound_claims";
   @SerializedName(SERIALIZED_NAME_BOUND_CLAIMS)
@@ -149,6 +154,25 @@ public class OIDCAccessRules {
 
   public void setAudience(@javax.annotation.Nullable String audience) {
     this.audience = audience;
+  }
+
+
+  public OIDCAccessRules authorizedGwClusterName(@javax.annotation.Nullable String authorizedGwClusterName) {
+    this.authorizedGwClusterName = authorizedGwClusterName;
+    return this;
+  }
+
+  /**
+   * AuthorizedGwClusterName binds the access method to a single GW cluster. When empty (or whitespace-only), GW-driven auth is disabled.
+   * @return authorizedGwClusterName
+   */
+  @javax.annotation.Nullable
+  public String getAuthorizedGwClusterName() {
+    return authorizedGwClusterName;
+  }
+
+  public void setAuthorizedGwClusterName(@javax.annotation.Nullable String authorizedGwClusterName) {
+    this.authorizedGwClusterName = authorizedGwClusterName;
   }
 
 
@@ -332,6 +356,7 @@ public class OIDCAccessRules {
     OIDCAccessRules oiDCAccessRules = (OIDCAccessRules) o;
     return Objects.equals(this.allowedRedirectURIs, oiDCAccessRules.allowedRedirectURIs) &&
         Objects.equals(this.audience, oiDCAccessRules.audience) &&
+        Objects.equals(this.authorizedGwClusterName, oiDCAccessRules.authorizedGwClusterName) &&
         Objects.equals(this.boundClaims, oiDCAccessRules.boundClaims) &&
         Objects.equals(this.clientId, oiDCAccessRules.clientId) &&
         Objects.equals(this.clientSecret, oiDCAccessRules.clientSecret) &&
@@ -344,7 +369,7 @@ public class OIDCAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedRedirectURIs, audience, boundClaims, clientId, clientSecret, isInternal, issuer, requiredScopes, requiredScopesPrefix, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, audience, authorizedGwClusterName, boundClaims, clientId, clientSecret, isInternal, issuer, requiredScopes, requiredScopesPrefix, uniqueIdentifier);
   }
 
   @Override
@@ -353,6 +378,7 @@ public class OIDCAccessRules {
     sb.append("class OIDCAccessRules {\n");
     sb.append("    allowedRedirectURIs: ").append(toIndentedString(allowedRedirectURIs)).append("\n");
     sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
+    sb.append("    authorizedGwClusterName: ").append(toIndentedString(authorizedGwClusterName)).append("\n");
     sb.append("    boundClaims: ").append(toIndentedString(boundClaims)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
@@ -370,10 +396,7 @@ public class OIDCAccessRules {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -382,20 +405,10 @@ public class OIDCAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed_redirect_URIs");
-    openapiFields.add("audience");
-    openapiFields.add("bound_claims");
-    openapiFields.add("client_id");
-    openapiFields.add("client_secret");
-    openapiFields.add("is_internal");
-    openapiFields.add("issuer");
-    openapiFields.add("required_scopes");
-    openapiFields.add("required_scopes_prefix");
-    openapiFields.add("unique_identifier");
+    openapiFields = new HashSet<String>(Arrays.asList("allowed_redirect_URIs", "audience", "authorized_gw_cluster_name", "bound_claims", "client_id", "client_secret", "is_internal", "issuer", "required_scopes", "required_scopes_prefix", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -407,7 +420,7 @@ public class OIDCAccessRules {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!OIDCAccessRules.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in OIDCAccessRules is not found in the empty JSON string", OIDCAccessRules.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in OIDCAccessRules is not found in the empty JSON string", OIDCAccessRules.openapiRequiredFields.toString()));
         }
       }
 
@@ -415,23 +428,26 @@ public class OIDCAccessRules {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!OIDCAccessRules.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OIDCAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `OIDCAccessRules` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_redirect_URIs") != null && !jsonObj.get("allowed_redirect_URIs").isJsonNull() && !jsonObj.get("allowed_redirect_URIs").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_redirect_URIs` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_redirect_URIs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_redirect_URIs` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_redirect_URIs").toString()));
       }
       if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull()) && !jsonObj.get("audience").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("audience").toString()));
+      }
+      if ((jsonObj.get("authorized_gw_cluster_name") != null && !jsonObj.get("authorized_gw_cluster_name").isJsonNull()) && !jsonObj.get("authorized_gw_cluster_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authorized_gw_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorized_gw_cluster_name").toString()));
       }
       if (jsonObj.get("bound_claims") != null && !jsonObj.get("bound_claims").isJsonNull()) {
         JsonArray jsonArrayboundClaims = jsonObj.getAsJsonArray("bound_claims");
         if (jsonArrayboundClaims != null) {
           // ensure the json data is an array
           if (!jsonObj.get("bound_claims").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `bound_claims` to be an array in the JSON string but got `%s`", jsonObj.get("bound_claims").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bound_claims` to be an array in the JSON string but got `%s`", jsonObj.get("bound_claims").toString()));
           }
 
           // validate the optional field `bound_claims` (array)
@@ -441,23 +457,23 @@ public class OIDCAccessRules {
         }
       }
       if ((jsonObj.get("client_id") != null && !jsonObj.get("client_id").isJsonNull()) && !jsonObj.get("client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_id").toString()));
       }
       if ((jsonObj.get("client_secret") != null && !jsonObj.get("client_secret").isJsonNull()) && !jsonObj.get("client_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
       }
       if ((jsonObj.get("issuer") != null && !jsonObj.get("issuer").isJsonNull()) && !jsonObj.get("issuer").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuer` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuer").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("required_scopes") != null && !jsonObj.get("required_scopes").isJsonNull() && !jsonObj.get("required_scopes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `required_scopes` to be an array in the JSON string but got `%s`", jsonObj.get("required_scopes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `required_scopes` to be an array in the JSON string but got `%s`", jsonObj.get("required_scopes").toString()));
       }
       if ((jsonObj.get("required_scopes_prefix") != null && !jsonObj.get("required_scopes_prefix").isJsonNull()) && !jsonObj.get("required_scopes_prefix").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `required_scopes_prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("required_scopes_prefix").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `required_scopes_prefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("required_scopes_prefix").toString()));
       }
       if ((jsonObj.get("unique_identifier") != null && !jsonObj.get("unique_identifier").isJsonNull()) && !jsonObj.get("unique_identifier").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_identifier` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_identifier").toString()));
       }
   }
 

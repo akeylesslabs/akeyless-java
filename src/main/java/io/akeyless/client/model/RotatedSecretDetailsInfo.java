@@ -51,7 +51,7 @@ import io.akeyless.client.JSON;
 /**
  * RotatedSecretDetailsInfo The rotated secret rotator info
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretDetailsInfo {
   public static final String SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS = "delete_previous_version_in_days";
   @SerializedName(SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS)
@@ -700,10 +700,7 @@ public class RotatedSecretDetailsInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -712,33 +709,10 @@ public class RotatedSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("delete_previous_version_in_days");
-    openapiFields.add("enable_custom_password_policy");
-    openapiFields.add("grace_rotation");
-    openapiFields.add("grace_rotation_hour");
-    openapiFields.add("grace_rotation_interval");
-    openapiFields.add("grace_rotation_timing");
-    openapiFields.add("gw_cluster_id");
-    openapiFields.add("iis_apps_details");
-    openapiFields.add("last_rotation_error");
-    openapiFields.add("managed_by_akeyless");
-    openapiFields.add("max_versions");
-    openapiFields.add("next_auto_rotate_type");
-    openapiFields.add("number_of_versions_to_save");
-    openapiFields.add("public_key_remote_path");
-    openapiFields.add("rotation_hour");
-    openapiFields.add("rotation_interval_min");
-    openapiFields.add("rotation_statement");
-    openapiFields.add("rotator_creds_type");
-    openapiFields.add("rotator_status");
-    openapiFields.add("rotator_type");
-    openapiFields.add("same_password");
-    openapiFields.add("services_details");
-    openapiFields.add("timeout_seconds");
+    openapiFields = new HashSet<String>(Arrays.asList("delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "timeout_seconds"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -750,7 +724,7 @@ public class RotatedSecretDetailsInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RotatedSecretDetailsInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RotatedSecretDetailsInfo is not found in the empty JSON string", RotatedSecretDetailsInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RotatedSecretDetailsInfo is not found in the empty JSON string", RotatedSecretDetailsInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -758,19 +732,19 @@ public class RotatedSecretDetailsInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RotatedSecretDetailsInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RotatedSecretDetailsInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RotatedSecretDetailsInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("grace_rotation_timing") != null && !jsonObj.get("grace_rotation_timing").isJsonNull()) && !jsonObj.get("grace_rotation_timing").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grace_rotation_timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotation_timing").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace_rotation_timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotation_timing").toString()));
       }
       if (jsonObj.get("iis_apps_details") != null && !jsonObj.get("iis_apps_details").isJsonNull()) {
         JsonArray jsonArrayiisAppsDetails = jsonObj.getAsJsonArray("iis_apps_details");
         if (jsonArrayiisAppsDetails != null) {
           // ensure the json data is an array
           if (!jsonObj.get("iis_apps_details").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `iis_apps_details` to be an array in the JSON string but got `%s`", jsonObj.get("iis_apps_details").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `iis_apps_details` to be an array in the JSON string but got `%s`", jsonObj.get("iis_apps_details").toString()));
           }
 
           // validate the optional field `iis_apps_details` (array)
@@ -780,32 +754,32 @@ public class RotatedSecretDetailsInfo {
         }
       }
       if ((jsonObj.get("last_rotation_error") != null && !jsonObj.get("last_rotation_error").isJsonNull()) && !jsonObj.get("last_rotation_error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `last_rotation_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_rotation_error").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_rotation_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_rotation_error").toString()));
       }
       if ((jsonObj.get("next_auto_rotate_type") != null && !jsonObj.get("next_auto_rotate_type").isJsonNull()) && !jsonObj.get("next_auto_rotate_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `next_auto_rotate_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_auto_rotate_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `next_auto_rotate_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_auto_rotate_type").toString()));
       }
       if ((jsonObj.get("public_key_remote_path") != null && !jsonObj.get("public_key_remote_path").isJsonNull()) && !jsonObj.get("public_key_remote_path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `public_key_remote_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key_remote_path").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `public_key_remote_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key_remote_path").toString()));
       }
       if ((jsonObj.get("rotation_statement") != null && !jsonObj.get("rotation_statement").isJsonNull()) && !jsonObj.get("rotation_statement").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotation_statement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation_statement").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotation_statement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation_statement").toString()));
       }
       if ((jsonObj.get("rotator_creds_type") != null && !jsonObj.get("rotator_creds_type").isJsonNull()) && !jsonObj.get("rotator_creds_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotator_creds_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator_creds_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotator_creds_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator_creds_type").toString()));
       }
       if ((jsonObj.get("rotator_status") != null && !jsonObj.get("rotator_status").isJsonNull()) && !jsonObj.get("rotator_status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotator_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator_status").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotator_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator_status").toString()));
       }
       if ((jsonObj.get("rotator_type") != null && !jsonObj.get("rotator_type").isJsonNull()) && !jsonObj.get("rotator_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotator_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotator_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator_type").toString()));
       }
       if (jsonObj.get("services_details") != null && !jsonObj.get("services_details").isJsonNull()) {
         JsonArray jsonArrayservicesDetails = jsonObj.getAsJsonArray("services_details");
         if (jsonArrayservicesDetails != null) {
           // ensure the json data is an array
           if (!jsonObj.get("services_details").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `services_details` to be an array in the JSON string but got `%s`", jsonObj.get("services_details").toString()));
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `services_details` to be an array in the JSON string but got `%s`", jsonObj.get("services_details").toString()));
           }
 
           // validate the optional field `services_details` (array)

@@ -53,7 +53,7 @@ import io.akeyless.client.JSON;
 /**
  * BastionListEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class BastionListEntry {
   public static final String SERIALIZED_NAME_ACCESS_ID = "access_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_ID)
@@ -380,10 +380,7 @@ public class BastionListEntry {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -392,20 +389,10 @@ public class BastionListEntry {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_id");
-    openapiFields.add("allowed_access_ids");
-    openapiFields.add("allowed_urls");
-    openapiFields.add("allowed_urls_per_instance");
-    openapiFields.add("bastion_ssh_port");
-    openapiFields.add("bastion_urls_per_type");
-    openapiFields.add("cluster_name");
-    openapiFields.add("display_name");
-    openapiFields.add("has_gateway_identity");
-    openapiFields.add("last_report");
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "allowed_access_ids", "allowed_urls", "allowed_urls_per_instance", "bastion_ssh_port", "bastion_urls_per_type", "cluster_name", "display_name", "has_gateway_identity", "last_report"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -417,7 +404,7 @@ public class BastionListEntry {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!BastionListEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BastionListEntry is not found in the empty JSON string", BastionListEntry.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in BastionListEntry is not found in the empty JSON string", BastionListEntry.openapiRequiredFields.toString()));
         }
       }
 
@@ -425,26 +412,26 @@ public class BastionListEntry {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BastionListEntry.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BastionListEntry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `BastionListEntry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id") != null && !jsonObj.get("access_id").isJsonNull()) && !jsonObj.get("access_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_access_ids") != null && !jsonObj.get("allowed_access_ids").isJsonNull() && !jsonObj.get("allowed_access_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_access_ids` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_access_ids").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_access_ids` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_access_ids").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_urls") != null && !jsonObj.get("allowed_urls").isJsonNull() && !jsonObj.get("allowed_urls").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed_urls` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_urls").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_urls` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_urls").toString()));
       }
       if ((jsonObj.get("cluster_name") != null && !jsonObj.get("cluster_name").isJsonNull()) && !jsonObj.get("cluster_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cluster_name").toString()));
       }
       if ((jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull()) && !jsonObj.get("display_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
       }
   }
 

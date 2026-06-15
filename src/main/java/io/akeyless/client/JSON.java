@@ -27,8 +27,11 @@ import io.gsonfire.TypeSelector;
 import okio.ByteString;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -510,8 +513,14 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderCreate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderCreateOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderDelete.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderDeleteSync.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderDeleteSyncOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderGet.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderGetOutput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderSync.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderSyncAll.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderSyncAllOutput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderSyncOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderUSCSyncConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.FolderUpdate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.GCPAccessRules.CustomTypeAdapterFactory());
@@ -903,6 +912,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PasswordScoreSetting.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PasswordSecurityInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PathRule.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PersonalFolderGlobalMappingSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PingTargetDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PoliciesCreateOutput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.PoliciesDelete.CustomTypeAdapterFactory());
@@ -952,6 +962,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateDockerhub.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateGcp.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateHanadb.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateHashiVault.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateLdap.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateMongodb.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretCreateMssql.CustomTypeAdapterFactory());
@@ -981,6 +992,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateDockerhub.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateGcp.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateHanadb.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateHashiVault.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateLdap.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateMongodb.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new io.akeyless.client.model.RotatedSecretUpdateMssql.CustomTypeAdapterFactory());
@@ -1353,6 +1365,28 @@ public class JSON {
                 return (T) body;
             } else {
                 throw (e);
+            }
+        }
+    }
+
+    /**
+    * Deserialize the given JSON InputStream to a Java object.
+    *
+    * @param <T>         Type
+    * @param inputStream The JSON InputStream
+    * @param returnType  The type to deserialize into
+    * @return The deserialized Java object
+    */
+    @SuppressWarnings("unchecked")
+    public static <T> T deserialize(InputStream inputStream, Type returnType) throws IOException {
+        try (InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+        if (isLenientOnJson) {
+            // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
+            JsonReader jsonReader = new JsonReader(reader);
+            jsonReader.setLenient(true);
+            return gson.fromJson(jsonReader, returnType);
+            } else {
+                return gson.fromJson(reader, returnType);
             }
         }
     }

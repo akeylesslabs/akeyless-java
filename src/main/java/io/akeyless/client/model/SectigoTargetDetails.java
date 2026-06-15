@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * SectigoTargetDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SectigoTargetDetails {
   public static final String SERIALIZED_NAME_CERTIFICATE_PROFILE_ID = "certificate_profile_id";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PROFILE_ID)
@@ -265,10 +265,7 @@ public class SectigoTargetDetails {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -277,17 +274,10 @@ public class SectigoTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("certificate_profile_id");
-    openapiFields.add("customer_uri");
-    openapiFields.add("external_requester");
-    openapiFields.add("org_id");
-    openapiFields.add("password");
-    openapiFields.add("timeout");
-    openapiFields.add("username");
+    openapiFields = new HashSet<String>(Arrays.asList("certificate_profile_id", "customer_uri", "external_requester", "org_id", "password", "timeout", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -299,7 +289,7 @@ public class SectigoTargetDetails {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SectigoTargetDetails.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SectigoTargetDetails is not found in the empty JSON string", SectigoTargetDetails.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SectigoTargetDetails is not found in the empty JSON string", SectigoTargetDetails.openapiRequiredFields.toString()));
         }
       }
 
@@ -307,21 +297,21 @@ public class SectigoTargetDetails {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SectigoTargetDetails.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SectigoTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SectigoTargetDetails` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("customer_uri") != null && !jsonObj.get("customer_uri").isJsonNull()) && !jsonObj.get("customer_uri").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `customer_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_uri").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_uri").toString()));
       }
       if ((jsonObj.get("external_requester") != null && !jsonObj.get("external_requester").isJsonNull()) && !jsonObj.get("external_requester").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `external_requester` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_requester").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `external_requester` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external_requester").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * PasswordPolicyInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class PasswordPolicyInfo {
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password_length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -213,10 +213,7 @@ public class PasswordPolicyInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -225,15 +222,10 @@ public class PasswordPolicyInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("password_length");
-    openapiFields.add("use_capital_letters");
-    openapiFields.add("use_lower_letters");
-    openapiFields.add("use_numbers");
-    openapiFields.add("use_special_characters");
+    openapiFields = new HashSet<String>(Arrays.asList("password_length", "use_capital_letters", "use_lower_letters", "use_numbers", "use_special_characters"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -245,7 +237,7 @@ public class PasswordPolicyInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!PasswordPolicyInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in PasswordPolicyInfo is not found in the empty JSON string", PasswordPolicyInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in PasswordPolicyInfo is not found in the empty JSON string", PasswordPolicyInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -253,7 +245,7 @@ public class PasswordPolicyInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PasswordPolicyInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PasswordPolicyInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `PasswordPolicyInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();

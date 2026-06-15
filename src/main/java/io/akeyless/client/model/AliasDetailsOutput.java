@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * AliasDetailsOutput
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AliasDetailsOutput {
   public static final String SERIALIZED_NAME_ACCESS_TYPE = "access_type";
   @SerializedName(SERIALIZED_NAME_ACCESS_TYPE)
@@ -135,10 +135,7 @@ public class AliasDetailsOutput {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -147,12 +144,10 @@ public class AliasDetailsOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("access_type");
-    openapiFields.add("tenant_tag");
+    openapiFields = new HashSet<String>(Arrays.asList("access_type", "tenant_tag"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -164,7 +159,7 @@ public class AliasDetailsOutput {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!AliasDetailsOutput.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in AliasDetailsOutput is not found in the empty JSON string", AliasDetailsOutput.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AliasDetailsOutput is not found in the empty JSON string", AliasDetailsOutput.openapiRequiredFields.toString()));
         }
       }
 
@@ -172,15 +167,15 @@ public class AliasDetailsOutput {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AliasDetailsOutput.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AliasDetailsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AliasDetailsOutput` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_type") != null && !jsonObj.get("access_type").isJsonNull()) && !jsonObj.get("access_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_type").toString()));
       }
       if ((jsonObj.get("tenant_tag") != null && !jsonObj.get("tenant_tag").isJsonNull()) && !jsonObj.get("tenant_tag").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenant_tag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_tag").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tenant_tag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_tag").toString()));
       }
   }
 

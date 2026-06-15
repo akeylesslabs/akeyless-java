@@ -50,7 +50,7 @@ import io.akeyless.client.JSON;
 /**
  * CertificateDiscovery is a command that discovery certificates
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CertificateDiscovery {
   public static final String SERIALIZED_NAME_DEBUG = "debug";
   @SerializedName(SERIALIZED_NAME_DEBUG)
@@ -327,10 +327,7 @@ public class CertificateDiscovery {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -339,21 +336,10 @@ public class CertificateDiscovery {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("debug");
-    openapiFields.add("expiration-event-in");
-    openapiFields.add("hosts");
-    openapiFields.add("json");
-    openapiFields.add("port-ranges");
-    openapiFields.add("protection-key");
-    openapiFields.add("target-location");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("debug", "expiration-event-in", "hosts", "json", "port-ranges", "protection-key", "target-location", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("hosts");
-    openapiRequiredFields.add("target-location");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("hosts", "target-location"));
   }
 
   /**
@@ -365,7 +351,7 @@ public class CertificateDiscovery {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!CertificateDiscovery.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CertificateDiscovery is not found in the empty JSON string", CertificateDiscovery.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CertificateDiscovery is not found in the empty JSON string", CertificateDiscovery.openapiRequiredFields.toString()));
         }
       }
 
@@ -373,38 +359,38 @@ public class CertificateDiscovery {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CertificateDiscovery.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CertificateDiscovery` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CertificateDiscovery` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CertificateDiscovery.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
       }
       if (!jsonObj.get("hosts").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hosts").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hosts").toString()));
       }
       if ((jsonObj.get("port-ranges") != null && !jsonObj.get("port-ranges").isJsonNull()) && !jsonObj.get("port-ranges").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `port-ranges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port-ranges").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port-ranges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port-ranges").toString()));
       }
       if ((jsonObj.get("protection-key") != null && !jsonObj.get("protection-key").isJsonNull()) && !jsonObj.get("protection-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `protection-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection-key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection-key").toString()));
       }
       if (!jsonObj.get("target-location").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target-location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-location").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-location").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

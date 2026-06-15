@@ -22,8 +22,10 @@ import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.GithubMetadata;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -53,7 +55,7 @@ import io.akeyless.client.JSON;
 /**
  * SecretInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SecretInfo {
   public static final String SERIALIZED_NAME_ACTIVATION_DATE = "activation_date";
   @SerializedName(SERIALIZED_NAME_ACTIVATION_DATE)
@@ -139,6 +141,16 @@ public class SecretInfo {
   @SerializedName(SERIALIZED_NAME_VERSION)
   @javax.annotation.Nullable
   private Long version;
+
+  public static final String SERIALIZED_NAME_VERSION_ID = "version_id";
+  @SerializedName(SERIALIZED_NAME_VERSION_ID)
+  @javax.annotation.Nullable
+  private String versionId;
+
+  public static final String SERIALIZED_NAME_VERSION_IDS = "version_ids";
+  @SerializedName(SERIALIZED_NAME_VERSION_IDS)
+  @javax.annotation.Nullable
+  private List<String> versionIds = new ArrayList<>();
 
   public SecretInfo() {
   }
@@ -474,6 +486,52 @@ public class SecretInfo {
   }
 
 
+  public SecretInfo versionId(@javax.annotation.Nullable String versionId) {
+    this.versionId = versionId;
+    return this;
+  }
+
+  /**
+   * Get versionId
+   * @return versionId
+   */
+  @javax.annotation.Nullable
+  public String getVersionId() {
+    return versionId;
+  }
+
+  public void setVersionId(@javax.annotation.Nullable String versionId) {
+    this.versionId = versionId;
+  }
+
+
+  public SecretInfo versionIds(@javax.annotation.Nullable List<String> versionIds) {
+    this.versionIds = versionIds;
+    return this;
+  }
+
+  public SecretInfo addVersionIdsItem(String versionIdsItem) {
+    if (this.versionIds == null) {
+      this.versionIds = new ArrayList<>();
+    }
+    this.versionIds.add(versionIdsItem);
+    return this;
+  }
+
+  /**
+   * Get versionIds
+   * @return versionIds
+   */
+  @javax.annotation.Nullable
+  public List<String> getVersionIds() {
+    return versionIds;
+  }
+
+  public void setVersionIds(@javax.annotation.Nullable List<String> versionIds) {
+    this.versionIds = versionIds;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -500,7 +558,9 @@ public class SecretInfo {
         Objects.equals(this.tags, secretInfo.tags) &&
         Objects.equals(this.thumbprint, secretInfo.thumbprint) &&
         Objects.equals(this.type, secretInfo.type) &&
-        Objects.equals(this.version, secretInfo.version);
+        Objects.equals(this.version, secretInfo.version) &&
+        Objects.equals(this.versionId, secretInfo.versionId) &&
+        Objects.equals(this.versionIds, secretInfo.versionIds);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -509,7 +569,7 @@ public class SecretInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activationDate, created, description, expiration, github, keyId, lastRetrieved, location, name, namespace, region, secretId, status, tags, thumbprint, type, version);
+    return Objects.hash(activationDate, created, description, expiration, github, keyId, lastRetrieved, location, name, namespace, region, secretId, status, tags, thumbprint, type, version, versionId, versionIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -540,6 +600,8 @@ public class SecretInfo {
     sb.append("    thumbprint: ").append(toIndentedString(thumbprint)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
+    sb.append("    versionIds: ").append(toIndentedString(versionIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -549,10 +611,7 @@ public class SecretInfo {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -561,27 +620,10 @@ public class SecretInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("activation_date");
-    openapiFields.add("created");
-    openapiFields.add("description");
-    openapiFields.add("expiration");
-    openapiFields.add("github");
-    openapiFields.add("key_id");
-    openapiFields.add("last_retrieved");
-    openapiFields.add("location");
-    openapiFields.add("name");
-    openapiFields.add("namespace");
-    openapiFields.add("region");
-    openapiFields.add("secret_id");
-    openapiFields.add("status");
-    openapiFields.add("tags");
-    openapiFields.add("thumbprint");
-    openapiFields.add("type");
-    openapiFields.add("version");
+    openapiFields = new HashSet<String>(Arrays.asList("activation_date", "created", "description", "expiration", "github", "key_id", "last_retrieved", "location", "name", "namespace", "region", "secret_id", "status", "tags", "thumbprint", "type", "version", "version_id", "version_ids"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -593,7 +635,7 @@ public class SecretInfo {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!SecretInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SecretInfo is not found in the empty JSON string", SecretInfo.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in SecretInfo is not found in the empty JSON string", SecretInfo.openapiRequiredFields.toString()));
         }
       }
 
@@ -601,37 +643,44 @@ public class SecretInfo {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SecretInfo.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SecretInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `SecretInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field `github`
       if (jsonObj.get("github") != null && !jsonObj.get("github").isJsonNull()) {
         GithubMetadata.validateJsonElement(jsonObj.get("github"));
       }
       if ((jsonObj.get("key_id") != null && !jsonObj.get("key_id").isJsonNull()) && !jsonObj.get("key_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
       if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       if ((jsonObj.get("secret_id") != null && !jsonObj.get("secret_id").isJsonNull()) && !jsonObj.get("secret_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
       }
       if ((jsonObj.get("thumbprint") != null && !jsonObj.get("thumbprint").isJsonNull()) && !jsonObj.get("thumbprint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `thumbprint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbprint").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `thumbprint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("thumbprint").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("version_id") != null && !jsonObj.get("version_id").isJsonNull()) && !jsonObj.get("version_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version_id").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("version_ids") != null && !jsonObj.get("version_ids").isJsonNull() && !jsonObj.get("version_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_ids` to be an array in the JSON string but got `%s`", jsonObj.get("version_ids").toString()));
       }
   }
 

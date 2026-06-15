@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * gatewayUpdateRemoteAccess is a command that update remote access config
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateRemoteAccess {
   public static final String SERIALIZED_NAME_ALLOWED_SSH_URL = "allowed-ssh-url";
   @SerializedName(SERIALIZED_NAME_ALLOWED_SSH_URL)
@@ -395,10 +395,7 @@ public class GatewayUpdateRemoteAccess {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -407,22 +404,10 @@ public class GatewayUpdateRemoteAccess {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("allowed-ssh-url");
-    openapiFields.add("allowed-urls");
-    openapiFields.add("default-session-ttl-minutes");
-    openapiFields.add("hide-session-recording");
-    openapiFields.add("json");
-    openapiFields.add("kexalgs");
-    openapiFields.add("keyboard-layout");
-    openapiFields.add("legacy-ssh-algorithm");
-    openapiFields.add("rdp-target-configuration");
-    openapiFields.add("ssh-target-configuration");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
+    openapiFields = new HashSet<String>(Arrays.asList("allowed-ssh-url", "allowed-urls", "default-session-ttl-minutes", "hide-session-recording", "json", "kexalgs", "keyboard-layout", "legacy-ssh-algorithm", "rdp-target-configuration", "ssh-target-configuration", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -434,7 +419,7 @@ public class GatewayUpdateRemoteAccess {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GatewayUpdateRemoteAccess.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GatewayUpdateRemoteAccess is not found in the empty JSON string", GatewayUpdateRemoteAccess.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GatewayUpdateRemoteAccess is not found in the empty JSON string", GatewayUpdateRemoteAccess.openapiRequiredFields.toString()));
         }
       }
 
@@ -442,42 +427,42 @@ public class GatewayUpdateRemoteAccess {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GatewayUpdateRemoteAccess.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GatewayUpdateRemoteAccess` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GatewayUpdateRemoteAccess` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("allowed-ssh-url") != null && !jsonObj.get("allowed-ssh-url").isJsonNull()) && !jsonObj.get("allowed-ssh-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed-ssh-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-ssh-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed-ssh-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-ssh-url").toString()));
       }
       if ((jsonObj.get("allowed-urls") != null && !jsonObj.get("allowed-urls").isJsonNull()) && !jsonObj.get("allowed-urls").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `allowed-urls` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-urls").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed-urls` to be a primitive type in the JSON string but got `%s`", jsonObj.get("allowed-urls").toString()));
       }
       if ((jsonObj.get("default-session-ttl-minutes") != null && !jsonObj.get("default-session-ttl-minutes").isJsonNull()) && !jsonObj.get("default-session-ttl-minutes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default-session-ttl-minutes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default-session-ttl-minutes").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `default-session-ttl-minutes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default-session-ttl-minutes").toString()));
       }
       if ((jsonObj.get("hide-session-recording") != null && !jsonObj.get("hide-session-recording").isJsonNull()) && !jsonObj.get("hide-session-recording").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `hide-session-recording` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hide-session-recording").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hide-session-recording` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hide-session-recording").toString()));
       }
       if ((jsonObj.get("kexalgs") != null && !jsonObj.get("kexalgs").isJsonNull()) && !jsonObj.get("kexalgs").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `kexalgs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kexalgs").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kexalgs` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kexalgs").toString()));
       }
       if ((jsonObj.get("keyboard-layout") != null && !jsonObj.get("keyboard-layout").isJsonNull()) && !jsonObj.get("keyboard-layout").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `keyboard-layout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyboard-layout").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keyboard-layout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyboard-layout").toString()));
       }
       if ((jsonObj.get("legacy-ssh-algorithm") != null && !jsonObj.get("legacy-ssh-algorithm").isJsonNull()) && !jsonObj.get("legacy-ssh-algorithm").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `legacy-ssh-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("legacy-ssh-algorithm").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `legacy-ssh-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("legacy-ssh-algorithm").toString()));
       }
       if ((jsonObj.get("rdp-target-configuration") != null && !jsonObj.get("rdp-target-configuration").isJsonNull()) && !jsonObj.get("rdp-target-configuration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rdp-target-configuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-target-configuration").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rdp-target-configuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rdp-target-configuration").toString()));
       }
       if ((jsonObj.get("ssh-target-configuration") != null && !jsonObj.get("ssh-target-configuration").isJsonNull()) && !jsonObj.get("ssh-target-configuration").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ssh-target-configuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh-target-configuration").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh-target-configuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh-target-configuration").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
   }
 

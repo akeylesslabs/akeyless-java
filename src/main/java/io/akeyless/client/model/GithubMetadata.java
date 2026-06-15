@@ -48,7 +48,7 @@ import io.akeyless.client.JSON;
 /**
  * GithubMetadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GithubMetadata {
   public static final String SERIALIZED_NAME_ENVIRONMENT_NAME = "environment_name";
   @SerializedName(SERIALIZED_NAME_ENVIRONMENT_NAME)
@@ -239,10 +239,7 @@ public class GithubMetadata {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -251,16 +248,10 @@ public class GithubMetadata {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("environment_name");
-    openapiFields.add("organization_name");
-    openapiFields.add("repository");
-    openapiFields.add("repository_access");
-    openapiFields.add("scope");
-    openapiFields.add("selected_repositories");
+    openapiFields = new HashSet<String>(Arrays.asList("environment_name", "organization_name", "repository", "repository_access", "scope", "selected_repositories"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields = new HashSet<String>(0);
   }
 
   /**
@@ -272,7 +263,7 @@ public class GithubMetadata {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!GithubMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GithubMetadata is not found in the empty JSON string", GithubMetadata.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GithubMetadata is not found in the empty JSON string", GithubMetadata.openapiRequiredFields.toString()));
         }
       }
 
@@ -280,27 +271,27 @@ public class GithubMetadata {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!GithubMetadata.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GithubMetadata` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GithubMetadata` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("environment_name") != null && !jsonObj.get("environment_name").isJsonNull()) && !jsonObj.get("environment_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `environment_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("environment_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `environment_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("environment_name").toString()));
       }
       if ((jsonObj.get("organization_name") != null && !jsonObj.get("organization_name").isJsonNull()) && !jsonObj.get("organization_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `organization_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization_name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `organization_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("organization_name").toString()));
       }
       if ((jsonObj.get("repository") != null && !jsonObj.get("repository").isJsonNull()) && !jsonObj.get("repository").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `repository` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository").toString()));
       }
       if ((jsonObj.get("repository_access") != null && !jsonObj.get("repository_access").isJsonNull()) && !jsonObj.get("repository_access").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `repository_access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository_access").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `repository_access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repository_access").toString()));
       }
       if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
       }
       if ((jsonObj.get("selected_repositories") != null && !jsonObj.get("selected_repositories").isJsonNull()) && !jsonObj.get("selected_repositories").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `selected_repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected_repositories").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selected_repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected_repositories").toString()));
       }
   }
 

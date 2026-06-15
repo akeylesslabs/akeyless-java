@@ -52,7 +52,7 @@ import io.akeyless.client.JSON;
 /**
  * RotatedSecretUpdateAzure
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretUpdateAzure {
   public static final String SERIALIZED_NAME_ADD_TAG = "add-tag";
   @SerializedName(SERIALIZED_NAME_ADD_TAG)
@@ -168,6 +168,11 @@ public class RotatedSecretUpdateAzure {
   @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
   @javax.annotation.Nullable
   private List<String> outputRule = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  @javax.annotation.Nullable
+  private String password;
 
   public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
@@ -391,7 +396,7 @@ public class RotatedSecretUpdateAzure {
   }
 
   /**
-   * Whether to automatically rotate every --rotation-interval days, or disable existing automatic rotation [true/false]
+   * Get autoRotate
    * @return autoRotate
    */
   @javax.annotation.Nullable
@@ -635,7 +640,7 @@ public class RotatedSecretUpdateAzure {
   }
 
   /**
-   * The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used)
+   * Get key
    * @return key
    */
   @javax.annotation.Nullable
@@ -748,6 +753,25 @@ public class RotatedSecretUpdateAzure {
 
   public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
     this.outputRule = outputRule;
+  }
+
+
+  public RotatedSecretUpdateAzure password(@javax.annotation.Nullable String password) {
+    this.password = password;
+    return this;
+  }
+
+  /**
+   * The password for the user principal name to rotate (relevant only for rotator-type&#x3D;password)
+   * @return password
+   */
+  @javax.annotation.Nullable
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(@javax.annotation.Nullable String password) {
+    this.password = password;
   }
 
 
@@ -887,7 +911,7 @@ public class RotatedSecretUpdateAzure {
   }
 
   /**
-   * The Hour of the rotation in UTC
+   * Get rotationHour
    * @return rotationHour
    */
   @javax.annotation.Nullable
@@ -906,7 +930,7 @@ public class RotatedSecretUpdateAzure {
   }
 
   /**
-   * The number of days to wait between every automatic key rotation (1-365)
+   * Get rotationInterval
    * @return rotationInterval
    */
   @javax.annotation.Nullable
@@ -1218,6 +1242,7 @@ public class RotatedSecretUpdateAzure {
         Objects.equals(this.name, rotatedSecretUpdateAzure.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateAzure.newName) &&
         Objects.equals(this.outputRule, rotatedSecretUpdateAzure.outputRule) &&
+        Objects.equals(this.password, rotatedSecretUpdateAzure.password) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateAzure.passwordLength) &&
         Objects.equals(this.resourceGroupName, rotatedSecretUpdateAzure.resourceGroupName) &&
         Objects.equals(this.resourceName, rotatedSecretUpdateAzure.resourceName) &&
@@ -1244,7 +1269,7 @@ public class RotatedSecretUpdateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, resourceGroupName, resourceName, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
+    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, password, passwordLength, resourceGroupName, resourceName, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
   }
 
   @Override
@@ -1274,6 +1299,7 @@ public class RotatedSecretUpdateAzure {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
@@ -1305,10 +1331,7 @@ public class RotatedSecretUpdateAzure {
    * (except the first line).
    */
   private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
+    return o == null ? "null" : o.toString().replace("\n", "\n    ");
   }
 
 
@@ -1317,56 +1340,10 @@ public class RotatedSecretUpdateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("add-tag");
-    openapiFields.add("api-id");
-    openapiFields.add("api-key");
-    openapiFields.add("application-id");
-    openapiFields.add("authentication-credentials");
-    openapiFields.add("auto-rotate");
-    openapiFields.add("delete_protection");
-    openapiFields.add("description");
-    openapiFields.add("explicitly-set-sa");
-    openapiFields.add("grace-rotation");
-    openapiFields.add("grace-rotation-hour");
-    openapiFields.add("grace-rotation-interval");
-    openapiFields.add("grace-rotation-timing");
-    openapiFields.add("input-rule");
-    openapiFields.add("item-custom-fields");
-    openapiFields.add("json");
-    openapiFields.add("keep-prev-version");
-    openapiFields.add("key");
-    openapiFields.add("lock-during-sra-session");
-    openapiFields.add("max-versions");
-    openapiFields.add("name");
-    openapiFields.add("new-name");
-    openapiFields.add("output-rule");
-    openapiFields.add("password-length");
-    openapiFields.add("resource-group-name");
-    openapiFields.add("resource-name");
-    openapiFields.add("rm-tag");
-    openapiFields.add("rotate-after-disconnect");
-    openapiFields.add("rotation-event-in");
-    openapiFields.add("rotation-hour");
-    openapiFields.add("rotation-interval");
-    openapiFields.add("secure-access-disable-concurrent-connections");
-    openapiFields.add("secure-access-enable");
-    openapiFields.add("secure-access-url");
-    openapiFields.add("secure-access-web");
-    openapiFields.add("secure-access-web-browsing");
-    openapiFields.add("secure-access-web-proxy");
-    openapiFields.add("storage-account-key-name");
-    openapiFields.add("token");
-    openapiFields.add("uid-token");
-    openapiFields.add("use-capital-letters");
-    openapiFields.add("use-lower-letters");
-    openapiFields.add("use-numbers");
-    openapiFields.add("use-special-characters");
-    openapiFields.add("username");
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "delete_protection", "description", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "storage-account-key-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("name");
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
   }
 
   /**
@@ -1378,7 +1355,7 @@ public class RotatedSecretUpdateAzure {
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
         if (!RotatedSecretUpdateAzure.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RotatedSecretUpdateAzure is not found in the empty JSON string", RotatedSecretUpdateAzure.openapiRequiredFields.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in RotatedSecretUpdateAzure is not found in the empty JSON string", RotatedSecretUpdateAzure.openapiRequiredFields.toString()));
         }
       }
 
@@ -1386,132 +1363,135 @@ public class RotatedSecretUpdateAzure {
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RotatedSecretUpdateAzure.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RotatedSecretUpdateAzure` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `RotatedSecretUpdateAzure` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : RotatedSecretUpdateAzure.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // ensure the optional json data is an array if present
       if (jsonObj.get("add-tag") != null && !jsonObj.get("add-tag").isJsonNull() && !jsonObj.get("add-tag").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `add-tag` to be an array in the JSON string but got `%s`", jsonObj.get("add-tag").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `add-tag` to be an array in the JSON string but got `%s`", jsonObj.get("add-tag").toString()));
       }
       if ((jsonObj.get("api-id") != null && !jsonObj.get("api-id").isJsonNull()) && !jsonObj.get("api-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-id").toString()));
       }
       if ((jsonObj.get("api-key") != null && !jsonObj.get("api-key").isJsonNull()) && !jsonObj.get("api-key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-key").toString()));
       }
       if ((jsonObj.get("application-id") != null && !jsonObj.get("application-id").isJsonNull()) && !jsonObj.get("application-id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `application-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application-id").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `application-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("application-id").toString()));
       }
       if ((jsonObj.get("authentication-credentials") != null && !jsonObj.get("authentication-credentials").isJsonNull()) && !jsonObj.get("authentication-credentials").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `authentication-credentials` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication-credentials").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authentication-credentials` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication-credentials").toString()));
       }
       if ((jsonObj.get("auto-rotate") != null && !jsonObj.get("auto-rotate").isJsonNull()) && !jsonObj.get("auto-rotate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `auto-rotate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auto-rotate").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auto-rotate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auto-rotate").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("explicitly-set-sa") != null && !jsonObj.get("explicitly-set-sa").isJsonNull()) && !jsonObj.get("explicitly-set-sa").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `explicitly-set-sa` to be a primitive type in the JSON string but got `%s`", jsonObj.get("explicitly-set-sa").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `explicitly-set-sa` to be a primitive type in the JSON string but got `%s`", jsonObj.get("explicitly-set-sa").toString()));
       }
       if ((jsonObj.get("grace-rotation") != null && !jsonObj.get("grace-rotation").isJsonNull()) && !jsonObj.get("grace-rotation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grace-rotation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace-rotation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation").toString()));
       }
       if ((jsonObj.get("grace-rotation-interval") != null && !jsonObj.get("grace-rotation-interval").isJsonNull()) && !jsonObj.get("grace-rotation-interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grace-rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace-rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-interval").toString()));
       }
       if ((jsonObj.get("grace-rotation-timing") != null && !jsonObj.get("grace-rotation-timing").isJsonNull()) && !jsonObj.get("grace-rotation-timing").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `grace-rotation-timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-timing").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace-rotation-timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace-rotation-timing").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
       }
       if ((jsonObj.get("keep-prev-version") != null && !jsonObj.get("keep-prev-version").isJsonNull()) && !jsonObj.get("keep-prev-version").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+      }
+      if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
       }
       if ((jsonObj.get("resource-group-name") != null && !jsonObj.get("resource-group-name").isJsonNull()) && !jsonObj.get("resource-group-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resource-group-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource-group-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource-group-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource-group-name").toString()));
       }
       if ((jsonObj.get("resource-name") != null && !jsonObj.get("resource-name").isJsonNull()) && !jsonObj.get("resource-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `resource-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource-name").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rm-tag") != null && !jsonObj.get("rm-tag").isJsonNull() && !jsonObj.get("rm-tag").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rm-tag` to be an array in the JSON string but got `%s`", jsonObj.get("rm-tag").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rm-tag` to be an array in the JSON string but got `%s`", jsonObj.get("rm-tag").toString()));
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rotation-event-in") != null && !jsonObj.get("rotation-event-in").isJsonNull() && !jsonObj.get("rotation-event-in").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotation-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("rotation-event-in").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotation-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("rotation-event-in").toString()));
       }
       if ((jsonObj.get("rotation-interval") != null && !jsonObj.get("rotation-interval").isJsonNull()) && !jsonObj.get("rotation-interval").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation-interval").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation-interval").toString()));
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
       }
       if ((jsonObj.get("storage-account-key-name") != null && !jsonObj.get("storage-account-key-name").isJsonNull()) && !jsonObj.get("storage-account-key-name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `storage-account-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage-account-key-name").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage-account-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage-account-key-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
       }
       if ((jsonObj.get("use-capital-letters") != null && !jsonObj.get("use-capital-letters").isJsonNull()) && !jsonObj.get("use-capital-letters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-capital-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-capital-letters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-capital-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-capital-letters").toString()));
       }
       if ((jsonObj.get("use-lower-letters") != null && !jsonObj.get("use-lower-letters").isJsonNull()) && !jsonObj.get("use-lower-letters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-lower-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-lower-letters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-lower-letters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-lower-letters").toString()));
       }
       if ((jsonObj.get("use-numbers") != null && !jsonObj.get("use-numbers").isJsonNull()) && !jsonObj.get("use-numbers").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-numbers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-numbers").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-numbers` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-numbers").toString()));
       }
       if ((jsonObj.get("use-special-characters") != null && !jsonObj.get("use-special-characters").isJsonNull()) && !jsonObj.get("use-special-characters").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `use-special-characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-special-characters").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `use-special-characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("use-special-characters").toString()));
       }
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 
