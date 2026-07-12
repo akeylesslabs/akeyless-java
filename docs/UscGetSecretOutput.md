@@ -7,8 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**activationDate** | **OffsetDateTime** |  |  [optional] |
 |**binaryValue** | **Boolean** |  |  [optional] |
 |**encryptionKey** | **String** |  |  [optional] |
+|**expiration** | **OffsetDateTime** |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**metadata** | **Object** |  |  [optional] |
 |**name** | **String** |  |  [optional] |

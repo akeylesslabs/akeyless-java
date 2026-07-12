@@ -412,6 +412,11 @@ public class GatewayUpdateMigration {
   @javax.annotation.Nonnull
   private String targetLocation;
 
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  @javax.annotation.Nullable
+  private String targetName;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -1859,6 +1864,25 @@ public class GatewayUpdateMigration {
   }
 
 
+  public GatewayUpdateMigration targetName(@javax.annotation.Nullable String targetName) {
+    this.targetName = targetName;
+    return this;
+  }
+
+  /**
+   * Name of existing target to use to create the migration
+   * @return targetName
+   */
+  @javax.annotation.Nullable
+  public String getTargetName() {
+    return targetName;
+  }
+
+  public void setTargetName(@javax.annotation.Nullable String targetName) {
+    this.targetName = targetName;
+  }
+
+
   public GatewayUpdateMigration token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -2017,6 +2041,7 @@ public class GatewayUpdateMigration {
         Objects.equals(this.siUsersIgnore, gatewayUpdateMigration.siUsersIgnore) &&
         Objects.equals(this.siUsersPathTemplate, gatewayUpdateMigration.siUsersPathTemplate) &&
         Objects.equals(this.targetLocation, gatewayUpdateMigration.targetLocation) &&
+        Objects.equals(this.targetName, gatewayUpdateMigration.targetName) &&
         Objects.equals(this.token, gatewayUpdateMigration.token) &&
         Objects.equals(this.uidToken, gatewayUpdateMigration.uidToken) &&
         Objects.equals(this.uscName, gatewayUpdateMigration.uscName) &&
@@ -2025,7 +2050,7 @@ public class GatewayUpdateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiMetadataMode, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, token, uidToken, uscName, useGwCloudIdentity);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiMetadataMode, hashiNs, hashiToken, hashiUrl, hosts, id, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, newName, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, targetName, token, uidToken, uscName, useGwCloudIdentity);
   }
 
   @Override
@@ -2104,6 +2129,7 @@ public class GatewayUpdateMigration {
     sb.append("    siUsersIgnore: ").append(toIndentedString(siUsersIgnore)).append("\n");
     sb.append("    siUsersPathTemplate: ").append(toIndentedString(siUsersPathTemplate)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
@@ -2126,7 +2152,7 @@ public class GatewayUpdateMigration {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ServiceAccountKeyDecoded", "ad-auto-rotate", "ad-cert-expiration-event-in", "ad-certificates-path-template", "ad-computer-base-dn", "ad-discover-iis-app", "ad-discover-services", "ad-discovery-types", "ad-domain-name", "ad-domain-users-path-template", "ad-local-users-ignore", "ad-local-users-path-template", "ad-os-filter", "ad-rotation-hour", "ad-rotation-interval", "ad-sra-enable-rdp", "ad-ssh-port", "ad-target-format", "ad-target-name", "ad-targets-path-template", "ad-targets-type", "ad-user-base-dn", "ad-user-groups", "ad-winrm-over-http", "ad-winrm-port", "ad_discover_local_users", "ai-certificate-discovery", "aws-key", "aws-key-id", "aws-region", "azure-client-id", "azure-kv-name", "azure-secret", "azure-tenant-id", "conjur-account", "conjur-api-key", "conjur-url", "conjur-username", "delete-remote", "expiration-event-in", "gcp-key", "gcp-project-id", "hashi-json", "hashi-metadata-mode", "hashi-ns", "hashi-token", "hashi-url", "hosts", "id", "json", "k8s-ca-certificate", "k8s-client-certificate", "k8s-client-key", "k8s-namespace", "k8s-password", "k8s-skip-system", "k8s-token", "k8s-url", "k8s-username", "name", "new-name", "port-ranges", "protection-key", "si-auto-rotate", "si-rotation-hour", "si-rotation-interval", "si-sra-enable-rdp", "si-target-name", "si-user-groups", "si-users-ignore", "si-users-path-template", "target-location", "token", "uid-token", "usc-name", "use-gw-cloud-identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("ServiceAccountKeyDecoded", "ad-auto-rotate", "ad-cert-expiration-event-in", "ad-certificates-path-template", "ad-computer-base-dn", "ad-discover-iis-app", "ad-discover-services", "ad-discovery-types", "ad-domain-name", "ad-domain-users-path-template", "ad-local-users-ignore", "ad-local-users-path-template", "ad-os-filter", "ad-rotation-hour", "ad-rotation-interval", "ad-sra-enable-rdp", "ad-ssh-port", "ad-target-format", "ad-target-name", "ad-targets-path-template", "ad-targets-type", "ad-user-base-dn", "ad-user-groups", "ad-winrm-over-http", "ad-winrm-port", "ad_discover_local_users", "ai-certificate-discovery", "aws-key", "aws-key-id", "aws-region", "azure-client-id", "azure-kv-name", "azure-secret", "azure-tenant-id", "conjur-account", "conjur-api-key", "conjur-url", "conjur-username", "delete-remote", "expiration-event-in", "gcp-key", "gcp-project-id", "hashi-json", "hashi-metadata-mode", "hashi-ns", "hashi-token", "hashi-url", "hosts", "id", "json", "k8s-ca-certificate", "k8s-client-certificate", "k8s-client-key", "k8s-namespace", "k8s-password", "k8s-skip-system", "k8s-token", "k8s-url", "k8s-username", "name", "new-name", "port-ranges", "protection-key", "si-auto-rotate", "si-rotation-hour", "si-rotation-interval", "si-sra-enable-rdp", "si-target-name", "si-user-groups", "si-users-ignore", "si-users-path-template", "target-location", "target-name", "token", "uid-token", "usc-name", "use-gw-cloud-identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("hosts", "si-target-name", "si-users-path-template", "target-location"));
@@ -2361,6 +2387,9 @@ public class GatewayUpdateMigration {
       }
       if (!jsonObj.get("target-location").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-location").toString()));
+      }
+      if ((jsonObj.get("target-name") != null && !jsonObj.get("target-name").isJsonNull()) && !jsonObj.get("target-name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

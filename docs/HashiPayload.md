@@ -8,6 +8,7 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**deleteSyncOnDeletion** | **Boolean** |  |  [optional] |
+|**hashiTargetId** | **Long** |  |  [optional] |
 |**importAsJson** | **Boolean** |  |  [optional] |
 |**metadataMode** | **String** |  |  [optional] |
 |**namespaces** | **List&lt;String&gt;** |  |  [optional] |

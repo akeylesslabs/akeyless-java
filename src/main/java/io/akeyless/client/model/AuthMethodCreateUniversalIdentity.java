@@ -147,6 +147,11 @@ public class AuthMethodCreateUniversalIdentity {
   @javax.annotation.Nullable
   private Integer ttl = 60;
 
+  public static final String SERIALIZED_NAME_UID_EXPIRATION_EVENT_AT = "uid-expiration-event-at";
+  @SerializedName(SERIALIZED_NAME_UID_EXPIRATION_EVENT_AT)
+  @javax.annotation.Nullable
+  private List<String> uidExpirationEventAt = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   @javax.annotation.Nullable
@@ -564,6 +569,33 @@ public class AuthMethodCreateUniversalIdentity {
   }
 
 
+  public AuthMethodCreateUniversalIdentity uidExpirationEventAt(@javax.annotation.Nullable List<String> uidExpirationEventAt) {
+    this.uidExpirationEventAt = uidExpirationEventAt;
+    return this;
+  }
+
+  public AuthMethodCreateUniversalIdentity addUidExpirationEventAtItem(String uidExpirationEventAtItem) {
+    if (this.uidExpirationEventAt == null) {
+      this.uidExpirationEventAt = new ArrayList<>();
+    }
+    this.uidExpirationEventAt.add(uidExpirationEventAtItem);
+    return this;
+  }
+
+  /**
+   * Notify when this percent of the token TTL has elapsed (1-99).
+   * @return uidExpirationEventAt
+   */
+  @javax.annotation.Nullable
+  public List<String> getUidExpirationEventAt() {
+    return uidExpirationEventAt;
+  }
+
+  public void setUidExpirationEventAt(@javax.annotation.Nullable List<String> uidExpirationEventAt) {
+    this.uidExpirationEventAt = uidExpirationEventAt;
+  }
+
+
   public AuthMethodCreateUniversalIdentity uidToken(@javax.annotation.Nullable String uidToken) {
     this.uidToken = uidToken;
     return this;
@@ -612,12 +644,13 @@ public class AuthMethodCreateUniversalIdentity {
         Objects.equals(this.token, authMethodCreateUniversalIdentity.token) &&
         Objects.equals(this.treeLength, authMethodCreateUniversalIdentity.treeLength) &&
         Objects.equals(this.ttl, authMethodCreateUniversalIdentity.ttl) &&
+        Objects.equals(this.uidExpirationEventAt, authMethodCreateUniversalIdentity.uidExpirationEventAt) &&
         Objects.equals(this.uidToken, authMethodCreateUniversalIdentity.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, childTtlLimit, deleteProtection, denyInheritance, denyRotate, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, treeLength, ttl, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, childTtlLimit, deleteProtection, denyInheritance, denyRotate, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, treeLength, ttl, uidExpirationEventAt, uidToken);
   }
 
   @Override
@@ -643,6 +676,7 @@ public class AuthMethodCreateUniversalIdentity {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    treeLength: ").append(toIndentedString(treeLength)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
+    sb.append("    uidExpirationEventAt: ").append(toIndentedString(uidExpirationEventAt)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -662,7 +696,7 @@ public class AuthMethodCreateUniversalIdentity {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "child-ttl-limit", "delete_protection", "deny-inheritance", "deny-rotate", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "product-type", "token", "tree-length", "ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "child-ttl-limit", "delete_protection", "deny-inheritance", "deny-rotate", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "product-type", "token", "tree-length", "ttl", "uid-expiration-event-at", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -731,6 +765,10 @@ public class AuthMethodCreateUniversalIdentity {
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("uid-expiration-event-at") != null && !jsonObj.get("uid-expiration-event-at").isJsonNull() && !jsonObj.get("uid-expiration-event-at").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-expiration-event-at` to be an array in the JSON string but got `%s`", jsonObj.get("uid-expiration-event-at").toString()));
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));

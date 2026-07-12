@@ -42,6 +42,7 @@ createDBTarget is a command that creates a new target. [Deprecated: Use target-c
 |**parentTargetName** | **String** | Name of the parent target, relevant only when connection-type is parent-target |  [optional] |
 |**port** | **String** |  |  [optional] |
 |**pwd** | **String** |  |  [optional] |
+|**skipServerNameValidation** | **String** | (Optional) Skip server name verification |  [optional] |
 |**snowflakeAccount** | **String** |  |  [optional] |
 |**snowflakeApiPrivateKey** | **String** | RSA Private key (base64 encoded) |  [optional] |
 |**snowflakeApiPrivateKeyPassword** | **String** | The Private key passphrase |  [optional] |

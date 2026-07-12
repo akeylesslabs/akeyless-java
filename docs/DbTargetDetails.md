@@ -29,6 +29,7 @@ DbTargetDetails
 |**enableMtls** | **Boolean** | (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB |  [optional] |
 |**oracleWalletDetails** | [**WalletDetails**](WalletDetails.md) |  |  [optional] |
 |**sfAccount** | **String** |  |  [optional] |
+|**skipServerNameValidation** | **String** | (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \&quot;skip hostname validation\&quot;; MySQL treats empty as false. |  [optional] |
 |**sslConnectionCertificate** | **String** | (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field |  [optional] |
 |**sslConnectionMode** | **Boolean** | (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB |  [optional] |
 

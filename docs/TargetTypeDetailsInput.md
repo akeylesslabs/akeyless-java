@@ -7,11 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**anthropicTargetDetails** | [**AnthropicTargetDetails**](AnthropicTargetDetails.md) |  |  [optional] |
 |**artifactoryTargetDetails** | [**ArtifactoryTargetDetails**](ArtifactoryTargetDetails.md) |  |  [optional] |
 |**awsTargetDetails** | [**AWSTargetDetails**](AWSTargetDetails.md) |  |  [optional] |
 |**azureTargetDetails** | [**AzureTargetDetails**](AzureTargetDetails.md) |  |  [optional] |
+|**bedrockTargetDetails** | [**BedrockTargetDetails**](BedrockTargetDetails.md) |  |  [optional] |
 |**chefTargetDetails** | [**ChefTargetDetails**](ChefTargetDetails.md) |  |  [optional] |
 |**cloudflareTargetDetails** | [**CloudflareTargetDetails**](CloudflareTargetDetails.md) |  |  [optional] |
+|**customDnsTargetDetails** | [**CustomDnsTargetDetails**](CustomDnsTargetDetails.md) |  |  [optional] |
 |**customTargetDetails** | [**CustomTargetDetails**](CustomTargetDetails.md) |  |  [optional] |
 |**dbTargetDetails** | [**DbTargetDetails**](DbTargetDetails.md) |  |  [optional] |
 |**digicertTargetDetails** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  |  [optional] |
@@ -26,12 +29,15 @@
 |**globalsignTargetDetails** | [**GlobalSignGCCTargetDetails**](GlobalSignGCCTargetDetails.md) |  |  [optional] |
 |**godaddyTargetDetails** | [**GodaddyTargetDetails**](GodaddyTargetDetails.md) |  |  [optional] |
 |**googleTrustTargetDetails** | [**GoogleTrustTargetDetails**](GoogleTrustTargetDetails.md) |  |  [optional] |
+|**grokTargetDetails** | [**GrokTargetDetails**](GrokTargetDetails.md) |  |  [optional] |
 |**hashiVaultTargetDetails** | [**HashiVaultTargetDetails**](HashiVaultTargetDetails.md) |  |  [optional] |
+|**keycloakTargetDetails** | [**KeycloakTargetDetails**](KeycloakTargetDetails.md) |  |  [optional] |
 |**ldapTargetDetails** | [**LdapTargetDetails**](LdapTargetDetails.md) |  |  [optional] |
 |**letsencryptTargetDetails** | [**LetsEncryptTargetDetails**](LetsEncryptTargetDetails.md) |  |  [optional] |
 |**linkedTargetDetails** | [**LinkedTargetDetails**](LinkedTargetDetails.md) |  |  [optional] |
 |**mongoDbTargetDetails** | [**MongoDBTargetDetails**](MongoDBTargetDetails.md) |  |  [optional] |
 |**nativeK8sTargetDetails** | [**NativeK8sTargetDetails**](NativeK8sTargetDetails.md) |  |  [optional] |
+|**oktaTargetDetails** | [**OktaTargetDetails**](OktaTargetDetails.md) |  |  [optional] |
 |**openaiTargetDetails** | [**OpenAITargetDetails**](OpenAITargetDetails.md) |  |  [optional] |
 |**pingTargetDetails** | [**PingTargetDetails**](PingTargetDetails.md) |  |  [optional] |
 |**rabbitMqTargetDetails** | [**RabbitMQTargetDetails**](RabbitMQTargetDetails.md) |  |  [optional] |

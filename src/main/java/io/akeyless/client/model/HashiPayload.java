@@ -57,6 +57,11 @@ public class HashiPayload {
   @javax.annotation.Nullable
   private Boolean deleteSyncOnDeletion;
 
+  public static final String SERIALIZED_NAME_HASHI_TARGET_ID = "hashi_target_id";
+  @SerializedName(SERIALIZED_NAME_HASHI_TARGET_ID)
+  @javax.annotation.Nullable
+  private Long hashiTargetId;
+
   public static final String SERIALIZED_NAME_IMPORT_AS_JSON = "import_as_json";
   @SerializedName(SERIALIZED_NAME_IMPORT_AS_JSON)
   @javax.annotation.Nullable
@@ -106,6 +111,25 @@ public class HashiPayload {
 
   public void setDeleteSyncOnDeletion(@javax.annotation.Nullable Boolean deleteSyncOnDeletion) {
     this.deleteSyncOnDeletion = deleteSyncOnDeletion;
+  }
+
+
+  public HashiPayload hashiTargetId(@javax.annotation.Nullable Long hashiTargetId) {
+    this.hashiTargetId = hashiTargetId;
+    return this;
+  }
+
+  /**
+   * Get hashiTargetId
+   * @return hashiTargetId
+   */
+  @javax.annotation.Nullable
+  public Long getHashiTargetId() {
+    return hashiTargetId;
+  }
+
+  public void setHashiTargetId(@javax.annotation.Nullable Long hashiTargetId) {
+    this.hashiTargetId = hashiTargetId;
   }
 
 
@@ -242,6 +266,7 @@ public class HashiPayload {
     }
     HashiPayload hashiPayload = (HashiPayload) o;
     return Objects.equals(this.deleteSyncOnDeletion, hashiPayload.deleteSyncOnDeletion) &&
+        Objects.equals(this.hashiTargetId, hashiPayload.hashiTargetId) &&
         Objects.equals(this.importAsJson, hashiPayload.importAsJson) &&
         Objects.equals(this.metadataMode, hashiPayload.metadataMode) &&
         Objects.equals(this.namespaces, hashiPayload.namespaces) &&
@@ -252,7 +277,7 @@ public class HashiPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteSyncOnDeletion, importAsJson, metadataMode, namespaces, token, url, uscName);
+    return Objects.hash(deleteSyncOnDeletion, hashiTargetId, importAsJson, metadataMode, namespaces, token, url, uscName);
   }
 
   @Override
@@ -260,6 +285,7 @@ public class HashiPayload {
     StringBuilder sb = new StringBuilder();
     sb.append("class HashiPayload {\n");
     sb.append("    deleteSyncOnDeletion: ").append(toIndentedString(deleteSyncOnDeletion)).append("\n");
+    sb.append("    hashiTargetId: ").append(toIndentedString(hashiTargetId)).append("\n");
     sb.append("    importAsJson: ").append(toIndentedString(importAsJson)).append("\n");
     sb.append("    metadataMode: ").append(toIndentedString(metadataMode)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
@@ -284,7 +310,7 @@ public class HashiPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_sync_on_deletion", "import_as_json", "metadata_mode", "namespaces", "token", "url", "usc_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_sync_on_deletion", "hashi_target_id", "import_as_json", "metadata_mode", "namespaces", "token", "url", "usc_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

@@ -1225,7 +1225,7 @@ public class CreatePKICertIssuer {
   }
 
   /**
-   * The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target&#39;s supported maximum TTLs
+   * The maximum requested Time To Live for issued certificates, in seconds. In case of Public CA, this is based on the CA target&#39;s supported maximum TTLs. Not supported for Let&#39;s Encrypt, which always uses the CA default lifetime (about 90 days).
    * @return ttl
    */
   @javax.annotation.Nonnull

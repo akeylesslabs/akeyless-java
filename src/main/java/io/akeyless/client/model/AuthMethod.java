@@ -23,6 +23,7 @@ import io.akeyless.client.model.AuthExpirationEvent;
 import io.akeyless.client.model.AuthMethodAccessInfo;
 import io.akeyless.client.model.AuthMethodAdditionalData;
 import io.akeyless.client.model.AuthMethodRoleAssociation;
+import io.akeyless.client.model.UidExpirationEvent;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -141,6 +142,11 @@ public class AuthMethod {
   @SerializedName(SERIALIZED_NAME_MODIFICATION_DATE)
   @javax.annotation.Nullable
   private OffsetDateTime modificationDate;
+
+  public static final String SERIALIZED_NAME_UID_EXPIRATION_EVENTS = "uid_expiration_events";
+  @SerializedName(SERIALIZED_NAME_UID_EXPIRATION_EVENTS)
+  @javax.annotation.Nullable
+  private List<UidExpirationEvent> uidExpirationEvents = new ArrayList<>();
 
   public AuthMethod() {
   }
@@ -500,6 +506,33 @@ public class AuthMethod {
   }
 
 
+  public AuthMethod uidExpirationEvents(@javax.annotation.Nullable List<UidExpirationEvent> uidExpirationEvents) {
+    this.uidExpirationEvents = uidExpirationEvents;
+    return this;
+  }
+
+  public AuthMethod addUidExpirationEventsItem(UidExpirationEvent uidExpirationEventsItem) {
+    if (this.uidExpirationEvents == null) {
+      this.uidExpirationEvents = new ArrayList<>();
+    }
+    this.uidExpirationEvents.add(uidExpirationEventsItem);
+    return this;
+  }
+
+  /**
+   * Get uidExpirationEvents
+   * @return uidExpirationEvents
+   */
+  @javax.annotation.Nullable
+  public List<UidExpirationEvent> getUidExpirationEvents() {
+    return uidExpirationEvents;
+  }
+
+  public void setUidExpirationEvents(@javax.annotation.Nullable List<UidExpirationEvent> uidExpirationEvents) {
+    this.uidExpirationEvents = uidExpirationEvents;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -526,12 +559,13 @@ public class AuthMethod {
         Objects.equals(this.description, authMethod.description) &&
         Objects.equals(this.expirationEvents, authMethod.expirationEvents) &&
         Objects.equals(this.isApproved, authMethod.isApproved) &&
-        Objects.equals(this.modificationDate, authMethod.modificationDate);
+        Objects.equals(this.modificationDate, authMethod.modificationDate) &&
+        Objects.equals(this.uidExpirationEvents, authMethod.uidExpirationEvents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, deleteProtection, description, expirationEvents, isApproved, modificationDate);
+    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, deleteProtection, description, expirationEvents, isApproved, modificationDate, uidExpirationEvents);
   }
 
   @Override
@@ -555,6 +589,7 @@ public class AuthMethod {
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
+    sb.append("    uidExpirationEvents: ").append(toIndentedString(uidExpirationEvents)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -573,7 +608,7 @@ public class AuthMethod {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date", "uid_expiration_events"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -656,6 +691,20 @@ public class AuthMethod {
           // validate the optional field `expiration_events` (array)
           for (int i = 0; i < jsonArrayexpirationEvents.size(); i++) {
             AuthExpirationEvent.validateJsonElement(jsonArrayexpirationEvents.get(i));
+          };
+        }
+      }
+      if (jsonObj.get("uid_expiration_events") != null && !jsonObj.get("uid_expiration_events").isJsonNull()) {
+        JsonArray jsonArrayuidExpirationEvents = jsonObj.getAsJsonArray("uid_expiration_events");
+        if (jsonArrayuidExpirationEvents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("uid_expiration_events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("uid_expiration_events").toString()));
+          }
+
+          // validate the optional field `uid_expiration_events` (array)
+          for (int i = 0; i < jsonArrayuidExpirationEvents.size(); i++) {
+            UidExpirationEvent.validateJsonElement(jsonArrayuidExpirationEvents.get(i));
           };
         }
       }

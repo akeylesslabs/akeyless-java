@@ -24,6 +24,7 @@
 |**expirationEvents** | [**List&lt;AuthExpirationEvent&gt;**](AuthExpirationEvent.md) |  |  [optional] |
 |**isApproved** | **Boolean** |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |
+|**uidExpirationEvents** | [**List&lt;UidExpirationEvent&gt;**](UidExpirationEvent.md) |  |  [optional] |
 
 
 

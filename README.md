@@ -188,6 +188,9 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createHashiVaultTarget**](docs/V2Api.md#createHashiVaultTarget) | **POST** /create-hashi-vault-target | 
 *V2Api* | [**createKey**](docs/V2Api.md#createKey) | **POST** /create-key | 
 *V2Api* | [**createLinkedTarget**](docs/V2Api.md#createLinkedTarget) | **POST** /create-linked-target | 
+*V2Api* | [**createMcpSecretBearerToken**](docs/V2Api.md#createMcpSecretBearerToken) | **POST** /create-mcp-secret-bearer-token | 
+*V2Api* | [**createMcpSecretOAuthAuthCode**](docs/V2Api.md#createMcpSecretOAuthAuthCode) | **POST** /create-mcp-secret-oauth-authorization-code | 
+*V2Api* | [**createMcpSecretOAuthClientCreds**](docs/V2Api.md#createMcpSecretOAuthClientCreds) | **POST** /create-mcp-secret-oauth-client-credentials | 
 *V2Api* | [**createNativeK8STarget**](docs/V2Api.md#createNativeK8STarget) | **POST** /create-k8s-target | 
 *V2Api* | [**createOidcApp**](docs/V2Api.md#createOidcApp) | **POST** /create-oidc-app | 
 *V2Api* | [**createPKICertIssuer**](docs/V2Api.md#createPKICertIssuer) | **POST** /create-pki-cert-issuer | 
@@ -576,10 +579,13 @@ Class | Method | HTTP request | Description
 *V2Api* | [**staticCredsAuth**](docs/V2Api.md#staticCredsAuth) | **POST** /static-creds-auth | 
 *V2Api* | [**staticSecretDeleteSync**](docs/V2Api.md#staticSecretDeleteSync) | **POST** /static-secret-delete-sync | 
 *V2Api* | [**staticSecretSync**](docs/V2Api.md#staticSecretSync) | **POST** /static-secret-sync | 
+*V2Api* | [**targetCreateAnthropic**](docs/V2Api.md#targetCreateAnthropic) | **POST** /target-create-anthropic | 
 *V2Api* | [**targetCreateArtifactory**](docs/V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory | 
 *V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
 *V2Api* | [**targetCreateAzure**](docs/V2Api.md#targetCreateAzure) | **POST** /target-create-azure | 
+*V2Api* | [**targetCreateBedrock**](docs/V2Api.md#targetCreateBedrock) | **POST** /target-create-bedrock | 
 *V2Api* | [**targetCreateCloudflare**](docs/V2Api.md#targetCreateCloudflare) | **POST** /target-create-cloudflare | 
+*V2Api* | [**targetCreateCustomDns**](docs/V2Api.md#targetCreateCustomDns) | **POST** /target-create-custom-dns | 
 *V2Api* | [**targetCreateDB**](docs/V2Api.md#targetCreateDB) | **POST** /target-create-db | 
 *V2Api* | [**targetCreateDigiCert**](docs/V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert | 
 *V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
@@ -593,11 +599,14 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateGlobalSignAtlas**](docs/V2Api.md#targetCreateGlobalSignAtlas) | **POST** /target-create-globalsign-atlas | 
 *V2Api* | [**targetCreateGodaddy**](docs/V2Api.md#targetCreateGodaddy) | **POST** /target-create-godaddy | 
 *V2Api* | [**targetCreateGoogleTrust**](docs/V2Api.md#targetCreateGoogleTrust) | **POST** /target-create-google-trust | 
+*V2Api* | [**targetCreateGrok**](docs/V2Api.md#targetCreateGrok) | **POST** /target-create-grok | 
 *V2Api* | [**targetCreateHashiVault**](docs/V2Api.md#targetCreateHashiVault) | **POST** /target-create-hashi-vault | 
 *V2Api* | [**targetCreateK8s**](docs/V2Api.md#targetCreateK8s) | **POST** /target-create-k8s | 
+*V2Api* | [**targetCreateKeycloak**](docs/V2Api.md#targetCreateKeycloak) | **POST** /target-create-keycloak | 
 *V2Api* | [**targetCreateLdap**](docs/V2Api.md#targetCreateLdap) | **POST** /target-create-ldap | 
 *V2Api* | [**targetCreateLetsEncrypt**](docs/V2Api.md#targetCreateLetsEncrypt) | **POST** /target-create-lets-encrypt | 
 *V2Api* | [**targetCreateLinked**](docs/V2Api.md#targetCreateLinked) | **POST** /target-create-linked | 
+*V2Api* | [**targetCreateOkta**](docs/V2Api.md#targetCreateOkta) | **POST** /target-create-okta | 
 *V2Api* | [**targetCreateOpenAI**](docs/V2Api.md#targetCreateOpenAI) | **POST** /target-create-openai | 
 *V2Api* | [**targetCreatePing**](docs/V2Api.md#targetCreatePing) | **POST** /target-create-ping | 
 *V2Api* | [**targetCreateRabbitMq**](docs/V2Api.md#targetCreateRabbitMq) | **POST** /target-create-rabbitmq | 
@@ -612,10 +621,13 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetGet**](docs/V2Api.md#targetGet) | **POST** /target-get | 
 *V2Api* | [**targetGetDetails**](docs/V2Api.md#targetGetDetails) | **POST** /target-get-details | 
 *V2Api* | [**targetList**](docs/V2Api.md#targetList) | **POST** /target-list | 
+*V2Api* | [**targetUpdateAnthropic**](docs/V2Api.md#targetUpdateAnthropic) | **POST** /target-update-anthropic | 
 *V2Api* | [**targetUpdateArtifactory**](docs/V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory | 
 *V2Api* | [**targetUpdateAws**](docs/V2Api.md#targetUpdateAws) | **POST** /target-update-aws | 
 *V2Api* | [**targetUpdateAzure**](docs/V2Api.md#targetUpdateAzure) | **POST** /target-update-azure | 
+*V2Api* | [**targetUpdateBedrock**](docs/V2Api.md#targetUpdateBedrock) | **POST** /target-update-bedrock | 
 *V2Api* | [**targetUpdateCloudflare**](docs/V2Api.md#targetUpdateCloudflare) | **POST** /target-update-cloudflare | 
+*V2Api* | [**targetUpdateCustomDns**](docs/V2Api.md#targetUpdateCustomDns) | **POST** /target-update-custom-dns | 
 *V2Api* | [**targetUpdateDB**](docs/V2Api.md#targetUpdateDB) | **POST** /target-update-db | 
 *V2Api* | [**targetUpdateDigiCert**](docs/V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert | 
 *V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
@@ -629,11 +641,14 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateGlobalSignAtlas**](docs/V2Api.md#targetUpdateGlobalSignAtlas) | **POST** /target-update-globalsign-atlas | 
 *V2Api* | [**targetUpdateGodaddy**](docs/V2Api.md#targetUpdateGodaddy) | **POST** /target-update-godaddy | 
 *V2Api* | [**targetUpdateGoogleTrust**](docs/V2Api.md#targetUpdateGoogleTrust) | **POST** /target-update-google-trust | 
+*V2Api* | [**targetUpdateGrok**](docs/V2Api.md#targetUpdateGrok) | **POST** /target-update-grok | 
 *V2Api* | [**targetUpdateHashiVault**](docs/V2Api.md#targetUpdateHashiVault) | **POST** /target-update-hashi-vault | 
 *V2Api* | [**targetUpdateK8s**](docs/V2Api.md#targetUpdateK8s) | **POST** /target-update-k8s | 
+*V2Api* | [**targetUpdateKeycloak**](docs/V2Api.md#targetUpdateKeycloak) | **POST** /target-update-keycloak | 
 *V2Api* | [**targetUpdateLdap**](docs/V2Api.md#targetUpdateLdap) | **POST** /target-update-ldap | 
 *V2Api* | [**targetUpdateLetsEncrypt**](docs/V2Api.md#targetUpdateLetsEncrypt) | **POST** /target-update-lets-encrypt | 
 *V2Api* | [**targetUpdateLinked**](docs/V2Api.md#targetUpdateLinked) | **POST** /target-update-linked | 
+*V2Api* | [**targetUpdateOkta**](docs/V2Api.md#targetUpdateOkta) | **POST** /target-update-okta | 
 *V2Api* | [**targetUpdateOpenAI**](docs/V2Api.md#targetUpdateOpenAI) | **POST** /target-update-openai | 
 *V2Api* | [**targetUpdatePing**](docs/V2Api.md#targetUpdatePing) | **POST** /target-update-ping | 
 *V2Api* | [**targetUpdateRabbitMq**](docs/V2Api.md#targetUpdateRabbitMq) | **POST** /target-update-rabbitmq | 
@@ -691,6 +706,9 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateLdapTarget**](docs/V2Api.md#updateLdapTarget) | **POST** /update-ldap-target | 
 *V2Api* | [**updateLdapTargetDetails**](docs/V2Api.md#updateLdapTargetDetails) | **POST** /update-ldap-target-details | 
 *V2Api* | [**updateLinkedTarget**](docs/V2Api.md#updateLinkedTarget) | **POST** /update-linked-target | 
+*V2Api* | [**updateMcpSecretBearerToken**](docs/V2Api.md#updateMcpSecretBearerToken) | **POST** /update-mcp-secret-bearer-token | 
+*V2Api* | [**updateMcpSecretOAuthAuthCode**](docs/V2Api.md#updateMcpSecretOAuthAuthCode) | **POST** /update-mcp-secret-oauth-authorization-code | 
+*V2Api* | [**updateMcpSecretOAuthClientCreds**](docs/V2Api.md#updateMcpSecretOAuthClientCreds) | **POST** /update-mcp-secret-oauth-client-credentials | 
 *V2Api* | [**updateNativeK8STarget**](docs/V2Api.md#updateNativeK8STarget) | **POST** /update-k8s-target | 
 *V2Api* | [**updateOidcApp**](docs/V2Api.md#updateOidcApp) | **POST** /update-oidc-app | 
 *V2Api* | [**updatePKICertIssuer**](docs/V2Api.md#updatePKICertIssuer) | **POST** /update-pki-cert-issuer | 
@@ -767,6 +785,7 @@ Class | Method | HTTP request | Description
  - [AllowedAccessOld](docs/AllowedAccessOld.md)
  - [AllowedClientType](docs/AllowedClientType.md)
  - [AllowedIpSettings](docs/AllowedIpSettings.md)
+ - [AnthropicTargetDetails](docs/AnthropicTargetDetails.md)
  - [ArtifactoryTargetDetails](docs/ArtifactoryTargetDetails.md)
  - [AssocRoleAuthMethod](docs/AssocRoleAuthMethod.md)
  - [AssocTargetItem](docs/AssocTargetItem.md)
@@ -828,6 +847,7 @@ Class | Method | HTTP request | Description
  - [BatchEncryptionResponseLine](docs/BatchEncryptionResponseLine.md)
  - [BatchTokenizationRequestLine](docs/BatchTokenizationRequestLine.md)
  - [BatchTokenizationResponseLine](docs/BatchTokenizationResponseLine.md)
+ - [BedrockTargetDetails](docs/BedrockTargetDetails.md)
  - [CFConfigPart](docs/CFConfigPart.md)
  - [CaCertificatesConfigPart](docs/CaCertificatesConfigPart.md)
  - [CacheConfigPart](docs/CacheConfigPart.md)
@@ -939,6 +959,9 @@ Class | Method | HTTP request | Description
  - [CreateLdapTargetOutput](docs/CreateLdapTargetOutput.md)
  - [CreateLinkedTarget](docs/CreateLinkedTarget.md)
  - [CreateLinkedTargetOutput](docs/CreateLinkedTargetOutput.md)
+ - [CreateMcpSecretBearerToken](docs/CreateMcpSecretBearerToken.md)
+ - [CreateMcpSecretOAuthAuthCode](docs/CreateMcpSecretOAuthAuthCode.md)
+ - [CreateMcpSecretOAuthClientCreds](docs/CreateMcpSecretOAuthClientCreds.md)
  - [CreateNativeK8STarget](docs/CreateNativeK8STarget.md)
  - [CreateNativeK8STargetOutput](docs/CreateNativeK8STargetOutput.md)
  - [CreateOidcApp](docs/CreateOidcApp.md)
@@ -976,6 +999,7 @@ Class | Method | HTTP request | Description
  - [CreateWindowsTargetOutput](docs/CreateWindowsTargetOutput.md)
  - [CreateZeroSSLTarget](docs/CreateZeroSSLTarget.md)
  - [CreateZeroSSLTargetOutput](docs/CreateZeroSSLTargetOutput.md)
+ - [CustomDnsTargetDetails](docs/CustomDnsTargetDetails.md)
  - [CustomTargetDetails](docs/CustomTargetDetails.md)
  - [CustomerFragmentConfig](docs/CustomerFragmentConfig.md)
  - [CustomerFragmentsConfigJson](docs/CustomerFragmentsConfigJson.md)
@@ -1104,6 +1128,9 @@ Class | Method | HTTP request | Description
  - [DynamicSecretUpdateVenafi](docs/DynamicSecretUpdateVenafi.md)
  - [EKSTargetDetails](docs/EKSTargetDetails.md)
  - [ElasticsearchLogForwardingConfig](docs/ElasticsearchLogForwardingConfig.md)
+ - [EmailCustomization](docs/EmailCustomization.md)
+ - [EmailCustomizationAccountInformation](docs/EmailCustomizationAccountInformation.md)
+ - [EmailCustomizationAccountInformationValues](docs/EmailCustomizationAccountInformationValues.md)
  - [EmailEntry](docs/EmailEntry.md)
  - [EmailError](docs/EmailError.md)
  - [EmailPassAccessRules](docs/EmailPassAccessRules.md)
@@ -1146,6 +1173,8 @@ Class | Method | HTTP request | Description
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
  - [Extension](docs/Extension.md)
  - [ExternalKMSKeyId](docs/ExternalKMSKeyId.md)
+ - [FileDownloadInstructions](docs/FileDownloadInstructions.md)
+ - [FileInfo](docs/FileInfo.md)
  - [FolderCreate](docs/FolderCreate.md)
  - [FolderCreateOutput](docs/FolderCreateOutput.md)
  - [FolderDelete](docs/FolderDelete.md)
@@ -1399,6 +1428,7 @@ Class | Method | HTTP request | Description
  - [GodaddyTargetDetails](docs/GodaddyTargetDetails.md)
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
  - [GoogleTrustTargetDetails](docs/GoogleTrustTargetDetails.md)
+ - [GrokTargetDetails](docs/GrokTargetDetails.md)
  - [Group](docs/Group.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
  - [GwUpdateRemoteAccessSessionLogsAwsS3](docs/GwUpdateRemoteAccessSessionLogsAwsS3.md)
@@ -1447,6 +1477,7 @@ Class | Method | HTTP request | Description
  - [KerberosAccessRules](docs/KerberosAccessRules.md)
  - [KerberosAuthMethodInfo](docs/KerberosAuthMethodInfo.md)
  - [KerberosConfigPart](docs/KerberosConfigPart.md)
+ - [KeycloakTargetDetails](docs/KeycloakTargetDetails.md)
  - [KmipClientDeleteRule](docs/KmipClientDeleteRule.md)
  - [KmipClientSetRule](docs/KmipClientSetRule.md)
  - [KmipClientUpdate](docs/KmipClientUpdate.md)
@@ -1537,6 +1568,7 @@ Class | Method | HTTP request | Description
  - [OIDCCustomClaim](docs/OIDCCustomClaim.md)
  - [ObjectVersionSettingsOutput](docs/ObjectVersionSettingsOutput.md)
  - [OidcClientInfo](docs/OidcClientInfo.md)
+ - [OktaTargetDetails](docs/OktaTargetDetails.md)
  - [OnePasswordMigration](docs/OnePasswordMigration.md)
  - [OnePasswordPayload](docs/OnePasswordPayload.md)
  - [OpenAITargetDetails](docs/OpenAITargetDetails.md)
@@ -1705,10 +1737,13 @@ Class | Method | HTTP request | Description
  - [SystemAccessCredentialsReplyObj](docs/SystemAccessCredentialsReplyObj.md)
  - [SystemAccessCredsSettings](docs/SystemAccessCredsSettings.md)
  - [Target](docs/Target.md)
+ - [TargetCreateAnthropic](docs/TargetCreateAnthropic.md)
  - [TargetCreateArtifactory](docs/TargetCreateArtifactory.md)
  - [TargetCreateAws](docs/TargetCreateAws.md)
  - [TargetCreateAzure](docs/TargetCreateAzure.md)
+ - [TargetCreateBedrock](docs/TargetCreateBedrock.md)
  - [TargetCreateCloudflare](docs/TargetCreateCloudflare.md)
+ - [TargetCreateCustomDns](docs/TargetCreateCustomDns.md)
  - [TargetCreateDB](docs/TargetCreateDB.md)
  - [TargetCreateDigiCert](docs/TargetCreateDigiCert.md)
  - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
@@ -1722,11 +1757,14 @@ Class | Method | HTTP request | Description
  - [TargetCreateGlobalSignAtlas](docs/TargetCreateGlobalSignAtlas.md)
  - [TargetCreateGodaddy](docs/TargetCreateGodaddy.md)
  - [TargetCreateGoogleTrust](docs/TargetCreateGoogleTrust.md)
+ - [TargetCreateGrok](docs/TargetCreateGrok.md)
  - [TargetCreateHashiVault](docs/TargetCreateHashiVault.md)
  - [TargetCreateK8s](docs/TargetCreateK8s.md)
+ - [TargetCreateKeycloak](docs/TargetCreateKeycloak.md)
  - [TargetCreateLdap](docs/TargetCreateLdap.md)
  - [TargetCreateLetsEncrypt](docs/TargetCreateLetsEncrypt.md)
  - [TargetCreateLinked](docs/TargetCreateLinked.md)
+ - [TargetCreateOkta](docs/TargetCreateOkta.md)
  - [TargetCreateOpenAI](docs/TargetCreateOpenAI.md)
  - [TargetCreateOutput](docs/TargetCreateOutput.md)
  - [TargetCreatePing](docs/TargetCreatePing.md)
@@ -1747,10 +1785,13 @@ Class | Method | HTTP request | Description
  - [TargetList](docs/TargetList.md)
  - [TargetNameWithHosts](docs/TargetNameWithHosts.md)
  - [TargetTypeDetailsInput](docs/TargetTypeDetailsInput.md)
+ - [TargetUpdateAnthropic](docs/TargetUpdateAnthropic.md)
  - [TargetUpdateArtifactory](docs/TargetUpdateArtifactory.md)
  - [TargetUpdateAws](docs/TargetUpdateAws.md)
  - [TargetUpdateAzure](docs/TargetUpdateAzure.md)
+ - [TargetUpdateBedrock](docs/TargetUpdateBedrock.md)
  - [TargetUpdateCloudflare](docs/TargetUpdateCloudflare.md)
+ - [TargetUpdateCustomDns](docs/TargetUpdateCustomDns.md)
  - [TargetUpdateDB](docs/TargetUpdateDB.md)
  - [TargetUpdateDigiCert](docs/TargetUpdateDigiCert.md)
  - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)
@@ -1764,11 +1805,14 @@ Class | Method | HTTP request | Description
  - [TargetUpdateGlobalSignAtlas](docs/TargetUpdateGlobalSignAtlas.md)
  - [TargetUpdateGodaddy](docs/TargetUpdateGodaddy.md)
  - [TargetUpdateGoogleTrust](docs/TargetUpdateGoogleTrust.md)
+ - [TargetUpdateGrok](docs/TargetUpdateGrok.md)
  - [TargetUpdateHashiVault](docs/TargetUpdateHashiVault.md)
  - [TargetUpdateK8s](docs/TargetUpdateK8s.md)
+ - [TargetUpdateKeycloak](docs/TargetUpdateKeycloak.md)
  - [TargetUpdateLdap](docs/TargetUpdateLdap.md)
  - [TargetUpdateLetsEncrypt](docs/TargetUpdateLetsEncrypt.md)
  - [TargetUpdateLinked](docs/TargetUpdateLinked.md)
+ - [TargetUpdateOkta](docs/TargetUpdateOkta.md)
  - [TargetUpdateOpenAI](docs/TargetUpdateOpenAI.md)
  - [TargetUpdateOutput](docs/TargetUpdateOutput.md)
  - [TargetUpdatePing](docs/TargetUpdatePing.md)
@@ -1787,6 +1831,7 @@ Class | Method | HTTP request | Description
  - [UIDTokenDetails](docs/UIDTokenDetails.md)
  - [UidCreateChildToken](docs/UidCreateChildToken.md)
  - [UidCreateChildTokenOutput](docs/UidCreateChildTokenOutput.md)
+ - [UidExpirationEvent](docs/UidExpirationEvent.md)
  - [UidGenerateToken](docs/UidGenerateToken.md)
  - [UidGenerateTokenOutput](docs/UidGenerateTokenOutput.md)
  - [UidListChildren](docs/UidListChildren.md)
@@ -1862,6 +1907,9 @@ Class | Method | HTTP request | Description
  - [UpdateLdapTargetDetails](docs/UpdateLdapTargetDetails.md)
  - [UpdateLdapTargetOutput](docs/UpdateLdapTargetOutput.md)
  - [UpdateLinkedTarget](docs/UpdateLinkedTarget.md)
+ - [UpdateMcpSecretBearerToken](docs/UpdateMcpSecretBearerToken.md)
+ - [UpdateMcpSecretOAuthAuthCode](docs/UpdateMcpSecretOAuthAuthCode.md)
+ - [UpdateMcpSecretOAuthClientCreds](docs/UpdateMcpSecretOAuthClientCreds.md)
  - [UpdateNativeK8STarget](docs/UpdateNativeK8STarget.md)
  - [UpdateNativeK8STargetOutput](docs/UpdateNativeK8STargetOutput.md)
  - [UpdateOidcApp](docs/UpdateOidcApp.md)

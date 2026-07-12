@@ -20,10 +20,13 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AWSTargetDetails;
+import io.akeyless.client.model.AnthropicTargetDetails;
 import io.akeyless.client.model.ArtifactoryTargetDetails;
 import io.akeyless.client.model.AzureTargetDetails;
+import io.akeyless.client.model.BedrockTargetDetails;
 import io.akeyless.client.model.ChefTargetDetails;
 import io.akeyless.client.model.CloudflareTargetDetails;
+import io.akeyless.client.model.CustomDnsTargetDetails;
 import io.akeyless.client.model.CustomTargetDetails;
 import io.akeyless.client.model.DbTargetDetails;
 import io.akeyless.client.model.DigiCertTargetDetails;
@@ -38,12 +41,15 @@ import io.akeyless.client.model.GlobalSignAtlasTargetDetails;
 import io.akeyless.client.model.GlobalSignGCCTargetDetails;
 import io.akeyless.client.model.GodaddyTargetDetails;
 import io.akeyless.client.model.GoogleTrustTargetDetails;
+import io.akeyless.client.model.GrokTargetDetails;
 import io.akeyless.client.model.HashiVaultTargetDetails;
+import io.akeyless.client.model.KeycloakTargetDetails;
 import io.akeyless.client.model.LdapTargetDetails;
 import io.akeyless.client.model.LetsEncryptTargetDetails;
 import io.akeyless.client.model.LinkedTargetDetails;
 import io.akeyless.client.model.MongoDBTargetDetails;
 import io.akeyless.client.model.NativeK8sTargetDetails;
+import io.akeyless.client.model.OktaTargetDetails;
 import io.akeyless.client.model.OpenAITargetDetails;
 import io.akeyless.client.model.PingTargetDetails;
 import io.akeyless.client.model.RabbitMQTargetDetails;
@@ -86,6 +92,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class TargetTypeDetailsInput {
+  public static final String SERIALIZED_NAME_ANTHROPIC_TARGET_DETAILS = "anthropic_target_details";
+  @SerializedName(SERIALIZED_NAME_ANTHROPIC_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private AnthropicTargetDetails anthropicTargetDetails;
+
   public static final String SERIALIZED_NAME_ARTIFACTORY_TARGET_DETAILS = "artifactory_target_details";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_TARGET_DETAILS)
   @javax.annotation.Nullable
@@ -101,6 +112,11 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   private AzureTargetDetails azureTargetDetails;
 
+  public static final String SERIALIZED_NAME_BEDROCK_TARGET_DETAILS = "bedrock_target_details";
+  @SerializedName(SERIALIZED_NAME_BEDROCK_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private BedrockTargetDetails bedrockTargetDetails;
+
   public static final String SERIALIZED_NAME_CHEF_TARGET_DETAILS = "chef_target_details";
   @SerializedName(SERIALIZED_NAME_CHEF_TARGET_DETAILS)
   @javax.annotation.Nullable
@@ -110,6 +126,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_CLOUDFLARE_TARGET_DETAILS)
   @javax.annotation.Nullable
   private CloudflareTargetDetails cloudflareTargetDetails;
+
+  public static final String SERIALIZED_NAME_CUSTOM_DNS_TARGET_DETAILS = "custom_dns_target_details";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_DNS_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private CustomDnsTargetDetails customDnsTargetDetails;
 
   public static final String SERIALIZED_NAME_CUSTOM_TARGET_DETAILS = "custom_target_details";
   @SerializedName(SERIALIZED_NAME_CUSTOM_TARGET_DETAILS)
@@ -181,10 +202,20 @@ public class TargetTypeDetailsInput {
   @javax.annotation.Nullable
   private GoogleTrustTargetDetails googleTrustTargetDetails;
 
+  public static final String SERIALIZED_NAME_GROK_TARGET_DETAILS = "grok_target_details";
+  @SerializedName(SERIALIZED_NAME_GROK_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private GrokTargetDetails grokTargetDetails;
+
   public static final String SERIALIZED_NAME_HASHI_VAULT_TARGET_DETAILS = "hashi_vault_target_details";
   @SerializedName(SERIALIZED_NAME_HASHI_VAULT_TARGET_DETAILS)
   @javax.annotation.Nullable
   private HashiVaultTargetDetails hashiVaultTargetDetails;
+
+  public static final String SERIALIZED_NAME_KEYCLOAK_TARGET_DETAILS = "keycloak_target_details";
+  @SerializedName(SERIALIZED_NAME_KEYCLOAK_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private KeycloakTargetDetails keycloakTargetDetails;
 
   public static final String SERIALIZED_NAME_LDAP_TARGET_DETAILS = "ldap_target_details";
   @SerializedName(SERIALIZED_NAME_LDAP_TARGET_DETAILS)
@@ -210,6 +241,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_NATIVE_K8S_TARGET_DETAILS)
   @javax.annotation.Nullable
   private NativeK8sTargetDetails nativeK8sTargetDetails;
+
+  public static final String SERIALIZED_NAME_OKTA_TARGET_DETAILS = "okta_target_details";
+  @SerializedName(SERIALIZED_NAME_OKTA_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private OktaTargetDetails oktaTargetDetails;
 
   public static final String SERIALIZED_NAME_OPENAI_TARGET_DETAILS = "openai_target_details";
   @SerializedName(SERIALIZED_NAME_OPENAI_TARGET_DETAILS)
@@ -269,6 +305,25 @@ public class TargetTypeDetailsInput {
   public TargetTypeDetailsInput() {
   }
 
+  public TargetTypeDetailsInput anthropicTargetDetails(@javax.annotation.Nullable AnthropicTargetDetails anthropicTargetDetails) {
+    this.anthropicTargetDetails = anthropicTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get anthropicTargetDetails
+   * @return anthropicTargetDetails
+   */
+  @javax.annotation.Nullable
+  public AnthropicTargetDetails getAnthropicTargetDetails() {
+    return anthropicTargetDetails;
+  }
+
+  public void setAnthropicTargetDetails(@javax.annotation.Nullable AnthropicTargetDetails anthropicTargetDetails) {
+    this.anthropicTargetDetails = anthropicTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput artifactoryTargetDetails(@javax.annotation.Nullable ArtifactoryTargetDetails artifactoryTargetDetails) {
     this.artifactoryTargetDetails = artifactoryTargetDetails;
     return this;
@@ -326,6 +381,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput bedrockTargetDetails(@javax.annotation.Nullable BedrockTargetDetails bedrockTargetDetails) {
+    this.bedrockTargetDetails = bedrockTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get bedrockTargetDetails
+   * @return bedrockTargetDetails
+   */
+  @javax.annotation.Nullable
+  public BedrockTargetDetails getBedrockTargetDetails() {
+    return bedrockTargetDetails;
+  }
+
+  public void setBedrockTargetDetails(@javax.annotation.Nullable BedrockTargetDetails bedrockTargetDetails) {
+    this.bedrockTargetDetails = bedrockTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput chefTargetDetails(@javax.annotation.Nullable ChefTargetDetails chefTargetDetails) {
     this.chefTargetDetails = chefTargetDetails;
     return this;
@@ -361,6 +435,25 @@ public class TargetTypeDetailsInput {
 
   public void setCloudflareTargetDetails(@javax.annotation.Nullable CloudflareTargetDetails cloudflareTargetDetails) {
     this.cloudflareTargetDetails = cloudflareTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput customDnsTargetDetails(@javax.annotation.Nullable CustomDnsTargetDetails customDnsTargetDetails) {
+    this.customDnsTargetDetails = customDnsTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get customDnsTargetDetails
+   * @return customDnsTargetDetails
+   */
+  @javax.annotation.Nullable
+  public CustomDnsTargetDetails getCustomDnsTargetDetails() {
+    return customDnsTargetDetails;
+  }
+
+  public void setCustomDnsTargetDetails(@javax.annotation.Nullable CustomDnsTargetDetails customDnsTargetDetails) {
+    this.customDnsTargetDetails = customDnsTargetDetails;
   }
 
 
@@ -630,6 +723,25 @@ public class TargetTypeDetailsInput {
   }
 
 
+  public TargetTypeDetailsInput grokTargetDetails(@javax.annotation.Nullable GrokTargetDetails grokTargetDetails) {
+    this.grokTargetDetails = grokTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get grokTargetDetails
+   * @return grokTargetDetails
+   */
+  @javax.annotation.Nullable
+  public GrokTargetDetails getGrokTargetDetails() {
+    return grokTargetDetails;
+  }
+
+  public void setGrokTargetDetails(@javax.annotation.Nullable GrokTargetDetails grokTargetDetails) {
+    this.grokTargetDetails = grokTargetDetails;
+  }
+
+
   public TargetTypeDetailsInput hashiVaultTargetDetails(@javax.annotation.Nullable HashiVaultTargetDetails hashiVaultTargetDetails) {
     this.hashiVaultTargetDetails = hashiVaultTargetDetails;
     return this;
@@ -646,6 +758,25 @@ public class TargetTypeDetailsInput {
 
   public void setHashiVaultTargetDetails(@javax.annotation.Nullable HashiVaultTargetDetails hashiVaultTargetDetails) {
     this.hashiVaultTargetDetails = hashiVaultTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput keycloakTargetDetails(@javax.annotation.Nullable KeycloakTargetDetails keycloakTargetDetails) {
+    this.keycloakTargetDetails = keycloakTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get keycloakTargetDetails
+   * @return keycloakTargetDetails
+   */
+  @javax.annotation.Nullable
+  public KeycloakTargetDetails getKeycloakTargetDetails() {
+    return keycloakTargetDetails;
+  }
+
+  public void setKeycloakTargetDetails(@javax.annotation.Nullable KeycloakTargetDetails keycloakTargetDetails) {
+    this.keycloakTargetDetails = keycloakTargetDetails;
   }
 
 
@@ -741,6 +872,25 @@ public class TargetTypeDetailsInput {
 
   public void setNativeK8sTargetDetails(@javax.annotation.Nullable NativeK8sTargetDetails nativeK8sTargetDetails) {
     this.nativeK8sTargetDetails = nativeK8sTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput oktaTargetDetails(@javax.annotation.Nullable OktaTargetDetails oktaTargetDetails) {
+    this.oktaTargetDetails = oktaTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get oktaTargetDetails
+   * @return oktaTargetDetails
+   */
+  @javax.annotation.Nullable
+  public OktaTargetDetails getOktaTargetDetails() {
+    return oktaTargetDetails;
+  }
+
+  public void setOktaTargetDetails(@javax.annotation.Nullable OktaTargetDetails oktaTargetDetails) {
+    this.oktaTargetDetails = oktaTargetDetails;
   }
 
 
@@ -963,11 +1113,14 @@ public class TargetTypeDetailsInput {
       return false;
     }
     TargetTypeDetailsInput targetTypeDetailsInput = (TargetTypeDetailsInput) o;
-    return Objects.equals(this.artifactoryTargetDetails, targetTypeDetailsInput.artifactoryTargetDetails) &&
+    return Objects.equals(this.anthropicTargetDetails, targetTypeDetailsInput.anthropicTargetDetails) &&
+        Objects.equals(this.artifactoryTargetDetails, targetTypeDetailsInput.artifactoryTargetDetails) &&
         Objects.equals(this.awsTargetDetails, targetTypeDetailsInput.awsTargetDetails) &&
         Objects.equals(this.azureTargetDetails, targetTypeDetailsInput.azureTargetDetails) &&
+        Objects.equals(this.bedrockTargetDetails, targetTypeDetailsInput.bedrockTargetDetails) &&
         Objects.equals(this.chefTargetDetails, targetTypeDetailsInput.chefTargetDetails) &&
         Objects.equals(this.cloudflareTargetDetails, targetTypeDetailsInput.cloudflareTargetDetails) &&
+        Objects.equals(this.customDnsTargetDetails, targetTypeDetailsInput.customDnsTargetDetails) &&
         Objects.equals(this.customTargetDetails, targetTypeDetailsInput.customTargetDetails) &&
         Objects.equals(this.dbTargetDetails, targetTypeDetailsInput.dbTargetDetails) &&
         Objects.equals(this.digicertTargetDetails, targetTypeDetailsInput.digicertTargetDetails) &&
@@ -982,12 +1135,15 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.globalsignTargetDetails, targetTypeDetailsInput.globalsignTargetDetails) &&
         Objects.equals(this.godaddyTargetDetails, targetTypeDetailsInput.godaddyTargetDetails) &&
         Objects.equals(this.googleTrustTargetDetails, targetTypeDetailsInput.googleTrustTargetDetails) &&
+        Objects.equals(this.grokTargetDetails, targetTypeDetailsInput.grokTargetDetails) &&
         Objects.equals(this.hashiVaultTargetDetails, targetTypeDetailsInput.hashiVaultTargetDetails) &&
+        Objects.equals(this.keycloakTargetDetails, targetTypeDetailsInput.keycloakTargetDetails) &&
         Objects.equals(this.ldapTargetDetails, targetTypeDetailsInput.ldapTargetDetails) &&
         Objects.equals(this.letsencryptTargetDetails, targetTypeDetailsInput.letsencryptTargetDetails) &&
         Objects.equals(this.linkedTargetDetails, targetTypeDetailsInput.linkedTargetDetails) &&
         Objects.equals(this.mongoDbTargetDetails, targetTypeDetailsInput.mongoDbTargetDetails) &&
         Objects.equals(this.nativeK8sTargetDetails, targetTypeDetailsInput.nativeK8sTargetDetails) &&
+        Objects.equals(this.oktaTargetDetails, targetTypeDetailsInput.oktaTargetDetails) &&
         Objects.equals(this.openaiTargetDetails, targetTypeDetailsInput.openaiTargetDetails) &&
         Objects.equals(this.pingTargetDetails, targetTypeDetailsInput.pingTargetDetails) &&
         Objects.equals(this.rabbitMqTargetDetails, targetTypeDetailsInput.rabbitMqTargetDetails) &&
@@ -1003,18 +1159,21 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, chefTargetDetails, cloudflareTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, hashiVaultTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(anthropicTargetDetails, artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, bedrockTargetDetails, chefTargetDetails, cloudflareTargetDetails, customDnsTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, grokTargetDetails, hashiVaultTargetDetails, keycloakTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, oktaTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetTypeDetailsInput {\n");
+    sb.append("    anthropicTargetDetails: ").append(toIndentedString(anthropicTargetDetails)).append("\n");
     sb.append("    artifactoryTargetDetails: ").append(toIndentedString(artifactoryTargetDetails)).append("\n");
     sb.append("    awsTargetDetails: ").append(toIndentedString(awsTargetDetails)).append("\n");
     sb.append("    azureTargetDetails: ").append(toIndentedString(azureTargetDetails)).append("\n");
+    sb.append("    bedrockTargetDetails: ").append(toIndentedString(bedrockTargetDetails)).append("\n");
     sb.append("    chefTargetDetails: ").append(toIndentedString(chefTargetDetails)).append("\n");
     sb.append("    cloudflareTargetDetails: ").append(toIndentedString(cloudflareTargetDetails)).append("\n");
+    sb.append("    customDnsTargetDetails: ").append(toIndentedString(customDnsTargetDetails)).append("\n");
     sb.append("    customTargetDetails: ").append(toIndentedString(customTargetDetails)).append("\n");
     sb.append("    dbTargetDetails: ").append(toIndentedString(dbTargetDetails)).append("\n");
     sb.append("    digicertTargetDetails: ").append(toIndentedString(digicertTargetDetails)).append("\n");
@@ -1029,12 +1188,15 @@ public class TargetTypeDetailsInput {
     sb.append("    globalsignTargetDetails: ").append(toIndentedString(globalsignTargetDetails)).append("\n");
     sb.append("    godaddyTargetDetails: ").append(toIndentedString(godaddyTargetDetails)).append("\n");
     sb.append("    googleTrustTargetDetails: ").append(toIndentedString(googleTrustTargetDetails)).append("\n");
+    sb.append("    grokTargetDetails: ").append(toIndentedString(grokTargetDetails)).append("\n");
     sb.append("    hashiVaultTargetDetails: ").append(toIndentedString(hashiVaultTargetDetails)).append("\n");
+    sb.append("    keycloakTargetDetails: ").append(toIndentedString(keycloakTargetDetails)).append("\n");
     sb.append("    ldapTargetDetails: ").append(toIndentedString(ldapTargetDetails)).append("\n");
     sb.append("    letsencryptTargetDetails: ").append(toIndentedString(letsencryptTargetDetails)).append("\n");
     sb.append("    linkedTargetDetails: ").append(toIndentedString(linkedTargetDetails)).append("\n");
     sb.append("    mongoDbTargetDetails: ").append(toIndentedString(mongoDbTargetDetails)).append("\n");
     sb.append("    nativeK8sTargetDetails: ").append(toIndentedString(nativeK8sTargetDetails)).append("\n");
+    sb.append("    oktaTargetDetails: ").append(toIndentedString(oktaTargetDetails)).append("\n");
     sb.append("    openaiTargetDetails: ").append(toIndentedString(openaiTargetDetails)).append("\n");
     sb.append("    pingTargetDetails: ").append(toIndentedString(pingTargetDetails)).append("\n");
     sb.append("    rabbitMqTargetDetails: ").append(toIndentedString(rabbitMqTargetDetails)).append("\n");
@@ -1064,7 +1226,7 @@ public class TargetTypeDetailsInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("artifactory_target_details", "aws_target_details", "azure_target_details", "chef_target_details", "cloudflare_target_details", "custom_target_details", "db_target_details", "digicert_target_details", "dockerhub_target_details", "eks_target_details", "gcp_target_details", "gemini_target_details", "github_target_details", "gitlab_target_details", "gke_target_details", "globalsign_atlas_target_details", "globalsign_target_details", "godaddy_target_details", "google_trust_target_details", "hashi_vault_target_details", "ldap_target_details", "letsencrypt_target_details", "linked_target_details", "mongo_db_target_details", "native_k8s_target_details", "openai_target_details", "ping_target_details", "rabbit_mq_target_details", "salesforce_target_details", "sectigo_target_details", "splunk_target_details", "ssh_target_details", "venafi_target_details", "web_target_details", "windows_target_details", "zerossl_target_details"));
+    openapiFields = new HashSet<String>(Arrays.asList("anthropic_target_details", "artifactory_target_details", "aws_target_details", "azure_target_details", "bedrock_target_details", "chef_target_details", "cloudflare_target_details", "custom_dns_target_details", "custom_target_details", "db_target_details", "digicert_target_details", "dockerhub_target_details", "eks_target_details", "gcp_target_details", "gemini_target_details", "github_target_details", "gitlab_target_details", "gke_target_details", "globalsign_atlas_target_details", "globalsign_target_details", "godaddy_target_details", "google_trust_target_details", "grok_target_details", "hashi_vault_target_details", "keycloak_target_details", "ldap_target_details", "letsencrypt_target_details", "linked_target_details", "mongo_db_target_details", "native_k8s_target_details", "okta_target_details", "openai_target_details", "ping_target_details", "rabbit_mq_target_details", "salesforce_target_details", "sectigo_target_details", "splunk_target_details", "ssh_target_details", "venafi_target_details", "web_target_details", "windows_target_details", "zerossl_target_details"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1091,6 +1253,10 @@ public class TargetTypeDetailsInput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `anthropic_target_details`
+      if (jsonObj.get("anthropic_target_details") != null && !jsonObj.get("anthropic_target_details").isJsonNull()) {
+        AnthropicTargetDetails.validateJsonElement(jsonObj.get("anthropic_target_details"));
+      }
       // validate the optional field `artifactory_target_details`
       if (jsonObj.get("artifactory_target_details") != null && !jsonObj.get("artifactory_target_details").isJsonNull()) {
         ArtifactoryTargetDetails.validateJsonElement(jsonObj.get("artifactory_target_details"));
@@ -1103,6 +1269,10 @@ public class TargetTypeDetailsInput {
       if (jsonObj.get("azure_target_details") != null && !jsonObj.get("azure_target_details").isJsonNull()) {
         AzureTargetDetails.validateJsonElement(jsonObj.get("azure_target_details"));
       }
+      // validate the optional field `bedrock_target_details`
+      if (jsonObj.get("bedrock_target_details") != null && !jsonObj.get("bedrock_target_details").isJsonNull()) {
+        BedrockTargetDetails.validateJsonElement(jsonObj.get("bedrock_target_details"));
+      }
       // validate the optional field `chef_target_details`
       if (jsonObj.get("chef_target_details") != null && !jsonObj.get("chef_target_details").isJsonNull()) {
         ChefTargetDetails.validateJsonElement(jsonObj.get("chef_target_details"));
@@ -1110,6 +1280,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `cloudflare_target_details`
       if (jsonObj.get("cloudflare_target_details") != null && !jsonObj.get("cloudflare_target_details").isJsonNull()) {
         CloudflareTargetDetails.validateJsonElement(jsonObj.get("cloudflare_target_details"));
+      }
+      // validate the optional field `custom_dns_target_details`
+      if (jsonObj.get("custom_dns_target_details") != null && !jsonObj.get("custom_dns_target_details").isJsonNull()) {
+        CustomDnsTargetDetails.validateJsonElement(jsonObj.get("custom_dns_target_details"));
       }
       // validate the optional field `custom_target_details`
       if (jsonObj.get("custom_target_details") != null && !jsonObj.get("custom_target_details").isJsonNull()) {
@@ -1167,9 +1341,17 @@ public class TargetTypeDetailsInput {
       if (jsonObj.get("google_trust_target_details") != null && !jsonObj.get("google_trust_target_details").isJsonNull()) {
         GoogleTrustTargetDetails.validateJsonElement(jsonObj.get("google_trust_target_details"));
       }
+      // validate the optional field `grok_target_details`
+      if (jsonObj.get("grok_target_details") != null && !jsonObj.get("grok_target_details").isJsonNull()) {
+        GrokTargetDetails.validateJsonElement(jsonObj.get("grok_target_details"));
+      }
       // validate the optional field `hashi_vault_target_details`
       if (jsonObj.get("hashi_vault_target_details") != null && !jsonObj.get("hashi_vault_target_details").isJsonNull()) {
         HashiVaultTargetDetails.validateJsonElement(jsonObj.get("hashi_vault_target_details"));
+      }
+      // validate the optional field `keycloak_target_details`
+      if (jsonObj.get("keycloak_target_details") != null && !jsonObj.get("keycloak_target_details").isJsonNull()) {
+        KeycloakTargetDetails.validateJsonElement(jsonObj.get("keycloak_target_details"));
       }
       // validate the optional field `ldap_target_details`
       if (jsonObj.get("ldap_target_details") != null && !jsonObj.get("ldap_target_details").isJsonNull()) {
@@ -1190,6 +1372,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `native_k8s_target_details`
       if (jsonObj.get("native_k8s_target_details") != null && !jsonObj.get("native_k8s_target_details").isJsonNull()) {
         NativeK8sTargetDetails.validateJsonElement(jsonObj.get("native_k8s_target_details"));
+      }
+      // validate the optional field `okta_target_details`
+      if (jsonObj.get("okta_target_details") != null && !jsonObj.get("okta_target_details").isJsonNull()) {
+        OktaTargetDetails.validateJsonElement(jsonObj.get("okta_target_details"));
       }
       // validate the optional field `openai_target_details`
       if (jsonObj.get("openai_target_details") != null && !jsonObj.get("openai_target_details").isJsonNull()) {

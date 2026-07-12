@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.BastionsList;
 import io.akeyless.client.model.CertificateIssueInfo;
+import io.akeyless.client.model.FileDownloadInstructions;
 import io.akeyless.client.model.GatewayDetailsForItemReplyObj;
 import io.akeyless.client.model.ItemCustomFieldsDetails;
 import io.akeyless.client.model.ItemGeneralInfo;
@@ -134,6 +135,11 @@ public class Item {
   @SerializedName(SERIALIZED_NAME_DISPLAY_ID)
   @javax.annotation.Nullable
   private String displayId;
+
+  public static final String SERIALIZED_NAME_FILE_DOWNLOAD = "file_download";
+  @SerializedName(SERIALIZED_NAME_FILE_DOWNLOAD)
+  @javax.annotation.Nullable
+  private FileDownloadInstructions fileDownload;
 
   public static final String SERIALIZED_NAME_GATEWAY_DETAILS = "gateway_details";
   @SerializedName(SERIALIZED_NAME_GATEWAY_DETAILS)
@@ -559,6 +565,25 @@ public class Item {
 
   public void setDisplayId(@javax.annotation.Nullable String displayId) {
     this.displayId = displayId;
+  }
+
+
+  public Item fileDownload(@javax.annotation.Nullable FileDownloadInstructions fileDownload) {
+    this.fileDownload = fileDownload;
+    return this;
+  }
+
+  /**
+   * Get fileDownload
+   * @return fileDownload
+   */
+  @javax.annotation.Nullable
+  public FileDownloadInstructions getFileDownload() {
+    return fileDownload;
+  }
+
+  public void setFileDownload(@javax.annotation.Nullable FileDownloadInstructions fileDownload) {
+    this.fileDownload = fileDownload;
   }
 
 
@@ -1212,6 +1237,7 @@ public class Item {
         Objects.equals(this.deleteProtection, item.deleteProtection) &&
         Objects.equals(this.deletionDate, item.deletionDate) &&
         Objects.equals(this.displayId, item.displayId) &&
+        Objects.equals(this.fileDownload, item.fileDownload) &&
         Objects.equals(this.gatewayDetails, item.gatewayDetails) &&
         Objects.equals(this.isAccessRequestEnabled, item.isAccessRequestEnabled) &&
         Objects.equals(this.isEnabled, item.isEnabled) &&
@@ -1246,7 +1272,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, lockingInfo, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, fileDownload, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, lockingInfo, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
   }
 
   @Override
@@ -1267,6 +1293,7 @@ public class Item {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    deletionDate: ").append(toIndentedString(deletionDate)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    fileDownload: ").append(toIndentedString(fileDownload)).append("\n");
     sb.append("    gatewayDetails: ").append(toIndentedString(gatewayDetails)).append("\n");
     sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
     sb.append("    isEnabled: ").append(toIndentedString(isEnabled)).append("\n");
@@ -1315,7 +1342,7 @@ public class Item {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_request_status", "auto_rotate", "bastion_details", "cert_issuer_signer_key_name", "certificate_issue_details", "certificates", "client_permissions", "creation_date", "customer_fragment_id", "delete_protection", "deletion_date", "display_id", "gateway_details", "is_access_request_enabled", "is_enabled", "item_accessibility", "item_custom_fields_details", "item_general_info", "item_id", "item_metadata", "item_name", "item_size", "item_state", "item_sub_type", "item_tags", "item_targets_assoc", "item_type", "item_versions", "last_rotation_date", "last_version", "linked_details", "locking_info", "modification_date", "next_rotation_date", "protection_key_name", "protection_key_type", "public_value", "rotation_interval", "shared_by", "target_versions", "usc_sync_associated_items", "with_customer_fragment"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_request_status", "auto_rotate", "bastion_details", "cert_issuer_signer_key_name", "certificate_issue_details", "certificates", "client_permissions", "creation_date", "customer_fragment_id", "delete_protection", "deletion_date", "display_id", "file_download", "gateway_details", "is_access_request_enabled", "is_enabled", "item_accessibility", "item_custom_fields_details", "item_general_info", "item_id", "item_metadata", "item_name", "item_size", "item_state", "item_sub_type", "item_tags", "item_targets_assoc", "item_type", "item_versions", "last_rotation_date", "last_version", "linked_details", "locking_info", "modification_date", "next_rotation_date", "protection_key_name", "protection_key_type", "public_value", "rotation_interval", "shared_by", "target_versions", "usc_sync_associated_items", "with_customer_fragment"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1371,6 +1398,10 @@ public class Item {
       }
       if ((jsonObj.get("display_id") != null && !jsonObj.get("display_id").isJsonNull()) && !jsonObj.get("display_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_id").toString()));
+      }
+      // validate the optional field `file_download`
+      if (jsonObj.get("file_download") != null && !jsonObj.get("file_download").isJsonNull()) {
+        FileDownloadInstructions.validateJsonElement(jsonObj.get("file_download"));
       }
       if (jsonObj.get("gateway_details") != null && !jsonObj.get("gateway_details").isJsonNull()) {
         JsonArray jsonArraygatewayDetails = jsonObj.getAsJsonArray("gateway_details");

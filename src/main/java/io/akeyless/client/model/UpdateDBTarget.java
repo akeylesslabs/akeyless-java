@@ -230,6 +230,11 @@ public class UpdateDBTarget {
   @javax.annotation.Nullable
   private String pwd;
 
+  public static final String SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION = "skip-server-name-validation";
+  @SerializedName(SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION)
+  @javax.annotation.Nullable
+  private String skipServerNameValidation;
+
   public static final String SERIALIZED_NAME_SNOWFLAKE_ACCOUNT = "snowflake-account";
   @SerializedName(SERIALIZED_NAME_SNOWFLAKE_ACCOUNT)
   @javax.annotation.Nullable
@@ -962,6 +967,25 @@ public class UpdateDBTarget {
   }
 
 
+  public UpdateDBTarget skipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
+    this.skipServerNameValidation = skipServerNameValidation;
+    return this;
+  }
+
+  /**
+   * (Optional) Skip server name verification
+   * @return skipServerNameValidation
+   */
+  @javax.annotation.Nullable
+  public String getSkipServerNameValidation() {
+    return skipServerNameValidation;
+  }
+
+  public void setSkipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
+    this.skipServerNameValidation = skipServerNameValidation;
+  }
+
+
   public UpdateDBTarget snowflakeAccount(@javax.annotation.Nullable String snowflakeAccount) {
     this.snowflakeAccount = snowflakeAccount;
     return this;
@@ -1179,6 +1203,7 @@ public class UpdateDBTarget {
         Objects.equals(this.parentTargetName, updateDBTarget.parentTargetName) &&
         Objects.equals(this.port, updateDBTarget.port) &&
         Objects.equals(this.pwd, updateDBTarget.pwd) &&
+        Objects.equals(this.skipServerNameValidation, updateDBTarget.skipServerNameValidation) &&
         Objects.equals(this.snowflakeAccount, updateDBTarget.snowflakeAccount) &&
         Objects.equals(this.snowflakeApiPrivateKey, updateDBTarget.snowflakeApiPrivateKey) &&
         Objects.equals(this.snowflakeApiPrivateKeyPassword, updateDBTarget.snowflakeApiPrivateKeyPassword) &&
@@ -1192,7 +1217,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, enableMtls, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, enableMtls, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, skipServerNameValidation, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
   @Override
@@ -1235,6 +1260,7 @@ public class UpdateDBTarget {
     sb.append("    parentTargetName: ").append(toIndentedString(parentTargetName)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
+    sb.append("    skipServerNameValidation: ").append(toIndentedString(skipServerNameValidation)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
     sb.append("    snowflakeApiPrivateKey: ").append(toIndentedString(snowflakeApiPrivateKey)).append("\n");
     sb.append("    snowflakeApiPrivateKeyPassword: ").append(toIndentedString(snowflakeApiPrivateKeyPassword)).append("\n");
@@ -1262,7 +1288,7 @@ public class UpdateDBTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("azure-client-id", "azure-client-secret", "azure-tenant-id", "client-certificate", "client-key-passphrase", "client-private-key", "cloud-service-provider", "cluster-mode", "comment", "connection-type", "db-name", "db-server-certificates", "db-server-name", "db-type", "description", "enable-mtls", "host", "json", "keep-prev-version", "key", "max-versions", "mongodb-atlas", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-default-auth-db", "mongodb-uri-options", "name", "new-name", "oracle-service-name", "oracle-wallet-login-type", "oracle-wallet-p12-file-data", "oracle-wallet-sso-file-data", "parent-target-name", "port", "pwd", "snowflake-account", "snowflake-api-private-key", "snowflake-api-private-key-password", "ssl", "ssl-certificate", "token", "uid-token", "update-version", "user-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("azure-client-id", "azure-client-secret", "azure-tenant-id", "client-certificate", "client-key-passphrase", "client-private-key", "cloud-service-provider", "cluster-mode", "comment", "connection-type", "db-name", "db-server-certificates", "db-server-name", "db-type", "description", "enable-mtls", "host", "json", "keep-prev-version", "key", "max-versions", "mongodb-atlas", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-default-auth-db", "mongodb-uri-options", "name", "new-name", "oracle-service-name", "oracle-wallet-login-type", "oracle-wallet-p12-file-data", "oracle-wallet-sso-file-data", "parent-target-name", "port", "pwd", "skip-server-name-validation", "snowflake-account", "snowflake-api-private-key", "snowflake-api-private-key-password", "ssl", "ssl-certificate", "token", "uid-token", "update-version", "user-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("connection-type", "db-type", "name"));
@@ -1391,6 +1417,9 @@ public class UpdateDBTarget {
       }
       if ((jsonObj.get("pwd") != null && !jsonObj.get("pwd").isJsonNull()) && !jsonObj.get("pwd").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pwd").toString()));
+      }
+      if ((jsonObj.get("skip-server-name-validation") != null && !jsonObj.get("skip-server-name-validation").isJsonNull()) && !jsonObj.get("skip-server-name-validation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip-server-name-validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip-server-name-validation").toString()));
       }
       if ((jsonObj.get("snowflake-account") != null && !jsonObj.get("snowflake-account").isJsonNull()) && !jsonObj.get("snowflake-account").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `snowflake-account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snowflake-account").toString()));

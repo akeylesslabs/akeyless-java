@@ -152,6 +152,11 @@ public class CreateAuthMethodSAML {
   @javax.annotation.Nonnull
   private String uniqueIdentifier;
 
+  public static final String SERIALIZED_NAME_USE_DEDICATED_SAML_URLS = "use-dedicated-saml-urls";
+  @SerializedName(SERIALIZED_NAME_USE_DEDICATED_SAML_URLS)
+  @javax.annotation.Nullable
+  private Boolean useDedicatedSamlUrls;
+
   public CreateAuthMethodSAML() {
   }
 
@@ -599,6 +604,25 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML useDedicatedSamlUrls(@javax.annotation.Nullable Boolean useDedicatedSamlUrls) {
+    this.useDedicatedSamlUrls = useDedicatedSamlUrls;
+    return this;
+  }
+
+  /**
+   * Use dedicated per-access-id SP URLs for login
+   * @return useDedicatedSamlUrls
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseDedicatedSamlUrls() {
+    return useDedicatedSamlUrls;
+  }
+
+  public void setUseDedicatedSamlUrls(@javax.annotation.Nullable Boolean useDedicatedSamlUrls) {
+    this.useDedicatedSamlUrls = useDedicatedSamlUrls;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -628,12 +652,13 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.subclaimsDelimiters, createAuthMethodSAML.subclaimsDelimiters) &&
         Objects.equals(this.token, createAuthMethodSAML.token) &&
         Objects.equals(this.uidToken, createAuthMethodSAML.uidToken) &&
-        Objects.equals(this.uniqueIdentifier, createAuthMethodSAML.uniqueIdentifier);
+        Objects.equals(this.uniqueIdentifier, createAuthMethodSAML.uniqueIdentifier) &&
+        Objects.equals(this.useDedicatedSamlUrls, createAuthMethodSAML.useDedicatedSamlUrls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
   }
 
   @Override
@@ -660,6 +685,7 @@ public class CreateAuthMethodSAML {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
+    sb.append("    useDedicatedSamlUrls: ").append(toIndentedString(useDedicatedSamlUrls)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -678,7 +704,7 @@ public class CreateAuthMethodSAML {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));

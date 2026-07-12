@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscGetSecretOutput {
+  public static final String SERIALIZED_NAME_ACTIVATION_DATE = "activation_date";
+  @SerializedName(SERIALIZED_NAME_ACTIVATION_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime activationDate;
+
   public static final String SERIALIZED_NAME_BINARY_VALUE = "binary_value";
   @SerializedName(SERIALIZED_NAME_BINARY_VALUE)
   @javax.annotation.Nullable
@@ -62,6 +68,11 @@ public class UscGetSecretOutput {
   @SerializedName(SERIALIZED_NAME_ENCRYPTION_KEY)
   @javax.annotation.Nullable
   private String encryptionKey;
+
+  public static final String SERIALIZED_NAME_EXPIRATION = "expiration";
+  @SerializedName(SERIALIZED_NAME_EXPIRATION)
+  @javax.annotation.Nullable
+  private OffsetDateTime expiration;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -101,6 +112,25 @@ public class UscGetSecretOutput {
   public UscGetSecretOutput() {
   }
 
+  public UscGetSecretOutput activationDate(@javax.annotation.Nullable OffsetDateTime activationDate) {
+    this.activationDate = activationDate;
+    return this;
+  }
+
+  /**
+   * Get activationDate
+   * @return activationDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getActivationDate() {
+    return activationDate;
+  }
+
+  public void setActivationDate(@javax.annotation.Nullable OffsetDateTime activationDate) {
+    this.activationDate = activationDate;
+  }
+
+
   public UscGetSecretOutput binaryValue(@javax.annotation.Nullable Boolean binaryValue) {
     this.binaryValue = binaryValue;
     return this;
@@ -136,6 +166,25 @@ public class UscGetSecretOutput {
 
   public void setEncryptionKey(@javax.annotation.Nullable String encryptionKey) {
     this.encryptionKey = encryptionKey;
+  }
+
+
+  public UscGetSecretOutput expiration(@javax.annotation.Nullable OffsetDateTime expiration) {
+    this.expiration = expiration;
+    return this;
+  }
+
+  /**
+   * Get expiration
+   * @return expiration
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getExpiration() {
+    return expiration;
+  }
+
+  public void setExpiration(@javax.annotation.Nullable OffsetDateTime expiration) {
+    this.expiration = expiration;
   }
 
 
@@ -298,8 +347,10 @@ public class UscGetSecretOutput {
       return false;
     }
     UscGetSecretOutput uscGetSecretOutput = (UscGetSecretOutput) o;
-    return Objects.equals(this.binaryValue, uscGetSecretOutput.binaryValue) &&
+    return Objects.equals(this.activationDate, uscGetSecretOutput.activationDate) &&
+        Objects.equals(this.binaryValue, uscGetSecretOutput.binaryValue) &&
         Objects.equals(this.encryptionKey, uscGetSecretOutput.encryptionKey) &&
+        Objects.equals(this.expiration, uscGetSecretOutput.expiration) &&
         Objects.equals(this.id, uscGetSecretOutput.id) &&
         Objects.equals(this.metadata, uscGetSecretOutput.metadata) &&
         Objects.equals(this.name, uscGetSecretOutput.name) &&
@@ -315,7 +366,7 @@ public class UscGetSecretOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, encryptionKey, id, metadata, name, value, versionId, versionIds, warnings);
+    return Objects.hash(activationDate, binaryValue, encryptionKey, expiration, id, metadata, name, value, versionId, versionIds, warnings);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -329,8 +380,10 @@ public class UscGetSecretOutput {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscGetSecretOutput {\n");
+    sb.append("    activationDate: ").append(toIndentedString(activationDate)).append("\n");
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
+    sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -356,7 +409,7 @@ public class UscGetSecretOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary_value", "encryption_key", "id", "metadata", "name", "value", "version_id", "version_ids", "warnings"));
+    openapiFields = new HashSet<String>(Arrays.asList("activation_date", "binary_value", "encryption_key", "expiration", "id", "metadata", "name", "value", "version_id", "version_ids", "warnings"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

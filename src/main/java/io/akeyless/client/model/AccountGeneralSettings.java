@@ -27,6 +27,7 @@ import io.akeyless.client.model.DataProtectionSection;
 import io.akeyless.client.model.DefaultAuthMethodSettings;
 import io.akeyless.client.model.DefaultHomePage;
 import io.akeyless.client.model.DynamicSecretMaxTtl;
+import io.akeyless.client.model.EmailCustomization;
 import io.akeyless.client.model.ItemLockingSetting;
 import io.akeyless.client.model.PasswordExpirationInfo;
 import io.akeyless.client.model.PasswordPolicyInfo;
@@ -75,6 +76,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_DEFAULT_KEY_NAME)
   @javax.annotation.Nullable
   private String accountDefaultKeyName;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_FILE_BYTES_USED = "account_file_bytes_used";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_FILE_BYTES_USED)
+  @javax.annotation.Nullable
+  private Long accountFileBytesUsed;
 
   public static final String SERIALIZED_NAME_AI_INSIGHTS = "ai_insights";
   @SerializedName(SERIALIZED_NAME_AI_INSIGHTS)
@@ -135,6 +141,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_DYNAMIC_SECRET_MAX_TTL)
   @javax.annotation.Nullable
   private DynamicSecretMaxTtl dynamicSecretMaxTtl;
+
+  public static final String SERIALIZED_NAME_EMAIL_CUSTOMIZATION = "email_customization";
+  @SerializedName(SERIALIZED_NAME_EMAIL_CUSTOMIZATION)
+  @javax.annotation.Nullable
+  private EmailCustomization emailCustomization;
 
   public static final String SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS = "enable_request_for_access";
   @SerializedName(SERIALIZED_NAME_ENABLE_REQUEST_FOR_ACCESS)
@@ -254,6 +265,25 @@ public class AccountGeneralSettings {
 
   public void setAccountDefaultKeyName(@javax.annotation.Nullable String accountDefaultKeyName) {
     this.accountDefaultKeyName = accountDefaultKeyName;
+  }
+
+
+  public AccountGeneralSettings accountFileBytesUsed(@javax.annotation.Nullable Long accountFileBytesUsed) {
+    this.accountFileBytesUsed = accountFileBytesUsed;
+    return this;
+  }
+
+  /**
+   * AccountFileBytesUsed tracks active + pending file-item plain bytes for quota enforcement.
+   * @return accountFileBytesUsed
+   */
+  @javax.annotation.Nullable
+  public Long getAccountFileBytesUsed() {
+    return accountFileBytesUsed;
+  }
+
+  public void setAccountFileBytesUsed(@javax.annotation.Nullable Long accountFileBytesUsed) {
+    this.accountFileBytesUsed = accountFileBytesUsed;
   }
 
 
@@ -482,6 +512,25 @@ public class AccountGeneralSettings {
 
   public void setDynamicSecretMaxTtl(@javax.annotation.Nullable DynamicSecretMaxTtl dynamicSecretMaxTtl) {
     this.dynamicSecretMaxTtl = dynamicSecretMaxTtl;
+  }
+
+
+  public AccountGeneralSettings emailCustomization(@javax.annotation.Nullable EmailCustomization emailCustomization) {
+    this.emailCustomization = emailCustomization;
+    return this;
+  }
+
+  /**
+   * Get emailCustomization
+   * @return emailCustomization
+   */
+  @javax.annotation.Nullable
+  public EmailCustomization getEmailCustomization() {
+    return emailCustomization;
+  }
+
+  public void setEmailCustomization(@javax.annotation.Nullable EmailCustomization emailCustomization) {
+    this.emailCustomization = emailCustomization;
   }
 
 
@@ -801,6 +850,7 @@ public class AccountGeneralSettings {
     AccountGeneralSettings accountGeneralSettings = (AccountGeneralSettings) o;
     return Objects.equals(this.accountDefaultKeyItemId, accountGeneralSettings.accountDefaultKeyItemId) &&
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
+        Objects.equals(this.accountFileBytesUsed, accountGeneralSettings.accountFileBytesUsed) &&
         Objects.equals(this.aiInsights, accountGeneralSettings.aiInsights) &&
         Objects.equals(this.allowAutoFill, accountGeneralSettings.allowAutoFill) &&
         Objects.equals(this.allowPasskeys, accountGeneralSettings.allowPasskeys) &&
@@ -813,6 +863,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.defaultAuthMethod, accountGeneralSettings.defaultAuthMethod) &&
         Objects.equals(this.defaultHomePage, accountGeneralSettings.defaultHomePage) &&
         Objects.equals(this.dynamicSecretMaxTtl, accountGeneralSettings.dynamicSecretMaxTtl) &&
+        Objects.equals(this.emailCustomization, accountGeneralSettings.emailCustomization) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.enableSearchHistory, accountGeneralSettings.enableSearchHistory) &&
         Objects.equals(this.hidePersonalFolder, accountGeneralSettings.hidePersonalFolder) &&
@@ -833,7 +884,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -842,6 +893,7 @@ public class AccountGeneralSettings {
     sb.append("class AccountGeneralSettings {\n");
     sb.append("    accountDefaultKeyItemId: ").append(toIndentedString(accountDefaultKeyItemId)).append("\n");
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
+    sb.append("    accountFileBytesUsed: ").append(toIndentedString(accountFileBytesUsed)).append("\n");
     sb.append("    aiInsights: ").append(toIndentedString(aiInsights)).append("\n");
     sb.append("    allowAutoFill: ").append(toIndentedString(allowAutoFill)).append("\n");
     sb.append("    allowPasskeys: ").append(toIndentedString(allowPasskeys)).append("\n");
@@ -854,6 +906,7 @@ public class AccountGeneralSettings {
     sb.append("    defaultAuthMethod: ").append(toIndentedString(defaultAuthMethod)).append("\n");
     sb.append("    defaultHomePage: ").append(toIndentedString(defaultHomePage)).append("\n");
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
+    sb.append("    emailCustomization: ").append(toIndentedString(emailCustomization)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    enableSearchHistory: ").append(toIndentedString(enableSearchHistory)).append("\n");
     sb.append("    hidePersonalFolder: ").append(toIndentedString(hidePersonalFolder)).append("\n");
@@ -888,7 +941,7 @@ public class AccountGeneralSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "ai_insights", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "enable_request_for_access", "enable_search_history", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
+    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -957,6 +1010,10 @@ public class AccountGeneralSettings {
       // validate the optional field `dynamic_secret_max_ttl`
       if (jsonObj.get("dynamic_secret_max_ttl") != null && !jsonObj.get("dynamic_secret_max_ttl").isJsonNull()) {
         DynamicSecretMaxTtl.validateJsonElement(jsonObj.get("dynamic_secret_max_ttl"));
+      }
+      // validate the optional field `email_customization`
+      if (jsonObj.get("email_customization") != null && !jsonObj.get("email_customization").isJsonNull()) {
+        EmailCustomization.validateJsonElement(jsonObj.get("email_customization"));
       }
       if ((jsonObj.get("invalid_characters") != null && !jsonObj.get("invalid_characters").isJsonNull()) && !jsonObj.get("invalid_characters").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `invalid_characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalid_characters").toString()));

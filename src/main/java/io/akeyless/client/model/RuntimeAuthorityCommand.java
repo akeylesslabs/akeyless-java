@@ -65,6 +65,16 @@ public class RuntimeAuthorityCommand {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_ORIGINAL_PROMPT = "original-prompt";
+  @SerializedName(SERIALIZED_NAME_ORIGINAL_PROMPT)
+  @javax.annotation.Nullable
+  private String originalPrompt;
+
+  public static final String SERIALIZED_NAME_ORIGINAL_USER = "original-user";
+  @SerializedName(SERIALIZED_NAME_ORIGINAL_USER)
+  @javax.annotation.Nullable
+  private String originalUser;
+
   public static final String SERIALIZED_NAME_PAYLOAD = "payload";
   @SerializedName(SERIALIZED_NAME_PAYLOAD)
   @javax.annotation.Nonnull
@@ -140,6 +150,44 @@ public class RuntimeAuthorityCommand {
   }
 
 
+  public RuntimeAuthorityCommand originalPrompt(@javax.annotation.Nullable String originalPrompt) {
+    this.originalPrompt = originalPrompt;
+    return this;
+  }
+
+  /**
+   * Original natural-language prompt from the user (optional, for auditing)
+   * @return originalPrompt
+   */
+  @javax.annotation.Nullable
+  public String getOriginalPrompt() {
+    return originalPrompt;
+  }
+
+  public void setOriginalPrompt(@javax.annotation.Nullable String originalPrompt) {
+    this.originalPrompt = originalPrompt;
+  }
+
+
+  public RuntimeAuthorityCommand originalUser(@javax.annotation.Nullable String originalUser) {
+    this.originalUser = originalUser;
+    return this;
+  }
+
+  /**
+   * Human end-user behind the agent (optional, for auditing)
+   * @return originalUser
+   */
+  @javax.annotation.Nullable
+  public String getOriginalUser() {
+    return originalUser;
+  }
+
+  public void setOriginalUser(@javax.annotation.Nullable String originalUser) {
+    this.originalUser = originalUser;
+  }
+
+
   public RuntimeAuthorityCommand payload(@javax.annotation.Nonnull String payload) {
     this.payload = payload;
     return this;
@@ -210,6 +258,8 @@ public class RuntimeAuthorityCommand {
     return Objects.equals(this.agentId, runtimeAuthorityCommand.agentId) &&
         Objects.equals(this.json, runtimeAuthorityCommand.json) &&
         Objects.equals(this.name, runtimeAuthorityCommand.name) &&
+        Objects.equals(this.originalPrompt, runtimeAuthorityCommand.originalPrompt) &&
+        Objects.equals(this.originalUser, runtimeAuthorityCommand.originalUser) &&
         Objects.equals(this.payload, runtimeAuthorityCommand.payload) &&
         Objects.equals(this.token, runtimeAuthorityCommand.token) &&
         Objects.equals(this.uidToken, runtimeAuthorityCommand.uidToken);
@@ -217,7 +267,7 @@ public class RuntimeAuthorityCommand {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agentId, json, name, payload, token, uidToken);
+    return Objects.hash(agentId, json, name, originalPrompt, originalUser, payload, token, uidToken);
   }
 
   @Override
@@ -227,6 +277,8 @@ public class RuntimeAuthorityCommand {
     sb.append("    agentId: ").append(toIndentedString(agentId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    originalPrompt: ").append(toIndentedString(originalPrompt)).append("\n");
+    sb.append("    originalUser: ").append(toIndentedString(originalUser)).append("\n");
     sb.append("    payload: ").append(toIndentedString(payload)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -248,7 +300,7 @@ public class RuntimeAuthorityCommand {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("agent-id", "json", "name", "payload", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("agent-id", "json", "name", "original-prompt", "original-user", "payload", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("agent-id", "name", "payload"));
@@ -287,6 +339,12 @@ public class RuntimeAuthorityCommand {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("original-prompt") != null && !jsonObj.get("original-prompt").isJsonNull()) && !jsonObj.get("original-prompt").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `original-prompt` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original-prompt").toString()));
+      }
+      if ((jsonObj.get("original-user") != null && !jsonObj.get("original-user").isJsonNull()) && !jsonObj.get("original-user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `original-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original-user").toString()));
       }
       if (!jsonObj.get("payload").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `payload` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payload").toString()));

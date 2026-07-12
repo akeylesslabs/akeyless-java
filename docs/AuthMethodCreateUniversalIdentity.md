@@ -27,6 +27,7 @@ authMethodCreateUniversalIdentity is a command that creates a new auth method th
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**treeLength** | **Integer** | Maximum UID tree depth allowed (child of child of ...) |  [optional] |
 |**ttl** | **Integer** | Token ttl |  [optional] |
+|**uidExpirationEventAt** | **List&lt;String&gt;** | Notify when this percent of the token TTL has elapsed (1-99). |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 
 

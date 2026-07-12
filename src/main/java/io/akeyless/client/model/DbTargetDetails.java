@@ -156,6 +156,11 @@ public class DbTargetDetails {
   @javax.annotation.Nullable
   private String sfAccount;
 
+  public static final String SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION = "skip_server_name_validation";
+  @SerializedName(SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION)
+  @javax.annotation.Nullable
+  private String skipServerNameValidation;
+
   public static final String SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE = "ssl_connection_certificate";
   @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE)
   @javax.annotation.Nullable
@@ -568,6 +573,25 @@ public class DbTargetDetails {
   }
 
 
+  public DbTargetDetails skipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
+    this.skipServerNameValidation = skipServerNameValidation;
+    return this;
+  }
+
+  /**
+   * (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \&quot;skip hostname validation\&quot;; MySQL treats empty as false.
+   * @return skipServerNameValidation
+   */
+  @javax.annotation.Nullable
+  public String getSkipServerNameValidation() {
+    return skipServerNameValidation;
+  }
+
+  public void setSkipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
+    this.skipServerNameValidation = skipServerNameValidation;
+  }
+
+
   public DbTargetDetails sslConnectionCertificate(@javax.annotation.Nullable String sslConnectionCertificate) {
     this.sslConnectionCertificate = sslConnectionCertificate;
     return this;
@@ -637,13 +661,14 @@ public class DbTargetDetails {
         Objects.equals(this.enableMtls, dbTargetDetails.enableMtls) &&
         Objects.equals(this.oracleWalletDetails, dbTargetDetails.oracleWalletDetails) &&
         Objects.equals(this.sfAccount, dbTargetDetails.sfAccount) &&
+        Objects.equals(this.skipServerNameValidation, dbTargetDetails.skipServerNameValidation) &&
         Objects.equals(this.sslConnectionCertificate, dbTargetDetails.sslConnectionCertificate) &&
         Objects.equals(this.sslConnectionMode, dbTargetDetails.sslConnectionMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, enableMtls, oracleWalletDetails, sfAccount, sslConnectionCertificate, sslConnectionMode);
+    return Objects.hash(clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, enableMtls, oracleWalletDetails, sfAccount, skipServerNameValidation, sslConnectionCertificate, sslConnectionMode);
   }
 
   @Override
@@ -671,6 +696,7 @@ public class DbTargetDetails {
     sb.append("    enableMtls: ").append(toIndentedString(enableMtls)).append("\n");
     sb.append("    oracleWalletDetails: ").append(toIndentedString(oracleWalletDetails)).append("\n");
     sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
+    sb.append("    skipServerNameValidation: ").append(toIndentedString(skipServerNameValidation)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
     sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
     sb.append("}");
@@ -691,7 +717,7 @@ public class DbTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "db_client_id", "db_client_secret", "db_host_name", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "enable_mtls", "oracle_wallet_details", "sf_account", "ssl_connection_certificate", "ssl_connection_mode"));
+    openapiFields = new HashSet<String>(Arrays.asList("client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "db_client_id", "db_client_secret", "db_host_name", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "enable_mtls", "oracle_wallet_details", "sf_account", "skip_server_name_validation", "ssl_connection_certificate", "ssl_connection_mode"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -775,6 +801,9 @@ public class DbTargetDetails {
       }
       if ((jsonObj.get("sf_account") != null && !jsonObj.get("sf_account").isJsonNull()) && !jsonObj.get("sf_account").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sf_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sf_account").toString()));
+      }
+      if ((jsonObj.get("skip_server_name_validation") != null && !jsonObj.get("skip_server_name_validation").isJsonNull()) && !jsonObj.get("skip_server_name_validation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_server_name_validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_server_name_validation").toString()));
       }
       if ((jsonObj.get("ssl_connection_certificate") != null && !jsonObj.get("ssl_connection_certificate").isJsonNull()) && !jsonObj.get("ssl_connection_certificate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssl_connection_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssl_connection_certificate").toString()));

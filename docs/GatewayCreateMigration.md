@@ -78,6 +78,7 @@ gatewayCreateMigration is a command that create migration
 |**siUsersIgnore** | **String** | Comma-separated list of Local Users which should not be migrated (Relevant only for Server Inventory migration) |  [optional] |
 |**siUsersPathTemplate** | **String** | Path location template for migrating users as Rotated Secrets e.g.: .../Users/{{COMPUTER_NAME}}/{{USERNAME}} (Relevant only for Server Inventory migration) |  |
 |**targetLocation** | **String** | Target location in Akeyless for imported secrets |  |
+|**targetName** | **String** | Name of existing target to use to create the migration |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**type** | **String** | Migration type (hashi/aws/gcp/k8s/azure_kv/conjur/active_directory/server_inventory/certificate) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

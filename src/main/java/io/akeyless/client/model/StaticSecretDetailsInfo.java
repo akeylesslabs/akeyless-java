@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.FileInfo;
 import io.akeyless.client.model.PasswordSecurityInfo;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class StaticSecretDetailsInfo {
+  public static final String SERIALIZED_NAME_FILE_INFO = "file_info";
+  @SerializedName(SERIALIZED_NAME_FILE_INFO)
+  @javax.annotation.Nullable
+  private FileInfo fileInfo;
+
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
   @javax.annotation.Nullable
@@ -90,6 +96,25 @@ public class StaticSecretDetailsInfo {
 
   public StaticSecretDetailsInfo() {
   }
+
+  public StaticSecretDetailsInfo fileInfo(@javax.annotation.Nullable FileInfo fileInfo) {
+    this.fileInfo = fileInfo;
+    return this;
+  }
+
+  /**
+   * Get fileInfo
+   * @return fileInfo
+   */
+  @javax.annotation.Nullable
+  public FileInfo getFileInfo() {
+    return fileInfo;
+  }
+
+  public void setFileInfo(@javax.annotation.Nullable FileInfo fileInfo) {
+    this.fileInfo = fileInfo;
+  }
+
 
   public StaticSecretDetailsInfo format(@javax.annotation.Nullable String format) {
     this.format = format;
@@ -242,7 +267,8 @@ public class StaticSecretDetailsInfo {
       return false;
     }
     StaticSecretDetailsInfo staticSecretDetailsInfo = (StaticSecretDetailsInfo) o;
-    return Objects.equals(this.format, staticSecretDetailsInfo.format) &&
+    return Objects.equals(this.fileInfo, staticSecretDetailsInfo.fileInfo) &&
+        Objects.equals(this.format, staticSecretDetailsInfo.format) &&
         Objects.equals(this.maxVersions, staticSecretDetailsInfo.maxVersions) &&
         Objects.equals(this.notifyOnChangeEvent, staticSecretDetailsInfo.notifyOnChangeEvent) &&
         Objects.equals(this.passwordSecurityInfo, staticSecretDetailsInfo.passwordSecurityInfo) &&
@@ -253,13 +279,14 @@ public class StaticSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(format, maxVersions, notifyOnChangeEvent, passwordSecurityInfo, username, website, websites);
+    return Objects.hash(fileInfo, format, maxVersions, notifyOnChangeEvent, passwordSecurityInfo, username, website, websites);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretDetailsInfo {\n");
+    sb.append("    fileInfo: ").append(toIndentedString(fileInfo)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    notifyOnChangeEvent: ").append(toIndentedString(notifyOnChangeEvent)).append("\n");
@@ -285,7 +312,7 @@ public class StaticSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("format", "max_versions", "notify_on_change_event", "password_security_info", "username", "website", "websites"));
+    openapiFields = new HashSet<String>(Arrays.asList("file_info", "format", "max_versions", "notify_on_change_event", "password_security_info", "username", "website", "websites"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -312,6 +339,10 @@ public class StaticSecretDetailsInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `file_info`
+      if (jsonObj.get("file_info") != null && !jsonObj.get("file_info").isJsonNull()) {
+        FileInfo.validateJsonElement(jsonObj.get("file_info"));
+      }
       if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
       }

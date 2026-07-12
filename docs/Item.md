@@ -21,6 +21,7 @@
 |**deleteProtection** | **Boolean** |  |  [optional] |
 |**deletionDate** | **OffsetDateTime** |  |  [optional] |
 |**displayId** | **String** |  |  [optional] |
+|**fileDownload** | [**FileDownloadInstructions**](FileDownloadInstructions.md) |  |  [optional] |
 |**gatewayDetails** | [**List&lt;GatewayDetailsForItemReplyObj&gt;**](GatewayDetailsForItemReplyObj.md) |  |  [optional] |
 |**isAccessRequestEnabled** | **Boolean** |  |  [optional] |
 |**isEnabled** | **Boolean** |  |  [optional] |

@@ -33,6 +33,7 @@ import io.akeyless.client.model.OAuth2AccessRules;
 import io.akeyless.client.model.OCIAccessRules;
 import io.akeyless.client.model.OIDCAccessRules;
 import io.akeyless.client.model.SAMLAccessRules;
+import io.akeyless.client.model.UidExpirationEvent;
 import io.akeyless.client.model.UniversalIdentityAccessRules;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -191,6 +192,11 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_DELIMITERS)
   @javax.annotation.Nullable
   private List<String> subClaimsDelimiters = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_UID_EXPIRATION_EVENTS = "uid_expiration_events";
+  @SerializedName(SERIALIZED_NAME_UID_EXPIRATION_EVENTS)
+  @javax.annotation.Nullable
+  private List<UidExpirationEvent> uidExpirationEvents = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_UNIVERSAL_IDENTITY_ACCESS_RULES = "universal_identity_access_rules";
   @SerializedName(SERIALIZED_NAME_UNIVERSAL_IDENTITY_ACCESS_RULES)
@@ -707,6 +713,33 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo uidExpirationEvents(@javax.annotation.Nullable List<UidExpirationEvent> uidExpirationEvents) {
+    this.uidExpirationEvents = uidExpirationEvents;
+    return this;
+  }
+
+  public AuthMethodAccessInfo addUidExpirationEventsItem(UidExpirationEvent uidExpirationEventsItem) {
+    if (this.uidExpirationEvents == null) {
+      this.uidExpirationEvents = new ArrayList<>();
+    }
+    this.uidExpirationEvents.add(uidExpirationEventsItem);
+    return this;
+  }
+
+  /**
+   * Relevant only for Universal Identity auth methods: token about-to-expire notification thresholds.
+   * @return uidExpirationEvents
+   */
+  @javax.annotation.Nullable
+  public List<UidExpirationEvent> getUidExpirationEvents() {
+    return uidExpirationEvents;
+  }
+
+  public void setUidExpirationEvents(@javax.annotation.Nullable List<UidExpirationEvent> uidExpirationEvents) {
+    this.uidExpirationEvents = uidExpirationEvents;
+  }
+
+
   public AuthMethodAccessInfo universalIdentityAccessRules(@javax.annotation.Nullable UniversalIdentityAccessRules universalIdentityAccessRules) {
     this.universalIdentityAccessRules = universalIdentityAccessRules;
     return this;
@@ -761,12 +794,13 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.rulesType, authMethodAccessInfo.rulesType) &&
         Objects.equals(this.samlAccessRules, authMethodAccessInfo.samlAccessRules) &&
         Objects.equals(this.subClaimsDelimiters, authMethodAccessInfo.subClaimsDelimiters) &&
+        Objects.equals(this.uidExpirationEvents, authMethodAccessInfo.uidExpirationEvents) &&
         Objects.equals(this.universalIdentityAccessRules, authMethodAccessInfo.universalIdentityAccessRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
   }
 
   @Override
@@ -798,6 +832,7 @@ public class AuthMethodAccessInfo {
     sb.append("    rulesType: ").append(toIndentedString(rulesType)).append("\n");
     sb.append("    samlAccessRules: ").append(toIndentedString(samlAccessRules)).append("\n");
     sb.append("    subClaimsDelimiters: ").append(toIndentedString(subClaimsDelimiters)).append("\n");
+    sb.append("    uidExpirationEvents: ").append(toIndentedString(uidExpirationEvents)).append("\n");
     sb.append("    universalIdentityAccessRules: ").append(toIndentedString(universalIdentityAccessRules)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -817,7 +852,7 @@ public class AuthMethodAccessInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "universal_identity_access_rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -927,6 +962,20 @@ public class AuthMethodAccessInfo {
       // ensure the optional json data is an array if present
       if (jsonObj.get("sub_claims_delimiters") != null && !jsonObj.get("sub_claims_delimiters").isJsonNull() && !jsonObj.get("sub_claims_delimiters").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sub_claims_delimiters` to be an array in the JSON string but got `%s`", jsonObj.get("sub_claims_delimiters").toString()));
+      }
+      if (jsonObj.get("uid_expiration_events") != null && !jsonObj.get("uid_expiration_events").isJsonNull()) {
+        JsonArray jsonArrayuidExpirationEvents = jsonObj.getAsJsonArray("uid_expiration_events");
+        if (jsonArrayuidExpirationEvents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("uid_expiration_events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid_expiration_events` to be an array in the JSON string but got `%s`", jsonObj.get("uid_expiration_events").toString()));
+          }
+
+          // validate the optional field `uid_expiration_events` (array)
+          for (int i = 0; i < jsonArrayuidExpirationEvents.size(); i++) {
+            UidExpirationEvent.validateJsonElement(jsonArrayuidExpirationEvents.get(i));
+          };
+        }
       }
       // validate the optional field `universal_identity_access_rules`
       if (jsonObj.get("universal_identity_access_rules") != null && !jsonObj.get("universal_identity_access_rules").isJsonNull()) {

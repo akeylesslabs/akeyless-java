@@ -314,7 +314,7 @@ public class GetPKICertificate {
   }
 
   /**
-   * Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL)
+   * Updated certificate lifetime in seconds (must be less than the Certificate Issuer default TTL). Ignored for Let&#39;s Encrypt public CA issuers, which always use the CA default lifetime (about 90 days).
    * @return ttl
    */
   @javax.annotation.Nullable

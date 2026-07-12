@@ -165,6 +165,9 @@ import io.akeyless.client.model.CreateLdapTarget;
 import io.akeyless.client.model.CreateLdapTargetOutput;
 import io.akeyless.client.model.CreateLinkedTarget;
 import io.akeyless.client.model.CreateLinkedTargetOutput;
+import io.akeyless.client.model.CreateMcpSecretBearerToken;
+import io.akeyless.client.model.CreateMcpSecretOAuthAuthCode;
+import io.akeyless.client.model.CreateMcpSecretOAuthClientCreds;
 import io.akeyless.client.model.CreateNativeK8STarget;
 import io.akeyless.client.model.CreateNativeK8STargetOutput;
 import io.akeyless.client.model.CreateOidcApp;
@@ -749,10 +752,13 @@ import io.akeyless.client.model.StaticSecretDeleteSyncOutput;
 import io.akeyless.client.model.StaticSecretSync;
 import io.akeyless.client.model.SystemAccessCredentialsReplyObj;
 import io.akeyless.client.model.Target;
+import io.akeyless.client.model.TargetCreateAnthropic;
 import io.akeyless.client.model.TargetCreateArtifactory;
 import io.akeyless.client.model.TargetCreateAws;
 import io.akeyless.client.model.TargetCreateAzure;
+import io.akeyless.client.model.TargetCreateBedrock;
 import io.akeyless.client.model.TargetCreateCloudflare;
+import io.akeyless.client.model.TargetCreateCustomDns;
 import io.akeyless.client.model.TargetCreateDB;
 import io.akeyless.client.model.TargetCreateDigiCert;
 import io.akeyless.client.model.TargetCreateDockerhub;
@@ -766,11 +772,14 @@ import io.akeyless.client.model.TargetCreateGlobalSign;
 import io.akeyless.client.model.TargetCreateGlobalSignAtlas;
 import io.akeyless.client.model.TargetCreateGodaddy;
 import io.akeyless.client.model.TargetCreateGoogleTrust;
+import io.akeyless.client.model.TargetCreateGrok;
 import io.akeyless.client.model.TargetCreateHashiVault;
 import io.akeyless.client.model.TargetCreateK8s;
+import io.akeyless.client.model.TargetCreateKeycloak;
 import io.akeyless.client.model.TargetCreateLdap;
 import io.akeyless.client.model.TargetCreateLetsEncrypt;
 import io.akeyless.client.model.TargetCreateLinked;
+import io.akeyless.client.model.TargetCreateOkta;
 import io.akeyless.client.model.TargetCreateOpenAI;
 import io.akeyless.client.model.TargetCreateOutput;
 import io.akeyless.client.model.TargetCreatePing;
@@ -786,10 +795,13 @@ import io.akeyless.client.model.TargetDelete;
 import io.akeyless.client.model.TargetGet;
 import io.akeyless.client.model.TargetGetDetails;
 import io.akeyless.client.model.TargetList;
+import io.akeyless.client.model.TargetUpdateAnthropic;
 import io.akeyless.client.model.TargetUpdateArtifactory;
 import io.akeyless.client.model.TargetUpdateAws;
 import io.akeyless.client.model.TargetUpdateAzure;
+import io.akeyless.client.model.TargetUpdateBedrock;
 import io.akeyless.client.model.TargetUpdateCloudflare;
+import io.akeyless.client.model.TargetUpdateCustomDns;
 import io.akeyless.client.model.TargetUpdateDB;
 import io.akeyless.client.model.TargetUpdateDigiCert;
 import io.akeyless.client.model.TargetUpdateDockerhub;
@@ -803,11 +815,14 @@ import io.akeyless.client.model.TargetUpdateGlobalSign;
 import io.akeyless.client.model.TargetUpdateGlobalSignAtlas;
 import io.akeyless.client.model.TargetUpdateGodaddy;
 import io.akeyless.client.model.TargetUpdateGoogleTrust;
+import io.akeyless.client.model.TargetUpdateGrok;
 import io.akeyless.client.model.TargetUpdateHashiVault;
 import io.akeyless.client.model.TargetUpdateK8s;
+import io.akeyless.client.model.TargetUpdateKeycloak;
 import io.akeyless.client.model.TargetUpdateLdap;
 import io.akeyless.client.model.TargetUpdateLetsEncrypt;
 import io.akeyless.client.model.TargetUpdateLinked;
+import io.akeyless.client.model.TargetUpdateOkta;
 import io.akeyless.client.model.TargetUpdateOpenAI;
 import io.akeyless.client.model.TargetUpdateOutput;
 import io.akeyless.client.model.TargetUpdatePing;
@@ -895,6 +910,9 @@ import io.akeyless.client.model.UpdateLdapTarget;
 import io.akeyless.client.model.UpdateLdapTargetDetails;
 import io.akeyless.client.model.UpdateLdapTargetOutput;
 import io.akeyless.client.model.UpdateLinkedTarget;
+import io.akeyless.client.model.UpdateMcpSecretBearerToken;
+import io.akeyless.client.model.UpdateMcpSecretOAuthAuthCode;
+import io.akeyless.client.model.UpdateMcpSecretOAuthClientCreds;
 import io.akeyless.client.model.UpdateNativeK8STarget;
 import io.akeyless.client.model.UpdateNativeK8STargetOutput;
 import io.akeyless.client.model.UpdateOidcApp;
@@ -11741,6 +11759,399 @@ public class V2Api {
 
         okhttp3.Call localVarCall = createLinkedTargetValidateBeforeCall(createLinkedTarget, _callback);
         Type localVarReturnType = new TypeToken<CreateLinkedTargetOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createMcpSecretBearerToken
+     * @param createMcpSecretBearerToken  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMcpSecretBearerTokenCall(@javax.annotation.Nonnull CreateMcpSecretBearerToken createMcpSecretBearerToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createMcpSecretBearerToken;
+
+        // create path and map variables
+        String localVarPath = "/create-mcp-secret-bearer-token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createMcpSecretBearerTokenValidateBeforeCall(@javax.annotation.Nonnull CreateMcpSecretBearerToken createMcpSecretBearerToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createMcpSecretBearerToken' is set
+        if (createMcpSecretBearerToken == null) {
+            throw new ApiException("Missing the required parameter 'createMcpSecretBearerToken' when calling createMcpSecretBearerToken(Async)");
+        }
+
+        return createMcpSecretBearerTokenCall(createMcpSecretBearerToken, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param createMcpSecretBearerToken  (required)
+     * @return CreateSecretOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateSecretOutput createMcpSecretBearerToken(@javax.annotation.Nonnull CreateMcpSecretBearerToken createMcpSecretBearerToken) throws ApiException {
+        ApiResponse<CreateSecretOutput> localVarResp = createMcpSecretBearerTokenWithHttpInfo(createMcpSecretBearerToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param createMcpSecretBearerToken  (required)
+     * @return ApiResponse&lt;CreateSecretOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateSecretOutput> createMcpSecretBearerTokenWithHttpInfo(@javax.annotation.Nonnull CreateMcpSecretBearerToken createMcpSecretBearerToken) throws ApiException {
+        okhttp3.Call localVarCall = createMcpSecretBearerTokenValidateBeforeCall(createMcpSecretBearerToken, null);
+        Type localVarReturnType = new TypeToken<CreateSecretOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param createMcpSecretBearerToken  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMcpSecretBearerTokenAsync(@javax.annotation.Nonnull CreateMcpSecretBearerToken createMcpSecretBearerToken, final ApiCallback<CreateSecretOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createMcpSecretBearerTokenValidateBeforeCall(createMcpSecretBearerToken, _callback);
+        Type localVarReturnType = new TypeToken<CreateSecretOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createMcpSecretOAuthAuthCode
+     * @param createMcpSecretOAuthAuthCode  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMcpSecretOAuthAuthCodeCall(@javax.annotation.Nonnull CreateMcpSecretOAuthAuthCode createMcpSecretOAuthAuthCode, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createMcpSecretOAuthAuthCode;
+
+        // create path and map variables
+        String localVarPath = "/create-mcp-secret-oauth-authorization-code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createMcpSecretOAuthAuthCodeValidateBeforeCall(@javax.annotation.Nonnull CreateMcpSecretOAuthAuthCode createMcpSecretOAuthAuthCode, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createMcpSecretOAuthAuthCode' is set
+        if (createMcpSecretOAuthAuthCode == null) {
+            throw new ApiException("Missing the required parameter 'createMcpSecretOAuthAuthCode' when calling createMcpSecretOAuthAuthCode(Async)");
+        }
+
+        return createMcpSecretOAuthAuthCodeCall(createMcpSecretOAuthAuthCode, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param createMcpSecretOAuthAuthCode  (required)
+     * @return CreateSecretOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateSecretOutput createMcpSecretOAuthAuthCode(@javax.annotation.Nonnull CreateMcpSecretOAuthAuthCode createMcpSecretOAuthAuthCode) throws ApiException {
+        ApiResponse<CreateSecretOutput> localVarResp = createMcpSecretOAuthAuthCodeWithHttpInfo(createMcpSecretOAuthAuthCode);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param createMcpSecretOAuthAuthCode  (required)
+     * @return ApiResponse&lt;CreateSecretOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateSecretOutput> createMcpSecretOAuthAuthCodeWithHttpInfo(@javax.annotation.Nonnull CreateMcpSecretOAuthAuthCode createMcpSecretOAuthAuthCode) throws ApiException {
+        okhttp3.Call localVarCall = createMcpSecretOAuthAuthCodeValidateBeforeCall(createMcpSecretOAuthAuthCode, null);
+        Type localVarReturnType = new TypeToken<CreateSecretOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param createMcpSecretOAuthAuthCode  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMcpSecretOAuthAuthCodeAsync(@javax.annotation.Nonnull CreateMcpSecretOAuthAuthCode createMcpSecretOAuthAuthCode, final ApiCallback<CreateSecretOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createMcpSecretOAuthAuthCodeValidateBeforeCall(createMcpSecretOAuthAuthCode, _callback);
+        Type localVarReturnType = new TypeToken<CreateSecretOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createMcpSecretOAuthClientCreds
+     * @param createMcpSecretOAuthClientCreds  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMcpSecretOAuthClientCredsCall(@javax.annotation.Nonnull CreateMcpSecretOAuthClientCreds createMcpSecretOAuthClientCreds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createMcpSecretOAuthClientCreds;
+
+        // create path and map variables
+        String localVarPath = "/create-mcp-secret-oauth-client-credentials";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createMcpSecretOAuthClientCredsValidateBeforeCall(@javax.annotation.Nonnull CreateMcpSecretOAuthClientCreds createMcpSecretOAuthClientCreds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createMcpSecretOAuthClientCreds' is set
+        if (createMcpSecretOAuthClientCreds == null) {
+            throw new ApiException("Missing the required parameter 'createMcpSecretOAuthClientCreds' when calling createMcpSecretOAuthClientCreds(Async)");
+        }
+
+        return createMcpSecretOAuthClientCredsCall(createMcpSecretOAuthClientCreds, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param createMcpSecretOAuthClientCreds  (required)
+     * @return CreateSecretOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateSecretOutput createMcpSecretOAuthClientCreds(@javax.annotation.Nonnull CreateMcpSecretOAuthClientCreds createMcpSecretOAuthClientCreds) throws ApiException {
+        ApiResponse<CreateSecretOutput> localVarResp = createMcpSecretOAuthClientCredsWithHttpInfo(createMcpSecretOAuthClientCreds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param createMcpSecretOAuthClientCreds  (required)
+     * @return ApiResponse&lt;CreateSecretOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateSecretOutput> createMcpSecretOAuthClientCredsWithHttpInfo(@javax.annotation.Nonnull CreateMcpSecretOAuthClientCreds createMcpSecretOAuthClientCreds) throws ApiException {
+        okhttp3.Call localVarCall = createMcpSecretOAuthClientCredsValidateBeforeCall(createMcpSecretOAuthClientCreds, null);
+        Type localVarReturnType = new TypeToken<CreateSecretOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param createMcpSecretOAuthClientCreds  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMcpSecretOAuthClientCredsAsync(@javax.annotation.Nonnull CreateMcpSecretOAuthClientCreds createMcpSecretOAuthClientCreds, final ApiCallback<CreateSecretOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createMcpSecretOAuthClientCredsValidateBeforeCall(createMcpSecretOAuthClientCreds, _callback);
+        Type localVarReturnType = new TypeToken<CreateSecretOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -62422,6 +62833,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateAnthropic
+     * @param targetCreateAnthropic  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateAnthropicCall(@javax.annotation.Nonnull TargetCreateAnthropic targetCreateAnthropic, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateAnthropic;
+
+        // create path and map variables
+        String localVarPath = "/target-create-anthropic";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateAnthropicValidateBeforeCall(@javax.annotation.Nonnull TargetCreateAnthropic targetCreateAnthropic, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateAnthropic' is set
+        if (targetCreateAnthropic == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateAnthropic' when calling targetCreateAnthropic(Async)");
+        }
+
+        return targetCreateAnthropicCall(targetCreateAnthropic, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateAnthropic  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateAnthropic(@javax.annotation.Nonnull TargetCreateAnthropic targetCreateAnthropic) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateAnthropicWithHttpInfo(targetCreateAnthropic);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateAnthropic  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateAnthropicWithHttpInfo(@javax.annotation.Nonnull TargetCreateAnthropic targetCreateAnthropic) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateAnthropicValidateBeforeCall(targetCreateAnthropic, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateAnthropic  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateAnthropicAsync(@javax.annotation.Nonnull TargetCreateAnthropic targetCreateAnthropic, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateAnthropicValidateBeforeCall(targetCreateAnthropic, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateArtifactory
      * @param targetCreateArtifactory  (required)
      * @param _callback Callback for upload/download progress
@@ -62815,6 +63357,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateBedrock
+     * @param targetCreateBedrock  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateBedrockCall(@javax.annotation.Nonnull TargetCreateBedrock targetCreateBedrock, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateBedrock;
+
+        // create path and map variables
+        String localVarPath = "/target-create-bedrock";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateBedrockValidateBeforeCall(@javax.annotation.Nonnull TargetCreateBedrock targetCreateBedrock, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateBedrock' is set
+        if (targetCreateBedrock == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateBedrock' when calling targetCreateBedrock(Async)");
+        }
+
+        return targetCreateBedrockCall(targetCreateBedrock, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateBedrock  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateBedrock(@javax.annotation.Nonnull TargetCreateBedrock targetCreateBedrock) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateBedrockWithHttpInfo(targetCreateBedrock);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateBedrock  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateBedrockWithHttpInfo(@javax.annotation.Nonnull TargetCreateBedrock targetCreateBedrock) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateBedrockValidateBeforeCall(targetCreateBedrock, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateBedrock  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateBedrockAsync(@javax.annotation.Nonnull TargetCreateBedrock targetCreateBedrock, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateBedrockValidateBeforeCall(targetCreateBedrock, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateCloudflare
      * @param targetCreateCloudflare  (required)
      * @param _callback Callback for upload/download progress
@@ -62941,6 +63614,137 @@ public class V2Api {
     public okhttp3.Call targetCreateCloudflareAsync(@javax.annotation.Nonnull TargetCreateCloudflare targetCreateCloudflare, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetCreateCloudflareValidateBeforeCall(targetCreateCloudflare, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetCreateCustomDns
+     * @param targetCreateCustomDns  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateCustomDnsCall(@javax.annotation.Nonnull TargetCreateCustomDns targetCreateCustomDns, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateCustomDns;
+
+        // create path and map variables
+        String localVarPath = "/target-create-custom-dns";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateCustomDnsValidateBeforeCall(@javax.annotation.Nonnull TargetCreateCustomDns targetCreateCustomDns, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateCustomDns' is set
+        if (targetCreateCustomDns == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateCustomDns' when calling targetCreateCustomDns(Async)");
+        }
+
+        return targetCreateCustomDnsCall(targetCreateCustomDns, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateCustomDns  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateCustomDns(@javax.annotation.Nonnull TargetCreateCustomDns targetCreateCustomDns) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateCustomDnsWithHttpInfo(targetCreateCustomDns);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateCustomDns  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateCustomDnsWithHttpInfo(@javax.annotation.Nonnull TargetCreateCustomDns targetCreateCustomDns) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateCustomDnsValidateBeforeCall(targetCreateCustomDns, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateCustomDns  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateCustomDnsAsync(@javax.annotation.Nonnull TargetCreateCustomDns targetCreateCustomDns, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateCustomDnsValidateBeforeCall(targetCreateCustomDns, _callback);
         Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -64649,6 +65453,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateGrok
+     * @param targetCreateGrok  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateGrokCall(@javax.annotation.Nonnull TargetCreateGrok targetCreateGrok, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateGrok;
+
+        // create path and map variables
+        String localVarPath = "/target-create-grok";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateGrokValidateBeforeCall(@javax.annotation.Nonnull TargetCreateGrok targetCreateGrok, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateGrok' is set
+        if (targetCreateGrok == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateGrok' when calling targetCreateGrok(Async)");
+        }
+
+        return targetCreateGrokCall(targetCreateGrok, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateGrok  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateGrok(@javax.annotation.Nonnull TargetCreateGrok targetCreateGrok) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateGrokWithHttpInfo(targetCreateGrok);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateGrok  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateGrokWithHttpInfo(@javax.annotation.Nonnull TargetCreateGrok targetCreateGrok) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateGrokValidateBeforeCall(targetCreateGrok, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateGrok  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateGrokAsync(@javax.annotation.Nonnull TargetCreateGrok targetCreateGrok, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateGrokValidateBeforeCall(targetCreateGrok, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateHashiVault
      * @param targetCreateHashiVault  (required)
      * @param _callback Callback for upload/download progress
@@ -64906,6 +65841,137 @@ public class V2Api {
     public okhttp3.Call targetCreateK8sAsync(@javax.annotation.Nonnull TargetCreateK8s targetCreateK8s, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetCreateK8sValidateBeforeCall(targetCreateK8s, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetCreateKeycloak
+     * @param targetCreateKeycloak  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateKeycloakCall(@javax.annotation.Nonnull TargetCreateKeycloak targetCreateKeycloak, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateKeycloak;
+
+        // create path and map variables
+        String localVarPath = "/target-create-keycloak";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateKeycloakValidateBeforeCall(@javax.annotation.Nonnull TargetCreateKeycloak targetCreateKeycloak, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateKeycloak' is set
+        if (targetCreateKeycloak == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateKeycloak' when calling targetCreateKeycloak(Async)");
+        }
+
+        return targetCreateKeycloakCall(targetCreateKeycloak, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateKeycloak  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateKeycloak(@javax.annotation.Nonnull TargetCreateKeycloak targetCreateKeycloak) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateKeycloakWithHttpInfo(targetCreateKeycloak);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateKeycloak  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateKeycloakWithHttpInfo(@javax.annotation.Nonnull TargetCreateKeycloak targetCreateKeycloak) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateKeycloakValidateBeforeCall(targetCreateKeycloak, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateKeycloak  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateKeycloakAsync(@javax.annotation.Nonnull TargetCreateKeycloak targetCreateKeycloak, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateKeycloakValidateBeforeCall(targetCreateKeycloak, _callback);
         Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -65299,6 +66365,137 @@ public class V2Api {
     public okhttp3.Call targetCreateLinkedAsync(@javax.annotation.Nonnull TargetCreateLinked targetCreateLinked, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetCreateLinkedValidateBeforeCall(targetCreateLinked, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetCreateOkta
+     * @param targetCreateOkta  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateOktaCall(@javax.annotation.Nonnull TargetCreateOkta targetCreateOkta, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateOkta;
+
+        // create path and map variables
+        String localVarPath = "/target-create-okta";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateOktaValidateBeforeCall(@javax.annotation.Nonnull TargetCreateOkta targetCreateOkta, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateOkta' is set
+        if (targetCreateOkta == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateOkta' when calling targetCreateOkta(Async)");
+        }
+
+        return targetCreateOktaCall(targetCreateOkta, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateOkta  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateOkta(@javax.annotation.Nonnull TargetCreateOkta targetCreateOkta) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateOktaWithHttpInfo(targetCreateOkta);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateOkta  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateOktaWithHttpInfo(@javax.annotation.Nonnull TargetCreateOkta targetCreateOkta) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateOktaValidateBeforeCall(targetCreateOkta, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateOkta  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateOktaAsync(@javax.annotation.Nonnull TargetCreateOkta targetCreateOkta, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateOktaValidateBeforeCall(targetCreateOkta, _callback);
         Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -67138,6 +68335,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetUpdateAnthropic
+     * @param targetUpdateAnthropic  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateAnthropicCall(@javax.annotation.Nonnull TargetUpdateAnthropic targetUpdateAnthropic, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateAnthropic;
+
+        // create path and map variables
+        String localVarPath = "/target-update-anthropic";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateAnthropicValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateAnthropic targetUpdateAnthropic, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateAnthropic' is set
+        if (targetUpdateAnthropic == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateAnthropic' when calling targetUpdateAnthropic(Async)");
+        }
+
+        return targetUpdateAnthropicCall(targetUpdateAnthropic, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateAnthropic  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateAnthropic(@javax.annotation.Nonnull TargetUpdateAnthropic targetUpdateAnthropic) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateAnthropicWithHttpInfo(targetUpdateAnthropic);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateAnthropic  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateAnthropicWithHttpInfo(@javax.annotation.Nonnull TargetUpdateAnthropic targetUpdateAnthropic) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateAnthropicValidateBeforeCall(targetUpdateAnthropic, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateAnthropic  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAnthropicResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateAnthropicAsync(@javax.annotation.Nonnull TargetUpdateAnthropic targetUpdateAnthropic, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateAnthropicValidateBeforeCall(targetUpdateAnthropic, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetUpdateArtifactory
      * @param targetUpdateArtifactory  (required)
      * @param _callback Callback for upload/download progress
@@ -67531,6 +68859,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetUpdateBedrock
+     * @param targetUpdateBedrock  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateBedrockCall(@javax.annotation.Nonnull TargetUpdateBedrock targetUpdateBedrock, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateBedrock;
+
+        // create path and map variables
+        String localVarPath = "/target-update-bedrock";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateBedrockValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateBedrock targetUpdateBedrock, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateBedrock' is set
+        if (targetUpdateBedrock == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateBedrock' when calling targetUpdateBedrock(Async)");
+        }
+
+        return targetUpdateBedrockCall(targetUpdateBedrock, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateBedrock  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateBedrock(@javax.annotation.Nonnull TargetUpdateBedrock targetUpdateBedrock) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateBedrockWithHttpInfo(targetUpdateBedrock);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateBedrock  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateBedrockWithHttpInfo(@javax.annotation.Nonnull TargetUpdateBedrock targetUpdateBedrock) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateBedrockValidateBeforeCall(targetUpdateBedrock, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateBedrock  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateBedrockResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateBedrockAsync(@javax.annotation.Nonnull TargetUpdateBedrock targetUpdateBedrock, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateBedrockValidateBeforeCall(targetUpdateBedrock, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetUpdateCloudflare
      * @param targetUpdateCloudflare  (required)
      * @param _callback Callback for upload/download progress
@@ -67657,6 +69116,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateCloudflareAsync(@javax.annotation.Nonnull TargetUpdateCloudflare targetUpdateCloudflare, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateCloudflareValidateBeforeCall(targetUpdateCloudflare, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateCustomDns
+     * @param targetUpdateCustomDns  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateCustomDnsCall(@javax.annotation.Nonnull TargetUpdateCustomDns targetUpdateCustomDns, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateCustomDns;
+
+        // create path and map variables
+        String localVarPath = "/target-update-custom-dns";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateCustomDnsValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateCustomDns targetUpdateCustomDns, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateCustomDns' is set
+        if (targetUpdateCustomDns == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateCustomDns' when calling targetUpdateCustomDns(Async)");
+        }
+
+        return targetUpdateCustomDnsCall(targetUpdateCustomDns, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateCustomDns  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateCustomDns(@javax.annotation.Nonnull TargetUpdateCustomDns targetUpdateCustomDns) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateCustomDnsWithHttpInfo(targetUpdateCustomDns);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateCustomDns  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateCustomDnsWithHttpInfo(@javax.annotation.Nonnull TargetUpdateCustomDns targetUpdateCustomDns) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateCustomDnsValidateBeforeCall(targetUpdateCustomDns, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateCustomDns  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomDnsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateCustomDnsAsync(@javax.annotation.Nonnull TargetUpdateCustomDns targetUpdateCustomDns, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateCustomDnsValidateBeforeCall(targetUpdateCustomDns, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -69365,6 +70955,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetUpdateGrok
+     * @param targetUpdateGrok  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateGrokCall(@javax.annotation.Nonnull TargetUpdateGrok targetUpdateGrok, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateGrok;
+
+        // create path and map variables
+        String localVarPath = "/target-update-grok";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateGrokValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateGrok targetUpdateGrok, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateGrok' is set
+        if (targetUpdateGrok == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateGrok' when calling targetUpdateGrok(Async)");
+        }
+
+        return targetUpdateGrokCall(targetUpdateGrok, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateGrok  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateGrok(@javax.annotation.Nonnull TargetUpdateGrok targetUpdateGrok) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateGrokWithHttpInfo(targetUpdateGrok);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateGrok  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateGrokWithHttpInfo(@javax.annotation.Nonnull TargetUpdateGrok targetUpdateGrok) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateGrokValidateBeforeCall(targetUpdateGrok, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateGrok  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateGrokResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateGrokAsync(@javax.annotation.Nonnull TargetUpdateGrok targetUpdateGrok, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateGrokValidateBeforeCall(targetUpdateGrok, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetUpdateHashiVault
      * @param targetUpdateHashiVault  (required)
      * @param _callback Callback for upload/download progress
@@ -69622,6 +71343,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateK8sAsync(@javax.annotation.Nonnull TargetUpdateK8s targetUpdateK8s, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateK8sValidateBeforeCall(targetUpdateK8s, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateKeycloak
+     * @param targetUpdateKeycloak  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateKeycloakCall(@javax.annotation.Nonnull TargetUpdateKeycloak targetUpdateKeycloak, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateKeycloak;
+
+        // create path and map variables
+        String localVarPath = "/target-update-keycloak";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateKeycloakValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateKeycloak targetUpdateKeycloak, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateKeycloak' is set
+        if (targetUpdateKeycloak == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateKeycloak' when calling targetUpdateKeycloak(Async)");
+        }
+
+        return targetUpdateKeycloakCall(targetUpdateKeycloak, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateKeycloak  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateKeycloak(@javax.annotation.Nonnull TargetUpdateKeycloak targetUpdateKeycloak) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateKeycloakWithHttpInfo(targetUpdateKeycloak);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateKeycloak  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateKeycloakWithHttpInfo(@javax.annotation.Nonnull TargetUpdateKeycloak targetUpdateKeycloak) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateKeycloakValidateBeforeCall(targetUpdateKeycloak, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateKeycloak  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateKeycloakResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateKeycloakAsync(@javax.annotation.Nonnull TargetUpdateKeycloak targetUpdateKeycloak, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateKeycloakValidateBeforeCall(targetUpdateKeycloak, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -70015,6 +71867,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateLinkedAsync(@javax.annotation.Nonnull TargetUpdateLinked targetUpdateLinked, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateLinkedValidateBeforeCall(targetUpdateLinked, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateOkta
+     * @param targetUpdateOkta  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateOktaCall(@javax.annotation.Nonnull TargetUpdateOkta targetUpdateOkta, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateOkta;
+
+        // create path and map variables
+        String localVarPath = "/target-update-okta";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateOktaValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateOkta targetUpdateOkta, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateOkta' is set
+        if (targetUpdateOkta == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateOkta' when calling targetUpdateOkta(Async)");
+        }
+
+        return targetUpdateOktaCall(targetUpdateOkta, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateOkta  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateOkta(@javax.annotation.Nonnull TargetUpdateOkta targetUpdateOkta) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateOktaWithHttpInfo(targetUpdateOkta);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateOkta  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateOktaWithHttpInfo(@javax.annotation.Nonnull TargetUpdateOkta targetUpdateOkta) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateOktaValidateBeforeCall(targetUpdateOkta, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateOkta  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateOktaResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateOktaAsync(@javax.annotation.Nonnull TargetUpdateOkta targetUpdateOkta, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateOktaValidateBeforeCall(targetUpdateOkta, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -77483,6 +79466,399 @@ public class V2Api {
 
         okhttp3.Call localVarCall = updateLinkedTargetValidateBeforeCall(updateLinkedTarget, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateMcpSecretBearerToken
+     * @param updateMcpSecretBearerToken  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMcpSecretBearerTokenCall(@javax.annotation.Nonnull UpdateMcpSecretBearerToken updateMcpSecretBearerToken, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateMcpSecretBearerToken;
+
+        // create path and map variables
+        String localVarPath = "/update-mcp-secret-bearer-token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateMcpSecretBearerTokenValidateBeforeCall(@javax.annotation.Nonnull UpdateMcpSecretBearerToken updateMcpSecretBearerToken, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'updateMcpSecretBearerToken' is set
+        if (updateMcpSecretBearerToken == null) {
+            throw new ApiException("Missing the required parameter 'updateMcpSecretBearerToken' when calling updateMcpSecretBearerToken(Async)");
+        }
+
+        return updateMcpSecretBearerTokenCall(updateMcpSecretBearerToken, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param updateMcpSecretBearerToken  (required)
+     * @return UpdateSecretValOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateSecretValOutput updateMcpSecretBearerToken(@javax.annotation.Nonnull UpdateMcpSecretBearerToken updateMcpSecretBearerToken) throws ApiException {
+        ApiResponse<UpdateSecretValOutput> localVarResp = updateMcpSecretBearerTokenWithHttpInfo(updateMcpSecretBearerToken);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param updateMcpSecretBearerToken  (required)
+     * @return ApiResponse&lt;UpdateSecretValOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateSecretValOutput> updateMcpSecretBearerTokenWithHttpInfo(@javax.annotation.Nonnull UpdateMcpSecretBearerToken updateMcpSecretBearerToken) throws ApiException {
+        okhttp3.Call localVarCall = updateMcpSecretBearerTokenValidateBeforeCall(updateMcpSecretBearerToken, null);
+        Type localVarReturnType = new TypeToken<UpdateSecretValOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param updateMcpSecretBearerToken  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMcpSecretBearerTokenAsync(@javax.annotation.Nonnull UpdateMcpSecretBearerToken updateMcpSecretBearerToken, final ApiCallback<UpdateSecretValOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateMcpSecretBearerTokenValidateBeforeCall(updateMcpSecretBearerToken, _callback);
+        Type localVarReturnType = new TypeToken<UpdateSecretValOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateMcpSecretOAuthAuthCode
+     * @param updateMcpSecretOAuthAuthCode  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMcpSecretOAuthAuthCodeCall(@javax.annotation.Nonnull UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateMcpSecretOAuthAuthCode;
+
+        // create path and map variables
+        String localVarPath = "/update-mcp-secret-oauth-authorization-code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateMcpSecretOAuthAuthCodeValidateBeforeCall(@javax.annotation.Nonnull UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'updateMcpSecretOAuthAuthCode' is set
+        if (updateMcpSecretOAuthAuthCode == null) {
+            throw new ApiException("Missing the required parameter 'updateMcpSecretOAuthAuthCode' when calling updateMcpSecretOAuthAuthCode(Async)");
+        }
+
+        return updateMcpSecretOAuthAuthCodeCall(updateMcpSecretOAuthAuthCode, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param updateMcpSecretOAuthAuthCode  (required)
+     * @return UpdateSecretValOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateSecretValOutput updateMcpSecretOAuthAuthCode(@javax.annotation.Nonnull UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode) throws ApiException {
+        ApiResponse<UpdateSecretValOutput> localVarResp = updateMcpSecretOAuthAuthCodeWithHttpInfo(updateMcpSecretOAuthAuthCode);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param updateMcpSecretOAuthAuthCode  (required)
+     * @return ApiResponse&lt;UpdateSecretValOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateSecretValOutput> updateMcpSecretOAuthAuthCodeWithHttpInfo(@javax.annotation.Nonnull UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode) throws ApiException {
+        okhttp3.Call localVarCall = updateMcpSecretOAuthAuthCodeValidateBeforeCall(updateMcpSecretOAuthAuthCode, null);
+        Type localVarReturnType = new TypeToken<UpdateSecretValOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param updateMcpSecretOAuthAuthCode  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMcpSecretOAuthAuthCodeAsync(@javax.annotation.Nonnull UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode, final ApiCallback<UpdateSecretValOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateMcpSecretOAuthAuthCodeValidateBeforeCall(updateMcpSecretOAuthAuthCode, _callback);
+        Type localVarReturnType = new TypeToken<UpdateSecretValOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateMcpSecretOAuthClientCreds
+     * @param updateMcpSecretOAuthClientCreds  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMcpSecretOAuthClientCredsCall(@javax.annotation.Nonnull UpdateMcpSecretOAuthClientCreds updateMcpSecretOAuthClientCreds, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateMcpSecretOAuthClientCreds;
+
+        // create path and map variables
+        String localVarPath = "/update-mcp-secret-oauth-client-credentials";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateMcpSecretOAuthClientCredsValidateBeforeCall(@javax.annotation.Nonnull UpdateMcpSecretOAuthClientCreds updateMcpSecretOAuthClientCreds, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'updateMcpSecretOAuthClientCreds' is set
+        if (updateMcpSecretOAuthClientCreds == null) {
+            throw new ApiException("Missing the required parameter 'updateMcpSecretOAuthClientCreds' when calling updateMcpSecretOAuthClientCreds(Async)");
+        }
+
+        return updateMcpSecretOAuthClientCredsCall(updateMcpSecretOAuthClientCreds, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param updateMcpSecretOAuthClientCreds  (required)
+     * @return UpdateSecretValOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateSecretValOutput updateMcpSecretOAuthClientCreds(@javax.annotation.Nonnull UpdateMcpSecretOAuthClientCreds updateMcpSecretOAuthClientCreds) throws ApiException {
+        ApiResponse<UpdateSecretValOutput> localVarResp = updateMcpSecretOAuthClientCredsWithHttpInfo(updateMcpSecretOAuthClientCreds);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param updateMcpSecretOAuthClientCreds  (required)
+     * @return ApiResponse&lt;UpdateSecretValOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateSecretValOutput> updateMcpSecretOAuthClientCredsWithHttpInfo(@javax.annotation.Nonnull UpdateMcpSecretOAuthClientCreds updateMcpSecretOAuthClientCreds) throws ApiException {
+        okhttp3.Call localVarCall = updateMcpSecretOAuthClientCredsValidateBeforeCall(updateMcpSecretOAuthClientCreds, null);
+        Type localVarReturnType = new TypeToken<UpdateSecretValOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param updateMcpSecretOAuthClientCreds  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td>  </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMcpSecretOAuthClientCredsAsync(@javax.annotation.Nonnull UpdateMcpSecretOAuthClientCreds updateMcpSecretOAuthClientCreds, final ApiCallback<UpdateSecretValOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateMcpSecretOAuthClientCredsValidateBeforeCall(updateMcpSecretOAuthClientCreds, _callback);
+        Type localVarReturnType = new TypeToken<UpdateSecretValOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -78,6 +78,11 @@ public class SAMLAccessRules {
   @javax.annotation.Nullable
   private String uniqueIdentifier;
 
+  public static final String SERIALIZED_NAME_USE_DEDICATED_SAML_URLS = "use_dedicated_saml_urls";
+  @SerializedName(SERIALIZED_NAME_USE_DEDICATED_SAML_URLS)
+  @javax.annotation.Nullable
+  private Boolean useDedicatedSamlUrls;
+
   public SAMLAccessRules() {
   }
 
@@ -192,6 +197,25 @@ public class SAMLAccessRules {
   }
 
 
+  public SAMLAccessRules useDedicatedSamlUrls(@javax.annotation.Nullable Boolean useDedicatedSamlUrls) {
+    this.useDedicatedSamlUrls = useDedicatedSamlUrls;
+    return this;
+  }
+
+  /**
+   * When true, the login AuthnRequest is signed with this access method&#39;s dedicated SP identity (Entity ID https://&lt;sp&gt;/saml/sp/{access_id} and ACS https://&lt;sp&gt;/saml/acs/{access_id}) instead of the shared global identity. Default false keeps the legacy global identity for backward compatibility.
+   * @return useDedicatedSamlUrls
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseDedicatedSamlUrls() {
+    return useDedicatedSamlUrls;
+  }
+
+  public void setUseDedicatedSamlUrls(@javax.annotation.Nullable Boolean useDedicatedSamlUrls) {
+    this.useDedicatedSamlUrls = useDedicatedSamlUrls;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -206,12 +230,13 @@ public class SAMLAccessRules {
         Objects.equals(this.boundAttributes, saMLAccessRules.boundAttributes) &&
         Objects.equals(this.idpMetadataUrl, saMLAccessRules.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXml, saMLAccessRules.idpMetadataXml) &&
-        Objects.equals(this.uniqueIdentifier, saMLAccessRules.uniqueIdentifier);
+        Objects.equals(this.uniqueIdentifier, saMLAccessRules.uniqueIdentifier) &&
+        Objects.equals(this.useDedicatedSamlUrls, saMLAccessRules.useDedicatedSamlUrls);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedRedirectURIs, boundAttributes, idpMetadataUrl, idpMetadataXml, uniqueIdentifier);
+    return Objects.hash(allowedRedirectURIs, boundAttributes, idpMetadataUrl, idpMetadataXml, uniqueIdentifier, useDedicatedSamlUrls);
   }
 
   @Override
@@ -223,6 +248,7 @@ public class SAMLAccessRules {
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXml: ").append(toIndentedString(idpMetadataXml)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
+    sb.append("    useDedicatedSamlUrls: ").append(toIndentedString(useDedicatedSamlUrls)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -241,7 +267,7 @@ public class SAMLAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allowed_redirect_URIs", "bound_attributes", "idp_metadata_url", "idp_metadata_xml", "unique_identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("allowed_redirect_URIs", "bound_attributes", "idp_metadata_url", "idp_metadata_xml", "unique_identifier", "use_dedicated_saml_urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
