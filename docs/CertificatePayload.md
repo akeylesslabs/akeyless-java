@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**excludeHosts** | **List&lt;String&gt;** |  |  [optional] |
 |**expirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
 |**folder** | **String** |  |  [optional] |
 |**maxDialTimeout** | **Long** |  |  [optional] |

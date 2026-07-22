@@ -100,6 +100,11 @@ public class DecryptGPG {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nullable
+  private Integer version;
+
   public DecryptGPG() {
   }
 
@@ -293,6 +298,25 @@ public class DecryptGPG {
   }
 
 
+  public DecryptGPG version(@javax.annotation.Nullable Integer version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * key version (relevant only for classic key)
+   * @return version
+   */
+  @javax.annotation.Nullable
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(@javax.annotation.Nullable Integer version) {
+    this.version = version;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -312,12 +336,13 @@ public class DecryptGPG {
         Objects.equals(this.outputFormat, decryptGPG.outputFormat) &&
         Objects.equals(this.passphrase, decryptGPG.passphrase) &&
         Objects.equals(this.token, decryptGPG.token) &&
-        Objects.equals(this.uidToken, decryptGPG.uidToken);
+        Objects.equals(this.uidToken, decryptGPG.uidToken) &&
+        Objects.equals(this.version, decryptGPG.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(ciphertext, displayId, inputFormat, itemId, json, keyName, outputFormat, passphrase, token, uidToken);
+    return Objects.hash(ciphertext, displayId, inputFormat, itemId, json, keyName, outputFormat, passphrase, token, uidToken, version);
   }
 
   @Override
@@ -334,6 +359,7 @@ public class DecryptGPG {
     sb.append("    passphrase: ").append(toIndentedString(passphrase)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -352,7 +378,7 @@ public class DecryptGPG {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ciphertext", "display-id", "input-format", "item-id", "json", "key-name", "output-format", "passphrase", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ciphertext", "display-id", "input-format", "item-id", "json", "key-name", "output-format", "passphrase", "token", "uid-token", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("ciphertext", "key-name"));

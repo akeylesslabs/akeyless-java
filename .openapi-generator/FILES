@@ -28,6 +28,7 @@ docs/ActiveDirectoryMigration.md
 docs/ActiveDirectoryPayload.md
 docs/AddGatewayAllowedAccessId.md
 docs/AdminsConfigPart.md
+docs/AerospikeTargetDetails.md
 docs/AgenticRule.md
 docs/AgenticRules.md
 docs/AiInsightsConfigPart.md
@@ -992,6 +993,7 @@ docs/SyslogLogForwardingConfig.md
 docs/SystemAccessCredentialsReplyObj.md
 docs/SystemAccessCredsSettings.md
 docs/Target.md
+docs/TargetCreateAerospike.md
 docs/TargetCreateAnthropic.md
 docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
@@ -1040,6 +1042,7 @@ docs/TargetItemVersion.md
 docs/TargetList.md
 docs/TargetNameWithHosts.md
 docs/TargetTypeDetailsInput.md
+docs/TargetUpdateAerospike.md
 docs/TargetUpdateAnthropic.md
 docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
@@ -1295,6 +1298,7 @@ src/main/java/io/akeyless/client/model/ActiveDirectoryMigration.java
 src/main/java/io/akeyless/client/model/ActiveDirectoryPayload.java
 src/main/java/io/akeyless/client/model/AddGatewayAllowedAccessId.java
 src/main/java/io/akeyless/client/model/AdminsConfigPart.java
+src/main/java/io/akeyless/client/model/AerospikeTargetDetails.java
 src/main/java/io/akeyless/client/model/AgenticRule.java
 src/main/java/io/akeyless/client/model/AgenticRules.java
 src/main/java/io/akeyless/client/model/AiInsightsConfigPart.java
@@ -2259,6 +2263,7 @@ src/main/java/io/akeyless/client/model/SyslogLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/SystemAccessCredentialsReplyObj.java
 src/main/java/io/akeyless/client/model/SystemAccessCredsSettings.java
 src/main/java/io/akeyless/client/model/Target.java
+src/main/java/io/akeyless/client/model/TargetCreateAerospike.java
 src/main/java/io/akeyless/client/model/TargetCreateAnthropic.java
 src/main/java/io/akeyless/client/model/TargetCreateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetCreateAws.java
@@ -2307,6 +2312,7 @@ src/main/java/io/akeyless/client/model/TargetItemVersion.java
 src/main/java/io/akeyless/client/model/TargetList.java
 src/main/java/io/akeyless/client/model/TargetNameWithHosts.java
 src/main/java/io/akeyless/client/model/TargetTypeDetailsInput.java
+src/main/java/io/akeyless/client/model/TargetUpdateAerospike.java
 src/main/java/io/akeyless/client/model/TargetUpdateAnthropic.java
 src/main/java/io/akeyless/client/model/TargetUpdateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetUpdateAws.java
@@ -2510,3 +2516,6 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/AerospikeTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/TargetCreateAerospikeTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateAerospikeTest.java

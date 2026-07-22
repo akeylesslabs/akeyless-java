@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**aerospikeTargetDetails** | [**AerospikeTargetDetails**](AerospikeTargetDetails.md) |  |  [optional] |
 |**anthropicTargetDetails** | [**AnthropicTargetDetails**](AnthropicTargetDetails.md) |  |  [optional] |
 |**artifactoryTargetDetails** | [**ArtifactoryTargetDetails**](ArtifactoryTargetDetails.md) |  |  [optional] |
 |**awsTargetDetails** | [**AWSTargetDetails**](AWSTargetDetails.md) |  |  [optional] |

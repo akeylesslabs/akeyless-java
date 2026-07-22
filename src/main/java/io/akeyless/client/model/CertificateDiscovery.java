@@ -57,6 +57,11 @@ public class CertificateDiscovery {
   @javax.annotation.Nullable
   private Boolean debug = false;
 
+  public static final String SERIALIZED_NAME_EXCLUDE_HOSTS = "exclude-hosts";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE_HOSTS)
+  @javax.annotation.Nullable
+  private String excludeHosts;
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   @javax.annotation.Nullable
@@ -116,6 +121,25 @@ public class CertificateDiscovery {
 
   public void setDebug(@javax.annotation.Nullable Boolean debug) {
     this.debug = debug;
+  }
+
+
+  public CertificateDiscovery excludeHosts(@javax.annotation.Nullable String excludeHosts) {
+    this.excludeHosts = excludeHosts;
+    return this;
+  }
+
+  /**
+   * A comma separated list of IP addresses, CIDR ranges, or DNS names to exclude from the scan
+   * @return excludeHosts
+   */
+  @javax.annotation.Nullable
+  public String getExcludeHosts() {
+    return excludeHosts;
+  }
+
+  public void setExcludeHosts(@javax.annotation.Nullable String excludeHosts) {
+    this.excludeHosts = excludeHosts;
   }
 
 
@@ -290,6 +314,7 @@ public class CertificateDiscovery {
     }
     CertificateDiscovery certificateDiscovery = (CertificateDiscovery) o;
     return Objects.equals(this.debug, certificateDiscovery.debug) &&
+        Objects.equals(this.excludeHosts, certificateDiscovery.excludeHosts) &&
         Objects.equals(this.expirationEventIn, certificateDiscovery.expirationEventIn) &&
         Objects.equals(this.hosts, certificateDiscovery.hosts) &&
         Objects.equals(this.json, certificateDiscovery.json) &&
@@ -302,7 +327,7 @@ public class CertificateDiscovery {
 
   @Override
   public int hashCode() {
-    return Objects.hash(debug, expirationEventIn, hosts, json, portRanges, protectionKey, targetLocation, token, uidToken);
+    return Objects.hash(debug, excludeHosts, expirationEventIn, hosts, json, portRanges, protectionKey, targetLocation, token, uidToken);
   }
 
   @Override
@@ -310,6 +335,7 @@ public class CertificateDiscovery {
     StringBuilder sb = new StringBuilder();
     sb.append("class CertificateDiscovery {\n");
     sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
+    sb.append("    excludeHosts: ").append(toIndentedString(excludeHosts)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -336,7 +362,7 @@ public class CertificateDiscovery {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("debug", "expiration-event-in", "hosts", "json", "port-ranges", "protection-key", "target-location", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("debug", "exclude-hosts", "expiration-event-in", "hosts", "json", "port-ranges", "protection-key", "target-location", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("hosts", "target-location"));
@@ -370,6 +396,9 @@ public class CertificateDiscovery {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("exclude-hosts") != null && !jsonObj.get("exclude-hosts").isJsonNull()) && !jsonObj.get("exclude-hosts").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `exclude-hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exclude-hosts").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));

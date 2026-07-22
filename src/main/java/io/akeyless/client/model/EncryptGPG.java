@@ -90,6 +90,11 @@ public class EncryptGPG {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nullable
+  private Integer version;
+
   public EncryptGPG() {
   }
 
@@ -245,6 +250,25 @@ public class EncryptGPG {
   }
 
 
+  public EncryptGPG version(@javax.annotation.Nullable Integer version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * key version (relevant only for classic key)
+   * @return version
+   */
+  @javax.annotation.Nullable
+  public Integer getVersion() {
+    return version;
+  }
+
+  public void setVersion(@javax.annotation.Nullable Integer version) {
+    this.version = version;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -262,12 +286,13 @@ public class EncryptGPG {
         Objects.equals(this.keyName, encryptGPG.keyName) &&
         Objects.equals(this.plaintext, encryptGPG.plaintext) &&
         Objects.equals(this.token, encryptGPG.token) &&
-        Objects.equals(this.uidToken, encryptGPG.uidToken);
+        Objects.equals(this.uidToken, encryptGPG.uidToken) &&
+        Objects.equals(this.version, encryptGPG.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayId, inputFormat, itemId, json, keyName, plaintext, token, uidToken);
+    return Objects.hash(displayId, inputFormat, itemId, json, keyName, plaintext, token, uidToken, version);
   }
 
   @Override
@@ -282,6 +307,7 @@ public class EncryptGPG {
     sb.append("    plaintext: ").append(toIndentedString(plaintext)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -300,7 +326,7 @@ public class EncryptGPG {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("display-id", "input-format", "item-id", "json", "key-name", "plaintext", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("display-id", "input-format", "item-id", "json", "key-name", "plaintext", "token", "uid-token", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("key-name", "plaintext"));

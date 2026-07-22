@@ -752,6 +752,7 @@ import io.akeyless.client.model.StaticSecretDeleteSyncOutput;
 import io.akeyless.client.model.StaticSecretSync;
 import io.akeyless.client.model.SystemAccessCredentialsReplyObj;
 import io.akeyless.client.model.Target;
+import io.akeyless.client.model.TargetCreateAerospike;
 import io.akeyless.client.model.TargetCreateAnthropic;
 import io.akeyless.client.model.TargetCreateArtifactory;
 import io.akeyless.client.model.TargetCreateAws;
@@ -795,6 +796,7 @@ import io.akeyless.client.model.TargetDelete;
 import io.akeyless.client.model.TargetGet;
 import io.akeyless.client.model.TargetGetDetails;
 import io.akeyless.client.model.TargetList;
+import io.akeyless.client.model.TargetUpdateAerospike;
 import io.akeyless.client.model.TargetUpdateAnthropic;
 import io.akeyless.client.model.TargetUpdateArtifactory;
 import io.akeyless.client.model.TargetUpdateAws;
@@ -62833,6 +62835,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateAerospike
+     * @param targetCreateAerospike  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateAerospikeCall(@javax.annotation.Nonnull TargetCreateAerospike targetCreateAerospike, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateAerospike;
+
+        // create path and map variables
+        String localVarPath = "/target-create-aerospike";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateAerospikeValidateBeforeCall(@javax.annotation.Nonnull TargetCreateAerospike targetCreateAerospike, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateAerospike' is set
+        if (targetCreateAerospike == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateAerospike' when calling targetCreateAerospike(Async)");
+        }
+
+        return targetCreateAerospikeCall(targetCreateAerospike, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateAerospike  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateAerospike(@javax.annotation.Nonnull TargetCreateAerospike targetCreateAerospike) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateAerospikeWithHttpInfo(targetCreateAerospike);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateAerospike  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateAerospikeWithHttpInfo(@javax.annotation.Nonnull TargetCreateAerospike targetCreateAerospike) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateAerospikeValidateBeforeCall(targetCreateAerospike, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateAerospike  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateAerospikeAsync(@javax.annotation.Nonnull TargetCreateAerospike targetCreateAerospike, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateAerospikeValidateBeforeCall(targetCreateAerospike, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateAnthropic
      * @param targetCreateAnthropic  (required)
      * @param _callback Callback for upload/download progress
@@ -68331,6 +68464,137 @@ public class V2Api {
 
         okhttp3.Call localVarCall = targetListValidateBeforeCall(targetList, _callback);
         Type localVarReturnType = new TypeToken<ListTargetsOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateAerospike
+     * @param targetUpdateAerospike  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateAerospikeCall(@javax.annotation.Nonnull TargetUpdateAerospike targetUpdateAerospike, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateAerospike;
+
+        // create path and map variables
+        String localVarPath = "/target-update-aerospike";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateAerospikeValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateAerospike targetUpdateAerospike, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateAerospike' is set
+        if (targetUpdateAerospike == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateAerospike' when calling targetUpdateAerospike(Async)");
+        }
+
+        return targetUpdateAerospikeCall(targetUpdateAerospike, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateAerospike  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateAerospike(@javax.annotation.Nonnull TargetUpdateAerospike targetUpdateAerospike) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateAerospikeWithHttpInfo(targetUpdateAerospike);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateAerospike  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateAerospikeWithHttpInfo(@javax.annotation.Nonnull TargetUpdateAerospike targetUpdateAerospike) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateAerospikeValidateBeforeCall(targetUpdateAerospike, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateAerospike  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAerospikeResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateAerospikeAsync(@javax.annotation.Nonnull TargetUpdateAerospike targetUpdateAerospike, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateAerospikeValidateBeforeCall(targetUpdateAerospike, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

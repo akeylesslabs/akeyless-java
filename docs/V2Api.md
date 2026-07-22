@@ -477,6 +477,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**staticCredsAuth**](V2Api.md#staticCredsAuth) | **POST** /static-creds-auth |  |
 | [**staticSecretDeleteSync**](V2Api.md#staticSecretDeleteSync) | **POST** /static-secret-delete-sync |  |
 | [**staticSecretSync**](V2Api.md#staticSecretSync) | **POST** /static-secret-sync |  |
+| [**targetCreateAerospike**](V2Api.md#targetCreateAerospike) | **POST** /target-create-aerospike |  |
 | [**targetCreateAnthropic**](V2Api.md#targetCreateAnthropic) | **POST** /target-create-anthropic |  |
 | [**targetCreateArtifactory**](V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory |  |
 | [**targetCreateAws**](V2Api.md#targetCreateAws) | **POST** /target-create-aws |  |
@@ -519,6 +520,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetGet**](V2Api.md#targetGet) | **POST** /target-get |  |
 | [**targetGetDetails**](V2Api.md#targetGetDetails) | **POST** /target-get-details |  |
 | [**targetList**](V2Api.md#targetList) | **POST** /target-list |  |
+| [**targetUpdateAerospike**](V2Api.md#targetUpdateAerospike) | **POST** /target-update-aerospike |  |
 | [**targetUpdateAnthropic**](V2Api.md#targetUpdateAnthropic) | **POST** /target-update-anthropic |  |
 | [**targetUpdateArtifactory**](V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory |  |
 | [**targetUpdateAws**](V2Api.md#targetUpdateAws) | **POST** /target-update-aws |  |
@@ -29486,6 +29488,67 @@ No authorization required
 | **200** | staticSecretSyncResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="targetCreateAerospike"></a>
+# **targetCreateAerospike**
+> TargetCreateOutput targetCreateAerospike(targetCreateAerospike)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateAerospike targetCreateAerospike = new TargetCreateAerospike(); // TargetCreateAerospike | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateAerospike(targetCreateAerospike);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateAerospike");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateAerospike** | [**TargetCreateAerospike**](TargetCreateAerospike.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateAerospikeResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="targetCreateAnthropic"></a>
 # **targetCreateAnthropic**
 > TargetCreateOutput targetCreateAnthropic(targetCreateAnthropic)
@@ -32046,6 +32109,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | targetListResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetUpdateAerospike"></a>
+# **targetUpdateAerospike**
+> TargetUpdateOutput targetUpdateAerospike(targetUpdateAerospike)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateAerospike targetUpdateAerospike = new TargetUpdateAerospike(); // TargetUpdateAerospike | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateAerospike(targetUpdateAerospike);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateAerospike");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateAerospike** | [**TargetUpdateAerospike**](TargetUpdateAerospike.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateAerospikeResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetUpdateAnthropic"></a>

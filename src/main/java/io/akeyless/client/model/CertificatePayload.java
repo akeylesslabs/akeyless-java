@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CertificatePayload {
+  public static final String SERIALIZED_NAME_EXCLUDE_HOSTS = "exclude_hosts";
+  @SerializedName(SERIALIZED_NAME_EXCLUDE_HOSTS)
+  @javax.annotation.Nullable
+  private List<String> excludeHosts = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENTS = "expiration_events";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENTS)
   @javax.annotation.Nullable
@@ -91,6 +96,33 @@ public class CertificatePayload {
 
   public CertificatePayload() {
   }
+
+  public CertificatePayload excludeHosts(@javax.annotation.Nullable List<String> excludeHosts) {
+    this.excludeHosts = excludeHosts;
+    return this;
+  }
+
+  public CertificatePayload addExcludeHostsItem(String excludeHostsItem) {
+    if (this.excludeHosts == null) {
+      this.excludeHosts = new ArrayList<>();
+    }
+    this.excludeHosts.add(excludeHostsItem);
+    return this;
+  }
+
+  /**
+   * Get excludeHosts
+   * @return excludeHosts
+   */
+  @javax.annotation.Nullable
+  public List<String> getExcludeHosts() {
+    return excludeHosts;
+  }
+
+  public void setExcludeHosts(@javax.annotation.Nullable List<String> excludeHosts) {
+    this.excludeHosts = excludeHosts;
+  }
+
 
   public CertificatePayload expirationEvents(@javax.annotation.Nullable List<CertificateExpirationEvent> expirationEvents) {
     this.expirationEvents = expirationEvents;
@@ -251,7 +283,8 @@ public class CertificatePayload {
       return false;
     }
     CertificatePayload certificatePayload = (CertificatePayload) o;
-    return Objects.equals(this.expirationEvents, certificatePayload.expirationEvents) &&
+    return Objects.equals(this.excludeHosts, certificatePayload.excludeHosts) &&
+        Objects.equals(this.expirationEvents, certificatePayload.expirationEvents) &&
         Objects.equals(this.folder, certificatePayload.folder) &&
         Objects.equals(this.maxDialTimeout, certificatePayload.maxDialTimeout) &&
         Objects.equals(this.maxScanDuration, certificatePayload.maxScanDuration) &&
@@ -262,13 +295,14 @@ public class CertificatePayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationEvents, folder, maxDialTimeout, maxScanDuration, maxWorkers, portRanges, targets);
+    return Objects.hash(excludeHosts, expirationEvents, folder, maxDialTimeout, maxScanDuration, maxWorkers, portRanges, targets);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CertificatePayload {\n");
+    sb.append("    excludeHosts: ").append(toIndentedString(excludeHosts)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
     sb.append("    maxDialTimeout: ").append(toIndentedString(maxDialTimeout)).append("\n");
@@ -294,7 +328,7 @@ public class CertificatePayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("expiration_events", "folder", "max_dial_timeout", "max_scan_duration", "max_workers", "port_ranges", "targets"));
+    openapiFields = new HashSet<String>(Arrays.asList("exclude_hosts", "expiration_events", "folder", "max_dial_timeout", "max_scan_duration", "max_workers", "port_ranges", "targets"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -321,6 +355,10 @@ public class CertificatePayload {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("exclude_hosts") != null && !jsonObj.get("exclude_hosts").isJsonNull() && !jsonObj.get("exclude_hosts").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `exclude_hosts` to be an array in the JSON string but got `%s`", jsonObj.get("exclude_hosts").toString()));
+      }
       if (jsonObj.get("expiration_events") != null && !jsonObj.get("expiration_events").isJsonNull()) {
         JsonArray jsonArrayexpirationEvents = jsonObj.getAsJsonArray("expiration_events");
         if (jsonArrayexpirationEvents != null) {
