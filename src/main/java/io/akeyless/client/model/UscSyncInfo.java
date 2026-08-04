@@ -80,6 +80,16 @@ public class UscSyncInfo {
   @javax.annotation.Nullable
   private String secretName;
 
+  public static final String SERIALIZED_NAME_SELECTED_ENVIRONMENTS = "selected_environments";
+  @SerializedName(SERIALIZED_NAME_SELECTED_ENVIRONMENTS)
+  @javax.annotation.Nullable
+  private String selectedEnvironments;
+
+  public static final String SERIALIZED_NAME_SELECTED_REPOSITORIES = "selected_repositories";
+  @SerializedName(SERIALIZED_NAME_SELECTED_REPOSITORIES)
+  @javax.annotation.Nullable
+  private String selectedRepositories;
+
   public UscSyncInfo() {
   }
 
@@ -197,6 +207,44 @@ public class UscSyncInfo {
   }
 
 
+  public UscSyncInfo selectedEnvironments(@javax.annotation.Nullable String selectedEnvironments) {
+    this.selectedEnvironments = selectedEnvironments;
+    return this;
+  }
+
+  /**
+   * Get selectedEnvironments
+   * @return selectedEnvironments
+   */
+  @javax.annotation.Nullable
+  public String getSelectedEnvironments() {
+    return selectedEnvironments;
+  }
+
+  public void setSelectedEnvironments(@javax.annotation.Nullable String selectedEnvironments) {
+    this.selectedEnvironments = selectedEnvironments;
+  }
+
+
+  public UscSyncInfo selectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
+    return this;
+  }
+
+  /**
+   * Get selectedRepositories
+   * @return selectedRepositories
+   */
+  @javax.annotation.Nullable
+  public String getSelectedRepositories() {
+    return selectedRepositories;
+  }
+
+  public void setSelectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -212,12 +260,14 @@ public class UscSyncInfo {
         Objects.equals(this.lastError, uscSyncInfo.lastError) &&
         Objects.equals(this.namespace, uscSyncInfo.namespace) &&
         Objects.equals(this.secretId, uscSyncInfo.secretId) &&
-        Objects.equals(this.secretName, uscSyncInfo.secretName);
+        Objects.equals(this.secretName, uscSyncInfo.secretName) &&
+        Objects.equals(this.selectedEnvironments, uscSyncInfo.selectedEnvironments) &&
+        Objects.equals(this.selectedRepositories, uscSyncInfo.selectedRepositories);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteRemote, jqSecretFilter, lastError, namespace, secretId, secretName);
+    return Objects.hash(deleteRemote, jqSecretFilter, lastError, namespace, secretId, secretName, selectedEnvironments, selectedRepositories);
   }
 
   @Override
@@ -230,6 +280,8 @@ public class UscSyncInfo {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
+    sb.append("    selectedEnvironments: ").append(toIndentedString(selectedEnvironments)).append("\n");
+    sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -248,7 +300,7 @@ public class UscSyncInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_remote", "jq_secret_filter", "last_error", "namespace", "secret_id", "secret_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_remote", "jq_secret_filter", "last_error", "namespace", "secret_id", "secret_name", "selected_environments", "selected_repositories"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -289,6 +341,12 @@ public class UscSyncInfo {
       }
       if ((jsonObj.get("secret_name") != null && !jsonObj.get("secret_name").isJsonNull()) && !jsonObj.get("secret_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_name").toString()));
+      }
+      if ((jsonObj.get("selected_environments") != null && !jsonObj.get("selected_environments").isJsonNull()) && !jsonObj.get("selected_environments").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selected_environments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected_environments").toString()));
+      }
+      if ((jsonObj.get("selected_repositories") != null && !jsonObj.get("selected_repositories").isJsonNull()) && !jsonObj.get("selected_repositories").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selected_repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected_repositories").toString()));
       }
   }
 

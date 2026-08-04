@@ -80,7 +80,7 @@ public class UpdateRotatedSecret {
   public static final String SERIALIZED_NAME_AWS_REGION = "aws-region";
   @SerializedName(SERIALIZED_NAME_AWS_REGION)
   @javax.annotation.Nullable
-  private String awsRegion = "us-east-2";
+  private String awsRegion;
 
   public static final String SERIALIZED_NAME_CUSTOM_PAYLOAD = "custom-payload";
   @SerializedName(SERIALIZED_NAME_CUSTOM_PAYLOAD)
@@ -195,7 +195,12 @@ public class UpdateRotatedSecret {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER = "secure-access-allow-external-user";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_EXTERNAL_USER)
   @javax.annotation.Nullable
-  private Boolean secureAccessAllowExternalUser = false;
+  private String secureAccessAllowExternalUser;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING = "secure-access-allow-port-forwading";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessAllowPortForwading;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID = "secure-access-aws-account-id";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID)
@@ -237,6 +242,11 @@ public class UpdateRotatedSecret {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -257,6 +267,16 @@ public class UpdateRotatedSecret {
   @javax.annotation.Nullable
   private String secureAccessUrl;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_BASTION = "secure-access-use-internal-bastion";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_BASTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessUseInternalBastion;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_SSH_ACCESS = "secure-access-use-internal-ssh-access";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_USE_INTERNAL_SSH_ACCESS)
+  @javax.annotation.Nullable
+  private Boolean secureAccessUseInternalSshAccess;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
   @javax.annotation.Nullable
@@ -265,12 +285,12 @@ public class UpdateRotatedSecret {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   @javax.annotation.Nullable
-  private Boolean secureAccessWebBrowsing = false;
+  private Boolean secureAccessWebBrowsing;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
   @javax.annotation.Nullable
-  private Boolean secureAccessWebProxy = false;
+  private Boolean secureAccessWebProxy;
 
   public static final String SERIALIZED_NAME_SSH_PASSWORD = "ssh-password";
   @SerializedName(SERIALIZED_NAME_SSH_PASSWORD)
@@ -286,6 +306,11 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME)
   @javax.annotation.Nullable
   private String storageAccountKeyName;
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  @javax.annotation.Nullable
+  private List<String> target = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -514,7 +539,7 @@ public class UpdateRotatedSecret {
   }
 
   /**
-   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
    * @return hostProvider
    */
   @javax.annotation.Nullable
@@ -858,22 +883,41 @@ public class UpdateRotatedSecret {
   }
 
 
-  public UpdateRotatedSecret secureAccessAllowExternalUser(@javax.annotation.Nullable Boolean secureAccessAllowExternalUser) {
+  public UpdateRotatedSecret secureAccessAllowExternalUser(@javax.annotation.Nullable String secureAccessAllowExternalUser) {
     this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
     return this;
   }
 
   /**
-   * Allow providing external user for a domain users (relevant only for rdp)
+   * Allow providing external user for a domain users [true/false]
    * @return secureAccessAllowExternalUser
    */
   @javax.annotation.Nullable
-  public Boolean getSecureAccessAllowExternalUser() {
+  public String getSecureAccessAllowExternalUser() {
     return secureAccessAllowExternalUser;
   }
 
-  public void setSecureAccessAllowExternalUser(@javax.annotation.Nullable Boolean secureAccessAllowExternalUser) {
+  public void setSecureAccessAllowExternalUser(@javax.annotation.Nullable String secureAccessAllowExternalUser) {
     this.secureAccessAllowExternalUser = secureAccessAllowExternalUser;
+  }
+
+
+  public UpdateRotatedSecret secureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+    return this;
+  }
+
+  /**
+   * Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+   * @return secureAccessAllowPortForwading
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessAllowPortForwading() {
+    return secureAccessAllowPortForwading;
+  }
+
+  public void setSecureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
+    this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
   }
 
 
@@ -902,7 +946,7 @@ public class UpdateRotatedSecret {
   }
 
   /**
-   * The AWS native cli
+   * The AWS native cli (relevant only for aws)
    * @return secureAccessAwsNativeCli
    */
   @javax.annotation.Nullable
@@ -1029,6 +1073,25 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public UpdateRotatedSecret secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -1113,6 +1176,44 @@ public class UpdateRotatedSecret {
   }
 
 
+  public UpdateRotatedSecret secureAccessUseInternalBastion(@javax.annotation.Nullable Boolean secureAccessUseInternalBastion) {
+    this.secureAccessUseInternalBastion = secureAccessUseInternalBastion;
+    return this;
+  }
+
+  /**
+   * Deprecated. Use secure-access-use-internal-ssh-access
+   * @return secureAccessUseInternalBastion
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessUseInternalBastion() {
+    return secureAccessUseInternalBastion;
+  }
+
+  public void setSecureAccessUseInternalBastion(@javax.annotation.Nullable Boolean secureAccessUseInternalBastion) {
+    this.secureAccessUseInternalBastion = secureAccessUseInternalBastion;
+  }
+
+
+  public UpdateRotatedSecret secureAccessUseInternalSshAccess(@javax.annotation.Nullable Boolean secureAccessUseInternalSshAccess) {
+    this.secureAccessUseInternalSshAccess = secureAccessUseInternalSshAccess;
+    return this;
+  }
+
+  /**
+   * Use internal SSH Access
+   * @return secureAccessUseInternalSshAccess
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessUseInternalSshAccess() {
+    return secureAccessUseInternalSshAccess;
+  }
+
+  public void setSecureAccessUseInternalSshAccess(@javax.annotation.Nullable Boolean secureAccessUseInternalSshAccess) {
+    this.secureAccessUseInternalSshAccess = secureAccessUseInternalSshAccess;
+  }
+
+
   public UpdateRotatedSecret secureAccessWeb(@javax.annotation.Nullable Boolean secureAccessWeb) {
     this.secureAccessWeb = secureAccessWeb;
     return this;
@@ -1138,7 +1239,7 @@ public class UpdateRotatedSecret {
   }
 
   /**
-   * Secure browser viaAkeyless&#39;s Secure Remote Access (SRA) (relevant only for aws or azure)
+   * Secure browser via Akeyless&#39;s Secure Remote Access (SRA)
    * @return secureAccessWebBrowsing
    */
   @javax.annotation.Nullable
@@ -1157,7 +1258,7 @@ public class UpdateRotatedSecret {
   }
 
   /**
-   * Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) (relevant only for aws or azure)
+   * Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA)
    * @return secureAccessWebProxy
    */
   @javax.annotation.Nullable
@@ -1224,6 +1325,33 @@ public class UpdateRotatedSecret {
 
   public void setStorageAccountKeyName(@javax.annotation.Nullable String storageAccountKeyName) {
     this.storageAccountKeyName = storageAccountKeyName;
+  }
+
+
+  public UpdateRotatedSecret target(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+    return this;
+  }
+
+  public UpdateRotatedSecret addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+  /**
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public List<String> getTarget() {
+    return target;
+  }
+
+  public void setTarget(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
   }
 
 
@@ -1342,6 +1470,7 @@ public class UpdateRotatedSecret {
         Objects.equals(this.rotatorCustomCmd, updateRotatedSecret.rotatorCustomCmd) &&
         Objects.equals(this.samePassword, updateRotatedSecret.samePassword) &&
         Objects.equals(this.secureAccessAllowExternalUser, updateRotatedSecret.secureAccessAllowExternalUser) &&
+        Objects.equals(this.secureAccessAllowPortForwading, updateRotatedSecret.secureAccessAllowPortForwading) &&
         Objects.equals(this.secureAccessAwsAccountId, updateRotatedSecret.secureAccessAwsAccountId) &&
         Objects.equals(this.secureAccessAwsNativeCli, updateRotatedSecret.secureAccessAwsNativeCli) &&
         Objects.equals(this.secureAccessBastionIssuer, updateRotatedSecret.secureAccessBastionIssuer) &&
@@ -1350,16 +1479,20 @@ public class UpdateRotatedSecret {
         Objects.equals(this.secureAccessDbSchema, updateRotatedSecret.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessDisableConcurrentConnections, updateRotatedSecret.secureAccessDisableConcurrentConnections) &&
         Objects.equals(this.secureAccessEnable, updateRotatedSecret.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, updateRotatedSecret.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, updateRotatedSecret.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, updateRotatedSecret.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, updateRotatedSecret.secureAccessRdpUser) &&
         Objects.equals(this.secureAccessUrl, updateRotatedSecret.secureAccessUrl) &&
+        Objects.equals(this.secureAccessUseInternalBastion, updateRotatedSecret.secureAccessUseInternalBastion) &&
+        Objects.equals(this.secureAccessUseInternalSshAccess, updateRotatedSecret.secureAccessUseInternalSshAccess) &&
         Objects.equals(this.secureAccessWeb, updateRotatedSecret.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, updateRotatedSecret.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, updateRotatedSecret.secureAccessWebProxy) &&
         Objects.equals(this.sshPassword, updateRotatedSecret.sshPassword) &&
         Objects.equals(this.sshUsername, updateRotatedSecret.sshUsername) &&
         Objects.equals(this.storageAccountKeyName, updateRotatedSecret.storageAccountKeyName) &&
+        Objects.equals(this.target, updateRotatedSecret.target) &&
         Objects.equals(this.token, updateRotatedSecret.token) &&
         Objects.equals(this.uidToken, updateRotatedSecret.uidToken) &&
         Objects.equals(this.userAttribute, updateRotatedSecret.userAttribute) &&
@@ -1368,7 +1501,7 @@ public class UpdateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, graceRotation, hostProvider, json, keepPrevVersion, key, lockDuringSraSession, name, newMetadata, newName, newVersion, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, graceRotation, hostProvider, json, keepPrevVersion, key, lockDuringSraSession, name, newMetadata, newName, newVersion, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, samePassword, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, target, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1404,6 +1537,7 @@ public class UpdateRotatedSecret {
     sb.append("    rotatorCustomCmd: ").append(toIndentedString(rotatorCustomCmd)).append("\n");
     sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
+    sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
     sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -1412,16 +1546,20 @@ public class UpdateRotatedSecret {
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessDisableConcurrentConnections: ").append(toIndentedString(secureAccessDisableConcurrentConnections)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessUseInternalBastion: ").append(toIndentedString(secureAccessUseInternalBastion)).append("\n");
+    sb.append("    secureAccessUseInternalSshAccess: ").append(toIndentedString(secureAccessUseInternalSshAccess)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    sshPassword: ").append(toIndentedString(sshPassword)).append("\n");
     sb.append("    sshUsername: ").append(toIndentedString(sshUsername)).append("\n");
     sb.append("    storageAccountKeyName: ").append(toIndentedString(storageAccountKeyName)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    userAttribute: ").append(toIndentedString(userAttribute)).append("\n");
@@ -1444,7 +1582,7 @@ public class UpdateRotatedSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "api-id", "api-key", "auto-rotate", "aws-region", "custom-payload", "description", "gcp-key", "grace-rotation", "host-provider", "json", "keep-prev-version", "key", "lock-during-sra-session", "name", "new-metadata", "new-name", "new-version", "rm-tag", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "same-password", "secure-access-allow-external-user", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "token", "uid-token", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "api-id", "api-key", "auto-rotate", "aws-region", "custom-payload", "description", "gcp-key", "grace-rotation", "host-provider", "json", "keep-prev-version", "key", "lock-during-sra-session", "name", "new-metadata", "new-name", "new-version", "rm-tag", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "same-password", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "target", "token", "uid-token", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1555,6 +1693,9 @@ public class UpdateRotatedSecret {
       if ((jsonObj.get("same-password") != null && !jsonObj.get("same-password").isJsonNull()) && !jsonObj.get("same-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `same-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("same-password").toString()));
       }
+      if ((jsonObj.get("secure-access-allow-external-user") != null && !jsonObj.get("secure-access-allow-external-user").isJsonNull()) && !jsonObj.get("secure-access-allow-external-user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-allow-external-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-allow-external-user").toString()));
+      }
       if ((jsonObj.get("secure-access-aws-account-id") != null && !jsonObj.get("secure-access-aws-account-id").isJsonNull()) && !jsonObj.get("secure-access-aws-account-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-aws-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-aws-account-id").toString()));
       }
@@ -1594,6 +1735,10 @@ public class UpdateRotatedSecret {
       }
       if ((jsonObj.get("storage-account-key-name") != null && !jsonObj.get("storage-account-key-name").isJsonNull()) && !jsonObj.get("storage-account-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage-account-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage-account-key-name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

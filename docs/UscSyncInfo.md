@@ -13,6 +13,8 @@
 |**namespace** | **String** |  |  [optional] |
 |**secretId** | **String** |  |  [optional] |
 |**secretName** | **String** |  |  [optional] |
+|**selectedEnvironments** | **String** |  |  [optional] |
+|**selectedRepositories** | **String** |  |  [optional] |
 
 
 

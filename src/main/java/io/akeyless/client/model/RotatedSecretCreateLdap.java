@@ -179,6 +179,11 @@ public class RotatedSecretCreateLdap {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -208,6 +213,11 @@ public class RotatedSecretCreateLdap {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
+
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -368,7 +378,7 @@ public class RotatedSecretCreateLdap {
   }
 
   /**
-   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
    * @return hostProvider
    */
   @javax.annotation.Nullable
@@ -774,6 +784,25 @@ public class RotatedSecretCreateLdap {
   }
 
 
+  public RotatedSecretCreateLdap secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public RotatedSecretCreateLdap secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -896,6 +925,25 @@ public class RotatedSecretCreateLdap {
   }
 
 
+  public RotatedSecretCreateLdap skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretCreateLdap tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -937,7 +985,7 @@ public class RotatedSecretCreateLdap {
   }
 
   /**
-   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
    * @return target
    */
   @javax.annotation.Nullable
@@ -1156,12 +1204,14 @@ public class RotatedSecretCreateLdap {
         Objects.equals(this.secureAccessBastionIssuer, rotatedSecretCreateLdap.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, rotatedSecretCreateLdap.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretCreateLdap.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, rotatedSecretCreateLdap.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, rotatedSecretCreateLdap.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretCreateLdap.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessUrl, rotatedSecretCreateLdap.secureAccessUrl) &&
         Objects.equals(this.secureAccessWeb, rotatedSecretCreateLdap.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, rotatedSecretCreateLdap.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, rotatedSecretCreateLdap.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, rotatedSecretCreateLdap.skipDryRun) &&
         Objects.equals(this.tags, rotatedSecretCreateLdap.tags) &&
         Objects.equals(this.target, rotatedSecretCreateLdap.target) &&
         Objects.equals(this.targetName, rotatedSecretCreateLdap.targetName) &&
@@ -1177,7 +1227,7 @@ public class RotatedSecretCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn);
+    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn);
   }
 
   @Override
@@ -1209,12 +1259,14 @@ public class RotatedSecretCreateLdap {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -1244,7 +1296,7 @@ public class RotatedSecretCreateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "authentication-credentials", "auto-rotate", "delete_protection", "description", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-host", "secure-access-rdp-domain", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "authentication-credentials", "auto-rotate", "delete_protection", "description", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1356,6 +1408,9 @@ public class RotatedSecretCreateLdap {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

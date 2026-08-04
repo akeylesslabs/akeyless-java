@@ -174,6 +174,11 @@ public class GatewayCreateProducerGcp {
   @javax.annotation.Nullable
   private String serviceAccountType = "fixed";
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -682,6 +687,25 @@ public class GatewayCreateProducerGcp {
   }
 
 
+  public GatewayCreateProducerGcp skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayCreateProducerGcp tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -819,6 +843,7 @@ public class GatewayCreateProducerGcp {
         Objects.equals(this.secureAccessWebBrowsing, gatewayCreateProducerGcp.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, gatewayCreateProducerGcp.secureAccessWebProxy) &&
         Objects.equals(this.serviceAccountType, gatewayCreateProducerGcp.serviceAccountType) &&
+        Objects.equals(this.skipDryRun, gatewayCreateProducerGcp.skipDryRun) &&
         Objects.equals(this.tags, gatewayCreateProducerGcp.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerGcp.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGcp.token) &&
@@ -828,7 +853,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessType, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessType, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -859,6 +884,7 @@ public class GatewayCreateProducerGcp {
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    serviceAccountType: ").append(toIndentedString(serviceAccountType)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -882,7 +908,7 @@ public class GatewayCreateProducerGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-type", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "gcp-cred-type", "gcp-key", "gcp-key-algo", "gcp-project-id", "gcp-sa-email", "gcp-token-scopes", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "role-binding", "role-names", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "service-account-type", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-type", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "gcp-cred-type", "gcp-key", "gcp-key-algo", "gcp-project-id", "gcp-sa-email", "gcp-token-scopes", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "role-binding", "role-names", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "service-account-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -974,6 +1000,9 @@ public class GatewayCreateProducerGcp {
       }
       if ((jsonObj.get("service-account-type") != null && !jsonObj.get("service-account-type").isJsonNull()) && !jsonObj.get("service-account-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `service-account-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("service-account-type").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

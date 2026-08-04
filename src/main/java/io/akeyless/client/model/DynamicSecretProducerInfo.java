@@ -90,6 +90,11 @@ public class DynamicSecretProducerInfo {
   @javax.annotation.Nullable
   private String producerType;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private Boolean skipDryRun;
+
   public static final String SERIALIZED_NAME_USER_TTL = "user_ttl";
   @SerializedName(SERIALIZED_NAME_USER_TTL)
   @javax.annotation.Nullable
@@ -250,6 +255,25 @@ public class DynamicSecretProducerInfo {
   }
 
 
+  public DynamicSecretProducerInfo skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * Get skipDryRun
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public Boolean getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretProducerInfo userTtl(@javax.annotation.Nullable String userTtl) {
     this.userTtl = userTtl;
     return this;
@@ -287,12 +311,13 @@ public class DynamicSecretProducerInfo {
         Objects.equals(this.producerMetadata, dynamicSecretProducerInfo.producerMetadata) &&
         Objects.equals(this.producerStatus, dynamicSecretProducerInfo.producerStatus) &&
         Objects.equals(this.producerType, dynamicSecretProducerInfo.producerType) &&
+        Objects.equals(this.skipDryRun, dynamicSecretProducerInfo.skipDryRun) &&
         Objects.equals(this.userTtl, dynamicSecretProducerInfo.userTtl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failureMessage, gwClusterId, k8sAllowedNamespaces, k8sDynamicMode, producerLastKeepAlive, producerMetadata, producerStatus, producerType, userTtl);
+    return Objects.hash(failureMessage, gwClusterId, k8sAllowedNamespaces, k8sDynamicMode, producerLastKeepAlive, producerMetadata, producerStatus, producerType, skipDryRun, userTtl);
   }
 
   @Override
@@ -307,6 +332,7 @@ public class DynamicSecretProducerInfo {
     sb.append("    producerMetadata: ").append(toIndentedString(producerMetadata)).append("\n");
     sb.append("    producerStatus: ").append(toIndentedString(producerStatus)).append("\n");
     sb.append("    producerType: ").append(toIndentedString(producerType)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    userTtl: ").append(toIndentedString(userTtl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -326,7 +352,7 @@ public class DynamicSecretProducerInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("failure_message", "gw_cluster_id", "k8s_allowed_namespaces", "k8s_dynamic_mode", "producer_last_keep_alive", "producer_metadata", "producer_status", "producer_type", "user_ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("failure_message", "gw_cluster_id", "k8s_allowed_namespaces", "k8s_dynamic_mode", "producer_last_keep_alive", "producer_metadata", "producer_status", "producer_type", "skip_dry_run", "user_ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

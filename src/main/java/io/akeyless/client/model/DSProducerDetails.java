@@ -97,6 +97,91 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String administrativePort;
 
+  public static final String SERIALIZED_NAME_AEROSPIKE_ADMIN_USERNAME = "aerospike_admin_username";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_ADMIN_USERNAME)
+  @javax.annotation.Nullable
+  private String aerospikeAdminUsername;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_CERTIFICATE = "aerospike_client_certificate";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String aerospikeClientCertificate;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_ID = "aerospike_client_id";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_ID)
+  @javax.annotation.Nullable
+  private String aerospikeClientId;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_PRIVATE_KEY = "aerospike_client_private_key";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_PRIVATE_KEY)
+  @javax.annotation.Nullable
+  private String aerospikeClientPrivateKey;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_SECRET = "aerospike_client_secret";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_SECRET)
+  @javax.annotation.Nullable
+  private String aerospikeClientSecret;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLOUD = "aerospike_cloud";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLOUD)
+  @javax.annotation.Nullable
+  private Boolean aerospikeCloud;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLUSTER_ID = "aerospike_cluster_id";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLUSTER_ID)
+  @javax.annotation.Nullable
+  private String aerospikeClusterId;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_DB_SERVER_NAME = "aerospike_db_server_name";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_DB_SERVER_NAME)
+  @javax.annotation.Nullable
+  private String aerospikeDbServerName;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_ENABLE_MTLS = "aerospike_enable_mtls";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_ENABLE_MTLS)
+  @javax.annotation.Nullable
+  private Boolean aerospikeEnableMtls;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_HOSTNAME = "aerospike_hostname";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_HOSTNAME)
+  @javax.annotation.Nullable
+  private String aerospikeHostname;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_NAMESPACE = "aerospike_namespace";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_NAMESPACE)
+  @javax.annotation.Nullable
+  private String aerospikeNamespace;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_PASSWORD = "aerospike_password";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_PASSWORD)
+  @javax.annotation.Nullable
+  private String aerospikePassword;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_PORT = "aerospike_port";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_PORT)
+  @javax.annotation.Nullable
+  private String aerospikePort;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_ROLES = "aerospike_roles";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_ROLES)
+  @javax.annotation.Nullable
+  private List<String> aerospikeRoles = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_SKIP_SERVER_NAME_VALIDATION = "aerospike_skip_server_name_validation";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_SKIP_SERVER_NAME_VALIDATION)
+  @javax.annotation.Nullable
+  private String aerospikeSkipServerNameValidation;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_CERTIFICATE = "aerospike_ssl_connection_certificate";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String aerospikeSslConnectionCertificate;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_MODE = "aerospike_ssl_connection_mode";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_MODE)
+  @javax.annotation.Nullable
+  private Boolean aerospikeSslConnectionMode;
+
   public static final String SERIALIZED_NAME_AGENTIC_RULES = "agentic_rules";
   @SerializedName(SERIALIZED_NAME_AGENTIC_RULES)
   @javax.annotation.Nullable
@@ -136,6 +221,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_TOKEN_SCOPE)
   @javax.annotation.Nullable
   private String artifactoryTokenScope;
+
+  public static final String SERIALIZED_NAME_AUTH_MODE = "auth_mode";
+  @SerializedName(SERIALIZED_NAME_AUTH_MODE)
+  @javax.annotation.Nullable
+  private String authMode;
 
   public static final String SERIALIZED_NAME_AUTHORIZATION_PORT = "authorization_port";
   @SerializedName(SERIALIZED_NAME_AUTHORIZATION_PORT)
@@ -1067,6 +1157,26 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String mysqlRevocationStatements;
 
+  public static final String SERIALIZED_NAME_OAUTH_ACCESS_TOKEN = "oauth_access_token";
+  @SerializedName(SERIALIZED_NAME_OAUTH_ACCESS_TOKEN)
+  @javax.annotation.Nullable
+  private String oauthAccessToken;
+
+  public static final String SERIALIZED_NAME_OAUTH_ACCOUNT_ID = "oauth_account_id";
+  @SerializedName(SERIALIZED_NAME_OAUTH_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String oauthAccountId;
+
+  public static final String SERIALIZED_NAME_OAUTH_LAST_REFRESH = "oauth_last_refresh";
+  @SerializedName(SERIALIZED_NAME_OAUTH_LAST_REFRESH)
+  @javax.annotation.Nullable
+  private String oauthLastRefresh;
+
+  public static final String SERIALIZED_NAME_OAUTH_REFRESH_TOKEN = "oauth_refresh_token";
+  @SerializedName(SERIALIZED_NAME_OAUTH_REFRESH_TOKEN)
+  @javax.annotation.Nullable
+  private String oauthRefreshToken;
+
   public static final String SERIALIZED_NAME_OPENAI_URL = "openai_url";
   @SerializedName(SERIALIZED_NAME_OPENAI_URL)
   @javax.annotation.Nullable
@@ -1266,6 +1376,11 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_SIGNING_ALGORITHM)
   @javax.annotation.Nullable
   private String signingAlgorithm;
+
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION = "skip_server_name_validation";
   @SerializedName(SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION)
@@ -1571,6 +1686,337 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails aerospikeAdminUsername(@javax.annotation.Nullable String aerospikeAdminUsername) {
+    this.aerospikeAdminUsername = aerospikeAdminUsername;
+    return this;
+  }
+
+  /**
+   * Get aerospikeAdminUsername
+   * @return aerospikeAdminUsername
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeAdminUsername() {
+    return aerospikeAdminUsername;
+  }
+
+  public void setAerospikeAdminUsername(@javax.annotation.Nullable String aerospikeAdminUsername) {
+    this.aerospikeAdminUsername = aerospikeAdminUsername;
+  }
+
+
+  public DSProducerDetails aerospikeClientCertificate(@javax.annotation.Nullable String aerospikeClientCertificate) {
+    this.aerospikeClientCertificate = aerospikeClientCertificate;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClientCertificate
+   * @return aerospikeClientCertificate
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClientCertificate() {
+    return aerospikeClientCertificate;
+  }
+
+  public void setAerospikeClientCertificate(@javax.annotation.Nullable String aerospikeClientCertificate) {
+    this.aerospikeClientCertificate = aerospikeClientCertificate;
+  }
+
+
+  public DSProducerDetails aerospikeClientId(@javax.annotation.Nullable String aerospikeClientId) {
+    this.aerospikeClientId = aerospikeClientId;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClientId
+   * @return aerospikeClientId
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClientId() {
+    return aerospikeClientId;
+  }
+
+  public void setAerospikeClientId(@javax.annotation.Nullable String aerospikeClientId) {
+    this.aerospikeClientId = aerospikeClientId;
+  }
+
+
+  public DSProducerDetails aerospikeClientPrivateKey(@javax.annotation.Nullable String aerospikeClientPrivateKey) {
+    this.aerospikeClientPrivateKey = aerospikeClientPrivateKey;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClientPrivateKey
+   * @return aerospikeClientPrivateKey
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClientPrivateKey() {
+    return aerospikeClientPrivateKey;
+  }
+
+  public void setAerospikeClientPrivateKey(@javax.annotation.Nullable String aerospikeClientPrivateKey) {
+    this.aerospikeClientPrivateKey = aerospikeClientPrivateKey;
+  }
+
+
+  public DSProducerDetails aerospikeClientSecret(@javax.annotation.Nullable String aerospikeClientSecret) {
+    this.aerospikeClientSecret = aerospikeClientSecret;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClientSecret
+   * @return aerospikeClientSecret
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClientSecret() {
+    return aerospikeClientSecret;
+  }
+
+  public void setAerospikeClientSecret(@javax.annotation.Nullable String aerospikeClientSecret) {
+    this.aerospikeClientSecret = aerospikeClientSecret;
+  }
+
+
+  public DSProducerDetails aerospikeCloud(@javax.annotation.Nullable Boolean aerospikeCloud) {
+    this.aerospikeCloud = aerospikeCloud;
+    return this;
+  }
+
+  /**
+   * Get aerospikeCloud
+   * @return aerospikeCloud
+   */
+  @javax.annotation.Nullable
+  public Boolean getAerospikeCloud() {
+    return aerospikeCloud;
+  }
+
+  public void setAerospikeCloud(@javax.annotation.Nullable Boolean aerospikeCloud) {
+    this.aerospikeCloud = aerospikeCloud;
+  }
+
+
+  public DSProducerDetails aerospikeClusterId(@javax.annotation.Nullable String aerospikeClusterId) {
+    this.aerospikeClusterId = aerospikeClusterId;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClusterId
+   * @return aerospikeClusterId
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClusterId() {
+    return aerospikeClusterId;
+  }
+
+  public void setAerospikeClusterId(@javax.annotation.Nullable String aerospikeClusterId) {
+    this.aerospikeClusterId = aerospikeClusterId;
+  }
+
+
+  public DSProducerDetails aerospikeDbServerName(@javax.annotation.Nullable String aerospikeDbServerName) {
+    this.aerospikeDbServerName = aerospikeDbServerName;
+    return this;
+  }
+
+  /**
+   * Get aerospikeDbServerName
+   * @return aerospikeDbServerName
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeDbServerName() {
+    return aerospikeDbServerName;
+  }
+
+  public void setAerospikeDbServerName(@javax.annotation.Nullable String aerospikeDbServerName) {
+    this.aerospikeDbServerName = aerospikeDbServerName;
+  }
+
+
+  public DSProducerDetails aerospikeEnableMtls(@javax.annotation.Nullable Boolean aerospikeEnableMtls) {
+    this.aerospikeEnableMtls = aerospikeEnableMtls;
+    return this;
+  }
+
+  /**
+   * Get aerospikeEnableMtls
+   * @return aerospikeEnableMtls
+   */
+  @javax.annotation.Nullable
+  public Boolean getAerospikeEnableMtls() {
+    return aerospikeEnableMtls;
+  }
+
+  public void setAerospikeEnableMtls(@javax.annotation.Nullable Boolean aerospikeEnableMtls) {
+    this.aerospikeEnableMtls = aerospikeEnableMtls;
+  }
+
+
+  public DSProducerDetails aerospikeHostname(@javax.annotation.Nullable String aerospikeHostname) {
+    this.aerospikeHostname = aerospikeHostname;
+    return this;
+  }
+
+  /**
+   * Get aerospikeHostname
+   * @return aerospikeHostname
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeHostname() {
+    return aerospikeHostname;
+  }
+
+  public void setAerospikeHostname(@javax.annotation.Nullable String aerospikeHostname) {
+    this.aerospikeHostname = aerospikeHostname;
+  }
+
+
+  public DSProducerDetails aerospikeNamespace(@javax.annotation.Nullable String aerospikeNamespace) {
+    this.aerospikeNamespace = aerospikeNamespace;
+    return this;
+  }
+
+  /**
+   * Get aerospikeNamespace
+   * @return aerospikeNamespace
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeNamespace() {
+    return aerospikeNamespace;
+  }
+
+  public void setAerospikeNamespace(@javax.annotation.Nullable String aerospikeNamespace) {
+    this.aerospikeNamespace = aerospikeNamespace;
+  }
+
+
+  public DSProducerDetails aerospikePassword(@javax.annotation.Nullable String aerospikePassword) {
+    this.aerospikePassword = aerospikePassword;
+    return this;
+  }
+
+  /**
+   * Get aerospikePassword
+   * @return aerospikePassword
+   */
+  @javax.annotation.Nullable
+  public String getAerospikePassword() {
+    return aerospikePassword;
+  }
+
+  public void setAerospikePassword(@javax.annotation.Nullable String aerospikePassword) {
+    this.aerospikePassword = aerospikePassword;
+  }
+
+
+  public DSProducerDetails aerospikePort(@javax.annotation.Nullable String aerospikePort) {
+    this.aerospikePort = aerospikePort;
+    return this;
+  }
+
+  /**
+   * Get aerospikePort
+   * @return aerospikePort
+   */
+  @javax.annotation.Nullable
+  public String getAerospikePort() {
+    return aerospikePort;
+  }
+
+  public void setAerospikePort(@javax.annotation.Nullable String aerospikePort) {
+    this.aerospikePort = aerospikePort;
+  }
+
+
+  public DSProducerDetails aerospikeRoles(@javax.annotation.Nullable List<String> aerospikeRoles) {
+    this.aerospikeRoles = aerospikeRoles;
+    return this;
+  }
+
+  public DSProducerDetails addAerospikeRolesItem(String aerospikeRolesItem) {
+    if (this.aerospikeRoles == null) {
+      this.aerospikeRoles = new ArrayList<>();
+    }
+    this.aerospikeRoles.add(aerospikeRolesItem);
+    return this;
+  }
+
+  /**
+   * Get aerospikeRoles
+   * @return aerospikeRoles
+   */
+  @javax.annotation.Nullable
+  public List<String> getAerospikeRoles() {
+    return aerospikeRoles;
+  }
+
+  public void setAerospikeRoles(@javax.annotation.Nullable List<String> aerospikeRoles) {
+    this.aerospikeRoles = aerospikeRoles;
+  }
+
+
+  public DSProducerDetails aerospikeSkipServerNameValidation(@javax.annotation.Nullable String aerospikeSkipServerNameValidation) {
+    this.aerospikeSkipServerNameValidation = aerospikeSkipServerNameValidation;
+    return this;
+  }
+
+  /**
+   * Get aerospikeSkipServerNameValidation
+   * @return aerospikeSkipServerNameValidation
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeSkipServerNameValidation() {
+    return aerospikeSkipServerNameValidation;
+  }
+
+  public void setAerospikeSkipServerNameValidation(@javax.annotation.Nullable String aerospikeSkipServerNameValidation) {
+    this.aerospikeSkipServerNameValidation = aerospikeSkipServerNameValidation;
+  }
+
+
+  public DSProducerDetails aerospikeSslConnectionCertificate(@javax.annotation.Nullable String aerospikeSslConnectionCertificate) {
+    this.aerospikeSslConnectionCertificate = aerospikeSslConnectionCertificate;
+    return this;
+  }
+
+  /**
+   * Get aerospikeSslConnectionCertificate
+   * @return aerospikeSslConnectionCertificate
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeSslConnectionCertificate() {
+    return aerospikeSslConnectionCertificate;
+  }
+
+  public void setAerospikeSslConnectionCertificate(@javax.annotation.Nullable String aerospikeSslConnectionCertificate) {
+    this.aerospikeSslConnectionCertificate = aerospikeSslConnectionCertificate;
+  }
+
+
+  public DSProducerDetails aerospikeSslConnectionMode(@javax.annotation.Nullable Boolean aerospikeSslConnectionMode) {
+    this.aerospikeSslConnectionMode = aerospikeSslConnectionMode;
+    return this;
+  }
+
+  /**
+   * Get aerospikeSslConnectionMode
+   * @return aerospikeSslConnectionMode
+   */
+  @javax.annotation.Nullable
+  public Boolean getAerospikeSslConnectionMode() {
+    return aerospikeSslConnectionMode;
+  }
+
+  public void setAerospikeSslConnectionMode(@javax.annotation.Nullable Boolean aerospikeSslConnectionMode) {
+    this.aerospikeSslConnectionMode = aerospikeSslConnectionMode;
+  }
+
+
   public DSProducerDetails agenticRules(@javax.annotation.Nullable AgenticRules agenticRules) {
     this.agenticRules = agenticRules;
     return this;
@@ -1720,6 +2166,25 @@ public class DSProducerDetails {
 
   public void setArtifactoryTokenScope(@javax.annotation.Nullable String artifactoryTokenScope) {
     this.artifactoryTokenScope = artifactoryTokenScope;
+  }
+
+
+  public DSProducerDetails authMode(@javax.annotation.Nullable String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+  /**
+   * AuthMode selects how this target authenticates. Empty (default) uses ApiKey as a static bearer token against BaseURL, matching all pre-existing behavior. OpenAIAuthModeChatGPTOAuth instead uses the OAuth* fields below.
+   * @return authMode
+   */
+  @javax.annotation.Nullable
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(@javax.annotation.Nullable String authMode) {
+    this.authMode = authMode;
   }
 
 
@@ -5329,6 +5794,82 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails oauthAccessToken(@javax.annotation.Nullable String oauthAccessToken) {
+    this.oauthAccessToken = oauthAccessToken;
+    return this;
+  }
+
+  /**
+   * OAuthAccessToken is the current ChatGPT-issued access token (the &#x60;tokens.access_token&#x60; field of the customer&#39;s local auth.json). Akeyless refreshes this automatically; do not treat it as long-lived.
+   * @return oauthAccessToken
+   */
+  @javax.annotation.Nullable
+  public String getOauthAccessToken() {
+    return oauthAccessToken;
+  }
+
+  public void setOauthAccessToken(@javax.annotation.Nullable String oauthAccessToken) {
+    this.oauthAccessToken = oauthAccessToken;
+  }
+
+
+  public DSProducerDetails oauthAccountId(@javax.annotation.Nullable String oauthAccountId) {
+    this.oauthAccountId = oauthAccountId;
+    return this;
+  }
+
+  /**
+   * OAuthAccountID is the ChatGPT workspace/account id (&#x60;tokens.account_id&#x60; in auth.json), required on every request to the ChatGPT backend.
+   * @return oauthAccountId
+   */
+  @javax.annotation.Nullable
+  public String getOauthAccountId() {
+    return oauthAccountId;
+  }
+
+  public void setOauthAccountId(@javax.annotation.Nullable String oauthAccountId) {
+    this.oauthAccountId = oauthAccountId;
+  }
+
+
+  public DSProducerDetails oauthLastRefresh(@javax.annotation.Nullable String oauthLastRefresh) {
+    this.oauthLastRefresh = oauthLastRefresh;
+    return this;
+  }
+
+  /**
+   * OAuthLastRefresh is the RFC3339 timestamp of the last successful Akeyless-performed refresh; used as a fallback expiry heuristic when the access token&#39;s JWT exp claim can&#39;t be parsed.
+   * @return oauthLastRefresh
+   */
+  @javax.annotation.Nullable
+  public String getOauthLastRefresh() {
+    return oauthLastRefresh;
+  }
+
+  public void setOauthLastRefresh(@javax.annotation.Nullable String oauthLastRefresh) {
+    this.oauthLastRefresh = oauthLastRefresh;
+  }
+
+
+  public DSProducerDetails oauthRefreshToken(@javax.annotation.Nullable String oauthRefreshToken) {
+    this.oauthRefreshToken = oauthRefreshToken;
+    return this;
+  }
+
+  /**
+   * OAuthRefreshToken mints new access tokens. It rotates on every refresh - Akeyless persists the new value after each successful refresh, so the previous value becomes invalid.
+   * @return oauthRefreshToken
+   */
+  @javax.annotation.Nullable
+  public String getOauthRefreshToken() {
+    return oauthRefreshToken;
+  }
+
+  public void setOauthRefreshToken(@javax.annotation.Nullable String oauthRefreshToken) {
+    this.oauthRefreshToken = oauthRefreshToken;
+  }
+
+
   public DSProducerDetails openaiUrl(@javax.annotation.Nullable String openaiUrl) {
     this.openaiUrl = openaiUrl;
     return this;
@@ -6113,6 +6654,25 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * Get skipDryRun
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public Boolean getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DSProducerDetails skipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
     this.skipServerNameValidation = skipServerNameValidation;
     return this;
@@ -6754,6 +7314,23 @@ public class DSProducerDetails {
         Objects.equals(this.adminPwd, dsProducerDetails.adminPwd) &&
         Objects.equals(this.adminRotationIntervalDays, dsProducerDetails.adminRotationIntervalDays) &&
         Objects.equals(this.administrativePort, dsProducerDetails.administrativePort) &&
+        Objects.equals(this.aerospikeAdminUsername, dsProducerDetails.aerospikeAdminUsername) &&
+        Objects.equals(this.aerospikeClientCertificate, dsProducerDetails.aerospikeClientCertificate) &&
+        Objects.equals(this.aerospikeClientId, dsProducerDetails.aerospikeClientId) &&
+        Objects.equals(this.aerospikeClientPrivateKey, dsProducerDetails.aerospikeClientPrivateKey) &&
+        Objects.equals(this.aerospikeClientSecret, dsProducerDetails.aerospikeClientSecret) &&
+        Objects.equals(this.aerospikeCloud, dsProducerDetails.aerospikeCloud) &&
+        Objects.equals(this.aerospikeClusterId, dsProducerDetails.aerospikeClusterId) &&
+        Objects.equals(this.aerospikeDbServerName, dsProducerDetails.aerospikeDbServerName) &&
+        Objects.equals(this.aerospikeEnableMtls, dsProducerDetails.aerospikeEnableMtls) &&
+        Objects.equals(this.aerospikeHostname, dsProducerDetails.aerospikeHostname) &&
+        Objects.equals(this.aerospikeNamespace, dsProducerDetails.aerospikeNamespace) &&
+        Objects.equals(this.aerospikePassword, dsProducerDetails.aerospikePassword) &&
+        Objects.equals(this.aerospikePort, dsProducerDetails.aerospikePort) &&
+        Objects.equals(this.aerospikeRoles, dsProducerDetails.aerospikeRoles) &&
+        Objects.equals(this.aerospikeSkipServerNameValidation, dsProducerDetails.aerospikeSkipServerNameValidation) &&
+        Objects.equals(this.aerospikeSslConnectionCertificate, dsProducerDetails.aerospikeSslConnectionCertificate) &&
+        Objects.equals(this.aerospikeSslConnectionMode, dsProducerDetails.aerospikeSslConnectionMode) &&
         Objects.equals(this.agenticRules, dsProducerDetails.agenticRules) &&
         Objects.equals(this.apiKey, dsProducerDetails.apiKey) &&
         Objects.equals(this.apiKeyId, dsProducerDetails.apiKeyId) &&
@@ -6762,6 +7339,7 @@ public class DSProducerDetails {
         Objects.equals(this.artifactoryBaseUrl, dsProducerDetails.artifactoryBaseUrl) &&
         Objects.equals(this.artifactoryTokenAudience, dsProducerDetails.artifactoryTokenAudience) &&
         Objects.equals(this.artifactoryTokenScope, dsProducerDetails.artifactoryTokenScope) &&
+        Objects.equals(this.authMode, dsProducerDetails.authMode) &&
         Objects.equals(this.authorizationPort, dsProducerDetails.authorizationPort) &&
         Objects.equals(this.awsAccessKeyId, dsProducerDetails.awsAccessKeyId) &&
         Objects.equals(this.awsAccessMode, dsProducerDetails.awsAccessMode) &&
@@ -6948,6 +7526,10 @@ public class DSProducerDetails {
         Objects.equals(this.mssqlRevocationStatements, dsProducerDetails.mssqlRevocationStatements) &&
         Objects.equals(this.mysqlCreationStatements, dsProducerDetails.mysqlCreationStatements) &&
         Objects.equals(this.mysqlRevocationStatements, dsProducerDetails.mysqlRevocationStatements) &&
+        Objects.equals(this.oauthAccessToken, dsProducerDetails.oauthAccessToken) &&
+        Objects.equals(this.oauthAccountId, dsProducerDetails.oauthAccountId) &&
+        Objects.equals(this.oauthLastRefresh, dsProducerDetails.oauthLastRefresh) &&
+        Objects.equals(this.oauthRefreshToken, dsProducerDetails.oauthRefreshToken) &&
         Objects.equals(this.openaiUrl, dsProducerDetails.openaiUrl) &&
         Objects.equals(this.oracleCreationStatements, dsProducerDetails.oracleCreationStatements) &&
         Objects.equals(this.oracleRevocationStatements, dsProducerDetails.oracleRevocationStatements) &&
@@ -6988,6 +7570,7 @@ public class DSProducerDetails {
         Objects.equals(this.sfWarehouseName, dsProducerDetails.sfWarehouseName) &&
         Objects.equals(this.shouldStop, dsProducerDetails.shouldStop) &&
         Objects.equals(this.signingAlgorithm, dsProducerDetails.signingAlgorithm) &&
+        Objects.equals(this.skipDryRun, dsProducerDetails.skipDryRun) &&
         Objects.equals(this.skipServerNameValidation, dsProducerDetails.skipServerNameValidation) &&
         Objects.equals(this.sslConnectionCertificate, dsProducerDetails.sslConnectionCertificate) &&
         Objects.equals(this.sslConnectionMode, dsProducerDetails.sslConnectionMode) &&
@@ -7024,7 +7607,7 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, passwordPolicyInfo, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, preserveExistingPasswordSettings, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, skipServerNameValidation, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, aerospikeAdminUsername, aerospikeClientCertificate, aerospikeClientId, aerospikeClientPrivateKey, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, aerospikeDbServerName, aerospikeEnableMtls, aerospikeHostname, aerospikeNamespace, aerospikePassword, aerospikePort, aerospikeRoles, aerospikeSkipServerNameValidation, aerospikeSslConnectionCertificate, aerospikeSslConnectionMode, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authMode, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oauthAccessToken, oauthAccountId, oauthLastRefresh, oauthRefreshToken, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, passwordPolicyInfo, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, preserveExistingPasswordSettings, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, skipDryRun, skipServerNameValidation, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
@@ -7038,6 +7621,23 @@ public class DSProducerDetails {
     sb.append("    adminPwd: ").append(toIndentedString(adminPwd)).append("\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
     sb.append("    administrativePort: ").append(toIndentedString(administrativePort)).append("\n");
+    sb.append("    aerospikeAdminUsername: ").append(toIndentedString(aerospikeAdminUsername)).append("\n");
+    sb.append("    aerospikeClientCertificate: ").append(toIndentedString(aerospikeClientCertificate)).append("\n");
+    sb.append("    aerospikeClientId: ").append(toIndentedString(aerospikeClientId)).append("\n");
+    sb.append("    aerospikeClientPrivateKey: ").append(toIndentedString(aerospikeClientPrivateKey)).append("\n");
+    sb.append("    aerospikeClientSecret: ").append(toIndentedString(aerospikeClientSecret)).append("\n");
+    sb.append("    aerospikeCloud: ").append(toIndentedString(aerospikeCloud)).append("\n");
+    sb.append("    aerospikeClusterId: ").append(toIndentedString(aerospikeClusterId)).append("\n");
+    sb.append("    aerospikeDbServerName: ").append(toIndentedString(aerospikeDbServerName)).append("\n");
+    sb.append("    aerospikeEnableMtls: ").append(toIndentedString(aerospikeEnableMtls)).append("\n");
+    sb.append("    aerospikeHostname: ").append(toIndentedString(aerospikeHostname)).append("\n");
+    sb.append("    aerospikeNamespace: ").append(toIndentedString(aerospikeNamespace)).append("\n");
+    sb.append("    aerospikePassword: ").append(toIndentedString(aerospikePassword)).append("\n");
+    sb.append("    aerospikePort: ").append(toIndentedString(aerospikePort)).append("\n");
+    sb.append("    aerospikeRoles: ").append(toIndentedString(aerospikeRoles)).append("\n");
+    sb.append("    aerospikeSkipServerNameValidation: ").append(toIndentedString(aerospikeSkipServerNameValidation)).append("\n");
+    sb.append("    aerospikeSslConnectionCertificate: ").append(toIndentedString(aerospikeSslConnectionCertificate)).append("\n");
+    sb.append("    aerospikeSslConnectionMode: ").append(toIndentedString(aerospikeSslConnectionMode)).append("\n");
     sb.append("    agenticRules: ").append(toIndentedString(agenticRules)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
@@ -7046,6 +7646,7 @@ public class DSProducerDetails {
     sb.append("    artifactoryBaseUrl: ").append(toIndentedString(artifactoryBaseUrl)).append("\n");
     sb.append("    artifactoryTokenAudience: ").append(toIndentedString(artifactoryTokenAudience)).append("\n");
     sb.append("    artifactoryTokenScope: ").append(toIndentedString(artifactoryTokenScope)).append("\n");
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    authorizationPort: ").append(toIndentedString(authorizationPort)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsAccessMode: ").append(toIndentedString(awsAccessMode)).append("\n");
@@ -7232,6 +7833,10 @@ public class DSProducerDetails {
     sb.append("    mssqlRevocationStatements: ").append(toIndentedString(mssqlRevocationStatements)).append("\n");
     sb.append("    mysqlCreationStatements: ").append(toIndentedString(mysqlCreationStatements)).append("\n");
     sb.append("    mysqlRevocationStatements: ").append(toIndentedString(mysqlRevocationStatements)).append("\n");
+    sb.append("    oauthAccessToken: ").append(toIndentedString(oauthAccessToken)).append("\n");
+    sb.append("    oauthAccountId: ").append(toIndentedString(oauthAccountId)).append("\n");
+    sb.append("    oauthLastRefresh: ").append(toIndentedString(oauthLastRefresh)).append("\n");
+    sb.append("    oauthRefreshToken: ").append(toIndentedString(oauthRefreshToken)).append("\n");
     sb.append("    openaiUrl: ").append(toIndentedString(openaiUrl)).append("\n");
     sb.append("    oracleCreationStatements: ").append(toIndentedString(oracleCreationStatements)).append("\n");
     sb.append("    oracleRevocationStatements: ").append(toIndentedString(oracleRevocationStatements)).append("\n");
@@ -7272,6 +7877,7 @@ public class DSProducerDetails {
     sb.append("    sfWarehouseName: ").append(toIndentedString(sfWarehouseName)).append("\n");
     sb.append("    shouldStop: ").append(toIndentedString(shouldStop)).append("\n");
     sb.append("    signingAlgorithm: ").append(toIndentedString(signingAlgorithm)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    skipServerNameValidation: ").append(toIndentedString(skipServerNameValidation)).append("\n");
     sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
     sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
@@ -7322,7 +7928,7 @@ public class DSProducerDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_token_manager_id", "acl_rules", "active", "admin_name", "admin_pwd", "admin_rotation_interval_days", "administrative_port", "agentic_rules", "api_key", "api_key_id", "artifactory_admin_apikey", "artifactory_admin_username", "artifactory_base_url", "artifactory_token_audience", "artifactory_token_scope", "authorization_port", "aws_access_key_id", "aws_access_mode", "aws_external_id", "aws_region", "aws_role_arns", "aws_secret_access_key", "aws_session_tags", "aws_session_token", "aws_transitive_tag_keys", "aws_user_console_access", "aws_user_groups", "aws_user_policies", "aws_user_programmatic_access", "azure_administrative_unit", "azure_app_object_id", "azure_client_id", "azure_client_secret", "azure_cloud", "azure_fixed_user_name_sub_claim_key", "azure_fixed_user_only", "azure_resource_group_name", "azure_resource_name", "azure_subscription_id", "azure_tenant_id", "azure_user_groups_obj_id", "azure_user_portal_access", "azure_user_programmatic_access", "azure_user_roles_template_id", "azure_username", "cassandra_creation_statements", "chef_organizations", "chef_server_access_mode", "chef_server_host_name", "chef_server_key", "chef_server_port", "chef_server_url", "chef_server_username", "chef_skip_ssl", "client_authentication_type", "client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "create_sync_url", "db_client_id", "db_client_secret", "db_host_name", "db_isolation_level", "db_max_idle_conns", "db_max_open_conns", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "delete_protection", "dynamic_secret_id", "dynamic_secret_key", "dynamic_secret_name", "dynamic_secret_type", "eks_access_key_id", "eks_assume_role", "eks_cluster_ca_certificate", "eks_cluster_endpoint", "eks_cluster_name", "eks_region", "eks_secret_access_key", "enable_admin_rotation", "enable_mtls", "enforce_replay_prevention", "expiration_date", "externally_provided_user", "failure_message", "fixed_user_only", "gcp_access_type", "gcp_fixed_user_claim_keyname", "gcp_key_algo", "gcp_project_id", "gcp_role_bindings", "gcp_role_names", "gcp_service_account_email", "gcp_service_account_key", "gcp_service_account_key_base64", "gcp_service_account_key_id", "gcp_service_account_type", "gcp_tmp_service_account_name", "gcp_token_lifetime", "gcp_token_scope", "gcp_token_type", "github_app_id", "github_app_private_key", "github_base_url", "github_installation_id", "github_installation_token_permissions", "github_installation_token_repositories", "github_installation_token_repositories_ids", "github_organization_name", "github_repository_path", "gitlab_access_token", "gitlab_access_type", "gitlab_certificate", "gitlab_group_name", "gitlab_project_name", "gitlab_role", "gitlab_token_scope", "gitlab_url", "gke_cluster_ca_certificate", "gke_cluster_endpoint", "gke_cluster_name", "gke_service_account_key", "gke_service_account_name", "google_workspace_access_mode", "google_workspace_admin_name", "google_workspace_fixed_user_name_sub_claim_key", "google_workspace_group_name", "google_workspace_group_role", "google_workspace_role_name", "google_workspace_role_scope", "grace_rotated_secret_key", "grant_types", "groups", "gw_cloud_identity_external_id_opt", "hanadb_creation_statements", "hanadb_revocation_statements", "host_name", "host_port", "implementation_type", "is_fixed_user", "issuer", "item_custom_fields_details", "item_targets_assoc", "jwks", "jwks_url", "k8s_allowed_namespaces", "k8s_auth_type", "k8s_bearer_token", "k8s_client_cert_data", "k8s_client_key_data", "k8s_cluster_ca_certificate", "k8s_cluster_endpoint", "k8s_cluster_name", "k8s_dynamic_mode", "k8s_multiple_doc_yaml_temp_definition", "k8s_namespace", "k8s_role_name", "k8s_role_type", "k8s_service_account", "last_admin_rotation", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_fixed_user_name_sub_claim_key", "ldap_fixed_user_type", "ldap_group_dn", "ldap_token_expiration", "ldap_url", "ldap_user_attr", "ldap_user_dn", "metadata", "mongodb_atlas_api_private_key", "mongodb_atlas_api_public_key", "mongodb_atlas_project_id", "mongodb_custom_data", "mongodb_db_name", "mongodb_default_auth_db", "mongodb_host_port", "mongodb_is_atlas", "mongodb_password", "mongodb_roles", "mongodb_scopes", "mongodb_uri_connection", "mongodb_uri_options", "mongodb_username", "mssql_allowed_db_names", "mssql_creation_statements", "mssql_revocation_statements", "mysql_creation_statements", "mysql_revocation_statements", "openai_url", "oracle_creation_statements", "oracle_revocation_statements", "oracle_wallet_details", "organization_id", "password", "password_length", "password_policy", "password_policy_info", "payload", "ping_url", "postgres_creation_statements", "postgres_revocation_statements", "preserve_existing_password_settings", "privileged_user", "project_id", "rabbitmq_server_password", "rabbitmq_server_uri", "rabbitmq_server_user", "rabbitmq_user_conf_permission", "rabbitmq_user_read_permission", "rabbitmq_user_tags", "rabbitmq_user_vhost", "rabbitmq_user_write_permission", "rdp_fixed_user_name_sub_claim_key", "redirect_uris", "redshift_creation_statements", "restricted_scopes", "revoke_sync_url", "rotate_sync_url", "scopes", "secure_remote_access_details", "session_extension_warn_interval_min", "sf_account", "sf_auth_mode", "sf_key_algo", "sf_user_role", "sf_warehouse_name", "should_stop", "signing_algorithm", "skip_server_name_validation", "ssl_connection_certificate", "ssl_connection_mode", "subject_dn", "tags", "timeout_seconds", "use_gw_cloud_identity", "use_gw_service_account", "user_name", "user_password", "user_principal_name", "user_ttl", "username_length", "username_policy", "username_template", "venafi_allow_subdomains", "venafi_allowed_domains", "venafi_api_key", "venafi_auto_generated_folder", "venafi_base_url", "venafi_root_first_in_chain", "venafi_sign_using_akeyless_pki", "venafi_signer_key_name", "venafi_store_private_key", "venafi_tpp_access_token", "venafi_tpp_client_id", "venafi_tpp_password", "venafi_tpp_refresh_token", "venafi_tpp_username", "venafi_use_tpp", "venafi_zone", "warn_before_user_expiration_min"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_token_manager_id", "acl_rules", "active", "admin_name", "admin_pwd", "admin_rotation_interval_days", "administrative_port", "aerospike_admin_username", "aerospike_client_certificate", "aerospike_client_id", "aerospike_client_private_key", "aerospike_client_secret", "aerospike_cloud", "aerospike_cluster_id", "aerospike_db_server_name", "aerospike_enable_mtls", "aerospike_hostname", "aerospike_namespace", "aerospike_password", "aerospike_port", "aerospike_roles", "aerospike_skip_server_name_validation", "aerospike_ssl_connection_certificate", "aerospike_ssl_connection_mode", "agentic_rules", "api_key", "api_key_id", "artifactory_admin_apikey", "artifactory_admin_username", "artifactory_base_url", "artifactory_token_audience", "artifactory_token_scope", "auth_mode", "authorization_port", "aws_access_key_id", "aws_access_mode", "aws_external_id", "aws_region", "aws_role_arns", "aws_secret_access_key", "aws_session_tags", "aws_session_token", "aws_transitive_tag_keys", "aws_user_console_access", "aws_user_groups", "aws_user_policies", "aws_user_programmatic_access", "azure_administrative_unit", "azure_app_object_id", "azure_client_id", "azure_client_secret", "azure_cloud", "azure_fixed_user_name_sub_claim_key", "azure_fixed_user_only", "azure_resource_group_name", "azure_resource_name", "azure_subscription_id", "azure_tenant_id", "azure_user_groups_obj_id", "azure_user_portal_access", "azure_user_programmatic_access", "azure_user_roles_template_id", "azure_username", "cassandra_creation_statements", "chef_organizations", "chef_server_access_mode", "chef_server_host_name", "chef_server_key", "chef_server_port", "chef_server_url", "chef_server_username", "chef_skip_ssl", "client_authentication_type", "client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "create_sync_url", "db_client_id", "db_client_secret", "db_host_name", "db_isolation_level", "db_max_idle_conns", "db_max_open_conns", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "delete_protection", "dynamic_secret_id", "dynamic_secret_key", "dynamic_secret_name", "dynamic_secret_type", "eks_access_key_id", "eks_assume_role", "eks_cluster_ca_certificate", "eks_cluster_endpoint", "eks_cluster_name", "eks_region", "eks_secret_access_key", "enable_admin_rotation", "enable_mtls", "enforce_replay_prevention", "expiration_date", "externally_provided_user", "failure_message", "fixed_user_only", "gcp_access_type", "gcp_fixed_user_claim_keyname", "gcp_key_algo", "gcp_project_id", "gcp_role_bindings", "gcp_role_names", "gcp_service_account_email", "gcp_service_account_key", "gcp_service_account_key_base64", "gcp_service_account_key_id", "gcp_service_account_type", "gcp_tmp_service_account_name", "gcp_token_lifetime", "gcp_token_scope", "gcp_token_type", "github_app_id", "github_app_private_key", "github_base_url", "github_installation_id", "github_installation_token_permissions", "github_installation_token_repositories", "github_installation_token_repositories_ids", "github_organization_name", "github_repository_path", "gitlab_access_token", "gitlab_access_type", "gitlab_certificate", "gitlab_group_name", "gitlab_project_name", "gitlab_role", "gitlab_token_scope", "gitlab_url", "gke_cluster_ca_certificate", "gke_cluster_endpoint", "gke_cluster_name", "gke_service_account_key", "gke_service_account_name", "google_workspace_access_mode", "google_workspace_admin_name", "google_workspace_fixed_user_name_sub_claim_key", "google_workspace_group_name", "google_workspace_group_role", "google_workspace_role_name", "google_workspace_role_scope", "grace_rotated_secret_key", "grant_types", "groups", "gw_cloud_identity_external_id_opt", "hanadb_creation_statements", "hanadb_revocation_statements", "host_name", "host_port", "implementation_type", "is_fixed_user", "issuer", "item_custom_fields_details", "item_targets_assoc", "jwks", "jwks_url", "k8s_allowed_namespaces", "k8s_auth_type", "k8s_bearer_token", "k8s_client_cert_data", "k8s_client_key_data", "k8s_cluster_ca_certificate", "k8s_cluster_endpoint", "k8s_cluster_name", "k8s_dynamic_mode", "k8s_multiple_doc_yaml_temp_definition", "k8s_namespace", "k8s_role_name", "k8s_role_type", "k8s_service_account", "last_admin_rotation", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_fixed_user_name_sub_claim_key", "ldap_fixed_user_type", "ldap_group_dn", "ldap_token_expiration", "ldap_url", "ldap_user_attr", "ldap_user_dn", "metadata", "mongodb_atlas_api_private_key", "mongodb_atlas_api_public_key", "mongodb_atlas_project_id", "mongodb_custom_data", "mongodb_db_name", "mongodb_default_auth_db", "mongodb_host_port", "mongodb_is_atlas", "mongodb_password", "mongodb_roles", "mongodb_scopes", "mongodb_uri_connection", "mongodb_uri_options", "mongodb_username", "mssql_allowed_db_names", "mssql_creation_statements", "mssql_revocation_statements", "mysql_creation_statements", "mysql_revocation_statements", "oauth_access_token", "oauth_account_id", "oauth_last_refresh", "oauth_refresh_token", "openai_url", "oracle_creation_statements", "oracle_revocation_statements", "oracle_wallet_details", "organization_id", "password", "password_length", "password_policy", "password_policy_info", "payload", "ping_url", "postgres_creation_statements", "postgres_revocation_statements", "preserve_existing_password_settings", "privileged_user", "project_id", "rabbitmq_server_password", "rabbitmq_server_uri", "rabbitmq_server_user", "rabbitmq_user_conf_permission", "rabbitmq_user_read_permission", "rabbitmq_user_tags", "rabbitmq_user_vhost", "rabbitmq_user_write_permission", "rdp_fixed_user_name_sub_claim_key", "redirect_uris", "redshift_creation_statements", "restricted_scopes", "revoke_sync_url", "rotate_sync_url", "scopes", "secure_remote_access_details", "session_extension_warn_interval_min", "sf_account", "sf_auth_mode", "sf_key_algo", "sf_user_role", "sf_warehouse_name", "should_stop", "signing_algorithm", "skip_dry_run", "skip_server_name_validation", "ssl_connection_certificate", "ssl_connection_mode", "subject_dn", "tags", "timeout_seconds", "use_gw_cloud_identity", "use_gw_service_account", "user_name", "user_password", "user_principal_name", "user_ttl", "username_length", "username_policy", "username_template", "venafi_allow_subdomains", "venafi_allowed_domains", "venafi_api_key", "venafi_auto_generated_folder", "venafi_base_url", "venafi_root_first_in_chain", "venafi_sign_using_akeyless_pki", "venafi_signer_key_name", "venafi_store_private_key", "venafi_tpp_access_token", "venafi_tpp_client_id", "venafi_tpp_password", "venafi_tpp_refresh_token", "venafi_tpp_username", "venafi_use_tpp", "venafi_zone", "warn_before_user_expiration_min"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -7365,6 +7971,49 @@ public class DSProducerDetails {
       if ((jsonObj.get("administrative_port") != null && !jsonObj.get("administrative_port").isJsonNull()) && !jsonObj.get("administrative_port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `administrative_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("administrative_port").toString()));
       }
+      if ((jsonObj.get("aerospike_admin_username") != null && !jsonObj.get("aerospike_admin_username").isJsonNull()) && !jsonObj.get("aerospike_admin_username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_admin_username").toString()));
+      }
+      if ((jsonObj.get("aerospike_client_certificate") != null && !jsonObj.get("aerospike_client_certificate").isJsonNull()) && !jsonObj.get("aerospike_client_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_certificate").toString()));
+      }
+      if ((jsonObj.get("aerospike_client_id") != null && !jsonObj.get("aerospike_client_id").isJsonNull()) && !jsonObj.get("aerospike_client_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_id").toString()));
+      }
+      if ((jsonObj.get("aerospike_client_private_key") != null && !jsonObj.get("aerospike_client_private_key").isJsonNull()) && !jsonObj.get("aerospike_client_private_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_private_key").toString()));
+      }
+      if ((jsonObj.get("aerospike_client_secret") != null && !jsonObj.get("aerospike_client_secret").isJsonNull()) && !jsonObj.get("aerospike_client_secret").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_secret").toString()));
+      }
+      if ((jsonObj.get("aerospike_cluster_id") != null && !jsonObj.get("aerospike_cluster_id").isJsonNull()) && !jsonObj.get("aerospike_cluster_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_cluster_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_cluster_id").toString()));
+      }
+      if ((jsonObj.get("aerospike_db_server_name") != null && !jsonObj.get("aerospike_db_server_name").isJsonNull()) && !jsonObj.get("aerospike_db_server_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_db_server_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_db_server_name").toString()));
+      }
+      if ((jsonObj.get("aerospike_hostname") != null && !jsonObj.get("aerospike_hostname").isJsonNull()) && !jsonObj.get("aerospike_hostname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_hostname").toString()));
+      }
+      if ((jsonObj.get("aerospike_namespace") != null && !jsonObj.get("aerospike_namespace").isJsonNull()) && !jsonObj.get("aerospike_namespace").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_namespace").toString()));
+      }
+      if ((jsonObj.get("aerospike_password") != null && !jsonObj.get("aerospike_password").isJsonNull()) && !jsonObj.get("aerospike_password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_password").toString()));
+      }
+      if ((jsonObj.get("aerospike_port") != null && !jsonObj.get("aerospike_port").isJsonNull()) && !jsonObj.get("aerospike_port").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_port").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("aerospike_roles") != null && !jsonObj.get("aerospike_roles").isJsonNull() && !jsonObj.get("aerospike_roles").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_roles` to be an array in the JSON string but got `%s`", jsonObj.get("aerospike_roles").toString()));
+      }
+      if ((jsonObj.get("aerospike_skip_server_name_validation") != null && !jsonObj.get("aerospike_skip_server_name_validation").isJsonNull()) && !jsonObj.get("aerospike_skip_server_name_validation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_skip_server_name_validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_skip_server_name_validation").toString()));
+      }
+      if ((jsonObj.get("aerospike_ssl_connection_certificate") != null && !jsonObj.get("aerospike_ssl_connection_certificate").isJsonNull()) && !jsonObj.get("aerospike_ssl_connection_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_ssl_connection_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_ssl_connection_certificate").toString()));
+      }
       // validate the optional field `agentic_rules`
       if (jsonObj.get("agentic_rules") != null && !jsonObj.get("agentic_rules").isJsonNull()) {
         AgenticRules.validateJsonElement(jsonObj.get("agentic_rules"));
@@ -7389,6 +8038,9 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("artifactory_token_scope") != null && !jsonObj.get("artifactory_token_scope").isJsonNull()) && !jsonObj.get("artifactory_token_scope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `artifactory_token_scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("artifactory_token_scope").toString()));
+      }
+      if ((jsonObj.get("auth_mode") != null && !jsonObj.get("auth_mode").isJsonNull()) && !jsonObj.get("auth_mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_mode").toString()));
       }
       if ((jsonObj.get("authorization_port") != null && !jsonObj.get("authorization_port").isJsonNull()) && !jsonObj.get("authorization_port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authorization_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorization_port").toString()));
@@ -7915,6 +8567,18 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("mysql_revocation_statements") != null && !jsonObj.get("mysql_revocation_statements").isJsonNull()) && !jsonObj.get("mysql_revocation_statements").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `mysql_revocation_statements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mysql_revocation_statements").toString()));
+      }
+      if ((jsonObj.get("oauth_access_token") != null && !jsonObj.get("oauth_access_token").isJsonNull()) && !jsonObj.get("oauth_access_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_access_token").toString()));
+      }
+      if ((jsonObj.get("oauth_account_id") != null && !jsonObj.get("oauth_account_id").isJsonNull()) && !jsonObj.get("oauth_account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_account_id").toString()));
+      }
+      if ((jsonObj.get("oauth_last_refresh") != null && !jsonObj.get("oauth_last_refresh").isJsonNull()) && !jsonObj.get("oauth_last_refresh").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_last_refresh` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_last_refresh").toString()));
+      }
+      if ((jsonObj.get("oauth_refresh_token") != null && !jsonObj.get("oauth_refresh_token").isJsonNull()) && !jsonObj.get("oauth_refresh_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_refresh_token").toString()));
       }
       if ((jsonObj.get("openai_url") != null && !jsonObj.get("openai_url").isJsonNull()) && !jsonObj.get("openai_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `openai_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_url").toString()));

@@ -30,6 +30,7 @@ dynamicSecretCreateGoogleWorkspace is a command that creates Google Workspace dy
 |**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional] |
 |**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | Name of existing target to use in dynamic secret creation |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

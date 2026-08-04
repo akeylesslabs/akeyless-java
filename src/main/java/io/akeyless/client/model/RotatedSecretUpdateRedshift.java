@@ -184,6 +184,11 @@ public class RotatedSecretUpdateRedshift {
   @javax.annotation.Nullable
   private List<String> secureAccessHost = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -767,6 +772,25 @@ public class RotatedSecretUpdateRedshift {
   }
 
 
+  public RotatedSecretUpdateRedshift skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretUpdateRedshift token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -917,6 +941,7 @@ public class RotatedSecretUpdateRedshift {
         Objects.equals(this.secureAccessDbName, rotatedSecretUpdateRedshift.secureAccessDbName) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretUpdateRedshift.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, rotatedSecretUpdateRedshift.secureAccessHost) &&
+        Objects.equals(this.skipDryRun, rotatedSecretUpdateRedshift.skipDryRun) &&
         Objects.equals(this.token, rotatedSecretUpdateRedshift.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateRedshift.uidToken) &&
         Objects.equals(this.useCapitalLetters, rotatedSecretUpdateRedshift.useCapitalLetters) &&
@@ -927,7 +952,7 @@ public class RotatedSecretUpdateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -960,6 +985,7 @@ public class RotatedSecretUpdateRedshift {
     sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useCapitalLetters: ").append(toIndentedString(useCapitalLetters)).append("\n");
@@ -984,7 +1010,7 @@ public class RotatedSecretUpdateRedshift {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-db-name", "secure-access-enable", "secure-access-host", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-db-name", "secure-access-enable", "secure-access-host", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1092,6 +1118,9 @@ public class RotatedSecretUpdateRedshift {
       // ensure the optional json data is an array if present
       if (jsonObj.get("secure-access-host") != null && !jsonObj.get("secure-access-host").isJsonNull() && !jsonObj.get("secure-access-host").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-host` to be an array in the JSON string but got `%s`", jsonObj.get("secure-access-host").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

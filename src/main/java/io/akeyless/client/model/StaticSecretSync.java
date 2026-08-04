@@ -55,6 +55,11 @@ public class StaticSecretSync {
   @javax.annotation.Nullable
   private Boolean deleteRemote;
 
+  public static final String SERIALIZED_NAME_ENVIRONMENTS = "environments";
+  @SerializedName(SERIALIZED_NAME_ENVIRONMENTS)
+  @javax.annotation.Nullable
+  private String environments;
+
   public static final String SERIALIZED_NAME_FILTER_SECRET_VALUE = "filter-secret-value";
   @SerializedName(SERIALIZED_NAME_FILTER_SECRET_VALUE)
   @javax.annotation.Nullable
@@ -79,6 +84,11 @@ public class StaticSecretSync {
   @SerializedName(SERIALIZED_NAME_REMOTE_SECRET_NAME)
   @javax.annotation.Nullable
   private String remoteSecretName;
+
+  public static final String SERIALIZED_NAME_REPOSITORIES = "repositories";
+  @SerializedName(SERIALIZED_NAME_REPOSITORIES)
+  @javax.annotation.Nullable
+  private String repositories;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -114,6 +124,25 @@ public class StaticSecretSync {
 
   public void setDeleteRemote(@javax.annotation.Nullable Boolean deleteRemote) {
     this.deleteRemote = deleteRemote;
+  }
+
+
+  public StaticSecretSync environments(@javax.annotation.Nullable String environments) {
+    this.environments = environments;
+    return this;
+  }
+
+  /**
+   * GitHub environments to sync to. Relevant only for GitHub targets. Syncs to all environments defined on the selected USC by default, or to one or more specific repositories associated with that USC item when specified (e.g. --environments repo1/env1,repo2/env2).
+   * @return environments
+   */
+  @javax.annotation.Nullable
+  public String getEnvironments() {
+    return environments;
+  }
+
+  public void setEnvironments(@javax.annotation.Nullable String environments) {
+    this.environments = environments;
   }
 
 
@@ -212,6 +241,25 @@ public class StaticSecretSync {
   }
 
 
+  public StaticSecretSync repositories(@javax.annotation.Nullable String repositories) {
+    this.repositories = repositories;
+    return this;
+  }
+
+  /**
+   * GitHub repositories to sync to. Relevant only for GitHub targets. Syncs to all repositories defined on the selected USC by default, or to one or more specific repositories associated with that USC item when specified (e.g. --repositories repo1,repo2).
+   * @return repositories
+   */
+  @javax.annotation.Nullable
+  public String getRepositories() {
+    return repositories;
+  }
+
+  public void setRepositories(@javax.annotation.Nullable String repositories) {
+    this.repositories = repositories;
+  }
+
+
   public StaticSecretSync token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -280,11 +328,13 @@ public class StaticSecretSync {
     }
     StaticSecretSync staticSecretSync = (StaticSecretSync) o;
     return Objects.equals(this.deleteRemote, staticSecretSync.deleteRemote) &&
+        Objects.equals(this.environments, staticSecretSync.environments) &&
         Objects.equals(this.filterSecretValue, staticSecretSync.filterSecretValue) &&
         Objects.equals(this.json, staticSecretSync.json) &&
         Objects.equals(this.name, staticSecretSync.name) &&
         Objects.equals(this.namespace, staticSecretSync.namespace) &&
         Objects.equals(this.remoteSecretName, staticSecretSync.remoteSecretName) &&
+        Objects.equals(this.repositories, staticSecretSync.repositories) &&
         Objects.equals(this.token, staticSecretSync.token) &&
         Objects.equals(this.uidToken, staticSecretSync.uidToken) &&
         Objects.equals(this.uscName, staticSecretSync.uscName);
@@ -292,7 +342,7 @@ public class StaticSecretSync {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteRemote, filterSecretValue, json, name, namespace, remoteSecretName, token, uidToken, uscName);
+    return Objects.hash(deleteRemote, environments, filterSecretValue, json, name, namespace, remoteSecretName, repositories, token, uidToken, uscName);
   }
 
   @Override
@@ -300,11 +350,13 @@ public class StaticSecretSync {
     StringBuilder sb = new StringBuilder();
     sb.append("class StaticSecretSync {\n");
     sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
+    sb.append("    environments: ").append(toIndentedString(environments)).append("\n");
     sb.append("    filterSecretValue: ").append(toIndentedString(filterSecretValue)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    remoteSecretName: ").append(toIndentedString(remoteSecretName)).append("\n");
+    sb.append("    repositories: ").append(toIndentedString(repositories)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
@@ -326,7 +378,7 @@ public class StaticSecretSync {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete-remote", "filter-secret-value", "json", "name", "namespace", "remote-secret-name", "token", "uid-token", "usc-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete-remote", "environments", "filter-secret-value", "json", "name", "namespace", "remote-secret-name", "repositories", "token", "uid-token", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -360,6 +412,9 @@ public class StaticSecretSync {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("environments") != null && !jsonObj.get("environments").isJsonNull()) && !jsonObj.get("environments").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `environments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("environments").toString()));
+      }
       if ((jsonObj.get("filter-secret-value") != null && !jsonObj.get("filter-secret-value").isJsonNull()) && !jsonObj.get("filter-secret-value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filter-secret-value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter-secret-value").toString()));
       }
@@ -371,6 +426,9 @@ public class StaticSecretSync {
       }
       if ((jsonObj.get("remote-secret-name") != null && !jsonObj.get("remote-secret-name").isJsonNull()) && !jsonObj.get("remote-secret-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `remote-secret-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote-secret-name").toString()));
+      }
+      if ((jsonObj.get("repositories") != null && !jsonObj.get("repositories").isJsonNull()) && !jsonObj.get("repositories").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("repositories").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

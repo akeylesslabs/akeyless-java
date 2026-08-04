@@ -7,12 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**providerType** | **String** |  |  [optional] |
 |**accessibility** | **String** | for personal password manager |  [optional] |
 |**changeEvent** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) |  [optional] |
 |**customField** | **Map&lt;String, String&gt;** | For Password Management use, additional fields |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**format** | **String** | Secret format [text/json/key-value] (relevant only for type &#39;generic&#39;) |  [optional] |
+|**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. |  [optional] |
 |**injectUrl** | **List&lt;String&gt;** | For Password Management use, reflect the website context |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
@@ -28,6 +30,7 @@
 |**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |
 |**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
+|**secureAccessEnforceHostsRestriction** | **Boolean** | Enforce connections only to allowed SRA hosts |  [optional] |
 |**secureAccessGateway** | **String** |  |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdpUser** | **String** | Remote Desktop Username |  [optional] |
@@ -37,6 +40,7 @@
 |**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
+|**target** | **List&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**type** | **String** | The secret sub type [generic/password] |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

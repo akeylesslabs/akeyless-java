@@ -30,6 +30,7 @@
 |**secureAccessDbName** | **String** | The DB name (relevant only for DB Dynamic-Secret) |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | The target name to associate |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

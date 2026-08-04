@@ -163,6 +163,11 @@ public class RotatedSecretDetailsInfo {
   @javax.annotation.Nullable
   private List<WindowsService> servicesDetails = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private Boolean skipDryRun;
+
   public static final String SERIALIZED_NAME_TIMEOUT_SECONDS = "timeout_seconds";
   @SerializedName(SERIALIZED_NAME_TIMEOUT_SECONDS)
   @javax.annotation.Nullable
@@ -605,6 +610,25 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * Get skipDryRun
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public Boolean getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretDetailsInfo timeoutSeconds(@javax.annotation.Nullable Long timeoutSeconds) {
     this.timeoutSeconds = timeoutSeconds;
     return this;
@@ -656,12 +680,13 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.rotatorType, rotatedSecretDetailsInfo.rotatorType) &&
         Objects.equals(this.samePassword, rotatedSecretDetailsInfo.samePassword) &&
         Objects.equals(this.servicesDetails, rotatedSecretDetailsInfo.servicesDetails) &&
+        Objects.equals(this.skipDryRun, rotatedSecretDetailsInfo.skipDryRun) &&
         Objects.equals(this.timeoutSeconds, rotatedSecretDetailsInfo.timeoutSeconds);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, timeoutSeconds);
+    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
   }
 
   @Override
@@ -690,6 +715,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
     sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
     sb.append("    servicesDetails: ").append(toIndentedString(servicesDetails)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    timeoutSeconds: ").append(toIndentedString(timeoutSeconds)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -709,7 +735,7 @@ public class RotatedSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "timeout_seconds"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

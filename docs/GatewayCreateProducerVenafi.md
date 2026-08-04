@@ -23,6 +23,7 @@ gatewayCreateProducerVenafi is a command that creates a Venafi dynamic secret pr
 |**rootFirstInChain** | **Boolean** | Root first in chain |  [optional] |
 |**signUsingAkeylessPki** | **Boolean** | Use Akeyless PKI issuer or Venafi issuer |  [optional] |
 |**signerKeyName** | **String** | Signer key name |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**storePrivateKey** | **Boolean** | Store private key |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | Target name |  [optional] |

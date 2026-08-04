@@ -174,6 +174,11 @@ public class DynamicSecretUpdateLdap {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -188,6 +193,11 @@ public class DynamicSecretUpdateLdap {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_RDP_DOMAIN)
   @javax.annotation.Nullable
   private String secureAccessRdpDomain;
+
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -434,7 +444,7 @@ public class DynamicSecretUpdateLdap {
   }
 
   /**
-   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
    * @return hostProvider
    */
   @javax.annotation.Nullable
@@ -737,6 +747,25 @@ public class DynamicSecretUpdateLdap {
   }
 
 
+  public DynamicSecretUpdateLdap secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public DynamicSecretUpdateLdap secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -802,6 +831,25 @@ public class DynamicSecretUpdateLdap {
   }
 
 
+  public DynamicSecretUpdateLdap skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdateLdap tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -843,7 +891,7 @@ public class DynamicSecretUpdateLdap {
   }
 
   /**
-   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
    * @return target
    */
   @javax.annotation.Nullable
@@ -1099,9 +1147,11 @@ public class DynamicSecretUpdateLdap {
         Objects.equals(this.secureAccessCertificateIssuer, dynamicSecretUpdateLdap.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessDelay, dynamicSecretUpdateLdap.secureAccessDelay) &&
         Objects.equals(this.secureAccessEnable, dynamicSecretUpdateLdap.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, dynamicSecretUpdateLdap.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, dynamicSecretUpdateLdap.secureAccessHost) &&
         Objects.equals(this.secureAccessRdGatewayServer, dynamicSecretUpdateLdap.secureAccessRdGatewayServer) &&
         Objects.equals(this.secureAccessRdpDomain, dynamicSecretUpdateLdap.secureAccessRdpDomain) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdateLdap.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretUpdateLdap.tags) &&
         Objects.equals(this.target, dynamicSecretUpdateLdap.target) &&
         Objects.equals(this.targetName, dynamicSecretUpdateLdap.targetName) &&
@@ -1119,7 +1169,7 @@ public class DynamicSecretUpdateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, tags, target, targetName, token, tokenExpiration, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, skipDryRun, tags, target, targetName, token, tokenExpiration, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -1150,9 +1200,11 @@ public class DynamicSecretUpdateLdap {
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessDelay: ").append(toIndentedString(secureAccessDelay)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdGatewayServer: ").append(toIndentedString(secureAccessRdGatewayServer)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -1184,7 +1236,7 @@ public class DynamicSecretUpdateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "bind-dn", "bind-dn-password", "custom-username-template", "delete_protection", "description", "external-username", "fixed-user-claim-keyname", "group-dn", "host-provider", "input-rule", "item-custom-fields", "json", "ldap-ca-cert", "ldap-url", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "tags", "target", "target-name", "token", "token-expiration", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "bind-dn", "bind-dn-password", "custom-username-template", "delete_protection", "description", "external-username", "fixed-user-claim-keyname", "group-dn", "host-provider", "input-rule", "item-custom-fields", "json", "ldap-ca-cert", "ldap-url", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "skip_dry_run", "tags", "target", "target-name", "token", "token-expiration", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1292,6 +1344,9 @@ public class DynamicSecretUpdateLdap {
       }
       if ((jsonObj.get("secure-access-rdp-domain") != null && !jsonObj.get("secure-access-rdp-domain").isJsonNull()) && !jsonObj.get("secure-access-rdp-domain").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-rdp-domain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-rdp-domain").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

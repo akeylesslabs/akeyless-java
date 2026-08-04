@@ -16,6 +16,7 @@ DynamicSecretProducerInfo The dynamic secret producer info This parameter releva
 |**producerMetadata** | **String** |  |  [optional] |
 |**producerStatus** | **String** | RotationStatus defines types of rotation Status |  [optional] |
 |**producerType** | **String** |  |  [optional] |
+|**skipDryRun** | **Boolean** |  |  [optional] |
 |**userTtl** | **String** |  |  [optional] |
 
 

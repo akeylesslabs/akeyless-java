@@ -80,6 +80,11 @@ public class KMIPClient {
   @javax.annotation.Nullable
   private String id;
 
+  public static final String SERIALIZED_NAME_ISSUING_CA_ID = "issuing_ca_id";
+  @SerializedName(SERIALIZED_NAME_ISSUING_CA_ID)
+  @javax.annotation.Nullable
+  private String issuingCaId;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
@@ -196,6 +201,25 @@ public class KMIPClient {
   }
 
 
+  public KMIPClient issuingCaId(@javax.annotation.Nullable String issuingCaId) {
+    this.issuingCaId = issuingCaId;
+    return this;
+  }
+
+  /**
+   * Get issuingCaId
+   * @return issuingCaId
+   */
+  @javax.annotation.Nullable
+  public String getIssuingCaId() {
+    return issuingCaId;
+  }
+
+  public void setIssuingCaId(@javax.annotation.Nullable String issuingCaId) {
+    this.issuingCaId = issuingCaId;
+  }
+
+
   public KMIPClient name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
@@ -257,13 +281,14 @@ public class KMIPClient {
         Objects.equals(this.certificateTtlInSeconds, kmIPClient.certificateTtlInSeconds) &&
         Objects.equals(this.expirationEvents, kmIPClient.expirationEvents) &&
         Objects.equals(this.id, kmIPClient.id) &&
+        Objects.equals(this.issuingCaId, kmIPClient.issuingCaId) &&
         Objects.equals(this.name, kmIPClient.name) &&
         Objects.equals(this.rules, kmIPClient.rules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(activateKeysOnCreation, certificateIssueDate, certificateTtlInSeconds, expirationEvents, id, name, rules);
+    return Objects.hash(activateKeysOnCreation, certificateIssueDate, certificateTtlInSeconds, expirationEvents, id, issuingCaId, name, rules);
   }
 
   @Override
@@ -275,6 +300,7 @@ public class KMIPClient {
     sb.append("    certificateTtlInSeconds: ").append(toIndentedString(certificateTtlInSeconds)).append("\n");
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    issuingCaId: ").append(toIndentedString(issuingCaId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
@@ -295,7 +321,7 @@ public class KMIPClient {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("activate_keys_on_creation", "certificate_issue_date", "certificate_ttl_in_seconds", "expiration_events", "id", "name", "rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("activate_keys_on_creation", "certificate_issue_date", "certificate_ttl_in_seconds", "expiration_events", "id", "issuing_ca_id", "name", "rules"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -338,6 +364,9 @@ public class KMIPClient {
       }
       if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("issuing_ca_id") != null && !jsonObj.get("issuing_ca_id").isJsonNull()) && !jsonObj.get("issuing_ca_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuing_ca_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuing_ca_id").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

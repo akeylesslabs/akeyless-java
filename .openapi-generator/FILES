@@ -312,6 +312,7 @@ docs/Detokenize.md
 docs/DetokenizeOutput.md
 docs/DigiCertTargetDetails.md
 docs/DockerhubTargetDetails.md
+docs/DynamicSecretCreateAerospike.md
 docs/DynamicSecretCreateArtifactory.md
 docs/DynamicSecretCreateAws.md
 docs/DynamicSecretCreateAzure.md
@@ -352,6 +353,7 @@ docs/DynamicSecretProducerInfo.md
 docs/DynamicSecretTmpCredsDelete.md
 docs/DynamicSecretTmpCredsGet.md
 docs/DynamicSecretTmpCredsUpdate.md
+docs/DynamicSecretUpdateAerospike.md
 docs/DynamicSecretUpdateArtifactory.md
 docs/DynamicSecretUpdateAws.md
 docs/DynamicSecretUpdateAzure.md
@@ -723,6 +725,7 @@ docs/K8SAuthsConfigLastChange.md
 docs/K8SAuthsConfigPart.md
 docs/K8SMigration.md
 docs/K8SPayload.md
+docs/KMIPCA.md
 docs/KMIPClient.md
 docs/KMIPClientGetResponse.md
 docs/KMIPClientListResponse.md
@@ -879,6 +882,7 @@ docs/RotateKeyOutput.md
 docs/RotateOidcClientOutput.md
 docs/RotateOidcClientSecret.md
 docs/RotateSecret.md
+docs/RotatedSecretCreateAerospike.md
 docs/RotatedSecretCreateAws.md
 docs/RotatedSecretCreateAzure.md
 docs/RotatedSecretCreateCassandra.md
@@ -909,6 +913,7 @@ docs/RotatedSecretGetValue.md
 docs/RotatedSecretList.md
 docs/RotatedSecretOutput.md
 docs/RotatedSecretSync.md
+docs/RotatedSecretUpdateAerospike.md
 docs/RotatedSecretUpdateAws.md
 docs/RotatedSecretUpdateAzure.md
 docs/RotatedSecretUpdateCassandra.md
@@ -1582,6 +1587,7 @@ src/main/java/io/akeyless/client/model/Detokenize.java
 src/main/java/io/akeyless/client/model/DetokenizeOutput.java
 src/main/java/io/akeyless/client/model/DigiCertTargetDetails.java
 src/main/java/io/akeyless/client/model/DockerhubTargetDetails.java
+src/main/java/io/akeyless/client/model/DynamicSecretCreateAerospike.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateArtifactory.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAws.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAzure.java
@@ -1622,6 +1628,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretProducerInfo.java
 src/main/java/io/akeyless/client/model/DynamicSecretTmpCredsDelete.java
 src/main/java/io/akeyless/client/model/DynamicSecretTmpCredsGet.java
 src/main/java/io/akeyless/client/model/DynamicSecretTmpCredsUpdate.java
+src/main/java/io/akeyless/client/model/DynamicSecretUpdateAerospike.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateArtifactory.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateAws.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateAzure.java
@@ -1993,6 +2000,7 @@ src/main/java/io/akeyless/client/model/K8SAuthsConfigLastChange.java
 src/main/java/io/akeyless/client/model/K8SAuthsConfigPart.java
 src/main/java/io/akeyless/client/model/K8SMigration.java
 src/main/java/io/akeyless/client/model/K8SPayload.java
+src/main/java/io/akeyless/client/model/KMIPCA.java
 src/main/java/io/akeyless/client/model/KMIPClient.java
 src/main/java/io/akeyless/client/model/KMIPClientGetResponse.java
 src/main/java/io/akeyless/client/model/KMIPClientListResponse.java
@@ -2149,6 +2157,7 @@ src/main/java/io/akeyless/client/model/RotateKeyOutput.java
 src/main/java/io/akeyless/client/model/RotateOidcClientOutput.java
 src/main/java/io/akeyless/client/model/RotateOidcClientSecret.java
 src/main/java/io/akeyless/client/model/RotateSecret.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateAerospike.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateAws.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateAzure.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateCassandra.java
@@ -2179,6 +2188,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretGetValue.java
 src/main/java/io/akeyless/client/model/RotatedSecretList.java
 src/main/java/io/akeyless/client/model/RotatedSecretOutput.java
 src/main/java/io/akeyless/client/model/RotatedSecretSync.java
+src/main/java/io/akeyless/client/model/RotatedSecretUpdateAerospike.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAws.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAzure.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateCassandra.java
@@ -2516,6 +2526,8 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AerospikeTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/TargetCreateAerospikeTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateAerospikeTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretCreateAerospikeTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretUpdateAerospikeTest.java
+src/test/java/io/akeyless/client/model/KMIPCATest.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateAerospikeTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretUpdateAerospikeTest.java

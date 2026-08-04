@@ -238,6 +238,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**describeSubClaims**](docs/V2Api.md#describeSubClaims) | **POST** /describe-sub-claims | 
 *V2Api* | [**detokenize**](docs/V2Api.md#detokenize) | **POST** /detokenize | 
 *V2Api* | [**detokenizeBatch**](docs/V2Api.md#detokenizeBatch) | **POST** /detokenize-batch | 
+*V2Api* | [**dynamicSecretCreateAerospike**](docs/V2Api.md#dynamicSecretCreateAerospike) | **POST** /dynamic-secret-create-aerospike | 
 *V2Api* | [**dynamicSecretCreateArtifactory**](docs/V2Api.md#dynamicSecretCreateArtifactory) | **POST** /dynamic-secret-create-artifactory | 
 *V2Api* | [**dynamicSecretCreateAws**](docs/V2Api.md#dynamicSecretCreateAws) | **POST** /dynamic-secret-create-aws | 
 *V2Api* | [**dynamicSecretCreateAzure**](docs/V2Api.md#dynamicSecretCreateAzure) | **POST** /dynamic-secret-create-azure | 
@@ -273,6 +274,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretTmpCredsDelete**](docs/V2Api.md#dynamicSecretTmpCredsDelete) | **POST** /dynamic-secret-tmp-creds-delete | 
 *V2Api* | [**dynamicSecretTmpCredsGet**](docs/V2Api.md#dynamicSecretTmpCredsGet) | **POST** /dynamic-secret-tmp-creds-get | 
 *V2Api* | [**dynamicSecretTmpCredsUpdate**](docs/V2Api.md#dynamicSecretTmpCredsUpdate) | **POST** /dynamic-secret-tmp-creds-update | 
+*V2Api* | [**dynamicSecretUpdateAerospike**](docs/V2Api.md#dynamicSecretUpdateAerospike) | **POST** /dynamic-secret-update-aerospike | 
 *V2Api* | [**dynamicSecretUpdateArtifactory**](docs/V2Api.md#dynamicSecretUpdateArtifactory) | **POST** /dynamic-secret-update-artifactory | 
 *V2Api* | [**dynamicSecretUpdateAws**](docs/V2Api.md#dynamicSecretUpdateAws) | **POST** /dynamic-secret-update-aws | 
 *V2Api* | [**dynamicSecretUpdateAzure**](docs/V2Api.md#dynamicSecretUpdateAzure) | **POST** /dynamic-secret-update-azure | 
@@ -518,6 +520,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotateKey**](docs/V2Api.md#rotateKey) | **POST** /rotate-key | 
 *V2Api* | [**rotateOidcClientSecret**](docs/V2Api.md#rotateOidcClientSecret) | **POST** /rotate-oidc-client-secret | 
 *V2Api* | [**rotateSecret**](docs/V2Api.md#rotateSecret) | **POST** /gateway-rotate-secret | 
+*V2Api* | [**rotatedSecretCreateAerospike**](docs/V2Api.md#rotatedSecretCreateAerospike) | **POST** /rotated-secret-create-aerospike | 
 *V2Api* | [**rotatedSecretCreateAws**](docs/V2Api.md#rotatedSecretCreateAws) | **POST** /rotated-secret-create-aws | 
 *V2Api* | [**rotatedSecretCreateAzure**](docs/V2Api.md#rotatedSecretCreateAzure) | **POST** /rotated-secret-create-azure | 
 *V2Api* | [**rotatedSecretCreateCassandra**](docs/V2Api.md#rotatedSecretCreateCassandra) | **POST** /rotated-secret-create-cassandra | 
@@ -544,6 +547,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretGetValue**](docs/V2Api.md#rotatedSecretGetValue) | **POST** /rotated-secret-get-value | 
 *V2Api* | [**rotatedSecretList**](docs/V2Api.md#rotatedSecretList) | **POST** /rotated-secret-list | 
 *V2Api* | [**rotatedSecretSync**](docs/V2Api.md#rotatedSecretSync) | **POST** /rotated-secret-sync | 
+*V2Api* | [**rotatedSecretUpdateAerospike**](docs/V2Api.md#rotatedSecretUpdateAerospike) | **POST** /rotated-secret-update-aerospike | 
 *V2Api* | [**rotatedSecretUpdateAws**](docs/V2Api.md#rotatedSecretUpdateAws) | **POST** /rotated-secret-update-aws | 
 *V2Api* | [**rotatedSecretUpdateAzure**](docs/V2Api.md#rotatedSecretUpdateAzure) | **POST** /rotated-secret-update-azure | 
 *V2Api* | [**rotatedSecretUpdateCassandra**](docs/V2Api.md#rotatedSecretUpdateCassandra) | **POST** /rotated-secret-update-cassandra | 
@@ -1059,6 +1063,7 @@ Class | Method | HTTP request | Description
  - [DetokenizeOutput](docs/DetokenizeOutput.md)
  - [DigiCertTargetDetails](docs/DigiCertTargetDetails.md)
  - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
+ - [DynamicSecretCreateAerospike](docs/DynamicSecretCreateAerospike.md)
  - [DynamicSecretCreateArtifactory](docs/DynamicSecretCreateArtifactory.md)
  - [DynamicSecretCreateAws](docs/DynamicSecretCreateAws.md)
  - [DynamicSecretCreateAzure](docs/DynamicSecretCreateAzure.md)
@@ -1099,6 +1104,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretTmpCredsDelete](docs/DynamicSecretTmpCredsDelete.md)
  - [DynamicSecretTmpCredsGet](docs/DynamicSecretTmpCredsGet.md)
  - [DynamicSecretTmpCredsUpdate](docs/DynamicSecretTmpCredsUpdate.md)
+ - [DynamicSecretUpdateAerospike](docs/DynamicSecretUpdateAerospike.md)
  - [DynamicSecretUpdateArtifactory](docs/DynamicSecretUpdateArtifactory.md)
  - [DynamicSecretUpdateAws](docs/DynamicSecretUpdateAws.md)
  - [DynamicSecretUpdateAzure](docs/DynamicSecretUpdateAzure.md)
@@ -1470,6 +1476,7 @@ Class | Method | HTTP request | Description
  - [K8SAuthsConfigPart](docs/K8SAuthsConfigPart.md)
  - [K8SMigration](docs/K8SMigration.md)
  - [K8SPayload](docs/K8SPayload.md)
+ - [KMIPCA](docs/KMIPCA.md)
  - [KMIPClient](docs/KMIPClient.md)
  - [KMIPClientGetResponse](docs/KMIPClientGetResponse.md)
  - [KMIPClientListResponse](docs/KMIPClientListResponse.md)
@@ -1626,6 +1633,7 @@ Class | Method | HTTP request | Description
  - [RotateOidcClientOutput](docs/RotateOidcClientOutput.md)
  - [RotateOidcClientSecret](docs/RotateOidcClientSecret.md)
  - [RotateSecret](docs/RotateSecret.md)
+ - [RotatedSecretCreateAerospike](docs/RotatedSecretCreateAerospike.md)
  - [RotatedSecretCreateAws](docs/RotatedSecretCreateAws.md)
  - [RotatedSecretCreateAzure](docs/RotatedSecretCreateAzure.md)
  - [RotatedSecretCreateCassandra](docs/RotatedSecretCreateCassandra.md)
@@ -1656,6 +1664,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretList](docs/RotatedSecretList.md)
  - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
  - [RotatedSecretSync](docs/RotatedSecretSync.md)
+ - [RotatedSecretUpdateAerospike](docs/RotatedSecretUpdateAerospike.md)
  - [RotatedSecretUpdateAws](docs/RotatedSecretUpdateAws.md)
  - [RotatedSecretUpdateAzure](docs/RotatedSecretUpdateAzure.md)
  - [RotatedSecretUpdateCassandra](docs/RotatedSecretUpdateCassandra.md)

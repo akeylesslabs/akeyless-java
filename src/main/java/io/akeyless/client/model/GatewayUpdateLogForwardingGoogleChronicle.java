@@ -242,7 +242,7 @@ public class GatewayUpdateLogForwardingGoogleChronicle {
   }
 
   /**
-   * Google chronicle region [eu_multi_region/london/us_multi_region/singapore/tel_aviv]
+   * Google chronicle region [eu_multi_region/london/us_multi_region/singapore/tel_aviv/toronto/sydney/frankfurt/zurich/dammam/mumbai/tokyo]
    * @return region
    */
   @javax.annotation.Nullable

@@ -184,6 +184,11 @@ public class DynamicSecretUpdatePostgreSql {
   @javax.annotation.Nullable
   private Boolean secureAccessWeb = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   @javax.annotation.Nullable
@@ -763,6 +768,25 @@ public class DynamicSecretUpdatePostgreSql {
   }
 
 
+  public DynamicSecretUpdatePostgreSql skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdatePostgreSql ssl(@javax.annotation.Nullable Boolean ssl) {
     this.ssl = ssl;
     return this;
@@ -997,6 +1021,7 @@ public class DynamicSecretUpdatePostgreSql {
         Objects.equals(this.secureAccessEnable, dynamicSecretUpdatePostgreSql.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, dynamicSecretUpdatePostgreSql.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, dynamicSecretUpdatePostgreSql.secureAccessWeb) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdatePostgreSql.skipDryRun) &&
         Objects.equals(this.ssl, dynamicSecretUpdatePostgreSql.ssl) &&
         Objects.equals(this.tags, dynamicSecretUpdatePostgreSql.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdatePostgreSql.targetName) &&
@@ -1011,7 +1036,7 @@ public class DynamicSecretUpdatePostgreSql {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1044,6 +1069,7 @@ public class DynamicSecretUpdatePostgreSql {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -1072,7 +1098,7 @@ public class DynamicSecretUpdatePostgreSql {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "postgresql-db-name", "postgresql-host", "postgresql-password", "postgresql-port", "postgresql-username", "producer-encryption-key", "revocation-statement", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "postgresql-db-name", "postgresql-host", "postgresql-password", "postgresql-port", "postgresql-username", "producer-encryption-key", "revocation-statement", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1174,6 +1200,9 @@ public class DynamicSecretUpdatePostgreSql {
       // ensure the optional json data is an array if present
       if (jsonObj.get("secure-access-host") != null && !jsonObj.get("secure-access-host").isJsonNull() && !jsonObj.get("secure-access-host").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-host` to be an array in the JSON string but got `%s`", jsonObj.get("secure-access-host").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

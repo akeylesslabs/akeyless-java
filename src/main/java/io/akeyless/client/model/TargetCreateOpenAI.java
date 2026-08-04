@@ -60,6 +60,26 @@ public class TargetCreateOpenAI {
   @javax.annotation.Nullable
   private String apiKeyId;
 
+  public static final String SERIALIZED_NAME_CODEX_OAUTH_ACCESS_TOKEN = "codex-oauth-access-token";
+  @SerializedName(SERIALIZED_NAME_CODEX_OAUTH_ACCESS_TOKEN)
+  @javax.annotation.Nullable
+  private String codexOauthAccessToken;
+
+  public static final String SERIALIZED_NAME_CODEX_OAUTH_ACCOUNT_ID = "codex-oauth-account-id";
+  @SerializedName(SERIALIZED_NAME_CODEX_OAUTH_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String codexOauthAccountId;
+
+  public static final String SERIALIZED_NAME_CODEX_OAUTH_MODE = "codex-oauth-mode";
+  @SerializedName(SERIALIZED_NAME_CODEX_OAUTH_MODE)
+  @javax.annotation.Nullable
+  private String codexOauthMode;
+
+  public static final String SERIALIZED_NAME_CODEX_OAUTH_REFRESH_TOKEN = "codex-oauth-refresh-token";
+  @SerializedName(SERIALIZED_NAME_CODEX_OAUTH_REFRESH_TOKEN)
+  @javax.annotation.Nullable
+  private String codexOauthRefreshToken;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -153,6 +173,82 @@ public class TargetCreateOpenAI {
 
   public void setApiKeyId(@javax.annotation.Nullable String apiKeyId) {
     this.apiKeyId = apiKeyId;
+  }
+
+
+  public TargetCreateOpenAI codexOauthAccessToken(@javax.annotation.Nullable String codexOauthAccessToken) {
+    this.codexOauthAccessToken = codexOauthAccessToken;
+    return this;
+  }
+
+  /**
+   * Codex OAuth access token (auth.json tokens.access_token), used when codex-oauth-mode&#x3D;chatgpt_oauth
+   * @return codexOauthAccessToken
+   */
+  @javax.annotation.Nullable
+  public String getCodexOauthAccessToken() {
+    return codexOauthAccessToken;
+  }
+
+  public void setCodexOauthAccessToken(@javax.annotation.Nullable String codexOauthAccessToken) {
+    this.codexOauthAccessToken = codexOauthAccessToken;
+  }
+
+
+  public TargetCreateOpenAI codexOauthAccountId(@javax.annotation.Nullable String codexOauthAccountId) {
+    this.codexOauthAccountId = codexOauthAccountId;
+    return this;
+  }
+
+  /**
+   * Codex OAuth account id (auth.json tokens.account_id), used when codex-oauth-mode&#x3D;chatgpt_oauth
+   * @return codexOauthAccountId
+   */
+  @javax.annotation.Nullable
+  public String getCodexOauthAccountId() {
+    return codexOauthAccountId;
+  }
+
+  public void setCodexOauthAccountId(@javax.annotation.Nullable String codexOauthAccountId) {
+    this.codexOauthAccountId = codexOauthAccountId;
+  }
+
+
+  public TargetCreateOpenAI codexOauthMode(@javax.annotation.Nullable String codexOauthMode) {
+    this.codexOauthMode = codexOauthMode;
+    return this;
+  }
+
+  /**
+   * Auth mode: empty (default, static api-key) or chatgpt_oauth
+   * @return codexOauthMode
+   */
+  @javax.annotation.Nullable
+  public String getCodexOauthMode() {
+    return codexOauthMode;
+  }
+
+  public void setCodexOauthMode(@javax.annotation.Nullable String codexOauthMode) {
+    this.codexOauthMode = codexOauthMode;
+  }
+
+
+  public TargetCreateOpenAI codexOauthRefreshToken(@javax.annotation.Nullable String codexOauthRefreshToken) {
+    this.codexOauthRefreshToken = codexOauthRefreshToken;
+    return this;
+  }
+
+  /**
+   * Codex OAuth refresh token (auth.json tokens.refresh_token), used when codex-oauth-mode&#x3D;chatgpt_oauth
+   * @return codexOauthRefreshToken
+   */
+  @javax.annotation.Nullable
+  public String getCodexOauthRefreshToken() {
+    return codexOauthRefreshToken;
+  }
+
+  public void setCodexOauthRefreshToken(@javax.annotation.Nullable String codexOauthRefreshToken) {
+    this.codexOauthRefreshToken = codexOauthRefreshToken;
   }
 
 
@@ -377,6 +473,10 @@ public class TargetCreateOpenAI {
     TargetCreateOpenAI targetCreateOpenAI = (TargetCreateOpenAI) o;
     return Objects.equals(this.apiKey, targetCreateOpenAI.apiKey) &&
         Objects.equals(this.apiKeyId, targetCreateOpenAI.apiKeyId) &&
+        Objects.equals(this.codexOauthAccessToken, targetCreateOpenAI.codexOauthAccessToken) &&
+        Objects.equals(this.codexOauthAccountId, targetCreateOpenAI.codexOauthAccountId) &&
+        Objects.equals(this.codexOauthMode, targetCreateOpenAI.codexOauthMode) &&
+        Objects.equals(this.codexOauthRefreshToken, targetCreateOpenAI.codexOauthRefreshToken) &&
         Objects.equals(this.deleteProtection, targetCreateOpenAI.deleteProtection) &&
         Objects.equals(this.description, targetCreateOpenAI.description) &&
         Objects.equals(this.json, targetCreateOpenAI.json) &&
@@ -392,7 +492,7 @@ public class TargetCreateOpenAI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiKeyId, deleteProtection, description, json, key, maxVersions, model, name, openaiUrl, organizationId, token, uidToken);
+    return Objects.hash(apiKey, apiKeyId, codexOauthAccessToken, codexOauthAccountId, codexOauthMode, codexOauthRefreshToken, deleteProtection, description, json, key, maxVersions, model, name, openaiUrl, organizationId, token, uidToken);
   }
 
   @Override
@@ -401,6 +501,10 @@ public class TargetCreateOpenAI {
     sb.append("class TargetCreateOpenAI {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
+    sb.append("    codexOauthAccessToken: ").append(toIndentedString(codexOauthAccessToken)).append("\n");
+    sb.append("    codexOauthAccountId: ").append(toIndentedString(codexOauthAccountId)).append("\n");
+    sb.append("    codexOauthMode: ").append(toIndentedString(codexOauthMode)).append("\n");
+    sb.append("    codexOauthRefreshToken: ").append(toIndentedString(codexOauthRefreshToken)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -430,7 +534,7 @@ public class TargetCreateOpenAI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("api-key", "api-key-id", "delete_protection", "description", "json", "key", "max-versions", "model", "name", "openai-url", "organization-id", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("api-key", "api-key-id", "codex-oauth-access-token", "codex-oauth-account-id", "codex-oauth-mode", "codex-oauth-refresh-token", "delete_protection", "description", "json", "key", "max-versions", "model", "name", "openai-url", "organization-id", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -469,6 +573,18 @@ public class TargetCreateOpenAI {
       }
       if ((jsonObj.get("api-key-id") != null && !jsonObj.get("api-key-id").isJsonNull()) && !jsonObj.get("api-key-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api-key-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api-key-id").toString()));
+      }
+      if ((jsonObj.get("codex-oauth-access-token") != null && !jsonObj.get("codex-oauth-access-token").isJsonNull()) && !jsonObj.get("codex-oauth-access-token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `codex-oauth-access-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("codex-oauth-access-token").toString()));
+      }
+      if ((jsonObj.get("codex-oauth-account-id") != null && !jsonObj.get("codex-oauth-account-id").isJsonNull()) && !jsonObj.get("codex-oauth-account-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `codex-oauth-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("codex-oauth-account-id").toString()));
+      }
+      if ((jsonObj.get("codex-oauth-mode") != null && !jsonObj.get("codex-oauth-mode").isJsonNull()) && !jsonObj.get("codex-oauth-mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `codex-oauth-mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("codex-oauth-mode").toString()));
+      }
+      if ((jsonObj.get("codex-oauth-refresh-token") != null && !jsonObj.get("codex-oauth-refresh-token").isJsonNull()) && !jsonObj.get("codex-oauth-refresh-token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `codex-oauth-refresh-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("codex-oauth-refresh-token").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));

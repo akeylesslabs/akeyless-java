@@ -40,6 +40,7 @@ dynamicSecretCreateAws is a command that creates aws dynamic secret
 |**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**sessionTags** | **String** | String of Key value session tags comma separated, relevant only for Assumed Role |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | Target name |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

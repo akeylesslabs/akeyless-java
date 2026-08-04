@@ -144,6 +144,11 @@ public class DynamicSecretCreateRedshift {
   @javax.annotation.Nullable
   private List<String> secureAccessHost = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   @javax.annotation.Nullable
@@ -571,6 +576,25 @@ public class DynamicSecretCreateRedshift {
   }
 
 
+  public DynamicSecretCreateRedshift skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretCreateRedshift ssl(@javax.annotation.Nullable Boolean ssl) {
     this.ssl = ssl;
     return this;
@@ -797,6 +821,7 @@ public class DynamicSecretCreateRedshift {
         Objects.equals(this.redshiftUsername, dynamicSecretCreateRedshift.redshiftUsername) &&
         Objects.equals(this.secureAccessEnable, dynamicSecretCreateRedshift.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, dynamicSecretCreateRedshift.secureAccessHost) &&
+        Objects.equals(this.skipDryRun, dynamicSecretCreateRedshift.skipDryRun) &&
         Objects.equals(this.ssl, dynamicSecretCreateRedshift.ssl) &&
         Objects.equals(this.tags, dynamicSecretCreateRedshift.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateRedshift.targetName) &&
@@ -811,7 +836,7 @@ public class DynamicSecretCreateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -836,6 +861,7 @@ public class DynamicSecretCreateRedshift {
     sb.append("    redshiftUsername: ").append(toIndentedString(redshiftUsername)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -864,7 +890,7 @@ public class DynamicSecretCreateRedshift {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key", "redshift-db-name", "redshift-host", "redshift-password", "redshift-port", "redshift-username", "secure-access-enable", "secure-access-host", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key", "redshift-db-name", "redshift-host", "redshift-password", "redshift-port", "redshift-username", "secure-access-enable", "secure-access-host", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -948,6 +974,9 @@ public class DynamicSecretCreateRedshift {
       // ensure the optional json data is an array if present
       if (jsonObj.get("secure-access-host") != null && !jsonObj.get("secure-access-host").isJsonNull() && !jsonObj.get("secure-access-host").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-host` to be an array in the JSON string but got `%s`", jsonObj.get("secure-access-host").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

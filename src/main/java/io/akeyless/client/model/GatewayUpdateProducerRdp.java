@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateProducerRdp {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  @javax.annotation.Nullable
+  private String providerType;
+
   public static final String SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION = "allow-user-extend-session";
   @SerializedName(SERIALIZED_NAME_ALLOW_USER_EXTEND_SESSION)
   @javax.annotation.Nullable
@@ -78,6 +83,11 @@ public class GatewayUpdateProducerRdp {
   @SerializedName(SERIALIZED_NAME_FIXED_USER_ONLY)
   @javax.annotation.Nullable
   private String fixedUserOnly = "false";
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  @javax.annotation.Nullable
+  private String hostProvider;
 
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
@@ -169,6 +179,11 @@ public class GatewayUpdateProducerRdp {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -189,10 +204,20 @@ public class GatewayUpdateProducerRdp {
   @javax.annotation.Nullable
   private String secureAccessRdpUser;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  @javax.annotation.Nullable
+  private List<String> target = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -241,6 +266,25 @@ public class GatewayUpdateProducerRdp {
 
   public GatewayUpdateProducerRdp() {
   }
+
+  public GatewayUpdateProducerRdp providerType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+    return this;
+  }
+
+  /**
+   * Get providerType
+   * @return providerType
+   */
+  @javax.annotation.Nullable
+  public String getProviderType() {
+    return providerType;
+  }
+
+  public void setProviderType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+  }
+
 
   public GatewayUpdateProducerRdp allowUserExtendSession(@javax.annotation.Nullable Long allowUserExtendSession) {
     this.allowUserExtendSession = allowUserExtendSession;
@@ -334,6 +378,25 @@ public class GatewayUpdateProducerRdp {
 
   public void setFixedUserOnly(@javax.annotation.Nullable String fixedUserOnly) {
     this.fixedUserOnly = fixedUserOnly;
+  }
+
+
+  public GatewayUpdateProducerRdp hostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+  /**
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+   * @return hostProvider
+   */
+  @javax.annotation.Nullable
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+  public void setHostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -703,6 +766,25 @@ public class GatewayUpdateProducerRdp {
   }
 
 
+  public GatewayUpdateProducerRdp secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public GatewayUpdateProducerRdp secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -787,6 +869,25 @@ public class GatewayUpdateProducerRdp {
   }
 
 
+  public GatewayUpdateProducerRdp skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayUpdateProducerRdp tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -811,6 +912,33 @@ public class GatewayUpdateProducerRdp {
 
   public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+  }
+
+
+  public GatewayUpdateProducerRdp target(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+    return this;
+  }
+
+  public GatewayUpdateProducerRdp addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+  /**
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public List<String> getTarget() {
+    return target;
+  }
+
+  public void setTarget(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
   }
 
 
@@ -995,11 +1123,13 @@ public class GatewayUpdateProducerRdp {
       return false;
     }
     GatewayUpdateProducerRdp gatewayUpdateProducerRdp = (GatewayUpdateProducerRdp) o;
-    return Objects.equals(this.allowUserExtendSession, gatewayUpdateProducerRdp.allowUserExtendSession) &&
+    return Objects.equals(this.providerType, gatewayUpdateProducerRdp.providerType) &&
+        Objects.equals(this.allowUserExtendSession, gatewayUpdateProducerRdp.allowUserExtendSession) &&
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerRdp.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerRdp.deleteProtection) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerRdp.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, gatewayUpdateProducerRdp.fixedUserOnly) &&
+        Objects.equals(this.hostProvider, gatewayUpdateProducerRdp.hostProvider) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerRdp.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerRdp.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerRdp.json) &&
@@ -1018,11 +1148,14 @@ public class GatewayUpdateProducerRdp {
         Objects.equals(this.secureAccessCertificateIssuer, gatewayUpdateProducerRdp.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessDelay, gatewayUpdateProducerRdp.secureAccessDelay) &&
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerRdp.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, gatewayUpdateProducerRdp.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerRdp.secureAccessHost) &&
         Objects.equals(this.secureAccessRdGatewayServer, gatewayUpdateProducerRdp.secureAccessRdGatewayServer) &&
         Objects.equals(this.secureAccessRdpDomain, gatewayUpdateProducerRdp.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, gatewayUpdateProducerRdp.secureAccessRdpUser) &&
+        Objects.equals(this.skipDryRun, gatewayUpdateProducerRdp.skipDryRun) &&
         Objects.equals(this.tags, gatewayUpdateProducerRdp.tags) &&
+        Objects.equals(this.target, gatewayUpdateProducerRdp.target) &&
         Objects.equals(this.targetName, gatewayUpdateProducerRdp.targetName) &&
         Objects.equals(this.token, gatewayUpdateProducerRdp.token) &&
         Objects.equals(this.uidToken, gatewayUpdateProducerRdp.uidToken) &&
@@ -1036,18 +1169,20 @@ public class GatewayUpdateProducerRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowUserExtendSession, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(providerType, allowUserExtendSession, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, hostProvider, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerRdp {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    allowUserExtendSession: ").append(toIndentedString(allowUserExtendSession)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1066,11 +1201,14 @@ public class GatewayUpdateProducerRdp {
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessDelay: ").append(toIndentedString(secureAccessDelay)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdGatewayServer: ").append(toIndentedString(secureAccessRdGatewayServer)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -1098,7 +1236,7 @@ public class GatewayUpdateProducerRdp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allow-user-extend-session", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rdp-admin-name", "rdp-admin-pwd", "rdp-host-name", "rdp-host-port", "rdp-user-groups", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warn-user-before-expiration"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "allow-user-extend-session", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "fixed-user-only", "host-provider", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rdp-admin-name", "rdp-admin-pwd", "rdp-host-name", "rdp-host-port", "rdp-user-groups", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warn-user-before-expiration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1132,6 +1270,9 @@ public class GatewayUpdateProducerRdp {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("ProviderType") != null && !jsonObj.get("ProviderType").isJsonNull()) && !jsonObj.get("ProviderType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProviderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProviderType").toString()));
+      }
       if ((jsonObj.get("custom-username-template") != null && !jsonObj.get("custom-username-template").isJsonNull()) && !jsonObj.get("custom-username-template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `custom-username-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom-username-template").toString()));
       }
@@ -1143,6 +1284,9 @@ public class GatewayUpdateProducerRdp {
       }
       if ((jsonObj.get("fixed-user-only") != null && !jsonObj.get("fixed-user-only").isJsonNull()) && !jsonObj.get("fixed-user-only").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `fixed-user-only` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fixed-user-only").toString()));
+      }
+      if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
@@ -1201,9 +1345,16 @@ public class GatewayUpdateProducerRdp {
       if ((jsonObj.get("secure-access-rdp-user") != null && !jsonObj.get("secure-access-rdp-user").isJsonNull()) && !jsonObj.get("secure-access-rdp-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-rdp-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-rdp-user").toString()));
       }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if ((jsonObj.get("target-name") != null && !jsonObj.get("target-name").isJsonNull()) && !jsonObj.get("target-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));

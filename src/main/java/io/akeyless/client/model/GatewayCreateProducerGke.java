@@ -149,6 +149,11 @@ public class GatewayCreateProducerGke {
   @javax.annotation.Nullable
   private Boolean secureAccessWeb = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -562,6 +567,25 @@ public class GatewayCreateProducerGke {
   }
 
 
+  public GatewayCreateProducerGke skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayCreateProducerGke tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -694,6 +718,7 @@ public class GatewayCreateProducerGke {
         Objects.equals(this.secureAccessDelay, gatewayCreateProducerGke.secureAccessDelay) &&
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerGke.secureAccessEnable) &&
         Objects.equals(this.secureAccessWeb, gatewayCreateProducerGke.secureAccessWeb) &&
+        Objects.equals(this.skipDryRun, gatewayCreateProducerGke.skipDryRun) &&
         Objects.equals(this.tags, gatewayCreateProducerGke.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerGke.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerGke.token) &&
@@ -703,7 +728,7 @@ public class GatewayCreateProducerGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -729,6 +754,7 @@ public class GatewayCreateProducerGke {
     sb.append("    secureAccessDelay: ").append(toIndentedString(secureAccessDelay)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -752,7 +778,7 @@ public class GatewayCreateProducerGke {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -829,6 +855,9 @@ public class GatewayCreateProducerGke {
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

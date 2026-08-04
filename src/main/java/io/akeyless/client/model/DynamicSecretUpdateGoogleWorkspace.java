@@ -169,6 +169,11 @@ public class DynamicSecretUpdateGoogleWorkspace {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -658,6 +663,25 @@ public class DynamicSecretUpdateGoogleWorkspace {
   }
 
 
+  public DynamicSecretUpdateGoogleWorkspace skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdateGoogleWorkspace tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -794,6 +818,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
         Objects.equals(this.secureAccessWeb, dynamicSecretUpdateGoogleWorkspace.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, dynamicSecretUpdateGoogleWorkspace.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, dynamicSecretUpdateGoogleWorkspace.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdateGoogleWorkspace.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretUpdateGoogleWorkspace.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateGoogleWorkspace.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateGoogleWorkspace.token) &&
@@ -803,7 +828,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminEmail, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminEmail, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -833,6 +858,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -856,7 +882,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "delete_protection", "description", "fixed-user-claim-keyname", "gcp-key", "group-email", "group-role", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "role-name", "role-scope", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "delete_protection", "description", "fixed-user-claim-keyname", "gcp-key", "group-email", "group-role", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "role-name", "role-scope", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "name"));
@@ -942,6 +968,9 @@ public class DynamicSecretUpdateGoogleWorkspace {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

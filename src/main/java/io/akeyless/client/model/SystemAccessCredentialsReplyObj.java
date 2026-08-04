@@ -80,6 +80,11 @@ public class SystemAccessCredentialsReplyObj {
   @javax.annotation.Nullable
   private Boolean needMfaAppFirstConfig;
 
+  public static final String SERIALIZED_NAME_RECOVERY_KEY_ID = "recovery_key_id";
+  @SerializedName(SERIALIZED_NAME_RECOVERY_KEY_ID)
+  @javax.annotation.Nullable
+  private String recoveryKeyId;
+
   public static final String SERIALIZED_NAME_REQUIRED_MFA = "required_mfa";
   @SerializedName(SERIALIZED_NAME_REQUIRED_MFA)
   @javax.annotation.Nullable
@@ -212,6 +217,25 @@ public class SystemAccessCredentialsReplyObj {
   }
 
 
+  public SystemAccessCredentialsReplyObj recoveryKeyId(@javax.annotation.Nullable String recoveryKeyId) {
+    this.recoveryKeyId = recoveryKeyId;
+    return this;
+  }
+
+  /**
+   * RecoveryKeyID identifies the DPoP-bound recovery key for WebUI session recovery.
+   * @return recoveryKeyId
+   */
+  @javax.annotation.Nullable
+  public String getRecoveryKeyId() {
+    return recoveryKeyId;
+  }
+
+  public void setRecoveryKeyId(@javax.annotation.Nullable String recoveryKeyId) {
+    this.recoveryKeyId = recoveryKeyId;
+  }
+
+
   public SystemAccessCredentialsReplyObj requiredMfa(@javax.annotation.Nullable String requiredMfa) {
     this.requiredMfa = requiredMfa;
     return this;
@@ -285,6 +309,7 @@ public class SystemAccessCredentialsReplyObj {
         Objects.equals(this.expiry, systemAccessCredentialsReplyObj.expiry) &&
         Objects.equals(this.kfmCreds, systemAccessCredentialsReplyObj.kfmCreds) &&
         Objects.equals(this.needMfaAppFirstConfig, systemAccessCredentialsReplyObj.needMfaAppFirstConfig) &&
+        Objects.equals(this.recoveryKeyId, systemAccessCredentialsReplyObj.recoveryKeyId) &&
         Objects.equals(this.requiredMfa, systemAccessCredentialsReplyObj.requiredMfa) &&
         Objects.equals(this.token, systemAccessCredentialsReplyObj.token) &&
         Objects.equals(this.uamCreds, systemAccessCredentialsReplyObj.uamCreds);
@@ -292,7 +317,7 @@ public class SystemAccessCredentialsReplyObj {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, authCreds, csrfToken, expiry, kfmCreds, needMfaAppFirstConfig, requiredMfa, token, uamCreds);
+    return Objects.hash(accessId, authCreds, csrfToken, expiry, kfmCreds, needMfaAppFirstConfig, recoveryKeyId, requiredMfa, token, uamCreds);
   }
 
   @Override
@@ -305,6 +330,7 @@ public class SystemAccessCredentialsReplyObj {
     sb.append("    expiry: ").append(toIndentedString(expiry)).append("\n");
     sb.append("    kfmCreds: ").append(toIndentedString(kfmCreds)).append("\n");
     sb.append("    needMfaAppFirstConfig: ").append(toIndentedString(needMfaAppFirstConfig)).append("\n");
+    sb.append("    recoveryKeyId: ").append(toIndentedString(recoveryKeyId)).append("\n");
     sb.append("    requiredMfa: ").append(toIndentedString(requiredMfa)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uamCreds: ").append(toIndentedString(uamCreds)).append("\n");
@@ -326,7 +352,7 @@ public class SystemAccessCredentialsReplyObj {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_id", "auth_creds", "csrf_token", "expiry", "kfm_creds", "need_mfa_app_first_config", "required_mfa", "token", "uam_creds"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "auth_creds", "csrf_token", "expiry", "kfm_creds", "need_mfa_app_first_config", "recovery_key_id", "required_mfa", "token", "uam_creds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -364,6 +390,9 @@ public class SystemAccessCredentialsReplyObj {
       }
       if ((jsonObj.get("kfm_creds") != null && !jsonObj.get("kfm_creds").isJsonNull()) && !jsonObj.get("kfm_creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `kfm_creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kfm_creds").toString()));
+      }
+      if ((jsonObj.get("recovery_key_id") != null && !jsonObj.get("recovery_key_id").isJsonNull()) && !jsonObj.get("recovery_key_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `recovery_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("recovery_key_id").toString()));
       }
       if ((jsonObj.get("required_mfa") != null && !jsonObj.get("required_mfa").isJsonNull()) && !jsonObj.get("required_mfa").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `required_mfa` to be a primitive type in the JSON string but got `%s`", jsonObj.get("required_mfa").toString()));

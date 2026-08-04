@@ -247,6 +247,11 @@ public class CreateRotatedSecret {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -607,7 +612,7 @@ public class CreateRotatedSecret {
   }
 
   /**
-   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
    * @return hostProvider
    */
   @javax.annotation.Nullable
@@ -1076,6 +1081,25 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public CreateRotatedSecret secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -1315,7 +1339,7 @@ public class CreateRotatedSecret {
   }
 
   /**
-   * A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
    * @return target
    */
   @javax.annotation.Nullable
@@ -1472,6 +1496,7 @@ public class CreateRotatedSecret {
         Objects.equals(this.secureAccessDbSchema, createRotatedSecret.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessDisableConcurrentConnections, createRotatedSecret.secureAccessDisableConcurrentConnections) &&
         Objects.equals(this.secureAccessEnable, createRotatedSecret.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, createRotatedSecret.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, createRotatedSecret.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, createRotatedSecret.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, createRotatedSecret.secureAccessRdpUser) &&
@@ -1493,7 +1518,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, lockDuringSraSession, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, lockDuringSraSession, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1539,6 +1564,7 @@ public class CreateRotatedSecret {
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessDisableConcurrentConnections: ").append(toIndentedString(secureAccessDisableConcurrentConnections)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
@@ -1574,7 +1600,7 @@ public class CreateRotatedSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "aws-region", "custom-payload", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "host-provider", "json", "key", "lock-during-sra-session", "metadata", "name", "password-length", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "tags", "target", "target-name", "token", "uid-token", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "aws-region", "custom-payload", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "host-provider", "json", "key", "lock-during-sra-session", "metadata", "name", "password-length", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "tags", "target", "target-name", "token", "uid-token", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));

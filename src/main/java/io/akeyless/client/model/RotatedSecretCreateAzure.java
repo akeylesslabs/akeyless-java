@@ -229,6 +229,11 @@ public class RotatedSecretCreateAzure {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME = "storage-account-key-name";
   @SerializedName(SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME)
   @javax.annotation.Nullable
@@ -979,6 +984,25 @@ public class RotatedSecretCreateAzure {
   }
 
 
+  public RotatedSecretCreateAzure skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretCreateAzure storageAccountKeyName(@javax.annotation.Nullable String storageAccountKeyName) {
     this.storageAccountKeyName = storageAccountKeyName;
     return this;
@@ -1222,6 +1246,7 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.secureAccessWeb, rotatedSecretCreateAzure.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, rotatedSecretCreateAzure.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, rotatedSecretCreateAzure.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, rotatedSecretCreateAzure.skipDryRun) &&
         Objects.equals(this.storageAccountKeyName, rotatedSecretCreateAzure.storageAccountKeyName) &&
         Objects.equals(this.tags, rotatedSecretCreateAzure.tags) &&
         Objects.equals(this.targetName, rotatedSecretCreateAzure.targetName) &&
@@ -1236,7 +1261,7 @@ public class RotatedSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, password, passwordLength, resourceGroupName, resourceName, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, storageAccountKeyName, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
+    return Objects.hash(apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, password, passwordLength, resourceGroupName, resourceName, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, storageAccountKeyName, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
   }
 
   @Override
@@ -1278,6 +1303,7 @@ public class RotatedSecretCreateAzure {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    storageAccountKeyName: ").append(toIndentedString(storageAccountKeyName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -1306,7 +1332,7 @@ public class RotatedSecretCreateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "delete_protection", "description", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "storage-account-key-name", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "delete_protection", "description", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "storage-account-key-name", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1423,6 +1449,9 @@ public class RotatedSecretCreateAzure {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("storage-account-key-name") != null && !jsonObj.get("storage-account-key-name").isJsonNull()) && !jsonObj.get("storage-account-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage-account-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage-account-key-name").toString()));

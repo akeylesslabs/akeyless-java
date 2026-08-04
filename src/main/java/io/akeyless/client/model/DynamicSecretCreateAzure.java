@@ -164,6 +164,11 @@ public class DynamicSecretCreateAzure {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -679,6 +684,25 @@ public class DynamicSecretCreateAzure {
   }
 
 
+  public DynamicSecretCreateAzure skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretCreateAzure tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -985,6 +1009,7 @@ public class DynamicSecretCreateAzure {
         Objects.equals(this.secureAccessWeb, dynamicSecretCreateAzure.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, dynamicSecretCreateAzure.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, dynamicSecretCreateAzure.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, dynamicSecretCreateAzure.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretCreateAzure.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateAzure.targetName) &&
         Objects.equals(this.token, dynamicSecretCreateAzure.token) &&
@@ -1003,7 +1028,7 @@ public class DynamicSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -1032,6 +1057,7 @@ public class DynamicSecretCreateAzure {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -1064,7 +1090,7 @@ public class DynamicSecretCreateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("app-obj-id", "azure-administrative-unit", "azure-client-id", "azure-client-secret", "azure-tenant-id", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-group-obj-id", "user-portal-access", "user-principal-name", "user-programmatic-access", "user-role-template-id", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("app-obj-id", "azure-administrative-unit", "azure-client-id", "azure-client-secret", "azure-tenant-id", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-group-obj-id", "user-portal-access", "user-principal-name", "user-programmatic-access", "user-role-template-id", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1147,6 +1173,9 @@ public class DynamicSecretCreateAzure {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

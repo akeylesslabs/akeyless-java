@@ -22,7 +22,7 @@ createRotatedSecret is a command that creates a rotated secret [Deprecated: Use 
 |**gcpServiceAccountEmail** | **String** | The email of the gcp service account to rotate |  [optional] |
 |**gcpServiceAccountKeyId** | **String** | The key id of the gcp service account to rotate |  [optional] |
 |**graceRotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] |  [optional] |
-|**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret |  [optional] |
+|**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional] |
 |**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
@@ -47,6 +47,7 @@ createRotatedSecret is a command that creates a rotated secret [Deprecated: Use 
 |**secureAccessDbSchema** | **String** | The db schema (relevant only for mssql or postgresql) |  [optional] |
 |**secureAccessDisableConcurrentConnections** | **Boolean** | Enable this flag to prevent simultaneous use of the same secret |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
+|**secureAccessEnforceHostsRestriction** | **Boolean** | Enforce connections only to allowed SRA hosts |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) |  [optional] |
 |**secureAccessRdpUser** | **String** | Override the RDP Domain username (relevant only for rdp) |  [optional] |
@@ -58,7 +59,7 @@ createRotatedSecret is a command that creates a rotated secret [Deprecated: Use 
 |**sshUsername** | **String** | Deprecated: use RotatedUser |  [optional] |
 |**storageAccountKeyName** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account) |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
-|**target** | **List&lt;String&gt;** | A list of linked targets to be associated, Relevant only for Secure Remote Access for ssh cert issuer, ldap rotated secret and ldap dynamic secret, To specify multiple targets use argument multiple times |  [optional] |
+|**target** | **List&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times |  [optional] |
 |**targetName** | **String** | Target name |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

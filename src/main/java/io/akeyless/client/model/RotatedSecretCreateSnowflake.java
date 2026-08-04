@@ -154,6 +154,11 @@ public class RotatedSecretCreateSnowflake {
   @javax.annotation.Nonnull
   private String rotatorType;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -609,6 +614,25 @@ public class RotatedSecretCreateSnowflake {
   }
 
 
+  public RotatedSecretCreateSnowflake skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretCreateSnowflake tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -799,6 +823,7 @@ public class RotatedSecretCreateSnowflake {
         Objects.equals(this.rotationHour, rotatedSecretCreateSnowflake.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateSnowflake.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretCreateSnowflake.rotatorType) &&
+        Objects.equals(this.skipDryRun, rotatedSecretCreateSnowflake.skipDryRun) &&
         Objects.equals(this.tags, rotatedSecretCreateSnowflake.tags) &&
         Objects.equals(this.targetName, rotatedSecretCreateSnowflake.targetName) &&
         Objects.equals(this.token, rotatedSecretCreateSnowflake.token) &&
@@ -811,7 +836,7 @@ public class RotatedSecretCreateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, privateKey, privateKeyFileName, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, privateKey, privateKeyFileName, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -838,6 +863,7 @@ public class RotatedSecretCreateSnowflake {
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -864,7 +890,7 @@ public class RotatedSecretCreateSnowflake {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "private-key", "private-key-file-name", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "private-key", "private-key-file-name", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -951,6 +977,9 @@ public class RotatedSecretCreateSnowflake {
       }
       if (!jsonObj.get("rotator-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotator-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator-type").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

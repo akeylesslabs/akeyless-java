@@ -19,7 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.akeyless.client.model.WalletDetails;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -56,10 +55,20 @@ public class AerospikeTargetDetails {
   @javax.annotation.Nullable
   private String aerospikeAdminUsername;
 
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_CERTIFICATE = "aerospike_client_certificate";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String aerospikeClientCertificate;
+
   public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_ID = "aerospike_client_id";
   @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_ID)
   @javax.annotation.Nullable
   private String aerospikeClientId;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_PRIVATE_KEY = "aerospike_client_private_key";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_PRIVATE_KEY)
+  @javax.annotation.Nullable
+  private String aerospikeClientPrivateKey;
 
   public static final String SERIALIZED_NAME_AEROSPIKE_CLIENT_SECRET = "aerospike_client_secret";
   @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLIENT_SECRET)
@@ -75,6 +84,16 @@ public class AerospikeTargetDetails {
   @SerializedName(SERIALIZED_NAME_AEROSPIKE_CLUSTER_ID)
   @javax.annotation.Nullable
   private String aerospikeClusterId;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_DB_SERVER_NAME = "aerospike_db_server_name";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_DB_SERVER_NAME)
+  @javax.annotation.Nullable
+  private String aerospikeDbServerName;
+
+  public static final String SERIALIZED_NAME_AEROSPIKE_ENABLE_MTLS = "aerospike_enable_mtls";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_ENABLE_MTLS)
+  @javax.annotation.Nullable
+  private Boolean aerospikeEnableMtls;
 
   public static final String SERIALIZED_NAME_AEROSPIKE_HOSTNAME = "aerospike_hostname";
   @SerializedName(SERIALIZED_NAME_AEROSPIKE_HOSTNAME)
@@ -96,125 +115,20 @@ public class AerospikeTargetDetails {
   @javax.annotation.Nullable
   private String aerospikePort;
 
-  public static final String SERIALIZED_NAME_CLIENT_CERTIFICATE = "client_certificate";
-  @SerializedName(SERIALIZED_NAME_CLIENT_CERTIFICATE)
+  public static final String SERIALIZED_NAME_AEROSPIKE_SKIP_SERVER_NAME_VALIDATION = "aerospike_skip_server_name_validation";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_SKIP_SERVER_NAME_VALIDATION)
   @javax.annotation.Nullable
-  private String clientCertificate;
+  private String aerospikeSkipServerNameValidation;
 
-  public static final String SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE = "client_key_passphrase";
-  @SerializedName(SERIALIZED_NAME_CLIENT_KEY_PASSPHRASE)
+  public static final String SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_CERTIFICATE = "aerospike_ssl_connection_certificate";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_CERTIFICATE)
   @javax.annotation.Nullable
-  private String clientKeyPassphrase;
+  private String aerospikeSslConnectionCertificate;
 
-  public static final String SERIALIZED_NAME_CLIENT_PRIVATE_KEY = "client_private_key";
-  @SerializedName(SERIALIZED_NAME_CLIENT_PRIVATE_KEY)
+  public static final String SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_MODE = "aerospike_ssl_connection_mode";
+  @SerializedName(SERIALIZED_NAME_AEROSPIKE_SSL_CONNECTION_MODE)
   @javax.annotation.Nullable
-  private String clientPrivateKey;
-
-  public static final String SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER = "cloud_service_provider";
-  @SerializedName(SERIALIZED_NAME_CLOUD_SERVICE_PROVIDER)
-  @javax.annotation.Nullable
-  private String cloudServiceProvider;
-
-  public static final String SERIALIZED_NAME_CLUSTER_MODE = "cluster_mode";
-  @SerializedName(SERIALIZED_NAME_CLUSTER_MODE)
-  @javax.annotation.Nullable
-  private Boolean clusterMode;
-
-  public static final String SERIALIZED_NAME_CONNECTION_TYPE = "connection_type";
-  @SerializedName(SERIALIZED_NAME_CONNECTION_TYPE)
-  @javax.annotation.Nullable
-  private String connectionType;
-
-  public static final String SERIALIZED_NAME_DB_CLIENT_ID = "db_client_id";
-  @SerializedName(SERIALIZED_NAME_DB_CLIENT_ID)
-  @javax.annotation.Nullable
-  private String dbClientId;
-
-  public static final String SERIALIZED_NAME_DB_CLIENT_SECRET = "db_client_secret";
-  @SerializedName(SERIALIZED_NAME_DB_CLIENT_SECRET)
-  @javax.annotation.Nullable
-  private String dbClientSecret;
-
-  public static final String SERIALIZED_NAME_DB_HOST_NAME = "db_host_name";
-  @SerializedName(SERIALIZED_NAME_DB_HOST_NAME)
-  @javax.annotation.Nullable
-  private String dbHostName;
-
-  public static final String SERIALIZED_NAME_DB_NAME = "db_name";
-  @SerializedName(SERIALIZED_NAME_DB_NAME)
-  @javax.annotation.Nullable
-  private String dbName;
-
-  public static final String SERIALIZED_NAME_DB_PORT = "db_port";
-  @SerializedName(SERIALIZED_NAME_DB_PORT)
-  @javax.annotation.Nullable
-  private String dbPort;
-
-  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY = "db_private_key";
-  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY)
-  @javax.annotation.Nullable
-  private String dbPrivateKey;
-
-  public static final String SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE = "db_private_key_passphrase";
-  @SerializedName(SERIALIZED_NAME_DB_PRIVATE_KEY_PASSPHRASE)
-  @javax.annotation.Nullable
-  private String dbPrivateKeyPassphrase;
-
-  public static final String SERIALIZED_NAME_DB_PWD = "db_pwd";
-  @SerializedName(SERIALIZED_NAME_DB_PWD)
-  @javax.annotation.Nullable
-  private String dbPwd;
-
-  public static final String SERIALIZED_NAME_DB_SERVER_CERTIFICATES = "db_server_certificates";
-  @SerializedName(SERIALIZED_NAME_DB_SERVER_CERTIFICATES)
-  @javax.annotation.Nullable
-  private String dbServerCertificates;
-
-  public static final String SERIALIZED_NAME_DB_SERVER_NAME = "db_server_name";
-  @SerializedName(SERIALIZED_NAME_DB_SERVER_NAME)
-  @javax.annotation.Nullable
-  private String dbServerName;
-
-  public static final String SERIALIZED_NAME_DB_TENANT_ID = "db_tenant_id";
-  @SerializedName(SERIALIZED_NAME_DB_TENANT_ID)
-  @javax.annotation.Nullable
-  private String dbTenantId;
-
-  public static final String SERIALIZED_NAME_DB_USER_NAME = "db_user_name";
-  @SerializedName(SERIALIZED_NAME_DB_USER_NAME)
-  @javax.annotation.Nullable
-  private String dbUserName;
-
-  public static final String SERIALIZED_NAME_ENABLE_MTLS = "enable_mtls";
-  @SerializedName(SERIALIZED_NAME_ENABLE_MTLS)
-  @javax.annotation.Nullable
-  private Boolean enableMtls;
-
-  public static final String SERIALIZED_NAME_ORACLE_WALLET_DETAILS = "oracle_wallet_details";
-  @SerializedName(SERIALIZED_NAME_ORACLE_WALLET_DETAILS)
-  @javax.annotation.Nullable
-  private WalletDetails oracleWalletDetails;
-
-  public static final String SERIALIZED_NAME_SF_ACCOUNT = "sf_account";
-  @SerializedName(SERIALIZED_NAME_SF_ACCOUNT)
-  @javax.annotation.Nullable
-  private String sfAccount;
-
-  public static final String SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION = "skip_server_name_validation";
-  @SerializedName(SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION)
-  @javax.annotation.Nullable
-  private String skipServerNameValidation;
-
-  public static final String SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE = "ssl_connection_certificate";
-  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_CERTIFICATE)
-  @javax.annotation.Nullable
-  private String sslConnectionCertificate;
-
-  public static final String SERIALIZED_NAME_SSL_CONNECTION_MODE = "ssl_connection_mode";
-  @SerializedName(SERIALIZED_NAME_SSL_CONNECTION_MODE)
-  @javax.annotation.Nullable
-  private Boolean sslConnectionMode;
+  private Boolean aerospikeSslConnectionMode;
 
   public AerospikeTargetDetails() {
   }
@@ -238,6 +152,25 @@ public class AerospikeTargetDetails {
   }
 
 
+  public AerospikeTargetDetails aerospikeClientCertificate(@javax.annotation.Nullable String aerospikeClientCertificate) {
+    this.aerospikeClientCertificate = aerospikeClientCertificate;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClientCertificate
+   * @return aerospikeClientCertificate
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClientCertificate() {
+    return aerospikeClientCertificate;
+  }
+
+  public void setAerospikeClientCertificate(@javax.annotation.Nullable String aerospikeClientCertificate) {
+    this.aerospikeClientCertificate = aerospikeClientCertificate;
+  }
+
+
   public AerospikeTargetDetails aerospikeClientId(@javax.annotation.Nullable String aerospikeClientId) {
     this.aerospikeClientId = aerospikeClientId;
     return this;
@@ -254,6 +187,25 @@ public class AerospikeTargetDetails {
 
   public void setAerospikeClientId(@javax.annotation.Nullable String aerospikeClientId) {
     this.aerospikeClientId = aerospikeClientId;
+  }
+
+
+  public AerospikeTargetDetails aerospikeClientPrivateKey(@javax.annotation.Nullable String aerospikeClientPrivateKey) {
+    this.aerospikeClientPrivateKey = aerospikeClientPrivateKey;
+    return this;
+  }
+
+  /**
+   * Get aerospikeClientPrivateKey
+   * @return aerospikeClientPrivateKey
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeClientPrivateKey() {
+    return aerospikeClientPrivateKey;
+  }
+
+  public void setAerospikeClientPrivateKey(@javax.annotation.Nullable String aerospikeClientPrivateKey) {
+    this.aerospikeClientPrivateKey = aerospikeClientPrivateKey;
   }
 
 
@@ -311,6 +263,44 @@ public class AerospikeTargetDetails {
 
   public void setAerospikeClusterId(@javax.annotation.Nullable String aerospikeClusterId) {
     this.aerospikeClusterId = aerospikeClusterId;
+  }
+
+
+  public AerospikeTargetDetails aerospikeDbServerName(@javax.annotation.Nullable String aerospikeDbServerName) {
+    this.aerospikeDbServerName = aerospikeDbServerName;
+    return this;
+  }
+
+  /**
+   * Get aerospikeDbServerName
+   * @return aerospikeDbServerName
+   */
+  @javax.annotation.Nullable
+  public String getAerospikeDbServerName() {
+    return aerospikeDbServerName;
+  }
+
+  public void setAerospikeDbServerName(@javax.annotation.Nullable String aerospikeDbServerName) {
+    this.aerospikeDbServerName = aerospikeDbServerName;
+  }
+
+
+  public AerospikeTargetDetails aerospikeEnableMtls(@javax.annotation.Nullable Boolean aerospikeEnableMtls) {
+    this.aerospikeEnableMtls = aerospikeEnableMtls;
+    return this;
+  }
+
+  /**
+   * Get aerospikeEnableMtls
+   * @return aerospikeEnableMtls
+   */
+  @javax.annotation.Nullable
+  public Boolean getAerospikeEnableMtls() {
+    return aerospikeEnableMtls;
+  }
+
+  public void setAerospikeEnableMtls(@javax.annotation.Nullable Boolean aerospikeEnableMtls) {
+    this.aerospikeEnableMtls = aerospikeEnableMtls;
   }
 
 
@@ -390,459 +380,60 @@ public class AerospikeTargetDetails {
   }
 
 
-  public AerospikeTargetDetails clientCertificate(@javax.annotation.Nullable String clientCertificate) {
-    this.clientCertificate = clientCertificate;
+  public AerospikeTargetDetails aerospikeSkipServerNameValidation(@javax.annotation.Nullable String aerospikeSkipServerNameValidation) {
+    this.aerospikeSkipServerNameValidation = aerospikeSkipServerNameValidation;
     return this;
   }
 
   /**
-   * (Optional) ClientCertificate defines the client certificate for mutual TLS. Must be base64 certificate loaded by UI using file loader field
-   * @return clientCertificate
+   * Get aerospikeSkipServerNameValidation
+   * @return aerospikeSkipServerNameValidation
    */
   @javax.annotation.Nullable
-  public String getClientCertificate() {
-    return clientCertificate;
+  public String getAerospikeSkipServerNameValidation() {
+    return aerospikeSkipServerNameValidation;
   }
 
-  public void setClientCertificate(@javax.annotation.Nullable String clientCertificate) {
-    this.clientCertificate = clientCertificate;
+  public void setAerospikeSkipServerNameValidation(@javax.annotation.Nullable String aerospikeSkipServerNameValidation) {
+    this.aerospikeSkipServerNameValidation = aerospikeSkipServerNameValidation;
   }
 
 
-  public AerospikeTargetDetails clientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
-    this.clientKeyPassphrase = clientKeyPassphrase;
+  public AerospikeTargetDetails aerospikeSslConnectionCertificate(@javax.annotation.Nullable String aerospikeSslConnectionCertificate) {
+    this.aerospikeSslConnectionCertificate = aerospikeSslConnectionCertificate;
     return this;
   }
 
   /**
-   * (Optional) ClientKeyPassphrase defines the passphrase for the client private key
-   * @return clientKeyPassphrase
+   * Get aerospikeSslConnectionCertificate
+   * @return aerospikeSslConnectionCertificate
    */
   @javax.annotation.Nullable
-  public String getClientKeyPassphrase() {
-    return clientKeyPassphrase;
+  public String getAerospikeSslConnectionCertificate() {
+    return aerospikeSslConnectionCertificate;
   }
 
-  public void setClientKeyPassphrase(@javax.annotation.Nullable String clientKeyPassphrase) {
-    this.clientKeyPassphrase = clientKeyPassphrase;
+  public void setAerospikeSslConnectionCertificate(@javax.annotation.Nullable String aerospikeSslConnectionCertificate) {
+    this.aerospikeSslConnectionCertificate = aerospikeSslConnectionCertificate;
   }
 
 
-  public AerospikeTargetDetails clientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
-    this.clientPrivateKey = clientPrivateKey;
+  public AerospikeTargetDetails aerospikeSslConnectionMode(@javax.annotation.Nullable Boolean aerospikeSslConnectionMode) {
+    this.aerospikeSslConnectionMode = aerospikeSslConnectionMode;
     return this;
   }
 
   /**
-   * (Optional) ClientPrivateKey defines the client private key for mutual TLS. Must be base64 private key loaded by UI using file loader field
-   * @return clientPrivateKey
+   * Get aerospikeSslConnectionMode
+   * @return aerospikeSslConnectionMode
    */
   @javax.annotation.Nullable
-  public String getClientPrivateKey() {
-    return clientPrivateKey;
+  public Boolean getAerospikeSslConnectionMode() {
+    return aerospikeSslConnectionMode;
   }
 
-  public void setClientPrivateKey(@javax.annotation.Nullable String clientPrivateKey) {
-    this.clientPrivateKey = clientPrivateKey;
-  }
-
-
-  public AerospikeTargetDetails cloudServiceProvider(@javax.annotation.Nullable String cloudServiceProvider) {
-    this.cloudServiceProvider = cloudServiceProvider;
-    return this;
-  }
-
-  /**
-   * Get cloudServiceProvider
-   * @return cloudServiceProvider
-   */
-  @javax.annotation.Nullable
-  public String getCloudServiceProvider() {
-    return cloudServiceProvider;
-  }
-
-  public void setCloudServiceProvider(@javax.annotation.Nullable String cloudServiceProvider) {
-    this.cloudServiceProvider = cloudServiceProvider;
-  }
-
-
-  public AerospikeTargetDetails clusterMode(@javax.annotation.Nullable Boolean clusterMode) {
-    this.clusterMode = clusterMode;
-    return this;
-  }
-
-  /**
-   * Get clusterMode
-   * @return clusterMode
-   */
-  @javax.annotation.Nullable
-  public Boolean getClusterMode() {
-    return clusterMode;
-  }
-
-  public void setClusterMode(@javax.annotation.Nullable Boolean clusterMode) {
-    this.clusterMode = clusterMode;
-  }
-
-
-  public AerospikeTargetDetails connectionType(@javax.annotation.Nullable String connectionType) {
-    this.connectionType = connectionType;
-    return this;
-  }
-
-  /**
-   * Get connectionType
-   * @return connectionType
-   */
-  @javax.annotation.Nullable
-  public String getConnectionType() {
-    return connectionType;
-  }
-
-  public void setConnectionType(@javax.annotation.Nullable String connectionType) {
-    this.connectionType = connectionType;
-  }
-
-
-  public AerospikeTargetDetails dbClientId(@javax.annotation.Nullable String dbClientId) {
-    this.dbClientId = dbClientId;
-    return this;
-  }
-
-  /**
-   * Get dbClientId
-   * @return dbClientId
-   */
-  @javax.annotation.Nullable
-  public String getDbClientId() {
-    return dbClientId;
-  }
-
-  public void setDbClientId(@javax.annotation.Nullable String dbClientId) {
-    this.dbClientId = dbClientId;
-  }
-
-
-  public AerospikeTargetDetails dbClientSecret(@javax.annotation.Nullable String dbClientSecret) {
-    this.dbClientSecret = dbClientSecret;
-    return this;
-  }
-
-  /**
-   * Get dbClientSecret
-   * @return dbClientSecret
-   */
-  @javax.annotation.Nullable
-  public String getDbClientSecret() {
-    return dbClientSecret;
-  }
-
-  public void setDbClientSecret(@javax.annotation.Nullable String dbClientSecret) {
-    this.dbClientSecret = dbClientSecret;
-  }
-
-
-  public AerospikeTargetDetails dbHostName(@javax.annotation.Nullable String dbHostName) {
-    this.dbHostName = dbHostName;
-    return this;
-  }
-
-  /**
-   * Get dbHostName
-   * @return dbHostName
-   */
-  @javax.annotation.Nullable
-  public String getDbHostName() {
-    return dbHostName;
-  }
-
-  public void setDbHostName(@javax.annotation.Nullable String dbHostName) {
-    this.dbHostName = dbHostName;
-  }
-
-
-  public AerospikeTargetDetails dbName(@javax.annotation.Nullable String dbName) {
-    this.dbName = dbName;
-    return this;
-  }
-
-  /**
-   * Get dbName
-   * @return dbName
-   */
-  @javax.annotation.Nullable
-  public String getDbName() {
-    return dbName;
-  }
-
-  public void setDbName(@javax.annotation.Nullable String dbName) {
-    this.dbName = dbName;
-  }
-
-
-  public AerospikeTargetDetails dbPort(@javax.annotation.Nullable String dbPort) {
-    this.dbPort = dbPort;
-    return this;
-  }
-
-  /**
-   * Get dbPort
-   * @return dbPort
-   */
-  @javax.annotation.Nullable
-  public String getDbPort() {
-    return dbPort;
-  }
-
-  public void setDbPort(@javax.annotation.Nullable String dbPort) {
-    this.dbPort = dbPort;
-  }
-
-
-  public AerospikeTargetDetails dbPrivateKey(@javax.annotation.Nullable String dbPrivateKey) {
-    this.dbPrivateKey = dbPrivateKey;
-    return this;
-  }
-
-  /**
-   * (Optional) Private Key in PEM format
-   * @return dbPrivateKey
-   */
-  @javax.annotation.Nullable
-  public String getDbPrivateKey() {
-    return dbPrivateKey;
-  }
-
-  public void setDbPrivateKey(@javax.annotation.Nullable String dbPrivateKey) {
-    this.dbPrivateKey = dbPrivateKey;
-  }
-
-
-  public AerospikeTargetDetails dbPrivateKeyPassphrase(@javax.annotation.Nullable String dbPrivateKeyPassphrase) {
-    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
-    return this;
-  }
-
-  /**
-   * Get dbPrivateKeyPassphrase
-   * @return dbPrivateKeyPassphrase
-   */
-  @javax.annotation.Nullable
-  public String getDbPrivateKeyPassphrase() {
-    return dbPrivateKeyPassphrase;
-  }
-
-  public void setDbPrivateKeyPassphrase(@javax.annotation.Nullable String dbPrivateKeyPassphrase) {
-    this.dbPrivateKeyPassphrase = dbPrivateKeyPassphrase;
-  }
-
-
-  public AerospikeTargetDetails dbPwd(@javax.annotation.Nullable String dbPwd) {
-    this.dbPwd = dbPwd;
-    return this;
-  }
-
-  /**
-   * Get dbPwd
-   * @return dbPwd
-   */
-  @javax.annotation.Nullable
-  public String getDbPwd() {
-    return dbPwd;
-  }
-
-  public void setDbPwd(@javax.annotation.Nullable String dbPwd) {
-    this.dbPwd = dbPwd;
-  }
-
-
-  public AerospikeTargetDetails dbServerCertificates(@javax.annotation.Nullable String dbServerCertificates) {
-    this.dbServerCertificates = dbServerCertificates;
-    return this;
-  }
-
-  /**
-   * (Optional) DBServerCertificates defines the set of root certificate authorities that clients use when verifying server certificates. If DBServerCertificates is empty, TLS uses the host&#39;s root CA set.
-   * @return dbServerCertificates
-   */
-  @javax.annotation.Nullable
-  public String getDbServerCertificates() {
-    return dbServerCertificates;
-  }
-
-  public void setDbServerCertificates(@javax.annotation.Nullable String dbServerCertificates) {
-    this.dbServerCertificates = dbServerCertificates;
-  }
-
-
-  public AerospikeTargetDetails dbServerName(@javax.annotation.Nullable String dbServerName) {
-    this.dbServerName = dbServerName;
-    return this;
-  }
-
-  /**
-   * (Optional) ServerName is used to verify the hostname on the returned certificates unless InsecureSkipVerify is given. It is also included in the client&#39;s handshake to support virtual hosting unless it is an IP address.
-   * @return dbServerName
-   */
-  @javax.annotation.Nullable
-  public String getDbServerName() {
-    return dbServerName;
-  }
-
-  public void setDbServerName(@javax.annotation.Nullable String dbServerName) {
-    this.dbServerName = dbServerName;
-  }
-
-
-  public AerospikeTargetDetails dbTenantId(@javax.annotation.Nullable String dbTenantId) {
-    this.dbTenantId = dbTenantId;
-    return this;
-  }
-
-  /**
-   * Get dbTenantId
-   * @return dbTenantId
-   */
-  @javax.annotation.Nullable
-  public String getDbTenantId() {
-    return dbTenantId;
-  }
-
-  public void setDbTenantId(@javax.annotation.Nullable String dbTenantId) {
-    this.dbTenantId = dbTenantId;
-  }
-
-
-  public AerospikeTargetDetails dbUserName(@javax.annotation.Nullable String dbUserName) {
-    this.dbUserName = dbUserName;
-    return this;
-  }
-
-  /**
-   * Get dbUserName
-   * @return dbUserName
-   */
-  @javax.annotation.Nullable
-  public String getDbUserName() {
-    return dbUserName;
-  }
-
-  public void setDbUserName(@javax.annotation.Nullable String dbUserName) {
-    this.dbUserName = dbUserName;
-  }
-
-
-  public AerospikeTargetDetails enableMtls(@javax.annotation.Nullable Boolean enableMtls) {
-    this.enableMtls = enableMtls;
-    return this;
-  }
-
-  /**
-   * (Optional) EnableMTLS defines if mutual TLS will be used to connect to DB
-   * @return enableMtls
-   */
-  @javax.annotation.Nullable
-  public Boolean getEnableMtls() {
-    return enableMtls;
-  }
-
-  public void setEnableMtls(@javax.annotation.Nullable Boolean enableMtls) {
-    this.enableMtls = enableMtls;
-  }
-
-
-  public AerospikeTargetDetails oracleWalletDetails(@javax.annotation.Nullable WalletDetails oracleWalletDetails) {
-    this.oracleWalletDetails = oracleWalletDetails;
-    return this;
-  }
-
-  /**
-   * Get oracleWalletDetails
-   * @return oracleWalletDetails
-   */
-  @javax.annotation.Nullable
-  public WalletDetails getOracleWalletDetails() {
-    return oracleWalletDetails;
-  }
-
-  public void setOracleWalletDetails(@javax.annotation.Nullable WalletDetails oracleWalletDetails) {
-    this.oracleWalletDetails = oracleWalletDetails;
-  }
-
-
-  public AerospikeTargetDetails sfAccount(@javax.annotation.Nullable String sfAccount) {
-    this.sfAccount = sfAccount;
-    return this;
-  }
-
-  /**
-   * Get sfAccount
-   * @return sfAccount
-   */
-  @javax.annotation.Nullable
-  public String getSfAccount() {
-    return sfAccount;
-  }
-
-  public void setSfAccount(@javax.annotation.Nullable String sfAccount) {
-    this.sfAccount = sfAccount;
-  }
-
-
-  public AerospikeTargetDetails skipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
-    this.skipServerNameValidation = skipServerNameValidation;
-    return this;
-  }
-
-  /**
-   * (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \&quot;skip hostname validation\&quot;; MySQL treats empty as false.
-   * @return skipServerNameValidation
-   */
-  @javax.annotation.Nullable
-  public String getSkipServerNameValidation() {
-    return skipServerNameValidation;
-  }
-
-  public void setSkipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
-    this.skipServerNameValidation = skipServerNameValidation;
-  }
-
-
-  public AerospikeTargetDetails sslConnectionCertificate(@javax.annotation.Nullable String sslConnectionCertificate) {
-    this.sslConnectionCertificate = sslConnectionCertificate;
-    return this;
-  }
-
-  /**
-   * (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field
-   * @return sslConnectionCertificate
-   */
-  @javax.annotation.Nullable
-  public String getSslConnectionCertificate() {
-    return sslConnectionCertificate;
-  }
-
-  public void setSslConnectionCertificate(@javax.annotation.Nullable String sslConnectionCertificate) {
-    this.sslConnectionCertificate = sslConnectionCertificate;
-  }
-
-
-  public AerospikeTargetDetails sslConnectionMode(@javax.annotation.Nullable Boolean sslConnectionMode) {
-    this.sslConnectionMode = sslConnectionMode;
-    return this;
-  }
-
-  /**
-   * (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB
-   * @return sslConnectionMode
-   */
-  @javax.annotation.Nullable
-  public Boolean getSslConnectionMode() {
-    return sslConnectionMode;
-  }
-
-  public void setSslConnectionMode(@javax.annotation.Nullable Boolean sslConnectionMode) {
-    this.sslConnectionMode = sslConnectionMode;
+  public void setAerospikeSslConnectionMode(@javax.annotation.Nullable Boolean aerospikeSslConnectionMode) {
+    this.aerospikeSslConnectionMode = aerospikeSslConnectionMode;
   }
 
 
@@ -857,43 +448,26 @@ public class AerospikeTargetDetails {
     }
     AerospikeTargetDetails aerospikeTargetDetails = (AerospikeTargetDetails) o;
     return Objects.equals(this.aerospikeAdminUsername, aerospikeTargetDetails.aerospikeAdminUsername) &&
+        Objects.equals(this.aerospikeClientCertificate, aerospikeTargetDetails.aerospikeClientCertificate) &&
         Objects.equals(this.aerospikeClientId, aerospikeTargetDetails.aerospikeClientId) &&
+        Objects.equals(this.aerospikeClientPrivateKey, aerospikeTargetDetails.aerospikeClientPrivateKey) &&
         Objects.equals(this.aerospikeClientSecret, aerospikeTargetDetails.aerospikeClientSecret) &&
         Objects.equals(this.aerospikeCloud, aerospikeTargetDetails.aerospikeCloud) &&
         Objects.equals(this.aerospikeClusterId, aerospikeTargetDetails.aerospikeClusterId) &&
+        Objects.equals(this.aerospikeDbServerName, aerospikeTargetDetails.aerospikeDbServerName) &&
+        Objects.equals(this.aerospikeEnableMtls, aerospikeTargetDetails.aerospikeEnableMtls) &&
         Objects.equals(this.aerospikeHostname, aerospikeTargetDetails.aerospikeHostname) &&
         Objects.equals(this.aerospikeNamespace, aerospikeTargetDetails.aerospikeNamespace) &&
         Objects.equals(this.aerospikePassword, aerospikeTargetDetails.aerospikePassword) &&
         Objects.equals(this.aerospikePort, aerospikeTargetDetails.aerospikePort) &&
-        Objects.equals(this.clientCertificate, aerospikeTargetDetails.clientCertificate) &&
-        Objects.equals(this.clientKeyPassphrase, aerospikeTargetDetails.clientKeyPassphrase) &&
-        Objects.equals(this.clientPrivateKey, aerospikeTargetDetails.clientPrivateKey) &&
-        Objects.equals(this.cloudServiceProvider, aerospikeTargetDetails.cloudServiceProvider) &&
-        Objects.equals(this.clusterMode, aerospikeTargetDetails.clusterMode) &&
-        Objects.equals(this.connectionType, aerospikeTargetDetails.connectionType) &&
-        Objects.equals(this.dbClientId, aerospikeTargetDetails.dbClientId) &&
-        Objects.equals(this.dbClientSecret, aerospikeTargetDetails.dbClientSecret) &&
-        Objects.equals(this.dbHostName, aerospikeTargetDetails.dbHostName) &&
-        Objects.equals(this.dbName, aerospikeTargetDetails.dbName) &&
-        Objects.equals(this.dbPort, aerospikeTargetDetails.dbPort) &&
-        Objects.equals(this.dbPrivateKey, aerospikeTargetDetails.dbPrivateKey) &&
-        Objects.equals(this.dbPrivateKeyPassphrase, aerospikeTargetDetails.dbPrivateKeyPassphrase) &&
-        Objects.equals(this.dbPwd, aerospikeTargetDetails.dbPwd) &&
-        Objects.equals(this.dbServerCertificates, aerospikeTargetDetails.dbServerCertificates) &&
-        Objects.equals(this.dbServerName, aerospikeTargetDetails.dbServerName) &&
-        Objects.equals(this.dbTenantId, aerospikeTargetDetails.dbTenantId) &&
-        Objects.equals(this.dbUserName, aerospikeTargetDetails.dbUserName) &&
-        Objects.equals(this.enableMtls, aerospikeTargetDetails.enableMtls) &&
-        Objects.equals(this.oracleWalletDetails, aerospikeTargetDetails.oracleWalletDetails) &&
-        Objects.equals(this.sfAccount, aerospikeTargetDetails.sfAccount) &&
-        Objects.equals(this.skipServerNameValidation, aerospikeTargetDetails.skipServerNameValidation) &&
-        Objects.equals(this.sslConnectionCertificate, aerospikeTargetDetails.sslConnectionCertificate) &&
-        Objects.equals(this.sslConnectionMode, aerospikeTargetDetails.sslConnectionMode);
+        Objects.equals(this.aerospikeSkipServerNameValidation, aerospikeTargetDetails.aerospikeSkipServerNameValidation) &&
+        Objects.equals(this.aerospikeSslConnectionCertificate, aerospikeTargetDetails.aerospikeSslConnectionCertificate) &&
+        Objects.equals(this.aerospikeSslConnectionMode, aerospikeTargetDetails.aerospikeSslConnectionMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aerospikeAdminUsername, aerospikeClientId, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, aerospikeHostname, aerospikeNamespace, aerospikePassword, aerospikePort, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, dbClientId, dbClientSecret, dbHostName, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, enableMtls, oracleWalletDetails, sfAccount, skipServerNameValidation, sslConnectionCertificate, sslConnectionMode);
+    return Objects.hash(aerospikeAdminUsername, aerospikeClientCertificate, aerospikeClientId, aerospikeClientPrivateKey, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, aerospikeDbServerName, aerospikeEnableMtls, aerospikeHostname, aerospikeNamespace, aerospikePassword, aerospikePort, aerospikeSkipServerNameValidation, aerospikeSslConnectionCertificate, aerospikeSslConnectionMode);
   }
 
   @Override
@@ -901,38 +475,21 @@ public class AerospikeTargetDetails {
     StringBuilder sb = new StringBuilder();
     sb.append("class AerospikeTargetDetails {\n");
     sb.append("    aerospikeAdminUsername: ").append(toIndentedString(aerospikeAdminUsername)).append("\n");
+    sb.append("    aerospikeClientCertificate: ").append(toIndentedString(aerospikeClientCertificate)).append("\n");
     sb.append("    aerospikeClientId: ").append(toIndentedString(aerospikeClientId)).append("\n");
+    sb.append("    aerospikeClientPrivateKey: ").append(toIndentedString(aerospikeClientPrivateKey)).append("\n");
     sb.append("    aerospikeClientSecret: ").append(toIndentedString(aerospikeClientSecret)).append("\n");
     sb.append("    aerospikeCloud: ").append(toIndentedString(aerospikeCloud)).append("\n");
     sb.append("    aerospikeClusterId: ").append(toIndentedString(aerospikeClusterId)).append("\n");
+    sb.append("    aerospikeDbServerName: ").append(toIndentedString(aerospikeDbServerName)).append("\n");
+    sb.append("    aerospikeEnableMtls: ").append(toIndentedString(aerospikeEnableMtls)).append("\n");
     sb.append("    aerospikeHostname: ").append(toIndentedString(aerospikeHostname)).append("\n");
     sb.append("    aerospikeNamespace: ").append(toIndentedString(aerospikeNamespace)).append("\n");
     sb.append("    aerospikePassword: ").append(toIndentedString(aerospikePassword)).append("\n");
     sb.append("    aerospikePort: ").append(toIndentedString(aerospikePort)).append("\n");
-    sb.append("    clientCertificate: ").append(toIndentedString(clientCertificate)).append("\n");
-    sb.append("    clientKeyPassphrase: ").append(toIndentedString(clientKeyPassphrase)).append("\n");
-    sb.append("    clientPrivateKey: ").append(toIndentedString(clientPrivateKey)).append("\n");
-    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
-    sb.append("    clusterMode: ").append(toIndentedString(clusterMode)).append("\n");
-    sb.append("    connectionType: ").append(toIndentedString(connectionType)).append("\n");
-    sb.append("    dbClientId: ").append(toIndentedString(dbClientId)).append("\n");
-    sb.append("    dbClientSecret: ").append(toIndentedString(dbClientSecret)).append("\n");
-    sb.append("    dbHostName: ").append(toIndentedString(dbHostName)).append("\n");
-    sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
-    sb.append("    dbPort: ").append(toIndentedString(dbPort)).append("\n");
-    sb.append("    dbPrivateKey: ").append(toIndentedString(dbPrivateKey)).append("\n");
-    sb.append("    dbPrivateKeyPassphrase: ").append(toIndentedString(dbPrivateKeyPassphrase)).append("\n");
-    sb.append("    dbPwd: ").append(toIndentedString(dbPwd)).append("\n");
-    sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
-    sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
-    sb.append("    dbTenantId: ").append(toIndentedString(dbTenantId)).append("\n");
-    sb.append("    dbUserName: ").append(toIndentedString(dbUserName)).append("\n");
-    sb.append("    enableMtls: ").append(toIndentedString(enableMtls)).append("\n");
-    sb.append("    oracleWalletDetails: ").append(toIndentedString(oracleWalletDetails)).append("\n");
-    sb.append("    sfAccount: ").append(toIndentedString(sfAccount)).append("\n");
-    sb.append("    skipServerNameValidation: ").append(toIndentedString(skipServerNameValidation)).append("\n");
-    sb.append("    sslConnectionCertificate: ").append(toIndentedString(sslConnectionCertificate)).append("\n");
-    sb.append("    sslConnectionMode: ").append(toIndentedString(sslConnectionMode)).append("\n");
+    sb.append("    aerospikeSkipServerNameValidation: ").append(toIndentedString(aerospikeSkipServerNameValidation)).append("\n");
+    sb.append("    aerospikeSslConnectionCertificate: ").append(toIndentedString(aerospikeSslConnectionCertificate)).append("\n");
+    sb.append("    aerospikeSslConnectionMode: ").append(toIndentedString(aerospikeSslConnectionMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -951,7 +508,7 @@ public class AerospikeTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("aerospike_admin_username", "aerospike_client_id", "aerospike_client_secret", "aerospike_cloud", "aerospike_cluster_id", "aerospike_hostname", "aerospike_namespace", "aerospike_password", "aerospike_port", "client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "db_client_id", "db_client_secret", "db_host_name", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "enable_mtls", "oracle_wallet_details", "sf_account", "skip_server_name_validation", "ssl_connection_certificate", "ssl_connection_mode"));
+    openapiFields = new HashSet<String>(Arrays.asList("aerospike_admin_username", "aerospike_client_certificate", "aerospike_client_id", "aerospike_client_private_key", "aerospike_client_secret", "aerospike_cloud", "aerospike_cluster_id", "aerospike_db_server_name", "aerospike_enable_mtls", "aerospike_hostname", "aerospike_namespace", "aerospike_password", "aerospike_port", "aerospike_skip_server_name_validation", "aerospike_ssl_connection_certificate", "aerospike_ssl_connection_mode"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -981,14 +538,23 @@ public class AerospikeTargetDetails {
       if ((jsonObj.get("aerospike_admin_username") != null && !jsonObj.get("aerospike_admin_username").isJsonNull()) && !jsonObj.get("aerospike_admin_username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_admin_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_admin_username").toString()));
       }
+      if ((jsonObj.get("aerospike_client_certificate") != null && !jsonObj.get("aerospike_client_certificate").isJsonNull()) && !jsonObj.get("aerospike_client_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_certificate").toString()));
+      }
       if ((jsonObj.get("aerospike_client_id") != null && !jsonObj.get("aerospike_client_id").isJsonNull()) && !jsonObj.get("aerospike_client_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_id").toString()));
+      }
+      if ((jsonObj.get("aerospike_client_private_key") != null && !jsonObj.get("aerospike_client_private_key").isJsonNull()) && !jsonObj.get("aerospike_client_private_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_private_key").toString()));
       }
       if ((jsonObj.get("aerospike_client_secret") != null && !jsonObj.get("aerospike_client_secret").isJsonNull()) && !jsonObj.get("aerospike_client_secret").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_client_secret").toString()));
       }
       if ((jsonObj.get("aerospike_cluster_id") != null && !jsonObj.get("aerospike_cluster_id").isJsonNull()) && !jsonObj.get("aerospike_cluster_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_cluster_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_cluster_id").toString()));
+      }
+      if ((jsonObj.get("aerospike_db_server_name") != null && !jsonObj.get("aerospike_db_server_name").isJsonNull()) && !jsonObj.get("aerospike_db_server_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_db_server_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_db_server_name").toString()));
       }
       if ((jsonObj.get("aerospike_hostname") != null && !jsonObj.get("aerospike_hostname").isJsonNull()) && !jsonObj.get("aerospike_hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_hostname").toString()));
@@ -1002,69 +568,11 @@ public class AerospikeTargetDetails {
       if ((jsonObj.get("aerospike_port") != null && !jsonObj.get("aerospike_port").isJsonNull()) && !jsonObj.get("aerospike_port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_port").toString()));
       }
-      if ((jsonObj.get("client_certificate") != null && !jsonObj.get("client_certificate").isJsonNull()) && !jsonObj.get("client_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_certificate").toString()));
+      if ((jsonObj.get("aerospike_skip_server_name_validation") != null && !jsonObj.get("aerospike_skip_server_name_validation").isJsonNull()) && !jsonObj.get("aerospike_skip_server_name_validation").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_skip_server_name_validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_skip_server_name_validation").toString()));
       }
-      if ((jsonObj.get("client_key_passphrase") != null && !jsonObj.get("client_key_passphrase").isJsonNull()) && !jsonObj.get("client_key_passphrase").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_key_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_key_passphrase").toString()));
-      }
-      if ((jsonObj.get("client_private_key") != null && !jsonObj.get("client_private_key").isJsonNull()) && !jsonObj.get("client_private_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `client_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_private_key").toString()));
-      }
-      if ((jsonObj.get("cloud_service_provider") != null && !jsonObj.get("cloud_service_provider").isJsonNull()) && !jsonObj.get("cloud_service_provider").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cloud_service_provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cloud_service_provider").toString()));
-      }
-      if ((jsonObj.get("connection_type") != null && !jsonObj.get("connection_type").isJsonNull()) && !jsonObj.get("connection_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `connection_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_type").toString()));
-      }
-      if ((jsonObj.get("db_client_id") != null && !jsonObj.get("db_client_id").isJsonNull()) && !jsonObj.get("db_client_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_client_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_client_id").toString()));
-      }
-      if ((jsonObj.get("db_client_secret") != null && !jsonObj.get("db_client_secret").isJsonNull()) && !jsonObj.get("db_client_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_client_secret").toString()));
-      }
-      if ((jsonObj.get("db_host_name") != null && !jsonObj.get("db_host_name").isJsonNull()) && !jsonObj.get("db_host_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_host_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_host_name").toString()));
-      }
-      if ((jsonObj.get("db_name") != null && !jsonObj.get("db_name").isJsonNull()) && !jsonObj.get("db_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_name").toString()));
-      }
-      if ((jsonObj.get("db_port") != null && !jsonObj.get("db_port").isJsonNull()) && !jsonObj.get("db_port").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_port").toString()));
-      }
-      if ((jsonObj.get("db_private_key") != null && !jsonObj.get("db_private_key").isJsonNull()) && !jsonObj.get("db_private_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_private_key").toString()));
-      }
-      if ((jsonObj.get("db_private_key_passphrase") != null && !jsonObj.get("db_private_key_passphrase").isJsonNull()) && !jsonObj.get("db_private_key_passphrase").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_private_key_passphrase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_private_key_passphrase").toString()));
-      }
-      if ((jsonObj.get("db_pwd") != null && !jsonObj.get("db_pwd").isJsonNull()) && !jsonObj.get("db_pwd").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_pwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_pwd").toString()));
-      }
-      if ((jsonObj.get("db_server_certificates") != null && !jsonObj.get("db_server_certificates").isJsonNull()) && !jsonObj.get("db_server_certificates").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_server_certificates` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_server_certificates").toString()));
-      }
-      if ((jsonObj.get("db_server_name") != null && !jsonObj.get("db_server_name").isJsonNull()) && !jsonObj.get("db_server_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_server_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_server_name").toString()));
-      }
-      if ((jsonObj.get("db_tenant_id") != null && !jsonObj.get("db_tenant_id").isJsonNull()) && !jsonObj.get("db_tenant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_tenant_id").toString()));
-      }
-      if ((jsonObj.get("db_user_name") != null && !jsonObj.get("db_user_name").isJsonNull()) && !jsonObj.get("db_user_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `db_user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("db_user_name").toString()));
-      }
-      // validate the optional field `oracle_wallet_details`
-      if (jsonObj.get("oracle_wallet_details") != null && !jsonObj.get("oracle_wallet_details").isJsonNull()) {
-        WalletDetails.validateJsonElement(jsonObj.get("oracle_wallet_details"));
-      }
-      if ((jsonObj.get("sf_account") != null && !jsonObj.get("sf_account").isJsonNull()) && !jsonObj.get("sf_account").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `sf_account` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sf_account").toString()));
-      }
-      if ((jsonObj.get("skip_server_name_validation") != null && !jsonObj.get("skip_server_name_validation").isJsonNull()) && !jsonObj.get("skip_server_name_validation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_server_name_validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_server_name_validation").toString()));
-      }
-      if ((jsonObj.get("ssl_connection_certificate") != null && !jsonObj.get("ssl_connection_certificate").isJsonNull()) && !jsonObj.get("ssl_connection_certificate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssl_connection_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssl_connection_certificate").toString()));
+      if ((jsonObj.get("aerospike_ssl_connection_certificate") != null && !jsonObj.get("aerospike_ssl_connection_certificate").isJsonNull()) && !jsonObj.get("aerospike_ssl_connection_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aerospike_ssl_connection_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aerospike_ssl_connection_certificate").toString()));
       }
   }
 

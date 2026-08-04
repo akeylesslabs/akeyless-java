@@ -144,6 +144,11 @@ public class DynamicSecretCreateSnowflake {
   @javax.annotation.Nullable
   private String role;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -563,6 +568,25 @@ public class DynamicSecretCreateSnowflake {
   }
 
 
+  public DynamicSecretCreateSnowflake skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretCreateSnowflake tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -789,6 +813,7 @@ public class DynamicSecretCreateSnowflake {
         Objects.equals(this.privateKey, dynamicSecretCreateSnowflake.privateKey) &&
         Objects.equals(this.privateKeyPassphrase, dynamicSecretCreateSnowflake.privateKeyPassphrase) &&
         Objects.equals(this.role, dynamicSecretCreateSnowflake.role) &&
+        Objects.equals(this.skipDryRun, dynamicSecretCreateSnowflake.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretCreateSnowflake.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateSnowflake.targetName) &&
         Objects.equals(this.token, dynamicSecretCreateSnowflake.token) &&
@@ -803,7 +828,7 @@ public class DynamicSecretCreateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, authMode, customUsernameTemplate, dbName, deleteProtection, description, inputRule, itemCustomFields, json, keyAlgo, name, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, authMode, customUsernameTemplate, dbName, deleteProtection, description, inputRule, itemCustomFields, json, keyAlgo, name, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
   }
 
   @Override
@@ -828,6 +853,7 @@ public class DynamicSecretCreateSnowflake {
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
     sb.append("    privateKeyPassphrase: ").append(toIndentedString(privateKeyPassphrase)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -856,7 +882,7 @@ public class DynamicSecretCreateSnowflake {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "auth-mode", "custom-username-template", "db-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key-algo", "name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
+    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "auth-mode", "custom-username-template", "db-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key-algo", "name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -939,6 +965,9 @@ public class DynamicSecretCreateSnowflake {
       }
       if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) && !jsonObj.get("role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

@@ -104,6 +104,11 @@ public class DynamicSecretCreateOpenAI {
   @javax.annotation.Nullable
   private String projectId;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -346,6 +351,25 @@ public class DynamicSecretCreateOpenAI {
   }
 
 
+  public DynamicSecretCreateOpenAI skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretCreateOpenAI tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -469,6 +493,7 @@ public class DynamicSecretCreateOpenAI {
         Objects.equals(this.outputRule, dynamicSecretCreateOpenAI.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateOpenAI.producerEncryptionKeyName) &&
         Objects.equals(this.projectId, dynamicSecretCreateOpenAI.projectId) &&
+        Objects.equals(this.skipDryRun, dynamicSecretCreateOpenAI.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretCreateOpenAI.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateOpenAI.targetName) &&
         Objects.equals(this.token, dynamicSecretCreateOpenAI.token) &&
@@ -478,7 +503,7 @@ public class DynamicSecretCreateOpenAI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, projectId, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, projectId, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -495,6 +520,7 @@ public class DynamicSecretCreateOpenAI {
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -518,7 +544,7 @@ public class DynamicSecretCreateOpenAI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "project-id", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "project-id", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -577,6 +603,9 @@ public class DynamicSecretCreateOpenAI {
       }
       if ((jsonObj.get("project-id") != null && !jsonObj.get("project-id").isJsonNull()) && !jsonObj.get("project-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project-id").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

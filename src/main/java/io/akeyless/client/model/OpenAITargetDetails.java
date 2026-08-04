@@ -60,6 +60,31 @@ public class OpenAITargetDetails {
   @javax.annotation.Nullable
   private String apiKeyId;
 
+  public static final String SERIALIZED_NAME_AUTH_MODE = "auth_mode";
+  @SerializedName(SERIALIZED_NAME_AUTH_MODE)
+  @javax.annotation.Nullable
+  private String authMode;
+
+  public static final String SERIALIZED_NAME_OAUTH_ACCESS_TOKEN = "oauth_access_token";
+  @SerializedName(SERIALIZED_NAME_OAUTH_ACCESS_TOKEN)
+  @javax.annotation.Nullable
+  private String oauthAccessToken;
+
+  public static final String SERIALIZED_NAME_OAUTH_ACCOUNT_ID = "oauth_account_id";
+  @SerializedName(SERIALIZED_NAME_OAUTH_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String oauthAccountId;
+
+  public static final String SERIALIZED_NAME_OAUTH_LAST_REFRESH = "oauth_last_refresh";
+  @SerializedName(SERIALIZED_NAME_OAUTH_LAST_REFRESH)
+  @javax.annotation.Nullable
+  private String oauthLastRefresh;
+
+  public static final String SERIALIZED_NAME_OAUTH_REFRESH_TOKEN = "oauth_refresh_token";
+  @SerializedName(SERIALIZED_NAME_OAUTH_REFRESH_TOKEN)
+  @javax.annotation.Nullable
+  private String oauthRefreshToken;
+
   public static final String SERIALIZED_NAME_OPENAI_URL = "openai_url";
   @SerializedName(SERIALIZED_NAME_OPENAI_URL)
   @javax.annotation.Nullable
@@ -113,6 +138,101 @@ public class OpenAITargetDetails {
 
   public void setApiKeyId(@javax.annotation.Nullable String apiKeyId) {
     this.apiKeyId = apiKeyId;
+  }
+
+
+  public OpenAITargetDetails authMode(@javax.annotation.Nullable String authMode) {
+    this.authMode = authMode;
+    return this;
+  }
+
+  /**
+   * AuthMode selects how this target authenticates. Empty (default) uses ApiKey as a static bearer token against BaseURL, matching all pre-existing behavior. OpenAIAuthModeChatGPTOAuth instead uses the OAuth* fields below.
+   * @return authMode
+   */
+  @javax.annotation.Nullable
+  public String getAuthMode() {
+    return authMode;
+  }
+
+  public void setAuthMode(@javax.annotation.Nullable String authMode) {
+    this.authMode = authMode;
+  }
+
+
+  public OpenAITargetDetails oauthAccessToken(@javax.annotation.Nullable String oauthAccessToken) {
+    this.oauthAccessToken = oauthAccessToken;
+    return this;
+  }
+
+  /**
+   * OAuthAccessToken is the current ChatGPT-issued access token (the &#x60;tokens.access_token&#x60; field of the customer&#39;s local auth.json). Akeyless refreshes this automatically; do not treat it as long-lived.
+   * @return oauthAccessToken
+   */
+  @javax.annotation.Nullable
+  public String getOauthAccessToken() {
+    return oauthAccessToken;
+  }
+
+  public void setOauthAccessToken(@javax.annotation.Nullable String oauthAccessToken) {
+    this.oauthAccessToken = oauthAccessToken;
+  }
+
+
+  public OpenAITargetDetails oauthAccountId(@javax.annotation.Nullable String oauthAccountId) {
+    this.oauthAccountId = oauthAccountId;
+    return this;
+  }
+
+  /**
+   * OAuthAccountID is the ChatGPT workspace/account id (&#x60;tokens.account_id&#x60; in auth.json), required on every request to the ChatGPT backend.
+   * @return oauthAccountId
+   */
+  @javax.annotation.Nullable
+  public String getOauthAccountId() {
+    return oauthAccountId;
+  }
+
+  public void setOauthAccountId(@javax.annotation.Nullable String oauthAccountId) {
+    this.oauthAccountId = oauthAccountId;
+  }
+
+
+  public OpenAITargetDetails oauthLastRefresh(@javax.annotation.Nullable String oauthLastRefresh) {
+    this.oauthLastRefresh = oauthLastRefresh;
+    return this;
+  }
+
+  /**
+   * OAuthLastRefresh is the RFC3339 timestamp of the last successful Akeyless-performed refresh; used as a fallback expiry heuristic when the access token&#39;s JWT exp claim can&#39;t be parsed.
+   * @return oauthLastRefresh
+   */
+  @javax.annotation.Nullable
+  public String getOauthLastRefresh() {
+    return oauthLastRefresh;
+  }
+
+  public void setOauthLastRefresh(@javax.annotation.Nullable String oauthLastRefresh) {
+    this.oauthLastRefresh = oauthLastRefresh;
+  }
+
+
+  public OpenAITargetDetails oauthRefreshToken(@javax.annotation.Nullable String oauthRefreshToken) {
+    this.oauthRefreshToken = oauthRefreshToken;
+    return this;
+  }
+
+  /**
+   * OAuthRefreshToken mints new access tokens. It rotates on every refresh - Akeyless persists the new value after each successful refresh, so the previous value becomes invalid.
+   * @return oauthRefreshToken
+   */
+  @javax.annotation.Nullable
+  public String getOauthRefreshToken() {
+    return oauthRefreshToken;
+  }
+
+  public void setOauthRefreshToken(@javax.annotation.Nullable String oauthRefreshToken) {
+    this.oauthRefreshToken = oauthRefreshToken;
   }
 
 
@@ -185,6 +305,11 @@ public class OpenAITargetDetails {
     OpenAITargetDetails openAITargetDetails = (OpenAITargetDetails) o;
     return Objects.equals(this.apiKey, openAITargetDetails.apiKey) &&
         Objects.equals(this.apiKeyId, openAITargetDetails.apiKeyId) &&
+        Objects.equals(this.authMode, openAITargetDetails.authMode) &&
+        Objects.equals(this.oauthAccessToken, openAITargetDetails.oauthAccessToken) &&
+        Objects.equals(this.oauthAccountId, openAITargetDetails.oauthAccountId) &&
+        Objects.equals(this.oauthLastRefresh, openAITargetDetails.oauthLastRefresh) &&
+        Objects.equals(this.oauthRefreshToken, openAITargetDetails.oauthRefreshToken) &&
         Objects.equals(this.openaiUrl, openAITargetDetails.openaiUrl) &&
         Objects.equals(this.organizationId, openAITargetDetails.organizationId) &&
         Objects.equals(this.projectId, openAITargetDetails.projectId);
@@ -192,7 +317,7 @@ public class OpenAITargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiKeyId, openaiUrl, organizationId, projectId);
+    return Objects.hash(apiKey, apiKeyId, authMode, oauthAccessToken, oauthAccountId, oauthLastRefresh, oauthRefreshToken, openaiUrl, organizationId, projectId);
   }
 
   @Override
@@ -201,6 +326,11 @@ public class OpenAITargetDetails {
     sb.append("class OpenAITargetDetails {\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
+    sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
+    sb.append("    oauthAccessToken: ").append(toIndentedString(oauthAccessToken)).append("\n");
+    sb.append("    oauthAccountId: ").append(toIndentedString(oauthAccountId)).append("\n");
+    sb.append("    oauthLastRefresh: ").append(toIndentedString(oauthLastRefresh)).append("\n");
+    sb.append("    oauthRefreshToken: ").append(toIndentedString(oauthRefreshToken)).append("\n");
     sb.append("    openaiUrl: ").append(toIndentedString(openaiUrl)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
@@ -222,7 +352,7 @@ public class OpenAITargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("api_key", "api_key_id", "openai_url", "organization_id", "project_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("api_key", "api_key_id", "auth_mode", "oauth_access_token", "oauth_account_id", "oauth_last_refresh", "oauth_refresh_token", "openai_url", "organization_id", "project_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -254,6 +384,21 @@ public class OpenAITargetDetails {
       }
       if ((jsonObj.get("api_key_id") != null && !jsonObj.get("api_key_id").isJsonNull()) && !jsonObj.get("api_key_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key_id").toString()));
+      }
+      if ((jsonObj.get("auth_mode") != null && !jsonObj.get("auth_mode").isJsonNull()) && !jsonObj.get("auth_mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_mode").toString()));
+      }
+      if ((jsonObj.get("oauth_access_token") != null && !jsonObj.get("oauth_access_token").isJsonNull()) && !jsonObj.get("oauth_access_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_access_token").toString()));
+      }
+      if ((jsonObj.get("oauth_account_id") != null && !jsonObj.get("oauth_account_id").isJsonNull()) && !jsonObj.get("oauth_account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_account_id").toString()));
+      }
+      if ((jsonObj.get("oauth_last_refresh") != null && !jsonObj.get("oauth_last_refresh").isJsonNull()) && !jsonObj.get("oauth_last_refresh").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_last_refresh` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_last_refresh").toString()));
+      }
+      if ((jsonObj.get("oauth_refresh_token") != null && !jsonObj.get("oauth_refresh_token").isJsonNull()) && !jsonObj.get("oauth_refresh_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `oauth_refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_refresh_token").toString()));
       }
       if ((jsonObj.get("openai_url") != null && !jsonObj.get("openai_url").isJsonNull()) && !jsonObj.get("openai_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `openai_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("openai_url").toString()));

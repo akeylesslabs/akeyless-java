@@ -219,6 +219,11 @@ public class DynamicSecretUpdateAws {
   @javax.annotation.Nullable
   private String sessionTags;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -923,6 +928,25 @@ public class DynamicSecretUpdateAws {
   }
 
 
+  public DynamicSecretUpdateAws skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdateAws tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -1164,6 +1188,7 @@ public class DynamicSecretUpdateAws {
         Objects.equals(this.secureAccessWebBrowsing, dynamicSecretUpdateAws.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, dynamicSecretUpdateAws.secureAccessWebProxy) &&
         Objects.equals(this.sessionTags, dynamicSecretUpdateAws.sessionTags) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdateAws.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretUpdateAws.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateAws.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateAws.token) &&
@@ -1178,7 +1203,7 @@ public class DynamicSecretUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, description, enableAdminRotation, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, tags, targetName, token, transitiveTagKeys, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, description, enableAdminRotation, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, skipDryRun, tags, targetName, token, transitiveTagKeys, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1218,6 +1243,7 @@ public class DynamicSecretUpdateAws {
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    sessionTags: ").append(toIndentedString(sessionTags)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -1246,7 +1272,7 @@ public class DynamicSecretUpdateAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "description", "enable-admin-rotation", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "description", "enable-admin-rotation", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip_dry_run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1347,6 +1373,9 @@ public class DynamicSecretUpdateAws {
       }
       if ((jsonObj.get("session-tags") != null && !jsonObj.get("session-tags").isJsonNull()) && !jsonObj.get("session-tags").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `session-tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session-tags").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

@@ -386,7 +386,7 @@ public class UpdateSSHCertIssuer {
   }
 
   /**
-   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
    * @return hostProvider
    */
   @javax.annotation.Nullable
@@ -630,7 +630,7 @@ public class UpdateSSHCertIssuer {
   }
 
   /**
-   * Enable this flag to enforce connections only to the hosts listed in --secure-access-host
+   * Enforce connections only to allowed SRA hosts
    * @return secureAccessEnforceHostsRestriction
    */
   @javax.annotation.Nullable

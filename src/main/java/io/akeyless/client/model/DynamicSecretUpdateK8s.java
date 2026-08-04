@@ -214,6 +214,11 @@ public class DynamicSecretUpdateK8s {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -879,6 +884,25 @@ public class DynamicSecretUpdateK8s {
   }
 
 
+  public DynamicSecretUpdateK8s skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdateK8s tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -1043,6 +1067,7 @@ public class DynamicSecretUpdateK8s {
         Objects.equals(this.secureAccessWeb, dynamicSecretUpdateK8s.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, dynamicSecretUpdateK8s.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, dynamicSecretUpdateK8s.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdateK8s.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretUpdateK8s.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateK8s.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateK8s.token) &&
@@ -1053,7 +1078,7 @@ public class DynamicSecretUpdateK8s {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, newName, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
@@ -1092,6 +1117,7 @@ public class DynamicSecretUpdateK8s {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -1116,7 +1142,7 @@ public class DynamicSecretUpdateK8s {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "k8s-allowed-namespaces", "k8s-cluster-ca-cert", "k8s-cluster-endpoint", "k8s-cluster-name", "k8s-cluster-token", "k8s-namespace", "k8s-predefined-role-name", "k8s-predefined-role-type", "k8s-rolebinding-yaml-data", "k8s-rolebinding-yaml-def", "k8s-service-account", "k8s-service-account-type", "name", "new-name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target-name", "token", "uid-token", "use-gw-service-account", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "k8s-allowed-namespaces", "k8s-cluster-ca-cert", "k8s-cluster-endpoint", "k8s-cluster-name", "k8s-cluster-token", "k8s-namespace", "k8s-predefined-role-name", "k8s-predefined-role-type", "k8s-rolebinding-yaml-data", "k8s-rolebinding-yaml-def", "k8s-service-account", "k8s-service-account-type", "name", "new-name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-gw-service-account", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1226,6 +1252,9 @@ public class DynamicSecretUpdateK8s {
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

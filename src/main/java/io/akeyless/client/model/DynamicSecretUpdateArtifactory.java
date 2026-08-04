@@ -129,6 +129,11 @@ public class DynamicSecretUpdateArtifactory {
   @javax.annotation.Nullable
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -466,6 +471,25 @@ public class DynamicSecretUpdateArtifactory {
   }
 
 
+  public DynamicSecretUpdateArtifactory skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdateArtifactory tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -594,6 +618,7 @@ public class DynamicSecretUpdateArtifactory {
         Objects.equals(this.newName, dynamicSecretUpdateArtifactory.newName) &&
         Objects.equals(this.outputRule, dynamicSecretUpdateArtifactory.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretUpdateArtifactory.producerEncryptionKeyName) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdateArtifactory.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretUpdateArtifactory.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateArtifactory.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateArtifactory.token) &&
@@ -603,7 +628,7 @@ public class DynamicSecretUpdateArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -625,6 +650,7 @@ public class DynamicSecretUpdateArtifactory {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -648,7 +674,7 @@ public class DynamicSecretUpdateArtifactory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("artifactory-admin-name", "artifactory-admin-pwd", "artifactory-token-audience", "artifactory-token-scope", "base-url", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("artifactory-admin-name", "artifactory-admin-pwd", "artifactory-token-audience", "artifactory-token-scope", "base-url", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("artifactory-token-audience", "artifactory-token-scope", "name"));
@@ -722,6 +748,9 @@ public class DynamicSecretUpdateArtifactory {
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CreateSecret {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  @javax.annotation.Nullable
+  private String providerType;
+
   public static final String SERIALIZED_NAME_ACCESSIBILITY = "accessibility";
   @SerializedName(SERIALIZED_NAME_ACCESSIBILITY)
   @javax.annotation.Nullable
@@ -83,6 +88,11 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_FORMAT)
   @javax.annotation.Nullable
   private String format = "text";
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  @javax.annotation.Nullable
+  private String hostProvider;
 
   public static final String SERIALIZED_NAME_INJECT_URL = "inject-url";
   @SerializedName(SERIALIZED_NAME_INJECT_URL)
@@ -159,6 +169,11 @@ public class CreateSecret {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_GATEWAY = "secure-access-gateway";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_GATEWAY)
   @javax.annotation.Nullable
@@ -204,6 +219,11 @@ public class CreateSecret {
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  @javax.annotation.Nullable
+  private List<String> target = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -231,6 +251,25 @@ public class CreateSecret {
 
   public CreateSecret() {
   }
+
+  public CreateSecret providerType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+    return this;
+  }
+
+  /**
+   * Get providerType
+   * @return providerType
+   */
+  @javax.annotation.Nullable
+  public String getProviderType() {
+    return providerType;
+  }
+
+  public void setProviderType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+  }
+
 
   public CreateSecret accessibility(@javax.annotation.Nullable String accessibility) {
     this.accessibility = accessibility;
@@ -351,6 +390,25 @@ public class CreateSecret {
 
   public void setFormat(@javax.annotation.Nullable String format) {
     this.format = format;
+  }
+
+
+  public CreateSecret hostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+  /**
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+   * @return hostProvider
+   */
+  @javax.annotation.Nullable
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+  public void setHostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -671,6 +729,25 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public CreateSecret secureAccessGateway(@javax.annotation.Nullable String secureAccessGateway) {
     this.secureAccessGateway = secureAccessGateway;
     return this;
@@ -858,6 +935,33 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret target(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+    return this;
+  }
+
+  public CreateSecret addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+  /**
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public List<String> getTarget() {
+    return target;
+  }
+
+  public void setTarget(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+  }
+
+
   public CreateSecret token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -963,12 +1067,14 @@ public class CreateSecret {
       return false;
     }
     CreateSecret createSecret = (CreateSecret) o;
-    return Objects.equals(this.accessibility, createSecret.accessibility) &&
+    return Objects.equals(this.providerType, createSecret.providerType) &&
+        Objects.equals(this.accessibility, createSecret.accessibility) &&
         Objects.equals(this.changeEvent, createSecret.changeEvent) &&
         Objects.equals(this.customField, createSecret.customField) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
         Objects.equals(this.description, createSecret.description) &&
         Objects.equals(this.format, createSecret.format) &&
+        Objects.equals(this.hostProvider, createSecret.hostProvider) &&
         Objects.equals(this.injectUrl, createSecret.injectUrl) &&
         Objects.equals(this.inputRule, createSecret.inputRule) &&
         Objects.equals(this.itemCustomFields, createSecret.itemCustomFields) &&
@@ -984,6 +1090,7 @@ public class CreateSecret {
         Objects.equals(this.secureAccessBastionIssuer, createSecret.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, createSecret.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessEnable, createSecret.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, createSecret.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessGateway, createSecret.secureAccessGateway) &&
         Objects.equals(this.secureAccessHost, createSecret.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpUser, createSecret.secureAccessRdpUser) &&
@@ -993,6 +1100,7 @@ public class CreateSecret {
         Objects.equals(this.secureAccessWebBrowsing, createSecret.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, createSecret.secureAccessWebProxy) &&
         Objects.equals(this.tags, createSecret.tags) &&
+        Objects.equals(this.target, createSecret.target) &&
         Objects.equals(this.token, createSecret.token) &&
         Objects.equals(this.type, createSecret.type) &&
         Objects.equals(this.uidToken, createSecret.uidToken) &&
@@ -1002,19 +1110,21 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, changeEvent, customField, deleteProtection, description, format, injectUrl, inputRule, itemCustomFields, json, lockDuringSraSession, maxVersions, metadata, multilineValue, name, outputRule, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, token, type, uidToken, username, value);
+    return Objects.hash(providerType, accessibility, changeEvent, customField, deleteProtection, description, format, hostProvider, injectUrl, inputRule, itemCustomFields, json, lockDuringSraSession, maxVersions, metadata, multilineValue, name, outputRule, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, token, type, uidToken, username, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSecret {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
@@ -1030,6 +1140,7 @@ public class CreateSecret {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessGateway: ").append(toIndentedString(secureAccessGateway)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
@@ -1039,6 +1150,7 @@ public class CreateSecret {
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -1062,7 +1174,7 @@ public class CreateSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "change-event", "custom-field", "delete_protection", "description", "format", "inject-url", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "metadata", "multiline_value", "name", "output-rule", "password", "protection_key", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-gateway", "secure-access-host", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "token", "type", "uid-token", "username", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "change-event", "custom-field", "delete_protection", "description", "format", "host-provider", "inject-url", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "metadata", "multiline_value", "name", "output-rule", "password", "protection_key", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target", "token", "type", "uid-token", "username", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value"));
@@ -1096,6 +1208,9 @@ public class CreateSecret {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("ProviderType") != null && !jsonObj.get("ProviderType").isJsonNull()) && !jsonObj.get("ProviderType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProviderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProviderType").toString()));
+      }
       if ((jsonObj.get("accessibility") != null && !jsonObj.get("accessibility").isJsonNull()) && !jsonObj.get("accessibility").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `accessibility` to be a primitive type in the JSON string but got `%s`", jsonObj.get("accessibility").toString()));
       }
@@ -1110,6 +1225,9 @@ public class CreateSecret {
       }
       if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
+      }
+      if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("inject-url") != null && !jsonObj.get("inject-url").isJsonNull() && !jsonObj.get("inject-url").isJsonArray()) {
@@ -1172,6 +1290,10 @@ public class CreateSecret {
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

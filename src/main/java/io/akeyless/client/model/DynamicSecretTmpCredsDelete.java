@@ -82,6 +82,11 @@ public class DynamicSecretTmpCredsDelete {
   @javax.annotation.Nullable
   private Boolean revokeAll;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_SOFT_DELETE = "soft-delete";
   @SerializedName(SERIALIZED_NAME_SOFT_DELETE)
   @javax.annotation.Nullable
@@ -235,6 +240,25 @@ public class DynamicSecretTmpCredsDelete {
   }
 
 
+  public DynamicSecretTmpCredsDelete skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretTmpCredsDelete softDelete(@javax.annotation.Nullable Boolean softDelete) {
     this.softDelete = softDelete;
     return this;
@@ -327,6 +351,7 @@ public class DynamicSecretTmpCredsDelete {
         Objects.equals(this.name, dynamicSecretTmpCredsDelete.name) &&
         Objects.equals(this.outputRule, dynamicSecretTmpCredsDelete.outputRule) &&
         Objects.equals(this.revokeAll, dynamicSecretTmpCredsDelete.revokeAll) &&
+        Objects.equals(this.skipDryRun, dynamicSecretTmpCredsDelete.skipDryRun) &&
         Objects.equals(this.softDelete, dynamicSecretTmpCredsDelete.softDelete) &&
         Objects.equals(this.tmpCredsId, dynamicSecretTmpCredsDelete.tmpCredsId) &&
         Objects.equals(this.token, dynamicSecretTmpCredsDelete.token) &&
@@ -335,7 +360,7 @@ public class DynamicSecretTmpCredsDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, inputRule, json, name, outputRule, revokeAll, softDelete, tmpCredsId, token, uidToken);
+    return Objects.hash(host, inputRule, json, name, outputRule, revokeAll, skipDryRun, softDelete, tmpCredsId, token, uidToken);
   }
 
   @Override
@@ -348,6 +373,7 @@ public class DynamicSecretTmpCredsDelete {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    revokeAll: ").append(toIndentedString(revokeAll)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    softDelete: ").append(toIndentedString(softDelete)).append("\n");
     sb.append("    tmpCredsId: ").append(toIndentedString(tmpCredsId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -370,7 +396,7 @@ public class DynamicSecretTmpCredsDelete {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "input-rule", "json", "name", "output-rule", "revoke-all", "soft-delete", "tmp-creds-id", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("host", "input-rule", "json", "name", "output-rule", "revoke-all", "skip_dry_run", "soft-delete", "tmp-creds-id", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -417,6 +443,9 @@ public class DynamicSecretTmpCredsDelete {
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("tmp-creds-id") != null && !jsonObj.get("tmp-creds-id").isJsonNull()) && !jsonObj.get("tmp-creds-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tmp-creds-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tmp-creds-id").toString()));

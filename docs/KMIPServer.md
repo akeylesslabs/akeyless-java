@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**active** | **Boolean** |  |  [optional] |
 |**ca** | **List&lt;Integer&gt;** |  |  [optional] |
+|**cas** | [**List&lt;KMIPCA&gt;**](KMIPCA.md) |  |  [optional] |
 |**certificate** | **List&lt;Integer&gt;** |  |  [optional] |
 |**certificateIssueDate** | **OffsetDateTime** |  |  [optional] |
 |**certificateTtlInSeconds** | **Long** |  |  [optional] |

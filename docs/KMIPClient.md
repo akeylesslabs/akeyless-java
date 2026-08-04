@@ -12,6 +12,7 @@
 |**certificateTtlInSeconds** | **Long** |  |  [optional] |
 |**expirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
 |**id** | **String** |  |  [optional] |
+|**issuingCaId** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**rules** | [**List&lt;PathRule&gt;**](PathRule.md) |  |  [optional] |
 

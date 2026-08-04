@@ -72,6 +72,11 @@ public class GatewayGetProducer {
   @javax.annotation.Nullable
   private List<String> outputRule = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -177,6 +182,25 @@ public class GatewayGetProducer {
   }
 
 
+  public GatewayGetProducer skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayGetProducer token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -229,13 +253,14 @@ public class GatewayGetProducer {
         Objects.equals(this.json, gatewayGetProducer.json) &&
         Objects.equals(this.name, gatewayGetProducer.name) &&
         Objects.equals(this.outputRule, gatewayGetProducer.outputRule) &&
+        Objects.equals(this.skipDryRun, gatewayGetProducer.skipDryRun) &&
         Objects.equals(this.token, gatewayGetProducer.token) &&
         Objects.equals(this.uidToken, gatewayGetProducer.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputRule, json, name, outputRule, token, uidToken);
+    return Objects.hash(inputRule, json, name, outputRule, skipDryRun, token, uidToken);
   }
 
   @Override
@@ -246,6 +271,7 @@ public class GatewayGetProducer {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
@@ -266,7 +292,7 @@ public class GatewayGetProducer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("input-rule", "json", "name", "output-rule", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("input-rule", "json", "name", "output-rule", "skip_dry_run", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -310,6 +336,9 @@ public class GatewayGetProducer {
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

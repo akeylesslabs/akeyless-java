@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretCreateSsh {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  @javax.annotation.Nullable
+  private String providerType;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -73,6 +78,11 @@ public class RotatedSecretCreateSsh {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  @javax.annotation.Nullable
+  private String hostProvider;
 
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
@@ -194,6 +204,11 @@ public class RotatedSecretCreateSsh {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -219,10 +234,20 @@ public class RotatedSecretCreateSsh {
   @javax.annotation.Nullable
   private String secureAccessTargetType = "false";
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  @javax.annotation.Nullable
+  private List<String> target = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -261,6 +286,25 @@ public class RotatedSecretCreateSsh {
 
   public RotatedSecretCreateSsh() {
   }
+
+  public RotatedSecretCreateSsh providerType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+    return this;
+  }
+
+  /**
+   * Get providerType
+   * @return providerType
+   */
+  @javax.annotation.Nullable
+  public String getProviderType() {
+    return providerType;
+  }
+
+  public void setProviderType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+  }
+
 
   public RotatedSecretCreateSsh authenticationCredentials(@javax.annotation.Nullable String authenticationCredentials) {
     this.authenticationCredentials = authenticationCredentials;
@@ -335,6 +379,25 @@ public class RotatedSecretCreateSsh {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public RotatedSecretCreateSsh hostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+  /**
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+   * @return hostProvider
+   */
+  @javax.annotation.Nullable
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+  public void setHostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -826,6 +889,25 @@ public class RotatedSecretCreateSsh {
   }
 
 
+  public RotatedSecretCreateSsh secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public RotatedSecretCreateSsh secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -929,6 +1011,25 @@ public class RotatedSecretCreateSsh {
   }
 
 
+  public RotatedSecretCreateSsh skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretCreateSsh tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -953,6 +1054,33 @@ public class RotatedSecretCreateSsh {
 
   public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+  }
+
+
+  public RotatedSecretCreateSsh target(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+    return this;
+  }
+
+  public RotatedSecretCreateSsh addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+  /**
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public List<String> getTarget() {
+    return target;
+  }
+
+  public void setTarget(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
   }
 
 
@@ -1099,10 +1227,12 @@ public class RotatedSecretCreateSsh {
       return false;
     }
     RotatedSecretCreateSsh rotatedSecretCreateSsh = (RotatedSecretCreateSsh) o;
-    return Objects.equals(this.authenticationCredentials, rotatedSecretCreateSsh.authenticationCredentials) &&
+    return Objects.equals(this.providerType, rotatedSecretCreateSsh.providerType) &&
+        Objects.equals(this.authenticationCredentials, rotatedSecretCreateSsh.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretCreateSsh.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateSsh.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateSsh.description) &&
+        Objects.equals(this.hostProvider, rotatedSecretCreateSsh.hostProvider) &&
         Objects.equals(this.inputRule, rotatedSecretCreateSsh.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretCreateSsh.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateSsh.json) &&
@@ -1127,12 +1257,15 @@ public class RotatedSecretCreateSsh {
         Objects.equals(this.secureAccessBastionIssuer, rotatedSecretCreateSsh.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, rotatedSecretCreateSsh.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretCreateSsh.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, rotatedSecretCreateSsh.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, rotatedSecretCreateSsh.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretCreateSsh.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, rotatedSecretCreateSsh.secureAccessRdpUser) &&
         Objects.equals(this.secureAccessSshUser, rotatedSecretCreateSsh.secureAccessSshUser) &&
         Objects.equals(this.secureAccessTargetType, rotatedSecretCreateSsh.secureAccessTargetType) &&
+        Objects.equals(this.skipDryRun, rotatedSecretCreateSsh.skipDryRun) &&
         Objects.equals(this.tags, rotatedSecretCreateSsh.tags) &&
+        Objects.equals(this.target, rotatedSecretCreateSsh.target) &&
         Objects.equals(this.targetName, rotatedSecretCreateSsh.targetName) &&
         Objects.equals(this.token, rotatedSecretCreateSsh.token) &&
         Objects.equals(this.uidToken, rotatedSecretCreateSsh.uidToken) &&
@@ -1144,17 +1277,19 @@ public class RotatedSecretCreateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, keyDataBase64, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, publicKeyRemotePath, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(providerType, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, inputRule, itemCustomFields, json, key, keyDataBase64, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, publicKeyRemotePath, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretCreateSsh {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1179,12 +1314,15 @@ public class RotatedSecretCreateSsh {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
     sb.append("    secureAccessSshUser: ").append(toIndentedString(secureAccessSshUser)).append("\n");
     sb.append("    secureAccessTargetType: ").append(toIndentedString(secureAccessTargetType)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -1210,7 +1348,7 @@ public class RotatedSecretCreateSsh {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key", "key-data-base64", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "public-key-remote-path", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-target-type", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "authentication-credentials", "auto-rotate", "delete_protection", "description", "host-provider", "input-rule", "item-custom-fields", "json", "key", "key-data-base64", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "public-key-remote-path", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-target-type", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1244,6 +1382,9 @@ public class RotatedSecretCreateSsh {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("ProviderType") != null && !jsonObj.get("ProviderType").isJsonNull()) && !jsonObj.get("ProviderType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProviderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProviderType").toString()));
+      }
       if ((jsonObj.get("authentication-credentials") != null && !jsonObj.get("authentication-credentials").isJsonNull()) && !jsonObj.get("authentication-credentials").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authentication-credentials` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication-credentials").toString()));
       }
@@ -1255,6 +1396,9 @@ public class RotatedSecretCreateSsh {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
@@ -1335,9 +1479,16 @@ public class RotatedSecretCreateSsh {
       if ((jsonObj.get("secure-access-target-type") != null && !jsonObj.get("secure-access-target-type").isJsonNull()) && !jsonObj.get("secure-access-target-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-target-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-target-type").toString()));
       }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if (!jsonObj.get("target-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));

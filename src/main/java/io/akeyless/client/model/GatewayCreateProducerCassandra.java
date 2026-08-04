@@ -124,6 +124,11 @@ public class GatewayCreateProducerCassandra {
   @javax.annotation.Nullable
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   @javax.annotation.Nullable
@@ -472,6 +477,25 @@ public class GatewayCreateProducerCassandra {
   }
 
 
+  public GatewayCreateProducerCassandra skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayCreateProducerCassandra ssl(@javax.annotation.Nullable Boolean ssl) {
     this.ssl = ssl;
     return this;
@@ -713,6 +737,7 @@ public class GatewayCreateProducerCassandra {
         Objects.equals(this.outputRule, gatewayCreateProducerCassandra.outputRule) &&
         Objects.equals(this.passwordLength, gatewayCreateProducerCassandra.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerCassandra.producerEncryptionKeyName) &&
+        Objects.equals(this.skipDryRun, gatewayCreateProducerCassandra.skipDryRun) &&
         Objects.equals(this.ssl, gatewayCreateProducerCassandra.ssl) &&
         Objects.equals(this.sslCertificate, gatewayCreateProducerCassandra.sslCertificate) &&
         Objects.equals(this.tags, gatewayCreateProducerCassandra.tags) &&
@@ -728,7 +753,7 @@ public class GatewayCreateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -749,6 +774,7 @@ public class GatewayCreateProducerCassandra {
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -778,7 +804,7 @@ public class GatewayCreateProducerCassandra {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("cassandra-creation-statements", "cassandra-hosts", "cassandra-password", "cassandra-port", "cassandra-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("cassandra-creation-statements", "cassandra-hosts", "cassandra-password", "cassandra-port", "cassandra-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -849,6 +875,9 @@ public class GatewayCreateProducerCassandra {
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("ssl-certificate") != null && !jsonObj.get("ssl-certificate").isJsonNull()) && !jsonObj.get("ssl-certificate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssl-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssl-certificate").toString()));

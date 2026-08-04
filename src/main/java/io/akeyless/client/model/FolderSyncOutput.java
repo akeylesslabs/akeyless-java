@@ -20,11 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,55 +50,13 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class FolderSyncOutput {
-  public static final String SERIALIZED_NAME_FAILED_ITEMS = "failed_items";
-  @SerializedName(SERIALIZED_NAME_FAILED_ITEMS)
-  @javax.annotation.Nullable
-  private Map<String, String> failedItems = new HashMap<>();
-
   public static final String SERIALIZED_NAME_FOLDER_NAME = "folder_name";
   @SerializedName(SERIALIZED_NAME_FOLDER_NAME)
   @javax.annotation.Nullable
   private String folderName;
 
-  public static final String SERIALIZED_NAME_SKIPPED_ITEMS = "skipped_items";
-  @SerializedName(SERIALIZED_NAME_SKIPPED_ITEMS)
-  @javax.annotation.Nullable
-  private List<String> skippedItems = new ArrayList<>();
-
-  public static final String SERIALIZED_NAME_SYNCED_ITEMS = "synced_items";
-  @SerializedName(SERIALIZED_NAME_SYNCED_ITEMS)
-  @javax.annotation.Nullable
-  private List<String> syncedItems = new ArrayList<>();
-
   public FolderSyncOutput() {
   }
-
-  public FolderSyncOutput failedItems(@javax.annotation.Nullable Map<String, String> failedItems) {
-    this.failedItems = failedItems;
-    return this;
-  }
-
-  public FolderSyncOutput putFailedItemsItem(String key, String failedItemsItem) {
-    if (this.failedItems == null) {
-      this.failedItems = new HashMap<>();
-    }
-    this.failedItems.put(key, failedItemsItem);
-    return this;
-  }
-
-  /**
-   * Get failedItems
-   * @return failedItems
-   */
-  @javax.annotation.Nullable
-  public Map<String, String> getFailedItems() {
-    return failedItems;
-  }
-
-  public void setFailedItems(@javax.annotation.Nullable Map<String, String> failedItems) {
-    this.failedItems = failedItems;
-  }
-
 
   public FolderSyncOutput folderName(@javax.annotation.Nullable String folderName) {
     this.folderName = folderName;
@@ -123,60 +77,6 @@ public class FolderSyncOutput {
   }
 
 
-  public FolderSyncOutput skippedItems(@javax.annotation.Nullable List<String> skippedItems) {
-    this.skippedItems = skippedItems;
-    return this;
-  }
-
-  public FolderSyncOutput addSkippedItemsItem(String skippedItemsItem) {
-    if (this.skippedItems == null) {
-      this.skippedItems = new ArrayList<>();
-    }
-    this.skippedItems.add(skippedItemsItem);
-    return this;
-  }
-
-  /**
-   * Get skippedItems
-   * @return skippedItems
-   */
-  @javax.annotation.Nullable
-  public List<String> getSkippedItems() {
-    return skippedItems;
-  }
-
-  public void setSkippedItems(@javax.annotation.Nullable List<String> skippedItems) {
-    this.skippedItems = skippedItems;
-  }
-
-
-  public FolderSyncOutput syncedItems(@javax.annotation.Nullable List<String> syncedItems) {
-    this.syncedItems = syncedItems;
-    return this;
-  }
-
-  public FolderSyncOutput addSyncedItemsItem(String syncedItemsItem) {
-    if (this.syncedItems == null) {
-      this.syncedItems = new ArrayList<>();
-    }
-    this.syncedItems.add(syncedItemsItem);
-    return this;
-  }
-
-  /**
-   * Get syncedItems
-   * @return syncedItems
-   */
-  @javax.annotation.Nullable
-  public List<String> getSyncedItems() {
-    return syncedItems;
-  }
-
-  public void setSyncedItems(@javax.annotation.Nullable List<String> syncedItems) {
-    this.syncedItems = syncedItems;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -187,25 +87,19 @@ public class FolderSyncOutput {
       return false;
     }
     FolderSyncOutput folderSyncOutput = (FolderSyncOutput) o;
-    return Objects.equals(this.failedItems, folderSyncOutput.failedItems) &&
-        Objects.equals(this.folderName, folderSyncOutput.folderName) &&
-        Objects.equals(this.skippedItems, folderSyncOutput.skippedItems) &&
-        Objects.equals(this.syncedItems, folderSyncOutput.syncedItems);
+    return Objects.equals(this.folderName, folderSyncOutput.folderName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failedItems, folderName, skippedItems, syncedItems);
+    return Objects.hash(folderName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class FolderSyncOutput {\n");
-    sb.append("    failedItems: ").append(toIndentedString(failedItems)).append("\n");
     sb.append("    folderName: ").append(toIndentedString(folderName)).append("\n");
-    sb.append("    skippedItems: ").append(toIndentedString(skippedItems)).append("\n");
-    sb.append("    syncedItems: ").append(toIndentedString(syncedItems)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -224,7 +118,7 @@ public class FolderSyncOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("failed_items", "folder_name", "skipped_items", "synced_items"));
+    openapiFields = new HashSet<String>(Arrays.asList("folder_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -253,14 +147,6 @@ public class FolderSyncOutput {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("folder_name") != null && !jsonObj.get("folder_name").isJsonNull()) && !jsonObj.get("folder_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `folder_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("folder_name").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("skipped_items") != null && !jsonObj.get("skipped_items").isJsonNull() && !jsonObj.get("skipped_items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skipped_items` to be an array in the JSON string but got `%s`", jsonObj.get("skipped_items").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("synced_items") != null && !jsonObj.get("synced_items").isJsonNull() && !jsonObj.get("synced_items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `synced_items` to be an array in the JSON string but got `%s`", jsonObj.get("synced_items").toString()));
       }
   }
 

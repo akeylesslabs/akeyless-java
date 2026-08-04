@@ -23,6 +23,7 @@ dynamicSecretUpdateRedis is a command that updates redis dynamic secret
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |
 |**port** | **String** | Redis Port |  [optional] |
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional] |
 |**sslCertificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |

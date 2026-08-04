@@ -219,6 +219,11 @@ public class RotatedSecretUpdateAws {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -927,6 +932,25 @@ public class RotatedSecretUpdateAws {
   }
 
 
+  public RotatedSecretUpdateAws skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretUpdateAws token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -1084,6 +1108,7 @@ public class RotatedSecretUpdateAws {
         Objects.equals(this.secureAccessBastionIssuer, rotatedSecretUpdateAws.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, rotatedSecretUpdateAws.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretUpdateAws.secureAccessEnable) &&
+        Objects.equals(this.skipDryRun, rotatedSecretUpdateAws.skipDryRun) &&
         Objects.equals(this.token, rotatedSecretUpdateAws.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateAws.uidToken) &&
         Objects.equals(this.useCapitalLetters, rotatedSecretUpdateAws.useCapitalLetters) &&
@@ -1094,7 +1119,7 @@ public class RotatedSecretUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1134,6 +1159,7 @@ public class RotatedSecretUpdateAws {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useCapitalLetters: ").append(toIndentedString(useCapitalLetters)).append("\n");
@@ -1158,7 +1184,7 @@ public class RotatedSecretUpdateAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "authentication-credentials", "auto-rotate", "aws-region", "delete_protection", "description", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "authentication-credentials", "auto-rotate", "aws-region", "delete_protection", "description", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1280,6 +1306,9 @@ public class RotatedSecretUpdateAws {
       }
       if ((jsonObj.get("secure-access-enable") != null && !jsonObj.get("secure-access-enable").isJsonNull()) && !jsonObj.get("secure-access-enable").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-enable` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-enable").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

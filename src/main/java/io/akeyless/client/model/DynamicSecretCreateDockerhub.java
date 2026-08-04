@@ -109,6 +109,11 @@ public class DynamicSecretCreateDockerhub {
   @javax.annotation.Nullable
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -370,6 +375,25 @@ public class DynamicSecretCreateDockerhub {
   }
 
 
+  public DynamicSecretCreateDockerhub skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretCreateDockerhub tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -494,6 +518,7 @@ public class DynamicSecretCreateDockerhub {
         Objects.equals(this.name, dynamicSecretCreateDockerhub.name) &&
         Objects.equals(this.outputRule, dynamicSecretCreateDockerhub.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateDockerhub.producerEncryptionKeyName) &&
+        Objects.equals(this.skipDryRun, dynamicSecretCreateDockerhub.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretCreateDockerhub.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateDockerhub.targetName) &&
         Objects.equals(this.token, dynamicSecretCreateDockerhub.token) &&
@@ -503,7 +528,7 @@ public class DynamicSecretCreateDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(deleteProtection, description, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -521,6 +546,7 @@ public class DynamicSecretCreateDockerhub {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -544,7 +570,7 @@ public class DynamicSecretCreateDockerhub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "dockerhub-password", "dockerhub-token-scopes", "dockerhub-username", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "dockerhub-password", "dockerhub-token-scopes", "dockerhub-username", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -606,6 +632,9 @@ public class DynamicSecretCreateDockerhub {
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

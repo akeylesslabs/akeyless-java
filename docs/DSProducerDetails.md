@@ -14,6 +14,23 @@
 |**adminPwd** | **String** |  |  [optional] |
 |**adminRotationIntervalDays** | **Long** |  |  [optional] |
 |**administrativePort** | **String** |  |  [optional] |
+|**aerospikeAdminUsername** | **String** |  |  [optional] |
+|**aerospikeClientCertificate** | **String** |  |  [optional] |
+|**aerospikeClientId** | **String** |  |  [optional] |
+|**aerospikeClientPrivateKey** | **String** |  |  [optional] |
+|**aerospikeClientSecret** | **String** |  |  [optional] |
+|**aerospikeCloud** | **Boolean** |  |  [optional] |
+|**aerospikeClusterId** | **String** |  |  [optional] |
+|**aerospikeDbServerName** | **String** |  |  [optional] |
+|**aerospikeEnableMtls** | **Boolean** |  |  [optional] |
+|**aerospikeHostname** | **String** |  |  [optional] |
+|**aerospikeNamespace** | **String** |  |  [optional] |
+|**aerospikePassword** | **String** |  |  [optional] |
+|**aerospikePort** | **String** |  |  [optional] |
+|**aerospikeRoles** | **List&lt;String&gt;** |  |  [optional] |
+|**aerospikeSkipServerNameValidation** | **String** |  |  [optional] |
+|**aerospikeSslConnectionCertificate** | **String** |  |  [optional] |
+|**aerospikeSslConnectionMode** | **Boolean** |  |  [optional] |
 |**agenticRules** | [**AgenticRules**](AgenticRules.md) |  |  [optional] |
 |**apiKey** | **String** |  |  [optional] |
 |**apiKeyId** | **String** |  |  [optional] |
@@ -22,6 +39,7 @@
 |**artifactoryBaseUrl** | **String** |  |  [optional] |
 |**artifactoryTokenAudience** | **String** |  |  [optional] |
 |**artifactoryTokenScope** | **String** |  |  [optional] |
+|**authMode** | **String** | AuthMode selects how this target authenticates. Empty (default) uses ApiKey as a static bearer token against BaseURL, matching all pre-existing behavior. OpenAIAuthModeChatGPTOAuth instead uses the OAuth* fields below. |  [optional] |
 |**authorizationPort** | **String** |  |  [optional] |
 |**awsAccessKeyId** | **String** |  |  [optional] |
 |**awsAccessMode** | **String** |  |  [optional] |
@@ -208,6 +226,10 @@
 |**mssqlRevocationStatements** | **String** |  |  [optional] |
 |**mysqlCreationStatements** | **String** |  |  [optional] |
 |**mysqlRevocationStatements** | **String** |  |  [optional] |
+|**oauthAccessToken** | **String** | OAuthAccessToken is the current ChatGPT-issued access token (the &#x60;tokens.access_token&#x60; field of the customer&#39;s local auth.json). Akeyless refreshes this automatically; do not treat it as long-lived. |  [optional] |
+|**oauthAccountId** | **String** | OAuthAccountID is the ChatGPT workspace/account id (&#x60;tokens.account_id&#x60; in auth.json), required on every request to the ChatGPT backend. |  [optional] |
+|**oauthLastRefresh** | **String** | OAuthLastRefresh is the RFC3339 timestamp of the last successful Akeyless-performed refresh; used as a fallback expiry heuristic when the access token&#39;s JWT exp claim can&#39;t be parsed. |  [optional] |
+|**oauthRefreshToken** | **String** | OAuthRefreshToken mints new access tokens. It rotates on every refresh - Akeyless persists the new value after each successful refresh, so the previous value becomes invalid. |  [optional] |
 |**openaiUrl** | **String** |  |  [optional] |
 |**oracleCreationStatements** | **String** |  |  [optional] |
 |**oracleRevocationStatements** | **String** |  |  [optional] |
@@ -248,6 +270,7 @@
 |**sfWarehouseName** | **String** |  |  [optional] |
 |**shouldStop** | **String** | TODO delete this after migration |  [optional] |
 |**signingAlgorithm** | **String** |  |  [optional] |
+|**skipDryRun** | **Boolean** |  |  [optional] |
 |**skipServerNameValidation** | **String** | (Optional) SkipServerNameValidation disables server name verification while still validating the certificate chain. Postgres treats empty as legacy \&quot;skip hostname validation\&quot;; MySQL treats empty as false. |  [optional] |
 |**sslConnectionCertificate** | **String** | (Optional) SSLConnectionCertificate defines the certificate for SSL connection. Must be base64 certificate loaded by UI using file loader field |  [optional] |
 |**sslConnectionMode** | **Boolean** | (Optional) SSLConnectionMode defines if SSL mode will be used to connect to DB |  [optional] |

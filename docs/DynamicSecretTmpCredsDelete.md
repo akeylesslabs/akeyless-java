@@ -14,6 +14,7 @@ dynamicSecretTmpCredsDelete is a command that deletes dynamic secret temp creds
 |**name** | **String** | Dynamic secret name |  |
 |**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**revokeAll** | **Boolean** | Revoke All Temp Creds |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**softDelete** | **Boolean** | Soft Delete |  [optional] |
 |**tmpCredsId** | **String** | Tmp Creds ID |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

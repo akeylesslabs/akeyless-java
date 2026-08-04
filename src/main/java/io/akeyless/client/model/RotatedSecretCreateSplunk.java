@@ -164,6 +164,11 @@ public class RotatedSecretCreateSplunk {
   @javax.annotation.Nonnull
   private String rotatorType;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_SPLUNK_TOKEN = "splunk-token";
   @SerializedName(SERIALIZED_NAME_SPLUNK_TOKEN)
   @javax.annotation.Nullable
@@ -667,6 +672,25 @@ public class RotatedSecretCreateSplunk {
   }
 
 
+  public RotatedSecretCreateSplunk skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretCreateSplunk splunkToken(@javax.annotation.Nullable String splunkToken) {
     this.splunkToken = splunkToken;
     return this;
@@ -897,6 +921,7 @@ public class RotatedSecretCreateSplunk {
         Objects.equals(this.rotationHour, rotatedSecretCreateSplunk.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateSplunk.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretCreateSplunk.rotatorType) &&
+        Objects.equals(this.skipDryRun, rotatedSecretCreateSplunk.skipDryRun) &&
         Objects.equals(this.splunkToken, rotatedSecretCreateSplunk.splunkToken) &&
         Objects.equals(this.tags, rotatedSecretCreateSplunk.tags) &&
         Objects.equals(this.targetName, rotatedSecretCreateSplunk.targetName) &&
@@ -911,7 +936,7 @@ public class RotatedSecretCreateSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, hecTokenName, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, splunkToken, tags, targetName, token, tokenOwner, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, hecTokenName, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, splunkToken, tags, targetName, token, tokenOwner, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -940,6 +965,7 @@ public class RotatedSecretCreateSplunk {
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    splunkToken: ").append(toIndentedString(splunkToken)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
@@ -968,7 +994,7 @@ public class RotatedSecretCreateSplunk {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("audience", "authentication-credentials", "auto-rotate", "delete_protection", "description", "expiration-date", "hec-token", "hec-token-name", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "splunk-token", "tags", "target-name", "token", "token-owner", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("audience", "authentication-credentials", "auto-rotate", "delete_protection", "description", "expiration-date", "hec-token", "hec-token-name", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "splunk-token", "tags", "target-name", "token", "token-owner", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1061,6 +1087,9 @@ public class RotatedSecretCreateSplunk {
       }
       if (!jsonObj.get("rotator-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotator-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator-type").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("splunk-token") != null && !jsonObj.get("splunk-token").isJsonNull()) && !jsonObj.get("splunk-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk-token").toString()));

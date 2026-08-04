@@ -8,12 +8,14 @@ dynamicSecretCreateRdp is a command that creates rdp dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**providerType** | **String** |  |  [optional] |
 |**allowUserExtendSession** | **Long** | AllowUserExtendSession |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only&#x3D;true) |  [optional] |
 |**fixedUserOnly** | **String** | Allow access using externally (IdP) provided username [true/false] |  [optional] |
+|**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
@@ -31,11 +33,14 @@ dynamicSecretCreateRdp is a command that creates rdp dynamic secret
 |**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessDelay** | **Long** | The delay duration, in seconds, to wait after generating just-in-time credentials. Accepted range: 0-120 seconds |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
+|**secureAccessEnforceHostsRestriction** | **Boolean** | Enforce connections only to allowed SRA hosts |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdGatewayServer** | **String** | RD Gateway server |  [optional] |
 |**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user |  [optional] |
 |**secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
+|**target** | **List&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times |  [optional] |
 |**targetName** | **String** | Target name |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

@@ -50,10 +50,25 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscCreateSecretOutput {
+  public static final String SERIALIZED_NAME_PARTIAL_FAILURE = "partial_failure";
+  @SerializedName(SERIALIZED_NAME_PARTIAL_FAILURE)
+  @javax.annotation.Nullable
+  private String partialFailure;
+
   public static final String SERIALIZED_NAME_SECRET_ID = "secret_id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   @javax.annotation.Nullable
   private String secretId;
+
+  public static final String SERIALIZED_NAME_SELECTED_ENVIRONMENTS = "selected_environments";
+  @SerializedName(SERIALIZED_NAME_SELECTED_ENVIRONMENTS)
+  @javax.annotation.Nullable
+  private String selectedEnvironments;
+
+  public static final String SERIALIZED_NAME_SELECTED_REPOSITORIES = "selected_repositories";
+  @SerializedName(SERIALIZED_NAME_SELECTED_REPOSITORIES)
+  @javax.annotation.Nullable
+  private String selectedRepositories;
 
   public static final String SERIALIZED_NAME_VERSION_ID = "version_id";
   @SerializedName(SERIALIZED_NAME_VERSION_ID)
@@ -62,6 +77,25 @@ public class UscCreateSecretOutput {
 
   public UscCreateSecretOutput() {
   }
+
+  public UscCreateSecretOutput partialFailure(@javax.annotation.Nullable String partialFailure) {
+    this.partialFailure = partialFailure;
+    return this;
+  }
+
+  /**
+   * PartialFailure aggregates per-target create failures when some targets still succeeded.
+   * @return partialFailure
+   */
+  @javax.annotation.Nullable
+  public String getPartialFailure() {
+    return partialFailure;
+  }
+
+  public void setPartialFailure(@javax.annotation.Nullable String partialFailure) {
+    this.partialFailure = partialFailure;
+  }
+
 
   public UscCreateSecretOutput secretId(@javax.annotation.Nullable String secretId) {
     this.secretId = secretId;
@@ -79,6 +113,44 @@ public class UscCreateSecretOutput {
 
   public void setSecretId(@javax.annotation.Nullable String secretId) {
     this.secretId = secretId;
+  }
+
+
+  public UscCreateSecretOutput selectedEnvironments(@javax.annotation.Nullable String selectedEnvironments) {
+    this.selectedEnvironments = selectedEnvironments;
+    return this;
+  }
+
+  /**
+   * SelectedEnvironments is the subset of GitHub environments where create succeeded (comma-separated).
+   * @return selectedEnvironments
+   */
+  @javax.annotation.Nullable
+  public String getSelectedEnvironments() {
+    return selectedEnvironments;
+  }
+
+  public void setSelectedEnvironments(@javax.annotation.Nullable String selectedEnvironments) {
+    this.selectedEnvironments = selectedEnvironments;
+  }
+
+
+  public UscCreateSecretOutput selectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
+    return this;
+  }
+
+  /**
+   * SelectedRepositories is the subset of GitHub repositories where create succeeded (comma-separated).
+   * @return selectedRepositories
+   */
+  @javax.annotation.Nullable
+  public String getSelectedRepositories() {
+    return selectedRepositories;
+  }
+
+  public void setSelectedRepositories(@javax.annotation.Nullable String selectedRepositories) {
+    this.selectedRepositories = selectedRepositories;
   }
 
 
@@ -111,20 +183,26 @@ public class UscCreateSecretOutput {
       return false;
     }
     UscCreateSecretOutput uscCreateSecretOutput = (UscCreateSecretOutput) o;
-    return Objects.equals(this.secretId, uscCreateSecretOutput.secretId) &&
+    return Objects.equals(this.partialFailure, uscCreateSecretOutput.partialFailure) &&
+        Objects.equals(this.secretId, uscCreateSecretOutput.secretId) &&
+        Objects.equals(this.selectedEnvironments, uscCreateSecretOutput.selectedEnvironments) &&
+        Objects.equals(this.selectedRepositories, uscCreateSecretOutput.selectedRepositories) &&
         Objects.equals(this.versionId, uscCreateSecretOutput.versionId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(secretId, versionId);
+    return Objects.hash(partialFailure, secretId, selectedEnvironments, selectedRepositories, versionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscCreateSecretOutput {\n");
+    sb.append("    partialFailure: ").append(toIndentedString(partialFailure)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
+    sb.append("    selectedEnvironments: ").append(toIndentedString(selectedEnvironments)).append("\n");
+    sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("    versionId: ").append(toIndentedString(versionId)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -144,7 +222,7 @@ public class UscCreateSecretOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("secret_id", "version_id"));
+    openapiFields = new HashSet<String>(Arrays.asList("partial_failure", "secret_id", "selected_environments", "selected_repositories", "version_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -171,8 +249,17 @@ public class UscCreateSecretOutput {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("partial_failure") != null && !jsonObj.get("partial_failure").isJsonNull()) && !jsonObj.get("partial_failure").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `partial_failure` to be a primitive type in the JSON string but got `%s`", jsonObj.get("partial_failure").toString()));
+      }
       if ((jsonObj.get("secret_id") != null && !jsonObj.get("secret_id").isJsonNull()) && !jsonObj.get("secret_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));
+      }
+      if ((jsonObj.get("selected_environments") != null && !jsonObj.get("selected_environments").isJsonNull()) && !jsonObj.get("selected_environments").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selected_environments` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected_environments").toString()));
+      }
+      if ((jsonObj.get("selected_repositories") != null && !jsonObj.get("selected_repositories").isJsonNull()) && !jsonObj.get("selected_repositories").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `selected_repositories` to be a primitive type in the JSON string but got `%s`", jsonObj.get("selected_repositories").toString()));
       }
       if ((jsonObj.get("version_id") != null && !jsonObj.get("version_id").isJsonNull()) && !jsonObj.get("version_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version_id").toString()));

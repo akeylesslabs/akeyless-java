@@ -18,7 +18,7 @@ updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use r
 |**description** | **String** | Description of the object |  [optional] |
 |**gcpKey** | **String** | Base64-encoded service account private key text |  [optional] |
 |**graceRotation** | **String** | Create a new access key without deleting the old key from AWS for backup (relevant only for AWS) [true/false] |  [optional] |
-|**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret |  [optional] |
+|**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional] |
@@ -36,25 +36,30 @@ updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use r
 |**rotatorCredsType** | **String** | The credentials to connect with use-self-creds/use-target-creds |  [optional] |
 |**rotatorCustomCmd** | **String** | \&quot;Custom rotation command (relevant only for ssh target) |  [optional] |
 |**samePassword** | **String** | Rotate same password for each host from the Linked Target (relevant only for Linked Target) |  [optional] |
-|**secureAccessAllowExternalUser** | **Boolean** | Allow providing external user for a domain users (relevant only for rdp) |  [optional] |
+|**secureAccessAllowExternalUser** | **String** | Allow providing external user for a domain users [true/false] |  [optional] |
+|**secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) |  [optional] |
 |**secureAccessAwsAccountId** | **String** | The AWS account id (relevant only for aws) |  [optional] |
-|**secureAccessAwsNativeCli** | **Boolean** | The AWS native cli |  [optional] |
+|**secureAccessAwsNativeCli** | **Boolean** | The AWS native cli (relevant only for aws) |  [optional] |
 |**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |
 |**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessDbName** | **String** | The DB name (relevant only for DB Dynamic-Secret) |  [optional] |
 |**secureAccessDbSchema** | **String** | The db schema (relevant only for mssql or postgresql) |  [optional] |
 |**secureAccessDisableConcurrentConnections** | **Boolean** | Enable this flag to prevent simultaneous use of the same secret |  [optional] |
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
+|**secureAccessEnforceHostsRestriction** | **Boolean** | Enforce connections only to allowed SRA hosts |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user (relevant only for RDP Dynamic-Secret) |  [optional] |
 |**secureAccessRdpUser** | **String** | Override the RDP Domain username (relevant only for rdp) |  [optional] |
 |**secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional] |
+|**secureAccessUseInternalBastion** | **Boolean** | Deprecated. Use secure-access-use-internal-ssh-access |  [optional] |
+|**secureAccessUseInternalSshAccess** | **Boolean** | Use internal SSH Access |  [optional] |
 |**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional] |
-|**secureAccessWebBrowsing** | **Boolean** | Secure browser viaAkeyless&#39;s Secure Remote Access (SRA) (relevant only for aws or azure) |  [optional] |
-|**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) (relevant only for aws or azure) |  [optional] |
+|**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
+|**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**sshPassword** | **String** | Deprecated: use RotatedPassword |  [optional] |
 |**sshUsername** | **String** | Deprecated: use RotatedUser |  [optional] |
 |**storageAccountKeyName** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] |  [optional] |
+|**target** | **List&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 |**userAttribute** | **String** | LDAP User Attribute, Default value \&quot;cn\&quot; |  [optional] |

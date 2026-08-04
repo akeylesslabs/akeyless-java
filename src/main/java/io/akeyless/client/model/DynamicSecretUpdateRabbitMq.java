@@ -169,6 +169,11 @@ public class DynamicSecretUpdateRabbitMq {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -678,6 +683,25 @@ public class DynamicSecretUpdateRabbitMq {
   }
 
 
+  public DynamicSecretUpdateRabbitMq skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretUpdateRabbitMq tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -890,6 +914,7 @@ public class DynamicSecretUpdateRabbitMq {
         Objects.equals(this.secureAccessWeb, dynamicSecretUpdateRabbitMq.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, dynamicSecretUpdateRabbitMq.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, dynamicSecretUpdateRabbitMq.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, dynamicSecretUpdateRabbitMq.skipDryRun) &&
         Objects.equals(this.tags, dynamicSecretUpdateRabbitMq.tags) &&
         Objects.equals(this.targetName, dynamicSecretUpdateRabbitMq.targetName) &&
         Objects.equals(this.token, dynamicSecretUpdateRabbitMq.token) &&
@@ -903,7 +928,7 @@ public class DynamicSecretUpdateRabbitMq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -933,6 +958,7 @@ public class DynamicSecretUpdateRabbitMq {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -960,7 +986,7 @@ public class DynamicSecretUpdateRabbitMq {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rabbitmq-admin-pwd", "rabbitmq-admin-user", "rabbitmq-server-uri", "rabbitmq-user-conf-permission", "rabbitmq-user-read-permission", "rabbitmq-user-tags", "rabbitmq-user-vhost", "rabbitmq-user-write-permission", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rabbitmq-admin-pwd", "rabbitmq-admin-user", "rabbitmq-server-uri", "rabbitmq-user-conf-permission", "rabbitmq-user-read-permission", "rabbitmq-user-tags", "rabbitmq-user-vhost", "rabbitmq-user-write-permission", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1049,6 +1075,9 @@ public class DynamicSecretUpdateRabbitMq {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

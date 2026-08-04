@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretDelete {
+  public static final String SERIALIZED_NAME_FORCE_DELETE = "force-delete";
+  @SerializedName(SERIALIZED_NAME_FORCE_DELETE)
+  @javax.annotation.Nullable
+  private Boolean forceDelete;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -77,6 +82,25 @@ public class RotatedSecretDelete {
 
   public RotatedSecretDelete() {
   }
+
+  public RotatedSecretDelete forceDelete(@javax.annotation.Nullable Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+    return this;
+  }
+
+  /**
+   * Delete the rotated secret only from Akeyless if failed to delete it from the third-party provider
+   * @return forceDelete
+   */
+  @javax.annotation.Nullable
+  public Boolean getForceDelete() {
+    return forceDelete;
+  }
+
+  public void setForceDelete(@javax.annotation.Nullable Boolean forceDelete) {
+    this.forceDelete = forceDelete;
+  }
+
 
   public RotatedSecretDelete json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
@@ -183,7 +207,8 @@ public class RotatedSecretDelete {
       return false;
     }
     RotatedSecretDelete rotatedSecretDelete = (RotatedSecretDelete) o;
-    return Objects.equals(this.json, rotatedSecretDelete.json) &&
+    return Objects.equals(this.forceDelete, rotatedSecretDelete.forceDelete) &&
+        Objects.equals(this.json, rotatedSecretDelete.json) &&
         Objects.equals(this.name, rotatedSecretDelete.name) &&
         Objects.equals(this.token, rotatedSecretDelete.token) &&
         Objects.equals(this.uidToken, rotatedSecretDelete.uidToken) &&
@@ -192,13 +217,14 @@ public class RotatedSecretDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, name, token, uidToken, version);
+    return Objects.hash(forceDelete, json, name, token, uidToken, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretDelete {\n");
+    sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -222,7 +248,7 @@ public class RotatedSecretDelete {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("json", "name", "token", "uid-token", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("force-delete", "json", "name", "token", "uid-token", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -184,6 +184,11 @@ public class GatewayUpdateProducerMySQL {
   @javax.annotation.Nullable
   private Boolean secureAccessWeb = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   @javax.annotation.Nullable
@@ -768,6 +773,25 @@ public class GatewayUpdateProducerMySQL {
   }
 
 
+  public GatewayUpdateProducerMySQL skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayUpdateProducerMySQL ssl(@javax.annotation.Nullable Boolean ssl) {
     this.ssl = ssl;
     return this;
@@ -1021,6 +1045,7 @@ public class GatewayUpdateProducerMySQL {
         Objects.equals(this.secureAccessEnable, gatewayUpdateProducerMySQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayUpdateProducerMySQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayUpdateProducerMySQL.secureAccessWeb) &&
+        Objects.equals(this.skipDryRun, gatewayUpdateProducerMySQL.skipDryRun) &&
         Objects.equals(this.ssl, gatewayUpdateProducerMySQL.ssl) &&
         Objects.equals(this.sslCertificate, gatewayUpdateProducerMySQL.sslCertificate) &&
         Objects.equals(this.tags, gatewayUpdateProducerMySQL.tags) &&
@@ -1036,7 +1061,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, inputRule, itemCustomFields, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, inputRule, itemCustomFields, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1069,6 +1094,7 @@ public class GatewayUpdateProducerMySQL {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -1098,7 +1124,7 @@ public class GatewayUpdateProducerMySQL {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "db-server-certificates", "db-server-name", "delete_protection", "input-rule", "item-custom-fields", "json", "mysql-dbname", "mysql-host", "mysql-password", "mysql-port", "mysql-revocation-statements", "mysql-screation-statements", "mysql-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "db-server-certificates", "db-server-name", "delete_protection", "input-rule", "item-custom-fields", "json", "mysql-dbname", "mysql-host", "mysql-password", "mysql-port", "mysql-revocation-statements", "mysql-screation-statements", "mysql-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1200,6 +1226,9 @@ public class GatewayUpdateProducerMySQL {
       // ensure the optional json data is an array if present
       if (jsonObj.get("secure-access-host") != null && !jsonObj.get("secure-access-host").isJsonNull() && !jsonObj.get("secure-access-host").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-host` to be an array in the JSON string but got `%s`", jsonObj.get("secure-access-host").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("ssl-certificate") != null && !jsonObj.get("ssl-certificate").isJsonNull()) && !jsonObj.get("ssl-certificate").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssl-certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssl-certificate").toString()));

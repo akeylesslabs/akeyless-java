@@ -189,6 +189,11 @@ public class RotatedSecretUpdateGcp {
   @javax.annotation.Nonnull
   private String rotatorType;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -783,6 +788,25 @@ public class RotatedSecretUpdateGcp {
   }
 
 
+  public RotatedSecretUpdateGcp skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretUpdateGcp token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -934,6 +958,7 @@ public class RotatedSecretUpdateGcp {
         Objects.equals(this.rotationHour, rotatedSecretUpdateGcp.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateGcp.rotationInterval) &&
         Objects.equals(this.rotatorType, rotatedSecretUpdateGcp.rotatorType) &&
+        Objects.equals(this.skipDryRun, rotatedSecretUpdateGcp.skipDryRun) &&
         Objects.equals(this.token, rotatedSecretUpdateGcp.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateGcp.uidToken) &&
         Objects.equals(this.useCapitalLetters, rotatedSecretUpdateGcp.useCapitalLetters) &&
@@ -944,7 +969,7 @@ public class RotatedSecretUpdateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -978,6 +1003,7 @@ public class RotatedSecretUpdateGcp {
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
     sb.append("    rotatorType: ").append(toIndentedString(rotatorType)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useCapitalLetters: ").append(toIndentedString(useCapitalLetters)).append("\n");
@@ -1002,7 +1028,7 @@ public class RotatedSecretUpdateGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "authentication-credentials", "auto-rotate", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "authentication-credentials", "auto-rotate", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type"));
@@ -1109,6 +1135,9 @@ public class RotatedSecretUpdateGcp {
       }
       if (!jsonObj.get("rotator-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotator-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotator-type").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

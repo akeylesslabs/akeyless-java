@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateExpirationEvent;
+import io.akeyless.client.model.KMIPCA;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -63,6 +64,11 @@ public class KMIPServer {
   @SerializedName(SERIALIZED_NAME_CA)
   @javax.annotation.Nullable
   private List<Integer> ca = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CAS = "cas";
+  @SerializedName(SERIALIZED_NAME_CAS)
+  @javax.annotation.Nullable
+  private List<KMIPCA> cas = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE)
@@ -140,6 +146,33 @@ public class KMIPServer {
 
   public void setCa(@javax.annotation.Nullable List<Integer> ca) {
     this.ca = ca;
+  }
+
+
+  public KMIPServer cas(@javax.annotation.Nullable List<KMIPCA> cas) {
+    this.cas = cas;
+    return this;
+  }
+
+  public KMIPServer addCasItem(KMIPCA casItem) {
+    if (this.cas == null) {
+      this.cas = new ArrayList<>();
+    }
+    this.cas.add(casItem);
+    return this;
+  }
+
+  /**
+   * Get cas
+   * @return cas
+   */
+  @javax.annotation.Nullable
+  public List<KMIPCA> getCas() {
+    return cas;
+  }
+
+  public void setCas(@javax.annotation.Nullable List<KMIPCA> cas) {
+    this.cas = cas;
   }
 
 
@@ -285,6 +318,7 @@ public class KMIPServer {
     KMIPServer kmIPServer = (KMIPServer) o;
     return Objects.equals(this.active, kmIPServer.active) &&
         Objects.equals(this.ca, kmIPServer.ca) &&
+        Objects.equals(this.cas, kmIPServer.cas) &&
         Objects.equals(this.certificate, kmIPServer.certificate) &&
         Objects.equals(this.certificateIssueDate, kmIPServer.certificateIssueDate) &&
         Objects.equals(this.certificateTtlInSeconds, kmIPServer.certificateTtlInSeconds) &&
@@ -295,7 +329,7 @@ public class KMIPServer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, ca, certificate, certificateIssueDate, certificateTtlInSeconds, expirationEvents, hostname, root);
+    return Objects.hash(active, ca, cas, certificate, certificateIssueDate, certificateTtlInSeconds, expirationEvents, hostname, root);
   }
 
   @Override
@@ -304,6 +338,7 @@ public class KMIPServer {
     sb.append("class KMIPServer {\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    ca: ").append(toIndentedString(ca)).append("\n");
+    sb.append("    cas: ").append(toIndentedString(cas)).append("\n");
     sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("    certificateIssueDate: ").append(toIndentedString(certificateIssueDate)).append("\n");
     sb.append("    certificateTtlInSeconds: ").append(toIndentedString(certificateTtlInSeconds)).append("\n");
@@ -328,7 +363,7 @@ public class KMIPServer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("active", "ca", "certificate", "certificate_issue_date", "certificate_ttl_in_seconds", "expiration_events", "hostname", "root"));
+    openapiFields = new HashSet<String>(Arrays.asList("active", "ca", "cas", "certificate", "certificate_issue_date", "certificate_ttl_in_seconds", "expiration_events", "hostname", "root"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -358,6 +393,20 @@ public class KMIPServer {
       // ensure the optional json data is an array if present
       if (jsonObj.get("ca") != null && !jsonObj.get("ca").isJsonNull() && !jsonObj.get("ca").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ca` to be an array in the JSON string but got `%s`", jsonObj.get("ca").toString()));
+      }
+      if (jsonObj.get("cas") != null && !jsonObj.get("cas").isJsonNull()) {
+        JsonArray jsonArraycas = jsonObj.getAsJsonArray("cas");
+        if (jsonArraycas != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("cas").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cas` to be an array in the JSON string but got `%s`", jsonObj.get("cas").toString()));
+          }
+
+          // validate the optional field `cas` (array)
+          for (int i = 0; i < jsonArraycas.size(); i++) {
+            KMIPCA.validateJsonElement(jsonArraycas.get(i));
+          };
+        }
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("certificate") != null && !jsonObj.get("certificate").isJsonNull() && !jsonObj.get("certificate").isJsonArray()) {

@@ -30,6 +30,7 @@ RotatedSecretDetailsInfo The rotated secret rotator info
 |**rotatorType** | **String** |  |  [optional] |
 |**samePassword** | **Boolean** |  |  [optional] |
 |**servicesDetails** | [**List&lt;WindowsService&gt;**](WindowsService.md) |  |  [optional] |
+|**skipDryRun** | **Boolean** |  |  [optional] |
 |**timeoutSeconds** | **Long** |  |  [optional] |
 
 

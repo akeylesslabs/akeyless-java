@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretCreateCustom {
+  public static final String SERIALIZED_NAME_PROVIDER_TYPE = "ProviderType";
+  @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
+  @javax.annotation.Nullable
+  private String providerType;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -83,6 +88,11 @@ public class RotatedSecretCreateCustom {
   @SerializedName(SERIALIZED_NAME_ENABLE_PASSWORD_POLICY)
   @javax.annotation.Nullable
   private String enablePasswordPolicy;
+
+  public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
+  @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
+  @javax.annotation.Nullable
+  private String hostProvider;
 
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
@@ -169,6 +179,11 @@ public class RotatedSecretCreateCustom {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_HOST = "secure-access-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_HOST)
   @javax.annotation.Nullable
@@ -209,10 +224,20 @@ public class RotatedSecretCreateCustom {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
   private List<String> tags = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  @javax.annotation.Nullable
+  private List<String> target = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TARGET_NAME = "target-name";
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
@@ -256,6 +281,25 @@ public class RotatedSecretCreateCustom {
 
   public RotatedSecretCreateCustom() {
   }
+
+  public RotatedSecretCreateCustom providerType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+    return this;
+  }
+
+  /**
+   * Get providerType
+   * @return providerType
+   */
+  @javax.annotation.Nullable
+  public String getProviderType() {
+    return providerType;
+  }
+
+  public void setProviderType(@javax.annotation.Nullable String providerType) {
+    this.providerType = providerType;
+  }
+
 
   public RotatedSecretCreateCustom authenticationCredentials(@javax.annotation.Nullable String authenticationCredentials) {
     this.authenticationCredentials = authenticationCredentials;
@@ -368,6 +412,25 @@ public class RotatedSecretCreateCustom {
 
   public void setEnablePasswordPolicy(@javax.annotation.Nullable String enablePasswordPolicy) {
     this.enablePasswordPolicy = enablePasswordPolicy;
+  }
+
+
+  public RotatedSecretCreateCustom hostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
+    return this;
+  }
+
+  /**
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
+   * @return hostProvider
+   */
+  @javax.annotation.Nullable
+  public String getHostProvider() {
+    return hostProvider;
+  }
+
+  public void setHostProvider(@javax.annotation.Nullable String hostProvider) {
+    this.hostProvider = hostProvider;
   }
 
 
@@ -726,6 +789,25 @@ public class RotatedSecretCreateCustom {
   }
 
 
+  public RotatedSecretCreateCustom secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public RotatedSecretCreateCustom secureAccessHost(@javax.annotation.Nullable List<String> secureAccessHost) {
     this.secureAccessHost = secureAccessHost;
     return this;
@@ -886,6 +968,25 @@ public class RotatedSecretCreateCustom {
   }
 
 
+  public RotatedSecretCreateCustom skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public RotatedSecretCreateCustom tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -910,6 +1011,33 @@ public class RotatedSecretCreateCustom {
 
   public void setTags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
+  }
+
+
+  public RotatedSecretCreateCustom target(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+    return this;
+  }
+
+  public RotatedSecretCreateCustom addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+  /**
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public List<String> getTarget() {
+    return target;
+  }
+
+  public void setTarget(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
   }
 
 
@@ -1075,12 +1203,14 @@ public class RotatedSecretCreateCustom {
       return false;
     }
     RotatedSecretCreateCustom rotatedSecretCreateCustom = (RotatedSecretCreateCustom) o;
-    return Objects.equals(this.authenticationCredentials, rotatedSecretCreateCustom.authenticationCredentials) &&
+    return Objects.equals(this.providerType, rotatedSecretCreateCustom.providerType) &&
+        Objects.equals(this.authenticationCredentials, rotatedSecretCreateCustom.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretCreateCustom.autoRotate) &&
         Objects.equals(this.customPayload, rotatedSecretCreateCustom.customPayload) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateCustom.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateCustom.description) &&
         Objects.equals(this.enablePasswordPolicy, rotatedSecretCreateCustom.enablePasswordPolicy) &&
+        Objects.equals(this.hostProvider, rotatedSecretCreateCustom.hostProvider) &&
         Objects.equals(this.inputRule, rotatedSecretCreateCustom.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretCreateCustom.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateCustom.json) &&
@@ -1098,6 +1228,7 @@ public class RotatedSecretCreateCustom {
         Objects.equals(this.secureAccessBastionIssuer, rotatedSecretCreateCustom.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, rotatedSecretCreateCustom.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessEnable, rotatedSecretCreateCustom.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, rotatedSecretCreateCustom.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessHost, rotatedSecretCreateCustom.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretCreateCustom.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, rotatedSecretCreateCustom.secureAccessRdpUser) &&
@@ -1106,7 +1237,9 @@ public class RotatedSecretCreateCustom {
         Objects.equals(this.secureAccessWeb, rotatedSecretCreateCustom.secureAccessWeb) &&
         Objects.equals(this.secureAccessWebBrowsing, rotatedSecretCreateCustom.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, rotatedSecretCreateCustom.secureAccessWebProxy) &&
+        Objects.equals(this.skipDryRun, rotatedSecretCreateCustom.skipDryRun) &&
         Objects.equals(this.tags, rotatedSecretCreateCustom.tags) &&
+        Objects.equals(this.target, rotatedSecretCreateCustom.target) &&
         Objects.equals(this.targetName, rotatedSecretCreateCustom.targetName) &&
         Objects.equals(this.timeoutSec, rotatedSecretCreateCustom.timeoutSec) &&
         Objects.equals(this.token, rotatedSecretCreateCustom.token) &&
@@ -1119,19 +1252,21 @@ public class RotatedSecretCreateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, customPayload, deleteProtection, description, enablePasswordPolicy, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, tags, targetName, timeoutSec, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(providerType, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, enablePasswordPolicy, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, timeoutSec, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretCreateCustom {\n");
+    sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enablePasswordPolicy: ").append(toIndentedString(enablePasswordPolicy)).append("\n");
+    sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1149,6 +1284,7 @@ public class RotatedSecretCreateCustom {
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
@@ -1157,7 +1293,9 @@ public class RotatedSecretCreateCustom {
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    timeoutSec: ").append(toIndentedString(timeoutSec)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -1184,7 +1322,7 @@ public class RotatedSecretCreateCustom {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("authentication-credentials", "auto-rotate", "custom-payload", "delete_protection", "description", "enable-password-policy", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target-name", "timeout-sec", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "authentication-credentials", "auto-rotate", "custom-payload", "delete_protection", "description", "enable-password-policy", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "timeout-sec", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -1218,6 +1356,9 @@ public class RotatedSecretCreateCustom {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("ProviderType") != null && !jsonObj.get("ProviderType").isJsonNull()) && !jsonObj.get("ProviderType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProviderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProviderType").toString()));
+      }
       if ((jsonObj.get("authentication-credentials") != null && !jsonObj.get("authentication-credentials").isJsonNull()) && !jsonObj.get("authentication-credentials").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authentication-credentials` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authentication-credentials").toString()));
       }
@@ -1235,6 +1376,9 @@ public class RotatedSecretCreateCustom {
       }
       if ((jsonObj.get("enable-password-policy") != null && !jsonObj.get("enable-password-policy").isJsonNull()) && !jsonObj.get("enable-password-policy").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-password-policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-password-policy").toString()));
+      }
+      if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
@@ -1294,9 +1438,16 @@ public class RotatedSecretCreateCustom {
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
       }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if (!jsonObj.get("target-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-name").toString()));

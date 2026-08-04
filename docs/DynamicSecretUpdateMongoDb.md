@@ -39,6 +39,7 @@ dynamicSecretUpdateMongoDb is a command that updates either mongodb  dynamic sec
 |**secureAccessEnable** | **String** | Enable/Disable secure remote access [true/false] |  [optional] |
 |**secureAccessHost** | **List&lt;String&gt;** | Target DB servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts) |  [optional] |
 |**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional] |
+|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | Target name |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

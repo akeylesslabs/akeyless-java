@@ -179,6 +179,11 @@ public class GatewayCreateProducerMSSQL {
   @javax.annotation.Nullable
   private Boolean secureAccessWeb = false;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   @javax.annotation.Nullable
@@ -734,6 +739,25 @@ public class GatewayCreateProducerMSSQL {
   }
 
 
+  public GatewayCreateProducerMSSQL skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayCreateProducerMSSQL tags(@javax.annotation.Nullable List<String> tags) {
     this.tags = tags;
     return this;
@@ -948,6 +972,7 @@ public class GatewayCreateProducerMSSQL {
         Objects.equals(this.secureAccessEnable, gatewayCreateProducerMSSQL.secureAccessEnable) &&
         Objects.equals(this.secureAccessHost, gatewayCreateProducerMSSQL.secureAccessHost) &&
         Objects.equals(this.secureAccessWeb, gatewayCreateProducerMSSQL.secureAccessWeb) &&
+        Objects.equals(this.skipDryRun, gatewayCreateProducerMSSQL.skipDryRun) &&
         Objects.equals(this.tags, gatewayCreateProducerMSSQL.tags) &&
         Objects.equals(this.targetName, gatewayCreateProducerMSSQL.targetName) &&
         Objects.equals(this.token, gatewayCreateProducerMSSQL.token) &&
@@ -961,7 +986,7 @@ public class GatewayCreateProducerMSSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, mssqlAllowedDbNames, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, mssqlAllowedDbNames, mssqlCreateStatements, mssqlDbname, mssqlHost, mssqlPassword, mssqlPort, mssqlRevocationStatements, mssqlUsername, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -993,6 +1018,7 @@ public class GatewayCreateProducerMSSQL {
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -1020,7 +1046,7 @@ public class GatewayCreateProducerMSSQL {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "mssql-allowed-db-names", "mssql-create-statements", "mssql-dbname", "mssql-host", "mssql-password", "mssql-port", "mssql-revocation-statements", "mssql-username", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "mssql-allowed-db-names", "mssql-create-statements", "mssql-dbname", "mssql-host", "mssql-password", "mssql-port", "mssql-revocation-statements", "mssql-username", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1119,6 +1145,9 @@ public class GatewayCreateProducerMSSQL {
       // ensure the optional json data is an array if present
       if (jsonObj.get("secure-access-host") != null && !jsonObj.get("secure-access-host").isJsonNull() && !jsonObj.get("secure-access-host").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-host` to be an array in the JSON string but got `%s`", jsonObj.get("secure-access-host").toString()));
+      }
+      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

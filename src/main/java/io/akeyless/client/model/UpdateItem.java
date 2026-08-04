@@ -234,6 +234,11 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private String secureAccessEnable;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION = "secure-access-enforce-hosts-restriction";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ENFORCE_HOSTS_RESTRICTION)
+  @javax.annotation.Nullable
+  private Boolean secureAccessEnforceHostsRestriction;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_GATEWAY = "secure-access-gateway";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_GATEWAY)
   @javax.annotation.Nullable
@@ -297,12 +302,17 @@ public class UpdateItem {
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
   @javax.annotation.Nullable
-  private Boolean secureAccessWebBrowsing = false;
+  private Boolean secureAccessWebBrowsing;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
   @javax.annotation.Nullable
-  private Boolean secureAccessWebProxy = false;
+  private Boolean secureAccessWebProxy;
+
+  public static final String SERIALIZED_NAME_TARGET = "target";
+  @SerializedName(SERIALIZED_NAME_TARGET)
+  @javax.annotation.Nullable
+  private List<String> target = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -539,7 +549,7 @@ public class UpdateItem {
   }
 
   /**
-   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for Secure Remote Access of ssh cert issuer, ldap rotated secret and ldap dynamic secret
+   * Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items.
    * @return hostProvider
    */
   @javax.annotation.Nullable
@@ -1051,6 +1061,25 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem secureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+    return this;
+  }
+
+  /**
+   * Enforce connections only to allowed SRA hosts
+   * @return secureAccessEnforceHostsRestriction
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessEnforceHostsRestriction() {
+    return secureAccessEnforceHostsRestriction;
+  }
+
+  public void setSecureAccessEnforceHostsRestriction(@javax.annotation.Nullable Boolean secureAccessEnforceHostsRestriction) {
+    this.secureAccessEnforceHostsRestriction = secureAccessEnforceHostsRestriction;
+  }
+
+
   public UpdateItem secureAccessGateway(@javax.annotation.Nullable String secureAccessGateway) {
     this.secureAccessGateway = secureAccessGateway;
     return this;
@@ -1333,6 +1362,33 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem target(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+    return this;
+  }
+
+  public UpdateItem addTargetItem(String targetItem) {
+    if (this.target == null) {
+      this.target = new ArrayList<>();
+    }
+    this.target.add(targetItem);
+    return this;
+  }
+
+  /**
+   * A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times
+   * @return target
+   */
+  @javax.annotation.Nullable
+  public List<String> getTarget() {
+    return target;
+  }
+
+  public void setTarget(@javax.annotation.Nullable List<String> target) {
+    this.target = target;
+  }
+
+
   public UpdateItem token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -1455,6 +1511,7 @@ public class UpdateItem {
         Objects.equals(this.secureAccessDbName, updateItem.secureAccessDbName) &&
         Objects.equals(this.secureAccessDbSchema, updateItem.secureAccessDbSchema) &&
         Objects.equals(this.secureAccessEnable, updateItem.secureAccessEnable) &&
+        Objects.equals(this.secureAccessEnforceHostsRestriction, updateItem.secureAccessEnforceHostsRestriction) &&
         Objects.equals(this.secureAccessGateway, updateItem.secureAccessGateway) &&
         Objects.equals(this.secureAccessHost, updateItem.secureAccessHost) &&
         Objects.equals(this.secureAccessRdGatewayServer, updateItem.secureAccessRdGatewayServer) &&
@@ -1469,6 +1526,7 @@ public class UpdateItem {
         Objects.equals(this.secureAccessUseInternalSshAccess, updateItem.secureAccessUseInternalSshAccess) &&
         Objects.equals(this.secureAccessWebBrowsing, updateItem.secureAccessWebBrowsing) &&
         Objects.equals(this.secureAccessWebProxy, updateItem.secureAccessWebProxy) &&
+        Objects.equals(this.target, updateItem.target) &&
         Objects.equals(this.token, updateItem.token) &&
         Objects.equals(this.uidToken, updateItem.uidToken) &&
         Objects.equals(this.uscTags, updateItem.uscTags) &&
@@ -1477,7 +1535,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, gcpSmRegions, hostProvider, itemCustomFields, json, lockDuringSraSession, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, token, uidToken, uscTags, useTagsAsFilter);
+    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, gcpSmRegions, hostProvider, itemCustomFields, json, lockDuringSraSession, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, target, token, uidToken, uscTags, useTagsAsFilter);
   }
 
   @Override
@@ -1520,6 +1578,7 @@ public class UpdateItem {
     sb.append("    secureAccessDbName: ").append(toIndentedString(secureAccessDbName)).append("\n");
     sb.append("    secureAccessDbSchema: ").append(toIndentedString(secureAccessDbSchema)).append("\n");
     sb.append("    secureAccessEnable: ").append(toIndentedString(secureAccessEnable)).append("\n");
+    sb.append("    secureAccessEnforceHostsRestriction: ").append(toIndentedString(secureAccessEnforceHostsRestriction)).append("\n");
     sb.append("    secureAccessGateway: ").append(toIndentedString(secureAccessGateway)).append("\n");
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdGatewayServer: ").append(toIndentedString(secureAccessRdGatewayServer)).append("\n");
@@ -1534,6 +1593,7 @@ public class UpdateItem {
     sb.append("    secureAccessUseInternalSshAccess: ").append(toIndentedString(secureAccessUseInternalSshAccess)).append("\n");
     sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
     sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
+    sb.append("    target: ").append(toIndentedString(target)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscTags: ").append(toIndentedString(uscTags)).append("\n");
@@ -1556,7 +1616,7 @@ public class UpdateItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "add-tag", "cert-file-data", "certificate-format", "change-event", "delete_protection", "description", "expiration-event-in", "gcp-sm-regions", "host-provider", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "name", "new-metadata", "new-name", "rm-tag", "rotate-after-disconnect", "secure-access-add-host", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-api", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-aws-region", "secure-access-bastion-api", "secure-access-bastion-issuer", "secure-access-bastion-ssh", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-gateway", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-rm-host", "secure-access-ssh", "secure-access-ssh-creds", "secure-access-ssh-creds-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web-browsing", "secure-access-web-proxy", "token", "uid-token", "usc-tags", "use-tags-as-filter"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "add-tag", "cert-file-data", "certificate-format", "change-event", "delete_protection", "description", "expiration-event-in", "gcp-sm-regions", "host-provider", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "name", "new-metadata", "new-name", "rm-tag", "rotate-after-disconnect", "secure-access-add-host", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-api", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-aws-region", "secure-access-bastion-api", "secure-access-bastion-issuer", "secure-access-bastion-ssh", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-rm-host", "secure-access-ssh", "secure-access-ssh-creds", "secure-access-ssh-creds-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web-browsing", "secure-access-web-proxy", "target", "token", "uid-token", "usc-tags", "use-tags-as-filter"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1721,6 +1781,10 @@ public class UpdateItem {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target` to be an array in the JSON string but got `%s`", jsonObj.get("target").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));
