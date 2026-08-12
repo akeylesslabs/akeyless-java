@@ -10,6 +10,7 @@ dynamicSecretCreateGoogleWorkspace is a command that creates Google Workspace dy
 |------------ | ------------- | ------------- | -------------|
 |**accessMode** | **String** |  |  |
 |**adminEmail** | **String** | Admin user email |  |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from |  [optional] |

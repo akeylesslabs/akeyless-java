@@ -8,6 +8,7 @@ RotatedSecretDetailsInfo The rotated secret rotator info
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**awsUserName** | **String** |  |  [optional] |
 |**deletePreviousVersionInDays** | **Integer** |  |  [optional] |
 |**enableCustomPasswordPolicy** | **Boolean** |  |  [optional] |
 |**graceRotation** | **Boolean** |  |  [optional] |

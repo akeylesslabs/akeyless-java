@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscGet {
+  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
+  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String gcpProjectId;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -97,6 +102,25 @@ public class UscGet {
 
   public UscGet() {
   }
+
+  public UscGet gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+    return this;
+  }
+
+  /**
+   * GCP Project ID (Relevant only for GCP targets)
+   * @return gcpProjectId
+   */
+  @javax.annotation.Nullable
+  public String getGcpProjectId() {
+    return gcpProjectId;
+  }
+
+  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+  }
+
 
   public UscGet json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
@@ -279,7 +303,8 @@ public class UscGet {
       return false;
     }
     UscGet uscGet = (UscGet) o;
-    return Objects.equals(this.json, uscGet.json) &&
+    return Objects.equals(this.gcpProjectId, uscGet.gcpProjectId) &&
+        Objects.equals(this.json, uscGet.json) &&
         Objects.equals(this.namespace, uscGet.namespace) &&
         Objects.equals(this.objectType, uscGet.objectType) &&
         Objects.equals(this.secretId, uscGet.secretId) &&
@@ -292,13 +317,14 @@ public class UscGet {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, namespace, objectType, secretId, selectedRepositories, token, uidToken, uscName, versionId);
+    return Objects.hash(gcpProjectId, json, namespace, objectType, secretId, selectedRepositories, token, uidToken, uscName, versionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscGet {\n");
+    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
@@ -326,7 +352,7 @@ public class UscGet {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("json", "namespace", "object-type", "secret-id", "selected-repositories", "token", "uid-token", "usc-name", "version-id"));
+    openapiFields = new HashSet<String>(Arrays.asList("gcp-project-id", "json", "namespace", "object-type", "secret-id", "selected-repositories", "token", "uid-token", "usc-name", "version-id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("secret-id", "usc-name"));
@@ -360,6 +386,9 @@ public class UscGet {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
+      }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }

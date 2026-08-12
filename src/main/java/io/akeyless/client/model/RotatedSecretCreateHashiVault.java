@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretCreateHashiVault {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTO_ROTATE = "auto-rotate";
   @SerializedName(SERIALIZED_NAME_AUTO_ROTATE)
   @javax.annotation.Nullable
@@ -171,6 +176,25 @@ public class RotatedSecretCreateHashiVault {
 
   public RotatedSecretCreateHashiVault() {
   }
+
+  public RotatedSecretCreateHashiVault araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public RotatedSecretCreateHashiVault autoRotate(@javax.annotation.Nullable String autoRotate) {
     this.autoRotate = autoRotate;
@@ -659,7 +683,8 @@ public class RotatedSecretCreateHashiVault {
       return false;
     }
     RotatedSecretCreateHashiVault rotatedSecretCreateHashiVault = (RotatedSecretCreateHashiVault) o;
-    return Objects.equals(this.autoRotate, rotatedSecretCreateHashiVault.autoRotate) &&
+    return Objects.equals(this.araEnabled, rotatedSecretCreateHashiVault.araEnabled) &&
+        Objects.equals(this.autoRotate, rotatedSecretCreateHashiVault.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateHashiVault.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateHashiVault.description) &&
         Objects.equals(this.inputRule, rotatedSecretCreateHashiVault.inputRule) &&
@@ -686,13 +711,14 @@ public class RotatedSecretCreateHashiVault {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotationEventIn, rotationHour, rotationInterval, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(araEnabled, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotationEventIn, rotationHour, rotationInterval, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretCreateHashiVault {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -734,7 +760,7 @@ public class RotatedSecretCreateHashiVault {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));

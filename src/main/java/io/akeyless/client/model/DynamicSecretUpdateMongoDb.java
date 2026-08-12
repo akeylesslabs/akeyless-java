@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretUpdateMongoDb {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -261,6 +266,25 @@ public class DynamicSecretUpdateMongoDb {
 
   public DynamicSecretUpdateMongoDb() {
   }
+
+  public DynamicSecretUpdateMongoDb araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretUpdateMongoDb customUsernameTemplate(@javax.annotation.Nullable String customUsernameTemplate) {
     this.customUsernameTemplate = customUsernameTemplate;
@@ -1091,7 +1115,8 @@ public class DynamicSecretUpdateMongoDb {
       return false;
     }
     DynamicSecretUpdateMongoDb dynamicSecretUpdateMongoDb = (DynamicSecretUpdateMongoDb) o;
-    return Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateMongoDb.customUsernameTemplate) &&
+    return Objects.equals(this.araEnabled, dynamicSecretUpdateMongoDb.araEnabled) &&
+        Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateMongoDb.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateMongoDb.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateMongoDb.description) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateMongoDb.inputRule) &&
@@ -1136,13 +1161,14 @@ public class DynamicSecretUpdateMongoDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateMongoDb {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -1202,7 +1228,7 @@ public class DynamicSecretUpdateMongoDb {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-custom-data", "mongodb-default-auth-db", "mongodb-host-port", "mongodb-name", "mongodb-password", "mongodb-roles", "mongodb-scopes", "mongodb-server-uri", "mongodb-uri-options", "mongodb-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-custom-data", "mongodb-default-auth-db", "mongodb-host-port", "mongodb-name", "mongodb-password", "mongodb-roles", "mongodb-scopes", "mongodb-server-uri", "mongodb-uri-options", "mongodb-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

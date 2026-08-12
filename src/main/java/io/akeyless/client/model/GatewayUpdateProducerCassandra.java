@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateProducerCassandra {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CASSANDRA_CREATION_STATEMENTS = "cassandra-creation-statements";
   @SerializedName(SERIALIZED_NAME_CASSANDRA_CREATION_STATEMENTS)
   @javax.annotation.Nullable
@@ -191,6 +196,25 @@ public class GatewayUpdateProducerCassandra {
 
   public GatewayUpdateProducerCassandra() {
   }
+
+  public GatewayUpdateProducerCassandra araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayUpdateProducerCassandra cassandraCreationStatements(@javax.annotation.Nullable String cassandraCreationStatements) {
     this.cassandraCreationStatements = cassandraCreationStatements;
@@ -747,7 +771,8 @@ public class GatewayUpdateProducerCassandra {
       return false;
     }
     GatewayUpdateProducerCassandra gatewayUpdateProducerCassandra = (GatewayUpdateProducerCassandra) o;
-    return Objects.equals(this.cassandraCreationStatements, gatewayUpdateProducerCassandra.cassandraCreationStatements) &&
+    return Objects.equals(this.araEnabled, gatewayUpdateProducerCassandra.araEnabled) &&
+        Objects.equals(this.cassandraCreationStatements, gatewayUpdateProducerCassandra.cassandraCreationStatements) &&
         Objects.equals(this.cassandraHosts, gatewayUpdateProducerCassandra.cassandraHosts) &&
         Objects.equals(this.cassandraPassword, gatewayUpdateProducerCassandra.cassandraPassword) &&
         Objects.equals(this.cassandraPort, gatewayUpdateProducerCassandra.cassandraPort) &&
@@ -778,13 +803,14 @@ public class GatewayUpdateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerCassandra {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    cassandraCreationStatements: ").append(toIndentedString(cassandraCreationStatements)).append("\n");
     sb.append("    cassandraHosts: ").append(toIndentedString(cassandraHosts)).append("\n");
     sb.append("    cassandraPassword: ").append(toIndentedString(cassandraPassword)).append("\n");
@@ -830,7 +856,7 @@ public class GatewayUpdateProducerCassandra {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("cassandra-creation-statements", "cassandra-hosts", "cassandra-password", "cassandra-port", "cassandra-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "cassandra-creation-statements", "cassandra-hosts", "cassandra-password", "cassandra-port", "cassandra-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

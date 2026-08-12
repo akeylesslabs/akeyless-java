@@ -57,6 +57,11 @@ public class CreateMcpSecretBearerToken {
   @javax.annotation.Nullable
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_BEARER_TOKEN = "bearer-token";
   @SerializedName(SERIALIZED_NAME_BEARER_TOKEN)
   @javax.annotation.Nullable
@@ -146,6 +151,25 @@ public class CreateMcpSecretBearerToken {
 
   public void setAccessibility(@javax.annotation.Nullable String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public CreateMcpSecretBearerToken araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -450,6 +474,7 @@ public class CreateMcpSecretBearerToken {
     }
     CreateMcpSecretBearerToken createMcpSecretBearerToken = (CreateMcpSecretBearerToken) o;
     return Objects.equals(this.accessibility, createMcpSecretBearerToken.accessibility) &&
+        Objects.equals(this.araEnabled, createMcpSecretBearerToken.araEnabled) &&
         Objects.equals(this.bearerToken, createMcpSecretBearerToken.bearerToken) &&
         Objects.equals(this.deleteProtection, createMcpSecretBearerToken.deleteProtection) &&
         Objects.equals(this.description, createMcpSecretBearerToken.description) &&
@@ -468,7 +493,7 @@ public class CreateMcpSecretBearerToken {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, bearerToken, deleteProtection, description, inputRule, json, maxVersions, metadata, name, outputRule, protectionKey, tags, token, uidToken, url);
+    return Objects.hash(accessibility, araEnabled, bearerToken, deleteProtection, description, inputRule, json, maxVersions, metadata, name, outputRule, protectionKey, tags, token, uidToken, url);
   }
 
   @Override
@@ -476,6 +501,7 @@ public class CreateMcpSecretBearerToken {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMcpSecretBearerToken {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    bearerToken: ").append(toIndentedString(bearerToken)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -508,7 +534,7 @@ public class CreateMcpSecretBearerToken {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "bearer-token", "delete_protection", "description", "input-rule", "json", "max-versions", "metadata", "name", "output-rule", "protection_key", "tags", "token", "uid-token", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "ara-enabled", "bearer-token", "delete_protection", "description", "input-rule", "json", "max-versions", "metadata", "name", "output-rule", "protection_key", "tags", "token", "uid-token", "url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

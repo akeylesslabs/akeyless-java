@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretUpdateHanaDb {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -231,6 +236,25 @@ public class DynamicSecretUpdateHanaDb {
 
   public DynamicSecretUpdateHanaDb() {
   }
+
+  public DynamicSecretUpdateHanaDb araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretUpdateHanaDb customUsernameTemplate(@javax.annotation.Nullable String customUsernameTemplate) {
     this.customUsernameTemplate = customUsernameTemplate;
@@ -947,7 +971,8 @@ public class DynamicSecretUpdateHanaDb {
       return false;
     }
     DynamicSecretUpdateHanaDb dynamicSecretUpdateHanaDb = (DynamicSecretUpdateHanaDb) o;
-    return Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateHanaDb.customUsernameTemplate) &&
+    return Objects.equals(this.araEnabled, dynamicSecretUpdateHanaDb.araEnabled) &&
+        Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateHanaDb.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateHanaDb.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateHanaDb.description) &&
         Objects.equals(this.hanaDbname, dynamicSecretUpdateHanaDb.hanaDbname) &&
@@ -986,13 +1011,14 @@ public class DynamicSecretUpdateHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, description, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, description, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateHanaDb {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -1046,7 +1072,7 @@ public class DynamicSecretUpdateHanaDb {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "description", "hana-dbname", "hanadb-create-statements", "hanadb-host", "hanadb-password", "hanadb-port", "hanadb-revocation-statements", "hanadb-username", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "description", "hana-dbname", "hanadb-create-statements", "hanadb-host", "hanadb-password", "hanadb-port", "hanadb-revocation-statements", "hanadb-username", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

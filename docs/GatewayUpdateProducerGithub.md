@@ -8,6 +8,7 @@ gatewayUpdateProducerGithub is a command that updates github producer [Deprecate
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**githubAppId** | **Long** | Github app id |  [optional] |
 |**githubAppPrivateKey** | **String** | App private key |  [optional] |

@@ -74,10 +74,25 @@ public class CreateUSC {
   @javax.annotation.Nullable
   private String environmentNames;
 
+  public static final String SERIALIZED_NAME_GCP_FOLDER_ID = "gcp-folder-id";
+  @SerializedName(SERIALIZED_NAME_GCP_FOLDER_ID)
+  @javax.annotation.Nullable
+  private String gcpFolderId;
+
+  public static final String SERIALIZED_NAME_GCP_ORGANIZATION_ID = "gcp-organization-id";
+  @SerializedName(SERIALIZED_NAME_GCP_ORGANIZATION_ID)
+  @javax.annotation.Nullable
+  private String gcpOrganizationId;
+
   public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
   @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
   @javax.annotation.Nullable
   private String gcpProjectId;
+
+  public static final String SERIALIZED_NAME_GCP_SCOPE = "gcp-scope";
+  @SerializedName(SERIALIZED_NAME_GCP_SCOPE)
+  @javax.annotation.Nullable
+  private String gcpScope = "project";
 
   public static final String SERIALIZED_NAME_GCP_SM_REGIONS = "gcp-sm-regions";
   @SerializedName(SERIALIZED_NAME_GCP_SM_REGIONS)
@@ -243,6 +258,44 @@ public class CreateUSC {
   }
 
 
+  public CreateUSC gcpFolderId(@javax.annotation.Nullable String gcpFolderId) {
+    this.gcpFolderId = gcpFolderId;
+    return this;
+  }
+
+  /**
+   * GCP Folder ID (Relevant only for GCP targets with folder scope)
+   * @return gcpFolderId
+   */
+  @javax.annotation.Nullable
+  public String getGcpFolderId() {
+    return gcpFolderId;
+  }
+
+  public void setGcpFolderId(@javax.annotation.Nullable String gcpFolderId) {
+    this.gcpFolderId = gcpFolderId;
+  }
+
+
+  public CreateUSC gcpOrganizationId(@javax.annotation.Nullable String gcpOrganizationId) {
+    this.gcpOrganizationId = gcpOrganizationId;
+    return this;
+  }
+
+  /**
+   * GCP Organization ID (Relevant only for GCP targets)
+   * @return gcpOrganizationId
+   */
+  @javax.annotation.Nullable
+  public String getGcpOrganizationId() {
+    return gcpOrganizationId;
+  }
+
+  public void setGcpOrganizationId(@javax.annotation.Nullable String gcpOrganizationId) {
+    this.gcpOrganizationId = gcpOrganizationId;
+  }
+
+
   public CreateUSC gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
     return this;
@@ -259,6 +312,25 @@ public class CreateUSC {
 
   public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
+  }
+
+
+  public CreateUSC gcpScope(@javax.annotation.Nullable String gcpScope) {
+    this.gcpScope = gcpScope;
+    return this;
+  }
+
+  /**
+   * The gcp usc scope [ project / organization / folder]
+   * @return gcpScope
+   */
+  @javax.annotation.Nullable
+  public String getGcpScope() {
+    return gcpScope;
+  }
+
+  public void setGcpScope(@javax.annotation.Nullable String gcpScope) {
+    this.gcpScope = gcpScope;
   }
 
 
@@ -615,7 +687,10 @@ public class CreateUSC {
         Objects.equals(this.deleteProtection, createUSC.deleteProtection) &&
         Objects.equals(this.description, createUSC.description) &&
         Objects.equals(this.environmentNames, createUSC.environmentNames) &&
+        Objects.equals(this.gcpFolderId, createUSC.gcpFolderId) &&
+        Objects.equals(this.gcpOrganizationId, createUSC.gcpOrganizationId) &&
         Objects.equals(this.gcpProjectId, createUSC.gcpProjectId) &&
+        Objects.equals(this.gcpScope, createUSC.gcpScope) &&
         Objects.equals(this.gcpSmRegions, createUSC.gcpSmRegions) &&
         Objects.equals(this.githubScope, createUSC.githubScope) &&
         Objects.equals(this.itemCustomFields, createUSC.itemCustomFields) &&
@@ -637,7 +712,7 @@ public class CreateUSC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, environmentNames, gcpProjectId, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, uscTags, usePrefixAsFilter, useTagsAsFilter);
+    return Objects.hash(azureKvName, deleteProtection, description, environmentNames, gcpFolderId, gcpOrganizationId, gcpProjectId, gcpScope, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, uscTags, usePrefixAsFilter, useTagsAsFilter);
   }
 
   @Override
@@ -648,7 +723,10 @@ public class CreateUSC {
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    environmentNames: ").append(toIndentedString(environmentNames)).append("\n");
+    sb.append("    gcpFolderId: ").append(toIndentedString(gcpFolderId)).append("\n");
+    sb.append("    gcpOrganizationId: ").append(toIndentedString(gcpOrganizationId)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
+    sb.append("    gcpScope: ").append(toIndentedString(gcpScope)).append("\n");
     sb.append("    gcpSmRegions: ").append(toIndentedString(gcpSmRegions)).append("\n");
     sb.append("    githubScope: ").append(toIndentedString(githubScope)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
@@ -684,7 +762,7 @@ public class CreateUSC {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("azure-kv-name", "delete_protection", "description", "environment-names", "gcp-project-id", "gcp-sm-regions", "github-scope", "item-custom-fields", "json", "k8s-namespace", "name", "organization-name", "repository-access", "repository-names", "tags", "target-to-associate", "token", "uid-token", "usc-prefix", "usc-tags", "use-prefix-as-filter", "use-tags-as-filter"));
+    openapiFields = new HashSet<String>(Arrays.asList("azure-kv-name", "delete_protection", "description", "environment-names", "gcp-folder-id", "gcp-organization-id", "gcp-project-id", "gcp-scope", "gcp-sm-regions", "github-scope", "item-custom-fields", "json", "k8s-namespace", "name", "organization-name", "repository-access", "repository-names", "tags", "target-to-associate", "token", "uid-token", "usc-prefix", "usc-tags", "use-prefix-as-filter", "use-tags-as-filter"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-to-associate"));
@@ -730,8 +808,17 @@ public class CreateUSC {
       if ((jsonObj.get("environment-names") != null && !jsonObj.get("environment-names").isJsonNull()) && !jsonObj.get("environment-names").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `environment-names` to be a primitive type in the JSON string but got `%s`", jsonObj.get("environment-names").toString()));
       }
+      if ((jsonObj.get("gcp-folder-id") != null && !jsonObj.get("gcp-folder-id").isJsonNull()) && !jsonObj.get("gcp-folder-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-folder-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-folder-id").toString()));
+      }
+      if ((jsonObj.get("gcp-organization-id") != null && !jsonObj.get("gcp-organization-id").isJsonNull()) && !jsonObj.get("gcp-organization-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-organization-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-organization-id").toString()));
+      }
       if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
+      }
+      if ((jsonObj.get("gcp-scope") != null && !jsonObj.get("gcp-scope").isJsonNull()) && !jsonObj.get("gcp-scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-scope").toString()));
       }
       if ((jsonObj.get("gcp-sm-regions") != null && !jsonObj.get("gcp-sm-regions").isJsonNull()) && !jsonObj.get("gcp-sm-regions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-sm-regions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-sm-regions").toString()));

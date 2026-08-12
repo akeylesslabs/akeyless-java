@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretCreateGcp {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -216,6 +221,25 @@ public class RotatedSecretCreateGcp {
 
   public RotatedSecretCreateGcp() {
   }
+
+  public RotatedSecretCreateGcp araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public RotatedSecretCreateGcp authenticationCredentials(@javax.annotation.Nullable String authenticationCredentials) {
     this.authenticationCredentials = authenticationCredentials;
@@ -875,7 +899,8 @@ public class RotatedSecretCreateGcp {
       return false;
     }
     RotatedSecretCreateGcp rotatedSecretCreateGcp = (RotatedSecretCreateGcp) o;
-    return Objects.equals(this.authenticationCredentials, rotatedSecretCreateGcp.authenticationCredentials) &&
+    return Objects.equals(this.araEnabled, rotatedSecretCreateGcp.araEnabled) &&
+        Objects.equals(this.authenticationCredentials, rotatedSecretCreateGcp.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretCreateGcp.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateGcp.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateGcp.description) &&
@@ -911,13 +936,14 @@ public class RotatedSecretCreateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretCreateGcp {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -968,7 +994,7 @@ public class RotatedSecretCreateGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("authentication-credentials", "auto-rotate", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));

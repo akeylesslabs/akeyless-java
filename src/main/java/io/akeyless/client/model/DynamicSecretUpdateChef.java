@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretUpdateChef {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CHEF_ORGS = "chef-orgs";
   @SerializedName(SERIALIZED_NAME_CHEF_ORGS)
   @javax.annotation.Nullable
@@ -186,6 +191,25 @@ public class DynamicSecretUpdateChef {
 
   public DynamicSecretUpdateChef() {
   }
+
+  public DynamicSecretUpdateChef araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretUpdateChef chefOrgs(@javax.annotation.Nullable String chefOrgs) {
     this.chefOrgs = chefOrgs;
@@ -723,7 +747,8 @@ public class DynamicSecretUpdateChef {
       return false;
     }
     DynamicSecretUpdateChef dynamicSecretUpdateChef = (DynamicSecretUpdateChef) o;
-    return Objects.equals(this.chefOrgs, dynamicSecretUpdateChef.chefOrgs) &&
+    return Objects.equals(this.araEnabled, dynamicSecretUpdateChef.araEnabled) &&
+        Objects.equals(this.chefOrgs, dynamicSecretUpdateChef.chefOrgs) &&
         Objects.equals(this.chefServerKey, dynamicSecretUpdateChef.chefServerKey) &&
         Objects.equals(this.chefServerUrl, dynamicSecretUpdateChef.chefServerUrl) &&
         Objects.equals(this.chefServerUsername, dynamicSecretUpdateChef.chefServerUsername) &&
@@ -753,13 +778,14 @@ public class DynamicSecretUpdateChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, skipSsl, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, skipSsl, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateChef {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    chefOrgs: ").append(toIndentedString(chefOrgs)).append("\n");
     sb.append("    chefServerKey: ").append(toIndentedString(chefServerKey)).append("\n");
     sb.append("    chefServerUrl: ").append(toIndentedString(chefServerUrl)).append("\n");
@@ -804,7 +830,7 @@ public class DynamicSecretUpdateChef {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "skip-ssl", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "skip-ssl", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

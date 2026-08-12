@@ -64,6 +64,11 @@ public class CreateSecret {
   @javax.annotation.Nullable
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CHANGE_EVENT = "change-event";
   @SerializedName(SERIALIZED_NAME_CHANGE_EVENT)
   @javax.annotation.Nullable
@@ -287,6 +292,25 @@ public class CreateSecret {
 
   public void setAccessibility(@javax.annotation.Nullable String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public CreateSecret araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1069,6 +1093,7 @@ public class CreateSecret {
     CreateSecret createSecret = (CreateSecret) o;
     return Objects.equals(this.providerType, createSecret.providerType) &&
         Objects.equals(this.accessibility, createSecret.accessibility) &&
+        Objects.equals(this.araEnabled, createSecret.araEnabled) &&
         Objects.equals(this.changeEvent, createSecret.changeEvent) &&
         Objects.equals(this.customField, createSecret.customField) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
@@ -1110,7 +1135,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, changeEvent, customField, deleteProtection, description, format, hostProvider, injectUrl, inputRule, itemCustomFields, json, lockDuringSraSession, maxVersions, metadata, multilineValue, name, outputRule, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, token, type, uidToken, username, value);
+    return Objects.hash(providerType, accessibility, araEnabled, changeEvent, customField, deleteProtection, description, format, hostProvider, injectUrl, inputRule, itemCustomFields, json, lockDuringSraSession, maxVersions, metadata, multilineValue, name, outputRule, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, token, type, uidToken, username, value);
   }
 
   @Override
@@ -1119,6 +1144,7 @@ public class CreateSecret {
     sb.append("class CreateSecret {\n");
     sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -1174,7 +1200,7 @@ public class CreateSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "change-event", "custom-field", "delete_protection", "description", "format", "host-provider", "inject-url", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "metadata", "multiline_value", "name", "output-rule", "password", "protection_key", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target", "token", "type", "uid-token", "username", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "ara-enabled", "change-event", "custom-field", "delete_protection", "description", "format", "host-provider", "inject-url", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "metadata", "multiline_value", "name", "output-rule", "password", "protection_key", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target", "token", "type", "uid-token", "username", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value"));

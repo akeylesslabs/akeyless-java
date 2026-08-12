@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateProducerDockerhub {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -141,6 +146,25 @@ public class GatewayUpdateProducerDockerhub {
 
   public GatewayUpdateProducerDockerhub() {
   }
+
+  public GatewayUpdateProducerDockerhub araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayUpdateProducerDockerhub deleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -507,7 +531,8 @@ public class GatewayUpdateProducerDockerhub {
       return false;
     }
     GatewayUpdateProducerDockerhub gatewayUpdateProducerDockerhub = (GatewayUpdateProducerDockerhub) o;
-    return Objects.equals(this.deleteProtection, gatewayUpdateProducerDockerhub.deleteProtection) &&
+    return Objects.equals(this.araEnabled, gatewayUpdateProducerDockerhub.araEnabled) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerDockerhub.deleteProtection) &&
         Objects.equals(this.dockerhubPassword, gatewayUpdateProducerDockerhub.dockerhubPassword) &&
         Objects.equals(this.dockerhubTokenScopes, gatewayUpdateProducerDockerhub.dockerhubTokenScopes) &&
         Objects.equals(this.dockerhubUsername, gatewayUpdateProducerDockerhub.dockerhubUsername) &&
@@ -528,13 +553,14 @@ public class GatewayUpdateProducerDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerDockerhub {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubTokenScopes: ").append(toIndentedString(dockerhubTokenScopes)).append("\n");
@@ -570,7 +596,7 @@ public class GatewayUpdateProducerDockerhub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "dockerhub-password", "dockerhub-token-scopes", "dockerhub-username", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "dockerhub-password", "dockerhub-token-scopes", "dockerhub-username", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

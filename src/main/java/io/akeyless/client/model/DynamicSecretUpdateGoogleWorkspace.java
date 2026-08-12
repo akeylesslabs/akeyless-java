@@ -64,6 +64,11 @@ public class DynamicSecretUpdateGoogleWorkspace {
   @javax.annotation.Nonnull
   private String adminEmail;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -237,6 +242,25 @@ public class DynamicSecretUpdateGoogleWorkspace {
 
   public void setAdminEmail(@javax.annotation.Nonnull String adminEmail) {
     this.adminEmail = adminEmail;
+  }
+
+
+  public DynamicSecretUpdateGoogleWorkspace araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -797,6 +821,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
     DynamicSecretUpdateGoogleWorkspace dynamicSecretUpdateGoogleWorkspace = (DynamicSecretUpdateGoogleWorkspace) o;
     return Objects.equals(this.accessMode, dynamicSecretUpdateGoogleWorkspace.accessMode) &&
         Objects.equals(this.adminEmail, dynamicSecretUpdateGoogleWorkspace.adminEmail) &&
+        Objects.equals(this.araEnabled, dynamicSecretUpdateGoogleWorkspace.araEnabled) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateGoogleWorkspace.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateGoogleWorkspace.description) &&
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretUpdateGoogleWorkspace.fixedUserClaimKeyname) &&
@@ -828,7 +853,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminEmail, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminEmail, araEnabled, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -837,6 +862,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
     sb.append("class DynamicSecretUpdateGoogleWorkspace {\n");
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
@@ -882,7 +908,7 @@ public class DynamicSecretUpdateGoogleWorkspace {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "delete_protection", "description", "fixed-user-claim-keyname", "gcp-key", "group-email", "group-role", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "role-name", "role-scope", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "ara-enabled", "delete_protection", "description", "fixed-user-claim-keyname", "gcp-key", "group-email", "group-role", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "role-name", "role-scope", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "name"));

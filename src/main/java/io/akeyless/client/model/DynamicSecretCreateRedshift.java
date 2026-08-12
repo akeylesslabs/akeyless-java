@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretCreateRedshift {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
   @javax.annotation.Nullable
@@ -201,6 +206,25 @@ public class DynamicSecretCreateRedshift {
 
   public DynamicSecretCreateRedshift() {
   }
+
+  public DynamicSecretCreateRedshift araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretCreateRedshift creationStatements(@javax.annotation.Nullable String creationStatements) {
     this.creationStatements = creationStatements;
@@ -803,7 +827,8 @@ public class DynamicSecretCreateRedshift {
       return false;
     }
     DynamicSecretCreateRedshift dynamicSecretCreateRedshift = (DynamicSecretCreateRedshift) o;
-    return Objects.equals(this.creationStatements, dynamicSecretCreateRedshift.creationStatements) &&
+    return Objects.equals(this.araEnabled, dynamicSecretCreateRedshift.araEnabled) &&
+        Objects.equals(this.creationStatements, dynamicSecretCreateRedshift.creationStatements) &&
         Objects.equals(this.customUsernameTemplate, dynamicSecretCreateRedshift.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateRedshift.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateRedshift.description) &&
@@ -836,13 +861,14 @@ public class DynamicSecretCreateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateRedshift {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -890,7 +916,7 @@ public class DynamicSecretCreateRedshift {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key", "redshift-db-name", "redshift-host", "redshift-password", "redshift-port", "redshift-username", "secure-access-enable", "secure-access-host", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key", "redshift-db-name", "redshift-host", "redshift-password", "redshift-port", "redshift-username", "secure-access-enable", "secure-access-host", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

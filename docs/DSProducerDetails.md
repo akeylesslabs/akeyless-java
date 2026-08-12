@@ -52,6 +52,7 @@
 |**awsTransitiveTagKeys** | **String** |  |  [optional] |
 |**awsUserConsoleAccess** | **Boolean** |  |  [optional] |
 |**awsUserGroups** | **String** |  |  [optional] |
+|**awsUserName** | **String** |  |  [optional] |
 |**awsUserPolicies** | **String** |  |  [optional] |
 |**awsUserProgrammaticAccess** | **Boolean** |  |  [optional] |
 |**azureAdministrativeUnit** | **String** |  |  [optional] |

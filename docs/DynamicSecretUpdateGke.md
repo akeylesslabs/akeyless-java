@@ -8,6 +8,7 @@ dynamicSecretUpdateGke is a command that updates gke dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**gkeAccountKey** | **String** | GKE Service Account key file path |  [optional] |

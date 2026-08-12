@@ -33,6 +33,7 @@ import io.akeyless.client.model.DbTargetDetails;
 import io.akeyless.client.model.DigiCertTargetDetails;
 import io.akeyless.client.model.DockerhubTargetDetails;
 import io.akeyless.client.model.EKSTargetDetails;
+import io.akeyless.client.model.F5BigIpTargetDetails;
 import io.akeyless.client.model.GKETargetDetails;
 import io.akeyless.client.model.GcpTargetDetails;
 import io.akeyless.client.model.GeminiTargetDetails;
@@ -162,6 +163,11 @@ public class TargetTypeDetailsInput {
   @SerializedName(SERIALIZED_NAME_EKS_TARGET_DETAILS)
   @javax.annotation.Nullable
   private EKSTargetDetails eksTargetDetails;
+
+  public static final String SERIALIZED_NAME_F5_BIG_IP_TARGET_DETAILS = "f5_big_ip_target_details";
+  @SerializedName(SERIALIZED_NAME_F5_BIG_IP_TARGET_DETAILS)
+  @javax.annotation.Nullable
+  private F5BigIpTargetDetails f5BigIpTargetDetails;
 
   public static final String SERIALIZED_NAME_GCP_TARGET_DETAILS = "gcp_target_details";
   @SerializedName(SERIALIZED_NAME_GCP_TARGET_DETAILS)
@@ -574,6 +580,25 @@ public class TargetTypeDetailsInput {
 
   public void setEksTargetDetails(@javax.annotation.Nullable EKSTargetDetails eksTargetDetails) {
     this.eksTargetDetails = eksTargetDetails;
+  }
+
+
+  public TargetTypeDetailsInput f5BigIpTargetDetails(@javax.annotation.Nullable F5BigIpTargetDetails f5BigIpTargetDetails) {
+    this.f5BigIpTargetDetails = f5BigIpTargetDetails;
+    return this;
+  }
+
+  /**
+   * Get f5BigIpTargetDetails
+   * @return f5BigIpTargetDetails
+   */
+  @javax.annotation.Nullable
+  public F5BigIpTargetDetails getF5BigIpTargetDetails() {
+    return f5BigIpTargetDetails;
+  }
+
+  public void setF5BigIpTargetDetails(@javax.annotation.Nullable F5BigIpTargetDetails f5BigIpTargetDetails) {
+    this.f5BigIpTargetDetails = f5BigIpTargetDetails;
   }
 
 
@@ -1152,6 +1177,7 @@ public class TargetTypeDetailsInput {
         Objects.equals(this.digicertTargetDetails, targetTypeDetailsInput.digicertTargetDetails) &&
         Objects.equals(this.dockerhubTargetDetails, targetTypeDetailsInput.dockerhubTargetDetails) &&
         Objects.equals(this.eksTargetDetails, targetTypeDetailsInput.eksTargetDetails) &&
+        Objects.equals(this.f5BigIpTargetDetails, targetTypeDetailsInput.f5BigIpTargetDetails) &&
         Objects.equals(this.gcpTargetDetails, targetTypeDetailsInput.gcpTargetDetails) &&
         Objects.equals(this.geminiTargetDetails, targetTypeDetailsInput.geminiTargetDetails) &&
         Objects.equals(this.githubTargetDetails, targetTypeDetailsInput.githubTargetDetails) &&
@@ -1185,7 +1211,7 @@ public class TargetTypeDetailsInput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aerospikeTargetDetails, anthropicTargetDetails, artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, bedrockTargetDetails, chefTargetDetails, cloudflareTargetDetails, customDnsTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, grokTargetDetails, hashiVaultTargetDetails, keycloakTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, oktaTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
+    return Objects.hash(aerospikeTargetDetails, anthropicTargetDetails, artifactoryTargetDetails, awsTargetDetails, azureTargetDetails, bedrockTargetDetails, chefTargetDetails, cloudflareTargetDetails, customDnsTargetDetails, customTargetDetails, dbTargetDetails, digicertTargetDetails, dockerhubTargetDetails, eksTargetDetails, f5BigIpTargetDetails, gcpTargetDetails, geminiTargetDetails, githubTargetDetails, gitlabTargetDetails, gkeTargetDetails, globalsignAtlasTargetDetails, globalsignTargetDetails, godaddyTargetDetails, googleTrustTargetDetails, grokTargetDetails, hashiVaultTargetDetails, keycloakTargetDetails, ldapTargetDetails, letsencryptTargetDetails, linkedTargetDetails, mongoDbTargetDetails, nativeK8sTargetDetails, oktaTargetDetails, openaiTargetDetails, pingTargetDetails, rabbitMqTargetDetails, salesforceTargetDetails, sectigoTargetDetails, splunkTargetDetails, sshTargetDetails, venafiTargetDetails, webTargetDetails, windowsTargetDetails, zerosslTargetDetails);
   }
 
   @Override
@@ -1206,6 +1232,7 @@ public class TargetTypeDetailsInput {
     sb.append("    digicertTargetDetails: ").append(toIndentedString(digicertTargetDetails)).append("\n");
     sb.append("    dockerhubTargetDetails: ").append(toIndentedString(dockerhubTargetDetails)).append("\n");
     sb.append("    eksTargetDetails: ").append(toIndentedString(eksTargetDetails)).append("\n");
+    sb.append("    f5BigIpTargetDetails: ").append(toIndentedString(f5BigIpTargetDetails)).append("\n");
     sb.append("    gcpTargetDetails: ").append(toIndentedString(gcpTargetDetails)).append("\n");
     sb.append("    geminiTargetDetails: ").append(toIndentedString(geminiTargetDetails)).append("\n");
     sb.append("    githubTargetDetails: ").append(toIndentedString(githubTargetDetails)).append("\n");
@@ -1253,7 +1280,7 @@ public class TargetTypeDetailsInput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("aerospike_target_details", "anthropic_target_details", "artifactory_target_details", "aws_target_details", "azure_target_details", "bedrock_target_details", "chef_target_details", "cloudflare_target_details", "custom_dns_target_details", "custom_target_details", "db_target_details", "digicert_target_details", "dockerhub_target_details", "eks_target_details", "gcp_target_details", "gemini_target_details", "github_target_details", "gitlab_target_details", "gke_target_details", "globalsign_atlas_target_details", "globalsign_target_details", "godaddy_target_details", "google_trust_target_details", "grok_target_details", "hashi_vault_target_details", "keycloak_target_details", "ldap_target_details", "letsencrypt_target_details", "linked_target_details", "mongo_db_target_details", "native_k8s_target_details", "okta_target_details", "openai_target_details", "ping_target_details", "rabbit_mq_target_details", "salesforce_target_details", "sectigo_target_details", "splunk_target_details", "ssh_target_details", "venafi_target_details", "web_target_details", "windows_target_details", "zerossl_target_details"));
+    openapiFields = new HashSet<String>(Arrays.asList("aerospike_target_details", "anthropic_target_details", "artifactory_target_details", "aws_target_details", "azure_target_details", "bedrock_target_details", "chef_target_details", "cloudflare_target_details", "custom_dns_target_details", "custom_target_details", "db_target_details", "digicert_target_details", "dockerhub_target_details", "eks_target_details", "f5_big_ip_target_details", "gcp_target_details", "gemini_target_details", "github_target_details", "gitlab_target_details", "gke_target_details", "globalsign_atlas_target_details", "globalsign_target_details", "godaddy_target_details", "google_trust_target_details", "grok_target_details", "hashi_vault_target_details", "keycloak_target_details", "ldap_target_details", "letsencrypt_target_details", "linked_target_details", "mongo_db_target_details", "native_k8s_target_details", "okta_target_details", "openai_target_details", "ping_target_details", "rabbit_mq_target_details", "salesforce_target_details", "sectigo_target_details", "splunk_target_details", "ssh_target_details", "venafi_target_details", "web_target_details", "windows_target_details", "zerossl_target_details"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1335,6 +1362,10 @@ public class TargetTypeDetailsInput {
       // validate the optional field `eks_target_details`
       if (jsonObj.get("eks_target_details") != null && !jsonObj.get("eks_target_details").isJsonNull()) {
         EKSTargetDetails.validateJsonElement(jsonObj.get("eks_target_details"));
+      }
+      // validate the optional field `f5_big_ip_target_details`
+      if (jsonObj.get("f5_big_ip_target_details") != null && !jsonObj.get("f5_big_ip_target_details").isJsonNull()) {
+        F5BigIpTargetDetails.validateJsonElement(jsonObj.get("f5_big_ip_target_details"));
       }
       // validate the optional field `gcp_target_details`
       if (jsonObj.get("gcp_target_details") != null && !jsonObj.get("gcp_target_details").isJsonNull()) {

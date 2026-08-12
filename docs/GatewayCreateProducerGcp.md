@@ -9,6 +9,7 @@ gatewayCreateProducerGcp is a command that creates a GCP producer [Deprecated: U
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**accessType** | **String** |  |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type&#x3D;external) |  [optional] |

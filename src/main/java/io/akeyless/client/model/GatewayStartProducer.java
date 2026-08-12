@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayStartProducer {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -89,6 +94,25 @@ public class GatewayStartProducer {
 
   public GatewayStartProducer() {
   }
+
+  public GatewayStartProducer araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayStartProducer inputRule(@javax.annotation.Nullable List<String> inputRule) {
     this.inputRule = inputRule;
@@ -249,7 +273,8 @@ public class GatewayStartProducer {
       return false;
     }
     GatewayStartProducer gatewayStartProducer = (GatewayStartProducer) o;
-    return Objects.equals(this.inputRule, gatewayStartProducer.inputRule) &&
+    return Objects.equals(this.araEnabled, gatewayStartProducer.araEnabled) &&
+        Objects.equals(this.inputRule, gatewayStartProducer.inputRule) &&
         Objects.equals(this.json, gatewayStartProducer.json) &&
         Objects.equals(this.name, gatewayStartProducer.name) &&
         Objects.equals(this.outputRule, gatewayStartProducer.outputRule) &&
@@ -260,13 +285,14 @@ public class GatewayStartProducer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputRule, json, name, outputRule, skipDryRun, token, uidToken);
+    return Objects.hash(araEnabled, inputRule, json, name, outputRule, skipDryRun, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayStartProducer {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -292,7 +318,7 @@ public class GatewayStartProducer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("input-rule", "json", "name", "output-rule", "skip_dry_run", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "input-rule", "json", "name", "output-rule", "skip_dry_run", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

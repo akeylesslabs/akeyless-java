@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretCreateEks {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -196,6 +201,25 @@ public class DynamicSecretCreateEks {
 
   public DynamicSecretCreateEks() {
   }
+
+  public DynamicSecretCreateEks araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretCreateEks deleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -771,7 +795,8 @@ public class DynamicSecretCreateEks {
       return false;
     }
     DynamicSecretCreateEks dynamicSecretCreateEks = (DynamicSecretCreateEks) o;
-    return Objects.equals(this.deleteProtection, dynamicSecretCreateEks.deleteProtection) &&
+    return Objects.equals(this.araEnabled, dynamicSecretCreateEks.araEnabled) &&
+        Objects.equals(this.deleteProtection, dynamicSecretCreateEks.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateEks.description) &&
         Objects.equals(this.eksAccessKeyId, dynamicSecretCreateEks.eksAccessKeyId) &&
         Objects.equals(this.eksAssumeRole, dynamicSecretCreateEks.eksAssumeRole) &&
@@ -803,13 +828,14 @@ public class DynamicSecretCreateEks {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, description, eksAccessKeyId, eksAssumeRole, eksClusterCaCert, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateEks {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    eksAccessKeyId: ").append(toIndentedString(eksAccessKeyId)).append("\n");
@@ -856,7 +882,7 @@ public class DynamicSecretCreateEks {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "eks-access-key-id", "eks-assume-role", "eks-cluster-ca-cert", "eks-cluster-endpoint", "eks-cluster-name", "eks-region", "eks-secret-access-key", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "eks-access-key-id", "eks-assume-role", "eks-cluster-ca-cert", "eks-cluster-endpoint", "eks-cluster-name", "eks-region", "eks-secret-access-key", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -53,6 +53,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class RotatedSecretDetailsInfo {
+  public static final String SERIALIZED_NAME_AWS_USER_NAME = "aws_user_name";
+  @SerializedName(SERIALIZED_NAME_AWS_USER_NAME)
+  @javax.annotation.Nullable
+  private String awsUserName;
+
   public static final String SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS = "delete_previous_version_in_days";
   @SerializedName(SERIALIZED_NAME_DELETE_PREVIOUS_VERSION_IN_DAYS)
   @javax.annotation.Nullable
@@ -175,6 +180,25 @@ public class RotatedSecretDetailsInfo {
 
   public RotatedSecretDetailsInfo() {
   }
+
+  public RotatedSecretDetailsInfo awsUserName(@javax.annotation.Nullable String awsUserName) {
+    this.awsUserName = awsUserName;
+    return this;
+  }
+
+  /**
+   * Get awsUserName
+   * @return awsUserName
+   */
+  @javax.annotation.Nullable
+  public String getAwsUserName() {
+    return awsUserName;
+  }
+
+  public void setAwsUserName(@javax.annotation.Nullable String awsUserName) {
+    this.awsUserName = awsUserName;
+  }
+
 
   public RotatedSecretDetailsInfo deletePreviousVersionInDays(@javax.annotation.Nullable Integer deletePreviousVersionInDays) {
     this.deletePreviousVersionInDays = deletePreviousVersionInDays;
@@ -658,7 +682,8 @@ public class RotatedSecretDetailsInfo {
       return false;
     }
     RotatedSecretDetailsInfo rotatedSecretDetailsInfo = (RotatedSecretDetailsInfo) o;
-    return Objects.equals(this.deletePreviousVersionInDays, rotatedSecretDetailsInfo.deletePreviousVersionInDays) &&
+    return Objects.equals(this.awsUserName, rotatedSecretDetailsInfo.awsUserName) &&
+        Objects.equals(this.deletePreviousVersionInDays, rotatedSecretDetailsInfo.deletePreviousVersionInDays) &&
         Objects.equals(this.enableCustomPasswordPolicy, rotatedSecretDetailsInfo.enableCustomPasswordPolicy) &&
         Objects.equals(this.graceRotation, rotatedSecretDetailsInfo.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretDetailsInfo.graceRotationHour) &&
@@ -686,13 +711,14 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
+    return Objects.hash(awsUserName, deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretDetailsInfo {\n");
+    sb.append("    awsUserName: ").append(toIndentedString(awsUserName)).append("\n");
     sb.append("    deletePreviousVersionInDays: ").append(toIndentedString(deletePreviousVersionInDays)).append("\n");
     sb.append("    enableCustomPasswordPolicy: ").append(toIndentedString(enableCustomPasswordPolicy)).append("\n");
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
@@ -735,7 +761,7 @@ public class RotatedSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws_user_name", "delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -762,6 +788,9 @@ public class RotatedSecretDetailsInfo {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws_user_name") != null && !jsonObj.get("aws_user_name").isJsonNull()) && !jsonObj.get("aws_user_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_user_name").toString()));
+      }
       if ((jsonObj.get("grace_rotation_timing") != null && !jsonObj.get("grace_rotation_timing").isJsonNull()) && !jsonObj.get("grace_rotation_timing").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `grace_rotation_timing` to be a primitive type in the JSON string but got `%s`", jsonObj.get("grace_rotation_timing").toString()));
       }

@@ -57,6 +57,11 @@ public class UpdateMcpSecretOAuthAuthCode {
   @javax.annotation.Nullable
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -156,6 +161,25 @@ public class UpdateMcpSecretOAuthAuthCode {
 
   public void setAccessibility(@javax.annotation.Nullable String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public UpdateMcpSecretOAuthAuthCode araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -498,6 +522,7 @@ public class UpdateMcpSecretOAuthAuthCode {
     }
     UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode = (UpdateMcpSecretOAuthAuthCode) o;
     return Objects.equals(this.accessibility, updateMcpSecretOAuthAuthCode.accessibility) &&
+        Objects.equals(this.araEnabled, updateMcpSecretOAuthAuthCode.araEnabled) &&
         Objects.equals(this.inputRule, updateMcpSecretOAuthAuthCode.inputRule) &&
         Objects.equals(this.json, updateMcpSecretOAuthAuthCode.json) &&
         Objects.equals(this.keepPrevVersion, updateMcpSecretOAuthAuthCode.keepPrevVersion) &&
@@ -518,7 +543,7 @@ public class UpdateMcpSecretOAuthAuthCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, inputRule, json, keepPrevVersion, key, lastVersion, name, oauthClientId, oauthClientSecret, oauthRedirectUri, oauthRefreshToken, oauthScopes, oauthTokenUrl, outputRule, token, uidToken, url);
+    return Objects.hash(accessibility, araEnabled, inputRule, json, keepPrevVersion, key, lastVersion, name, oauthClientId, oauthClientSecret, oauthRedirectUri, oauthRefreshToken, oauthScopes, oauthTokenUrl, outputRule, token, uidToken, url);
   }
 
   @Override
@@ -526,6 +551,7 @@ public class UpdateMcpSecretOAuthAuthCode {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateMcpSecretOAuthAuthCode {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -560,7 +586,7 @@ public class UpdateMcpSecretOAuthAuthCode {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "input-rule", "json", "keep-prev-version", "key", "last-version", "name", "oauth-client-id", "oauth-client-secret", "oauth-redirect-uri", "oauth-refresh-token", "oauth-scopes", "oauth-token-url", "output-rule", "token", "uid-token", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "ara-enabled", "input-rule", "json", "keep-prev-version", "key", "last-version", "name", "oauth-client-id", "oauth-client-secret", "oauth-redirect-uri", "oauth-refresh-token", "oauth-scopes", "oauth-token-url", "output-rule", "token", "uid-token", "url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**createEKSTarget**](docs/V2Api.md#createEKSTarget) | **POST** /create-eks-target | 
 *V2Api* | [**createESM**](docs/V2Api.md#createESM) | **POST** /create-esm | 
 *V2Api* | [**createEventForwarder**](docs/V2Api.md#createEventForwarder) | **POST** /create-event-forwarder | 
+*V2Api* | [**createF5BigIpTarget**](docs/V2Api.md#createF5BigIpTarget) | **POST** /create-f5-big-ip-target | 
 *V2Api* | [**createGKETarget**](docs/V2Api.md#createGKETarget) | **POST** /create-gke-target | 
 *V2Api* | [**createGcpTarget**](docs/V2Api.md#createGcpTarget) | **POST** /create-gcp-target | 
 *V2Api* | [**createGithubTarget**](docs/V2Api.md#createGithubTarget) | **POST** /create-github-target | 
@@ -526,6 +527,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretCreateCassandra**](docs/V2Api.md#rotatedSecretCreateCassandra) | **POST** /rotated-secret-create-cassandra | 
 *V2Api* | [**rotatedSecretCreateCustom**](docs/V2Api.md#rotatedSecretCreateCustom) | **POST** /rotated-secret-create-custom | 
 *V2Api* | [**rotatedSecretCreateDockerhub**](docs/V2Api.md#rotatedSecretCreateDockerhub) | **POST** /rotated-secret-create-dockerhub | 
+*V2Api* | [**rotatedSecretCreateF5BigIp**](docs/V2Api.md#rotatedSecretCreateF5BigIp) | **POST** /rotated-secret-create-f5-big-ip | 
 *V2Api* | [**rotatedSecretCreateGcp**](docs/V2Api.md#rotatedSecretCreateGcp) | **POST** /rotated-secret-create-gcp | 
 *V2Api* | [**rotatedSecretCreateHanadb**](docs/V2Api.md#rotatedSecretCreateHanadb) | **POST** /rotated-secret-create-hanadb | 
 *V2Api* | [**rotatedSecretCreateHashiVault**](docs/V2Api.md#rotatedSecretCreateHashiVault) | **POST** /rotated-secret-create-hashi-vault | 
@@ -595,6 +597,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateDigiCert**](docs/V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert | 
 *V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
 *V2Api* | [**targetCreateEks**](docs/V2Api.md#targetCreateEks) | **POST** /target-create-eks | 
+*V2Api* | [**targetCreateF5BigIp**](docs/V2Api.md#targetCreateF5BigIp) | **POST** /target-create-f5-big-ip | 
 *V2Api* | [**targetCreateGcp**](docs/V2Api.md#targetCreateGcp) | **POST** /target-create-gcp | 
 *V2Api* | [**targetCreateGemini**](docs/V2Api.md#targetCreateGemini) | **POST** /target-create-gemini | 
 *V2Api* | [**targetCreateGithub**](docs/V2Api.md#targetCreateGithub) | **POST** /target-create-github | 
@@ -638,6 +641,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateDigiCert**](docs/V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert | 
 *V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
 *V2Api* | [**targetUpdateEks**](docs/V2Api.md#targetUpdateEks) | **POST** /target-update-eks | 
+*V2Api* | [**targetUpdateF5BigIp**](docs/V2Api.md#targetUpdateF5BigIp) | **POST** /target-update-f5-big-ip | 
 *V2Api* | [**targetUpdateGcp**](docs/V2Api.md#targetUpdateGcp) | **POST** /target-update-gcp | 
 *V2Api* | [**targetUpdateGemini**](docs/V2Api.md#targetUpdateGemini) | **POST** /target-update-gemini | 
 *V2Api* | [**targetUpdateGithub**](docs/V2Api.md#targetUpdateGithub) | **POST** /target-update-github | 
@@ -699,6 +703,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**updateDockerhubTarget**](docs/V2Api.md#updateDockerhubTarget) | **POST** /update-dockerhub-target | 
 *V2Api* | [**updateEKSTarget**](docs/V2Api.md#updateEKSTarget) | **POST** /update-eks-target | 
 *V2Api* | [**updateEventForwarder**](docs/V2Api.md#updateEventForwarder) | **POST** /update-event-forwarder | 
+*V2Api* | [**updateF5BigIpTarget**](docs/V2Api.md#updateF5BigIpTarget) | **POST** /update-f5-big-ip-target | 
 *V2Api* | [**updateGKETarget**](docs/V2Api.md#updateGKETarget) | **POST** /update-gke-target | 
 *V2Api* | [**updateGcpTarget**](docs/V2Api.md#updateGcpTarget) | **POST** /update-gcp-target | 
 *V2Api* | [**updateGithubTarget**](docs/V2Api.md#updateGithubTarget) | **POST** /update-github-target | 
@@ -942,6 +947,8 @@ Class | Method | HTTP request | Description
  - [CreateESMOutput](docs/CreateESMOutput.md)
  - [CreateEventForwarder](docs/CreateEventForwarder.md)
  - [CreateEventForwarderOutput](docs/CreateEventForwarderOutput.md)
+ - [CreateF5BigIpTarget](docs/CreateF5BigIpTarget.md)
+ - [CreateF5BigIpTargetOutput](docs/CreateF5BigIpTargetOutput.md)
  - [CreateGKETarget](docs/CreateGKETarget.md)
  - [CreateGKETargetOutput](docs/CreateGKETargetOutput.md)
  - [CreateGcpTarget](docs/CreateGcpTarget.md)
@@ -1182,6 +1189,7 @@ Class | Method | HTTP request | Description
  - [ExportClassicKeyOutput](docs/ExportClassicKeyOutput.md)
  - [Extension](docs/Extension.md)
  - [ExternalKMSKeyId](docs/ExternalKMSKeyId.md)
+ - [F5BigIpTargetDetails](docs/F5BigIpTargetDetails.md)
  - [FileDownloadInstructions](docs/FileDownloadInstructions.md)
  - [FileInfo](docs/FileInfo.md)
  - [FolderCreate](docs/FolderCreate.md)
@@ -1639,6 +1647,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateCassandra](docs/RotatedSecretCreateCassandra.md)
  - [RotatedSecretCreateCustom](docs/RotatedSecretCreateCustom.md)
  - [RotatedSecretCreateDockerhub](docs/RotatedSecretCreateDockerhub.md)
+ - [RotatedSecretCreateF5BigIp](docs/RotatedSecretCreateF5BigIp.md)
  - [RotatedSecretCreateGcp](docs/RotatedSecretCreateGcp.md)
  - [RotatedSecretCreateHanadb](docs/RotatedSecretCreateHanadb.md)
  - [RotatedSecretCreateHashiVault](docs/RotatedSecretCreateHashiVault.md)
@@ -1761,6 +1770,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateDigiCert](docs/TargetCreateDigiCert.md)
  - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
  - [TargetCreateEks](docs/TargetCreateEks.md)
+ - [TargetCreateF5BigIp](docs/TargetCreateF5BigIp.md)
  - [TargetCreateGcp](docs/TargetCreateGcp.md)
  - [TargetCreateGemini](docs/TargetCreateGemini.md)
  - [TargetCreateGithub](docs/TargetCreateGithub.md)
@@ -1810,6 +1820,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateDigiCert](docs/TargetUpdateDigiCert.md)
  - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)
  - [TargetUpdateEks](docs/TargetUpdateEks.md)
+ - [TargetUpdateF5BigIp](docs/TargetUpdateF5BigIp.md)
  - [TargetUpdateGcp](docs/TargetUpdateGcp.md)
  - [TargetUpdateGemini](docs/TargetUpdateGemini.md)
  - [TargetUpdateGithub](docs/TargetUpdateGithub.md)
@@ -1897,6 +1908,8 @@ Class | Method | HTTP request | Description
  - [UpdateEKSTarget](docs/UpdateEKSTarget.md)
  - [UpdateEKSTargetOutput](docs/UpdateEKSTargetOutput.md)
  - [UpdateEventForwarder](docs/UpdateEventForwarder.md)
+ - [UpdateF5BigIpTarget](docs/UpdateF5BigIpTarget.md)
+ - [UpdateF5BigIpTargetOutput](docs/UpdateF5BigIpTargetOutput.md)
  - [UpdateGKETarget](docs/UpdateGKETarget.md)
  - [UpdateGKETargetOutput](docs/UpdateGKETargetOutput.md)
  - [UpdateGcpTarget](docs/UpdateGcpTarget.md)

@@ -10,6 +10,7 @@ gatewayCreateProducerAws is a command that creates aws producer [Deprecated: Use
 |------------ | ------------- | ------------- | -------------|
 |**accessMode** | **String** |  |  [optional] |
 |**adminRotationIntervalDays** | **Long** | Admin credentials rotation interval (days) |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**awsAccessKeyId** | **String** | Access Key ID |  [optional] |
 |**awsAccessSecretKey** | **String** | Secret Access Key |  [optional] |
 |**awsExternalId** | **String** | The AWS External ID associated with the AWS role (relevant only for assume_role mode) |  [optional] |

@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretTmpCredsDelete {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nullable
@@ -109,6 +114,25 @@ public class DynamicSecretTmpCredsDelete {
 
   public DynamicSecretTmpCredsDelete() {
   }
+
+  public DynamicSecretTmpCredsDelete araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretTmpCredsDelete host(@javax.annotation.Nullable String host) {
     this.host = host;
@@ -345,7 +369,8 @@ public class DynamicSecretTmpCredsDelete {
       return false;
     }
     DynamicSecretTmpCredsDelete dynamicSecretTmpCredsDelete = (DynamicSecretTmpCredsDelete) o;
-    return Objects.equals(this.host, dynamicSecretTmpCredsDelete.host) &&
+    return Objects.equals(this.araEnabled, dynamicSecretTmpCredsDelete.araEnabled) &&
+        Objects.equals(this.host, dynamicSecretTmpCredsDelete.host) &&
         Objects.equals(this.inputRule, dynamicSecretTmpCredsDelete.inputRule) &&
         Objects.equals(this.json, dynamicSecretTmpCredsDelete.json) &&
         Objects.equals(this.name, dynamicSecretTmpCredsDelete.name) &&
@@ -360,13 +385,14 @@ public class DynamicSecretTmpCredsDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, inputRule, json, name, outputRule, revokeAll, skipDryRun, softDelete, tmpCredsId, token, uidToken);
+    return Objects.hash(araEnabled, host, inputRule, json, name, outputRule, revokeAll, skipDryRun, softDelete, tmpCredsId, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretTmpCredsDelete {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -396,7 +422,7 @@ public class DynamicSecretTmpCredsDelete {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "input-rule", "json", "name", "output-rule", "revoke-all", "skip_dry_run", "soft-delete", "tmp-creds-id", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "host", "input-rule", "json", "name", "output-rule", "revoke-all", "skip_dry_run", "soft-delete", "tmp-creds-id", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

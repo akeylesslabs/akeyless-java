@@ -53,6 +53,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AgenticRules {
+  public static final String SERIALIZED_NAME_ENABLED = "enabled";
+  @SerializedName(SERIALIZED_NAME_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean enabled;
+
   public static final String SERIALIZED_NAME_INPUT_RULES = "input_rules";
   @SerializedName(SERIALIZED_NAME_INPUT_RULES)
   @javax.annotation.Nullable
@@ -65,6 +70,25 @@ public class AgenticRules {
 
   public AgenticRules() {
   }
+
+  public AgenticRules enabled(@javax.annotation.Nullable Boolean enabled) {
+    this.enabled = enabled;
+    return this;
+  }
+
+  /**
+   * Enabled is a pointer so rules persisted before this field existed (nil) keep enforcing, rather than silently switching off.
+   * @return enabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnabled() {
+    return enabled;
+  }
+
+  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    this.enabled = enabled;
+  }
+
 
   public AgenticRules inputRules(@javax.annotation.Nullable List<AgenticRule> inputRules) {
     this.inputRules = inputRules;
@@ -130,19 +154,21 @@ public class AgenticRules {
       return false;
     }
     AgenticRules agenticRules = (AgenticRules) o;
-    return Objects.equals(this.inputRules, agenticRules.inputRules) &&
+    return Objects.equals(this.enabled, agenticRules.enabled) &&
+        Objects.equals(this.inputRules, agenticRules.inputRules) &&
         Objects.equals(this.outputRules, agenticRules.outputRules);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(inputRules, outputRules);
+    return Objects.hash(enabled, inputRules, outputRules);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AgenticRules {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    inputRules: ").append(toIndentedString(inputRules)).append("\n");
     sb.append("    outputRules: ").append(toIndentedString(outputRules)).append("\n");
     sb.append("}");
@@ -163,7 +189,7 @@ public class AgenticRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("input_rules", "output_rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("enabled", "input_rules", "output_rules"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

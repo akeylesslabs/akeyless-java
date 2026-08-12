@@ -8,6 +8,7 @@ gatewayCreateProducerGke is a command that creates gke producer [Deprecated: Use
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**gkeAccountKey** | **String** | GKE Service Account key file path |  [optional] |
 |**gkeClusterCert** | **String** | GKE cluster CA certificate |  [optional] |

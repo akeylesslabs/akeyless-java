@@ -8,6 +8,7 @@ uscList is a command that lists the secrets of a Universal Secrets Connector
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**gcpProjectId** | **String** | The GCP project to list secrets from (GCP only). Required when the connector spans multiple projects or uses folder/organization scope. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**objectType** | **String** |  |  [optional] |
 |**pageSize** | **Long** | Optional: number of items requested per response (Azure KV). When set, response may include next_token |  [optional] |

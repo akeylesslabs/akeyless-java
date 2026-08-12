@@ -10,6 +10,7 @@ dynamicSecretCreateRdp is a command that creates rdp dynamic secret
 |------------ | ------------- | ------------- | -------------|
 |**providerType** | **String** |  |  [optional] |
 |**allowUserExtendSession** | **Long** | AllowUserExtendSession |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |

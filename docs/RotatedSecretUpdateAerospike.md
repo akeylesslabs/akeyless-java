@@ -9,6 +9,7 @@ rotatedSecretUpdateAerospike is a command that updates a rotated secret item.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item. To specify multiple tags use argument multiple times: --add-tag Tag1 --add-tag Tag2 |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. |  [optional] |
 |**authenticationCredentials** | **String** | The credentials to connect with use-user-creds/use-target-creds |  [optional] |
 |**autoRotate** | **String** |  |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |

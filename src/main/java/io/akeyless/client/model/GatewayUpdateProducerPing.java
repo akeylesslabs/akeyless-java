@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateProducerPing {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -206,6 +211,25 @@ public class GatewayUpdateProducerPing {
 
   public GatewayUpdateProducerPing() {
   }
+
+  public GatewayUpdateProducerPing araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayUpdateProducerPing deleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -843,7 +867,8 @@ public class GatewayUpdateProducerPing {
       return false;
     }
     GatewayUpdateProducerPing gatewayUpdateProducerPing = (GatewayUpdateProducerPing) o;
-    return Objects.equals(this.deleteProtection, gatewayUpdateProducerPing.deleteProtection) &&
+    return Objects.equals(this.araEnabled, gatewayUpdateProducerPing.araEnabled) &&
+        Objects.equals(this.deleteProtection, gatewayUpdateProducerPing.deleteProtection) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerPing.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerPing.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerPing.json) &&
@@ -877,13 +902,14 @@ public class GatewayUpdateProducerPing {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, inputRule, itemCustomFields, json, name, newName, outputRule, pingAdministrativePort, pingAtmId, pingAuthorizationPort, pingCertSubjectDn, pingClientAuthenticationType, pingEnforceReplayPrevention, pingGrantTypes, pingIssuerDn, pingJwks, pingJwksUrl, pingPassword, pingPrivilegedUser, pingRedirectUris, pingRestrictedScopes, pingSigningAlgo, pingUrl, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, inputRule, itemCustomFields, json, name, newName, outputRule, pingAdministrativePort, pingAtmId, pingAuthorizationPort, pingCertSubjectDn, pingClientAuthenticationType, pingEnforceReplayPrevention, pingGrantTypes, pingIssuerDn, pingJwks, pingJwksUrl, pingPassword, pingPrivilegedUser, pingRedirectUris, pingRestrictedScopes, pingSigningAlgo, pingUrl, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerPing {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
@@ -932,7 +958,7 @@ public class GatewayUpdateProducerPing {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "ping-administrative-port", "ping-atm-id", "ping-authorization-port", "ping-cert-subject-dn", "ping-client-authentication-type", "ping-enforce-replay-prevention", "ping-grant-types", "ping-issuer-dn", "ping-jwks", "ping-jwks-url", "ping-password", "ping-privileged-user", "ping-redirect-uris", "ping-restricted-scopes", "ping-signing-algo", "ping-url", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "ping-administrative-port", "ping-atm-id", "ping-authorization-port", "ping-cert-subject-dn", "ping-client-authentication-type", "ping-enforce-replay-prevention", "ping-grant-types", "ping-issuer-dn", "ping-jwks", "ping-jwks-url", "ping-password", "ping-privileged-user", "ping-redirect-uris", "ping-restricted-scopes", "ping-signing-algo", "ping-url", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

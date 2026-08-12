@@ -11,6 +11,7 @@ GatewayCreateProducerSnowflakeCmd is a command that creates a Snowflake producer
 |**account** | **String** | Account name |  [optional] |
 |**accountPassword** | **String** | Database Password |  [optional] |
 |**accountUsername** | **String** | Database Username |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**authMode** | **String** | The authentication mode for the temporary user [password/key] |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**dbName** | **String** | Database name |  [optional] |

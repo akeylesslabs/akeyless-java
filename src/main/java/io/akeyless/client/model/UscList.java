@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscList {
+  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
+  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String gcpProjectId;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -87,6 +92,25 @@ public class UscList {
 
   public UscList() {
   }
+
+  public UscList gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+    return this;
+  }
+
+  /**
+   * The GCP project to list secrets from (GCP only). Required when the connector spans multiple projects or uses folder/organization scope.
+   * @return gcpProjectId
+   */
+  @javax.annotation.Nullable
+  public String getGcpProjectId() {
+    return gcpProjectId;
+  }
+
+  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+  }
+
 
   public UscList json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
@@ -231,7 +255,8 @@ public class UscList {
       return false;
     }
     UscList uscList = (UscList) o;
-    return Objects.equals(this.json, uscList.json) &&
+    return Objects.equals(this.gcpProjectId, uscList.gcpProjectId) &&
+        Objects.equals(this.json, uscList.json) &&
         Objects.equals(this.objectType, uscList.objectType) &&
         Objects.equals(this.pageSize, uscList.pageSize) &&
         Objects.equals(this.pageToken, uscList.pageToken) &&
@@ -242,13 +267,14 @@ public class UscList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, objectType, pageSize, pageToken, token, uidToken, uscName);
+    return Objects.hash(gcpProjectId, json, objectType, pageSize, pageToken, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscList {\n");
+    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
@@ -274,7 +300,7 @@ public class UscList {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("json", "object-type", "page-size", "page-token", "token", "uid-token", "usc-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("gcp-project-id", "json", "object-type", "page-size", "page-token", "token", "uid-token", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("usc-name"));
@@ -308,6 +334,9 @@ public class UscList {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
+      }
       if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
       }

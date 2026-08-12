@@ -71,6 +71,11 @@ public class ShareItemOutput {
   @javax.annotation.Nullable
   private String sToken;
 
+  public static final String SERIALIZED_NAME_SHARED_TOKEN_ID = "shared_token_id";
+  @SerializedName(SERIALIZED_NAME_SHARED_TOKEN_ID)
+  @javax.annotation.Nullable
+  private String sharedTokenId;
+
   public static final String SERIALIZED_NAME_SHARED_USERS = "shared_users";
   @SerializedName(SERIALIZED_NAME_SHARED_USERS)
   @javax.annotation.Nullable
@@ -162,6 +167,25 @@ public class ShareItemOutput {
   }
 
 
+  public ShareItemOutput sharedTokenId(@javax.annotation.Nullable String sharedTokenId) {
+    this.sharedTokenId = sharedTokenId;
+    return this;
+  }
+
+  /**
+   * Get sharedTokenId
+   * @return sharedTokenId
+   */
+  @javax.annotation.Nullable
+  public String getSharedTokenId() {
+    return sharedTokenId;
+  }
+
+  public void setSharedTokenId(@javax.annotation.Nullable String sharedTokenId) {
+    this.sharedTokenId = sharedTokenId;
+  }
+
+
   public ShareItemOutput sharedUsers(@javax.annotation.Nullable List<String> sharedUsers) {
     this.sharedUsers = sharedUsers;
     return this;
@@ -248,6 +272,7 @@ public class ShareItemOutput {
     return Objects.equals(this.emailError, shareItemOutput.emailError) &&
         Objects.equals(this.itemsError, shareItemOutput.itemsError) &&
         Objects.equals(this.sToken, shareItemOutput.sToken) &&
+        Objects.equals(this.sharedTokenId, shareItemOutput.sharedTokenId) &&
         Objects.equals(this.sharedUsers, shareItemOutput.sharedUsers) &&
         Objects.equals(this.sharedUsersFullInfo, shareItemOutput.sharedUsersFullInfo) &&
         Objects.equals(this.sharingUrl, shareItemOutput.sharingUrl);
@@ -255,7 +280,7 @@ public class ShareItemOutput {
 
   @Override
   public int hashCode() {
-    return Objects.hash(emailError, itemsError, sToken, sharedUsers, sharedUsersFullInfo, sharingUrl);
+    return Objects.hash(emailError, itemsError, sToken, sharedTokenId, sharedUsers, sharedUsersFullInfo, sharingUrl);
   }
 
   @Override
@@ -265,6 +290,7 @@ public class ShareItemOutput {
     sb.append("    emailError: ").append(toIndentedString(emailError)).append("\n");
     sb.append("    itemsError: ").append(toIndentedString(itemsError)).append("\n");
     sb.append("    sToken: ").append(toIndentedString(sToken)).append("\n");
+    sb.append("    sharedTokenId: ").append(toIndentedString(sharedTokenId)).append("\n");
     sb.append("    sharedUsers: ").append(toIndentedString(sharedUsers)).append("\n");
     sb.append("    sharedUsersFullInfo: ").append(toIndentedString(sharedUsersFullInfo)).append("\n");
     sb.append("    sharingUrl: ").append(toIndentedString(sharingUrl)).append("\n");
@@ -286,7 +312,7 @@ public class ShareItemOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("email_error", "items_error", "s_token", "shared_users", "shared_users_full_info", "sharing_url"));
+    openapiFields = new HashSet<String>(Arrays.asList("email_error", "items_error", "s_token", "shared_token_id", "shared_users", "shared_users_full_info", "sharing_url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -329,6 +355,9 @@ public class ShareItemOutput {
       }
       if ((jsonObj.get("s_token") != null && !jsonObj.get("s_token").isJsonNull()) && !jsonObj.get("s_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `s_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("s_token").toString()));
+      }
+      if ((jsonObj.get("shared_token_id") != null && !jsonObj.get("shared_token_id").isJsonNull()) && !jsonObj.get("shared_token_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `shared_token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("shared_token_id").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("shared_users") != null && !jsonObj.get("shared_users").isJsonNull() && !jsonObj.get("shared_users").isJsonArray()) {

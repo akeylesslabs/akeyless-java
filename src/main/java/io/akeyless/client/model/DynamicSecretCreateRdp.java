@@ -64,6 +64,11 @@ public class DynamicSecretCreateRdp {
   @javax.annotation.Nullable
   private Long allowUserExtendSession;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -302,6 +307,25 @@ public class DynamicSecretCreateRdp {
 
   public void setAllowUserExtendSession(@javax.annotation.Nullable Long allowUserExtendSession) {
     this.allowUserExtendSession = allowUserExtendSession;
+  }
+
+
+  public DynamicSecretCreateRdp araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1125,6 +1149,7 @@ public class DynamicSecretCreateRdp {
     DynamicSecretCreateRdp dynamicSecretCreateRdp = (DynamicSecretCreateRdp) o;
     return Objects.equals(this.providerType, dynamicSecretCreateRdp.providerType) &&
         Objects.equals(this.allowUserExtendSession, dynamicSecretCreateRdp.allowUserExtendSession) &&
+        Objects.equals(this.araEnabled, dynamicSecretCreateRdp.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, dynamicSecretCreateRdp.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateRdp.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateRdp.description) &&
@@ -1169,7 +1194,7 @@ public class DynamicSecretCreateRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, allowUserExtendSession, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, hostProvider, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(providerType, allowUserExtendSession, araEnabled, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, hostProvider, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -1178,6 +1203,7 @@ public class DynamicSecretCreateRdp {
     sb.append("class DynamicSecretCreateRdp {\n");
     sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    allowUserExtendSession: ").append(toIndentedString(allowUserExtendSession)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -1236,7 +1262,7 @@ public class DynamicSecretCreateRdp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "allow-user-extend-session", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "host-provider", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "rdp-admin-name", "rdp-admin-pwd", "rdp-host-name", "rdp-host-port", "rdp-user-groups", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warn-user-before-expiration"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "allow-user-extend-session", "ara-enabled", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "host-provider", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "rdp-admin-name", "rdp-admin-pwd", "rdp-host-name", "rdp-host-port", "rdp-user-groups", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warn-user-before-expiration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

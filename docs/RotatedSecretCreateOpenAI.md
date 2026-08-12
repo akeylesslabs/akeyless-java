@@ -10,6 +10,7 @@ rotatedSecretCreateOpenAI is a command that creates a rotated secret for an Open
 |------------ | ------------- | ------------- | -------------|
 |**apiKey** | **String** | Admin API key value to rotate (relevant only for rotator-type&#x3D;api-key) |  [optional] |
 |**apiKeyId** | **String** | Admin API key ID to rotate (relevant only for rotator-type&#x3D;api-key) |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. |  [optional] |
 |**authenticationCredentials** | **String** | The credentials to connect with use-user-creds/use-target-creds |  [optional] |
 |**autoRotate** | **String** |  |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |

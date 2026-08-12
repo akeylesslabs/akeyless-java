@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.CertificateExpirationEvent;
+import io.akeyless.client.model.PasswordPolicyInfo;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -130,6 +131,11 @@ public class ActiveDirectoryPayload {
   @javax.annotation.Nullable
   private String domainUsersRotatedSecretsPathTemplate;
 
+  public static final String SERIALIZED_NAME_ENABLE_PASSWORD_POLICY = "enable_password_policy";
+  @SerializedName(SERIALIZED_NAME_ENABLE_PASSWORD_POLICY)
+  @javax.annotation.Nullable
+  private Boolean enablePasswordPolicy;
+
   public static final String SERIALIZED_NAME_ENABLE_RDP_SRA = "enable_rdp_sra";
   @SerializedName(SERIALIZED_NAME_ENABLE_RDP_SRA)
   @javax.annotation.Nullable
@@ -149,6 +155,16 @@ public class ActiveDirectoryPayload {
   @SerializedName(SERIALIZED_NAME_OS_FILTER)
   @javax.annotation.Nullable
   private String osFilter;
+
+  public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
+  @javax.annotation.Nullable
+  private PasswordPolicyInfo passwordPolicy;
+
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_SSH_PORT = "ssh_port";
   @SerializedName(SERIALIZED_NAME_SSH_PORT)
@@ -489,6 +505,25 @@ public class ActiveDirectoryPayload {
   }
 
 
+  public ActiveDirectoryPayload enablePasswordPolicy(@javax.annotation.Nullable Boolean enablePasswordPolicy) {
+    this.enablePasswordPolicy = enablePasswordPolicy;
+    return this;
+  }
+
+  /**
+   * EnablePasswordPolicy enables applying PasswordPolicy to newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil &#x3D; not provided).
+   * @return enablePasswordPolicy
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnablePasswordPolicy() {
+    return enablePasswordPolicy;
+  }
+
+  public void setEnablePasswordPolicy(@javax.annotation.Nullable Boolean enablePasswordPolicy) {
+    this.enablePasswordPolicy = enablePasswordPolicy;
+  }
+
+
   public ActiveDirectoryPayload enableRdpSra(@javax.annotation.Nullable Boolean enableRdpSra) {
     this.enableRdpSra = enableRdpSra;
     return this;
@@ -570,6 +605,44 @@ public class ActiveDirectoryPayload {
 
   public void setOsFilter(@javax.annotation.Nullable String osFilter) {
     this.osFilter = osFilter;
+  }
+
+
+  public ActiveDirectoryPayload passwordPolicy(@javax.annotation.Nullable PasswordPolicyInfo passwordPolicy) {
+    this.passwordPolicy = passwordPolicy;
+    return this;
+  }
+
+  /**
+   * Get passwordPolicy
+   * @return passwordPolicy
+   */
+  @javax.annotation.Nullable
+  public PasswordPolicyInfo getPasswordPolicy() {
+    return passwordPolicy;
+  }
+
+  public void setPasswordPolicy(@javax.annotation.Nullable PasswordPolicyInfo passwordPolicy) {
+    this.passwordPolicy = passwordPolicy;
+  }
+
+
+  public ActiveDirectoryPayload skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * SkipDryRun enables skip_dry_run on newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil &#x3D; not provided). When false/unset, existing rotated-secret SkipDryRun values are left unchanged on sync.
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public Boolean getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
   }
 
 
@@ -739,10 +812,13 @@ public class ActiveDirectoryPayload {
         Objects.equals(this.domainName, activeDirectoryPayload.domainName) &&
         Objects.equals(this.domainServerTargetsPathTemplate, activeDirectoryPayload.domainServerTargetsPathTemplate) &&
         Objects.equals(this.domainUsersRotatedSecretsPathTemplate, activeDirectoryPayload.domainUsersRotatedSecretsPathTemplate) &&
+        Objects.equals(this.enablePasswordPolicy, activeDirectoryPayload.enablePasswordPolicy) &&
         Objects.equals(this.enableRdpSra, activeDirectoryPayload.enableRdpSra) &&
         Objects.equals(this.localUsersIgnoreList, activeDirectoryPayload.localUsersIgnoreList) &&
         Objects.equals(this.localUsersRotatedSecretsPathTemplate, activeDirectoryPayload.localUsersRotatedSecretsPathTemplate) &&
         Objects.equals(this.osFilter, activeDirectoryPayload.osFilter) &&
+        Objects.equals(this.passwordPolicy, activeDirectoryPayload.passwordPolicy) &&
+        Objects.equals(this.skipDryRun, activeDirectoryPayload.skipDryRun) &&
         Objects.equals(this.sshPort, activeDirectoryPayload.sshPort) &&
         Objects.equals(this.targetFormat, activeDirectoryPayload.targetFormat) &&
         Objects.equals(this.targetsType, activeDirectoryPayload.targetsType) &&
@@ -754,7 +830,7 @@ public class ActiveDirectoryPayload {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDirectoryTargetId, aiCertificateDiscovery, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, certificatesExpirationEvents, certificatesPathTemplate, computerBaseDn, discoverIisApps, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
+    return Objects.hash(activeDirectoryTargetId, aiCertificateDiscovery, autoRotate, autoRotateIntervalInDays, autoRotateRotationHour, certificatesExpirationEvents, certificatesPathTemplate, computerBaseDn, discoverIisApps, discoverLocalUsers, discoverServices, discoveryTypes, domainName, domainServerTargetsPathTemplate, domainUsersRotatedSecretsPathTemplate, enablePasswordPolicy, enableRdpSra, localUsersIgnoreList, localUsersRotatedSecretsPathTemplate, osFilter, passwordPolicy, skipDryRun, sshPort, targetFormat, targetsType, userBaseDn, userGroups, winrmOverHttp, winrmPort);
   }
 
   @Override
@@ -776,10 +852,13 @@ public class ActiveDirectoryPayload {
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    domainServerTargetsPathTemplate: ").append(toIndentedString(domainServerTargetsPathTemplate)).append("\n");
     sb.append("    domainUsersRotatedSecretsPathTemplate: ").append(toIndentedString(domainUsersRotatedSecretsPathTemplate)).append("\n");
+    sb.append("    enablePasswordPolicy: ").append(toIndentedString(enablePasswordPolicy)).append("\n");
     sb.append("    enableRdpSra: ").append(toIndentedString(enableRdpSra)).append("\n");
     sb.append("    localUsersIgnoreList: ").append(toIndentedString(localUsersIgnoreList)).append("\n");
     sb.append("    localUsersRotatedSecretsPathTemplate: ").append(toIndentedString(localUsersRotatedSecretsPathTemplate)).append("\n");
     sb.append("    osFilter: ").append(toIndentedString(osFilter)).append("\n");
+    sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
     sb.append("    targetFormat: ").append(toIndentedString(targetFormat)).append("\n");
     sb.append("    targetsType: ").append(toIndentedString(targetsType)).append("\n");
@@ -805,7 +884,7 @@ public class ActiveDirectoryPayload {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("active_directory_target_id", "ai_certificate_discovery", "auto_rotate", "auto_rotate_interval_in_days", "auto_rotate_rotation_hour", "certificates_expiration_events", "certificates_path_template", "computer_base_dn", "discover_iis_apps", "discover_local_users", "discover_services", "discovery_types", "domain_name", "domain_server_targets_path_template", "domain_users_rotated_secrets_path_template", "enable_rdp_sra", "local_users_ignore_list", "local_users_rotated_secrets_path_template", "os_filter", "ssh_port", "target_format", "targets_type", "user_base_dn", "user_groups", "winrm_over_http", "winrm_port"));
+    openapiFields = new HashSet<String>(Arrays.asList("active_directory_target_id", "ai_certificate_discovery", "auto_rotate", "auto_rotate_interval_in_days", "auto_rotate_rotation_hour", "certificates_expiration_events", "certificates_path_template", "computer_base_dn", "discover_iis_apps", "discover_local_users", "discover_services", "discovery_types", "domain_name", "domain_server_targets_path_template", "domain_users_rotated_secrets_path_template", "enable_password_policy", "enable_rdp_sra", "local_users_ignore_list", "local_users_rotated_secrets_path_template", "os_filter", "password_policy", "skip_dry_run", "ssh_port", "target_format", "targets_type", "user_base_dn", "user_groups", "winrm_over_http", "winrm_port"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -870,6 +949,10 @@ public class ActiveDirectoryPayload {
       }
       if ((jsonObj.get("os_filter") != null && !jsonObj.get("os_filter").isJsonNull()) && !jsonObj.get("os_filter").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `os_filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_filter").toString()));
+      }
+      // validate the optional field `password_policy`
+      if (jsonObj.get("password_policy") != null && !jsonObj.get("password_policy").isJsonNull()) {
+        PasswordPolicyInfo.validateJsonElement(jsonObj.get("password_policy"));
       }
       if ((jsonObj.get("ssh_port") != null && !jsonObj.get("ssh_port").isJsonNull()) && !jsonObj.get("ssh_port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ssh_port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ssh_port").toString()));

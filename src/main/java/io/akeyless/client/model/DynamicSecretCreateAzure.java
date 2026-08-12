@@ -59,6 +59,11 @@ public class DynamicSecretCreateAzure {
   @javax.annotation.Nullable
   private String appObjId;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AZURE_ADMINISTRATIVE_UNIT = "azure-administrative-unit";
   @SerializedName(SERIALIZED_NAME_AZURE_ADMINISTRATIVE_UNIT)
   @javax.annotation.Nullable
@@ -258,6 +263,25 @@ public class DynamicSecretCreateAzure {
 
   public void setAppObjId(@javax.annotation.Nullable String appObjId) {
     this.appObjId = appObjId;
+  }
+
+
+  public DynamicSecretCreateAzure araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -988,6 +1012,7 @@ public class DynamicSecretCreateAzure {
     }
     DynamicSecretCreateAzure dynamicSecretCreateAzure = (DynamicSecretCreateAzure) o;
     return Objects.equals(this.appObjId, dynamicSecretCreateAzure.appObjId) &&
+        Objects.equals(this.araEnabled, dynamicSecretCreateAzure.araEnabled) &&
         Objects.equals(this.azureAdministrativeUnit, dynamicSecretCreateAzure.azureAdministrativeUnit) &&
         Objects.equals(this.azureClientId, dynamicSecretCreateAzure.azureClientId) &&
         Objects.equals(this.azureClientSecret, dynamicSecretCreateAzure.azureClientSecret) &&
@@ -1028,7 +1053,7 @@ public class DynamicSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, araEnabled, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -1036,6 +1061,7 @@ public class DynamicSecretCreateAzure {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateAzure {\n");
     sb.append("    appObjId: ").append(toIndentedString(appObjId)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    azureAdministrativeUnit: ").append(toIndentedString(azureAdministrativeUnit)).append("\n");
     sb.append("    azureClientId: ").append(toIndentedString(azureClientId)).append("\n");
     sb.append("    azureClientSecret: ").append(toIndentedString(azureClientSecret)).append("\n");
@@ -1090,7 +1116,7 @@ public class DynamicSecretCreateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("app-obj-id", "azure-administrative-unit", "azure-client-id", "azure-client-secret", "azure-tenant-id", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-group-obj-id", "user-portal-access", "user-principal-name", "user-programmatic-access", "user-role-template-id", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("app-obj-id", "ara-enabled", "azure-administrative-unit", "azure-client-id", "azure-client-secret", "azure-tenant-id", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-group-obj-id", "user-portal-access", "user-principal-name", "user-programmatic-access", "user-role-template-id", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

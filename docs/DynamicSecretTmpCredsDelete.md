@@ -8,6 +8,7 @@ dynamicSecretTmpCredsDelete is a command that deletes dynamic secret temp creds
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**host** | **String** | Host |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

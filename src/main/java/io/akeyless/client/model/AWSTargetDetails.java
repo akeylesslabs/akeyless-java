@@ -71,6 +71,11 @@ public class AWSTargetDetails {
   @javax.annotation.Nullable
   private String awsSessionToken;
 
+  public static final String SERIALIZED_NAME_AWS_USER_NAME = "aws_user_name";
+  @SerializedName(SERIALIZED_NAME_AWS_USER_NAME)
+  @javax.annotation.Nullable
+  private String awsUserName;
+
   public static final String SERIALIZED_NAME_GW_CLOUD_IDENTITY_EXTERNAL_ID_OPT = "gw_cloud_identity_external_id_opt";
   @SerializedName(SERIALIZED_NAME_GW_CLOUD_IDENTITY_EXTERNAL_ID_OPT)
   @javax.annotation.Nullable
@@ -160,6 +165,25 @@ public class AWSTargetDetails {
   }
 
 
+  public AWSTargetDetails awsUserName(@javax.annotation.Nullable String awsUserName) {
+    this.awsUserName = awsUserName;
+    return this;
+  }
+
+  /**
+   * Get awsUserName
+   * @return awsUserName
+   */
+  @javax.annotation.Nullable
+  public String getAwsUserName() {
+    return awsUserName;
+  }
+
+  public void setAwsUserName(@javax.annotation.Nullable String awsUserName) {
+    this.awsUserName = awsUserName;
+  }
+
+
   public AWSTargetDetails gwCloudIdentityExternalIdOpt(@javax.annotation.Nullable AWSGatewayCloudIdentityExternalIdOpt gwCloudIdentityExternalIdOpt) {
     this.gwCloudIdentityExternalIdOpt = gwCloudIdentityExternalIdOpt;
     return this;
@@ -212,13 +236,14 @@ public class AWSTargetDetails {
         Objects.equals(this.awsRegion, awSTargetDetails.awsRegion) &&
         Objects.equals(this.awsSecretAccessKey, awSTargetDetails.awsSecretAccessKey) &&
         Objects.equals(this.awsSessionToken, awSTargetDetails.awsSessionToken) &&
+        Objects.equals(this.awsUserName, awSTargetDetails.awsUserName) &&
         Objects.equals(this.gwCloudIdentityExternalIdOpt, awSTargetDetails.gwCloudIdentityExternalIdOpt) &&
         Objects.equals(this.useGwCloudIdentity, awSTargetDetails.useGwCloudIdentity);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, gwCloudIdentityExternalIdOpt, useGwCloudIdentity);
+    return Objects.hash(awsAccessKeyId, awsRegion, awsSecretAccessKey, awsSessionToken, awsUserName, gwCloudIdentityExternalIdOpt, useGwCloudIdentity);
   }
 
   @Override
@@ -229,6 +254,7 @@ public class AWSTargetDetails {
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
     sb.append("    awsSecretAccessKey: ").append(toIndentedString(awsSecretAccessKey)).append("\n");
     sb.append("    awsSessionToken: ").append(toIndentedString(awsSessionToken)).append("\n");
+    sb.append("    awsUserName: ").append(toIndentedString(awsUserName)).append("\n");
     sb.append("    gwCloudIdentityExternalIdOpt: ").append(toIndentedString(gwCloudIdentityExternalIdOpt)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
     sb.append("}");
@@ -249,7 +275,7 @@ public class AWSTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("aws_access_key_id", "aws_region", "aws_secret_access_key", "aws_session_token", "gw_cloud_identity_external_id_opt", "use_gw_cloud_identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws_access_key_id", "aws_region", "aws_secret_access_key", "aws_session_token", "aws_user_name", "gw_cloud_identity_external_id_opt", "use_gw_cloud_identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -287,6 +313,9 @@ public class AWSTargetDetails {
       }
       if ((jsonObj.get("aws_session_token") != null && !jsonObj.get("aws_session_token").isJsonNull()) && !jsonObj.get("aws_session_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_session_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_session_token").toString()));
+      }
+      if ((jsonObj.get("aws_user_name") != null && !jsonObj.get("aws_user_name").isJsonNull()) && !jsonObj.get("aws_user_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws_user_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_user_name").toString()));
       }
       // validate the optional field `gw_cloud_identity_external_id_opt`
       if (jsonObj.get("gw_cloud_identity_external_id_opt") != null && !jsonObj.get("gw_cloud_identity_external_id_opt").isJsonNull()) {

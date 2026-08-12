@@ -59,6 +59,11 @@ public class DynamicSecretCreateCustom {
   @javax.annotation.Nullable
   private Long adminRotationIntervalDays;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CREATE_SYNC_URL = "create-sync-url";
   @SerializedName(SERIALIZED_NAME_CREATE_SYNC_URL)
   @javax.annotation.Nonnull
@@ -173,6 +178,25 @@ public class DynamicSecretCreateCustom {
 
   public void setAdminRotationIntervalDays(@javax.annotation.Nullable Long adminRotationIntervalDays) {
     this.adminRotationIntervalDays = adminRotationIntervalDays;
+  }
+
+
+  public DynamicSecretCreateCustom araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -580,6 +604,7 @@ public class DynamicSecretCreateCustom {
     }
     DynamicSecretCreateCustom dynamicSecretCreateCustom = (DynamicSecretCreateCustom) o;
     return Objects.equals(this.adminRotationIntervalDays, dynamicSecretCreateCustom.adminRotationIntervalDays) &&
+        Objects.equals(this.araEnabled, dynamicSecretCreateCustom.araEnabled) &&
         Objects.equals(this.createSyncUrl, dynamicSecretCreateCustom.createSyncUrl) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateCustom.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateCustom.description) &&
@@ -603,7 +628,7 @@ public class DynamicSecretCreateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminRotationIntervalDays, createSyncUrl, deleteProtection, description, enableAdminRotation, inputRule, itemCustomFields, json, name, outputRule, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, skipDryRun, tags, timeoutSec, token, uidToken, userTtl);
+    return Objects.hash(adminRotationIntervalDays, araEnabled, createSyncUrl, deleteProtection, description, enableAdminRotation, inputRule, itemCustomFields, json, name, outputRule, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, skipDryRun, tags, timeoutSec, token, uidToken, userTtl);
   }
 
   @Override
@@ -611,6 +636,7 @@ public class DynamicSecretCreateCustom {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateCustom {\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    createSyncUrl: ").append(toIndentedString(createSyncUrl)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -648,7 +674,7 @@ public class DynamicSecretCreateCustom {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "create-sync-url", "delete_protection", "description", "enable-admin-rotation", "input-rule", "item-custom-fields", "json", "name", "output-rule", "payload", "producer-encryption-key-name", "revoke-sync-url", "rotate-sync-url", "skip_dry_run", "tags", "timeout-sec", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "ara-enabled", "create-sync-url", "delete_protection", "description", "enable-admin-rotation", "input-rule", "item-custom-fields", "json", "name", "output-rule", "payload", "producer-encryption-key-name", "revoke-sync-url", "rotate-sync-url", "skip_dry_run", "tags", "timeout-sec", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("create-sync-url", "name", "revoke-sync-url"));

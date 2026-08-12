@@ -75,6 +75,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**createEKSTarget**](V2Api.md#createEKSTarget) | **POST** /create-eks-target |  |
 | [**createESM**](V2Api.md#createESM) | **POST** /create-esm |  |
 | [**createEventForwarder**](V2Api.md#createEventForwarder) | **POST** /create-event-forwarder |  |
+| [**createF5BigIpTarget**](V2Api.md#createF5BigIpTarget) | **POST** /create-f5-big-ip-target |  |
 | [**createGKETarget**](V2Api.md#createGKETarget) | **POST** /create-gke-target |  |
 | [**createGcpTarget**](V2Api.md#createGcpTarget) | **POST** /create-gcp-target |  |
 | [**createGithubTarget**](V2Api.md#createGithubTarget) | **POST** /create-github-target |  |
@@ -424,6 +425,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretCreateCassandra**](V2Api.md#rotatedSecretCreateCassandra) | **POST** /rotated-secret-create-cassandra |  |
 | [**rotatedSecretCreateCustom**](V2Api.md#rotatedSecretCreateCustom) | **POST** /rotated-secret-create-custom |  |
 | [**rotatedSecretCreateDockerhub**](V2Api.md#rotatedSecretCreateDockerhub) | **POST** /rotated-secret-create-dockerhub |  |
+| [**rotatedSecretCreateF5BigIp**](V2Api.md#rotatedSecretCreateF5BigIp) | **POST** /rotated-secret-create-f5-big-ip |  |
 | [**rotatedSecretCreateGcp**](V2Api.md#rotatedSecretCreateGcp) | **POST** /rotated-secret-create-gcp |  |
 | [**rotatedSecretCreateHanadb**](V2Api.md#rotatedSecretCreateHanadb) | **POST** /rotated-secret-create-hanadb |  |
 | [**rotatedSecretCreateHashiVault**](V2Api.md#rotatedSecretCreateHashiVault) | **POST** /rotated-secret-create-hashi-vault |  |
@@ -493,6 +495,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetCreateDigiCert**](V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert |  |
 | [**targetCreateDockerhub**](V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub |  |
 | [**targetCreateEks**](V2Api.md#targetCreateEks) | **POST** /target-create-eks |  |
+| [**targetCreateF5BigIp**](V2Api.md#targetCreateF5BigIp) | **POST** /target-create-f5-big-ip |  |
 | [**targetCreateGcp**](V2Api.md#targetCreateGcp) | **POST** /target-create-gcp |  |
 | [**targetCreateGemini**](V2Api.md#targetCreateGemini) | **POST** /target-create-gemini |  |
 | [**targetCreateGithub**](V2Api.md#targetCreateGithub) | **POST** /target-create-github |  |
@@ -536,6 +539,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetUpdateDigiCert**](V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert |  |
 | [**targetUpdateDockerhub**](V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub |  |
 | [**targetUpdateEks**](V2Api.md#targetUpdateEks) | **POST** /target-update-eks |  |
+| [**targetUpdateF5BigIp**](V2Api.md#targetUpdateF5BigIp) | **POST** /target-update-f5-big-ip |  |
 | [**targetUpdateGcp**](V2Api.md#targetUpdateGcp) | **POST** /target-update-gcp |  |
 | [**targetUpdateGemini**](V2Api.md#targetUpdateGemini) | **POST** /target-update-gemini |  |
 | [**targetUpdateGithub**](V2Api.md#targetUpdateGithub) | **POST** /target-update-github |  |
@@ -597,6 +601,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**updateDockerhubTarget**](V2Api.md#updateDockerhubTarget) | **POST** /update-dockerhub-target |  |
 | [**updateEKSTarget**](V2Api.md#updateEKSTarget) | **POST** /update-eks-target |  |
 | [**updateEventForwarder**](V2Api.md#updateEventForwarder) | **POST** /update-event-forwarder |  |
+| [**updateF5BigIpTarget**](V2Api.md#updateF5BigIpTarget) | **POST** /update-f5-big-ip-target |  |
 | [**updateGKETarget**](V2Api.md#updateGKETarget) | **POST** /update-gke-target |  |
 | [**updateGcpTarget**](V2Api.md#updateGcpTarget) | **POST** /update-gcp-target |  |
 | [**updateGithubTarget**](V2Api.md#updateGithubTarget) | **POST** /update-github-target |  |
@@ -4984,6 +4989,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | createEventForwarderResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="createF5BigIpTarget"></a>
+# **createF5BigIpTarget**
+> CreateF5BigIpTargetOutput createF5BigIpTarget(createF5BigIpTarget)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    CreateF5BigIpTarget createF5BigIpTarget = new CreateF5BigIpTarget(); // CreateF5BigIpTarget | 
+    try {
+      CreateF5BigIpTargetOutput result = apiInstance.createF5BigIpTarget(createF5BigIpTarget);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#createF5BigIpTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createF5BigIpTarget** | [**CreateF5BigIpTarget**](CreateF5BigIpTarget.md)|  | |
+
+### Return type
+
+[**CreateF5BigIpTargetOutput**](CreateF5BigIpTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | createF5BigIpTargetResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="createGKETarget"></a>
@@ -26260,6 +26326,67 @@ No authorization required
 | **200** | rotatedSecretCreateDockerhubResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="rotatedSecretCreateF5BigIp"></a>
+# **rotatedSecretCreateF5BigIp**
+> RotatedSecretCreateOutput rotatedSecretCreateF5BigIp(rotatedSecretCreateF5BigIp)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretCreateF5BigIp rotatedSecretCreateF5BigIp = new RotatedSecretCreateF5BigIp(); // RotatedSecretCreateF5BigIp | 
+    try {
+      RotatedSecretCreateOutput result = apiInstance.rotatedSecretCreateF5BigIp(rotatedSecretCreateF5BigIp);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretCreateF5BigIp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretCreateF5BigIp** | [**RotatedSecretCreateF5BigIp**](RotatedSecretCreateF5BigIp.md)|  | |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | rotatedSecretCreateF5BigIpResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="rotatedSecretCreateGcp"></a>
 # **rotatedSecretCreateGcp**
 > RotatedSecretCreateOutput rotatedSecretCreateGcp(rotatedSecretCreateGcp)
@@ -30468,6 +30595,67 @@ No authorization required
 | **201** | targetCreateEksResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="targetCreateF5BigIp"></a>
+# **targetCreateF5BigIp**
+> TargetCreateOutput targetCreateF5BigIp(targetCreateF5BigIp)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateF5BigIp targetCreateF5BigIp = new TargetCreateF5BigIp(); // TargetCreateF5BigIp | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateF5BigIp(targetCreateF5BigIp);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateF5BigIp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateF5BigIp** | [**TargetCreateF5BigIp**](TargetCreateF5BigIp.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateF5BigIpResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="targetCreateGcp"></a>
 # **targetCreateGcp**
 > TargetCreateOutput targetCreateGcp(targetCreateGcp)
@@ -33089,6 +33277,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetUpdateEksResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetUpdateF5BigIp"></a>
+# **targetUpdateF5BigIp**
+> TargetUpdateOutput targetUpdateF5BigIp(targetUpdateF5BigIp)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateF5BigIp targetUpdateF5BigIp = new TargetUpdateF5BigIp(); // TargetUpdateF5BigIp | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateF5BigIp(targetUpdateF5BigIp);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateF5BigIp");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateF5BigIp** | [**TargetUpdateF5BigIp**](TargetUpdateF5BigIp.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateF5BigIpResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetUpdateGcp"></a>
@@ -36810,6 +37059,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | updateEventForwarderResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="updateF5BigIpTarget"></a>
+# **updateF5BigIpTarget**
+> UpdateF5BigIpTargetOutput updateF5BigIpTarget(updateF5BigIpTarget)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    UpdateF5BigIpTarget updateF5BigIpTarget = new UpdateF5BigIpTarget(); // UpdateF5BigIpTarget | 
+    try {
+      UpdateF5BigIpTargetOutput result = apiInstance.updateF5BigIpTarget(updateF5BigIpTarget);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#updateF5BigIpTarget");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateF5BigIpTarget** | [**UpdateF5BigIpTarget**](UpdateF5BigIpTarget.md)|  | |
+
+### Return type
+
+[**UpdateF5BigIpTargetOutput**](UpdateF5BigIpTargetOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | updateF5BigIpTargetResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="updateGKETarget"></a>

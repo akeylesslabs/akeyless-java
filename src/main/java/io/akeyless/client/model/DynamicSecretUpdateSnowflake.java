@@ -69,6 +69,11 @@ public class DynamicSecretUpdateSnowflake {
   @javax.annotation.Nullable
   private String accountUsername;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTH_MODE = "auth-mode";
   @SerializedName(SERIALIZED_NAME_AUTH_MODE)
   @javax.annotation.Nullable
@@ -261,6 +266,25 @@ public class DynamicSecretUpdateSnowflake {
 
   public void setAccountUsername(@javax.annotation.Nullable String accountUsername) {
     this.accountUsername = accountUsername;
+  }
+
+
+  public DynamicSecretUpdateSnowflake araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -822,6 +846,7 @@ public class DynamicSecretUpdateSnowflake {
     return Objects.equals(this.account, dynamicSecretUpdateSnowflake.account) &&
         Objects.equals(this.accountPassword, dynamicSecretUpdateSnowflake.accountPassword) &&
         Objects.equals(this.accountUsername, dynamicSecretUpdateSnowflake.accountUsername) &&
+        Objects.equals(this.araEnabled, dynamicSecretUpdateSnowflake.araEnabled) &&
         Objects.equals(this.authMode, dynamicSecretUpdateSnowflake.authMode) &&
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateSnowflake.customUsernameTemplate) &&
         Objects.equals(this.dbName, dynamicSecretUpdateSnowflake.dbName) &&
@@ -853,7 +878,7 @@ public class DynamicSecretUpdateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, authMode, customUsernameTemplate, dbName, deleteProtection, description, inputRule, itemCustomFields, json, keyAlgo, name, newName, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, araEnabled, authMode, customUsernameTemplate, dbName, deleteProtection, description, inputRule, itemCustomFields, json, keyAlgo, name, newName, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
   }
 
   @Override
@@ -863,6 +888,7 @@ public class DynamicSecretUpdateSnowflake {
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("    accountPassword: ").append(toIndentedString(accountPassword)).append("\n");
     sb.append("    accountUsername: ").append(toIndentedString(accountUsername)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    authMode: ").append(toIndentedString(authMode)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
@@ -908,7 +934,7 @@ public class DynamicSecretUpdateSnowflake {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "auth-mode", "custom-username-template", "db-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key-algo", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
+    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "ara-enabled", "auth-mode", "custom-username-template", "db-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key-algo", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

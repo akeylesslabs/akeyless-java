@@ -10,6 +10,7 @@ gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use
 |------------ | ------------- | ------------- | -------------|
 |**providerType** | **String** |  |  [optional] |
 |**allowUserExtendSession** | **Long** | AllowUserExtendSession |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (relevant only for fixed-user-only&#x3D;true) |  [optional] |

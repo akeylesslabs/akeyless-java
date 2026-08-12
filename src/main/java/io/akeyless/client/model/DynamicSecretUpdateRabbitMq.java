@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretUpdateRabbitMq {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -221,6 +226,25 @@ public class DynamicSecretUpdateRabbitMq {
 
   public DynamicSecretUpdateRabbitMq() {
   }
+
+  public DynamicSecretUpdateRabbitMq araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretUpdateRabbitMq deleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -891,7 +915,8 @@ public class DynamicSecretUpdateRabbitMq {
       return false;
     }
     DynamicSecretUpdateRabbitMq dynamicSecretUpdateRabbitMq = (DynamicSecretUpdateRabbitMq) o;
-    return Objects.equals(this.deleteProtection, dynamicSecretUpdateRabbitMq.deleteProtection) &&
+    return Objects.equals(this.araEnabled, dynamicSecretUpdateRabbitMq.araEnabled) &&
+        Objects.equals(this.deleteProtection, dynamicSecretUpdateRabbitMq.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateRabbitMq.description) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateRabbitMq.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateRabbitMq.itemCustomFields) &&
@@ -928,13 +953,14 @@ public class DynamicSecretUpdateRabbitMq {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rabbitmqAdminPwd, rabbitmqAdminUser, rabbitmqServerUri, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateRabbitMq {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -986,7 +1012,7 @@ public class DynamicSecretUpdateRabbitMq {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rabbitmq-admin-pwd", "rabbitmq-admin-user", "rabbitmq-server-uri", "rabbitmq-user-conf-permission", "rabbitmq-user-read-permission", "rabbitmq-user-tags", "rabbitmq-user-vhost", "rabbitmq-user-write-permission", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rabbitmq-admin-pwd", "rabbitmq-admin-user", "rabbitmq-server-uri", "rabbitmq-user-conf-permission", "rabbitmq-user-read-permission", "rabbitmq-user-tags", "rabbitmq-user-vhost", "rabbitmq-user-write-permission", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

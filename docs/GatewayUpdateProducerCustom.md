@@ -9,6 +9,7 @@ gatewayUpdateProducerCustom is a command that updates a custom producer. [Deprec
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**adminRotationIntervalDays** | **Long** | Define rotation interval in days |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**createSyncUrl** | **String** | URL of an endpoint that implements /sync/create method, for example https://webhook.example.com/sync/create |  |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**enableAdminRotation** | **Boolean** | Should admin credentials be rotated |  [optional] |

@@ -8,6 +8,7 @@ dynamicSecretCreateCassandra is a command that creates a Cassandra dynamic secre
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**cassandraCreationStatements** | **String** | Cassandra creation statements |  [optional] |
 |**cassandraHosts** | **String** | Cassandra hosts IP or addresses, comma separated |  [optional] |
 |**cassandraPassword** | **String** | Cassandra superuser password |  [optional] |

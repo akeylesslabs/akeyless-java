@@ -191,6 +191,8 @@ docs/CreateESM.md
 docs/CreateESMOutput.md
 docs/CreateEventForwarder.md
 docs/CreateEventForwarderOutput.md
+docs/CreateF5BigIpTarget.md
+docs/CreateF5BigIpTargetOutput.md
 docs/CreateGKETarget.md
 docs/CreateGKETargetOutput.md
 docs/CreateGcpTarget.md
@@ -431,6 +433,7 @@ docs/ExportClassicKey.md
 docs/ExportClassicKeyOutput.md
 docs/Extension.md
 docs/ExternalKMSKeyId.md
+docs/F5BigIpTargetDetails.md
 docs/FileDownloadInstructions.md
 docs/FileInfo.md
 docs/FolderCreate.md
@@ -888,6 +891,7 @@ docs/RotatedSecretCreateAzure.md
 docs/RotatedSecretCreateCassandra.md
 docs/RotatedSecretCreateCustom.md
 docs/RotatedSecretCreateDockerhub.md
+docs/RotatedSecretCreateF5BigIp.md
 docs/RotatedSecretCreateGcp.md
 docs/RotatedSecretCreateHanadb.md
 docs/RotatedSecretCreateHashiVault.md
@@ -1010,6 +1014,7 @@ docs/TargetCreateDB.md
 docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
 docs/TargetCreateEks.md
+docs/TargetCreateF5BigIp.md
 docs/TargetCreateGcp.md
 docs/TargetCreateGemini.md
 docs/TargetCreateGithub.md
@@ -1059,6 +1064,7 @@ docs/TargetUpdateDB.md
 docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
 docs/TargetUpdateEks.md
+docs/TargetUpdateF5BigIp.md
 docs/TargetUpdateGcp.md
 docs/TargetUpdateGemini.md
 docs/TargetUpdateGithub.md
@@ -1146,6 +1152,8 @@ docs/UpdateDockerhubTargetOutput.md
 docs/UpdateEKSTarget.md
 docs/UpdateEKSTargetOutput.md
 docs/UpdateEventForwarder.md
+docs/UpdateF5BigIpTarget.md
+docs/UpdateF5BigIpTargetOutput.md
 docs/UpdateGKETarget.md
 docs/UpdateGKETargetOutput.md
 docs/UpdateGcpTarget.md
@@ -1466,6 +1474,8 @@ src/main/java/io/akeyless/client/model/CreateESM.java
 src/main/java/io/akeyless/client/model/CreateESMOutput.java
 src/main/java/io/akeyless/client/model/CreateEventForwarder.java
 src/main/java/io/akeyless/client/model/CreateEventForwarderOutput.java
+src/main/java/io/akeyless/client/model/CreateF5BigIpTarget.java
+src/main/java/io/akeyless/client/model/CreateF5BigIpTargetOutput.java
 src/main/java/io/akeyless/client/model/CreateGKETarget.java
 src/main/java/io/akeyless/client/model/CreateGKETargetOutput.java
 src/main/java/io/akeyless/client/model/CreateGcpTarget.java
@@ -1706,6 +1716,7 @@ src/main/java/io/akeyless/client/model/ExportClassicKey.java
 src/main/java/io/akeyless/client/model/ExportClassicKeyOutput.java
 src/main/java/io/akeyless/client/model/Extension.java
 src/main/java/io/akeyless/client/model/ExternalKMSKeyId.java
+src/main/java/io/akeyless/client/model/F5BigIpTargetDetails.java
 src/main/java/io/akeyless/client/model/FileDownloadInstructions.java
 src/main/java/io/akeyless/client/model/FileInfo.java
 src/main/java/io/akeyless/client/model/FolderCreate.java
@@ -2163,6 +2174,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreateAzure.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateCassandra.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateCustom.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateDockerhub.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateF5BigIp.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateGcp.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateHanadb.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateHashiVault.java
@@ -2285,6 +2297,7 @@ src/main/java/io/akeyless/client/model/TargetCreateDB.java
 src/main/java/io/akeyless/client/model/TargetCreateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetCreateDockerhub.java
 src/main/java/io/akeyless/client/model/TargetCreateEks.java
+src/main/java/io/akeyless/client/model/TargetCreateF5BigIp.java
 src/main/java/io/akeyless/client/model/TargetCreateGcp.java
 src/main/java/io/akeyless/client/model/TargetCreateGemini.java
 src/main/java/io/akeyless/client/model/TargetCreateGithub.java
@@ -2334,6 +2347,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateDB.java
 src/main/java/io/akeyless/client/model/TargetUpdateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetUpdateDockerhub.java
 src/main/java/io/akeyless/client/model/TargetUpdateEks.java
+src/main/java/io/akeyless/client/model/TargetUpdateF5BigIp.java
 src/main/java/io/akeyless/client/model/TargetUpdateGcp.java
 src/main/java/io/akeyless/client/model/TargetUpdateGemini.java
 src/main/java/io/akeyless/client/model/TargetUpdateGithub.java
@@ -2421,6 +2435,8 @@ src/main/java/io/akeyless/client/model/UpdateDockerhubTargetOutput.java
 src/main/java/io/akeyless/client/model/UpdateEKSTarget.java
 src/main/java/io/akeyless/client/model/UpdateEKSTargetOutput.java
 src/main/java/io/akeyless/client/model/UpdateEventForwarder.java
+src/main/java/io/akeyless/client/model/UpdateF5BigIpTarget.java
+src/main/java/io/akeyless/client/model/UpdateF5BigIpTargetOutput.java
 src/main/java/io/akeyless/client/model/UpdateGKETarget.java
 src/main/java/io/akeyless/client/model/UpdateGKETargetOutput.java
 src/main/java/io/akeyless/client/model/UpdateGcpTarget.java
@@ -2526,8 +2542,11 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/DynamicSecretCreateAerospikeTest.java
-src/test/java/io/akeyless/client/model/DynamicSecretUpdateAerospikeTest.java
-src/test/java/io/akeyless/client/model/KMIPCATest.java
-src/test/java/io/akeyless/client/model/RotatedSecretCreateAerospikeTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretUpdateAerospikeTest.java
+src/test/java/io/akeyless/client/model/CreateF5BigIpTargetOutputTest.java
+src/test/java/io/akeyless/client/model/CreateF5BigIpTargetTest.java
+src/test/java/io/akeyless/client/model/F5BigIpTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateF5BigIpTest.java
+src/test/java/io/akeyless/client/model/TargetCreateF5BigIpTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateF5BigIpTest.java
+src/test/java/io/akeyless/client/model/UpdateF5BigIpTargetOutputTest.java
+src/test/java/io/akeyless/client/model/UpdateF5BigIpTargetTest.java

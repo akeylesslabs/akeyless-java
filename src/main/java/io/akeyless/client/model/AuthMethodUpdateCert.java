@@ -691,7 +691,7 @@ public class AuthMethodUpdateCert {
   }
 
   /**
-   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca]
+   * Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara]
    * @return productType
    */
   @javax.annotation.Nullable

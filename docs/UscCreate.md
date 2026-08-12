@@ -10,6 +10,7 @@ uscCreate is a command that creates a new secret in a Universal Secrets Connecto
 |------------ | ------------- | ------------- | -------------|
 |**binaryValue** | **Boolean** | Use this option if the universal secrets value is a base64 encoded binary |  [optional] |
 |**description** | **String** | Description of the universal secrets |  [optional] |
+|**gcpProjectId** | **String** | The GCP project to create the secret in (GCP only). Required when the connector spans multiple projects or uses folder/organization scope. |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**namespace** | **String** | The namespace (relevant for Hashi vault target) |  [optional] |
 |**objectType** | **String** |  |  [optional] |

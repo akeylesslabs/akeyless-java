@@ -9,6 +9,7 @@ gatewayCreateProducerLdap is a command that creates ldap producer [Deprecated: U
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**providerType** | **String** |  |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**bindDn** | **String** | Bind DN |  [optional] |
 |**bindDnPassword** | **String** | Bind DN Password |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |

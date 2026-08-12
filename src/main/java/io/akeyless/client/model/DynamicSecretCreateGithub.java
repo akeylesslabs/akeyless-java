@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretCreateGithub {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -161,6 +166,25 @@ public class DynamicSecretCreateGithub {
 
   public DynamicSecretCreateGithub() {
   }
+
+  public DynamicSecretCreateGithub araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretCreateGithub deleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
@@ -619,7 +643,8 @@ public class DynamicSecretCreateGithub {
       return false;
     }
     DynamicSecretCreateGithub dynamicSecretCreateGithub = (DynamicSecretCreateGithub) o;
-    return Objects.equals(this.deleteProtection, dynamicSecretCreateGithub.deleteProtection) &&
+    return Objects.equals(this.araEnabled, dynamicSecretCreateGithub.araEnabled) &&
+        Objects.equals(this.deleteProtection, dynamicSecretCreateGithub.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateGithub.description) &&
         Objects.equals(this.githubAppId, dynamicSecretCreateGithub.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, dynamicSecretCreateGithub.githubAppPrivateKey) &&
@@ -644,13 +669,14 @@ public class DynamicSecretCreateGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, outputRule, skipDryRun, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
+    return Objects.hash(araEnabled, deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, outputRule, skipDryRun, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateGithub {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
@@ -690,7 +716,7 @@ public class DynamicSecretCreateGithub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

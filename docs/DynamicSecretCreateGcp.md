@@ -9,6 +9,7 @@ dynamicSecretCreateGcp is a command that creates a GCP dynamic secret
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**accessType** | **String** |  |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |

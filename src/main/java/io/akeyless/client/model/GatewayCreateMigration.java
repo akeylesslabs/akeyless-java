@@ -247,6 +247,11 @@ public class GatewayCreateMigration {
   @javax.annotation.Nullable
   private Boolean deleteRemote;
 
+  public static final String SERIALIZED_NAME_ENABLE_PASSWORD_POLICY = "enable-password-policy";
+  @SerializedName(SERIALIZED_NAME_ENABLE_PASSWORD_POLICY)
+  @javax.annotation.Nullable
+  private String enablePasswordPolicy = "false";
+
   public static final String SERIALIZED_NAME_EXCLUDE_HOSTS = "exclude-hosts";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_HOSTS)
   @javax.annotation.Nullable
@@ -352,6 +357,11 @@ public class GatewayCreateMigration {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_PASSWORD_LENGTH = "password-length";
+  @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
+  @javax.annotation.Nullable
+  private String passwordLength;
+
   public static final String SERIALIZED_NAME_PORT_RANGES = "port-ranges";
   @SerializedName(SERIALIZED_NAME_PORT_RANGES)
   @javax.annotation.Nullable
@@ -401,6 +411,11 @@ public class GatewayCreateMigration {
   @SerializedName(SERIALIZED_NAME_SI_USERS_PATH_TEMPLATE)
   @javax.annotation.Nonnull
   private String siUsersPathTemplate;
+
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private String skipDryRun = "false";
 
   public static final String SERIALIZED_NAME_TARGET_LOCATION = "target-location";
   @SerializedName(SERIALIZED_NAME_TARGET_LOCATION)
@@ -1197,6 +1212,25 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration enablePasswordPolicy(@javax.annotation.Nullable String enablePasswordPolicy) {
+    this.enablePasswordPolicy = enablePasswordPolicy;
+    return this;
+  }
+
+  /**
+   * Enable password policy for rotated secrets created for Local and Domain users (Relevant only for Active Directory migration)
+   * @return enablePasswordPolicy
+   */
+  @javax.annotation.Nullable
+  public String getEnablePasswordPolicy() {
+    return enablePasswordPolicy;
+  }
+
+  public void setEnablePasswordPolicy(@javax.annotation.Nullable String enablePasswordPolicy) {
+    this.enablePasswordPolicy = enablePasswordPolicy;
+  }
+
+
   public GatewayCreateMigration excludeHosts(@javax.annotation.Nullable String excludeHosts) {
     this.excludeHosts = excludeHosts;
     return this;
@@ -1636,6 +1670,25 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration passwordLength(@javax.annotation.Nullable String passwordLength) {
+    this.passwordLength = passwordLength;
+    return this;
+  }
+
+  /**
+   * The length of the password to be generated (between 8 and 50). Relevant only for Active Directory migration when enable-password-policy is true.
+   * @return passwordLength
+   */
+  @javax.annotation.Nullable
+  public String getPasswordLength() {
+    return passwordLength;
+  }
+
+  public void setPasswordLength(@javax.annotation.Nullable String passwordLength) {
+    this.passwordLength = passwordLength;
+  }
+
+
   public GatewayCreateMigration portRanges(@javax.annotation.Nullable String portRanges) {
     this.portRanges = portRanges;
     return this;
@@ -1826,6 +1879,25 @@ public class GatewayCreateMigration {
   }
 
 
+  public GatewayCreateMigration skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * Skip dry-run validation for rotated secrets created for Local and Domain users (Relevant only for Active Directory migration)
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public String getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public GatewayCreateMigration targetLocation(@javax.annotation.Nonnull String targetLocation) {
     this.targetLocation = targetLocation;
     return this;
@@ -2008,6 +2080,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.conjurUrl, gatewayCreateMigration.conjurUrl) &&
         Objects.equals(this.conjurUsername, gatewayCreateMigration.conjurUsername) &&
         Objects.equals(this.deleteRemote, gatewayCreateMigration.deleteRemote) &&
+        Objects.equals(this.enablePasswordPolicy, gatewayCreateMigration.enablePasswordPolicy) &&
         Objects.equals(this.excludeHosts, gatewayCreateMigration.excludeHosts) &&
         Objects.equals(this.expirationEventIn, gatewayCreateMigration.expirationEventIn) &&
         Objects.equals(this.gcpKey, gatewayCreateMigration.gcpKey) &&
@@ -2029,6 +2102,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.k8sUrl, gatewayCreateMigration.k8sUrl) &&
         Objects.equals(this.k8sUsername, gatewayCreateMigration.k8sUsername) &&
         Objects.equals(this.name, gatewayCreateMigration.name) &&
+        Objects.equals(this.passwordLength, gatewayCreateMigration.passwordLength) &&
         Objects.equals(this.portRanges, gatewayCreateMigration.portRanges) &&
         Objects.equals(this.protectionKey, gatewayCreateMigration.protectionKey) &&
         Objects.equals(this.siAutoRotate, gatewayCreateMigration.siAutoRotate) &&
@@ -2039,6 +2113,7 @@ public class GatewayCreateMigration {
         Objects.equals(this.siUserGroups, gatewayCreateMigration.siUserGroups) &&
         Objects.equals(this.siUsersIgnore, gatewayCreateMigration.siUsersIgnore) &&
         Objects.equals(this.siUsersPathTemplate, gatewayCreateMigration.siUsersPathTemplate) &&
+        Objects.equals(this.skipDryRun, gatewayCreateMigration.skipDryRun) &&
         Objects.equals(this.targetLocation, gatewayCreateMigration.targetLocation) &&
         Objects.equals(this.targetName, gatewayCreateMigration.targetName) &&
         Objects.equals(this.token, gatewayCreateMigration.token) &&
@@ -2050,7 +2125,7 @@ public class GatewayCreateMigration {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, excludeHosts, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiMetadataMode, hashiNs, hashiToken, hashiUrl, hosts, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, targetLocation, targetName, token, type, uidToken, uscName, useGwCloudIdentity);
+    return Objects.hash(serviceAccountKeyDecoded, adAutoRotate, adCertExpirationEventIn, adCertificatesPathTemplate, adComputerBaseDn, adDiscoverIisApp, adDiscoverServices, adDiscoveryTypes, adDomainName, adDomainUsersPathTemplate, adLocalUsersIgnore, adLocalUsersPathTemplate, adOsFilter, adRotationHour, adRotationInterval, adSraEnableRdp, adSshPort, adTargetFormat, adTargetName, adTargetsPathTemplate, adTargetsType, adUserBaseDn, adUserGroups, adWinrmOverHttp, adWinrmPort, adDiscoverLocalUsers, aiCertificateDiscovery, awsKey, awsKeyId, awsRegion, azureClientId, azureKvName, azureSecret, azureTenantId, conjurAccount, conjurApiKey, conjurUrl, conjurUsername, deleteRemote, enablePasswordPolicy, excludeHosts, expirationEventIn, gcpKey, gcpProjectId, hashiJson, hashiMetadataMode, hashiNs, hashiToken, hashiUrl, hosts, json, k8sCaCertificate, k8sClientCertificate, k8sClientKey, k8sNamespace, k8sPassword, k8sSkipSystem, k8sToken, k8sUrl, k8sUsername, name, passwordLength, portRanges, protectionKey, siAutoRotate, siRotationHour, siRotationInterval, siSraEnableRdp, siTargetName, siUserGroups, siUsersIgnore, siUsersPathTemplate, skipDryRun, targetLocation, targetName, token, type, uidToken, uscName, useGwCloudIdentity);
   }
 
   @Override
@@ -2096,6 +2171,7 @@ public class GatewayCreateMigration {
     sb.append("    conjurUrl: ").append(toIndentedString(conjurUrl)).append("\n");
     sb.append("    conjurUsername: ").append(toIndentedString(conjurUsername)).append("\n");
     sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
+    sb.append("    enablePasswordPolicy: ").append(toIndentedString(enablePasswordPolicy)).append("\n");
     sb.append("    excludeHosts: ").append(toIndentedString(excludeHosts)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
@@ -2117,6 +2193,7 @@ public class GatewayCreateMigration {
     sb.append("    k8sUrl: ").append(toIndentedString(k8sUrl)).append("\n");
     sb.append("    k8sUsername: ").append(toIndentedString(k8sUsername)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    portRanges: ").append(toIndentedString(portRanges)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
     sb.append("    siAutoRotate: ").append(toIndentedString(siAutoRotate)).append("\n");
@@ -2127,6 +2204,7 @@ public class GatewayCreateMigration {
     sb.append("    siUserGroups: ").append(toIndentedString(siUserGroups)).append("\n");
     sb.append("    siUsersIgnore: ").append(toIndentedString(siUsersIgnore)).append("\n");
     sb.append("    siUsersPathTemplate: ").append(toIndentedString(siUsersPathTemplate)).append("\n");
+    sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    targetLocation: ").append(toIndentedString(targetLocation)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -2152,7 +2230,7 @@ public class GatewayCreateMigration {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ServiceAccountKeyDecoded", "ad-auto-rotate", "ad-cert-expiration-event-in", "ad-certificates-path-template", "ad-computer-base-dn", "ad-discover-iis-app", "ad-discover-services", "ad-discovery-types", "ad-domain-name", "ad-domain-users-path-template", "ad-local-users-ignore", "ad-local-users-path-template", "ad-os-filter", "ad-rotation-hour", "ad-rotation-interval", "ad-sra-enable-rdp", "ad-ssh-port", "ad-target-format", "ad-target-name", "ad-targets-path-template", "ad-targets-type", "ad-user-base-dn", "ad-user-groups", "ad-winrm-over-http", "ad-winrm-port", "ad_discover_local_users", "ai-certificate-discovery", "aws-key", "aws-key-id", "aws-region", "azure-client-id", "azure-kv-name", "azure-secret", "azure-tenant-id", "conjur-account", "conjur-api-key", "conjur-url", "conjur-username", "delete-remote", "exclude-hosts", "expiration-event-in", "gcp-key", "gcp-project-id", "hashi-json", "hashi-metadata-mode", "hashi-ns", "hashi-token", "hashi-url", "hosts", "json", "k8s-ca-certificate", "k8s-client-certificate", "k8s-client-key", "k8s-namespace", "k8s-password", "k8s-skip-system", "k8s-token", "k8s-url", "k8s-username", "name", "port-ranges", "protection-key", "si-auto-rotate", "si-rotation-hour", "si-rotation-interval", "si-sra-enable-rdp", "si-target-name", "si-user-groups", "si-users-ignore", "si-users-path-template", "target-location", "target-name", "token", "type", "uid-token", "usc-name", "use-gw-cloud-identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("ServiceAccountKeyDecoded", "ad-auto-rotate", "ad-cert-expiration-event-in", "ad-certificates-path-template", "ad-computer-base-dn", "ad-discover-iis-app", "ad-discover-services", "ad-discovery-types", "ad-domain-name", "ad-domain-users-path-template", "ad-local-users-ignore", "ad-local-users-path-template", "ad-os-filter", "ad-rotation-hour", "ad-rotation-interval", "ad-sra-enable-rdp", "ad-ssh-port", "ad-target-format", "ad-target-name", "ad-targets-path-template", "ad-targets-type", "ad-user-base-dn", "ad-user-groups", "ad-winrm-over-http", "ad-winrm-port", "ad_discover_local_users", "ai-certificate-discovery", "aws-key", "aws-key-id", "aws-region", "azure-client-id", "azure-kv-name", "azure-secret", "azure-tenant-id", "conjur-account", "conjur-api-key", "conjur-url", "conjur-username", "delete-remote", "enable-password-policy", "exclude-hosts", "expiration-event-in", "gcp-key", "gcp-project-id", "hashi-json", "hashi-metadata-mode", "hashi-ns", "hashi-token", "hashi-url", "hosts", "json", "k8s-ca-certificate", "k8s-client-certificate", "k8s-client-key", "k8s-namespace", "k8s-password", "k8s-skip-system", "k8s-token", "k8s-url", "k8s-username", "name", "password-length", "port-ranges", "protection-key", "si-auto-rotate", "si-rotation-hour", "si-rotation-interval", "si-sra-enable-rdp", "si-target-name", "si-user-groups", "si-users-ignore", "si-users-path-template", "skip-dry-run", "target-location", "target-name", "token", "type", "uid-token", "usc-name", "use-gw-cloud-identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("hosts", "name", "si-target-name", "si-users-path-template", "target-location"));
@@ -2296,6 +2374,9 @@ public class GatewayCreateMigration {
       if ((jsonObj.get("conjur-username") != null && !jsonObj.get("conjur-username").isJsonNull()) && !jsonObj.get("conjur-username").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `conjur-username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conjur-username").toString()));
       }
+      if ((jsonObj.get("enable-password-policy") != null && !jsonObj.get("enable-password-policy").isJsonNull()) && !jsonObj.get("enable-password-policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-password-policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-password-policy").toString()));
+      }
       if ((jsonObj.get("exclude-hosts") != null && !jsonObj.get("exclude-hosts").isJsonNull()) && !jsonObj.get("exclude-hosts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `exclude-hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("exclude-hosts").toString()));
       }
@@ -2358,6 +2439,9 @@ public class GatewayCreateMigration {
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
+      if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+      }
       if ((jsonObj.get("port-ranges") != null && !jsonObj.get("port-ranges").isJsonNull()) && !jsonObj.get("port-ranges").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port-ranges` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port-ranges").toString()));
       }
@@ -2381,6 +2465,9 @@ public class GatewayCreateMigration {
       }
       if (!jsonObj.get("si-users-path-template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `si-users-path-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("si-users-path-template").toString()));
+      }
+      if ((jsonObj.get("skip-dry-run") != null && !jsonObj.get("skip-dry-run").isJsonNull()) && !jsonObj.get("skip-dry-run").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip-dry-run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip-dry-run").toString()));
       }
       if (!jsonObj.get("target-location").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target-location` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target-location").toString()));

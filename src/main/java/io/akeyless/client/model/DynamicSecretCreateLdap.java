@@ -59,6 +59,11 @@ public class DynamicSecretCreateLdap {
   @javax.annotation.Nullable
   private String providerType;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_BIND_DN = "bind-dn";
   @SerializedName(SERIALIZED_NAME_BIND_DN)
   @javax.annotation.Nullable
@@ -278,6 +283,25 @@ public class DynamicSecretCreateLdap {
 
   public void setProviderType(@javax.annotation.Nullable String providerType) {
     this.providerType = providerType;
+  }
+
+
+  public DynamicSecretCreateLdap araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1100,6 +1124,7 @@ public class DynamicSecretCreateLdap {
     }
     DynamicSecretCreateLdap dynamicSecretCreateLdap = (DynamicSecretCreateLdap) o;
     return Objects.equals(this.providerType, dynamicSecretCreateLdap.providerType) &&
+        Objects.equals(this.araEnabled, dynamicSecretCreateLdap.araEnabled) &&
         Objects.equals(this.bindDn, dynamicSecretCreateLdap.bindDn) &&
         Objects.equals(this.bindDnPassword, dynamicSecretCreateLdap.bindDnPassword) &&
         Objects.equals(this.customUsernameTemplate, dynamicSecretCreateLdap.customUsernameTemplate) &&
@@ -1144,7 +1169,7 @@ public class DynamicSecretCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, skipDryRun, tags, target, targetName, token, tokenExpiration, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, araEnabled, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, skipDryRun, tags, target, targetName, token, tokenExpiration, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -1152,6 +1177,7 @@ public class DynamicSecretCreateLdap {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretCreateLdap {\n");
     sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    bindDn: ").append(toIndentedString(bindDn)).append("\n");
     sb.append("    bindDnPassword: ").append(toIndentedString(bindDnPassword)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
@@ -1210,7 +1236,7 @@ public class DynamicSecretCreateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "bind-dn", "bind-dn-password", "custom-username-template", "delete_protection", "description", "external-username", "fixed-user-claim-keyname", "group-dn", "host-provider", "input-rule", "item-custom-fields", "json", "ldap-ca-cert", "ldap-url", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "skip_dry_run", "tags", "target", "target-name", "token", "token-expiration", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "bind-dn", "bind-dn-password", "custom-username-template", "delete_protection", "description", "external-username", "fixed-user-claim-keyname", "group-dn", "host-provider", "input-rule", "item-custom-fields", "json", "ldap-ca-cert", "ldap-url", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "skip_dry_run", "tags", "target", "target-name", "token", "token-expiration", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -64,6 +64,11 @@ public class RotatedSecretUpdateCustom {
   @javax.annotation.Nullable
   private List<String> addTag = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -335,6 +340,25 @@ public class RotatedSecretUpdateCustom {
 
   public void setAddTag(@javax.annotation.Nullable List<String> addTag) {
     this.addTag = addTag;
+  }
+
+
+  public RotatedSecretUpdateCustom araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1261,6 +1285,7 @@ public class RotatedSecretUpdateCustom {
     RotatedSecretUpdateCustom rotatedSecretUpdateCustom = (RotatedSecretUpdateCustom) o;
     return Objects.equals(this.providerType, rotatedSecretUpdateCustom.providerType) &&
         Objects.equals(this.addTag, rotatedSecretUpdateCustom.addTag) &&
+        Objects.equals(this.araEnabled, rotatedSecretUpdateCustom.araEnabled) &&
         Objects.equals(this.authenticationCredentials, rotatedSecretUpdateCustom.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretUpdateCustom.autoRotate) &&
         Objects.equals(this.customPayload, rotatedSecretUpdateCustom.customPayload) &&
@@ -1310,7 +1335,7 @@ public class RotatedSecretUpdateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, addTag, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, enablePasswordPolicy, hostProvider, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, target, timeoutSec, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(providerType, addTag, araEnabled, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, enablePasswordPolicy, hostProvider, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, target, timeoutSec, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1319,6 +1344,7 @@ public class RotatedSecretUpdateCustom {
     sb.append("class RotatedSecretUpdateCustom {\n");
     sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
@@ -1382,7 +1408,7 @@ public class RotatedSecretUpdateCustom {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "authentication-credentials", "auto-rotate", "custom-payload", "delete_protection", "description", "enable-password-policy", "host-provider", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "target", "timeout-sec", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "custom-payload", "delete_protection", "description", "enable-password-policy", "host-provider", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "target", "timeout-sec", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

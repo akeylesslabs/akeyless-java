@@ -57,6 +57,11 @@ public class CreateMcpSecretOAuthAuthCode {
   @javax.annotation.Nullable
   private String accessibility = "regular";
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -171,6 +176,25 @@ public class CreateMcpSecretOAuthAuthCode {
 
   public void setAccessibility(@javax.annotation.Nullable String accessibility) {
     this.accessibility = accessibility;
+  }
+
+
+  public CreateMcpSecretOAuthAuthCode araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -578,6 +602,7 @@ public class CreateMcpSecretOAuthAuthCode {
     }
     CreateMcpSecretOAuthAuthCode createMcpSecretOAuthAuthCode = (CreateMcpSecretOAuthAuthCode) o;
     return Objects.equals(this.accessibility, createMcpSecretOAuthAuthCode.accessibility) &&
+        Objects.equals(this.araEnabled, createMcpSecretOAuthAuthCode.araEnabled) &&
         Objects.equals(this.deleteProtection, createMcpSecretOAuthAuthCode.deleteProtection) &&
         Objects.equals(this.description, createMcpSecretOAuthAuthCode.description) &&
         Objects.equals(this.inputRule, createMcpSecretOAuthAuthCode.inputRule) &&
@@ -601,7 +626,7 @@ public class CreateMcpSecretOAuthAuthCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, deleteProtection, description, inputRule, json, maxVersions, metadata, name, oauthClientId, oauthClientSecret, oauthRedirectUri, oauthRefreshToken, oauthScopes, oauthTokenUrl, outputRule, protectionKey, tags, token, uidToken, url);
+    return Objects.hash(accessibility, araEnabled, deleteProtection, description, inputRule, json, maxVersions, metadata, name, oauthClientId, oauthClientSecret, oauthRedirectUri, oauthRefreshToken, oauthScopes, oauthTokenUrl, outputRule, protectionKey, tags, token, uidToken, url);
   }
 
   @Override
@@ -609,6 +634,7 @@ public class CreateMcpSecretOAuthAuthCode {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateMcpSecretOAuthAuthCode {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -646,7 +672,7 @@ public class CreateMcpSecretOAuthAuthCode {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "delete_protection", "description", "input-rule", "json", "max-versions", "metadata", "name", "oauth-client-id", "oauth-client-secret", "oauth-redirect-uri", "oauth-refresh-token", "oauth-scopes", "oauth-token-url", "output-rule", "protection_key", "tags", "token", "uid-token", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "ara-enabled", "delete_protection", "description", "input-rule", "json", "max-versions", "metadata", "name", "oauth-client-id", "oauth-client-secret", "oauth-redirect-uri", "oauth-refresh-token", "oauth-scopes", "oauth-token-url", "output-rule", "protection_key", "tags", "token", "uid-token", "url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

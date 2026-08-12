@@ -8,6 +8,7 @@ dynamicSecretUpdateChef is a command that updates chef dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**chefOrgs** | **String** | Organizations |  [optional] |
 |**chefServerKey** | **String** | Server key |  [optional] |
 |**chefServerUrl** | **String** | Server URL |  [optional] |

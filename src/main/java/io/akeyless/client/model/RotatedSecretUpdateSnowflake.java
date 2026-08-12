@@ -59,6 +59,11 @@ public class RotatedSecretUpdateSnowflake {
   @javax.annotation.Nullable
   private List<String> addTag = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -169,6 +174,11 @@ public class RotatedSecretUpdateSnowflake {
   @javax.annotation.Nullable
   private String rotationInterval;
 
+  public static final String SERIALIZED_NAME_ROTATION_STATEMENT = "rotation-statement";
+  @SerializedName(SERIALIZED_NAME_ROTATION_STATEMENT)
+  @javax.annotation.Nullable
+  private String rotationStatement;
+
   public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
@@ -231,6 +241,25 @@ public class RotatedSecretUpdateSnowflake {
 
   public void setAddTag(@javax.annotation.Nullable List<String> addTag) {
     this.addTag = addTag;
+  }
+
+
+  public RotatedSecretUpdateSnowflake araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -692,6 +721,25 @@ public class RotatedSecretUpdateSnowflake {
   }
 
 
+  public RotatedSecretUpdateSnowflake rotationStatement(@javax.annotation.Nullable String rotationStatement) {
+    this.rotationStatement = rotationStatement;
+    return this;
+  }
+
+  /**
+   * Snowflake rotation statement
+   * @return rotationStatement
+   */
+  @javax.annotation.Nullable
+  public String getRotationStatement() {
+    return rotationStatement;
+  }
+
+  public void setRotationStatement(@javax.annotation.Nullable String rotationStatement) {
+    this.rotationStatement = rotationStatement;
+  }
+
+
   public RotatedSecretUpdateSnowflake skipDryRun(@javax.annotation.Nullable String skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
@@ -836,6 +884,7 @@ public class RotatedSecretUpdateSnowflake {
     }
     RotatedSecretUpdateSnowflake rotatedSecretUpdateSnowflake = (RotatedSecretUpdateSnowflake) o;
     return Objects.equals(this.addTag, rotatedSecretUpdateSnowflake.addTag) &&
+        Objects.equals(this.araEnabled, rotatedSecretUpdateSnowflake.araEnabled) &&
         Objects.equals(this.authenticationCredentials, rotatedSecretUpdateSnowflake.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretUpdateSnowflake.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretUpdateSnowflake.deleteProtection) &&
@@ -858,6 +907,7 @@ public class RotatedSecretUpdateSnowflake {
         Objects.equals(this.rotationEventIn, rotatedSecretUpdateSnowflake.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretUpdateSnowflake.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretUpdateSnowflake.rotationInterval) &&
+        Objects.equals(this.rotationStatement, rotatedSecretUpdateSnowflake.rotationStatement) &&
         Objects.equals(this.skipDryRun, rotatedSecretUpdateSnowflake.skipDryRun) &&
         Objects.equals(this.token, rotatedSecretUpdateSnowflake.token) &&
         Objects.equals(this.uidToken, rotatedSecretUpdateSnowflake.uidToken) &&
@@ -869,7 +919,7 @@ public class RotatedSecretUpdateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, outputRule, passwordLength, privateKey, privateKeyFileName, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, outputRule, passwordLength, privateKey, privateKeyFileName, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotationStatement, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -877,6 +927,7 @@ public class RotatedSecretUpdateSnowflake {
     StringBuilder sb = new StringBuilder();
     sb.append("class RotatedSecretUpdateSnowflake {\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -899,6 +950,7 @@ public class RotatedSecretUpdateSnowflake {
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
+    sb.append("    rotationStatement: ").append(toIndentedString(rotationStatement)).append("\n");
     sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -924,7 +976,7 @@ public class RotatedSecretUpdateSnowflake {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-file-name", "rm-tag", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-file-name", "rm-tag", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotation-statement", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1022,6 +1074,9 @@ public class RotatedSecretUpdateSnowflake {
       }
       if ((jsonObj.get("rotation-interval") != null && !jsonObj.get("rotation-interval").isJsonNull()) && !jsonObj.get("rotation-interval").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotation-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation-interval").toString()));
+      }
+      if ((jsonObj.get("rotation-statement") != null && !jsonObj.get("rotation-statement").isJsonNull()) && !jsonObj.get("rotation-statement").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotation-statement` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotation-statement").toString()));
       }
       if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));

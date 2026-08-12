@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayCreateProducerArtifactory {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME = "artifactory-admin-name";
   @SerializedName(SERIALIZED_NAME_ARTIFACTORY_ADMIN_NAME)
   @javax.annotation.Nullable
@@ -151,6 +156,25 @@ public class GatewayCreateProducerArtifactory {
 
   public GatewayCreateProducerArtifactory() {
   }
+
+  public GatewayCreateProducerArtifactory araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayCreateProducerArtifactory artifactoryAdminName(@javax.annotation.Nullable String artifactoryAdminName) {
     this.artifactoryAdminName = artifactoryAdminName;
@@ -555,7 +579,8 @@ public class GatewayCreateProducerArtifactory {
       return false;
     }
     GatewayCreateProducerArtifactory gatewayCreateProducerArtifactory = (GatewayCreateProducerArtifactory) o;
-    return Objects.equals(this.artifactoryAdminName, gatewayCreateProducerArtifactory.artifactoryAdminName) &&
+    return Objects.equals(this.araEnabled, gatewayCreateProducerArtifactory.araEnabled) &&
+        Objects.equals(this.artifactoryAdminName, gatewayCreateProducerArtifactory.artifactoryAdminName) &&
         Objects.equals(this.artifactoryAdminPwd, gatewayCreateProducerArtifactory.artifactoryAdminPwd) &&
         Objects.equals(this.artifactoryTokenAudience, gatewayCreateProducerArtifactory.artifactoryTokenAudience) &&
         Objects.equals(this.artifactoryTokenScope, gatewayCreateProducerArtifactory.artifactoryTokenScope) &&
@@ -578,13 +603,14 @@ public class GatewayCreateProducerArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerArtifactory {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    artifactoryAdminName: ").append(toIndentedString(artifactoryAdminName)).append("\n");
     sb.append("    artifactoryAdminPwd: ").append(toIndentedString(artifactoryAdminPwd)).append("\n");
     sb.append("    artifactoryTokenAudience: ").append(toIndentedString(artifactoryTokenAudience)).append("\n");
@@ -622,7 +648,7 @@ public class GatewayCreateProducerArtifactory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("artifactory-admin-name", "artifactory-admin-pwd", "artifactory-token-audience", "artifactory-token-scope", "base-url", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "artifactory-admin-name", "artifactory-admin-pwd", "artifactory-token-audience", "artifactory-token-scope", "base-url", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("artifactory-token-audience", "artifactory-token-scope", "name"));

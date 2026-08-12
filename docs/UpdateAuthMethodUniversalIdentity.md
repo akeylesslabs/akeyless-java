@@ -24,7 +24,7 @@ updateAuthMethodUniversalIdentity is a command that updates a new auth method th
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
 |**newName** | **String** | Auth Method new name |  [optional] |
-|**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca] |  [optional] |
+|**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**treeLength** | **Integer** | Maximum UID tree depth allowed (child of child of ...) |  [optional] |
 |**ttl** | **Integer** | Token ttl |  [optional] |

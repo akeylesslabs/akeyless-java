@@ -59,6 +59,11 @@ public class DynamicSecretUpdateRedis {
   @javax.annotation.Nullable
   private String aclRules;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -213,6 +218,25 @@ public class DynamicSecretUpdateRedis {
 
   public void setAclRules(@javax.annotation.Nullable String aclRules) {
     this.aclRules = aclRules;
+  }
+
+
+  public DynamicSecretUpdateRedis araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -772,6 +796,7 @@ public class DynamicSecretUpdateRedis {
     }
     DynamicSecretUpdateRedis dynamicSecretUpdateRedis = (DynamicSecretUpdateRedis) o;
     return Objects.equals(this.aclRules, dynamicSecretUpdateRedis.aclRules) &&
+        Objects.equals(this.araEnabled, dynamicSecretUpdateRedis.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateRedis.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateRedis.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateRedis.description) &&
@@ -803,7 +828,7 @@ public class DynamicSecretUpdateRedis {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclRules, customUsernameTemplate, deleteProtection, description, host, inputRule, itemCustomFields, json, name, newName, outputRule, password, passwordLength, port, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, username);
+    return Objects.hash(aclRules, araEnabled, customUsernameTemplate, deleteProtection, description, host, inputRule, itemCustomFields, json, name, newName, outputRule, password, passwordLength, port, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, username);
   }
 
   @Override
@@ -811,6 +836,7 @@ public class DynamicSecretUpdateRedis {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateRedis {\n");
     sb.append("    aclRules: ").append(toIndentedString(aclRules)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -856,7 +882,7 @@ public class DynamicSecretUpdateRedis {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acl-rules", "custom-username-template", "delete_protection", "description", "host", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password", "password-length", "port", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("acl-rules", "ara-enabled", "custom-username-template", "delete_protection", "description", "host", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password", "password-length", "port", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

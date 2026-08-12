@@ -8,6 +8,7 @@ dynamicSecretCreateArtifactory is a command that creates artifactory dynamic sec
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**artifactoryAdminName** | **String** | Artifactory Admin Name |  [optional] |
 |**artifactoryAdminPwd** | **String** | Artifactory Admin password |  [optional] |
 |**artifactoryTokenAudience** | **String** | Token Audience |  |

@@ -62,6 +62,11 @@ public class UscCreate {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
+  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String gcpProjectId;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -175,6 +180,25 @@ public class UscCreate {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public UscCreate gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+    return this;
+  }
+
+  /**
+   * The GCP project to create the secret in (GCP only). Required when the connector spans multiple projects or uses folder/organization scope.
+   * @return gcpProjectId
+   */
+  @javax.annotation.Nullable
+  public String getGcpProjectId() {
+    return gcpProjectId;
+  }
+
+  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
   }
 
 
@@ -483,6 +507,7 @@ public class UscCreate {
     UscCreate uscCreate = (UscCreate) o;
     return Objects.equals(this.binaryValue, uscCreate.binaryValue) &&
         Objects.equals(this.description, uscCreate.description) &&
+        Objects.equals(this.gcpProjectId, uscCreate.gcpProjectId) &&
         Objects.equals(this.json, uscCreate.json) &&
         Objects.equals(this.namespace, uscCreate.namespace) &&
         Objects.equals(this.objectType, uscCreate.objectType) &&
@@ -502,7 +527,7 @@ public class UscCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, region, remoteSecretActivationDate, remoteSecretExpires, secretName, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
+    return Objects.hash(binaryValue, description, gcpProjectId, json, namespace, objectType, pfxPassword, region, remoteSecretActivationDate, remoteSecretExpires, secretName, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
@@ -511,6 +536,7 @@ public class UscCreate {
     sb.append("class UscCreate {\n");
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
@@ -544,7 +570,7 @@ public class UscCreate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary-value", "description", "json", "namespace", "object-type", "pfx-password", "region", "remote-secret-activation-date", "remote-secret-expires", "secret-name", "selected-repositories", "tags", "token", "uid-token", "usc-encryption-key", "usc-name", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("binary-value", "description", "gcp-project-id", "json", "namespace", "object-type", "pfx-password", "region", "remote-secret-activation-date", "remote-secret-expires", "secret-name", "selected-repositories", "tags", "token", "uid-token", "usc-encryption-key", "usc-name", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("secret-name", "usc-name", "value"));
@@ -580,6 +606,9 @@ public class UscCreate {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));

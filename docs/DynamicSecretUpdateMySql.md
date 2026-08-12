@@ -8,6 +8,7 @@ dynamicSecretUpdateMySql is a command that updates mysql dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**dbServerCertificates** | **String** | (Optional) DB server certificates |  [optional] |
 |**dbServerName** | **String** | (Optional) Server name for certificate verification |  [optional] |

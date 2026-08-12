@@ -69,6 +69,11 @@ public class RotatedSecretUpdateAws {
   @javax.annotation.Nullable
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -319,6 +324,25 @@ public class RotatedSecretUpdateAws {
 
   public void setApiKey(@javax.annotation.Nullable String apiKey) {
     this.apiKey = apiKey;
+  }
+
+
+  public RotatedSecretUpdateAws araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1078,6 +1102,7 @@ public class RotatedSecretUpdateAws {
     return Objects.equals(this.addTag, rotatedSecretUpdateAws.addTag) &&
         Objects.equals(this.apiId, rotatedSecretUpdateAws.apiId) &&
         Objects.equals(this.apiKey, rotatedSecretUpdateAws.apiKey) &&
+        Objects.equals(this.araEnabled, rotatedSecretUpdateAws.araEnabled) &&
         Objects.equals(this.authenticationCredentials, rotatedSecretUpdateAws.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretUpdateAws.autoRotate) &&
         Objects.equals(this.awsRegion, rotatedSecretUpdateAws.awsRegion) &&
@@ -1119,7 +1144,7 @@ public class RotatedSecretUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, apiId, apiKey, araEnabled, authenticationCredentials, autoRotate, awsRegion, deleteProtection, description, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1129,6 +1154,7 @@ public class RotatedSecretUpdateAws {
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
     sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    awsRegion: ").append(toIndentedString(awsRegion)).append("\n");
@@ -1184,7 +1210,7 @@ public class RotatedSecretUpdateAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "authentication-credentials", "auto-rotate", "aws-region", "delete_protection", "description", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "ara-enabled", "authentication-credentials", "auto-rotate", "aws-region", "delete_protection", "description", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

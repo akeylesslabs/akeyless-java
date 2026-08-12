@@ -64,6 +64,11 @@ public class GatewayUpdateProducerAws {
   @javax.annotation.Nullable
   private Long adminRotationIntervalDays = 0l;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AWS_ACCESS_KEY_ID = "aws-access-key-id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCESS_KEY_ID)
   @javax.annotation.Nullable
@@ -307,6 +312,25 @@ public class GatewayUpdateProducerAws {
 
   public void setAdminRotationIntervalDays(@javax.annotation.Nullable Long adminRotationIntervalDays) {
     this.adminRotationIntervalDays = adminRotationIntervalDays;
+  }
+
+
+  public GatewayUpdateProducerAws araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1133,6 +1157,7 @@ public class GatewayUpdateProducerAws {
     GatewayUpdateProducerAws gatewayUpdateProducerAws = (GatewayUpdateProducerAws) o;
     return Objects.equals(this.accessMode, gatewayUpdateProducerAws.accessMode) &&
         Objects.equals(this.adminRotationIntervalDays, gatewayUpdateProducerAws.adminRotationIntervalDays) &&
+        Objects.equals(this.araEnabled, gatewayUpdateProducerAws.araEnabled) &&
         Objects.equals(this.awsAccessKeyId, gatewayUpdateProducerAws.awsAccessKeyId) &&
         Objects.equals(this.awsAccessSecretKey, gatewayUpdateProducerAws.awsAccessSecretKey) &&
         Objects.equals(this.awsExternalId, gatewayUpdateProducerAws.awsExternalId) &&
@@ -1178,7 +1203,7 @@ public class GatewayUpdateProducerAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, enableAdminRotation, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, skipDryRun, tags, targetName, token, transitiveTagKeys, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(accessMode, adminRotationIntervalDays, araEnabled, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, enableAdminRotation, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, skipDryRun, tags, targetName, token, transitiveTagKeys, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1187,6 +1212,7 @@ public class GatewayUpdateProducerAws {
     sb.append("class GatewayUpdateProducerAws {\n");
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
     sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsAccessSecretKey: ").append(toIndentedString(awsAccessSecretKey)).append("\n");
     sb.append("    awsExternalId: ").append(toIndentedString(awsExternalId)).append("\n");
@@ -1246,7 +1272,7 @@ public class GatewayUpdateProducerAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "enable-admin-rotation", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip_dry_run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "ara-enabled", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "enable-admin-rotation", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip_dry_run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -9,6 +9,7 @@ gatewayUpdateProducerAzure is a command that updates azure producer [Deprecated:
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**appObjId** | **String** | Azure App Object Id |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**azureAdministrativeUnit** | **String** | Azure AD administrative unit (relevant only when azure-user-portal-access&#x3D;true) |  [optional] |
 |**azureClientId** | **String** | Azure Client ID |  [optional] |
 |**azureClientSecret** | **String** | Azure Client Secret |  [optional] |

@@ -141,6 +141,8 @@ import io.akeyless.client.model.CreateESM;
 import io.akeyless.client.model.CreateESMOutput;
 import io.akeyless.client.model.CreateEventForwarder;
 import io.akeyless.client.model.CreateEventForwarderOutput;
+import io.akeyless.client.model.CreateF5BigIpTarget;
+import io.akeyless.client.model.CreateF5BigIpTargetOutput;
 import io.akeyless.client.model.CreateGKETarget;
 import io.akeyless.client.model.CreateGKETargetOutput;
 import io.akeyless.client.model.CreateGcpTarget;
@@ -682,6 +684,7 @@ import io.akeyless.client.model.RotatedSecretCreateAzure;
 import io.akeyless.client.model.RotatedSecretCreateCassandra;
 import io.akeyless.client.model.RotatedSecretCreateCustom;
 import io.akeyless.client.model.RotatedSecretCreateDockerhub;
+import io.akeyless.client.model.RotatedSecretCreateF5BigIp;
 import io.akeyless.client.model.RotatedSecretCreateGcp;
 import io.akeyless.client.model.RotatedSecretCreateHanadb;
 import io.akeyless.client.model.RotatedSecretCreateHashiVault;
@@ -768,6 +771,7 @@ import io.akeyless.client.model.TargetCreateDB;
 import io.akeyless.client.model.TargetCreateDigiCert;
 import io.akeyless.client.model.TargetCreateDockerhub;
 import io.akeyless.client.model.TargetCreateEks;
+import io.akeyless.client.model.TargetCreateF5BigIp;
 import io.akeyless.client.model.TargetCreateGcp;
 import io.akeyless.client.model.TargetCreateGemini;
 import io.akeyless.client.model.TargetCreateGithub;
@@ -812,6 +816,7 @@ import io.akeyless.client.model.TargetUpdateDB;
 import io.akeyless.client.model.TargetUpdateDigiCert;
 import io.akeyless.client.model.TargetUpdateDockerhub;
 import io.akeyless.client.model.TargetUpdateEks;
+import io.akeyless.client.model.TargetUpdateF5BigIp;
 import io.akeyless.client.model.TargetUpdateGcp;
 import io.akeyless.client.model.TargetUpdateGemini;
 import io.akeyless.client.model.TargetUpdateGithub;
@@ -892,6 +897,8 @@ import io.akeyless.client.model.UpdateDockerhubTargetOutput;
 import io.akeyless.client.model.UpdateEKSTarget;
 import io.akeyless.client.model.UpdateEKSTargetOutput;
 import io.akeyless.client.model.UpdateEventForwarder;
+import io.akeyless.client.model.UpdateF5BigIpTarget;
+import io.akeyless.client.model.UpdateF5BigIpTargetOutput;
 import io.akeyless.client.model.UpdateGKETarget;
 import io.akeyless.client.model.UpdateGKETargetOutput;
 import io.akeyless.client.model.UpdateGcpTarget;
@@ -10324,6 +10331,137 @@ public class V2Api {
 
         okhttp3.Call localVarCall = createEventForwarderValidateBeforeCall(createEventForwarder, _callback);
         Type localVarReturnType = new TypeToken<CreateEventForwarderOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createF5BigIpTarget
+     * @param createF5BigIpTarget  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createF5BigIpTargetCall(@javax.annotation.Nonnull CreateF5BigIpTarget createF5BigIpTarget, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createF5BigIpTarget;
+
+        // create path and map variables
+        String localVarPath = "/create-f5-big-ip-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createF5BigIpTargetValidateBeforeCall(@javax.annotation.Nonnull CreateF5BigIpTarget createF5BigIpTarget, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'createF5BigIpTarget' is set
+        if (createF5BigIpTarget == null) {
+            throw new ApiException("Missing the required parameter 'createF5BigIpTarget' when calling createF5BigIpTarget(Async)");
+        }
+
+        return createF5BigIpTargetCall(createF5BigIpTarget, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param createF5BigIpTarget  (required)
+     * @return CreateF5BigIpTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreateF5BigIpTargetOutput createF5BigIpTarget(@javax.annotation.Nonnull CreateF5BigIpTarget createF5BigIpTarget) throws ApiException {
+        ApiResponse<CreateF5BigIpTargetOutput> localVarResp = createF5BigIpTargetWithHttpInfo(createF5BigIpTarget);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param createF5BigIpTarget  (required)
+     * @return ApiResponse&lt;CreateF5BigIpTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreateF5BigIpTargetOutput> createF5BigIpTargetWithHttpInfo(@javax.annotation.Nonnull CreateF5BigIpTarget createF5BigIpTarget) throws ApiException {
+        okhttp3.Call localVarCall = createF5BigIpTargetValidateBeforeCall(createF5BigIpTarget, null);
+        Type localVarReturnType = new TypeToken<CreateF5BigIpTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param createF5BigIpTarget  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> createF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createF5BigIpTargetAsync(@javax.annotation.Nonnull CreateF5BigIpTarget createF5BigIpTarget, final ApiCallback<CreateF5BigIpTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createF5BigIpTargetValidateBeforeCall(createF5BigIpTarget, _callback);
+        Type localVarReturnType = new TypeToken<CreateF5BigIpTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -55900,6 +56038,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for rotatedSecretCreateF5BigIp
+     * @param rotatedSecretCreateF5BigIp  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretCreateF5BigIpCall(@javax.annotation.Nonnull RotatedSecretCreateF5BigIp rotatedSecretCreateF5BigIp, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rotatedSecretCreateF5BigIp;
+
+        // create path and map variables
+        String localVarPath = "/rotated-secret-create-f5-big-ip";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rotatedSecretCreateF5BigIpValidateBeforeCall(@javax.annotation.Nonnull RotatedSecretCreateF5BigIp rotatedSecretCreateF5BigIp, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rotatedSecretCreateF5BigIp' is set
+        if (rotatedSecretCreateF5BigIp == null) {
+            throw new ApiException("Missing the required parameter 'rotatedSecretCreateF5BigIp' when calling rotatedSecretCreateF5BigIp(Async)");
+        }
+
+        return rotatedSecretCreateF5BigIpCall(rotatedSecretCreateF5BigIp, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretCreateF5BigIp  (required)
+     * @return RotatedSecretCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RotatedSecretCreateOutput rotatedSecretCreateF5BigIp(@javax.annotation.Nonnull RotatedSecretCreateF5BigIp rotatedSecretCreateF5BigIp) throws ApiException {
+        ApiResponse<RotatedSecretCreateOutput> localVarResp = rotatedSecretCreateF5BigIpWithHttpInfo(rotatedSecretCreateF5BigIp);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretCreateF5BigIp  (required)
+     * @return ApiResponse&lt;RotatedSecretCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RotatedSecretCreateOutput> rotatedSecretCreateF5BigIpWithHttpInfo(@javax.annotation.Nonnull RotatedSecretCreateF5BigIp rotatedSecretCreateF5BigIp) throws ApiException {
+        okhttp3.Call localVarCall = rotatedSecretCreateF5BigIpValidateBeforeCall(rotatedSecretCreateF5BigIp, null);
+        Type localVarReturnType = new TypeToken<RotatedSecretCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param rotatedSecretCreateF5BigIp  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretCreateF5BigIpAsync(@javax.annotation.Nonnull RotatedSecretCreateF5BigIp rotatedSecretCreateF5BigIp, final ApiCallback<RotatedSecretCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rotatedSecretCreateF5BigIpValidateBeforeCall(rotatedSecretCreateF5BigIp, _callback);
+        Type localVarReturnType = new TypeToken<RotatedSecretCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for rotatedSecretCreateGcp
      * @param rotatedSecretCreateGcp  (required)
      * @param _callback Callback for upload/download progress
@@ -64935,6 +65204,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateF5BigIp
+     * @param targetCreateF5BigIp  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateF5BigIpCall(@javax.annotation.Nonnull TargetCreateF5BigIp targetCreateF5BigIp, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateF5BigIp;
+
+        // create path and map variables
+        String localVarPath = "/target-create-f5-big-ip";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateF5BigIpValidateBeforeCall(@javax.annotation.Nonnull TargetCreateF5BigIp targetCreateF5BigIp, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateF5BigIp' is set
+        if (targetCreateF5BigIp == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateF5BigIp' when calling targetCreateF5BigIp(Async)");
+        }
+
+        return targetCreateF5BigIpCall(targetCreateF5BigIp, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateF5BigIp  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateF5BigIp(@javax.annotation.Nonnull TargetCreateF5BigIp targetCreateF5BigIp) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateF5BigIpWithHttpInfo(targetCreateF5BigIp);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateF5BigIp  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateF5BigIpWithHttpInfo(@javax.annotation.Nonnull TargetCreateF5BigIp targetCreateF5BigIp) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateF5BigIpValidateBeforeCall(targetCreateF5BigIp, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateF5BigIp  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateF5BigIpAsync(@javax.annotation.Nonnull TargetCreateF5BigIp targetCreateF5BigIp, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateF5BigIpValidateBeforeCall(targetCreateF5BigIp, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateGcp
      * @param targetCreateGcp  (required)
      * @param _callback Callback for upload/download progress
@@ -70563,6 +70963,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateEksAsync(@javax.annotation.Nonnull TargetUpdateEks targetUpdateEks, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateEksValidateBeforeCall(targetUpdateEks, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateF5BigIp
+     * @param targetUpdateF5BigIp  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateF5BigIpCall(@javax.annotation.Nonnull TargetUpdateF5BigIp targetUpdateF5BigIp, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateF5BigIp;
+
+        // create path and map variables
+        String localVarPath = "/target-update-f5-big-ip";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateF5BigIpValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateF5BigIp targetUpdateF5BigIp, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateF5BigIp' is set
+        if (targetUpdateF5BigIp == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateF5BigIp' when calling targetUpdateF5BigIp(Async)");
+        }
+
+        return targetUpdateF5BigIpCall(targetUpdateF5BigIp, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateF5BigIp  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateF5BigIp(@javax.annotation.Nonnull TargetUpdateF5BigIp targetUpdateF5BigIp) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateF5BigIpWithHttpInfo(targetUpdateF5BigIp);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateF5BigIp  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateF5BigIpWithHttpInfo(@javax.annotation.Nonnull TargetUpdateF5BigIp targetUpdateF5BigIp) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateF5BigIpValidateBeforeCall(targetUpdateF5BigIp, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateF5BigIp  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateF5BigIpResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateF5BigIpAsync(@javax.annotation.Nonnull TargetUpdateF5BigIp targetUpdateF5BigIp, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateF5BigIpValidateBeforeCall(targetUpdateF5BigIp, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -78555,6 +79086,137 @@ public class V2Api {
 
         okhttp3.Call localVarCall = updateEventForwarderValidateBeforeCall(updateEventForwarder, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateF5BigIpTarget
+     * @param updateF5BigIpTarget  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateF5BigIpTargetCall(@javax.annotation.Nonnull UpdateF5BigIpTarget updateF5BigIpTarget, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateF5BigIpTarget;
+
+        // create path and map variables
+        String localVarPath = "/update-f5-big-ip-target";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateF5BigIpTargetValidateBeforeCall(@javax.annotation.Nonnull UpdateF5BigIpTarget updateF5BigIpTarget, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'updateF5BigIpTarget' is set
+        if (updateF5BigIpTarget == null) {
+            throw new ApiException("Missing the required parameter 'updateF5BigIpTarget' when calling updateF5BigIpTarget(Async)");
+        }
+
+        return updateF5BigIpTargetCall(updateF5BigIpTarget, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param updateF5BigIpTarget  (required)
+     * @return UpdateF5BigIpTargetOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public UpdateF5BigIpTargetOutput updateF5BigIpTarget(@javax.annotation.Nonnull UpdateF5BigIpTarget updateF5BigIpTarget) throws ApiException {
+        ApiResponse<UpdateF5BigIpTargetOutput> localVarResp = updateF5BigIpTargetWithHttpInfo(updateF5BigIpTarget);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param updateF5BigIpTarget  (required)
+     * @return ApiResponse&lt;UpdateF5BigIpTargetOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<UpdateF5BigIpTargetOutput> updateF5BigIpTargetWithHttpInfo(@javax.annotation.Nonnull UpdateF5BigIpTarget updateF5BigIpTarget) throws ApiException {
+        okhttp3.Call localVarCall = updateF5BigIpTargetValidateBeforeCall(updateF5BigIpTarget, null);
+        Type localVarReturnType = new TypeToken<UpdateF5BigIpTargetOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param updateF5BigIpTarget  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> updateF5BigIpTargetResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateF5BigIpTargetAsync(@javax.annotation.Nonnull UpdateF5BigIpTarget updateF5BigIpTarget, final ApiCallback<UpdateF5BigIpTargetOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateF5BigIpTargetValidateBeforeCall(updateF5BigIpTarget, _callback);
+        Type localVarReturnType = new TypeToken<UpdateF5BigIpTargetOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

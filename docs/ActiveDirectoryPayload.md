@@ -22,10 +22,13 @@
 |**domainName** | **String** |  |  [optional] |
 |**domainServerTargetsPathTemplate** | **String** |  |  [optional] |
 |**domainUsersRotatedSecretsPathTemplate** | **String** |  |  [optional] |
+|**enablePasswordPolicy** | **Boolean** | EnablePasswordPolicy enables applying PasswordPolicy to newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil &#x3D; not provided). |  [optional] |
 |**enableRdpSra** | **Boolean** |  |  [optional] |
 |**localUsersIgnoreList** | **Map&lt;String, Boolean&gt;** |  |  [optional] |
 |**localUsersRotatedSecretsPathTemplate** | **String** |  |  [optional] |
 |**osFilter** | **String** |  |  [optional] |
+|**passwordPolicy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional] |
+|**skipDryRun** | **Boolean** | SkipDryRun enables skip_dry_run on newly created domain/local user rotated secrets. Pointer so omitted values are preserved on partial update (nil &#x3D; not provided). When false/unset, existing rotated-secret SkipDryRun values are left unchanged on sync. |  [optional] |
 |**sshPort** | **String** |  |  [optional] |
 |**targetFormat** | **String** |  |  [optional] |
 |**targetsType** | **String** |  |  [optional] |

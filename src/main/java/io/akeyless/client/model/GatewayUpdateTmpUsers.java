@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateTmpUsers {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nonnull
@@ -104,6 +109,25 @@ public class GatewayUpdateTmpUsers {
 
   public GatewayUpdateTmpUsers() {
   }
+
+  public GatewayUpdateTmpUsers araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayUpdateTmpUsers host(@javax.annotation.Nonnull String host) {
     this.host = host;
@@ -321,7 +345,8 @@ public class GatewayUpdateTmpUsers {
       return false;
     }
     GatewayUpdateTmpUsers gatewayUpdateTmpUsers = (GatewayUpdateTmpUsers) o;
-    return Objects.equals(this.host, gatewayUpdateTmpUsers.host) &&
+    return Objects.equals(this.araEnabled, gatewayUpdateTmpUsers.araEnabled) &&
+        Objects.equals(this.host, gatewayUpdateTmpUsers.host) &&
         Objects.equals(this.inputRule, gatewayUpdateTmpUsers.inputRule) &&
         Objects.equals(this.json, gatewayUpdateTmpUsers.json) &&
         Objects.equals(this.name, gatewayUpdateTmpUsers.name) &&
@@ -335,13 +360,14 @@ public class GatewayUpdateTmpUsers {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, inputRule, json, name, newTtlMin, outputRule, skipDryRun, tmpCredsId, token, uidToken);
+    return Objects.hash(araEnabled, host, inputRule, json, name, newTtlMin, outputRule, skipDryRun, tmpCredsId, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateTmpUsers {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -370,7 +396,7 @@ public class GatewayUpdateTmpUsers {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "input-rule", "json", "name", "new-ttl-min", "output-rule", "skip_dry_run", "tmp-creds-id", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "host", "input-rule", "json", "name", "new-ttl-min", "output-rule", "skip_dry_run", "tmp-creds-id", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("host", "name", "new-ttl-min", "tmp-creds-id"));

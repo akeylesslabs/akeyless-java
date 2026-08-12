@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretUpdateOracleDb {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -231,6 +236,25 @@ public class DynamicSecretUpdateOracleDb {
 
   public DynamicSecretUpdateOracleDb() {
   }
+
+  public DynamicSecretUpdateOracleDb araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public DynamicSecretUpdateOracleDb customUsernameTemplate(@javax.annotation.Nullable String customUsernameTemplate) {
     this.customUsernameTemplate = customUsernameTemplate;
@@ -947,7 +971,8 @@ public class DynamicSecretUpdateOracleDb {
       return false;
     }
     DynamicSecretUpdateOracleDb dynamicSecretUpdateOracleDb = (DynamicSecretUpdateOracleDb) o;
-    return Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateOracleDb.customUsernameTemplate) &&
+    return Objects.equals(this.araEnabled, dynamicSecretUpdateOracleDb.araEnabled) &&
+        Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateOracleDb.customUsernameTemplate) &&
         Objects.equals(this.dbServerCertificates, dynamicSecretUpdateOracleDb.dbServerCertificates) &&
         Objects.equals(this.dbServerName, dynamicSecretUpdateOracleDb.dbServerName) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateOracleDb.deleteProtection) &&
@@ -986,13 +1011,14 @@ public class DynamicSecretUpdateOracleDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, oracleHost, oraclePassword, oraclePort, oracleRevocationStatements, oracleScreationStatements, oracleServiceName, oracleUsername, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateOracleDb {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
@@ -1046,7 +1072,7 @@ public class DynamicSecretUpdateOracleDb {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "db-server-certificates", "db-server-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "oracle-host", "oracle-password", "oracle-port", "oracle-revocation-statements", "oracle-screation-statements", "oracle-service-name", "oracle-username", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "db-server-certificates", "db-server-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "oracle-host", "oracle-password", "oracle-port", "oracle-revocation-statements", "oracle-screation-statements", "oracle-service-name", "oracle-username", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

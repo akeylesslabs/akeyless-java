@@ -59,6 +59,11 @@ public class GatewayCreateProducerGcp {
   @javax.annotation.Nullable
   private String accessType;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -223,6 +228,25 @@ public class GatewayCreateProducerGcp {
 
   public void setAccessType(@javax.annotation.Nullable String accessType) {
     this.accessType = accessType;
+  }
+
+
+  public GatewayCreateProducerGcp araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -820,6 +844,7 @@ public class GatewayCreateProducerGcp {
     }
     GatewayCreateProducerGcp gatewayCreateProducerGcp = (GatewayCreateProducerGcp) o;
     return Objects.equals(this.accessType, gatewayCreateProducerGcp.accessType) &&
+        Objects.equals(this.araEnabled, gatewayCreateProducerGcp.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, gatewayCreateProducerGcp.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerGcp.deleteProtection) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayCreateProducerGcp.fixedUserClaimKeyname) &&
@@ -853,7 +878,7 @@ public class GatewayCreateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessType, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessType, araEnabled, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -861,6 +886,7 @@ public class GatewayCreateProducerGcp {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerGcp {\n");
     sb.append("    accessType: ").append(toIndentedString(accessType)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
@@ -908,7 +934,7 @@ public class GatewayCreateProducerGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-type", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "gcp-cred-type", "gcp-key", "gcp-key-algo", "gcp-project-id", "gcp-sa-email", "gcp-token-scopes", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "role-binding", "role-names", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "service-account-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-type", "ara-enabled", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "gcp-cred-type", "gcp-key", "gcp-key-algo", "gcp-project-id", "gcp-sa-email", "gcp-token-scopes", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "role-binding", "role-names", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "service-account-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

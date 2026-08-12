@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayCreateProducerNativeK8S {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -241,6 +246,25 @@ public class GatewayCreateProducerNativeK8S {
 
   public GatewayCreateProducerNativeK8S() {
   }
+
+  public GatewayCreateProducerNativeK8S araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayCreateProducerNativeK8S customUsernameTemplate(@javax.annotation.Nullable String customUsernameTemplate) {
     this.customUsernameTemplate = customUsernameTemplate;
@@ -987,7 +1011,8 @@ public class GatewayCreateProducerNativeK8S {
       return false;
     }
     GatewayCreateProducerNativeK8S gatewayCreateProducerNativeK8S = (GatewayCreateProducerNativeK8S) o;
-    return Objects.equals(this.customUsernameTemplate, gatewayCreateProducerNativeK8S.customUsernameTemplate) &&
+    return Objects.equals(this.araEnabled, gatewayCreateProducerNativeK8S.araEnabled) &&
+        Objects.equals(this.customUsernameTemplate, gatewayCreateProducerNativeK8S.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerNativeK8S.deleteProtection) &&
         Objects.equals(this.inputRule, gatewayCreateProducerNativeK8S.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayCreateProducerNativeK8S.itemCustomFields) &&
@@ -1028,13 +1053,14 @@ public class GatewayCreateProducerNativeK8S {
 
   @Override
   public int hashCode() {
-    return Objects.hash(customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayCreateProducerNativeK8S {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -1090,7 +1116,7 @@ public class GatewayCreateProducerNativeK8S {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "k8s-allowed-namespaces", "k8s-cluster-ca-cert", "k8s-cluster-endpoint", "k8s-cluster-name", "k8s-cluster-token", "k8s-namespace", "k8s-predefined-role-name", "k8s-predefined-role-type", "k8s-rolebinding-yaml-data", "k8s-rolebinding-yaml-def", "k8s-service-account", "k8s-service-account-type", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-gw-service-account", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "k8s-allowed-namespaces", "k8s-cluster-ca-cert", "k8s-cluster-endpoint", "k8s-cluster-name", "k8s-cluster-token", "k8s-namespace", "k8s-predefined-role-name", "k8s-predefined-role-type", "k8s-rolebinding-yaml-data", "k8s-rolebinding-yaml-def", "k8s-service-account", "k8s-service-account-type", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-gw-service-account", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

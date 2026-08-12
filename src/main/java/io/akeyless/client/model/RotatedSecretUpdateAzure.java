@@ -74,6 +74,11 @@ public class RotatedSecretUpdateAzure {
   @javax.annotation.Nullable
   private String applicationId;
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS = "authentication-credentials";
   @SerializedName(SERIALIZED_NAME_AUTHENTICATION_CREDENTIALS)
   @javax.annotation.Nullable
@@ -373,6 +378,25 @@ public class RotatedSecretUpdateAzure {
 
   public void setApplicationId(@javax.annotation.Nullable String applicationId) {
     this.applicationId = applicationId;
+  }
+
+
+  public RotatedSecretUpdateAzure araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
   }
 
 
@@ -1247,6 +1271,7 @@ public class RotatedSecretUpdateAzure {
         Objects.equals(this.apiId, rotatedSecretUpdateAzure.apiId) &&
         Objects.equals(this.apiKey, rotatedSecretUpdateAzure.apiKey) &&
         Objects.equals(this.applicationId, rotatedSecretUpdateAzure.applicationId) &&
+        Objects.equals(this.araEnabled, rotatedSecretUpdateAzure.araEnabled) &&
         Objects.equals(this.authenticationCredentials, rotatedSecretUpdateAzure.authenticationCredentials) &&
         Objects.equals(this.autoRotate, rotatedSecretUpdateAzure.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretUpdateAzure.deleteProtection) &&
@@ -1294,7 +1319,7 @@ public class RotatedSecretUpdateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, password, passwordLength, resourceGroupName, resourceName, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, storageAccountKeyName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
+    return Objects.hash(addTag, apiId, apiKey, applicationId, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, password, passwordLength, resourceGroupName, resourceName, rmTag, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, storageAccountKeyName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
   }
 
   @Override
@@ -1305,6 +1330,7 @@ public class RotatedSecretUpdateAzure {
     sb.append("    apiId: ").append(toIndentedString(apiId)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    authenticationCredentials: ").append(toIndentedString(authenticationCredentials)).append("\n");
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -1366,7 +1392,7 @@ public class RotatedSecretUpdateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "delete_protection", "description", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "storage-account-key-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "application-id", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rm-tag", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "storage-account-key-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

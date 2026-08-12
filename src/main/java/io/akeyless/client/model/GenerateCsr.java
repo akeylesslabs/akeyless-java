@@ -85,6 +85,11 @@ public class GenerateCsr {
   @javax.annotation.Nullable
   private Boolean critical;
 
+  public static final String SERIALIZED_NAME_CUSTOMER_FRG_ID = "customer-frg-id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_FRG_ID)
+  @javax.annotation.Nullable
+  private String customerFrgId;
+
   public static final String SERIALIZED_NAME_DEP = "dep";
   @SerializedName(SERIALIZED_NAME_DEP)
   @javax.annotation.Nullable
@@ -99,6 +104,11 @@ public class GenerateCsr {
   @SerializedName(SERIALIZED_NAME_EXPORT_PRIVATE_KEY)
   @javax.annotation.Nullable
   private Boolean exportPrivateKey = false;
+
+  public static final String SERIALIZED_NAME_EXT_KEY_USAGE = "ext-key-usage";
+  @SerializedName(SERIALIZED_NAME_EXT_KEY_USAGE)
+  @javax.annotation.Nullable
+  private String extKeyUsage;
 
   public static final String SERIALIZED_NAME_GENERATE_KEY = "generate-key";
   @SerializedName(SERIALIZED_NAME_GENERATE_KEY)
@@ -124,6 +134,11 @@ public class GenerateCsr {
   @SerializedName(SERIALIZED_NAME_KEY_TYPE)
   @javax.annotation.Nonnull
   private String keyType = "classic-key";
+
+  public static final String SERIALIZED_NAME_KEY_USAGE = "key-usage";
+  @SerializedName(SERIALIZED_NAME_KEY_USAGE)
+  @javax.annotation.Nullable
+  private String keyUsage;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -207,7 +222,7 @@ public class GenerateCsr {
   }
 
   /**
-   * The certificate type to be included in the CSR certificate (ssl-client/ssl-server/certificate-signing)
+   * A comma-separated list of certificate types to include in the CSR certificate (ssl-client/ssl-server/certificate-signing)
    * @return certificateType
    */
   @javax.annotation.Nullable
@@ -296,6 +311,25 @@ public class GenerateCsr {
   }
 
 
+  public GenerateCsr customerFrgId(@javax.annotation.Nullable String customerFrgId) {
+    this.customerFrgId = customerFrgId;
+    return this;
+  }
+
+  /**
+   * The customer fragment ID that will be used to create the key (if empty, the key will be created independently of a customer fragment)
+   * @return customerFrgId
+   */
+  @javax.annotation.Nullable
+  public String getCustomerFrgId() {
+    return customerFrgId;
+  }
+
+  public void setCustomerFrgId(@javax.annotation.Nullable String customerFrgId) {
+    this.customerFrgId = customerFrgId;
+  }
+
+
   public GenerateCsr dep(@javax.annotation.Nullable String dep) {
     this.dep = dep;
     return this;
@@ -350,6 +384,25 @@ public class GenerateCsr {
 
   public void setExportPrivateKey(@javax.annotation.Nullable Boolean exportPrivateKey) {
     this.exportPrivateKey = exportPrivateKey;
+  }
+
+
+  public GenerateCsr extKeyUsage(@javax.annotation.Nullable String extKeyUsage) {
+    this.extKeyUsage = extKeyUsage;
+    return this;
+  }
+
+  /**
+   * A comma-separated list of extended key usages to include in the CSR certificate
+   * @return extKeyUsage
+   */
+  @javax.annotation.Nullable
+  public String getExtKeyUsage() {
+    return extKeyUsage;
+  }
+
+  public void setExtKeyUsage(@javax.annotation.Nullable String extKeyUsage) {
+    this.extKeyUsage = extKeyUsage;
   }
 
 
@@ -445,6 +498,25 @@ public class GenerateCsr {
 
   public void setKeyType(@javax.annotation.Nonnull String keyType) {
     this.keyType = keyType;
+  }
+
+
+  public GenerateCsr keyUsage(@javax.annotation.Nullable String keyUsage) {
+    this.keyUsage = keyUsage;
+    return this;
+  }
+
+  /**
+   * A comma-separated list of key usages to include in the CSR certificate
+   * @return keyUsage
+   */
+  @javax.annotation.Nullable
+  public String getKeyUsage() {
+    return keyUsage;
+  }
+
+  public void setKeyUsage(@javax.annotation.Nullable String keyUsage) {
+    this.keyUsage = keyUsage;
   }
 
 
@@ -598,14 +670,17 @@ public class GenerateCsr {
         Objects.equals(this.commonName, generateCsr.commonName) &&
         Objects.equals(this.country, generateCsr.country) &&
         Objects.equals(this.critical, generateCsr.critical) &&
+        Objects.equals(this.customerFrgId, generateCsr.customerFrgId) &&
         Objects.equals(this.dep, generateCsr.dep) &&
         Objects.equals(this.emailAddresses, generateCsr.emailAddresses) &&
         Objects.equals(this.exportPrivateKey, generateCsr.exportPrivateKey) &&
+        Objects.equals(this.extKeyUsage, generateCsr.extKeyUsage) &&
         Objects.equals(this.generateKey, generateCsr.generateKey) &&
         Objects.equals(this.hashAlgorithm, generateCsr.hashAlgorithm) &&
         Objects.equals(this.ipAddresses, generateCsr.ipAddresses) &&
         Objects.equals(this.json, generateCsr.json) &&
         Objects.equals(this.keyType, generateCsr.keyType) &&
+        Objects.equals(this.keyUsage, generateCsr.keyUsage) &&
         Objects.equals(this.name, generateCsr.name) &&
         Objects.equals(this.org, generateCsr.org) &&
         Objects.equals(this.splitLevel, generateCsr.splitLevel) &&
@@ -617,7 +692,7 @@ public class GenerateCsr {
 
   @Override
   public int hashCode() {
-    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, dep, emailAddresses, exportPrivateKey, generateKey, hashAlgorithm, ipAddresses, json, keyType, name, org, splitLevel, state, token, uidToken, uriSans);
+    return Objects.hash(alg, altNames, certificateType, city, commonName, country, critical, customerFrgId, dep, emailAddresses, exportPrivateKey, extKeyUsage, generateKey, hashAlgorithm, ipAddresses, json, keyType, keyUsage, name, org, splitLevel, state, token, uidToken, uriSans);
   }
 
   @Override
@@ -631,14 +706,17 @@ public class GenerateCsr {
     sb.append("    commonName: ").append(toIndentedString(commonName)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    critical: ").append(toIndentedString(critical)).append("\n");
+    sb.append("    customerFrgId: ").append(toIndentedString(customerFrgId)).append("\n");
     sb.append("    dep: ").append(toIndentedString(dep)).append("\n");
     sb.append("    emailAddresses: ").append(toIndentedString(emailAddresses)).append("\n");
     sb.append("    exportPrivateKey: ").append(toIndentedString(exportPrivateKey)).append("\n");
+    sb.append("    extKeyUsage: ").append(toIndentedString(extKeyUsage)).append("\n");
     sb.append("    generateKey: ").append(toIndentedString(generateKey)).append("\n");
     sb.append("    hashAlgorithm: ").append(toIndentedString(hashAlgorithm)).append("\n");
     sb.append("    ipAddresses: ").append(toIndentedString(ipAddresses)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyType: ").append(toIndentedString(keyType)).append("\n");
+    sb.append("    keyUsage: ").append(toIndentedString(keyUsage)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    org: ").append(toIndentedString(org)).append("\n");
     sb.append("    splitLevel: ").append(toIndentedString(splitLevel)).append("\n");
@@ -664,7 +742,7 @@ public class GenerateCsr {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("alg", "alt-names", "certificate-type", "city", "common-name", "country", "critical", "dep", "email-addresses", "export-private-key", "generate-key", "hash-algorithm", "ip-addresses", "json", "key-type", "name", "org", "split-level", "state", "token", "uid-token", "uri-sans"));
+    openapiFields = new HashSet<String>(Arrays.asList("alg", "alt-names", "certificate-type", "city", "common-name", "country", "critical", "customer-frg-id", "dep", "email-addresses", "export-private-key", "ext-key-usage", "generate-key", "hash-algorithm", "ip-addresses", "json", "key-type", "key-usage", "name", "org", "split-level", "state", "token", "uid-token", "uri-sans"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("common-name", "key-type", "name"));
@@ -716,11 +794,17 @@ public class GenerateCsr {
       if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()) && !jsonObj.get("country").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
       }
+      if ((jsonObj.get("customer-frg-id") != null && !jsonObj.get("customer-frg-id").isJsonNull()) && !jsonObj.get("customer-frg-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `customer-frg-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer-frg-id").toString()));
+      }
       if ((jsonObj.get("dep") != null && !jsonObj.get("dep").isJsonNull()) && !jsonObj.get("dep").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dep` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dep").toString()));
       }
       if ((jsonObj.get("email-addresses") != null && !jsonObj.get("email-addresses").isJsonNull()) && !jsonObj.get("email-addresses").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email-addresses` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email-addresses").toString()));
+      }
+      if ((jsonObj.get("ext-key-usage") != null && !jsonObj.get("ext-key-usage").isJsonNull()) && !jsonObj.get("ext-key-usage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ext-key-usage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ext-key-usage").toString()));
       }
       if ((jsonObj.get("hash-algorithm") != null && !jsonObj.get("hash-algorithm").isJsonNull()) && !jsonObj.get("hash-algorithm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hash-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hash-algorithm").toString()));
@@ -730,6 +814,9 @@ public class GenerateCsr {
       }
       if (!jsonObj.get("key-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-type").toString()));
+      }
+      if ((jsonObj.get("key-usage") != null && !jsonObj.get("key-usage").isJsonNull()) && !jsonObj.get("key-usage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-usage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-usage").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class GatewayUpdateProducerPostgreSQL {
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CREATION_STATEMENTS = "creation-statements";
   @SerializedName(SERIALIZED_NAME_CREATION_STATEMENTS)
   @javax.annotation.Nullable
@@ -236,6 +241,25 @@ public class GatewayUpdateProducerPostgreSQL {
 
   public GatewayUpdateProducerPostgreSQL() {
   }
+
+  public GatewayUpdateProducerPostgreSQL araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
 
   public GatewayUpdateProducerPostgreSQL creationStatements(@javax.annotation.Nullable String creationStatements) {
     this.creationStatements = creationStatements;
@@ -971,7 +995,8 @@ public class GatewayUpdateProducerPostgreSQL {
       return false;
     }
     GatewayUpdateProducerPostgreSQL gatewayUpdateProducerPostgreSQL = (GatewayUpdateProducerPostgreSQL) o;
-    return Objects.equals(this.creationStatements, gatewayUpdateProducerPostgreSQL.creationStatements) &&
+    return Objects.equals(this.araEnabled, gatewayUpdateProducerPostgreSQL.araEnabled) &&
+        Objects.equals(this.creationStatements, gatewayUpdateProducerPostgreSQL.creationStatements) &&
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerPostgreSQL.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerPostgreSQL.deleteProtection) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerPostgreSQL.inputRule) &&
@@ -1011,13 +1036,14 @@ public class GatewayUpdateProducerPostgreSQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationStatements, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, creationStatements, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, postgresqlDbName, postgresqlHost, postgresqlPassword, postgresqlPort, postgresqlUsername, producerEncryptionKey, revocationStatement, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateProducerPostgreSQL {\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    creationStatements: ").append(toIndentedString(creationStatements)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -1072,7 +1098,7 @@ public class GatewayUpdateProducerPostgreSQL {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("creation-statements", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "postgresql-db-name", "postgresql-host", "postgresql-password", "postgresql-port", "postgresql-username", "producer-encryption-key", "revocation-statement", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "creation-statements", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "postgresql-db-name", "postgresql-host", "postgresql-password", "postgresql-port", "postgresql-username", "producer-encryption-key", "revocation-statement", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
