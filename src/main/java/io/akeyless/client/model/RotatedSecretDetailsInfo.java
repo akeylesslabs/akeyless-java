@@ -98,6 +98,11 @@ public class RotatedSecretDetailsInfo {
   @javax.annotation.Nullable
   private List<WindowsService> iisAppsDetails = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_KEY_ALGORITHM = "key_algorithm";
+  @SerializedName(SERIALIZED_NAME_KEY_ALGORITHM)
+  @javax.annotation.Nullable
+  private String keyAlgorithm;
+
   public static final String SERIALIZED_NAME_LAST_ROTATION_ERROR = "last_rotation_error";
   @SerializedName(SERIALIZED_NAME_LAST_ROTATION_ERROR)
   @javax.annotation.Nullable
@@ -357,6 +362,25 @@ public class RotatedSecretDetailsInfo {
 
   public void setIisAppsDetails(@javax.annotation.Nullable List<WindowsService> iisAppsDetails) {
     this.iisAppsDetails = iisAppsDetails;
+  }
+
+
+  public RotatedSecretDetailsInfo keyAlgorithm(@javax.annotation.Nullable String keyAlgorithm) {
+    this.keyAlgorithm = keyAlgorithm;
+    return this;
+  }
+
+  /**
+   * SSHKeyAlgorithm identifies the key algorithm an SSH rotated secret uses. Kept apart from Algorithm, which is an encryption-key enum and has no ECDSA-384 or ECDSA-521.
+   * @return keyAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getKeyAlgorithm() {
+    return keyAlgorithm;
+  }
+
+  public void setKeyAlgorithm(@javax.annotation.Nullable String keyAlgorithm) {
+    this.keyAlgorithm = keyAlgorithm;
   }
 
 
@@ -691,6 +715,7 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.graceRotationTiming, rotatedSecretDetailsInfo.graceRotationTiming) &&
         Objects.equals(this.gwClusterId, rotatedSecretDetailsInfo.gwClusterId) &&
         Objects.equals(this.iisAppsDetails, rotatedSecretDetailsInfo.iisAppsDetails) &&
+        Objects.equals(this.keyAlgorithm, rotatedSecretDetailsInfo.keyAlgorithm) &&
         Objects.equals(this.lastRotationError, rotatedSecretDetailsInfo.lastRotationError) &&
         Objects.equals(this.managedByAkeyless, rotatedSecretDetailsInfo.managedByAkeyless) &&
         Objects.equals(this.maxVersions, rotatedSecretDetailsInfo.maxVersions) &&
@@ -711,7 +736,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsUserName, deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
+    return Objects.hash(awsUserName, deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, keyAlgorithm, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
   }
 
   @Override
@@ -727,6 +752,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    graceRotationTiming: ").append(toIndentedString(graceRotationTiming)).append("\n");
     sb.append("    gwClusterId: ").append(toIndentedString(gwClusterId)).append("\n");
     sb.append("    iisAppsDetails: ").append(toIndentedString(iisAppsDetails)).append("\n");
+    sb.append("    keyAlgorithm: ").append(toIndentedString(keyAlgorithm)).append("\n");
     sb.append("    lastRotationError: ").append(toIndentedString(lastRotationError)).append("\n");
     sb.append("    managedByAkeyless: ").append(toIndentedString(managedByAkeyless)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -761,7 +787,7 @@ public class RotatedSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("aws_user_name", "delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws_user_name", "delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "key_algorithm", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -807,6 +833,9 @@ public class RotatedSecretDetailsInfo {
             WindowsService.validateJsonElement(jsonArrayiisAppsDetails.get(i));
           };
         }
+      }
+      if ((jsonObj.get("key_algorithm") != null && !jsonObj.get("key_algorithm").isJsonNull()) && !jsonObj.get("key_algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key_algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key_algorithm").toString()));
       }
       if ((jsonObj.get("last_rotation_error") != null && !jsonObj.get("last_rotation_error").isJsonNull()) && !jsonObj.get("last_rotation_error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_rotation_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_rotation_error").toString()));

@@ -610,6 +610,10 @@ import io.akeyless.client.model.KmipDeleteServer;
 import io.akeyless.client.model.KmipDescribeClient;
 import io.akeyless.client.model.KmipDescribeServer;
 import io.akeyless.client.model.KmipDescribeServerOutput;
+import io.akeyless.client.model.KmipGetCABundle;
+import io.akeyless.client.model.KmipGetCABundleOutput;
+import io.akeyless.client.model.KmipListCAs;
+import io.akeyless.client.model.KmipListCAsOutput;
 import io.akeyless.client.model.KmipListClients;
 import io.akeyless.client.model.KmipMoveServer;
 import io.akeyless.client.model.KmipMoveServerOutput;
@@ -617,11 +621,15 @@ import io.akeyless.client.model.KmipRenewClientCertificate;
 import io.akeyless.client.model.KmipRenewClientCertificateOutput;
 import io.akeyless.client.model.KmipRenewServerCertificate;
 import io.akeyless.client.model.KmipRenewServerCertificateOutput;
+import io.akeyless.client.model.KmipRotateCA;
+import io.akeyless.client.model.KmipRotateCAOutput;
 import io.akeyless.client.model.KmipServerSetup;
 import io.akeyless.client.model.KmipServerUpdate;
 import io.akeyless.client.model.KmipServerUpdateOutput;
 import io.akeyless.client.model.KmipSetServerState;
 import io.akeyless.client.model.KmipSetServerStateOutput;
+import io.akeyless.client.model.KmipSunsetCA;
+import io.akeyless.client.model.KmipSunsetCAOutput;
 import io.akeyless.client.model.KubeconfigGenerateOutput;
 import io.akeyless.client.model.ListAcmeAccounts;
 import io.akeyless.client.model.ListAcmeAccountsOutput;
@@ -50207,6 +50215,258 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for kmipGetCABundle
+     * @param kmipGetCABundle  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipGetCABundleResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipGetCABundleCall(@javax.annotation.Nullable KmipGetCABundle kmipGetCABundle, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = kmipGetCABundle;
+
+        // create path and map variables
+        String localVarPath = "/kmip-get-ca-bundle";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call kmipGetCABundleValidateBeforeCall(@javax.annotation.Nullable KmipGetCABundle kmipGetCABundle, final ApiCallback _callback) throws ApiException {
+        return kmipGetCABundleCall(kmipGetCABundle, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipGetCABundle  (optional)
+     * @return KmipGetCABundleOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipGetCABundleResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KmipGetCABundleOutput kmipGetCABundle(@javax.annotation.Nullable KmipGetCABundle kmipGetCABundle) throws ApiException {
+        ApiResponse<KmipGetCABundleOutput> localVarResp = kmipGetCABundleWithHttpInfo(kmipGetCABundle);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipGetCABundle  (optional)
+     * @return ApiResponse&lt;KmipGetCABundleOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipGetCABundleResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KmipGetCABundleOutput> kmipGetCABundleWithHttpInfo(@javax.annotation.Nullable KmipGetCABundle kmipGetCABundle) throws ApiException {
+        okhttp3.Call localVarCall = kmipGetCABundleValidateBeforeCall(kmipGetCABundle, null);
+        Type localVarReturnType = new TypeToken<KmipGetCABundleOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param kmipGetCABundle  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipGetCABundleResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipGetCABundleAsync(@javax.annotation.Nullable KmipGetCABundle kmipGetCABundle, final ApiCallback<KmipGetCABundleOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = kmipGetCABundleValidateBeforeCall(kmipGetCABundle, _callback);
+        Type localVarReturnType = new TypeToken<KmipGetCABundleOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for kmipListCAs
+     * @param kmipListCAs  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipListCAsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipListCAsCall(@javax.annotation.Nullable KmipListCAs kmipListCAs, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = kmipListCAs;
+
+        // create path and map variables
+        String localVarPath = "/kmip-list-cas";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call kmipListCAsValidateBeforeCall(@javax.annotation.Nullable KmipListCAs kmipListCAs, final ApiCallback _callback) throws ApiException {
+        return kmipListCAsCall(kmipListCAs, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipListCAs  (optional)
+     * @return KmipListCAsOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipListCAsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KmipListCAsOutput kmipListCAs(@javax.annotation.Nullable KmipListCAs kmipListCAs) throws ApiException {
+        ApiResponse<KmipListCAsOutput> localVarResp = kmipListCAsWithHttpInfo(kmipListCAs);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipListCAs  (optional)
+     * @return ApiResponse&lt;KmipListCAsOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipListCAsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KmipListCAsOutput> kmipListCAsWithHttpInfo(@javax.annotation.Nullable KmipListCAs kmipListCAs) throws ApiException {
+        okhttp3.Call localVarCall = kmipListCAsValidateBeforeCall(kmipListCAs, null);
+        Type localVarReturnType = new TypeToken<KmipListCAsOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param kmipListCAs  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipListCAsResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipListCAsAsync(@javax.annotation.Nullable KmipListCAs kmipListCAs, final ApiCallback<KmipListCAsOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = kmipListCAsValidateBeforeCall(kmipListCAs, _callback);
+        Type localVarReturnType = new TypeToken<KmipListCAsOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for kmipListClients
      * @param kmipListClients  (optional)
      * @param _callback Callback for upload/download progress
@@ -50489,7 +50749,7 @@ public class V2Api {
         Object localVarPostBody = kmipRenewClientCertificate;
 
         // create path and map variables
-        String localVarPath = "/kmip-renew-client";
+        String localVarPath = "/kmip-renew-client-certificate";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -50707,6 +50967,132 @@ public class V2Api {
 
         okhttp3.Call localVarCall = kmipRenewServerCertificateValidateBeforeCall(kmipRenewServerCertificate, _callback);
         Type localVarReturnType = new TypeToken<KmipRenewServerCertificateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for kmipRotateCA
+     * @param kmipRotateCA  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipRotateCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipRotateCACall(@javax.annotation.Nullable KmipRotateCA kmipRotateCA, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = kmipRotateCA;
+
+        // create path and map variables
+        String localVarPath = "/kmip-rotate-ca";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call kmipRotateCAValidateBeforeCall(@javax.annotation.Nullable KmipRotateCA kmipRotateCA, final ApiCallback _callback) throws ApiException {
+        return kmipRotateCACall(kmipRotateCA, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipRotateCA  (optional)
+     * @return KmipRotateCAOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipRotateCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KmipRotateCAOutput kmipRotateCA(@javax.annotation.Nullable KmipRotateCA kmipRotateCA) throws ApiException {
+        ApiResponse<KmipRotateCAOutput> localVarResp = kmipRotateCAWithHttpInfo(kmipRotateCA);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipRotateCA  (optional)
+     * @return ApiResponse&lt;KmipRotateCAOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipRotateCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KmipRotateCAOutput> kmipRotateCAWithHttpInfo(@javax.annotation.Nullable KmipRotateCA kmipRotateCA) throws ApiException {
+        okhttp3.Call localVarCall = kmipRotateCAValidateBeforeCall(kmipRotateCA, null);
+        Type localVarReturnType = new TypeToken<KmipRotateCAOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param kmipRotateCA  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipRotateCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipRotateCAAsync(@javax.annotation.Nullable KmipRotateCA kmipRotateCA, final ApiCallback<KmipRotateCAOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = kmipRotateCAValidateBeforeCall(kmipRotateCA, _callback);
+        Type localVarReturnType = new TypeToken<KmipRotateCAOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -51085,6 +51471,132 @@ public class V2Api {
 
         okhttp3.Call localVarCall = kmipSetServerStateValidateBeforeCall(kmipSetServerState, _callback);
         Type localVarReturnType = new TypeToken<KmipSetServerStateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for kmipSunsetCA
+     * @param kmipSunsetCA  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipSunsetCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipSunsetCACall(@javax.annotation.Nullable KmipSunsetCA kmipSunsetCA, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = kmipSunsetCA;
+
+        // create path and map variables
+        String localVarPath = "/kmip-sunset-ca";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call kmipSunsetCAValidateBeforeCall(@javax.annotation.Nullable KmipSunsetCA kmipSunsetCA, final ApiCallback _callback) throws ApiException {
+        return kmipSunsetCACall(kmipSunsetCA, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipSunsetCA  (optional)
+     * @return KmipSunsetCAOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipSunsetCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KmipSunsetCAOutput kmipSunsetCA(@javax.annotation.Nullable KmipSunsetCA kmipSunsetCA) throws ApiException {
+        ApiResponse<KmipSunsetCAOutput> localVarResp = kmipSunsetCAWithHttpInfo(kmipSunsetCA);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param kmipSunsetCA  (optional)
+     * @return ApiResponse&lt;KmipSunsetCAOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipSunsetCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KmipSunsetCAOutput> kmipSunsetCAWithHttpInfo(@javax.annotation.Nullable KmipSunsetCA kmipSunsetCA) throws ApiException {
+        okhttp3.Call localVarCall = kmipSunsetCAValidateBeforeCall(kmipSunsetCA, null);
+        Type localVarReturnType = new TypeToken<KmipSunsetCAOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param kmipSunsetCA  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> kmipSunsetCAResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call kmipSunsetCAAsync(@javax.annotation.Nullable KmipSunsetCA kmipSunsetCA, final ApiCallback<KmipSunsetCAOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = kmipSunsetCAValidateBeforeCall(kmipSunsetCA, _callback);
+        Type localVarReturnType = new TypeToken<KmipSunsetCAOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

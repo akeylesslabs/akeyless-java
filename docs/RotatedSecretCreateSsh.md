@@ -18,6 +18,7 @@
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** |  |  [optional] |
+|**keyAlgorithm** | **String** | The key algorithm to generate with when no private key is supplied. options: [ED25519/RSA2048/RSA3072/RSA4096/ECDSA256/ECDSA384/ECDSA521] |  [optional] |
 |**keyDataBase64** | **String** | Private key file contents encoded using base64 |  [optional] |
 |**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
@@ -42,8 +43,13 @@
 |**secureAccessHost** | **List&lt;String&gt;** | Target servers for connections (In case of Linked Target association, host(s) will inherit Linked Target hosts - Relevant only for Dynamic Secrets/producers) |  [optional] |
 |**secureAccessRdpDomain** | **String** | Default domain name server. i.e. microsoft.com |  [optional] |
 |**secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional] |
+|**secureAccessSshCreds** | **String** | Secret values contains SSH Credentials, either Private Key or Password [password/private-key] (relevant only for Static-Secret or Rotated-secret) |  [optional] |
 |**secureAccessSshUser** | **String** | Override the SSH username as indicated in SSH Certificate Issuer |  [optional] |
 |**secureAccessTargetType** | **String** | Specify target type. Options are ssh or rdp |  [optional] |
+|**secureAccessUrl** | **String** | Destination URL to inject secrets |  [optional] |
+|**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional] |
+|**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
+|**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**target** | **List&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times |  [optional] |

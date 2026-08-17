@@ -482,13 +482,17 @@ Class | Method | HTTP request | Description
 *V2Api* | [**kmipDeleteServer**](docs/V2Api.md#kmipDeleteServer) | **DELETE** /kmip-delete-environment | 
 *V2Api* | [**kmipDescribeClient**](docs/V2Api.md#kmipDescribeClient) | **POST** /kmip-get-client | 
 *V2Api* | [**kmipDescribeServer**](docs/V2Api.md#kmipDescribeServer) | **POST** /kmip-get-environment | 
+*V2Api* | [**kmipGetCABundle**](docs/V2Api.md#kmipGetCABundle) | **POST** /kmip-get-ca-bundle | 
+*V2Api* | [**kmipListCAs**](docs/V2Api.md#kmipListCAs) | **POST** /kmip-list-cas | 
 *V2Api* | [**kmipListClients**](docs/V2Api.md#kmipListClients) | **POST** /kmip-list-clients | 
 *V2Api* | [**kmipMoveServer**](docs/V2Api.md#kmipMoveServer) | **POST** /kmip-move-environment | 
-*V2Api* | [**kmipRenewClientCertificate**](docs/V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client | 
+*V2Api* | [**kmipRenewClientCertificate**](docs/V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client-certificate | 
 *V2Api* | [**kmipRenewServerCertificate**](docs/V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment | 
+*V2Api* | [**kmipRotateCA**](docs/V2Api.md#kmipRotateCA) | **POST** /kmip-rotate-ca | 
 *V2Api* | [**kmipServerSetup**](docs/V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment | 
 *V2Api* | [**kmipServerUpdate**](docs/V2Api.md#kmipServerUpdate) | **POST** /kmip-server-update | 
 *V2Api* | [**kmipSetServerState**](docs/V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state | 
+*V2Api* | [**kmipSunsetCA**](docs/V2Api.md#kmipSunsetCA) | **POST** /kmip-sunset-ca | 
 *V2Api* | [**kubeconfigGenerate**](docs/V2Api.md#kubeconfigGenerate) | **POST** /kubeconfig-generate | 
 *V2Api* | [**listAcmeAccounts**](docs/V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts | 
 *V2Api* | [**listAuthMethods**](docs/V2Api.md#listAuthMethods) | **POST** /list-auth-methods | 
@@ -1485,6 +1489,7 @@ Class | Method | HTTP request | Description
  - [K8SMigration](docs/K8SMigration.md)
  - [K8SPayload](docs/K8SPayload.md)
  - [KMIPCA](docs/KMIPCA.md)
+ - [KMIPCAListEntry](docs/KMIPCAListEntry.md)
  - [KMIPClient](docs/KMIPClient.md)
  - [KMIPClientGetResponse](docs/KMIPClientGetResponse.md)
  - [KMIPClientListResponse](docs/KMIPClientListResponse.md)
@@ -1507,6 +1512,10 @@ Class | Method | HTTP request | Description
  - [KmipDescribeClient](docs/KmipDescribeClient.md)
  - [KmipDescribeServer](docs/KmipDescribeServer.md)
  - [KmipDescribeServerOutput](docs/KmipDescribeServerOutput.md)
+ - [KmipGetCABundle](docs/KmipGetCABundle.md)
+ - [KmipGetCABundleOutput](docs/KmipGetCABundleOutput.md)
+ - [KmipListCAs](docs/KmipListCAs.md)
+ - [KmipListCAsOutput](docs/KmipListCAsOutput.md)
  - [KmipListClients](docs/KmipListClients.md)
  - [KmipMoveServer](docs/KmipMoveServer.md)
  - [KmipMoveServerOutput](docs/KmipMoveServerOutput.md)
@@ -1514,11 +1523,15 @@ Class | Method | HTTP request | Description
  - [KmipRenewClientCertificateOutput](docs/KmipRenewClientCertificateOutput.md)
  - [KmipRenewServerCertificate](docs/KmipRenewServerCertificate.md)
  - [KmipRenewServerCertificateOutput](docs/KmipRenewServerCertificateOutput.md)
+ - [KmipRotateCA](docs/KmipRotateCA.md)
+ - [KmipRotateCAOutput](docs/KmipRotateCAOutput.md)
  - [KmipServerSetup](docs/KmipServerSetup.md)
  - [KmipServerUpdate](docs/KmipServerUpdate.md)
  - [KmipServerUpdateOutput](docs/KmipServerUpdateOutput.md)
  - [KmipSetServerState](docs/KmipSetServerState.md)
  - [KmipSetServerStateOutput](docs/KmipSetServerStateOutput.md)
+ - [KmipSunsetCA](docs/KmipSunsetCA.md)
+ - [KmipSunsetCAOutput](docs/KmipSunsetCAOutput.md)
  - [KubeConfigValue](docs/KubeConfigValue.md)
  - [KubeconfigCluster](docs/KubeconfigCluster.md)
  - [KubeconfigContext](docs/KubeconfigContext.md)

@@ -380,13 +380,17 @@ All URIs are relative to *https://api.akeyless.io*
 | [**kmipDeleteServer**](V2Api.md#kmipDeleteServer) | **DELETE** /kmip-delete-environment |  |
 | [**kmipDescribeClient**](V2Api.md#kmipDescribeClient) | **POST** /kmip-get-client |  |
 | [**kmipDescribeServer**](V2Api.md#kmipDescribeServer) | **POST** /kmip-get-environment |  |
+| [**kmipGetCABundle**](V2Api.md#kmipGetCABundle) | **POST** /kmip-get-ca-bundle |  |
+| [**kmipListCAs**](V2Api.md#kmipListCAs) | **POST** /kmip-list-cas |  |
 | [**kmipListClients**](V2Api.md#kmipListClients) | **POST** /kmip-list-clients |  |
 | [**kmipMoveServer**](V2Api.md#kmipMoveServer) | **POST** /kmip-move-environment |  |
-| [**kmipRenewClientCertificate**](V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client |  |
+| [**kmipRenewClientCertificate**](V2Api.md#kmipRenewClientCertificate) | **POST** /kmip-renew-client-certificate |  |
 | [**kmipRenewServerCertificate**](V2Api.md#kmipRenewServerCertificate) | **POST** /kmip-renew-environment |  |
+| [**kmipRotateCA**](V2Api.md#kmipRotateCA) | **POST** /kmip-rotate-ca |  |
 | [**kmipServerSetup**](V2Api.md#kmipServerSetup) | **POST** /kmip-create-environment |  |
 | [**kmipServerUpdate**](V2Api.md#kmipServerUpdate) | **POST** /kmip-server-update |  |
 | [**kmipSetServerState**](V2Api.md#kmipSetServerState) | **POST** /kmip-set-environment-state |  |
+| [**kmipSunsetCA**](V2Api.md#kmipSunsetCA) | **POST** /kmip-sunset-ca |  |
 | [**kubeconfigGenerate**](V2Api.md#kubeconfigGenerate) | **POST** /kubeconfig-generate |  |
 | [**listAcmeAccounts**](V2Api.md#listAcmeAccounts) | **POST** /list-acme-accounts |  |
 | [**listAuthMethods**](V2Api.md#listAuthMethods) | **POST** /list-auth-methods |  |
@@ -23590,6 +23594,128 @@ No authorization required
 | **200** | kmipDescribeServerResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="kmipGetCABundle"></a>
+# **kmipGetCABundle**
+> KmipGetCABundleOutput kmipGetCABundle(kmipGetCABundle)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    KmipGetCABundle kmipGetCABundle = new KmipGetCABundle(); // KmipGetCABundle | 
+    try {
+      KmipGetCABundleOutput result = apiInstance.kmipGetCABundle(kmipGetCABundle);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kmipGetCABundle");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kmipGetCABundle** | [**KmipGetCABundle**](KmipGetCABundle.md)|  | [optional] |
+
+### Return type
+
+[**KmipGetCABundleOutput**](KmipGetCABundleOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | kmipGetCABundleResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="kmipListCAs"></a>
+# **kmipListCAs**
+> KmipListCAsOutput kmipListCAs(kmipListCAs)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    KmipListCAs kmipListCAs = new KmipListCAs(); // KmipListCAs | 
+    try {
+      KmipListCAsOutput result = apiInstance.kmipListCAs(kmipListCAs);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kmipListCAs");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kmipListCAs** | [**KmipListCAs**](KmipListCAs.md)|  | [optional] |
+
+### Return type
+
+[**KmipListCAsOutput**](KmipListCAsOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | kmipListCAsResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="kmipListClients"></a>
 # **kmipListClients**
 > KMIPClientListResponse kmipListClients(kmipListClients)
@@ -23834,6 +23960,67 @@ No authorization required
 | **200** | kmipRenewServerCertificateResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="kmipRotateCA"></a>
+# **kmipRotateCA**
+> KmipRotateCAOutput kmipRotateCA(kmipRotateCA)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    KmipRotateCA kmipRotateCA = new KmipRotateCA(); // KmipRotateCA | 
+    try {
+      KmipRotateCAOutput result = apiInstance.kmipRotateCA(kmipRotateCA);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kmipRotateCA");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kmipRotateCA** | [**KmipRotateCA**](KmipRotateCA.md)|  | [optional] |
+
+### Return type
+
+[**KmipRotateCAOutput**](KmipRotateCAOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | kmipRotateCAResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="kmipServerSetup"></a>
 # **kmipServerSetup**
 > KMIPEnvironmentCreateResponse kmipServerSetup(kmipServerSetup)
@@ -24015,6 +24202,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | kmipSetServerStateResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="kmipSunsetCA"></a>
+# **kmipSunsetCA**
+> KmipSunsetCAOutput kmipSunsetCA(kmipSunsetCA)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    KmipSunsetCA kmipSunsetCA = new KmipSunsetCA(); // KmipSunsetCA | 
+    try {
+      KmipSunsetCAOutput result = apiInstance.kmipSunsetCA(kmipSunsetCA);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#kmipSunsetCA");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **kmipSunsetCA** | [**KmipSunsetCA**](KmipSunsetCA.md)|  | [optional] |
+
+### Return type
+
+[**KmipSunsetCAOutput**](KmipSunsetCAOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | kmipSunsetCAResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="kubeconfigGenerate"></a>

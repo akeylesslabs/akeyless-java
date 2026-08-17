@@ -17,6 +17,7 @@ RotatedSecretDetailsInfo The rotated secret rotator info
 |**graceRotationTiming** | **String** |  |  [optional] |
 |**gwClusterId** | **Long** |  |  [optional] |
 |**iisAppsDetails** | [**List&lt;WindowsService&gt;**](WindowsService.md) |  |  [optional] |
+|**keyAlgorithm** | **String** | SSHKeyAlgorithm identifies the key algorithm an SSH rotated secret uses. Kept apart from Algorithm, which is an encryption-key enum and has no ECDSA-384 or ECDSA-521. |  [optional] |
 |**lastRotationError** | **String** |  |  [optional] |
 |**managedByAkeyless** | **Boolean** |  |  [optional] |
 |**maxVersions** | **Long** |  |  [optional] |

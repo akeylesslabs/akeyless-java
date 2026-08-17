@@ -58,6 +58,11 @@ public class SAMLAccessRules {
   @javax.annotation.Nullable
   private List<String> allowedRedirectURIs = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_AUTHORIZED_GW_CLUSTER_NAME = "authorized_gw_cluster_name";
+  @SerializedName(SERIALIZED_NAME_AUTHORIZED_GW_CLUSTER_NAME)
+  @javax.annotation.Nullable
+  private String authorizedGwClusterName;
+
   public static final String SERIALIZED_NAME_BOUND_ATTRIBUTES = "bound_attributes";
   @SerializedName(SERIALIZED_NAME_BOUND_ATTRIBUTES)
   @javax.annotation.Nullable
@@ -110,6 +115,25 @@ public class SAMLAccessRules {
 
   public void setAllowedRedirectURIs(@javax.annotation.Nullable List<String> allowedRedirectURIs) {
     this.allowedRedirectURIs = allowedRedirectURIs;
+  }
+
+
+  public SAMLAccessRules authorizedGwClusterName(@javax.annotation.Nullable String authorizedGwClusterName) {
+    this.authorizedGwClusterName = authorizedGwClusterName;
+    return this;
+  }
+
+  /**
+   * AuthorizedGwClusterName binds the access method to a single GW cluster. When empty (or whitespace-only), GW-driven auth is disabled.
+   * @return authorizedGwClusterName
+   */
+  @javax.annotation.Nullable
+  public String getAuthorizedGwClusterName() {
+    return authorizedGwClusterName;
+  }
+
+  public void setAuthorizedGwClusterName(@javax.annotation.Nullable String authorizedGwClusterName) {
+    this.authorizedGwClusterName = authorizedGwClusterName;
   }
 
 
@@ -227,6 +251,7 @@ public class SAMLAccessRules {
     }
     SAMLAccessRules saMLAccessRules = (SAMLAccessRules) o;
     return Objects.equals(this.allowedRedirectURIs, saMLAccessRules.allowedRedirectURIs) &&
+        Objects.equals(this.authorizedGwClusterName, saMLAccessRules.authorizedGwClusterName) &&
         Objects.equals(this.boundAttributes, saMLAccessRules.boundAttributes) &&
         Objects.equals(this.idpMetadataUrl, saMLAccessRules.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXml, saMLAccessRules.idpMetadataXml) &&
@@ -236,7 +261,7 @@ public class SAMLAccessRules {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowedRedirectURIs, boundAttributes, idpMetadataUrl, idpMetadataXml, uniqueIdentifier, useDedicatedSamlUrls);
+    return Objects.hash(allowedRedirectURIs, authorizedGwClusterName, boundAttributes, idpMetadataUrl, idpMetadataXml, uniqueIdentifier, useDedicatedSamlUrls);
   }
 
   @Override
@@ -244,6 +269,7 @@ public class SAMLAccessRules {
     StringBuilder sb = new StringBuilder();
     sb.append("class SAMLAccessRules {\n");
     sb.append("    allowedRedirectURIs: ").append(toIndentedString(allowedRedirectURIs)).append("\n");
+    sb.append("    authorizedGwClusterName: ").append(toIndentedString(authorizedGwClusterName)).append("\n");
     sb.append("    boundAttributes: ").append(toIndentedString(boundAttributes)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXml: ").append(toIndentedString(idpMetadataXml)).append("\n");
@@ -267,7 +293,7 @@ public class SAMLAccessRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allowed_redirect_URIs", "bound_attributes", "idp_metadata_url", "idp_metadata_xml", "unique_identifier", "use_dedicated_saml_urls"));
+    openapiFields = new HashSet<String>(Arrays.asList("allowed_redirect_URIs", "authorized_gw_cluster_name", "bound_attributes", "idp_metadata_url", "idp_metadata_xml", "unique_identifier", "use_dedicated_saml_urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -297,6 +323,9 @@ public class SAMLAccessRules {
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_redirect_URIs") != null && !jsonObj.get("allowed_redirect_URIs").isJsonNull() && !jsonObj.get("allowed_redirect_URIs").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `allowed_redirect_URIs` to be an array in the JSON string but got `%s`", jsonObj.get("allowed_redirect_URIs").toString()));
+      }
+      if ((jsonObj.get("authorized_gw_cluster_name") != null && !jsonObj.get("authorized_gw_cluster_name").isJsonNull()) && !jsonObj.get("authorized_gw_cluster_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `authorized_gw_cluster_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("authorized_gw_cluster_name").toString()));
       }
       if (jsonObj.get("bound_attributes") != null && !jsonObj.get("bound_attributes").isJsonNull()) {
         JsonArray jsonArrayboundAttributes = jsonObj.getAsJsonArray("bound_attributes");

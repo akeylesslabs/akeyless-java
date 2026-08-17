@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**certificateTtl** | **Long** | Client certificate TTL in days. If unset, the existing client TTL is kept. |  [optional] |
 |**clientId** | **String** |  |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** |  |  [optional] |

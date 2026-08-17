@@ -108,6 +108,11 @@ public class AuthMethod {
   @javax.annotation.Nullable
   private List<AuthMethodRoleAssociation> authMethodRolesAssoc = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_BOOKMARK_LOGIN_URL_TEMPLATE = "bookmark_login_url_template";
+  @SerializedName(SERIALIZED_NAME_BOOKMARK_LOGIN_URL_TEMPLATE)
+  @javax.annotation.Nullable
+  private String bookmarkLoginUrlTemplate;
+
   public static final String SERIALIZED_NAME_CLIENT_PERMISSIONS = "client_permissions";
   @SerializedName(SERIALIZED_NAME_CLIENT_PERMISSIONS)
   @javax.annotation.Nullable
@@ -357,6 +362,25 @@ public class AuthMethod {
   }
 
 
+  public AuthMethod bookmarkLoginUrlTemplate(@javax.annotation.Nullable String bookmarkLoginUrlTemplate) {
+    this.bookmarkLoginUrlTemplate = bookmarkLoginUrlTemplate;
+    return this;
+  }
+
+  /**
+   * BookmarkLoginURLTemplate is an OIDC login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback.
+   * @return bookmarkLoginUrlTemplate
+   */
+  @javax.annotation.Nullable
+  public String getBookmarkLoginUrlTemplate() {
+    return bookmarkLoginUrlTemplate;
+  }
+
+  public void setBookmarkLoginUrlTemplate(@javax.annotation.Nullable String bookmarkLoginUrlTemplate) {
+    this.bookmarkLoginUrlTemplate = bookmarkLoginUrlTemplate;
+  }
+
+
   public AuthMethod clientPermissions(@javax.annotation.Nullable List<String> clientPermissions) {
     this.clientPermissions = clientPermissions;
     return this;
@@ -553,6 +577,7 @@ public class AuthMethod {
         Objects.equals(this.authMethodId, authMethod.authMethodId) &&
         Objects.equals(this.authMethodName, authMethod.authMethodName) &&
         Objects.equals(this.authMethodRolesAssoc, authMethod.authMethodRolesAssoc) &&
+        Objects.equals(this.bookmarkLoginUrlTemplate, authMethod.bookmarkLoginUrlTemplate) &&
         Objects.equals(this.clientPermissions, authMethod.clientPermissions) &&
         Objects.equals(this.creationDate, authMethod.creationDate) &&
         Objects.equals(this.deleteProtection, authMethod.deleteProtection) &&
@@ -565,7 +590,7 @@ public class AuthMethod {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodId, authMethodName, authMethodRolesAssoc, clientPermissions, creationDate, deleteProtection, description, expirationEvents, isApproved, modificationDate, uidExpirationEvents);
+    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodId, authMethodName, authMethodRolesAssoc, bookmarkLoginUrlTemplate, clientPermissions, creationDate, deleteProtection, description, expirationEvents, isApproved, modificationDate, uidExpirationEvents);
   }
 
   @Override
@@ -582,6 +607,7 @@ public class AuthMethod {
     sb.append("    authMethodId: ").append(toIndentedString(authMethodId)).append("\n");
     sb.append("    authMethodName: ").append(toIndentedString(authMethodName)).append("\n");
     sb.append("    authMethodRolesAssoc: ").append(toIndentedString(authMethodRolesAssoc)).append("\n");
+    sb.append("    bookmarkLoginUrlTemplate: ").append(toIndentedString(bookmarkLoginUrlTemplate)).append("\n");
     sb.append("    clientPermissions: ").append(toIndentedString(clientPermissions)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
@@ -608,7 +634,7 @@ public class AuthMethod {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date", "uid_expiration_events"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "bookmark_login_url_template", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date", "uid_expiration_events"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -672,6 +698,9 @@ public class AuthMethod {
             AuthMethodRoleAssociation.validateJsonElement(jsonArrayauthMethodRolesAssoc.get(i));
           };
         }
+      }
+      if ((jsonObj.get("bookmark_login_url_template") != null && !jsonObj.get("bookmark_login_url_template").isJsonNull()) && !jsonObj.get("bookmark_login_url_template").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bookmark_login_url_template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bookmark_login_url_template").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("client_permissions") != null && !jsonObj.get("client_permissions").isJsonNull() && !jsonObj.get("client_permissions").isJsonArray()) {

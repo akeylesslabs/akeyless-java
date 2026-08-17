@@ -109,6 +109,11 @@ public class RotatedSecretCreateSsh {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_KEY_ALGORITHM = "key-algorithm";
+  @SerializedName(SERIALIZED_NAME_KEY_ALGORITHM)
+  @javax.annotation.Nullable
+  private String keyAlgorithm;
+
   public static final String SERIALIZED_NAME_KEY_DATA_BASE64 = "key-data-base64";
   @SerializedName(SERIALIZED_NAME_KEY_DATA_BASE64)
   @javax.annotation.Nullable
@@ -229,6 +234,11 @@ public class RotatedSecretCreateSsh {
   @javax.annotation.Nullable
   private String secureAccessRdpUser;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS = "secure-access-ssh-creds";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_CREDS)
+  @javax.annotation.Nullable
+  private String secureAccessSshCreds;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_SSH_USER = "secure-access-ssh-user";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_SSH_USER)
   @javax.annotation.Nullable
@@ -238,6 +248,26 @@ public class RotatedSecretCreateSsh {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_TARGET_TYPE)
   @javax.annotation.Nullable
   private String secureAccessTargetType = "false";
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_URL = "secure-access-url";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_URL)
+  @javax.annotation.Nullable
+  private String secureAccessUrl;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB = "secure-access-web";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB)
+  @javax.annotation.Nullable
+  private Boolean secureAccessWeb = true;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING = "secure-access-web-browsing";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_BROWSING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessWebBrowsing = false;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY = "secure-access-web-proxy";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_WEB_PROXY)
+  @javax.annotation.Nullable
+  private Boolean secureAccessWebProxy = false;
 
   public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
@@ -514,6 +544,25 @@ public class RotatedSecretCreateSsh {
 
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretCreateSsh keyAlgorithm(@javax.annotation.Nullable String keyAlgorithm) {
+    this.keyAlgorithm = keyAlgorithm;
+    return this;
+  }
+
+  /**
+   * The key algorithm to generate with when no private key is supplied. options: [ED25519/RSA2048/RSA3072/RSA4096/ECDSA256/ECDSA384/ECDSA521]
+   * @return keyAlgorithm
+   */
+  @javax.annotation.Nullable
+  public String getKeyAlgorithm() {
+    return keyAlgorithm;
+  }
+
+  public void setKeyAlgorithm(@javax.annotation.Nullable String keyAlgorithm) {
+    this.keyAlgorithm = keyAlgorithm;
   }
 
 
@@ -997,6 +1046,25 @@ public class RotatedSecretCreateSsh {
   }
 
 
+  public RotatedSecretCreateSsh secureAccessSshCreds(@javax.annotation.Nullable String secureAccessSshCreds) {
+    this.secureAccessSshCreds = secureAccessSshCreds;
+    return this;
+  }
+
+  /**
+   * Secret values contains SSH Credentials, either Private Key or Password [password/private-key] (relevant only for Static-Secret or Rotated-secret)
+   * @return secureAccessSshCreds
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessSshCreds() {
+    return secureAccessSshCreds;
+  }
+
+  public void setSecureAccessSshCreds(@javax.annotation.Nullable String secureAccessSshCreds) {
+    this.secureAccessSshCreds = secureAccessSshCreds;
+  }
+
+
   public RotatedSecretCreateSsh secureAccessSshUser(@javax.annotation.Nullable String secureAccessSshUser) {
     this.secureAccessSshUser = secureAccessSshUser;
     return this;
@@ -1032,6 +1100,82 @@ public class RotatedSecretCreateSsh {
 
   public void setSecureAccessTargetType(@javax.annotation.Nullable String secureAccessTargetType) {
     this.secureAccessTargetType = secureAccessTargetType;
+  }
+
+
+  public RotatedSecretCreateSsh secureAccessUrl(@javax.annotation.Nullable String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+    return this;
+  }
+
+  /**
+   * Destination URL to inject secrets
+   * @return secureAccessUrl
+   */
+  @javax.annotation.Nullable
+  public String getSecureAccessUrl() {
+    return secureAccessUrl;
+  }
+
+  public void setSecureAccessUrl(@javax.annotation.Nullable String secureAccessUrl) {
+    this.secureAccessUrl = secureAccessUrl;
+  }
+
+
+  public RotatedSecretCreateSsh secureAccessWeb(@javax.annotation.Nullable Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+    return this;
+  }
+
+  /**
+   * Enable Web Secure Remote Access
+   * @return secureAccessWeb
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessWeb() {
+    return secureAccessWeb;
+  }
+
+  public void setSecureAccessWeb(@javax.annotation.Nullable Boolean secureAccessWeb) {
+    this.secureAccessWeb = secureAccessWeb;
+  }
+
+
+  public RotatedSecretCreateSsh secureAccessWebBrowsing(@javax.annotation.Nullable Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+    return this;
+  }
+
+  /**
+   * Secure browser via Akeyless&#39;s Secure Remote Access (SRA)
+   * @return secureAccessWebBrowsing
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessWebBrowsing() {
+    return secureAccessWebBrowsing;
+  }
+
+  public void setSecureAccessWebBrowsing(@javax.annotation.Nullable Boolean secureAccessWebBrowsing) {
+    this.secureAccessWebBrowsing = secureAccessWebBrowsing;
+  }
+
+
+  public RotatedSecretCreateSsh secureAccessWebProxy(@javax.annotation.Nullable Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
+    return this;
+  }
+
+  /**
+   * Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA)
+   * @return secureAccessWebProxy
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessWebProxy() {
+    return secureAccessWebProxy;
+  }
+
+  public void setSecureAccessWebProxy(@javax.annotation.Nullable Boolean secureAccessWebProxy) {
+    this.secureAccessWebProxy = secureAccessWebProxy;
   }
 
 
@@ -1262,6 +1406,7 @@ public class RotatedSecretCreateSsh {
         Objects.equals(this.itemCustomFields, rotatedSecretCreateSsh.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateSsh.json) &&
         Objects.equals(this.key, rotatedSecretCreateSsh.key) &&
+        Objects.equals(this.keyAlgorithm, rotatedSecretCreateSsh.keyAlgorithm) &&
         Objects.equals(this.keyDataBase64, rotatedSecretCreateSsh.keyDataBase64) &&
         Objects.equals(this.lockDuringSraSession, rotatedSecretCreateSsh.lockDuringSraSession) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateSsh.maxVersions) &&
@@ -1286,8 +1431,13 @@ public class RotatedSecretCreateSsh {
         Objects.equals(this.secureAccessHost, rotatedSecretCreateSsh.secureAccessHost) &&
         Objects.equals(this.secureAccessRdpDomain, rotatedSecretCreateSsh.secureAccessRdpDomain) &&
         Objects.equals(this.secureAccessRdpUser, rotatedSecretCreateSsh.secureAccessRdpUser) &&
+        Objects.equals(this.secureAccessSshCreds, rotatedSecretCreateSsh.secureAccessSshCreds) &&
         Objects.equals(this.secureAccessSshUser, rotatedSecretCreateSsh.secureAccessSshUser) &&
         Objects.equals(this.secureAccessTargetType, rotatedSecretCreateSsh.secureAccessTargetType) &&
+        Objects.equals(this.secureAccessUrl, rotatedSecretCreateSsh.secureAccessUrl) &&
+        Objects.equals(this.secureAccessWeb, rotatedSecretCreateSsh.secureAccessWeb) &&
+        Objects.equals(this.secureAccessWebBrowsing, rotatedSecretCreateSsh.secureAccessWebBrowsing) &&
+        Objects.equals(this.secureAccessWebProxy, rotatedSecretCreateSsh.secureAccessWebProxy) &&
         Objects.equals(this.skipDryRun, rotatedSecretCreateSsh.skipDryRun) &&
         Objects.equals(this.tags, rotatedSecretCreateSsh.tags) &&
         Objects.equals(this.target, rotatedSecretCreateSsh.target) &&
@@ -1302,7 +1452,7 @@ public class RotatedSecretCreateSsh {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, inputRule, itemCustomFields, json, key, keyDataBase64, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, publicKeyRemotePath, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessTargetType, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(providerType, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, inputRule, itemCustomFields, json, key, keyAlgorithm, keyDataBase64, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, publicKeyRemotePath, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessTargetType, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1320,6 +1470,7 @@ public class RotatedSecretCreateSsh {
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    keyAlgorithm: ").append(toIndentedString(keyAlgorithm)).append("\n");
     sb.append("    keyDataBase64: ").append(toIndentedString(keyDataBase64)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
@@ -1344,8 +1495,13 @@ public class RotatedSecretCreateSsh {
     sb.append("    secureAccessHost: ").append(toIndentedString(secureAccessHost)).append("\n");
     sb.append("    secureAccessRdpDomain: ").append(toIndentedString(secureAccessRdpDomain)).append("\n");
     sb.append("    secureAccessRdpUser: ").append(toIndentedString(secureAccessRdpUser)).append("\n");
+    sb.append("    secureAccessSshCreds: ").append(toIndentedString(secureAccessSshCreds)).append("\n");
     sb.append("    secureAccessSshUser: ").append(toIndentedString(secureAccessSshUser)).append("\n");
     sb.append("    secureAccessTargetType: ").append(toIndentedString(secureAccessTargetType)).append("\n");
+    sb.append("    secureAccessUrl: ").append(toIndentedString(secureAccessUrl)).append("\n");
+    sb.append("    secureAccessWeb: ").append(toIndentedString(secureAccessWeb)).append("\n");
+    sb.append("    secureAccessWebBrowsing: ").append(toIndentedString(secureAccessWebBrowsing)).append("\n");
+    sb.append("    secureAccessWebProxy: ").append(toIndentedString(secureAccessWebProxy)).append("\n");
     sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    target: ").append(toIndentedString(target)).append("\n");
@@ -1374,7 +1530,7 @@ public class RotatedSecretCreateSsh {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "host-provider", "input-rule", "item-custom-fields", "json", "key", "key-data-base64", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "public-key-remote-path", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-target-type", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "host-provider", "input-rule", "item-custom-fields", "json", "key", "key-algorithm", "key-data-base64", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "public-key-remote-path", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-target-type", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1432,6 +1588,9 @@ public class RotatedSecretCreateSsh {
       }
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
+      }
+      if ((jsonObj.get("key-algorithm") != null && !jsonObj.get("key-algorithm").isJsonNull()) && !jsonObj.get("key-algorithm").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-algorithm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-algorithm").toString()));
       }
       if ((jsonObj.get("key-data-base64") != null && !jsonObj.get("key-data-base64").isJsonNull()) && !jsonObj.get("key-data-base64").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-data-base64` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-data-base64").toString()));
@@ -1499,11 +1658,17 @@ public class RotatedSecretCreateSsh {
       if ((jsonObj.get("secure-access-rdp-user") != null && !jsonObj.get("secure-access-rdp-user").isJsonNull()) && !jsonObj.get("secure-access-rdp-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-rdp-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-rdp-user").toString()));
       }
+      if ((jsonObj.get("secure-access-ssh-creds") != null && !jsonObj.get("secure-access-ssh-creds").isJsonNull()) && !jsonObj.get("secure-access-ssh-creds").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-ssh-creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-ssh-creds").toString()));
+      }
       if ((jsonObj.get("secure-access-ssh-user") != null && !jsonObj.get("secure-access-ssh-user").isJsonNull()) && !jsonObj.get("secure-access-ssh-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-ssh-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-ssh-user").toString()));
       }
       if ((jsonObj.get("secure-access-target-type") != null && !jsonObj.get("secure-access-target-type").isJsonNull()) && !jsonObj.get("secure-access-target-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-target-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-target-type").toString()));
+      }
+      if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
       }
       if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));

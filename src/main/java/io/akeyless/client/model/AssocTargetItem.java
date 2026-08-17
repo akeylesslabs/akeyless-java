@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AssocTargetItem {
+  public static final String SERIALIZED_NAME_BIND_SSL_PROFILES = "bind-ssl-profiles";
+  @SerializedName(SERIALIZED_NAME_BIND_SSL_PROFILES)
+  @javax.annotation.Nullable
+  private List<String> bindSslProfiles = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_CERTIFICATE_PATH = "certificate-path";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PATH)
   @javax.annotation.Nullable
@@ -169,6 +174,33 @@ public class AssocTargetItem {
 
   public AssocTargetItem() {
   }
+
+  public AssocTargetItem bindSslProfiles(@javax.annotation.Nullable List<String> bindSslProfiles) {
+    this.bindSslProfiles = bindSslProfiles;
+    return this;
+  }
+
+  public AssocTargetItem addBindSslProfilesItem(String bindSslProfilesItem) {
+    if (this.bindSslProfiles == null) {
+      this.bindSslProfiles = new ArrayList<>();
+    }
+    this.bindSslProfiles.add(bindSslProfilesItem);
+    return this;
+  }
+
+  /**
+   * Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format &lt;type&gt;:&lt;partition&gt;:&lt;name&gt; (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate&#39;s partition. Repeat the parameter to bind several profiles.
+   * @return bindSslProfiles
+   */
+  @javax.annotation.Nullable
+  public List<String> getBindSslProfiles() {
+    return bindSslProfiles;
+  }
+
+  public void setBindSslProfiles(@javax.annotation.Nullable List<String> bindSslProfiles) {
+    this.bindSslProfiles = bindSslProfiles;
+  }
+
 
   public AssocTargetItem certificatePath(@javax.annotation.Nullable String certificatePath) {
     this.certificatePath = certificatePath;
@@ -393,7 +425,7 @@ public class AssocTargetItem {
   }
 
   /**
-   * A custom command to run on the remote target after successful provisioning (relevant only for certificate provisioning)
+   * A custom command to run on the remote target after successful provisioning (relevant only for SSH and Windows certificate provisioning, not supported for F5 BIG-IP)
    * @return postProvisionCommand
    */
   @javax.annotation.Nullable
@@ -633,7 +665,8 @@ public class AssocTargetItem {
       return false;
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
-    return Objects.equals(this.certificatePath, assocTargetItem.certificatePath) &&
+    return Objects.equals(this.bindSslProfiles, assocTargetItem.bindSslProfiles) &&
+        Objects.equals(this.certificatePath, assocTargetItem.certificatePath) &&
         Objects.equals(this.chainPath, assocTargetItem.chainPath) &&
         Objects.equals(this.disablePreviousKeyVersion, assocTargetItem.disablePreviousKeyVersion) &&
         Objects.equals(this.externalKeyName, assocTargetItem.externalKeyName) &&
@@ -660,13 +693,14 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(bindSslProfiles, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
+    sb.append("    bindSslProfiles: ").append(toIndentedString(bindSslProfiles)).append("\n");
     sb.append("    certificatePath: ").append(toIndentedString(certificatePath)).append("\n");
     sb.append("    chainPath: ").append(toIndentedString(chainPath)).append("\n");
     sb.append("    disablePreviousKeyVersion: ").append(toIndentedString(disablePreviousKeyVersion)).append("\n");
@@ -708,7 +742,7 @@ public class AssocTargetItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "json", "key-operations", "keyring-name", "kms-algorithm", "location-id", "multi-region", "name", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "json", "key-operations", "keyring-name", "kms-algorithm", "location-id", "multi-region", "name", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -742,6 +776,10 @@ public class AssocTargetItem {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("bind-ssl-profiles") != null && !jsonObj.get("bind-ssl-profiles").isJsonNull() && !jsonObj.get("bind-ssl-profiles").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bind-ssl-profiles` to be an array in the JSON string but got `%s`", jsonObj.get("bind-ssl-profiles").toString()));
+      }
       if ((jsonObj.get("certificate-path") != null && !jsonObj.get("certificate-path").isJsonNull()) && !jsonObj.get("certificate-path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-path").toString()));
       }

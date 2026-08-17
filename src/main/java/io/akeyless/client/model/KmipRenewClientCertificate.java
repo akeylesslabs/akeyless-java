@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class KmipRenewClientCertificate {
+  public static final String SERIALIZED_NAME_CERTIFICATE_TTL = "certificate-ttl";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_TTL)
+  @javax.annotation.Nullable
+  private Long certificateTtl;
+
   public static final String SERIALIZED_NAME_CLIENT_ID = "client-id";
   @SerializedName(SERIALIZED_NAME_CLIENT_ID)
   @javax.annotation.Nullable
@@ -77,6 +82,25 @@ public class KmipRenewClientCertificate {
 
   public KmipRenewClientCertificate() {
   }
+
+  public KmipRenewClientCertificate certificateTtl(@javax.annotation.Nullable Long certificateTtl) {
+    this.certificateTtl = certificateTtl;
+    return this;
+  }
+
+  /**
+   * Client certificate TTL in days. If unset, the existing client TTL is kept.
+   * @return certificateTtl
+   */
+  @javax.annotation.Nullable
+  public Long getCertificateTtl() {
+    return certificateTtl;
+  }
+
+  public void setCertificateTtl(@javax.annotation.Nullable Long certificateTtl) {
+    this.certificateTtl = certificateTtl;
+  }
+
 
   public KmipRenewClientCertificate clientId(@javax.annotation.Nullable String clientId) {
     this.clientId = clientId;
@@ -183,7 +207,8 @@ public class KmipRenewClientCertificate {
       return false;
     }
     KmipRenewClientCertificate kmipRenewClientCertificate = (KmipRenewClientCertificate) o;
-    return Objects.equals(this.clientId, kmipRenewClientCertificate.clientId) &&
+    return Objects.equals(this.certificateTtl, kmipRenewClientCertificate.certificateTtl) &&
+        Objects.equals(this.clientId, kmipRenewClientCertificate.clientId) &&
         Objects.equals(this.json, kmipRenewClientCertificate.json) &&
         Objects.equals(this.name, kmipRenewClientCertificate.name) &&
         Objects.equals(this.token, kmipRenewClientCertificate.token) &&
@@ -192,13 +217,14 @@ public class KmipRenewClientCertificate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, json, name, token, uidToken);
+    return Objects.hash(certificateTtl, clientId, json, name, token, uidToken);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class KmipRenewClientCertificate {\n");
+    sb.append("    certificateTtl: ").append(toIndentedString(certificateTtl)).append("\n");
     sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -222,7 +248,7 @@ public class KmipRenewClientCertificate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("client-id", "json", "name", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("certificate-ttl", "client-id", "json", "name", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
