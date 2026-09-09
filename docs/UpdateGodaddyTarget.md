@@ -19,9 +19,12 @@ updateGodaddyTarget is a command that updates an existing target. [Deprecated: U
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Target name |  |
 |**newName** | **String** | New target name |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**secret** | **String** | Secret of the api credentials to the Godaddy account |  |
 |**timeout** | **String** | Timeout waiting for certificate validation in Duration format (1h - 1 Hour, 20m - 20 Minutes, 33m3s - 33 Minutes and 3 Seconds), maximum 1h. |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

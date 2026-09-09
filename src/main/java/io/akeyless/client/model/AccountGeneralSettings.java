@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AiInsightsSetting;
+import io.akeyless.client.model.AiQuorumSetting;
 import io.akeyless.client.model.AllowedClientType;
 import io.akeyless.client.model.AllowedIpSettings;
 import io.akeyless.client.model.CertificateExpirationEventsSettings;
@@ -86,6 +87,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_AI_INSIGHTS)
   @javax.annotation.Nullable
   private AiInsightsSetting aiInsights;
+
+  public static final String SERIALIZED_NAME_AI_QUORUM = "ai_quorum";
+  @SerializedName(SERIALIZED_NAME_AI_QUORUM)
+  @javax.annotation.Nullable
+  private AiQuorumSetting aiQuorum;
 
   public static final String SERIALIZED_NAME_ALLOW_AUTO_FILL = "allow_auto_fill";
   @SerializedName(SERIALIZED_NAME_ALLOW_AUTO_FILL)
@@ -303,6 +309,25 @@ public class AccountGeneralSettings {
 
   public void setAiInsights(@javax.annotation.Nullable AiInsightsSetting aiInsights) {
     this.aiInsights = aiInsights;
+  }
+
+
+  public AccountGeneralSettings aiQuorum(@javax.annotation.Nullable AiQuorumSetting aiQuorum) {
+    this.aiQuorum = aiQuorum;
+    return this;
+  }
+
+  /**
+   * Get aiQuorum
+   * @return aiQuorum
+   */
+  @javax.annotation.Nullable
+  public AiQuorumSetting getAiQuorum() {
+    return aiQuorum;
+  }
+
+  public void setAiQuorum(@javax.annotation.Nullable AiQuorumSetting aiQuorum) {
+    this.aiQuorum = aiQuorum;
   }
 
 
@@ -852,6 +877,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.accountDefaultKeyName, accountGeneralSettings.accountDefaultKeyName) &&
         Objects.equals(this.accountFileBytesUsed, accountGeneralSettings.accountFileBytesUsed) &&
         Objects.equals(this.aiInsights, accountGeneralSettings.aiInsights) &&
+        Objects.equals(this.aiQuorum, accountGeneralSettings.aiQuorum) &&
         Objects.equals(this.allowAutoFill, accountGeneralSettings.allowAutoFill) &&
         Objects.equals(this.allowPasskeys, accountGeneralSettings.allowPasskeys) &&
         Objects.equals(this.allowedClientTypes, accountGeneralSettings.allowedClientTypes) &&
@@ -884,7 +910,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, aiQuorum, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -895,6 +921,7 @@ public class AccountGeneralSettings {
     sb.append("    accountDefaultKeyName: ").append(toIndentedString(accountDefaultKeyName)).append("\n");
     sb.append("    accountFileBytesUsed: ").append(toIndentedString(accountFileBytesUsed)).append("\n");
     sb.append("    aiInsights: ").append(toIndentedString(aiInsights)).append("\n");
+    sb.append("    aiQuorum: ").append(toIndentedString(aiQuorum)).append("\n");
     sb.append("    allowAutoFill: ").append(toIndentedString(allowAutoFill)).append("\n");
     sb.append("    allowPasskeys: ").append(toIndentedString(allowPasskeys)).append("\n");
     sb.append("    allowedClientTypes: ").append(toIndentedString(allowedClientTypes)).append("\n");
@@ -941,7 +968,7 @@ public class AccountGeneralSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
+    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "ai_quorum", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -974,6 +1001,10 @@ public class AccountGeneralSettings {
       // validate the optional field `ai_insights`
       if (jsonObj.get("ai_insights") != null && !jsonObj.get("ai_insights").isJsonNull()) {
         AiInsightsSetting.validateJsonElement(jsonObj.get("ai_insights"));
+      }
+      // validate the optional field `ai_quorum`
+      if (jsonObj.get("ai_quorum") != null && !jsonObj.get("ai_quorum").isJsonNull()) {
+        AiQuorumSetting.validateJsonElement(jsonObj.get("ai_quorum"));
       }
       // validate the optional field `allowed_client_types`
       if (jsonObj.get("allowed_client_types") != null && !jsonObj.get("allowed_client_types").isJsonNull()) {

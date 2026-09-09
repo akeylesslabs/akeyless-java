@@ -69,6 +69,11 @@ public class DynamicSecretUpdateRdp {
   @javax.annotation.Nullable
   private Boolean araEnabled;
 
+  public static final String SERIALIZED_NAME_BLOCK_PARENT_TARGET_ACCESS = "block-parent-target-access";
+  @SerializedName(SERIALIZED_NAME_BLOCK_PARENT_TARGET_ACCESS)
+  @javax.annotation.Nullable
+  private String blockParentTargetAccess;
+
   public static final String SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE = "custom-username-template";
   @SerializedName(SERIALIZED_NAME_CUSTOM_USERNAME_TEMPLATE)
   @javax.annotation.Nullable
@@ -83,6 +88,16 @@ public class DynamicSecretUpdateRdp {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
+
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
 
   public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
@@ -334,6 +349,25 @@ public class DynamicSecretUpdateRdp {
   }
 
 
+  public DynamicSecretUpdateRdp blockParentTargetAccess(@javax.annotation.Nullable String blockParentTargetAccess) {
+    this.blockParentTargetAccess = blockParentTargetAccess;
+    return this;
+  }
+
+  /**
+   * Block access to the parent target when using a linked target [true/false]. Empty keeps the existing value on update
+   * @return blockParentTargetAccess
+   */
+  @javax.annotation.Nullable
+  public String getBlockParentTargetAccess() {
+    return blockParentTargetAccess;
+  }
+
+  public void setBlockParentTargetAccess(@javax.annotation.Nullable String blockParentTargetAccess) {
+    this.blockParentTargetAccess = blockParentTargetAccess;
+  }
+
+
   public DynamicSecretUpdateRdp customUsernameTemplate(@javax.annotation.Nullable String customUsernameTemplate) {
     this.customUsernameTemplate = customUsernameTemplate;
     return this;
@@ -388,6 +422,44 @@ public class DynamicSecretUpdateRdp {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateRdp enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateRdp enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -1174,9 +1246,12 @@ public class DynamicSecretUpdateRdp {
     return Objects.equals(this.providerType, dynamicSecretUpdateRdp.providerType) &&
         Objects.equals(this.allowUserExtendSession, dynamicSecretUpdateRdp.allowUserExtendSession) &&
         Objects.equals(this.araEnabled, dynamicSecretUpdateRdp.araEnabled) &&
+        Objects.equals(this.blockParentTargetAccess, dynamicSecretUpdateRdp.blockParentTargetAccess) &&
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateRdp.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateRdp.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateRdp.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateRdp.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateRdp.enableAiQuorum) &&
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretUpdateRdp.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, dynamicSecretUpdateRdp.fixedUserOnly) &&
         Objects.equals(this.hostProvider, dynamicSecretUpdateRdp.hostProvider) &&
@@ -1219,7 +1294,7 @@ public class DynamicSecretUpdateRdp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, allowUserExtendSession, araEnabled, customUsernameTemplate, deleteProtection, description, fixedUserClaimKeyname, fixedUserOnly, hostProvider, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warnUserBeforeExpiration);
+    return Objects.hash(providerType, allowUserExtendSession, araEnabled, blockParentTargetAccess, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, fixedUserClaimKeyname, fixedUserOnly, hostProvider, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, rdpAdminName, rdpAdminPwd, rdpHostName, rdpHostPort, rdpUserGroups, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warnUserBeforeExpiration);
   }
 
   @Override
@@ -1229,9 +1304,12 @@ public class DynamicSecretUpdateRdp {
     sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    allowUserExtendSession: ").append(toIndentedString(allowUserExtendSession)).append("\n");
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
+    sb.append("    blockParentTargetAccess: ").append(toIndentedString(blockParentTargetAccess)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
@@ -1288,7 +1366,7 @@ public class DynamicSecretUpdateRdp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "allow-user-extend-session", "ara-enabled", "custom-username-template", "delete_protection", "description", "fixed-user-claim-keyname", "fixed-user-only", "host-provider", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rdp-admin-name", "rdp-admin-pwd", "rdp-host-name", "rdp-host-port", "rdp-user-groups", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warn-user-before-expiration"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "allow-user-extend-session", "ara-enabled", "block-parent-target-access", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "fixed-user-claim-keyname", "fixed-user-only", "host-provider", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "rdp-admin-name", "rdp-admin-pwd", "rdp-host-name", "rdp-host-port", "rdp-user-groups", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warn-user-before-expiration"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1324,6 +1402,9 @@ public class DynamicSecretUpdateRdp {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("ProviderType") != null && !jsonObj.get("ProviderType").isJsonNull()) && !jsonObj.get("ProviderType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ProviderType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ProviderType").toString()));
+      }
+      if ((jsonObj.get("block-parent-target-access") != null && !jsonObj.get("block-parent-target-access").isJsonNull()) && !jsonObj.get("block-parent-target-access").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `block-parent-target-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("block-parent-target-access").toString()));
       }
       if ((jsonObj.get("custom-username-template") != null && !jsonObj.get("custom-username-template").isJsonNull()) && !jsonObj.get("custom-username-template").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `custom-username-template` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custom-username-template").toString()));

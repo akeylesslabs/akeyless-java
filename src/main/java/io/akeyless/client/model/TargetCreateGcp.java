@@ -75,6 +75,16 @@ public class TargetCreateGcp {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -84,6 +94,11 @@ public class TargetCreateGcp {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -198,6 +213,44 @@ public class TargetCreateGcp {
   }
 
 
+  public TargetCreateGcp lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetCreateGcp lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetCreateGcp maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -233,6 +286,25 @@ public class TargetCreateGcp {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public TargetCreateGcp rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -308,8 +380,11 @@ public class TargetCreateGcp {
         Objects.equals(this.gcpKey, targetCreateGcp.gcpKey) &&
         Objects.equals(this.json, targetCreateGcp.json) &&
         Objects.equals(this.key, targetCreateGcp.key) &&
+        Objects.equals(this.lockOnRead, targetCreateGcp.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetCreateGcp.lockTtl) &&
         Objects.equals(this.maxVersions, targetCreateGcp.maxVersions) &&
         Objects.equals(this.name, targetCreateGcp.name) &&
+        Objects.equals(this.rotateOnUnlock, targetCreateGcp.rotateOnUnlock) &&
         Objects.equals(this.token, targetCreateGcp.token) &&
         Objects.equals(this.uidToken, targetCreateGcp.uidToken) &&
         Objects.equals(this.useGwCloudIdentity, targetCreateGcp.useGwCloudIdentity);
@@ -317,7 +392,7 @@ public class TargetCreateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, gcpKey, json, key, maxVersions, name, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(deleteProtection, description, gcpKey, json, key, lockOnRead, lockTtl, maxVersions, name, rotateOnUnlock, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -329,8 +404,11 @@ public class TargetCreateGcp {
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
@@ -352,7 +430,7 @@ public class TargetCreateGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "gcp-key", "json", "key", "max-versions", "name", "token", "uid-token", "use-gw-cloud-identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "gcp-key", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "rotate-on-unlock", "token", "uid-token", "use-gw-cloud-identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -398,11 +476,20 @@ public class TargetCreateGcp {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

@@ -109,7 +109,7 @@ public class UscGet {
   }
 
   /**
-   * GCP Project ID (Relevant only for GCP targets)
+   * The GCP project the secret resides in (GCP only). Used when getting a secret by name in a connector that spans multiple projects or uses folder/organization scope.
    * @return gcpProjectId
    */
   @javax.annotation.Nullable

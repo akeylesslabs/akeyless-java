@@ -15,6 +15,8 @@ rotatedSecretUpdateSplunk is a command that updates a rotated secret for a Splun
 |**autoRotate** | **String** |  |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**expirationDate** | **String** | Token expiration date in YYYY-MM-DD format (relevant only for rotator-type&#x3D;token when manual rotation is selected). Time will be set to 00:00 UTC. |  [optional] |
 |**hecToken** | **String** | For rotator-type&#x3D;hec-token, optionally set/replace the stored HEC token value. |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) |  [optional] |
@@ -22,12 +24,15 @@ rotatedSecretUpdateSplunk is a command that updates a rotated secret for a Splun
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
 |**key** | **String** |  |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Rotated secret name |  |
 |**newName** | **String** | New item name |  [optional] |
 |**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |
 |**rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**rotationEventIn** | **List&lt;String&gt;** | How many days before the rotation of the item would you like to be notified |  [optional] |
 |**rotationHour** | **Integer** |  |  [optional] |
 |**rotationInterval** | **String** |  |  [optional] |

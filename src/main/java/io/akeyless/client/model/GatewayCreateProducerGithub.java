@@ -64,6 +64,16 @@ public class GatewayCreateProducerGithub {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github-app-id";
   @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
   @javax.annotation.Nullable
@@ -197,6 +207,44 @@ public class GatewayCreateProducerGithub {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerGithub enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayCreateProducerGithub enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -621,6 +669,8 @@ public class GatewayCreateProducerGithub {
     GatewayCreateProducerGithub gatewayCreateProducerGithub = (GatewayCreateProducerGithub) o;
     return Objects.equals(this.araEnabled, gatewayCreateProducerGithub.araEnabled) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerGithub.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayCreateProducerGithub.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayCreateProducerGithub.enableAiQuorum) &&
         Objects.equals(this.githubAppId, gatewayCreateProducerGithub.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, gatewayCreateProducerGithub.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, gatewayCreateProducerGithub.githubBaseUrl) &&
@@ -644,7 +694,7 @@ public class GatewayCreateProducerGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, outputRule, skipDryRun, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
+    return Objects.hash(araEnabled, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, outputRule, skipDryRun, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
   }
 
   @Override
@@ -653,6 +703,8 @@ public class GatewayCreateProducerGithub {
     sb.append("class GatewayCreateProducerGithub {\n");
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
@@ -690,7 +742,7 @@ public class GatewayCreateProducerGithub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

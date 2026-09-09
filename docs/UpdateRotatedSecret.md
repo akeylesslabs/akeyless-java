@@ -23,12 +23,15 @@ updateRotatedSecret is a command that updates rotated secret. [Deprecated: Use r
 |**keepPrevVersion** | **String** | Whether to keep previous version [true/false]. If not set, use default according to account settings |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional] |
 |**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**name** | **String** | Secret name |  |
 |**newMetadata** | **String** | Deprecated - use description |  [optional] |
 |**newName** | **String** | New item name |  [optional] |
 |**newVersion** | **Boolean** | Deprecated |  [optional] |
 |**rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional] |
 |**rotateAfterDisconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**rotatedPassword** | **String** | rotated-username password |  [optional] |
 |**rotatedUsername** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password |  [optional] |
 |**rotationHour** | **Integer** | The Hour of the rotation in UTC |  [optional] |

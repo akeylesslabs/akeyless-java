@@ -85,6 +85,16 @@ public class UpdateDockerhubTarget {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -99,6 +109,11 @@ public class UpdateDockerhubTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -251,6 +266,44 @@ public class UpdateDockerhubTarget {
   }
 
 
+  public UpdateDockerhubTarget lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public UpdateDockerhubTarget lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public UpdateDockerhubTarget maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -305,6 +358,25 @@ public class UpdateDockerhubTarget {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public UpdateDockerhubTarget rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -382,9 +454,12 @@ public class UpdateDockerhubTarget {
         Objects.equals(this.json, updateDockerhubTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDockerhubTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDockerhubTarget.key) &&
+        Objects.equals(this.lockOnRead, updateDockerhubTarget.lockOnRead) &&
+        Objects.equals(this.lockTtl, updateDockerhubTarget.lockTtl) &&
         Objects.equals(this.maxVersions, updateDockerhubTarget.maxVersions) &&
         Objects.equals(this.name, updateDockerhubTarget.name) &&
         Objects.equals(this.newName, updateDockerhubTarget.newName) &&
+        Objects.equals(this.rotateOnUnlock, updateDockerhubTarget.rotateOnUnlock) &&
         Objects.equals(this.token, updateDockerhubTarget.token) &&
         Objects.equals(this.uidToken, updateDockerhubTarget.uidToken) &&
         Objects.equals(this.updateVersion, updateDockerhubTarget.updateVersion);
@@ -392,7 +467,7 @@ public class UpdateDockerhubTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(comment, description, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, maxVersions, name, newName, token, uidToken, updateVersion);
+    return Objects.hash(comment, description, dockerhubPassword, dockerhubUsername, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, name, newName, rotateOnUnlock, token, uidToken, updateVersion);
   }
 
   @Override
@@ -406,9 +481,12 @@ public class UpdateDockerhubTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
@@ -430,7 +508,7 @@ public class UpdateDockerhubTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("comment", "description", "dockerhub-password", "dockerhub-username", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "token", "uid-token", "update-version"));
+    openapiFields = new HashSet<String>(Arrays.asList("comment", "description", "dockerhub-password", "dockerhub-username", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rotate-on-unlock", "token", "uid-token", "update-version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -482,6 +560,12 @@ public class UpdateDockerhubTarget {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -490,6 +574,9 @@ public class UpdateDockerhubTarget {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

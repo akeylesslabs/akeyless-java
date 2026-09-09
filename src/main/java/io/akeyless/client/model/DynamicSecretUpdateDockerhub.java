@@ -84,6 +84,16 @@ public class DynamicSecretUpdateDockerhub {
   @javax.annotation.Nullable
   private String dockerhubUsername;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -263,6 +273,44 @@ public class DynamicSecretUpdateDockerhub {
 
   public void setDockerhubUsername(@javax.annotation.Nullable String dockerhubUsername) {
     this.dockerhubUsername = dockerhubUsername;
+  }
+
+
+  public DynamicSecretUpdateDockerhub enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateDockerhub enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -561,6 +609,8 @@ public class DynamicSecretUpdateDockerhub {
         Objects.equals(this.dockerhubPassword, dynamicSecretUpdateDockerhub.dockerhubPassword) &&
         Objects.equals(this.dockerhubTokenScopes, dynamicSecretUpdateDockerhub.dockerhubTokenScopes) &&
         Objects.equals(this.dockerhubUsername, dynamicSecretUpdateDockerhub.dockerhubUsername) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateDockerhub.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateDockerhub.enableAiQuorum) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateDockerhub.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateDockerhub.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateDockerhub.json) &&
@@ -578,7 +628,7 @@ public class DynamicSecretUpdateDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, description, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, description, dockerhubPassword, dockerhubTokenScopes, dockerhubUsername, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -591,6 +641,8 @@ public class DynamicSecretUpdateDockerhub {
     sb.append("    dockerhubPassword: ").append(toIndentedString(dockerhubPassword)).append("\n");
     sb.append("    dockerhubTokenScopes: ").append(toIndentedString(dockerhubTokenScopes)).append("\n");
     sb.append("    dockerhubUsername: ").append(toIndentedString(dockerhubUsername)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -622,7 +674,7 @@ public class DynamicSecretUpdateDockerhub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "dockerhub-password", "dockerhub-token-scopes", "dockerhub-username", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "dockerhub-password", "dockerhub-token-scopes", "dockerhub-username", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

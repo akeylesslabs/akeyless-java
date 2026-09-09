@@ -80,6 +80,21 @@ public class CustomerFragmentConfig {
   @javax.annotation.Nullable
   private String value;
 
+  public static final String SERIALIZED_NAME_WRAP_ALG = "wrap_alg";
+  @SerializedName(SERIALIZED_NAME_WRAP_ALG)
+  @javax.annotation.Nullable
+  private String wrapAlg;
+
+  public static final String SERIALIZED_NAME_WRAP_IV = "wrap_iv";
+  @SerializedName(SERIALIZED_NAME_WRAP_IV)
+  @javax.annotation.Nullable
+  private String wrapIv;
+
+  public static final String SERIALIZED_NAME_WRAP_TAG = "wrap_tag";
+  @SerializedName(SERIALIZED_NAME_WRAP_TAG)
+  @javax.annotation.Nullable
+  private String wrapTag;
+
   public CustomerFragmentConfig() {
   }
 
@@ -197,6 +212,63 @@ public class CustomerFragmentConfig {
   }
 
 
+  public CustomerFragmentConfig wrapAlg(@javax.annotation.Nullable String wrapAlg) {
+    this.wrapAlg = wrapAlg;
+    return this;
+  }
+
+  /**
+   * WrapAlg selects the HSM wrap algorithm for hsm_wrap_encrypt (e.g. rsa-oaep-sha256, aes-gcm, aes-cbc, aes-cbc-pad). RSA uses only WrapAlg; AES modes may require WrapIV and/or WrapTag.
+   * @return wrapAlg
+   */
+  @javax.annotation.Nullable
+  public String getWrapAlg() {
+    return wrapAlg;
+  }
+
+  public void setWrapAlg(@javax.annotation.Nullable String wrapAlg) {
+    this.wrapAlg = wrapAlg;
+  }
+
+
+  public CustomerFragmentConfig wrapIv(@javax.annotation.Nullable String wrapIv) {
+    this.wrapIv = wrapIv;
+    return this;
+  }
+
+  /**
+   * WrapIV is the base64 IV for AES modes that require it (GCM/CBC). Empty for RSA and modes without IV metadata.
+   * @return wrapIv
+   */
+  @javax.annotation.Nullable
+  public String getWrapIv() {
+    return wrapIv;
+  }
+
+  public void setWrapIv(@javax.annotation.Nullable String wrapIv) {
+    this.wrapIv = wrapIv;
+  }
+
+
+  public CustomerFragmentConfig wrapTag(@javax.annotation.Nullable String wrapTag) {
+    this.wrapTag = wrapTag;
+    return this;
+  }
+
+  /**
+   * WrapTag is the base64 auth tag for AES-GCM only. Empty for RSA and other modes.
+   * @return wrapTag
+   */
+  @javax.annotation.Nullable
+  public String getWrapTag() {
+    return wrapTag;
+  }
+
+  public void setWrapTag(@javax.annotation.Nullable String wrapTag) {
+    this.wrapTag = wrapTag;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -212,12 +284,15 @@ public class CustomerFragmentConfig {
         Objects.equals(this.id, customerFragmentConfig.id) &&
         Objects.equals(this.keyLabel, customerFragmentConfig.keyLabel) &&
         Objects.equals(this.name, customerFragmentConfig.name) &&
-        Objects.equals(this.value, customerFragmentConfig.value);
+        Objects.equals(this.value, customerFragmentConfig.value) &&
+        Objects.equals(this.wrapAlg, customerFragmentConfig.wrapAlg) &&
+        Objects.equals(this.wrapIv, customerFragmentConfig.wrapIv) &&
+        Objects.equals(this.wrapTag, customerFragmentConfig.wrapTag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, fragmentType, id, keyLabel, name, value);
+    return Objects.hash(description, fragmentType, id, keyLabel, name, value, wrapAlg, wrapIv, wrapTag);
   }
 
   @Override
@@ -230,6 +305,9 @@ public class CustomerFragmentConfig {
     sb.append("    keyLabel: ").append(toIndentedString(keyLabel)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    wrapAlg: ").append(toIndentedString(wrapAlg)).append("\n");
+    sb.append("    wrapIv: ").append(toIndentedString(wrapIv)).append("\n");
+    sb.append("    wrapTag: ").append(toIndentedString(wrapTag)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -248,7 +326,7 @@ public class CustomerFragmentConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("description", "fragment_type", "id", "key_label", "name", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("description", "fragment_type", "id", "key_label", "name", "value", "wrap_alg", "wrap_iv", "wrap_tag"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -292,6 +370,15 @@ public class CustomerFragmentConfig {
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      if ((jsonObj.get("wrap_alg") != null && !jsonObj.get("wrap_alg").isJsonNull()) && !jsonObj.get("wrap_alg").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wrap_alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wrap_alg").toString()));
+      }
+      if ((jsonObj.get("wrap_iv") != null && !jsonObj.get("wrap_iv").isJsonNull()) && !jsonObj.get("wrap_iv").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wrap_iv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wrap_iv").toString()));
+      }
+      if ((jsonObj.get("wrap_tag") != null && !jsonObj.get("wrap_tag").isJsonNull()) && !jsonObj.get("wrap_tag").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wrap_tag` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wrap_tag").toString()));
       }
   }
 

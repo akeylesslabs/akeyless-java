@@ -10,23 +10,31 @@
 |**providerType** | **String** |  |  [optional] |
 |**accessibility** | **String** | for personal password manager |  [optional] |
 |**addTag** | **List&lt;String&gt;** | List of the new tags that will be attached to this item |  [optional] |
+|**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag. |  [optional] |
 |**certFileData** | **String** | PEM Certificate in a Base64 format. Used for updating RSA keys&#39; certificates. |  [optional] |
 |**certificateFormat** | **String** |  |  [optional] |
 |**changeEvent** | **String** | Trigger an event when a secret value changed [true/false] (Relevant only for Static Secret) |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**gcpSmRegions** | **String** | GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. USC with GCP targets only. |  [optional] |
 |**hostProvider** | **String** | Host provider type [explicit/target], Default Host provider is explicit, Relevant only for SRA items. |  [optional] |
+|**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Current item name |  |
 |**newMetadata** | **String** | Deprecated - use description |  [optional] |
 |**newName** | **String** | New item name |  [optional] |
+|**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional] |
 |**rotateAfterDisconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**secureAccessAddHost** | **List&lt;String&gt;** | List of the new hosts that will be attached to SRA servers host |  [optional] |
 |**secureAccessAllowExternalUser** | **String** | Allow providing external user for a domain users [true/false] |  [optional] |
 |**secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) |  [optional] |

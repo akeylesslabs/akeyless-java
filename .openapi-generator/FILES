@@ -33,7 +33,10 @@ docs/AgenticRule.md
 docs/AgenticRules.md
 docs/AiInsightsConfigPart.md
 docs/AiInsightsSetting.md
+docs/AiModelEntry.md
+docs/AiQuorumSetting.md
 docs/AkeylessGatewayConfig.md
+docs/AliCloudAccessRules.md
 docs/AliasDetails.md
 docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
@@ -51,6 +54,7 @@ docs/AuthExpirationEvent.md
 docs/AuthMethod.md
 docs/AuthMethodAccessInfo.md
 docs/AuthMethodAdditionalData.md
+docs/AuthMethodCreateAliCloud.md
 docs/AuthMethodCreateApiKey.md
 docs/AuthMethodCreateAwsIam.md
 docs/AuthMethodCreateAzureAD.md
@@ -71,6 +75,7 @@ docs/AuthMethodDeleteOutput.md
 docs/AuthMethodGet.md
 docs/AuthMethodList.md
 docs/AuthMethodRoleAssociation.md
+docs/AuthMethodUpdateAliCloud.md
 docs/AuthMethodUpdateApiKey.md
 docs/AuthMethodUpdateAwsIam.md
 docs/AuthMethodUpdateAzureAD.md
@@ -815,6 +820,10 @@ docs/LockingInfo.md
 docs/LogForwardingConfigPart.md
 docs/LogstashLogForwardingConfig.md
 docs/LogzIoLogForwardingConfig.md
+docs/MigrationDownloadJob.md
+docs/MigrationDownloadReport.md
+docs/MigrationDownloadSecret.md
+docs/MigrationDownloadSummary.md
 docs/MigrationGeneral.md
 docs/MigrationItems.md
 docs/MigrationStatus.md
@@ -960,6 +969,7 @@ docs/SAMLAttribute.md
 docs/SSHCertificateIssueDetails.md
 docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
+docs/SamlSpConfigPart.md
 docs/ScanResults.md
 docs/SecretInfo.md
 docs/SecretSyncOutput.md
@@ -1325,7 +1335,10 @@ src/main/java/io/akeyless/client/model/AgenticRule.java
 src/main/java/io/akeyless/client/model/AgenticRules.java
 src/main/java/io/akeyless/client/model/AiInsightsConfigPart.java
 src/main/java/io/akeyless/client/model/AiInsightsSetting.java
+src/main/java/io/akeyless/client/model/AiModelEntry.java
+src/main/java/io/akeyless/client/model/AiQuorumSetting.java
 src/main/java/io/akeyless/client/model/AkeylessGatewayConfig.java
+src/main/java/io/akeyless/client/model/AliCloudAccessRules.java
 src/main/java/io/akeyless/client/model/AliasDetails.java
 src/main/java/io/akeyless/client/model/AliasDetailsOutput.java
 src/main/java/io/akeyless/client/model/AllAnalyticsData.java
@@ -1343,6 +1356,7 @@ src/main/java/io/akeyless/client/model/AuthExpirationEvent.java
 src/main/java/io/akeyless/client/model/AuthMethod.java
 src/main/java/io/akeyless/client/model/AuthMethodAccessInfo.java
 src/main/java/io/akeyless/client/model/AuthMethodAdditionalData.java
+src/main/java/io/akeyless/client/model/AuthMethodCreateAliCloud.java
 src/main/java/io/akeyless/client/model/AuthMethodCreateApiKey.java
 src/main/java/io/akeyless/client/model/AuthMethodCreateAwsIam.java
 src/main/java/io/akeyless/client/model/AuthMethodCreateAzureAD.java
@@ -1363,6 +1377,7 @@ src/main/java/io/akeyless/client/model/AuthMethodDeleteOutput.java
 src/main/java/io/akeyless/client/model/AuthMethodGet.java
 src/main/java/io/akeyless/client/model/AuthMethodList.java
 src/main/java/io/akeyless/client/model/AuthMethodRoleAssociation.java
+src/main/java/io/akeyless/client/model/AuthMethodUpdateAliCloud.java
 src/main/java/io/akeyless/client/model/AuthMethodUpdateApiKey.java
 src/main/java/io/akeyless/client/model/AuthMethodUpdateAwsIam.java
 src/main/java/io/akeyless/client/model/AuthMethodUpdateAzureAD.java
@@ -2107,6 +2122,10 @@ src/main/java/io/akeyless/client/model/LockingInfo.java
 src/main/java/io/akeyless/client/model/LogForwardingConfigPart.java
 src/main/java/io/akeyless/client/model/LogstashLogForwardingConfig.java
 src/main/java/io/akeyless/client/model/LogzIoLogForwardingConfig.java
+src/main/java/io/akeyless/client/model/MigrationDownloadJob.java
+src/main/java/io/akeyless/client/model/MigrationDownloadReport.java
+src/main/java/io/akeyless/client/model/MigrationDownloadSecret.java
+src/main/java/io/akeyless/client/model/MigrationDownloadSummary.java
 src/main/java/io/akeyless/client/model/MigrationGeneral.java
 src/main/java/io/akeyless/client/model/MigrationItems.java
 src/main/java/io/akeyless/client/model/MigrationStatus.java
@@ -2252,6 +2271,7 @@ src/main/java/io/akeyless/client/model/SAMLAttribute.java
 src/main/java/io/akeyless/client/model/SSHCertificateIssueDetails.java
 src/main/java/io/akeyless/client/model/SSHTargetDetails.java
 src/main/java/io/akeyless/client/model/SalesforceTargetDetails.java
+src/main/java/io/akeyless/client/model/SamlSpConfigPart.java
 src/main/java/io/akeyless/client/model/ScanResults.java
 src/main/java/io/akeyless/client/model/SecretInfo.java
 src/main/java/io/akeyless/client/model/SecretSyncOutput.java
@@ -2560,12 +2580,13 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/KMIPCAListEntryTest.java
-src/test/java/io/akeyless/client/model/KmipGetCABundleOutputTest.java
-src/test/java/io/akeyless/client/model/KmipGetCABundleTest.java
-src/test/java/io/akeyless/client/model/KmipListCAsOutputTest.java
-src/test/java/io/akeyless/client/model/KmipListCAsTest.java
-src/test/java/io/akeyless/client/model/KmipRotateCAOutputTest.java
-src/test/java/io/akeyless/client/model/KmipRotateCATest.java
-src/test/java/io/akeyless/client/model/KmipSunsetCAOutputTest.java
-src/test/java/io/akeyless/client/model/KmipSunsetCATest.java
+src/test/java/io/akeyless/client/model/AiModelEntryTest.java
+src/test/java/io/akeyless/client/model/AiQuorumSettingTest.java
+src/test/java/io/akeyless/client/model/AliCloudAccessRulesTest.java
+src/test/java/io/akeyless/client/model/AuthMethodCreateAliCloudTest.java
+src/test/java/io/akeyless/client/model/AuthMethodUpdateAliCloudTest.java
+src/test/java/io/akeyless/client/model/MigrationDownloadJobTest.java
+src/test/java/io/akeyless/client/model/MigrationDownloadReportTest.java
+src/test/java/io/akeyless/client/model/MigrationDownloadSecretTest.java
+src/test/java/io/akeyless/client/model/MigrationDownloadSummaryTest.java
+src/test/java/io/akeyless/client/model/SamlSpConfigPartTest.java

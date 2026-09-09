@@ -36,6 +36,7 @@ import io.akeyless.client.model.LogForwardingConfigPart;
 import io.akeyless.client.model.MigrationsConfigPart;
 import io.akeyless.client.model.ProducersConfigPart;
 import io.akeyless.client.model.RotatorsConfigPart;
+import io.akeyless.client.model.SamlSpConfigPart;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -156,6 +157,11 @@ public class AkeylessGatewayConfig {
   @SerializedName(SERIALIZED_NAME_SAML)
   @javax.annotation.Nullable
   private DefaultConfigPart saml;
+
+  public static final String SERIALIZED_NAME_SAML_SP = "saml_sp";
+  @SerializedName(SERIALIZED_NAME_SAML_SP)
+  @javax.annotation.Nullable
+  private SamlSpConfigPart samlSp;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
@@ -507,6 +513,25 @@ public class AkeylessGatewayConfig {
   }
 
 
+  public AkeylessGatewayConfig samlSp(@javax.annotation.Nullable SamlSpConfigPart samlSp) {
+    this.samlSp = samlSp;
+    return this;
+  }
+
+  /**
+   * Get samlSp
+   * @return samlSp
+   */
+  @javax.annotation.Nullable
+  public SamlSpConfigPart getSamlSp() {
+    return samlSp;
+  }
+
+  public void setSamlSp(@javax.annotation.Nullable SamlSpConfigPart samlSp) {
+    this.samlSp = samlSp;
+  }
+
+
   public AkeylessGatewayConfig version(@javax.annotation.Nullable Integer version) {
     this.version = version;
     return this;
@@ -554,12 +579,13 @@ public class AkeylessGatewayConfig {
         Objects.equals(this.producers, akeylessGatewayConfig.producers) &&
         Objects.equals(this.rotators, akeylessGatewayConfig.rotators) &&
         Objects.equals(this.saml, akeylessGatewayConfig.saml) &&
+        Objects.equals(this.samlSp, akeylessGatewayConfig.samlSp) &&
         Objects.equals(this.version, akeylessGatewayConfig.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, aiInsights, caCertificates, cache, cf, configProtectionKeyName, general, k8sAuths, kerberos, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, version);
+    return Objects.hash(admins, aiInsights, caCertificates, cache, cf, configProtectionKeyName, general, k8sAuths, kerberos, kmipClients, ldap, leadership, logForwarding, messageQueueInfo, migrations, producers, rotators, saml, samlSp, version);
   }
 
   @Override
@@ -584,6 +610,7 @@ public class AkeylessGatewayConfig {
     sb.append("    producers: ").append(toIndentedString(producers)).append("\n");
     sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");
     sb.append("    saml: ").append(toIndentedString(saml)).append("\n");
+    sb.append("    samlSp: ").append(toIndentedString(samlSp)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -603,7 +630,7 @@ public class AkeylessGatewayConfig {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admins", "ai_insights", "ca_certificates", "cache", "cf", "config_protection_key_name", "general", "k8s_auths", "kerberos", "kmip_clients", "ldap", "leadership", "log_forwarding", "message_queue_info", "migrations", "producers", "rotators", "saml", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("admins", "ai_insights", "ca_certificates", "cache", "cf", "config_protection_key_name", "general", "k8s_auths", "kerberos", "kmip_clients", "ldap", "leadership", "log_forwarding", "message_queue_info", "migrations", "producers", "rotators", "saml", "saml_sp", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -700,6 +727,10 @@ public class AkeylessGatewayConfig {
       // validate the optional field `saml`
       if (jsonObj.get("saml") != null && !jsonObj.get("saml").isJsonNull()) {
         DefaultConfigPart.validateJsonElement(jsonObj.get("saml"));
+      }
+      // validate the optional field `saml_sp`
+      if (jsonObj.get("saml_sp") != null && !jsonObj.get("saml_sp").isJsonNull()) {
+        SamlSpConfigPart.validateJsonElement(jsonObj.get("saml_sp"));
       }
   }
 

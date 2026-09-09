@@ -84,6 +84,16 @@ public class RotatedSecretUpdateRedshift {
   @javax.annotation.Nullable
   private String description = "default_metadata";
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -113,6 +123,16 @@ public class RotatedSecretUpdateRedshift {
   @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
   @javax.annotation.Nullable
   private String lockDuringSraSession;
+
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
 
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
@@ -148,6 +168,11 @@ public class RotatedSecretUpdateRedshift {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private String rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -349,6 +374,44 @@ public class RotatedSecretUpdateRedshift {
   }
 
 
+  public RotatedSecretUpdateRedshift enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretUpdateRedshift enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretUpdateRedshift inputRule(@javax.annotation.Nullable List<String> inputRule) {
     this.inputRule = inputRule;
     return this;
@@ -476,6 +539,44 @@ public class RotatedSecretUpdateRedshift {
 
   public void setLockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
     this.lockDuringSraSession = lockDuringSraSession;
+  }
+
+
+  public RotatedSecretUpdateRedshift lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretUpdateRedshift lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
   }
 
 
@@ -625,6 +726,25 @@ public class RotatedSecretUpdateRedshift {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public RotatedSecretUpdateRedshift rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -945,12 +1065,16 @@ public class RotatedSecretUpdateRedshift {
         Objects.equals(this.autoRotate, rotatedSecretUpdateRedshift.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretUpdateRedshift.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretUpdateRedshift.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretUpdateRedshift.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretUpdateRedshift.enableAiQuorum) &&
         Objects.equals(this.inputRule, rotatedSecretUpdateRedshift.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretUpdateRedshift.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateRedshift.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateRedshift.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateRedshift.key) &&
         Objects.equals(this.lockDuringSraSession, rotatedSecretUpdateRedshift.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, rotatedSecretUpdateRedshift.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretUpdateRedshift.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretUpdateRedshift.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateRedshift.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateRedshift.newName) &&
@@ -958,6 +1082,7 @@ public class RotatedSecretUpdateRedshift {
         Objects.equals(this.passwordLength, rotatedSecretUpdateRedshift.passwordLength) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateRedshift.rmTag) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretUpdateRedshift.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretUpdateRedshift.rotateOnUnlock) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateRedshift.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretUpdateRedshift.rotatedUsername) &&
         Objects.equals(this.rotationEventIn, rotatedSecretUpdateRedshift.rotationEventIn) &&
@@ -977,7 +1102,7 @@ public class RotatedSecretUpdateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, keepPrevVersion, key, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateAfterDisconnect, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, secureAccessDbName, secureAccessEnable, secureAccessHost, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -990,12 +1115,16 @@ public class RotatedSecretUpdateRedshift {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
@@ -1003,6 +1132,7 @@ public class RotatedSecretUpdateRedshift {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
@@ -1036,7 +1166,7 @@ public class RotatedSecretUpdateRedshift {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-db-name", "secure-access-enable", "secure-access-host", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-db-name", "secure-access-enable", "secure-access-host", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1099,6 +1229,12 @@ public class RotatedSecretUpdateRedshift {
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1121,6 +1257,9 @@ public class RotatedSecretUpdateRedshift {
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("rotated-password") != null && !jsonObj.get("rotated-password").isJsonNull()) && !jsonObj.get("rotated-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotated-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotated-password").toString()));

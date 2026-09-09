@@ -275,6 +275,11 @@ public class PKICertificateIssueDetails {
   @javax.annotation.Nullable
   private Boolean serverFlag;
 
+  public static final String SERIALIZED_NAME_SPLIT_CERTIFICATE_CHAIN = "split_certificate_chain";
+  @SerializedName(SERIALIZED_NAME_SPLIT_CERTIFICATE_CHAIN)
+  @javax.annotation.Nullable
+  private Boolean splitCertificateChain;
+
   public static final String SERIALIZED_NAME_STREET_ADDRESS = "street_address";
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
   @javax.annotation.Nullable
@@ -1215,6 +1220,25 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails splitCertificateChain(@javax.annotation.Nullable Boolean splitCertificateChain) {
+    this.splitCertificateChain = splitCertificateChain;
+    return this;
+  }
+
+  /**
+   * SplitCertificateChain, when enabled, separates the leaf certificate from the certificate chain.
+   * @return splitCertificateChain
+   */
+  @javax.annotation.Nullable
+  public Boolean getSplitCertificateChain() {
+    return splitCertificateChain;
+  }
+
+  public void setSplitCertificateChain(@javax.annotation.Nullable Boolean splitCertificateChain) {
+    this.splitCertificateChain = splitCertificateChain;
+  }
+
+
   public PKICertificateIssueDetails streetAddress(@javax.annotation.Nullable List<String> streetAddress) {
     this.streetAddress = streetAddress;
     return this;
@@ -1296,12 +1320,13 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.renewBeforeExpirationInDays, pkICertificateIssueDetails.renewBeforeExpirationInDays) &&
         Objects.equals(this.requireCn, pkICertificateIssueDetails.requireCn) &&
         Objects.equals(this.serverFlag, pkICertificateIssueDetails.serverFlag) &&
+        Objects.equals(this.splitCertificateChain, pkICertificateIssueDetails.splitCertificateChain) &&
         Objects.equals(this.streetAddress, pkICertificateIssueDetails.streetAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraints, basicConstraintsCritical, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, streetAddress);
+    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraints, basicConstraintsCritical, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, splitCertificateChain, streetAddress);
   }
 
   @Override
@@ -1352,6 +1377,7 @@ public class PKICertificateIssueDetails {
     sb.append("    renewBeforeExpirationInDays: ").append(toIndentedString(renewBeforeExpirationInDays)).append("\n");
     sb.append("    requireCn: ").append(toIndentedString(requireCn)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
+    sb.append("    splitCertificateChain: ").append(toIndentedString(splitCertificateChain)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -1371,7 +1397,7 @@ public class PKICertificateIssueDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acme_enabled", "allow_any_name", "allow_copy_ext_from_csr", "allow_subdomains", "allowed_domains_list", "allowed_extra_extensions", "allowed_ip_sans", "allowed_uri_sans", "auto_renew_certificate", "basic_constraints", "basic_constraints_critical", "basic_constraints_valid_for_non_ca", "certificate_authority_mode", "client_flag", "code_signing_flag", "country", "create_private_crl", "create_private_ocsp", "create_public_crl", "create_public_ocsp", "destination_path", "disable_wildcards", "enforce_hostnames", "expiration_events", "gw_cluster_id", "gw_cluster_url", "is_ca", "key_bits", "key_type", "key_usage_list", "locality", "max_path_len", "non_critical_key_usage", "not_before_duration", "ocsp_next_update", "organization_list", "organization_unit_list", "pki_issuer_type", "postal_code", "protect_generated_certificates", "province", "renew_before_expiration_in_days", "require_cn", "server_flag", "street_address"));
+    openapiFields = new HashSet<String>(Arrays.asList("acme_enabled", "allow_any_name", "allow_copy_ext_from_csr", "allow_subdomains", "allowed_domains_list", "allowed_extra_extensions", "allowed_ip_sans", "allowed_uri_sans", "auto_renew_certificate", "basic_constraints", "basic_constraints_critical", "basic_constraints_valid_for_non_ca", "certificate_authority_mode", "client_flag", "code_signing_flag", "country", "create_private_crl", "create_private_ocsp", "create_public_crl", "create_public_ocsp", "destination_path", "disable_wildcards", "enforce_hostnames", "expiration_events", "gw_cluster_id", "gw_cluster_url", "is_ca", "key_bits", "key_type", "key_usage_list", "locality", "max_path_len", "non_critical_key_usage", "not_before_duration", "ocsp_next_update", "organization_list", "organization_unit_list", "pki_issuer_type", "postal_code", "protect_generated_certificates", "province", "renew_before_expiration_in_days", "require_cn", "server_flag", "split_certificate_chain", "street_address"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

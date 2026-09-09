@@ -259,7 +259,7 @@ public class Auth {
   }
 
   /**
-   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/universal_identity/jwt/gcp/cert/oci/kerberos)
+   * Access Type (access_key/password/saml/ldap/k8s/azure_ad/oidc/aws_iam/alicloud/universal_identity/jwt/gcp/cert/oci/kerberos)
    * @return accessType
    */
   @javax.annotation.Nullable
@@ -392,7 +392,7 @@ public class Auth {
   }
 
   /**
-   * The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,gcp)
+   * The cloud identity (relevant only for access-type&#x3D;azure_ad,aws_iam,alicloud,gcp,oci)
    * @return cloudId
    */
   @javax.annotation.Nullable

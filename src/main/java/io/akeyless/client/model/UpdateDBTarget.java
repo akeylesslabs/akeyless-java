@@ -150,6 +150,16 @@ public class UpdateDBTarget {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -229,6 +239,11 @@ public class UpdateDBTarget {
   @SerializedName(SERIALIZED_NAME_PWD)
   @javax.annotation.Nullable
   private String pwd;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION = "skip-server-name-validation";
   @SerializedName(SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION)
@@ -663,6 +678,44 @@ public class UpdateDBTarget {
   }
 
 
+  public UpdateDBTarget lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public UpdateDBTarget lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public UpdateDBTarget maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -967,6 +1020,25 @@ public class UpdateDBTarget {
   }
 
 
+  public UpdateDBTarget rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+  }
+
+
   public UpdateDBTarget skipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
     this.skipServerNameValidation = skipServerNameValidation;
     return this;
@@ -1187,6 +1259,8 @@ public class UpdateDBTarget {
         Objects.equals(this.json, updateDBTarget.json) &&
         Objects.equals(this.keepPrevVersion, updateDBTarget.keepPrevVersion) &&
         Objects.equals(this.key, updateDBTarget.key) &&
+        Objects.equals(this.lockOnRead, updateDBTarget.lockOnRead) &&
+        Objects.equals(this.lockTtl, updateDBTarget.lockTtl) &&
         Objects.equals(this.maxVersions, updateDBTarget.maxVersions) &&
         Objects.equals(this.mongodbAtlas, updateDBTarget.mongodbAtlas) &&
         Objects.equals(this.mongodbAtlasApiPrivateKey, updateDBTarget.mongodbAtlasApiPrivateKey) &&
@@ -1203,6 +1277,7 @@ public class UpdateDBTarget {
         Objects.equals(this.parentTargetName, updateDBTarget.parentTargetName) &&
         Objects.equals(this.port, updateDBTarget.port) &&
         Objects.equals(this.pwd, updateDBTarget.pwd) &&
+        Objects.equals(this.rotateOnUnlock, updateDBTarget.rotateOnUnlock) &&
         Objects.equals(this.skipServerNameValidation, updateDBTarget.skipServerNameValidation) &&
         Objects.equals(this.snowflakeAccount, updateDBTarget.snowflakeAccount) &&
         Objects.equals(this.snowflakeApiPrivateKey, updateDBTarget.snowflakeApiPrivateKey) &&
@@ -1217,7 +1292,7 @@ public class UpdateDBTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, enableMtls, host, json, keepPrevVersion, key, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, skipServerNameValidation, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
+    return Objects.hash(azureClientId, azureClientSecret, azureTenantId, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, comment, connectionType, dbName, dbServerCertificates, dbServerName, dbType, description, enableMtls, host, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, mongodbAtlas, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbDefaultAuthDb, mongodbUriOptions, name, newName, oracleServiceName, oracleWalletLoginType, oracleWalletP12FileData, oracleWalletSsoFileData, parentTargetName, port, pwd, rotateOnUnlock, skipServerNameValidation, snowflakeAccount, snowflakeApiPrivateKey, snowflakeApiPrivateKeyPassword, ssl, sslCertificate, token, uidToken, updateVersion, userName);
   }
 
   @Override
@@ -1244,6 +1319,8 @@ public class UpdateDBTarget {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    mongodbAtlas: ").append(toIndentedString(mongodbAtlas)).append("\n");
     sb.append("    mongodbAtlasApiPrivateKey: ").append(toIndentedString(mongodbAtlasApiPrivateKey)).append("\n");
@@ -1260,6 +1337,7 @@ public class UpdateDBTarget {
     sb.append("    parentTargetName: ").append(toIndentedString(parentTargetName)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    pwd: ").append(toIndentedString(pwd)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    skipServerNameValidation: ").append(toIndentedString(skipServerNameValidation)).append("\n");
     sb.append("    snowflakeAccount: ").append(toIndentedString(snowflakeAccount)).append("\n");
     sb.append("    snowflakeApiPrivateKey: ").append(toIndentedString(snowflakeApiPrivateKey)).append("\n");
@@ -1288,7 +1366,7 @@ public class UpdateDBTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("azure-client-id", "azure-client-secret", "azure-tenant-id", "client-certificate", "client-key-passphrase", "client-private-key", "cloud-service-provider", "cluster-mode", "comment", "connection-type", "db-name", "db-server-certificates", "db-server-name", "db-type", "description", "enable-mtls", "host", "json", "keep-prev-version", "key", "max-versions", "mongodb-atlas", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-default-auth-db", "mongodb-uri-options", "name", "new-name", "oracle-service-name", "oracle-wallet-login-type", "oracle-wallet-p12-file-data", "oracle-wallet-sso-file-data", "parent-target-name", "port", "pwd", "skip-server-name-validation", "snowflake-account", "snowflake-api-private-key", "snowflake-api-private-key-password", "ssl", "ssl-certificate", "token", "uid-token", "update-version", "user-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("azure-client-id", "azure-client-secret", "azure-tenant-id", "client-certificate", "client-key-passphrase", "client-private-key", "cloud-service-provider", "cluster-mode", "comment", "connection-type", "db-name", "db-server-certificates", "db-server-name", "db-type", "description", "enable-mtls", "host", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "mongodb-atlas", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-default-auth-db", "mongodb-uri-options", "name", "new-name", "oracle-service-name", "oracle-wallet-login-type", "oracle-wallet-p12-file-data", "oracle-wallet-sso-file-data", "parent-target-name", "port", "pwd", "rotate-on-unlock", "skip-server-name-validation", "snowflake-account", "snowflake-api-private-key", "snowflake-api-private-key-password", "ssl", "ssl-certificate", "token", "uid-token", "update-version", "user-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("connection-type", "db-type", "name"));
@@ -1373,6 +1451,12 @@ public class UpdateDBTarget {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1417,6 +1501,9 @@ public class UpdateDBTarget {
       }
       if ((jsonObj.get("pwd") != null && !jsonObj.get("pwd").isJsonNull()) && !jsonObj.get("pwd").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pwd` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pwd").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("skip-server-name-validation") != null && !jsonObj.get("skip-server-name-validation").isJsonNull()) && !jsonObj.get("skip-server-name-validation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip-server-name-validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip-server-name-validation").toString()));

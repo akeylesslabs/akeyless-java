@@ -141,6 +141,11 @@ public class CertificateChainInfo {
   @javax.annotation.Nullable
   private String issuanceStatus;
 
+  public static final String SERIALIZED_NAME_LEAF_CERTIFICATE_PEM = "leaf_certificate_pem";
+  @SerializedName(SERIALIZED_NAME_LEAF_CERTIFICATE_PEM)
+  @javax.annotation.Nullable
+  private String leafCertificatePem;
+
   public static final String SERIALIZED_NAME_NOT_BEFORE = "not_before";
   @SerializedName(SERIALIZED_NAME_NOT_BEFORE)
   @javax.annotation.Nullable
@@ -150,6 +155,11 @@ public class CertificateChainInfo {
   @SerializedName(SERIALIZED_NAME_RENEW_BEFORE_EXPIRATION_IN_DAYS)
   @javax.annotation.Nullable
   private Long renewBeforeExpirationInDays;
+
+  public static final String SERIALIZED_NAME_SPLIT_CERTIFICATE_CHAIN = "split_certificate_chain";
+  @SerializedName(SERIALIZED_NAME_SPLIT_CERTIFICATE_CHAIN)
+  @javax.annotation.Nullable
+  private Boolean splitCertificateChain;
 
   public CertificateChainInfo() {
   }
@@ -493,6 +503,25 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo leafCertificatePem(@javax.annotation.Nullable String leafCertificatePem) {
+    this.leafCertificatePem = leafCertificatePem;
+    return this;
+  }
+
+  /**
+   * LeafCertificatePem contains only the leaf certificate, derived from CertificatePem. Populated only when the certificate was issued with SplitCertificateChain enabled.
+   * @return leafCertificatePem
+   */
+  @javax.annotation.Nullable
+  public String getLeafCertificatePem() {
+    return leafCertificatePem;
+  }
+
+  public void setLeafCertificatePem(@javax.annotation.Nullable String leafCertificatePem) {
+    this.leafCertificatePem = leafCertificatePem;
+  }
+
+
   public CertificateChainInfo notBefore(@javax.annotation.Nullable OffsetDateTime notBefore) {
     this.notBefore = notBefore;
     return this;
@@ -531,6 +560,25 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo splitCertificateChain(@javax.annotation.Nullable Boolean splitCertificateChain) {
+    this.splitCertificateChain = splitCertificateChain;
+    return this;
+  }
+
+  /**
+   * SplitCertificateChain reflects whether this certificate was issued while its PKI Cert Issuer had split-certificate-chain enabled. When true, LeafCertificatePem is populated in addition to CertificatePem (which always holds the full chain).
+   * @return splitCertificateChain
+   */
+  @javax.annotation.Nullable
+  public Boolean getSplitCertificateChain() {
+    return splitCertificateChain;
+  }
+
+  public void setSplitCertificateChain(@javax.annotation.Nullable Boolean splitCertificateChain) {
+    this.splitCertificateChain = splitCertificateChain;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -558,13 +606,15 @@ public class CertificateChainInfo {
         Objects.equals(this.expirationEvents, certificateChainInfo.expirationEvents) &&
         Objects.equals(this.externalCaId, certificateChainInfo.externalCaId) &&
         Objects.equals(this.issuanceStatus, certificateChainInfo.issuanceStatus) &&
+        Objects.equals(this.leafCertificatePem, certificateChainInfo.leafCertificatePem) &&
         Objects.equals(this.notBefore, certificateChainInfo.notBefore) &&
-        Objects.equals(this.renewBeforeExpirationInDays, certificateChainInfo.renewBeforeExpirationInDays);
+        Objects.equals(this.renewBeforeExpirationInDays, certificateChainInfo.renewBeforeExpirationInDays) &&
+        Objects.equals(this.splitCertificateChain, certificateChainInfo.splitCertificateChain);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterId, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, commonName, csrPem, errorMessage, expirationDate, expirationEvents, externalCaId, issuanceStatus, notBefore, renewBeforeExpirationInDays);
+    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterId, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, commonName, csrPem, errorMessage, expirationDate, expirationEvents, externalCaId, issuanceStatus, leafCertificatePem, notBefore, renewBeforeExpirationInDays, splitCertificateChain);
   }
 
   @Override
@@ -588,8 +638,10 @@ public class CertificateChainInfo {
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    externalCaId: ").append(toIndentedString(externalCaId)).append("\n");
     sb.append("    issuanceStatus: ").append(toIndentedString(issuanceStatus)).append("\n");
+    sb.append("    leafCertificatePem: ").append(toIndentedString(leafCertificatePem)).append("\n");
     sb.append("    notBefore: ").append(toIndentedString(notBefore)).append("\n");
     sb.append("    renewBeforeExpirationInDays: ").append(toIndentedString(renewBeforeExpirationInDays)).append("\n");
+    sb.append("    splitCertificateChain: ").append(toIndentedString(splitCertificateChain)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -608,7 +660,7 @@ public class CertificateChainInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("auto_renew_certificate", "certificate_chain", "certificate_format", "certificate_has_private_key", "certificate_issuer_gw_cluster_id", "certificate_issuer_gw_cluster_url", "certificate_issuer_item_id", "certificate_issuer_name", "certificate_pem", "certificate_status", "common_name", "csr_pem", "error_message", "expiration_date", "expiration_events", "external_ca_id", "issuance_status", "not_before", "renew_before_expiration_in_days"));
+    openapiFields = new HashSet<String>(Arrays.asList("auto_renew_certificate", "certificate_chain", "certificate_format", "certificate_has_private_key", "certificate_issuer_gw_cluster_id", "certificate_issuer_gw_cluster_url", "certificate_issuer_item_id", "certificate_issuer_name", "certificate_pem", "certificate_status", "common_name", "csr_pem", "error_message", "expiration_date", "expiration_events", "external_ca_id", "issuance_status", "leaf_certificate_pem", "not_before", "renew_before_expiration_in_days", "split_certificate_chain"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -693,6 +745,9 @@ public class CertificateChainInfo {
       }
       if ((jsonObj.get("issuance_status") != null && !jsonObj.get("issuance_status").isJsonNull()) && !jsonObj.get("issuance_status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `issuance_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("issuance_status").toString()));
+      }
+      if ((jsonObj.get("leaf_certificate_pem") != null && !jsonObj.get("leaf_certificate_pem").isJsonNull()) && !jsonObj.get("leaf_certificate_pem").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `leaf_certificate_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("leaf_certificate_pem").toString()));
       }
   }
 

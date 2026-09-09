@@ -62,6 +62,16 @@ public class LockingInfo {
   @javax.annotation.Nullable
   private Long expireAt;
 
+  public static final String SERIALIZED_NAME_LOCK_ORIGIN = "lock_origin";
+  @SerializedName(SERIALIZED_NAME_LOCK_ORIGIN)
+  @javax.annotation.Nullable
+  private String lockOrigin;
+
+  public static final String SERIALIZED_NAME_LOCKED_AT = "locked_at";
+  @SerializedName(SERIALIZED_NAME_LOCKED_AT)
+  @javax.annotation.Nullable
+  private Long lockedAt;
+
   public static final String SERIALIZED_NAME_LOCKED_BY = "locked_by";
   @SerializedName(SERIALIZED_NAME_LOCKED_BY)
   @javax.annotation.Nullable
@@ -121,6 +131,44 @@ public class LockingInfo {
   }
 
 
+  public LockingInfo lockOrigin(@javax.annotation.Nullable String lockOrigin) {
+    this.lockOrigin = lockOrigin;
+    return this;
+  }
+
+  /**
+   * Get lockOrigin
+   * @return lockOrigin
+   */
+  @javax.annotation.Nullable
+  public String getLockOrigin() {
+    return lockOrigin;
+  }
+
+  public void setLockOrigin(@javax.annotation.Nullable String lockOrigin) {
+    this.lockOrigin = lockOrigin;
+  }
+
+
+  public LockingInfo lockedAt(@javax.annotation.Nullable Long lockedAt) {
+    this.lockedAt = lockedAt;
+    return this;
+  }
+
+  /**
+   * Get lockedAt
+   * @return lockedAt
+   */
+  @javax.annotation.Nullable
+  public Long getLockedAt() {
+    return lockedAt;
+  }
+
+  public void setLockedAt(@javax.annotation.Nullable Long lockedAt) {
+    this.lockedAt = lockedAt;
+  }
+
+
   public LockingInfo lockedBy(@javax.annotation.Nullable String lockedBy) {
     this.lockedBy = lockedBy;
     return this;
@@ -171,13 +219,15 @@ public class LockingInfo {
     LockingInfo lockingInfo = (LockingInfo) o;
     return Objects.equals(this.actions, lockingInfo.actions) &&
         Objects.equals(this.expireAt, lockingInfo.expireAt) &&
+        Objects.equals(this.lockOrigin, lockingInfo.lockOrigin) &&
+        Objects.equals(this.lockedAt, lockingInfo.lockedAt) &&
         Objects.equals(this.lockedBy, lockingInfo.lockedBy) &&
         Objects.equals(this.uniqueIdentifier, lockingInfo.uniqueIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(actions, expireAt, lockedBy, uniqueIdentifier);
+    return Objects.hash(actions, expireAt, lockOrigin, lockedAt, lockedBy, uniqueIdentifier);
   }
 
   @Override
@@ -186,6 +236,8 @@ public class LockingInfo {
     sb.append("class LockingInfo {\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("    expireAt: ").append(toIndentedString(expireAt)).append("\n");
+    sb.append("    lockOrigin: ").append(toIndentedString(lockOrigin)).append("\n");
+    sb.append("    lockedAt: ").append(toIndentedString(lockedAt)).append("\n");
     sb.append("    lockedBy: ").append(toIndentedString(lockedBy)).append("\n");
     sb.append("    uniqueIdentifier: ").append(toIndentedString(uniqueIdentifier)).append("\n");
     sb.append("}");
@@ -206,7 +258,7 @@ public class LockingInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("actions", "expire_at", "locked_by", "unique_identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("actions", "expire_at", "lock_origin", "locked_at", "locked_by", "unique_identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -236,6 +288,9 @@ public class LockingInfo {
       // ensure the optional json data is an array if present
       if (jsonObj.get("actions") != null && !jsonObj.get("actions").isJsonNull() && !jsonObj.get("actions").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `actions` to be an array in the JSON string but got `%s`", jsonObj.get("actions").toString()));
+      }
+      if ((jsonObj.get("lock_origin") != null && !jsonObj.get("lock_origin").isJsonNull()) && !jsonObj.get("lock_origin").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock_origin` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock_origin").toString()));
       }
       if ((jsonObj.get("locked_by") != null && !jsonObj.get("locked_by").isJsonNull()) && !jsonObj.get("locked_by").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `locked_by` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locked_by").toString()));

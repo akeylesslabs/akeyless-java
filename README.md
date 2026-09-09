@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**assocRoleAuthMethod**](docs/V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am | 
 *V2Api* | [**assocTargetItem**](docs/V2Api.md#assocTargetItem) | **POST** /assoc-target-item | 
 *V2Api* | [**auth**](docs/V2Api.md#auth) | **POST** /auth | 
+*V2Api* | [**authMethodCreateAliCloud**](docs/V2Api.md#authMethodCreateAliCloud) | **POST** /auth-method-create-alicloud | 
 *V2Api* | [**authMethodCreateApiKey**](docs/V2Api.md#authMethodCreateApiKey) | **POST** /auth-method-create-api-key | 
 *V2Api* | [**authMethodCreateAwsIam**](docs/V2Api.md#authMethodCreateAwsIam) | **POST** /auth-method-create-aws-iam | 
 *V2Api* | [**authMethodCreateAzureAD**](docs/V2Api.md#authMethodCreateAzureAD) | **POST** /auth-method-create-azure-ad | 
@@ -132,6 +133,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**authMethodDelete**](docs/V2Api.md#authMethodDelete) | **POST** /auth-method-delete | 
 *V2Api* | [**authMethodGet**](docs/V2Api.md#authMethodGet) | **POST** /auth-method-get | 
 *V2Api* | [**authMethodList**](docs/V2Api.md#authMethodList) | **POST** /auth-method-list | 
+*V2Api* | [**authMethodUpdateAliCloud**](docs/V2Api.md#authMethodUpdateAliCloud) | **POST** /auth-method-update-alicloud | 
 *V2Api* | [**authMethodUpdateApiKey**](docs/V2Api.md#authMethodUpdateApiKey) | **POST** /auth-method-update-api-key | 
 *V2Api* | [**authMethodUpdateAwsIam**](docs/V2Api.md#authMethodUpdateAwsIam) | **POST** /auth-method-update-aws-iam | 
 *V2Api* | [**authMethodUpdateAzureAD**](docs/V2Api.md#authMethodUpdateAzureAD) | **POST** /auth-method-update-azure-ad | 
@@ -793,7 +795,10 @@ Class | Method | HTTP request | Description
  - [AgenticRules](docs/AgenticRules.md)
  - [AiInsightsConfigPart](docs/AiInsightsConfigPart.md)
  - [AiInsightsSetting](docs/AiInsightsSetting.md)
+ - [AiModelEntry](docs/AiModelEntry.md)
+ - [AiQuorumSetting](docs/AiQuorumSetting.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
+ - [AliCloudAccessRules](docs/AliCloudAccessRules.md)
  - [AliasDetails](docs/AliasDetails.md)
  - [AliasDetailsOutput](docs/AliasDetailsOutput.md)
  - [AllAnalyticsData](docs/AllAnalyticsData.md)
@@ -811,6 +816,7 @@ Class | Method | HTTP request | Description
  - [AuthMethod](docs/AuthMethod.md)
  - [AuthMethodAccessInfo](docs/AuthMethodAccessInfo.md)
  - [AuthMethodAdditionalData](docs/AuthMethodAdditionalData.md)
+ - [AuthMethodCreateAliCloud](docs/AuthMethodCreateAliCloud.md)
  - [AuthMethodCreateApiKey](docs/AuthMethodCreateApiKey.md)
  - [AuthMethodCreateAwsIam](docs/AuthMethodCreateAwsIam.md)
  - [AuthMethodCreateAzureAD](docs/AuthMethodCreateAzureAD.md)
@@ -831,6 +837,7 @@ Class | Method | HTTP request | Description
  - [AuthMethodGet](docs/AuthMethodGet.md)
  - [AuthMethodList](docs/AuthMethodList.md)
  - [AuthMethodRoleAssociation](docs/AuthMethodRoleAssociation.md)
+ - [AuthMethodUpdateAliCloud](docs/AuthMethodUpdateAliCloud.md)
  - [AuthMethodUpdateApiKey](docs/AuthMethodUpdateApiKey.md)
  - [AuthMethodUpdateAwsIam](docs/AuthMethodUpdateAwsIam.md)
  - [AuthMethodUpdateAzureAD](docs/AuthMethodUpdateAzureAD.md)
@@ -1575,6 +1582,10 @@ Class | Method | HTTP request | Description
  - [LogForwardingConfigPart](docs/LogForwardingConfigPart.md)
  - [LogstashLogForwardingConfig](docs/LogstashLogForwardingConfig.md)
  - [LogzIoLogForwardingConfig](docs/LogzIoLogForwardingConfig.md)
+ - [MigrationDownloadJob](docs/MigrationDownloadJob.md)
+ - [MigrationDownloadReport](docs/MigrationDownloadReport.md)
+ - [MigrationDownloadSecret](docs/MigrationDownloadSecret.md)
+ - [MigrationDownloadSummary](docs/MigrationDownloadSummary.md)
  - [MigrationGeneral](docs/MigrationGeneral.md)
  - [MigrationItems](docs/MigrationItems.md)
  - [MigrationStatus](docs/MigrationStatus.md)
@@ -1720,6 +1731,7 @@ Class | Method | HTTP request | Description
  - [SSHCertificateIssueDetails](docs/SSHCertificateIssueDetails.md)
  - [SSHTargetDetails](docs/SSHTargetDetails.md)
  - [SalesforceTargetDetails](docs/SalesforceTargetDetails.md)
+ - [SamlSpConfigPart](docs/SamlSpConfigPart.md)
  - [ScanResults](docs/ScanResults.md)
  - [SecretInfo](docs/SecretInfo.md)
  - [SecretSyncOutput](docs/SecretSyncOutput.md)

@@ -65,6 +65,11 @@ public class StaticSecretSync {
   @javax.annotation.Nullable
   private String filterSecretValue;
 
+  public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
+  @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
+  @javax.annotation.Nullable
+  private String gcpProjectId;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -162,6 +167,25 @@ public class StaticSecretSync {
 
   public void setFilterSecretValue(@javax.annotation.Nullable String filterSecretValue) {
     this.filterSecretValue = filterSecretValue;
+  }
+
+
+  public StaticSecretSync gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
+    return this;
+  }
+
+  /**
+   * GCP project to sync the secret to. Relevant only for GCP USCs; must be a project available on the USC
+   * @return gcpProjectId
+   */
+  @javax.annotation.Nullable
+  public String getGcpProjectId() {
+    return gcpProjectId;
+  }
+
+  public void setGcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
+    this.gcpProjectId = gcpProjectId;
   }
 
 
@@ -330,6 +354,7 @@ public class StaticSecretSync {
     return Objects.equals(this.deleteRemote, staticSecretSync.deleteRemote) &&
         Objects.equals(this.environments, staticSecretSync.environments) &&
         Objects.equals(this.filterSecretValue, staticSecretSync.filterSecretValue) &&
+        Objects.equals(this.gcpProjectId, staticSecretSync.gcpProjectId) &&
         Objects.equals(this.json, staticSecretSync.json) &&
         Objects.equals(this.name, staticSecretSync.name) &&
         Objects.equals(this.namespace, staticSecretSync.namespace) &&
@@ -342,7 +367,7 @@ public class StaticSecretSync {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteRemote, environments, filterSecretValue, json, name, namespace, remoteSecretName, repositories, token, uidToken, uscName);
+    return Objects.hash(deleteRemote, environments, filterSecretValue, gcpProjectId, json, name, namespace, remoteSecretName, repositories, token, uidToken, uscName);
   }
 
   @Override
@@ -352,6 +377,7 @@ public class StaticSecretSync {
     sb.append("    deleteRemote: ").append(toIndentedString(deleteRemote)).append("\n");
     sb.append("    environments: ").append(toIndentedString(environments)).append("\n");
     sb.append("    filterSecretValue: ").append(toIndentedString(filterSecretValue)).append("\n");
+    sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
@@ -378,7 +404,7 @@ public class StaticSecretSync {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete-remote", "environments", "filter-secret-value", "json", "name", "namespace", "remote-secret-name", "repositories", "token", "uid-token", "usc-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete-remote", "environments", "filter-secret-value", "gcp-project-id", "json", "name", "namespace", "remote-secret-name", "repositories", "token", "uid-token", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -417,6 +443,9 @@ public class StaticSecretSync {
       }
       if ((jsonObj.get("filter-secret-value") != null && !jsonObj.get("filter-secret-value").isJsonNull()) && !jsonObj.get("filter-secret-value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filter-secret-value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter-secret-value").toString()));
+      }
+      if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

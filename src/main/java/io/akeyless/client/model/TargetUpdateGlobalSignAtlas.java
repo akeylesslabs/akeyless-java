@@ -85,6 +85,16 @@ public class TargetUpdateGlobalSignAtlas {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -109,6 +119,11 @@ public class TargetUpdateGlobalSignAtlas {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
   @SerializedName(SERIALIZED_NAME_TIMEOUT)
@@ -261,6 +276,44 @@ public class TargetUpdateGlobalSignAtlas {
   }
 
 
+  public TargetUpdateGlobalSignAtlas lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetUpdateGlobalSignAtlas lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetUpdateGlobalSignAtlas maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -356,6 +409,25 @@ public class TargetUpdateGlobalSignAtlas {
   }
 
 
+  public TargetUpdateGlobalSignAtlas rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+  }
+
+
   public TargetUpdateGlobalSignAtlas timeout(@javax.annotation.Nullable String timeout) {
     this.timeout = timeout;
     return this;
@@ -430,11 +502,14 @@ public class TargetUpdateGlobalSignAtlas {
         Objects.equals(this.json, targetUpdateGlobalSignAtlas.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateGlobalSignAtlas.keepPrevVersion) &&
         Objects.equals(this.key, targetUpdateGlobalSignAtlas.key) &&
+        Objects.equals(this.lockOnRead, targetUpdateGlobalSignAtlas.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetUpdateGlobalSignAtlas.lockTtl) &&
         Objects.equals(this.maxVersions, targetUpdateGlobalSignAtlas.maxVersions) &&
         Objects.equals(this.mtlsCertDataBase64, targetUpdateGlobalSignAtlas.mtlsCertDataBase64) &&
         Objects.equals(this.mtlsKeyDataBase64, targetUpdateGlobalSignAtlas.mtlsKeyDataBase64) &&
         Objects.equals(this.name, targetUpdateGlobalSignAtlas.name) &&
         Objects.equals(this.newName, targetUpdateGlobalSignAtlas.newName) &&
+        Objects.equals(this.rotateOnUnlock, targetUpdateGlobalSignAtlas.rotateOnUnlock) &&
         Objects.equals(this.timeout, targetUpdateGlobalSignAtlas.timeout) &&
         Objects.equals(this.token, targetUpdateGlobalSignAtlas.token) &&
         Objects.equals(this.uidToken, targetUpdateGlobalSignAtlas.uidToken);
@@ -442,7 +517,7 @@ public class TargetUpdateGlobalSignAtlas {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiKey, apiSecret, deleteProtection, description, json, keepPrevVersion, key, maxVersions, mtlsCertDataBase64, mtlsKeyDataBase64, name, newName, timeout, token, uidToken);
+    return Objects.hash(apiKey, apiSecret, deleteProtection, description, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, mtlsCertDataBase64, mtlsKeyDataBase64, name, newName, rotateOnUnlock, timeout, token, uidToken);
   }
 
   @Override
@@ -456,11 +531,14 @@ public class TargetUpdateGlobalSignAtlas {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    mtlsCertDataBase64: ").append(toIndentedString(mtlsCertDataBase64)).append("\n");
     sb.append("    mtlsKeyDataBase64: ").append(toIndentedString(mtlsKeyDataBase64)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -482,7 +560,7 @@ public class TargetUpdateGlobalSignAtlas {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("api-key", "api-secret", "delete_protection", "description", "json", "keep-prev-version", "key", "max-versions", "mtls-cert-data-base64", "mtls-key-data-base64", "name", "new-name", "timeout", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("api-key", "api-secret", "delete_protection", "description", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "mtls-cert-data-base64", "mtls-key-data-base64", "name", "new-name", "rotate-on-unlock", "timeout", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("api-key", "api-secret", "name"));
@@ -534,6 +612,12 @@ public class TargetUpdateGlobalSignAtlas {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -548,6 +632,9 @@ public class TargetUpdateGlobalSignAtlas {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) && !jsonObj.get("timeout").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeout").toString()));

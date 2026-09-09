@@ -95,6 +95,16 @@ public class UpdateLdapTarget {
   @javax.annotation.Nonnull
   private String ldapUrl;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -109,6 +119,11 @@ public class UpdateLdapTarget {
   @SerializedName(SERIALIZED_NAME_NEW_NAME)
   @javax.annotation.Nullable
   private String newName;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SERVER_TYPE = "server-type";
   @SerializedName(SERIALIZED_NAME_SERVER_TYPE)
@@ -309,6 +324,44 @@ public class UpdateLdapTarget {
   }
 
 
+  public UpdateLdapTarget lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public UpdateLdapTarget lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public UpdateLdapTarget maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -363,6 +416,25 @@ public class UpdateLdapTarget {
 
   public void setNewName(@javax.annotation.Nullable String newName) {
     this.newName = newName;
+  }
+
+
+  public UpdateLdapTarget rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -480,9 +552,12 @@ public class UpdateLdapTarget {
         Objects.equals(this.key, updateLdapTarget.key) &&
         Objects.equals(this.ldapCaCert, updateLdapTarget.ldapCaCert) &&
         Objects.equals(this.ldapUrl, updateLdapTarget.ldapUrl) &&
+        Objects.equals(this.lockOnRead, updateLdapTarget.lockOnRead) &&
+        Objects.equals(this.lockTtl, updateLdapTarget.lockTtl) &&
         Objects.equals(this.maxVersions, updateLdapTarget.maxVersions) &&
         Objects.equals(this.name, updateLdapTarget.name) &&
         Objects.equals(this.newName, updateLdapTarget.newName) &&
+        Objects.equals(this.rotateOnUnlock, updateLdapTarget.rotateOnUnlock) &&
         Objects.equals(this.serverType, updateLdapTarget.serverType) &&
         Objects.equals(this.token, updateLdapTarget.token) &&
         Objects.equals(this.tokenExpiration, updateLdapTarget.tokenExpiration) &&
@@ -492,7 +567,7 @@ public class UpdateLdapTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, maxVersions, name, newName, serverType, token, tokenExpiration, uidToken, updateVersion);
+    return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, lockOnRead, lockTtl, maxVersions, name, newName, rotateOnUnlock, serverType, token, tokenExpiration, uidToken, updateVersion);
   }
 
   @Override
@@ -508,9 +583,12 @@ public class UpdateLdapTarget {
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    serverType: ").append(toIndentedString(serverType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
@@ -534,7 +612,7 @@ public class UpdateLdapTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "comment", "description", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "max-versions", "name", "new-name", "server-type", "token", "token-expiration", "uid-token", "update-version"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "comment", "description", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rotate-on-unlock", "server-type", "token", "token-expiration", "uid-token", "update-version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "ldap-url", "name"));
@@ -592,6 +670,12 @@ public class UpdateLdapTarget {
       if (!jsonObj.get("ldap-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap-url").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -600,6 +684,9 @@ public class UpdateLdapTarget {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("server-type") != null && !jsonObj.get("server-type").isJsonNull()) && !jsonObj.get("server-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `server-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("server-type").toString()));

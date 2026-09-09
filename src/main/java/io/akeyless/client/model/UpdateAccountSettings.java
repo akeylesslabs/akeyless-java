@@ -127,6 +127,11 @@ public class UpdateAccountSettings {
   @javax.annotation.Nullable
   private String enableAiInsights;
 
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private String enableAiQuorum;
+
   public static final String SERIALIZED_NAME_ENABLE_DEFAULT_CERTIFICATE_EXPIRATION_EVENT = "enable-default-certificate-expiration-event";
   @SerializedName(SERIALIZED_NAME_ENABLE_DEFAULT_CERTIFICATE_EXPIRATION_EVENT)
   @javax.annotation.Nullable
@@ -629,6 +634,25 @@ public class UpdateAccountSettings {
 
   public void setEnableAiInsights(@javax.annotation.Nullable String enableAiInsights) {
     this.enableAiInsights = enableAiInsights;
+  }
+
+
+  public UpdateAccountSettings enableAiQuorum(@javax.annotation.Nullable String enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Enable AI Quorum checks account-wide [true/false]
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public String getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable String enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -1368,6 +1392,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.dynamicSecretMaxTtl, updateAccountSettings.dynamicSecretMaxTtl) &&
         Objects.equals(this.dynamicSecretMaxTtlEnable, updateAccountSettings.dynamicSecretMaxTtlEnable) &&
         Objects.equals(this.enableAiInsights, updateAccountSettings.enableAiInsights) &&
+        Objects.equals(this.enableAiQuorum, updateAccountSettings.enableAiQuorum) &&
         Objects.equals(this.enableDefaultCertificateExpirationEvent, updateAccountSettings.enableDefaultCertificateExpirationEvent) &&
         Objects.equals(this.enableItemSharing, updateAccountSettings.enableItemSharing) &&
         Objects.equals(this.enablePasswordExpiration, updateAccountSettings.enablePasswordExpiration) &&
@@ -1409,7 +1434,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemLockingEnabled, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, lockMaxTtl, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableAiQuorum, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemLockingEnabled, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, lockMaxTtl, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1431,6 +1456,7 @@ public class UpdateAccountSettings {
     sb.append("    dynamicSecretMaxTtl: ").append(toIndentedString(dynamicSecretMaxTtl)).append("\n");
     sb.append("    dynamicSecretMaxTtlEnable: ").append(toIndentedString(dynamicSecretMaxTtlEnable)).append("\n");
     sb.append("    enableAiInsights: ").append(toIndentedString(enableAiInsights)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    enableDefaultCertificateExpirationEvent: ").append(toIndentedString(enableDefaultCertificateExpirationEvent)).append("\n");
     sb.append("    enableItemSharing: ").append(toIndentedString(enableItemSharing)).append("\n");
     sb.append("    enablePasswordExpiration: ").append(toIndentedString(enablePasswordExpiration)).append("\n");
@@ -1486,7 +1512,7 @@ public class UpdateAccountSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "allowed-client-type", "allowed-email-domains", "bound-ips", "city", "company-name", "country", "default-certificate-expiration-notification-days", "default-key-name", "default-share-link-ttl-minutes", "default-versioning", "dp-enable-classic-key-protection", "dynamic-secret-max-ttl", "dynamic-secret-max-ttl-enable", "enable-ai-insights", "enable-default-certificate-expiration-event", "enable-item-sharing", "enable-password-expiration", "force-new-versions", "gw-bound-ips", "hide-personal-folder", "hide-static-password", "invalid-characters", "item-locking-enabled", "item-type", "items-deletion-protection", "json", "jwt-ttl-default", "jwt-ttl-max", "jwt-ttl-min", "lock-allowed-client-type", "lock-bound-ips", "lock-default-key", "lock-gw-bound-ips", "lock-max-ttl", "max-rotation-interval", "max-rotation-interval-enable", "max-versions", "password-expiration-days", "password-expiration-notification-days", "password-length", "phone", "postal-code", "token", "uid-token", "usage-event-enable", "usage-event-interval", "usage-event-object-type", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "allowed-client-type", "allowed-email-domains", "bound-ips", "city", "company-name", "country", "default-certificate-expiration-notification-days", "default-key-name", "default-share-link-ttl-minutes", "default-versioning", "dp-enable-classic-key-protection", "dynamic-secret-max-ttl", "dynamic-secret-max-ttl-enable", "enable-ai-insights", "enable-ai-quorum", "enable-default-certificate-expiration-event", "enable-item-sharing", "enable-password-expiration", "force-new-versions", "gw-bound-ips", "hide-personal-folder", "hide-static-password", "invalid-characters", "item-locking-enabled", "item-type", "items-deletion-protection", "json", "jwt-ttl-default", "jwt-ttl-max", "jwt-ttl-min", "lock-allowed-client-type", "lock-bound-ips", "lock-default-key", "lock-gw-bound-ips", "lock-max-ttl", "max-rotation-interval", "max-rotation-interval-enable", "max-versions", "password-expiration-days", "password-expiration-notification-days", "password-length", "phone", "postal-code", "token", "uid-token", "usage-event-enable", "usage-event-interval", "usage-event-object-type", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1558,6 +1584,9 @@ public class UpdateAccountSettings {
       }
       if ((jsonObj.get("enable-ai-insights") != null && !jsonObj.get("enable-ai-insights").isJsonNull()) && !jsonObj.get("enable-ai-insights").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-ai-insights` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-ai-insights").toString()));
+      }
+      if ((jsonObj.get("enable-ai-quorum") != null && !jsonObj.get("enable-ai-quorum").isJsonNull()) && !jsonObj.get("enable-ai-quorum").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-ai-quorum` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-ai-quorum").toString()));
       }
       if ((jsonObj.get("enable-default-certificate-expiration-event") != null && !jsonObj.get("enable-default-certificate-expiration-event").isJsonNull()) && !jsonObj.get("enable-default-certificate-expiration-event").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-default-certificate-expiration-event` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-default-certificate-expiration-event").toString()));

@@ -94,6 +94,16 @@ public class GatewayCreateProducerCassandra {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -341,6 +351,44 @@ public class GatewayCreateProducerCassandra {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerCassandra enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayCreateProducerCassandra enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -755,6 +803,8 @@ public class GatewayCreateProducerCassandra {
         Objects.equals(this.cassandraUsername, gatewayCreateProducerCassandra.cassandraUsername) &&
         Objects.equals(this.customUsernameTemplate, gatewayCreateProducerCassandra.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerCassandra.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayCreateProducerCassandra.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayCreateProducerCassandra.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayCreateProducerCassandra.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayCreateProducerCassandra.itemCustomFields) &&
         Objects.equals(this.json, gatewayCreateProducerCassandra.json) &&
@@ -778,7 +828,7 @@ public class GatewayCreateProducerCassandra {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, cassandraCreationStatements, cassandraHosts, cassandraPassword, cassandraPort, cassandraUsername, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -793,6 +843,8 @@ public class GatewayCreateProducerCassandra {
     sb.append("    cassandraUsername: ").append(toIndentedString(cassandraUsername)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -830,7 +882,7 @@ public class GatewayCreateProducerCassandra {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "cassandra-creation-statements", "cassandra-hosts", "cassandra-password", "cassandra-port", "cassandra-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "cassandra-creation-statements", "cassandra-hosts", "cassandra-password", "cassandra-port", "cassandra-username", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

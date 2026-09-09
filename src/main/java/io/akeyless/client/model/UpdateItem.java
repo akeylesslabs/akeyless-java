@@ -69,6 +69,11 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private List<String> addTag = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
+  @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean araEnabled;
+
   public static final String SERIALIZED_NAME_CERT_FILE_DATA = "cert-file-data";
   @SerializedName(SERIALIZED_NAME_CERT_FILE_DATA)
   @javax.annotation.Nullable
@@ -94,6 +99,16 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private String description = "default_metadata";
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   @javax.annotation.Nullable
@@ -109,6 +124,11 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private String hostProvider;
 
+  public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
+  @SerializedName(SERIALIZED_NAME_INPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> inputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_ITEM_CUSTOM_FIELDS = "item-custom-fields";
   @SerializedName(SERIALIZED_NAME_ITEM_CUSTOM_FIELDS)
   @javax.annotation.Nullable
@@ -123,6 +143,16 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
   @javax.annotation.Nullable
   private String lockDuringSraSession;
+
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
 
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
@@ -144,6 +174,11 @@ public class UpdateItem {
   @javax.annotation.Nullable
   private String newName;
 
+  public static final String SERIALIZED_NAME_OUTPUT_RULE = "output-rule";
+  @SerializedName(SERIALIZED_NAME_OUTPUT_RULE)
+  @javax.annotation.Nullable
+  private List<String> outputRule = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_RM_TAG = "rm-tag";
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   @javax.annotation.Nullable
@@ -153,6 +188,11 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private String rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST = "secure-access-add-host";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ADD_HOST)
@@ -402,6 +442,25 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem araEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+    return this;
+  }
+
+  /**
+   * Enable or disable Agentic Runtime Authority rule enforcement for this item. When false, user-defined input/output rules are stored but not enforced; the base security validation still runs.  AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes its wire value (see akl.OptionalBool) so an explicit false survives the curl-proxy relay instead of being dropped like a default-false bool flag.
+   * @return araEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getAraEnabled() {
+    return araEnabled;
+  }
+
+  public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
+    this.araEnabled = araEnabled;
+  }
+
+
   public UpdateItem certFileData(@javax.annotation.Nullable String certFileData) {
     this.certFileData = certFileData;
     return this;
@@ -497,6 +556,44 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public UpdateItem enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public UpdateItem expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
     this.expirationEventIn = expirationEventIn;
     return this;
@@ -562,6 +659,33 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem inputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+    return this;
+  }
+
+  public UpdateItem addInputRuleItem(String inputRuleItem) {
+    if (this.inputRule == null) {
+      this.inputRule = new ArrayList<>();
+    }
+    this.inputRule.add(inputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input)
+   * @return inputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getInputRule() {
+    return inputRule;
+  }
+
+  public void setInputRule(@javax.annotation.Nullable List<String> inputRule) {
+    this.inputRule = inputRule;
+  }
+
+
   public UpdateItem itemCustomFields(@javax.annotation.Nullable Map<String, String> itemCustomFields) {
     this.itemCustomFields = itemCustomFields;
     return this;
@@ -624,6 +748,44 @@ public class UpdateItem {
 
   public void setLockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
     this.lockDuringSraSession = lockDuringSraSession;
+  }
+
+
+  public UpdateItem lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public UpdateItem lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
   }
 
 
@@ -703,6 +865,33 @@ public class UpdateItem {
   }
 
 
+  public UpdateItem outputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+    return this;
+  }
+
+  public UpdateItem addOutputRuleItem(String outputRuleItem) {
+    if (this.outputRule == null) {
+      this.outputRule = new ArrayList<>();
+    }
+    this.outputRule.add(outputRuleItem);
+    return this;
+  }
+
+  /**
+   * Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets)
+   * @return outputRule
+   */
+  @javax.annotation.Nullable
+  public List<String> getOutputRule() {
+    return outputRule;
+  }
+
+  public void setOutputRule(@javax.annotation.Nullable List<String> outputRule) {
+    this.outputRule = outputRule;
+  }
+
+
   public UpdateItem rmTag(@javax.annotation.Nullable List<String> rmTag) {
     this.rmTag = rmTag;
     return this;
@@ -746,6 +935,25 @@ public class UpdateItem {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public UpdateItem rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -1478,23 +1686,31 @@ public class UpdateItem {
     return Objects.equals(this.providerType, updateItem.providerType) &&
         Objects.equals(this.accessibility, updateItem.accessibility) &&
         Objects.equals(this.addTag, updateItem.addTag) &&
+        Objects.equals(this.araEnabled, updateItem.araEnabled) &&
         Objects.equals(this.certFileData, updateItem.certFileData) &&
         Objects.equals(this.certificateFormat, updateItem.certificateFormat) &&
         Objects.equals(this.changeEvent, updateItem.changeEvent) &&
         Objects.equals(this.deleteProtection, updateItem.deleteProtection) &&
         Objects.equals(this.description, updateItem.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, updateItem.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, updateItem.enableAiQuorum) &&
         Objects.equals(this.expirationEventIn, updateItem.expirationEventIn) &&
         Objects.equals(this.gcpSmRegions, updateItem.gcpSmRegions) &&
         Objects.equals(this.hostProvider, updateItem.hostProvider) &&
+        Objects.equals(this.inputRule, updateItem.inputRule) &&
         Objects.equals(this.itemCustomFields, updateItem.itemCustomFields) &&
         Objects.equals(this.json, updateItem.json) &&
         Objects.equals(this.lockDuringSraSession, updateItem.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, updateItem.lockOnRead) &&
+        Objects.equals(this.lockTtl, updateItem.lockTtl) &&
         Objects.equals(this.maxVersions, updateItem.maxVersions) &&
         Objects.equals(this.name, updateItem.name) &&
         Objects.equals(this.newMetadata, updateItem.newMetadata) &&
         Objects.equals(this.newName, updateItem.newName) &&
+        Objects.equals(this.outputRule, updateItem.outputRule) &&
         Objects.equals(this.rmTag, updateItem.rmTag) &&
         Objects.equals(this.rotateAfterDisconnect, updateItem.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateOnUnlock, updateItem.rotateOnUnlock) &&
         Objects.equals(this.secureAccessAddHost, updateItem.secureAccessAddHost) &&
         Objects.equals(this.secureAccessAllowExternalUser, updateItem.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessAllowPortForwading, updateItem.secureAccessAllowPortForwading) &&
@@ -1535,7 +1751,7 @@ public class UpdateItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, certFileData, certificateFormat, changeEvent, deleteProtection, description, expirationEventIn, gcpSmRegions, hostProvider, itemCustomFields, json, lockDuringSraSession, maxVersions, name, newMetadata, newName, rmTag, rotateAfterDisconnect, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, target, token, uidToken, uscTags, useTagsAsFilter);
+    return Objects.hash(providerType, accessibility, addTag, araEnabled, certFileData, certificateFormat, changeEvent, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, expirationEventIn, gcpSmRegions, hostProvider, inputRule, itemCustomFields, json, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, newMetadata, newName, outputRule, rmTag, rotateAfterDisconnect, rotateOnUnlock, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, target, token, uidToken, uscTags, useTagsAsFilter);
   }
 
   @Override
@@ -1545,23 +1761,31 @@ public class UpdateItem {
     sb.append("    providerType: ").append(toIndentedString(providerType)).append("\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    addTag: ").append(toIndentedString(addTag)).append("\n");
+    sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    certFileData: ").append(toIndentedString(certFileData)).append("\n");
     sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    changeEvent: ").append(toIndentedString(changeEvent)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gcpSmRegions: ").append(toIndentedString(gcpSmRegions)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
+    sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newMetadata: ").append(toIndentedString(newMetadata)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    secureAccessAddHost: ").append(toIndentedString(secureAccessAddHost)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
@@ -1616,7 +1840,7 @@ public class UpdateItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "add-tag", "cert-file-data", "certificate-format", "change-event", "delete_protection", "description", "expiration-event-in", "gcp-sm-regions", "host-provider", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "name", "new-metadata", "new-name", "rm-tag", "rotate-after-disconnect", "secure-access-add-host", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-api", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-aws-region", "secure-access-bastion-api", "secure-access-bastion-issuer", "secure-access-bastion-ssh", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-rm-host", "secure-access-ssh", "secure-access-ssh-creds", "secure-access-ssh-creds-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web-browsing", "secure-access-web-proxy", "target", "token", "uid-token", "usc-tags", "use-tags-as-filter"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "add-tag", "ara-enabled", "cert-file-data", "certificate-format", "change-event", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "expiration-event-in", "gcp-sm-regions", "host-provider", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-metadata", "new-name", "output-rule", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "secure-access-add-host", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-api", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-aws-region", "secure-access-bastion-api", "secure-access-bastion-issuer", "secure-access-bastion-ssh", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-rm-host", "secure-access-ssh", "secure-access-ssh-creds", "secure-access-ssh-creds-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web-browsing", "secure-access-web-proxy", "target", "token", "uid-token", "usc-tags", "use-tags-as-filter"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1685,8 +1909,18 @@ public class UpdateItem {
       if ((jsonObj.get("host-provider") != null && !jsonObj.get("host-provider").isJsonNull()) && !jsonObj.get("host-provider").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host-provider").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("input-rule") != null && !jsonObj.get("input-rule").isJsonNull() && !jsonObj.get("input-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `input-rule` to be an array in the JSON string but got `%s`", jsonObj.get("input-rule").toString()));
+      }
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
+      }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
       }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
@@ -1701,11 +1935,18 @@ public class UpdateItem {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
       }
       // ensure the optional json data is an array if present
+      if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
+      }
+      // ensure the optional json data is an array if present
       if (jsonObj.get("rm-tag") != null && !jsonObj.get("rm-tag").isJsonNull() && !jsonObj.get("rm-tag").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rm-tag` to be an array in the JSON string but got `%s`", jsonObj.get("rm-tag").toString()));
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("secure-access-add-host") != null && !jsonObj.get("secure-access-add-host").isJsonNull() && !jsonObj.get("secure-access-add-host").isJsonArray()) {

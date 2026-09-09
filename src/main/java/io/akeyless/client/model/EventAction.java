@@ -70,6 +70,11 @@ public class EventAction {
   @javax.annotation.Nullable
   private String token;
 
+  public static final String SERIALIZED_NAME_TTL_IN_MIN = "ttl-in-min";
+  @SerializedName(SERIALIZED_NAME_TTL_IN_MIN)
+  @javax.annotation.Nullable
+  private Long ttlInMin;
+
   public static final String SERIALIZED_NAME_UID_TOKEN = "uid-token";
   @SerializedName(SERIALIZED_NAME_UID_TOKEN)
   @javax.annotation.Nullable
@@ -154,6 +159,25 @@ public class EventAction {
   }
 
 
+  public EventAction ttlInMin(@javax.annotation.Nullable Long ttlInMin) {
+    this.ttlInMin = ttlInMin;
+    return this;
+  }
+
+  /**
+   * The access TTL in minutes granted by the approver, overriding the requested one
+   * @return ttlInMin
+   */
+  @javax.annotation.Nullable
+  public Long getTtlInMin() {
+    return ttlInMin;
+  }
+
+  public void setTtlInMin(@javax.annotation.Nullable Long ttlInMin) {
+    this.ttlInMin = ttlInMin;
+  }
+
+
   public EventAction uidToken(@javax.annotation.Nullable String uidToken) {
     this.uidToken = uidToken;
     return this;
@@ -187,12 +211,13 @@ public class EventAction {
         Objects.equals(this.eventId, eventAction.eventId) &&
         Objects.equals(this.json, eventAction.json) &&
         Objects.equals(this.token, eventAction.token) &&
+        Objects.equals(this.ttlInMin, eventAction.ttlInMin) &&
         Objects.equals(this.uidToken, eventAction.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(action, eventId, json, token, uidToken);
+    return Objects.hash(action, eventId, json, token, ttlInMin, uidToken);
   }
 
   @Override
@@ -203,6 +228,7 @@ public class EventAction {
     sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
+    sb.append("    ttlInMin: ").append(toIndentedString(ttlInMin)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -222,7 +248,7 @@ public class EventAction {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("action", "event-id", "json", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("action", "event-id", "json", "token", "ttl-in-min", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("action", "event-id"));

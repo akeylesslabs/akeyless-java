@@ -60,6 +60,16 @@ public class GenCustomerFragment {
   @javax.annotation.Nullable
   private String hsmKeyLabel;
 
+  public static final String SERIALIZED_NAME_HSM_PROVIDER = "hsm-provider";
+  @SerializedName(SERIALIZED_NAME_HSM_PROVIDER)
+  @javax.annotation.Nullable
+  private String hsmProvider = "pkcs11";
+
+  public static final String SERIALIZED_NAME_HSM_WRAP_ALG = "hsm-wrap-alg";
+  @SerializedName(SERIALIZED_NAME_HSM_WRAP_ALG)
+  @javax.annotation.Nullable
+  private String hsmWrapAlg;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -108,7 +118,7 @@ public class GenCustomerFragment {
   }
 
   /**
-   * The label of the hsm key to use for customer fragment operations (relevant for hsm_wrapped/hsm_protected customer fragments)
+   * The label of the hsm key to use for customer fragment operations (relevant for hsm wrap customer fragments)
    * @return hsmKeyLabel
    */
   @javax.annotation.Nullable
@@ -118,6 +128,44 @@ public class GenCustomerFragment {
 
   public void setHsmKeyLabel(@javax.annotation.Nullable String hsmKeyLabel) {
     this.hsmKeyLabel = hsmKeyLabel;
+  }
+
+
+  public GenCustomerFragment hsmProvider(@javax.annotation.Nullable String hsmProvider) {
+    this.hsmProvider = hsmProvider;
+    return this;
+  }
+
+  /**
+   * The HSM provider to use for hsm wrap customer fragments
+   * @return hsmProvider
+   */
+  @javax.annotation.Nullable
+  public String getHsmProvider() {
+    return hsmProvider;
+  }
+
+  public void setHsmProvider(@javax.annotation.Nullable String hsmProvider) {
+    this.hsmProvider = hsmProvider;
+  }
+
+
+  public GenCustomerFragment hsmWrapAlg(@javax.annotation.Nullable String hsmWrapAlg) {
+    this.hsmWrapAlg = hsmWrapAlg;
+    return this;
+  }
+
+  /**
+   * The HSM wrap algorithm to use for hsm_wrap_encrypt  default for hsm_wrap_encrypt: rsa-oaep-sha256
+   * @return hsmWrapAlg
+   */
+  @javax.annotation.Nullable
+  public String getHsmWrapAlg() {
+    return hsmWrapAlg;
+  }
+
+  public void setHsmWrapAlg(@javax.annotation.Nullable String hsmWrapAlg) {
+    this.hsmWrapAlg = hsmWrapAlg;
   }
 
 
@@ -184,7 +232,7 @@ public class GenCustomerFragment {
   }
 
   /**
-   * Customer fragment type [standard/hsm_wrapped/hsm_secured]
+   * Customer fragment type [standard/hsm_wrap_hmac/hsm_wrap_encrypt/hsm_secured]
    * @return type
    */
   @javax.annotation.Nullable
@@ -209,6 +257,8 @@ public class GenCustomerFragment {
     GenCustomerFragment genCustomerFragment = (GenCustomerFragment) o;
     return Objects.equals(this.description, genCustomerFragment.description) &&
         Objects.equals(this.hsmKeyLabel, genCustomerFragment.hsmKeyLabel) &&
+        Objects.equals(this.hsmProvider, genCustomerFragment.hsmProvider) &&
+        Objects.equals(this.hsmWrapAlg, genCustomerFragment.hsmWrapAlg) &&
         Objects.equals(this.json, genCustomerFragment.json) &&
         Objects.equals(this.metadata, genCustomerFragment.metadata) &&
         Objects.equals(this.name, genCustomerFragment.name) &&
@@ -217,7 +267,7 @@ public class GenCustomerFragment {
 
   @Override
   public int hashCode() {
-    return Objects.hash(description, hsmKeyLabel, json, metadata, name, type);
+    return Objects.hash(description, hsmKeyLabel, hsmProvider, hsmWrapAlg, json, metadata, name, type);
   }
 
   @Override
@@ -226,6 +276,8 @@ public class GenCustomerFragment {
     sb.append("class GenCustomerFragment {\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hsmKeyLabel: ").append(toIndentedString(hsmKeyLabel)).append("\n");
+    sb.append("    hsmProvider: ").append(toIndentedString(hsmProvider)).append("\n");
+    sb.append("    hsmWrapAlg: ").append(toIndentedString(hsmWrapAlg)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -248,7 +300,7 @@ public class GenCustomerFragment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("description", "hsm-key-label", "json", "metadata", "name", "type"));
+    openapiFields = new HashSet<String>(Arrays.asList("description", "hsm-key-label", "hsm-provider", "hsm-wrap-alg", "json", "metadata", "name", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -280,6 +332,12 @@ public class GenCustomerFragment {
       }
       if ((jsonObj.get("hsm-key-label") != null && !jsonObj.get("hsm-key-label").isJsonNull()) && !jsonObj.get("hsm-key-label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hsm-key-label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hsm-key-label").toString()));
+      }
+      if ((jsonObj.get("hsm-provider") != null && !jsonObj.get("hsm-provider").isJsonNull()) && !jsonObj.get("hsm-provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hsm-provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hsm-provider").toString()));
+      }
+      if ((jsonObj.get("hsm-wrap-alg") != null && !jsonObj.get("hsm-wrap-alg").isJsonNull()) && !jsonObj.get("hsm-wrap-alg").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `hsm-wrap-alg` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hsm-wrap-alg").toString()));
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));

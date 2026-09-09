@@ -125,6 +125,16 @@ public class TargetUpdateAerospike {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -159,6 +169,11 @@ public class TargetUpdateAerospike {
   @SerializedName(SERIALIZED_NAME_PORT)
   @javax.annotation.Nullable
   private String port;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION = "skip-server-name-validation";
   @SerializedName(SERIALIZED_NAME_SKIP_SERVER_NAME_VALIDATION)
@@ -473,6 +488,44 @@ public class TargetUpdateAerospike {
   }
 
 
+  public TargetUpdateAerospike lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetUpdateAerospike lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetUpdateAerospike maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -606,6 +659,25 @@ public class TargetUpdateAerospike {
   }
 
 
+  public TargetUpdateAerospike rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+  }
+
+
   public TargetUpdateAerospike skipServerNameValidation(@javax.annotation.Nullable String skipServerNameValidation) {
     this.skipServerNameValidation = skipServerNameValidation;
     return this;
@@ -726,6 +798,8 @@ public class TargetUpdateAerospike {
         Objects.equals(this.json, targetUpdateAerospike.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateAerospike.keepPrevVersion) &&
         Objects.equals(this.key, targetUpdateAerospike.key) &&
+        Objects.equals(this.lockOnRead, targetUpdateAerospike.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetUpdateAerospike.lockTtl) &&
         Objects.equals(this.maxVersions, targetUpdateAerospike.maxVersions) &&
         Objects.equals(this.name, targetUpdateAerospike.name) &&
         Objects.equals(this.namespace, targetUpdateAerospike.namespace) &&
@@ -733,6 +807,7 @@ public class TargetUpdateAerospike {
         Objects.equals(this.newName, targetUpdateAerospike.newName) &&
         Objects.equals(this.password, targetUpdateAerospike.password) &&
         Objects.equals(this.port, targetUpdateAerospike.port) &&
+        Objects.equals(this.rotateOnUnlock, targetUpdateAerospike.rotateOnUnlock) &&
         Objects.equals(this.skipServerNameValidation, targetUpdateAerospike.skipServerNameValidation) &&
         Objects.equals(this.ssl, targetUpdateAerospike.ssl) &&
         Objects.equals(this.sslCertificate, targetUpdateAerospike.sslCertificate) &&
@@ -742,7 +817,7 @@ public class TargetUpdateAerospike {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminUsername, aerospikeClientId, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, clientCertificate, clientPrivateKey, dbServerName, deleteProtection, description, enableMtls, hostname, json, keepPrevVersion, key, maxVersions, name, namespace, newComment, newName, password, port, skipServerNameValidation, ssl, sslCertificate, token, uidToken);
+    return Objects.hash(adminUsername, aerospikeClientId, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, clientCertificate, clientPrivateKey, dbServerName, deleteProtection, description, enableMtls, hostname, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, name, namespace, newComment, newName, password, port, rotateOnUnlock, skipServerNameValidation, ssl, sslCertificate, token, uidToken);
   }
 
   @Override
@@ -764,6 +839,8 @@ public class TargetUpdateAerospike {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
@@ -771,6 +848,7 @@ public class TargetUpdateAerospike {
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    skipServerNameValidation: ").append(toIndentedString(skipServerNameValidation)).append("\n");
     sb.append("    ssl: ").append(toIndentedString(ssl)).append("\n");
     sb.append("    sslCertificate: ").append(toIndentedString(sslCertificate)).append("\n");
@@ -794,7 +872,7 @@ public class TargetUpdateAerospike {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admin-username", "aerospike-client-id", "aerospike-client-secret", "aerospike-cloud", "aerospike-cluster-id", "client-certificate", "client-private-key", "db-server-name", "delete_protection", "description", "enable-mtls", "hostname", "json", "keep-prev-version", "key", "max-versions", "name", "namespace", "new-comment", "new-name", "password", "port", "skip-server-name-validation", "ssl", "ssl-certificate", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("admin-username", "aerospike-client-id", "aerospike-client-secret", "aerospike-cloud", "aerospike-cluster-id", "client-certificate", "client-private-key", "db-server-name", "delete_protection", "description", "enable-mtls", "hostname", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "namespace", "new-comment", "new-name", "password", "port", "rotate-on-unlock", "skip-server-name-validation", "ssl", "ssl-certificate", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -864,6 +942,12 @@ public class TargetUpdateAerospike {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -884,6 +968,9 @@ public class TargetUpdateAerospike {
       }
       if ((jsonObj.get("port") != null && !jsonObj.get("port").isJsonNull()) && !jsonObj.get("port").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `port` to be a primitive type in the JSON string but got `%s`", jsonObj.get("port").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("skip-server-name-validation") != null && !jsonObj.get("skip-server-name-validation").isJsonNull()) && !jsonObj.get("skip-server-name-validation").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip-server-name-validation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip-server-name-validation").toString()));

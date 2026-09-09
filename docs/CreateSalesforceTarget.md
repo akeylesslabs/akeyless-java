@@ -19,9 +19,12 @@ createSalesforceTarget is a command that creates a new target. [Deprecated: Use 
 |**email** | **String** | The email of the user attached to the oauth2 app used for connecting to Salesforce |  |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Target name |  |
 |**password** | **String** | The password of the user attached to the oauth2 app used for connecting to Salesforce (required for user-password flow) |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**securityToken** | **String** | The security token of the user attached to the oauth2 app used for connecting to Salesforce  (required for user-password flow) |  [optional] |
 |**tenantUrl** | **String** | Url of the Salesforce tenant |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

@@ -70,6 +70,11 @@ public class UscSyncInfo {
   @javax.annotation.Nullable
   private String namespace;
 
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  @javax.annotation.Nullable
+  private String project;
+
   public static final String SERIALIZED_NAME_SECRET_ID = "secret_id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
   @javax.annotation.Nullable
@@ -169,6 +174,25 @@ public class UscSyncInfo {
   }
 
 
+  public UscSyncInfo project(@javax.annotation.Nullable String project) {
+    this.project = project;
+    return this;
+  }
+
+  /**
+   * Get project
+   * @return project
+   */
+  @javax.annotation.Nullable
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(@javax.annotation.Nullable String project) {
+    this.project = project;
+  }
+
+
   public UscSyncInfo secretId(@javax.annotation.Nullable String secretId) {
     this.secretId = secretId;
     return this;
@@ -259,6 +283,7 @@ public class UscSyncInfo {
         Objects.equals(this.jqSecretFilter, uscSyncInfo.jqSecretFilter) &&
         Objects.equals(this.lastError, uscSyncInfo.lastError) &&
         Objects.equals(this.namespace, uscSyncInfo.namespace) &&
+        Objects.equals(this.project, uscSyncInfo.project) &&
         Objects.equals(this.secretId, uscSyncInfo.secretId) &&
         Objects.equals(this.secretName, uscSyncInfo.secretName) &&
         Objects.equals(this.selectedEnvironments, uscSyncInfo.selectedEnvironments) &&
@@ -267,7 +292,7 @@ public class UscSyncInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteRemote, jqSecretFilter, lastError, namespace, secretId, secretName, selectedEnvironments, selectedRepositories);
+    return Objects.hash(deleteRemote, jqSecretFilter, lastError, namespace, project, secretId, secretName, selectedEnvironments, selectedRepositories);
   }
 
   @Override
@@ -278,6 +303,7 @@ public class UscSyncInfo {
     sb.append("    jqSecretFilter: ").append(toIndentedString(jqSecretFilter)).append("\n");
     sb.append("    lastError: ").append(toIndentedString(lastError)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    secretName: ").append(toIndentedString(secretName)).append("\n");
     sb.append("    selectedEnvironments: ").append(toIndentedString(selectedEnvironments)).append("\n");
@@ -300,7 +326,7 @@ public class UscSyncInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_remote", "jq_secret_filter", "last_error", "namespace", "secret_id", "secret_name", "selected_environments", "selected_repositories"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_remote", "jq_secret_filter", "last_error", "namespace", "project", "secret_id", "secret_name", "selected_environments", "selected_repositories"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -335,6 +361,9 @@ public class UscSyncInfo {
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+      }
+      if ((jsonObj.get("project") != null && !jsonObj.get("project").isJsonNull()) && !jsonObj.get("project").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `project` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project").toString()));
       }
       if ((jsonObj.get("secret_id") != null && !jsonObj.get("secret_id").isJsonNull()) && !jsonObj.get("secret_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret_id").toString()));

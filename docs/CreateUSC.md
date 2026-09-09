@@ -13,9 +13,9 @@ CreateUSC is a command that creates a Universal Secrets Connector
 |**description** | **String** | Description of the Universal Secrets Connector |  [optional] |
 |**environmentNames** | **String** | The environments in repo-name/environment-name format, comma-separated (only relevant for: github-scope&#x3D;repository-environment) |  [optional] |
 |**gcpFolderId** | **String** | GCP Folder ID (Relevant only for GCP targets with folder scope) |  [optional] |
-|**gcpOrganizationId** | **String** | GCP Organization ID (Relevant only for GCP targets) |  [optional] |
-|**gcpProjectId** | **String** | GCP Project ID (Relevant only for GCP targets) |  [optional] |
-|**gcpScope** | **String** | The gcp usc scope [ project / organization / folder] |  [optional] |
+|**gcpOrganizationId** | **String** | GCP Organization ID (Relevant only for GCP targets with folder or organization scope) |  [optional] |
+|**gcpProjectId** | **String** | GCP Project ID to manage secrets in (Relevant only for GCP targets with project scope). If empty, the project is taken from the target. |  [optional] |
+|**gcpScope** | **String** | The GCP USC scope [project/folder/organization]. With folder/organization, all projects under the folder/org are manageable. Relevant only for GCP targets. Defaults to project when empty. |  [optional] |
 |**gcpSmRegions** | **String** | GCP Secret Manager regions to query for regional secrets (comma-separated, e.g., us-east1,us-west1). Max 12 regions. Required when listing with object-type&#x3D;regional-secrets. |  [optional] |
 |**githubScope** | **String** | The scope where secrets will be created, available options: [repository, organization, repository-environment] |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |

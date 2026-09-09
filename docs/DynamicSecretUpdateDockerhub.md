@@ -14,6 +14,8 @@ dynamicSecretUpdateDockerhub is a command that updates a DOCKERHUB dynamic secre
 |**dockerhubPassword** | **String** | DockerhubPassword is either the user&#39;s password access token to manage the repository |  [optional] |
 |**dockerhubTokenScopes** | **String** | Access token scopes list (comma-separated) to give the dynamic secret valid options are in \&quot;repo:admin\&quot;, \&quot;repo:write\&quot;, \&quot;repo:read\&quot;, \&quot;repo:public_read\&quot; |  [optional] |
 |**dockerhubUsername** | **String** | DockerhubUsername is the name of the user in dockerhub |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

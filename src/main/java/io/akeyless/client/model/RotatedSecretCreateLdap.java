@@ -84,6 +84,16 @@ public class RotatedSecretCreateLdap {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_HOST_PROVIDER = "host-provider";
   @SerializedName(SERIALIZED_NAME_HOST_PROVIDER)
   @javax.annotation.Nullable
@@ -114,6 +124,16 @@ public class RotatedSecretCreateLdap {
   @javax.annotation.Nullable
   private String lockDuringSraSession;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -138,6 +158,11 @@ public class RotatedSecretCreateLdap {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private String rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -396,6 +421,44 @@ public class RotatedSecretCreateLdap {
   }
 
 
+  public RotatedSecretCreateLdap enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretCreateLdap enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretCreateLdap hostProvider(@javax.annotation.Nullable String hostProvider) {
     this.hostProvider = hostProvider;
     return this;
@@ -526,6 +589,44 @@ public class RotatedSecretCreateLdap {
   }
 
 
+  public RotatedSecretCreateLdap lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretCreateLdap lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public RotatedSecretCreateLdap maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -626,6 +727,25 @@ public class RotatedSecretCreateLdap {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public RotatedSecretCreateLdap rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -1209,17 +1329,22 @@ public class RotatedSecretCreateLdap {
         Objects.equals(this.autoRotate, rotatedSecretCreateLdap.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateLdap.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateLdap.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretCreateLdap.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretCreateLdap.enableAiQuorum) &&
         Objects.equals(this.hostProvider, rotatedSecretCreateLdap.hostProvider) &&
         Objects.equals(this.inputRule, rotatedSecretCreateLdap.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretCreateLdap.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateLdap.json) &&
         Objects.equals(this.key, rotatedSecretCreateLdap.key) &&
         Objects.equals(this.lockDuringSraSession, rotatedSecretCreateLdap.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, rotatedSecretCreateLdap.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretCreateLdap.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateLdap.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateLdap.name) &&
         Objects.equals(this.outputRule, rotatedSecretCreateLdap.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateLdap.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateLdap.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretCreateLdap.rotateOnUnlock) &&
         Objects.equals(this.rotatedPassword, rotatedSecretCreateLdap.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretCreateLdap.rotatedUsername) &&
         Objects.equals(this.rotationEventIn, rotatedSecretCreateLdap.rotationEventIn) &&
@@ -1252,7 +1377,7 @@ public class RotatedSecretCreateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn);
+    return Objects.hash(providerType, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn);
   }
 
   @Override
@@ -1265,17 +1390,22 @@ public class RotatedSecretCreateLdap {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
@@ -1322,7 +1452,7 @@ public class RotatedSecretCreateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1384,6 +1514,12 @@ public class RotatedSecretCreateLdap {
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1399,6 +1535,9 @@ public class RotatedSecretCreateLdap {
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("rotated-password") != null && !jsonObj.get("rotated-password").isJsonNull()) && !jsonObj.get("rotated-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotated-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotated-password").toString()));

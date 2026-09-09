@@ -274,6 +274,11 @@ public class CreatePKICertIssuer {
   @javax.annotation.Nullable
   private String signerKeyName;
 
+  public static final String SERIALIZED_NAME_SPLIT_CERTIFICATE_CHAIN = "split-certificate-chain";
+  @SerializedName(SERIALIZED_NAME_SPLIT_CERTIFICATE_CHAIN)
+  @javax.annotation.Nullable
+  private Boolean splitCertificateChain;
+
   public static final String SERIALIZED_NAME_STREET_ADDRESS = "street-address";
   @SerializedName(SERIALIZED_NAME_STREET_ADDRESS)
   @javax.annotation.Nullable
@@ -1154,6 +1159,25 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer splitCertificateChain(@javax.annotation.Nullable Boolean splitCertificateChain) {
+    this.splitCertificateChain = splitCertificateChain;
+    return this;
+  }
+
+  /**
+   * If set, separates the leaf certificate from the certificate chain.
+   * @return splitCertificateChain
+   */
+  @javax.annotation.Nullable
+  public Boolean getSplitCertificateChain() {
+    return splitCertificateChain;
+  }
+
+  public void setSplitCertificateChain(@javax.annotation.Nullable Boolean splitCertificateChain) {
+    this.splitCertificateChain = splitCertificateChain;
+  }
+
+
   public CreatePKICertIssuer streetAddress(@javax.annotation.Nullable String streetAddress) {
     this.streetAddress = streetAddress;
     return this;
@@ -1311,6 +1335,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.scheduledRenew, createPKICertIssuer.scheduledRenew) &&
         Objects.equals(this.serverFlag, createPKICertIssuer.serverFlag) &&
         Objects.equals(this.signerKeyName, createPKICertIssuer.signerKeyName) &&
+        Objects.equals(this.splitCertificateChain, createPKICertIssuer.splitCertificateChain) &&
         Objects.equals(this.streetAddress, createPKICertIssuer.streetAddress) &&
         Objects.equals(this.tag, createPKICertIssuer.tag) &&
         Objects.equals(this.token, createPKICertIssuer.token) &&
@@ -1320,7 +1345,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, basicConstraints, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, basicConstraints, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, splitCertificateChain, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1371,6 +1396,7 @@ public class CreatePKICertIssuer {
     sb.append("    scheduledRenew: ").append(toIndentedString(scheduledRenew)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
+    sb.append("    splitCertificateChain: ").append(toIndentedString(splitCertificateChain)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
     sb.append("    tag: ").append(toIndentedString(tag)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -1394,7 +1420,7 @@ public class CreatePKICertIssuer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allow-any-name", "allow-copy-ext-from-csr", "allow-subdomains", "allowed-domains", "allowed-extra-extensions", "allowed-ip-sans", "allowed-uri-sans", "auto-renew", "basic-constraints", "ca-target", "client-flag", "code-signing-flag", "country", "create-private-crl", "create-private-ocsp", "create-public-crl", "create-public-ocsp", "critical-key-usage", "delete_protection", "description", "destination-path", "disable-wildcards", "enable-acme", "expiration-event-in", "gw-cluster-url", "is-ca", "item-custom-fields", "json", "key-usage", "locality", "max-path-len", "metadata", "name", "not-enforce-hostnames", "not-require-cn", "ocsp-ttl", "organizational-units", "organizations", "postal-code", "protect-certificates", "province", "scheduled-renew", "server-flag", "signer-key-name", "street-address", "tag", "token", "ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("allow-any-name", "allow-copy-ext-from-csr", "allow-subdomains", "allowed-domains", "allowed-extra-extensions", "allowed-ip-sans", "allowed-uri-sans", "auto-renew", "basic-constraints", "ca-target", "client-flag", "code-signing-flag", "country", "create-private-crl", "create-private-ocsp", "create-public-crl", "create-public-ocsp", "critical-key-usage", "delete_protection", "description", "destination-path", "disable-wildcards", "enable-acme", "expiration-event-in", "gw-cluster-url", "is-ca", "item-custom-fields", "json", "key-usage", "locality", "max-path-len", "metadata", "name", "not-enforce-hostnames", "not-require-cn", "ocsp-ttl", "organizational-units", "organizations", "postal-code", "protect-certificates", "province", "scheduled-renew", "server-flag", "signer-key-name", "split-certificate-chain", "street-address", "tag", "token", "ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "ttl"));

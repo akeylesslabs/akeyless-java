@@ -105,6 +105,16 @@ public class TargetCreateSalesforce {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -119,6 +129,11 @@ public class TargetCreateSalesforce {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   @javax.annotation.Nullable
   private String password;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SECURITY_TOKEN = "security-token";
   @SerializedName(SERIALIZED_NAME_SECURITY_TOKEN)
@@ -352,6 +367,44 @@ public class TargetCreateSalesforce {
   }
 
 
+  public TargetCreateSalesforce lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetCreateSalesforce lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetCreateSalesforce maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -406,6 +459,25 @@ public class TargetCreateSalesforce {
 
   public void setPassword(@javax.annotation.Nullable String password) {
     this.password = password;
+  }
+
+
+  public TargetCreateSalesforce rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -506,9 +578,12 @@ public class TargetCreateSalesforce {
         Objects.equals(this.email, targetCreateSalesforce.email) &&
         Objects.equals(this.json, targetCreateSalesforce.json) &&
         Objects.equals(this.key, targetCreateSalesforce.key) &&
+        Objects.equals(this.lockOnRead, targetCreateSalesforce.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetCreateSalesforce.lockTtl) &&
         Objects.equals(this.maxVersions, targetCreateSalesforce.maxVersions) &&
         Objects.equals(this.name, targetCreateSalesforce.name) &&
         Objects.equals(this.password, targetCreateSalesforce.password) &&
+        Objects.equals(this.rotateOnUnlock, targetCreateSalesforce.rotateOnUnlock) &&
         Objects.equals(this.securityToken, targetCreateSalesforce.securityToken) &&
         Objects.equals(this.tenantUrl, targetCreateSalesforce.tenantUrl) &&
         Objects.equals(this.token, targetCreateSalesforce.token) &&
@@ -517,7 +592,7 @@ public class TargetCreateSalesforce {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, deleteProtection, description, email, json, key, maxVersions, name, password, securityToken, tenantUrl, token, uidToken);
+    return Objects.hash(appPrivateKeyData, authFlow, caCertData, caCertName, clientId, clientSecret, deleteProtection, description, email, json, key, lockOnRead, lockTtl, maxVersions, name, password, rotateOnUnlock, securityToken, tenantUrl, token, uidToken);
   }
 
   @Override
@@ -535,9 +610,12 @@ public class TargetCreateSalesforce {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    securityToken: ").append(toIndentedString(securityToken)).append("\n");
     sb.append("    tenantUrl: ").append(toIndentedString(tenantUrl)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -560,7 +638,7 @@ public class TargetCreateSalesforce {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("app-private-key-data", "auth-flow", "ca-cert-data", "ca-cert-name", "client-id", "client-secret", "delete_protection", "description", "email", "json", "key", "max-versions", "name", "password", "security-token", "tenant-url", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("app-private-key-data", "auth-flow", "ca-cert-data", "ca-cert-name", "client-id", "client-secret", "delete_protection", "description", "email", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "password", "rotate-on-unlock", "security-token", "tenant-url", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("auth-flow", "client-id", "email", "name", "tenant-url"));
@@ -624,6 +702,12 @@ public class TargetCreateSalesforce {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -632,6 +716,9 @@ public class TargetCreateSalesforce {
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("security-token") != null && !jsonObj.get("security-token").isJsonNull()) && !jsonObj.get("security-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `security-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("security-token").toString()));

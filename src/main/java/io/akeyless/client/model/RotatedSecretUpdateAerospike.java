@@ -84,6 +84,16 @@ public class RotatedSecretUpdateAerospike {
   @javax.annotation.Nullable
   private String description = "default_metadata";
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -108,6 +118,16 @@ public class RotatedSecretUpdateAerospike {
   @SerializedName(SERIALIZED_NAME_KEY)
   @javax.annotation.Nullable
   private String key;
+
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
 
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
@@ -138,6 +158,11 @@ public class RotatedSecretUpdateAerospike {
   @SerializedName(SERIALIZED_NAME_RM_TAG)
   @javax.annotation.Nullable
   private List<String> rmTag = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -324,6 +349,44 @@ public class RotatedSecretUpdateAerospike {
   }
 
 
+  public RotatedSecretUpdateAerospike enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretUpdateAerospike enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretUpdateAerospike inputRule(@javax.annotation.Nullable List<String> inputRule) {
     this.inputRule = inputRule;
     return this;
@@ -432,6 +495,44 @@ public class RotatedSecretUpdateAerospike {
 
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
+  }
+
+
+  public RotatedSecretUpdateAerospike lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretUpdateAerospike lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
   }
 
 
@@ -562,6 +663,25 @@ public class RotatedSecretUpdateAerospike {
 
   public void setRmTag(@javax.annotation.Nullable List<String> rmTag) {
     this.rmTag = rmTag;
+  }
+
+
+  public RotatedSecretUpdateAerospike rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -817,17 +937,22 @@ public class RotatedSecretUpdateAerospike {
         Objects.equals(this.autoRotate, rotatedSecretUpdateAerospike.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretUpdateAerospike.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretUpdateAerospike.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretUpdateAerospike.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretUpdateAerospike.enableAiQuorum) &&
         Objects.equals(this.inputRule, rotatedSecretUpdateAerospike.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretUpdateAerospike.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretUpdateAerospike.json) &&
         Objects.equals(this.keepPrevVersion, rotatedSecretUpdateAerospike.keepPrevVersion) &&
         Objects.equals(this.key, rotatedSecretUpdateAerospike.key) &&
+        Objects.equals(this.lockOnRead, rotatedSecretUpdateAerospike.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretUpdateAerospike.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretUpdateAerospike.maxVersions) &&
         Objects.equals(this.name, rotatedSecretUpdateAerospike.name) &&
         Objects.equals(this.newName, rotatedSecretUpdateAerospike.newName) &&
         Objects.equals(this.outputRule, rotatedSecretUpdateAerospike.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretUpdateAerospike.passwordLength) &&
         Objects.equals(this.rmTag, rotatedSecretUpdateAerospike.rmTag) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretUpdateAerospike.rotateOnUnlock) &&
         Objects.equals(this.rotatedPassword, rotatedSecretUpdateAerospike.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretUpdateAerospike.rotatedUsername) &&
         Objects.equals(this.rotationEventIn, rotatedSecretUpdateAerospike.rotationEventIn) &&
@@ -844,7 +969,7 @@ public class RotatedSecretUpdateAerospike {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addTag, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, keepPrevVersion, key, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(addTag, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, name, newName, outputRule, passwordLength, rmTag, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, skipDryRun, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -857,17 +982,22 @@ public class RotatedSecretUpdateAerospike {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rmTag: ").append(toIndentedString(rmTag)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
@@ -898,7 +1028,7 @@ public class RotatedSecretUpdateAerospike {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -958,6 +1088,12 @@ public class RotatedSecretUpdateAerospike {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -977,6 +1113,9 @@ public class RotatedSecretUpdateAerospike {
       // ensure the optional json data is an array if present
       if (jsonObj.get("rm-tag") != null && !jsonObj.get("rm-tag").isJsonNull() && !jsonObj.get("rm-tag").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rm-tag` to be an array in the JSON string but got `%s`", jsonObj.get("rm-tag").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("rotated-password") != null && !jsonObj.get("rotated-password").isJsonNull()) && !jsonObj.get("rotated-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotated-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotated-password").toString()));

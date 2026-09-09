@@ -69,6 +69,16 @@ public class GatewayCreateProducerHanaDb {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_HANA_DBNAME = "hana-dbname";
   @SerializedName(SERIALIZED_NAME_HANA_DBNAME)
   @javax.annotation.Nullable
@@ -281,6 +291,44 @@ public class GatewayCreateProducerHanaDb {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerHanaDb enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayCreateProducerHanaDb enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -926,6 +974,8 @@ public class GatewayCreateProducerHanaDb {
     return Objects.equals(this.araEnabled, gatewayCreateProducerHanaDb.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, gatewayCreateProducerHanaDb.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerHanaDb.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayCreateProducerHanaDb.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayCreateProducerHanaDb.enableAiQuorum) &&
         Objects.equals(this.hanaDbname, gatewayCreateProducerHanaDb.hanaDbname) &&
         Objects.equals(this.hanadbCreateStatements, gatewayCreateProducerHanaDb.hanadbCreateStatements) &&
         Objects.equals(this.hanadbHost, gatewayCreateProducerHanaDb.hanadbHost) &&
@@ -961,7 +1011,7 @@ public class GatewayCreateProducerHanaDb {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, hanaDbname, hanadbCreateStatements, hanadbHost, hanadbPassword, hanadbPort, hanadbRevocationStatements, hanadbUsername, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -971,6 +1021,8 @@ public class GatewayCreateProducerHanaDb {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    hanaDbname: ").append(toIndentedString(hanaDbname)).append("\n");
     sb.append("    hanadbCreateStatements: ").append(toIndentedString(hanadbCreateStatements)).append("\n");
     sb.append("    hanadbHost: ").append(toIndentedString(hanadbHost)).append("\n");
@@ -1020,7 +1072,7 @@ public class GatewayCreateProducerHanaDb {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "hana-dbname", "hanadb-create-statements", "hanadb-host", "hanadb-password", "hanadb-port", "hanadb-revocation-statements", "hanadb-username", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "hana-dbname", "hanadb-create-statements", "hanadb-host", "hanadb-password", "hanadb-port", "hanadb-revocation-statements", "hanadb-username", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

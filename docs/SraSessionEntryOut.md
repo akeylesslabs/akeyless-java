@@ -20,6 +20,9 @@
 |**startTime** | **OffsetDateTime** |  |  [optional] |
 |**status** | **String** |  |  [optional] |
 |**targetHost** | **String** |  |  [optional] |
+|**targetId** | **Long** |  |  [optional] |
+|**targetName** | **String** |  |  [optional] |
+|**targetType** | **String** |  |  [optional] |
 |**ttl** | **String** |  |  [optional] |
 |**userIdentifier** | **String** |  |  [optional] |
 

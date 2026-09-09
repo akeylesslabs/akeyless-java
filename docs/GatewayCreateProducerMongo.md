@@ -11,6 +11,8 @@ gatewayCreateProducerMongo is a command that creates either mongodb  producer or
 |**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |
 |**itemCustomFields** | **Map&lt;String, String&gt;** | Additional custom fields to associate with the item |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |

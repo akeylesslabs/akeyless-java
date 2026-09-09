@@ -10,6 +10,7 @@
 |**deleteRemote** | **Boolean** | Delete the secret from remote secret manager (for association create/update) |  [optional] |
 |**environments** | **String** | GitHub environments to sync to. Relevant only for GitHub targets. Syncs to all environments defined on the selected USC by default, or to one or more specific repositories associated with that USC item when specified (e.g. --environments repo1/env1,repo2/env2). |  [optional] |
 |**filterSecretValue** | **String** | JQ expression to filter or transform the secret value |  [optional] |
+|**gcpProjectId** | **String** | GCP project to sync the secret to. Relevant only for GCP USCs; must be a project available on the USC |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**name** | **String** | Static secret name |  |
 |**namespace** | **String** | Vault namespace, releavnt only for Hashicorp Vault Target |  [optional] |

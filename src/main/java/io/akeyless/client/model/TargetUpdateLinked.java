@@ -55,6 +55,11 @@ public class TargetUpdateLinked {
   @javax.annotation.Nullable
   private String addHosts;
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -75,6 +80,21 @@ public class TargetUpdateLinked {
   @javax.annotation.Nullable
   private String keepPrevVersion;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
+  public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
+  @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
+  @javax.annotation.Nullable
+  private String maxVersions;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
@@ -94,6 +114,11 @@ public class TargetUpdateLinked {
   @SerializedName(SERIALIZED_NAME_RM_HOSTS)
   @javax.annotation.Nullable
   private String rmHosts;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -129,6 +154,25 @@ public class TargetUpdateLinked {
 
   public void setAddHosts(@javax.annotation.Nullable String addHosts) {
     this.addHosts = addHosts;
+  }
+
+
+  public TargetUpdateLinked deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -208,6 +252,63 @@ public class TargetUpdateLinked {
   }
 
 
+  public TargetUpdateLinked lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetUpdateLinked lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
+  public TargetUpdateLinked maxVersions(@javax.annotation.Nullable String maxVersions) {
+    this.maxVersions = maxVersions;
+    return this;
+  }
+
+  /**
+   * Set the maximum number of versions, limited by the account settings defaults.
+   * @return maxVersions
+   */
+  @javax.annotation.Nullable
+  public String getMaxVersions() {
+    return maxVersions;
+  }
+
+  public void setMaxVersions(@javax.annotation.Nullable String maxVersions) {
+    this.maxVersions = maxVersions;
+  }
+
+
   public TargetUpdateLinked name(@javax.annotation.Nonnull String name) {
     this.name = name;
     return this;
@@ -284,6 +385,25 @@ public class TargetUpdateLinked {
   }
 
 
+  public TargetUpdateLinked rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+  }
+
+
   public TargetUpdateLinked token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -352,14 +472,19 @@ public class TargetUpdateLinked {
     }
     TargetUpdateLinked targetUpdateLinked = (TargetUpdateLinked) o;
     return Objects.equals(this.addHosts, targetUpdateLinked.addHosts) &&
+        Objects.equals(this.deleteProtection, targetUpdateLinked.deleteProtection) &&
         Objects.equals(this.description, targetUpdateLinked.description) &&
         Objects.equals(this.hosts, targetUpdateLinked.hosts) &&
         Objects.equals(this.json, targetUpdateLinked.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateLinked.keepPrevVersion) &&
+        Objects.equals(this.lockOnRead, targetUpdateLinked.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetUpdateLinked.lockTtl) &&
+        Objects.equals(this.maxVersions, targetUpdateLinked.maxVersions) &&
         Objects.equals(this.name, targetUpdateLinked.name) &&
         Objects.equals(this.newName, targetUpdateLinked.newName) &&
         Objects.equals(this.parentTargetName, targetUpdateLinked.parentTargetName) &&
         Objects.equals(this.rmHosts, targetUpdateLinked.rmHosts) &&
+        Objects.equals(this.rotateOnUnlock, targetUpdateLinked.rotateOnUnlock) &&
         Objects.equals(this.token, targetUpdateLinked.token) &&
         Objects.equals(this.type, targetUpdateLinked.type) &&
         Objects.equals(this.uidToken, targetUpdateLinked.uidToken);
@@ -367,7 +492,7 @@ public class TargetUpdateLinked {
 
   @Override
   public int hashCode() {
-    return Objects.hash(addHosts, description, hosts, json, keepPrevVersion, name, newName, parentTargetName, rmHosts, token, type, uidToken);
+    return Objects.hash(addHosts, deleteProtection, description, hosts, json, keepPrevVersion, lockOnRead, lockTtl, maxVersions, name, newName, parentTargetName, rmHosts, rotateOnUnlock, token, type, uidToken);
   }
 
   @Override
@@ -375,14 +500,19 @@ public class TargetUpdateLinked {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetUpdateLinked {\n");
     sb.append("    addHosts: ").append(toIndentedString(addHosts)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
+    sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    parentTargetName: ").append(toIndentedString(parentTargetName)).append("\n");
     sb.append("    rmHosts: ").append(toIndentedString(rmHosts)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -404,7 +534,7 @@ public class TargetUpdateLinked {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-hosts", "description", "hosts", "json", "keep-prev-version", "name", "new-name", "parent-target-name", "rm-hosts", "token", "type", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-hosts", "delete_protection", "description", "hosts", "json", "keep-prev-version", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "parent-target-name", "rm-hosts", "rotate-on-unlock", "token", "type", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -441,6 +571,9 @@ public class TargetUpdateLinked {
       if ((jsonObj.get("add-hosts") != null && !jsonObj.get("add-hosts").isJsonNull()) && !jsonObj.get("add-hosts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `add-hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("add-hosts").toString()));
       }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -449,6 +582,15 @@ public class TargetUpdateLinked {
       }
       if ((jsonObj.get("keep-prev-version") != null && !jsonObj.get("keep-prev-version").isJsonNull()) && !jsonObj.get("keep-prev-version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keep-prev-version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keep-prev-version").toString()));
+      }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
+      if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
@@ -461,6 +603,9 @@ public class TargetUpdateLinked {
       }
       if ((jsonObj.get("rm-hosts") != null && !jsonObj.get("rm-hosts").isJsonNull()) && !jsonObj.get("rm-hosts").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rm-hosts` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rm-hosts").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

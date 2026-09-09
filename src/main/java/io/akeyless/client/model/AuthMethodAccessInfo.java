@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.APIKeyAccessRules;
 import io.akeyless.client.model.AWSIAMAccessRules;
+import io.akeyless.client.model.AliCloudAccessRules;
 import io.akeyless.client.model.AzureADAccessRules;
 import io.akeyless.client.model.CertAccessRules;
 import io.akeyless.client.model.EmailPassAccessRules;
@@ -77,6 +78,11 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_ACCESS_ID_ALIAS)
   @javax.annotation.Nullable
   private String accessIdAlias;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_ACCESS_RULES = "alicloud_access_rules";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_ACCESS_RULES)
+  @javax.annotation.Nullable
+  private AliCloudAccessRules alicloudAccessRules;
 
   public static final String SERIALIZED_NAME_ALLOWED_CLIENT_TYPE = "allowed_client_type";
   @SerializedName(SERIALIZED_NAME_ALLOWED_CLIENT_TYPE)
@@ -241,6 +247,25 @@ public class AuthMethodAccessInfo {
 
   public void setAccessIdAlias(@javax.annotation.Nullable String accessIdAlias) {
     this.accessIdAlias = accessIdAlias;
+  }
+
+
+  public AuthMethodAccessInfo alicloudAccessRules(@javax.annotation.Nullable AliCloudAccessRules alicloudAccessRules) {
+    this.alicloudAccessRules = alicloudAccessRules;
+    return this;
+  }
+
+  /**
+   * Get alicloudAccessRules
+   * @return alicloudAccessRules
+   */
+  @javax.annotation.Nullable
+  public AliCloudAccessRules getAlicloudAccessRules() {
+    return alicloudAccessRules;
+  }
+
+  public void setAlicloudAccessRules(@javax.annotation.Nullable AliCloudAccessRules alicloudAccessRules) {
+    this.alicloudAccessRules = alicloudAccessRules;
   }
 
 
@@ -771,6 +796,7 @@ public class AuthMethodAccessInfo {
     AuthMethodAccessInfo authMethodAccessInfo = (AuthMethodAccessInfo) o;
     return Objects.equals(this.accessExpires, authMethodAccessInfo.accessExpires) &&
         Objects.equals(this.accessIdAlias, authMethodAccessInfo.accessIdAlias) &&
+        Objects.equals(this.alicloudAccessRules, authMethodAccessInfo.alicloudAccessRules) &&
         Objects.equals(this.allowedClientType, authMethodAccessInfo.allowedClientType) &&
         Objects.equals(this.apiKeyAccessRules, authMethodAccessInfo.apiKeyAccessRules) &&
         Objects.equals(this.auditLogsClaims, authMethodAccessInfo.auditLogsClaims) &&
@@ -800,7 +826,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, alicloudAccessRules, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
   }
 
   @Override
@@ -809,6 +835,7 @@ public class AuthMethodAccessInfo {
     sb.append("class AuthMethodAccessInfo {\n");
     sb.append("    accessExpires: ").append(toIndentedString(accessExpires)).append("\n");
     sb.append("    accessIdAlias: ").append(toIndentedString(accessIdAlias)).append("\n");
+    sb.append("    alicloudAccessRules: ").append(toIndentedString(alicloudAccessRules)).append("\n");
     sb.append("    allowedClientType: ").append(toIndentedString(allowedClientType)).append("\n");
     sb.append("    apiKeyAccessRules: ").append(toIndentedString(apiKeyAccessRules)).append("\n");
     sb.append("    auditLogsClaims: ").append(toIndentedString(auditLogsClaims)).append("\n");
@@ -852,7 +879,7 @@ public class AuthMethodAccessInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "alicloud_access_rules", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -881,6 +908,10 @@ public class AuthMethodAccessInfo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("access_id_alias") != null && !jsonObj.get("access_id_alias").isJsonNull()) && !jsonObj.get("access_id_alias").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_id_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_id_alias").toString()));
+      }
+      // validate the optional field `alicloud_access_rules`
+      if (jsonObj.get("alicloud_access_rules") != null && !jsonObj.get("alicloud_access_rules").isJsonNull()) {
+        AliCloudAccessRules.validateJsonElement(jsonObj.get("alicloud_access_rules"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("allowed_client_type") != null && !jsonObj.get("allowed_client_type").isJsonNull() && !jsonObj.get("allowed_client_type").isJsonArray()) {

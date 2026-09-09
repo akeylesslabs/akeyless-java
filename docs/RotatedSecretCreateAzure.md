@@ -15,6 +15,8 @@
 |**autoRotate** | **String** |  |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**explicitlySetSa** | **String** | If set, explicitly provide the storage account details [true/false] |  [optional] |
 |**graceRotation** | **String** | Enable graceful rotation (keep both versions temporarily). When enabled, a new secret version is created while the previous version is kept for the grace period, so both versions exist for a limited time. [true/false] |  [optional] |
 |**graceRotationHour** | **Integer** | The Hour of the grace rotation in UTC |  [optional] |
@@ -25,6 +27,8 @@
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** |  |  [optional] |
 |**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Rotated secret name |  |
 |**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
@@ -33,6 +37,7 @@
 |**resourceGroupName** | **String** | The resource group name (only relevant when explicitly-set-sa&#x3D;true) |  [optional] |
 |**resourceName** | **String** | The name of the storage account (only relevant when explicitly-set-sa&#x3D;true) |  [optional] |
 |**rotateAfterDisconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**rotationEventIn** | **List&lt;String&gt;** | How many days before the rotation of the item would you like to be notified |  [optional] |
 |**rotationHour** | **Integer** |  |  [optional] |
 |**rotationInterval** | **String** |  |  [optional] |

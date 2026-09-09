@@ -75,6 +75,16 @@ public class TargetCreateSplunk {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -89,6 +99,11 @@ public class TargetCreateSplunk {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   @javax.annotation.Nullable
   private String password;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SPLUNK_TOKEN = "splunk-token";
   @SerializedName(SERIALIZED_NAME_SPLUNK_TOKEN)
@@ -223,6 +238,44 @@ public class TargetCreateSplunk {
   }
 
 
+  public TargetCreateSplunk lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetCreateSplunk lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetCreateSplunk maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -277,6 +330,25 @@ public class TargetCreateSplunk {
 
   public void setPassword(@javax.annotation.Nullable String password) {
     this.password = password;
+  }
+
+
+  public TargetCreateSplunk rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -428,9 +500,12 @@ public class TargetCreateSplunk {
         Objects.equals(this.description, targetCreateSplunk.description) &&
         Objects.equals(this.json, targetCreateSplunk.json) &&
         Objects.equals(this.key, targetCreateSplunk.key) &&
+        Objects.equals(this.lockOnRead, targetCreateSplunk.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetCreateSplunk.lockTtl) &&
         Objects.equals(this.maxVersions, targetCreateSplunk.maxVersions) &&
         Objects.equals(this.name, targetCreateSplunk.name) &&
         Objects.equals(this.password, targetCreateSplunk.password) &&
+        Objects.equals(this.rotateOnUnlock, targetCreateSplunk.rotateOnUnlock) &&
         Objects.equals(this.splunkToken, targetCreateSplunk.splunkToken) &&
         Objects.equals(this.token, targetCreateSplunk.token) &&
         Objects.equals(this.tokenOwner, targetCreateSplunk.tokenOwner) &&
@@ -442,7 +517,7 @@ public class TargetCreateSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(audience, deleteProtection, description, json, key, maxVersions, name, password, splunkToken, token, tokenOwner, uidToken, url, useTls, username);
+    return Objects.hash(audience, deleteProtection, description, json, key, lockOnRead, lockTtl, maxVersions, name, password, rotateOnUnlock, splunkToken, token, tokenOwner, uidToken, url, useTls, username);
   }
 
   @Override
@@ -454,9 +529,12 @@ public class TargetCreateSplunk {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    splunkToken: ").append(toIndentedString(splunkToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenOwner: ").append(toIndentedString(tokenOwner)).append("\n");
@@ -482,7 +560,7 @@ public class TargetCreateSplunk {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("audience", "delete_protection", "description", "json", "key", "max-versions", "name", "password", "splunk-token", "token", "token-owner", "uid-token", "url", "use-tls", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("audience", "delete_protection", "description", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "password", "rotate-on-unlock", "splunk-token", "token", "token-owner", "uid-token", "url", "use-tls", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "url"));
@@ -528,6 +606,12 @@ public class TargetCreateSplunk {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -536,6 +620,9 @@ public class TargetCreateSplunk {
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("splunk-token") != null && !jsonObj.get("splunk-token").isJsonNull()) && !jsonObj.get("splunk-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `splunk-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("splunk-token").toString()));

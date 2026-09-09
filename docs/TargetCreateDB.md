@@ -27,6 +27,8 @@
 |**host** | **String** |  |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**mongodbAtlas** | **Boolean** |  |  [optional] |
 |**mongodbAtlasApiPrivateKey** | **String** | MongoDB Atlas private key |  [optional] |
@@ -42,6 +44,7 @@
 |**parentTargetName** | **String** | Name of the parent target, relevant only when connection-type is parent-target |  [optional] |
 |**port** | **String** |  |  [optional] |
 |**pwd** | **String** |  |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**skipServerNameValidation** | **String** | (Optional) Skip server name verification |  [optional] |
 |**snowflakeAccount** | **String** |  |  [optional] |
 |**snowflakeApiPrivateKey** | **String** | RSA Private key (base64 encoded) |  [optional] |

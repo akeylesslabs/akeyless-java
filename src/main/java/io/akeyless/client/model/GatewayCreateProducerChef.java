@@ -89,6 +89,16 @@ public class GatewayCreateProducerChef {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -312,6 +322,44 @@ public class GatewayCreateProducerChef {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerChef enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayCreateProducerChef enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -706,6 +754,8 @@ public class GatewayCreateProducerChef {
         Objects.equals(this.chefServerUsername, gatewayCreateProducerChef.chefServerUsername) &&
         Objects.equals(this.customUsernameTemplate, gatewayCreateProducerChef.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerChef.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayCreateProducerChef.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayCreateProducerChef.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayCreateProducerChef.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayCreateProducerChef.itemCustomFields) &&
         Objects.equals(this.json, gatewayCreateProducerChef.json) &&
@@ -728,7 +778,7 @@ public class GatewayCreateProducerChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipSsl, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipSsl, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -742,6 +792,8 @@ public class GatewayCreateProducerChef {
     sb.append("    chefServerUsername: ").append(toIndentedString(chefServerUsername)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -778,7 +830,7 @@ public class GatewayCreateProducerChef {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip-ssl", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip-ssl", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -79,6 +79,16 @@ public class DynamicSecretUpdateRedshift {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -304,6 +314,44 @@ public class DynamicSecretUpdateRedshift {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateRedshift enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateRedshift enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -856,6 +904,8 @@ public class DynamicSecretUpdateRedshift {
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateRedshift.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateRedshift.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateRedshift.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateRedshift.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateRedshift.enableAiQuorum) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateRedshift.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateRedshift.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateRedshift.json) &&
@@ -886,7 +936,7 @@ public class DynamicSecretUpdateRedshift {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, creationStatements, customUsernameTemplate, deleteProtection, description, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, creationStatements, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKey, redshiftDbName, redshiftHost, redshiftPassword, redshiftPort, redshiftUsername, secureAccessEnable, secureAccessHost, skipDryRun, ssl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -898,6 +948,8 @@ public class DynamicSecretUpdateRedshift {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -942,7 +994,7 @@ public class DynamicSecretUpdateRedshift {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "creation-statements", "custom-username-template", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key", "redshift-db-name", "redshift-host", "redshift-password", "redshift-port", "redshift-username", "secure-access-enable", "secure-access-host", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "creation-statements", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key", "redshift-db-name", "redshift-host", "redshift-password", "redshift-port", "redshift-username", "secure-access-enable", "secure-access-host", "skip_dry_run", "ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

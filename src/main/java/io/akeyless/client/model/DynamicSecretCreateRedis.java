@@ -79,6 +79,16 @@ public class DynamicSecretCreateRedis {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nullable
@@ -289,6 +299,44 @@ public class DynamicSecretCreateRedis {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretCreateRedis enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretCreateRedis enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -776,6 +824,8 @@ public class DynamicSecretCreateRedis {
         Objects.equals(this.customUsernameTemplate, dynamicSecretCreateRedis.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateRedis.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateRedis.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretCreateRedis.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretCreateRedis.enableAiQuorum) &&
         Objects.equals(this.host, dynamicSecretCreateRedis.host) &&
         Objects.equals(this.inputRule, dynamicSecretCreateRedis.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretCreateRedis.itemCustomFields) &&
@@ -803,7 +853,7 @@ public class DynamicSecretCreateRedis {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclRules, araEnabled, customUsernameTemplate, deleteProtection, description, host, inputRule, itemCustomFields, json, name, outputRule, password, passwordLength, port, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, username);
+    return Objects.hash(aclRules, araEnabled, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, host, inputRule, itemCustomFields, json, name, outputRule, password, passwordLength, port, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, username);
   }
 
   @Override
@@ -815,6 +865,8 @@ public class DynamicSecretCreateRedis {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
@@ -856,7 +908,7 @@ public class DynamicSecretCreateRedis {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acl-rules", "ara-enabled", "custom-username-template", "delete_protection", "description", "host", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password", "password-length", "port", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("acl-rules", "ara-enabled", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "host", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password", "password-length", "port", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

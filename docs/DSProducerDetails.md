@@ -71,6 +71,7 @@
 |**azureUserProgrammaticAccess** | **Boolean** |  |  [optional] |
 |**azureUserRolesTemplateId** | **String** |  |  [optional] |
 |**azureUsername** | **String** |  |  [optional] |
+|**blockParentTargetAccess** | **Boolean** |  |  [optional] |
 |**cassandraCreationStatements** | **String** |  |  [optional] |
 |**chefOrganizations** | **String** |  |  [optional] |
 |**chefServerAccessMode** | **String** |  |  [optional] |

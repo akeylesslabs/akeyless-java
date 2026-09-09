@@ -12,6 +12,8 @@ gatewayUpdateProducerGcp is a command that updates a GCP producer [Deprecated: U
 |**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**fixedUserClaimKeyname** | **String** | For externally provided users, denotes the key-name of IdP claim to extract the username from (Relevant only when --access-type&#x3D;external) |  [optional] |
 |**gcpCredType** | **String** |  |  [optional] |
 |**gcpKey** | **String** | Base64-encoded service account private key text |  [optional] |

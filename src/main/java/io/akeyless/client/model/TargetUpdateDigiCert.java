@@ -55,6 +55,11 @@ public class TargetUpdateDigiCert {
   @javax.annotation.Nullable
   private String acmeChallenge = "dns";
 
+  public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
+  @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
+  @javax.annotation.Nullable
+  private String deleteProtection;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
@@ -115,6 +120,16 @@ public class TargetUpdateDigiCert {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -134,6 +149,11 @@ public class TargetUpdateDigiCert {
   @SerializedName(SERIALIZED_NAME_RESOURCE_GROUP)
   @javax.annotation.Nullable
   private String resourceGroup;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
   @SerializedName(SERIALIZED_NAME_TIMEOUT)
@@ -169,6 +189,25 @@ public class TargetUpdateDigiCert {
 
   public void setAcmeChallenge(@javax.annotation.Nullable String acmeChallenge) {
     this.acmeChallenge = acmeChallenge;
+  }
+
+
+  public TargetUpdateDigiCert deleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
+    return this;
+  }
+
+  /**
+   * Protection from accidental deletion of this object [true/false]
+   * @return deleteProtection
+   */
+  @javax.annotation.Nullable
+  public String getDeleteProtection() {
+    return deleteProtection;
+  }
+
+  public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
+    this.deleteProtection = deleteProtection;
   }
 
 
@@ -400,6 +439,44 @@ public class TargetUpdateDigiCert {
   }
 
 
+  public TargetUpdateDigiCert lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetUpdateDigiCert lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetUpdateDigiCert maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -476,6 +553,25 @@ public class TargetUpdateDigiCert {
   }
 
 
+  public TargetUpdateDigiCert rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+  }
+
+
   public TargetUpdateDigiCert timeout(@javax.annotation.Nullable String timeout) {
     this.timeout = timeout;
     return this;
@@ -544,6 +640,7 @@ public class TargetUpdateDigiCert {
     }
     TargetUpdateDigiCert targetUpdateDigiCert = (TargetUpdateDigiCert) o;
     return Objects.equals(this.acmeChallenge, targetUpdateDigiCert.acmeChallenge) &&
+        Objects.equals(this.deleteProtection, targetUpdateDigiCert.deleteProtection) &&
         Objects.equals(this.description, targetUpdateDigiCert.description) &&
         Objects.equals(this.digicertUrl, targetUpdateDigiCert.digicertUrl) &&
         Objects.equals(this.dnsTargetCreds, targetUpdateDigiCert.dnsTargetCreds) &&
@@ -556,10 +653,13 @@ public class TargetUpdateDigiCert {
         Objects.equals(this.json, targetUpdateDigiCert.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateDigiCert.keepPrevVersion) &&
         Objects.equals(this.key, targetUpdateDigiCert.key) &&
+        Objects.equals(this.lockOnRead, targetUpdateDigiCert.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetUpdateDigiCert.lockTtl) &&
         Objects.equals(this.maxVersions, targetUpdateDigiCert.maxVersions) &&
         Objects.equals(this.name, targetUpdateDigiCert.name) &&
         Objects.equals(this.newName, targetUpdateDigiCert.newName) &&
         Objects.equals(this.resourceGroup, targetUpdateDigiCert.resourceGroup) &&
+        Objects.equals(this.rotateOnUnlock, targetUpdateDigiCert.rotateOnUnlock) &&
         Objects.equals(this.timeout, targetUpdateDigiCert.timeout) &&
         Objects.equals(this.token, targetUpdateDigiCert.token) &&
         Objects.equals(this.uidToken, targetUpdateDigiCert.uidToken);
@@ -567,7 +667,7 @@ public class TargetUpdateDigiCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, description, digicertUrl, dnsTargetCreds, dnsZone, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, keepPrevVersion, key, maxVersions, name, newName, resourceGroup, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, deleteProtection, description, digicertUrl, dnsTargetCreds, dnsZone, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, name, newName, resourceGroup, rotateOnUnlock, timeout, token, uidToken);
   }
 
   @Override
@@ -575,6 +675,7 @@ public class TargetUpdateDigiCert {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetUpdateDigiCert {\n");
     sb.append("    acmeChallenge: ").append(toIndentedString(acmeChallenge)).append("\n");
+    sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    digicertUrl: ").append(toIndentedString(digicertUrl)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
@@ -587,10 +688,13 @@ public class TargetUpdateDigiCert {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    resourceGroup: ").append(toIndentedString(resourceGroup)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -612,7 +716,7 @@ public class TargetUpdateDigiCert {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acme-challenge", "description", "digicert-url", "dns-target-creds", "dns-zone", "eab-hmac-key", "eab-key-id", "email", "gcp-project", "hosted-zone", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "resource-group", "timeout", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("acme-challenge", "delete_protection", "description", "digicert-url", "dns-target-creds", "dns-zone", "eab-hmac-key", "eab-key-id", "email", "gcp-project", "hosted-zone", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "resource-group", "rotate-on-unlock", "timeout", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "name"));
@@ -649,6 +753,9 @@ public class TargetUpdateDigiCert {
       if ((jsonObj.get("acme-challenge") != null && !jsonObj.get("acme-challenge").isJsonNull()) && !jsonObj.get("acme-challenge").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `acme-challenge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acme-challenge").toString()));
       }
+      if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -682,6 +789,12 @@ public class TargetUpdateDigiCert {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -693,6 +806,9 @@ public class TargetUpdateDigiCert {
       }
       if ((jsonObj.get("resource-group") != null && !jsonObj.get("resource-group").isJsonNull()) && !jsonObj.get("resource-group").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource-group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource-group").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) && !jsonObj.get("timeout").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeout").toString()));

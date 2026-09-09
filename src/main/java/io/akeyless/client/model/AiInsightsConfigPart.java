@@ -19,8 +19,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.AiModelEntry;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +49,7 @@ import java.util.Set;
 import io.akeyless.client.JSON;
 
 /**
- * AiInsightsConfigPart
+ * TargetId/TargetName/Model predate multi-model support and are retained for backward compatibility in both directions - they mirror the Default entry on write, and are adopted as a synthesized Default entry on read when Models is empty. See EffectiveModels and syncLegacyFields in types_ai_insights_config.go, where all the model-list behavior lives.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class AiInsightsConfigPart {
@@ -60,6 +63,11 @@ public class AiInsightsConfigPart {
   @javax.annotation.Nullable
   private String model;
 
+  public static final String SERIALIZED_NAME_MODELS = "models";
+  @SerializedName(SERIALIZED_NAME_MODELS)
+  @javax.annotation.Nullable
+  private List<AiModelEntry> models = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_TARGET_ID = "target_id";
   @SerializedName(SERIALIZED_NAME_TARGET_ID)
   @javax.annotation.Nullable
@@ -69,6 +77,11 @@ public class AiInsightsConfigPart {
   @SerializedName(SERIALIZED_NAME_TARGET_NAME)
   @javax.annotation.Nullable
   private String targetName;
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nullable
+  private Long version;
 
   public AiInsightsConfigPart() {
   }
@@ -111,6 +124,33 @@ public class AiInsightsConfigPart {
   }
 
 
+  public AiInsightsConfigPart models(@javax.annotation.Nullable List<AiModelEntry> models) {
+    this.models = models;
+    return this;
+  }
+
+  public AiInsightsConfigPart addModelsItem(AiModelEntry modelsItem) {
+    if (this.models == null) {
+      this.models = new ArrayList<>();
+    }
+    this.models.add(modelsItem);
+    return this;
+  }
+
+  /**
+   * Models holds every configured model, in whatever order and with whatever Default flag was stored - it is NOT canonicalized on write, so nothing may assume the Default sits at index 0. Empty on configs written before multi-model support. Never read it directly: use EffectiveModels for the list as stored (which also handles the legacy case), or PolicyModels for exactly one Default in row 1 followed by the Quorum models.
+   * @return models
+   */
+  @javax.annotation.Nullable
+  public List<AiModelEntry> getModels() {
+    return models;
+  }
+
+  public void setModels(@javax.annotation.Nullable List<AiModelEntry> models) {
+    this.models = models;
+  }
+
+
   public AiInsightsConfigPart targetId(@javax.annotation.Nullable Long targetId) {
     this.targetId = targetId;
     return this;
@@ -149,6 +189,25 @@ public class AiInsightsConfigPart {
   }
 
 
+  public AiInsightsConfigPart version(@javax.annotation.Nullable Long version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Version is an optimistic-concurrency token, bumped by gator on every accepted write.  Every mutation of this part is a read-modify-write across the network (the gateway reads the whole part, edits one entry, writes it back), and the write replaces the part wholesale. Without a token, two admins adding a quorum model at the same time silently lose one of the two - which, since the list must always carry exactly one Default, can also change which model serves every other AI feature.  Zero means \&quot;unversioned\&quot;: a client that predates this field, whose write gator accepts rather than rejecting outright. See updateGatewayAiInsightsConfig.
+   * @return version
+   */
+  @javax.annotation.Nullable
+  public Long getVersion() {
+    return version;
+  }
+
+  public void setVersion(@javax.annotation.Nullable Long version) {
+    this.version = version;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -161,13 +220,15 @@ public class AiInsightsConfigPart {
     AiInsightsConfigPart aiInsightsConfigPart = (AiInsightsConfigPart) o;
     return Objects.equals(this.enable, aiInsightsConfigPart.enable) &&
         Objects.equals(this.model, aiInsightsConfigPart.model) &&
+        Objects.equals(this.models, aiInsightsConfigPart.models) &&
         Objects.equals(this.targetId, aiInsightsConfigPart.targetId) &&
-        Objects.equals(this.targetName, aiInsightsConfigPart.targetName);
+        Objects.equals(this.targetName, aiInsightsConfigPart.targetName) &&
+        Objects.equals(this.version, aiInsightsConfigPart.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enable, model, targetId, targetName);
+    return Objects.hash(enable, model, models, targetId, targetName, version);
   }
 
   @Override
@@ -176,8 +237,10 @@ public class AiInsightsConfigPart {
     sb.append("class AiInsightsConfigPart {\n");
     sb.append("    enable: ").append(toIndentedString(enable)).append("\n");
     sb.append("    model: ").append(toIndentedString(model)).append("\n");
+    sb.append("    models: ").append(toIndentedString(models)).append("\n");
     sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,7 +259,7 @@ public class AiInsightsConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enable", "model", "target_id", "target_name"));
+    openapiFields = new HashSet<String>(Arrays.asList("enable", "model", "models", "target_id", "target_name", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -225,6 +288,20 @@ public class AiInsightsConfigPart {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull()) && !jsonObj.get("model").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `model` to be a primitive type in the JSON string but got `%s`", jsonObj.get("model").toString()));
+      }
+      if (jsonObj.get("models") != null && !jsonObj.get("models").isJsonNull()) {
+        JsonArray jsonArraymodels = jsonObj.getAsJsonArray("models");
+        if (jsonArraymodels != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("models").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `models` to be an array in the JSON string but got `%s`", jsonObj.get("models").toString()));
+          }
+
+          // validate the optional field `models` (array)
+          for (int i = 0; i < jsonArraymodels.size(); i++) {
+            AiModelEntry.validateJsonElement(jsonArraymodels.get(i));
+          };
+        }
       }
       if ((jsonObj.get("target_name") != null && !jsonObj.get("target_name").isJsonNull()) && !jsonObj.get("target_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_name").toString()));

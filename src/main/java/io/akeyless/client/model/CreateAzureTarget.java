@@ -90,6 +90,16 @@ public class CreateAzureTarget {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -109,6 +119,11 @@ public class CreateAzureTarget {
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)
   @javax.annotation.Nullable
   private String resourceName;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SUBSCRIPTION_ID = "subscription-id";
   @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_ID)
@@ -290,6 +305,44 @@ public class CreateAzureTarget {
   }
 
 
+  public CreateAzureTarget lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public CreateAzureTarget lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public CreateAzureTarget maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -363,6 +416,25 @@ public class CreateAzureTarget {
 
   public void setResourceName(@javax.annotation.Nullable String resourceName) {
     this.resourceName = resourceName;
+  }
+
+
+  public CreateAzureTarget rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -479,10 +551,13 @@ public class CreateAzureTarget {
         Objects.equals(this.description, createAzureTarget.description) &&
         Objects.equals(this.json, createAzureTarget.json) &&
         Objects.equals(this.key, createAzureTarget.key) &&
+        Objects.equals(this.lockOnRead, createAzureTarget.lockOnRead) &&
+        Objects.equals(this.lockTtl, createAzureTarget.lockTtl) &&
         Objects.equals(this.maxVersions, createAzureTarget.maxVersions) &&
         Objects.equals(this.name, createAzureTarget.name) &&
         Objects.equals(this.resourceGroupName, createAzureTarget.resourceGroupName) &&
         Objects.equals(this.resourceName, createAzureTarget.resourceName) &&
+        Objects.equals(this.rotateOnUnlock, createAzureTarget.rotateOnUnlock) &&
         Objects.equals(this.subscriptionId, createAzureTarget.subscriptionId) &&
         Objects.equals(this.tenantId, createAzureTarget.tenantId) &&
         Objects.equals(this.token, createAzureTarget.token) &&
@@ -492,7 +567,7 @@ public class CreateAzureTarget {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureCloud, clientId, clientSecret, comment, connectionType, description, json, key, maxVersions, name, resourceGroupName, resourceName, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(azureCloud, clientId, clientSecret, comment, connectionType, description, json, key, lockOnRead, lockTtl, maxVersions, name, resourceGroupName, resourceName, rotateOnUnlock, subscriptionId, tenantId, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -507,10 +582,13 @@ public class CreateAzureTarget {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -534,7 +612,7 @@ public class CreateAzureTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("azure-cloud", "client-id", "client-secret", "comment", "connection-type", "description", "json", "key", "max-versions", "name", "resource-group-name", "resource-name", "subscription-id", "tenant-id", "token", "uid-token", "use-gw-cloud-identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("azure-cloud", "client-id", "client-secret", "comment", "connection-type", "description", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "resource-group-name", "resource-name", "rotate-on-unlock", "subscription-id", "tenant-id", "token", "uid-token", "use-gw-cloud-identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -589,6 +667,12 @@ public class CreateAzureTarget {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -600,6 +684,9 @@ public class CreateAzureTarget {
       }
       if ((jsonObj.get("resource-name") != null && !jsonObj.get("resource-name").isJsonNull()) && !jsonObj.get("resource-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource-name").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("subscription-id") != null && !jsonObj.get("subscription-id").isJsonNull()) && !jsonObj.get("subscription-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `subscription-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription-id").toString()));

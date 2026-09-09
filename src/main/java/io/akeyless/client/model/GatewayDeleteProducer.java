@@ -57,6 +57,16 @@ public class GatewayDeleteProducer {
   @javax.annotation.Nullable
   private Boolean araEnabled;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -111,6 +121,44 @@ public class GatewayDeleteProducer {
 
   public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
     this.araEnabled = araEnabled;
+  }
+
+
+  public GatewayDeleteProducer enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayDeleteProducer enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -274,6 +322,8 @@ public class GatewayDeleteProducer {
     }
     GatewayDeleteProducer gatewayDeleteProducer = (GatewayDeleteProducer) o;
     return Objects.equals(this.araEnabled, gatewayDeleteProducer.araEnabled) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayDeleteProducer.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayDeleteProducer.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayDeleteProducer.inputRule) &&
         Objects.equals(this.json, gatewayDeleteProducer.json) &&
         Objects.equals(this.name, gatewayDeleteProducer.name) &&
@@ -285,7 +335,7 @@ public class GatewayDeleteProducer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, inputRule, json, name, outputRule, skipDryRun, token, uidToken);
+    return Objects.hash(araEnabled, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, json, name, outputRule, skipDryRun, token, uidToken);
   }
 
   @Override
@@ -293,6 +343,8 @@ public class GatewayDeleteProducer {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayDeleteProducer {\n");
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -318,7 +370,7 @@ public class GatewayDeleteProducer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "input-rule", "json", "name", "output-rule", "skip_dry_run", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "json", "name", "output-rule", "skip_dry_run", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

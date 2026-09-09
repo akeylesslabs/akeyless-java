@@ -69,6 +69,16 @@ public class GatewayUpdateProducerMongo {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -316,6 +326,44 @@ public class GatewayUpdateProducerMongo {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerMongo enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayUpdateProducerMongo enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -1094,6 +1142,8 @@ public class GatewayUpdateProducerMongo {
     return Objects.equals(this.araEnabled, gatewayUpdateProducerMongo.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerMongo.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerMongo.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayUpdateProducerMongo.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayUpdateProducerMongo.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerMongo.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerMongo.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerMongo.json) &&
@@ -1136,7 +1186,7 @@ public class GatewayUpdateProducerMongo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDefaultAuthDb, mongodbHostPort, mongodbName, mongodbPassword, mongodbRoles, mongodbScopes, mongodbServerUri, mongodbUriOptions, mongodbUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1146,6 +1196,8 @@ public class GatewayUpdateProducerMongo {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1202,7 +1254,7 @@ public class GatewayUpdateProducerMongo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-custom-data", "mongodb-default-auth-db", "mongodb-host-port", "mongodb-name", "mongodb-password", "mongodb-roles", "mongodb-scopes", "mongodb-server-uri", "mongodb-uri-options", "mongodb-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "mongodb-atlas-api-private-key", "mongodb-atlas-api-public-key", "mongodb-atlas-project-id", "mongodb-custom-data", "mongodb-default-auth-db", "mongodb-host-port", "mongodb-name", "mongodb-password", "mongodb-roles", "mongodb-scopes", "mongodb-server-uri", "mongodb-uri-options", "mongodb-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

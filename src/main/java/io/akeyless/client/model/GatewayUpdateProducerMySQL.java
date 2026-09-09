@@ -79,6 +79,16 @@ public class GatewayUpdateProducerMySQL {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -344,6 +354,44 @@ public class GatewayUpdateProducerMySQL {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerMySQL enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayUpdateProducerMySQL enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -1048,6 +1096,8 @@ public class GatewayUpdateProducerMySQL {
         Objects.equals(this.dbServerCertificates, gatewayUpdateProducerMySQL.dbServerCertificates) &&
         Objects.equals(this.dbServerName, gatewayUpdateProducerMySQL.dbServerName) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerMySQL.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayUpdateProducerMySQL.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayUpdateProducerMySQL.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerMySQL.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerMySQL.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerMySQL.json) &&
@@ -1086,7 +1136,7 @@ public class GatewayUpdateProducerMySQL {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, inputRule, itemCustomFields, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, dbServerCertificates, dbServerName, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, mysqlDbname, mysqlHost, mysqlPassword, mysqlPort, mysqlRevocationStatements, mysqlScreationStatements, mysqlUsername, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDelay, secureAccessEnable, secureAccessHost, secureAccessWeb, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1098,6 +1148,8 @@ public class GatewayUpdateProducerMySQL {
     sb.append("    dbServerCertificates: ").append(toIndentedString(dbServerCertificates)).append("\n");
     sb.append("    dbServerName: ").append(toIndentedString(dbServerName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -1150,7 +1202,7 @@ public class GatewayUpdateProducerMySQL {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "db-server-certificates", "db-server-name", "delete_protection", "input-rule", "item-custom-fields", "json", "mysql-dbname", "mysql-host", "mysql-password", "mysql-port", "mysql-revocation-statements", "mysql-screation-statements", "mysql-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "db-server-certificates", "db-server-name", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "mysql-dbname", "mysql-host", "mysql-password", "mysql-port", "mysql-revocation-statements", "mysql-screation-statements", "mysql-username", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-delay", "secure-access-enable", "secure-access-host", "secure-access-web", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

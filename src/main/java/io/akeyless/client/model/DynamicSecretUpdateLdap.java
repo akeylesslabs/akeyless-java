@@ -89,6 +89,16 @@ public class DynamicSecretUpdateLdap {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_EXTERNAL_USERNAME = "external-username";
   @SerializedName(SERIALIZED_NAME_EXTERNAL_USERNAME)
   @javax.annotation.Nullable
@@ -402,6 +412,44 @@ public class DynamicSecretUpdateLdap {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateLdap enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateLdap enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -1154,6 +1202,8 @@ public class DynamicSecretUpdateLdap {
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateLdap.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateLdap.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateLdap.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateLdap.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateLdap.enableAiQuorum) &&
         Objects.equals(this.externalUsername, dynamicSecretUpdateLdap.externalUsername) &&
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretUpdateLdap.fixedUserClaimKeyname) &&
         Objects.equals(this.groupDn, dynamicSecretUpdateLdap.groupDn) &&
@@ -1194,7 +1244,7 @@ public class DynamicSecretUpdateLdap {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, araEnabled, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, skipDryRun, tags, target, targetName, token, tokenExpiration, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn, userTtl);
+    return Objects.hash(providerType, araEnabled, bindDn, bindDnPassword, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, externalUsername, fixedUserClaimKeyname, groupDn, hostProvider, inputRule, itemCustomFields, json, ldapCaCert, ldapUrl, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, skipDryRun, tags, target, targetName, token, tokenExpiration, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userAttribute, userDn, userTtl);
   }
 
   @Override
@@ -1208,6 +1258,8 @@ public class DynamicSecretUpdateLdap {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    externalUsername: ").append(toIndentedString(externalUsername)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    groupDn: ").append(toIndentedString(groupDn)).append("\n");
@@ -1262,7 +1314,7 @@ public class DynamicSecretUpdateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "bind-dn", "bind-dn-password", "custom-username-template", "delete_protection", "description", "external-username", "fixed-user-claim-keyname", "group-dn", "host-provider", "input-rule", "item-custom-fields", "json", "ldap-ca-cert", "ldap-url", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "skip_dry_run", "tags", "target", "target-name", "token", "token-expiration", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "bind-dn", "bind-dn-password", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "external-username", "fixed-user-claim-keyname", "group-dn", "host-provider", "input-rule", "item-custom-fields", "json", "ldap-ca-cert", "ldap-url", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "skip_dry_run", "tags", "target", "target-name", "token", "token-expiration", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -79,6 +79,16 @@ public class RotatedSecretCreateDockerhub {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -99,6 +109,16 @@ public class RotatedSecretCreateDockerhub {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -118,6 +138,11 @@ public class RotatedSecretCreateDockerhub {
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   @javax.annotation.Nullable
   private String passwordLength;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
   @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
@@ -277,6 +302,44 @@ public class RotatedSecretCreateDockerhub {
   }
 
 
+  public RotatedSecretCreateDockerhub enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretCreateDockerhub enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretCreateDockerhub inputRule(@javax.annotation.Nullable List<String> inputRule) {
     this.inputRule = inputRule;
     return this;
@@ -369,6 +432,44 @@ public class RotatedSecretCreateDockerhub {
   }
 
 
+  public RotatedSecretCreateDockerhub lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretCreateDockerhub lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public RotatedSecretCreateDockerhub maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -450,6 +551,25 @@ public class RotatedSecretCreateDockerhub {
 
   public void setPasswordLength(@javax.annotation.Nullable String passwordLength) {
     this.passwordLength = passwordLength;
+  }
+
+
+  public RotatedSecretCreateDockerhub rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -712,14 +832,19 @@ public class RotatedSecretCreateDockerhub {
         Objects.equals(this.autoRotate, rotatedSecretCreateDockerhub.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateDockerhub.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateDockerhub.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretCreateDockerhub.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretCreateDockerhub.enableAiQuorum) &&
         Objects.equals(this.inputRule, rotatedSecretCreateDockerhub.inputRule) &&
         Objects.equals(this.itemCustomFields, rotatedSecretCreateDockerhub.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateDockerhub.json) &&
         Objects.equals(this.key, rotatedSecretCreateDockerhub.key) &&
+        Objects.equals(this.lockOnRead, rotatedSecretCreateDockerhub.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretCreateDockerhub.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateDockerhub.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateDockerhub.name) &&
         Objects.equals(this.outputRule, rotatedSecretCreateDockerhub.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateDockerhub.passwordLength) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretCreateDockerhub.rotateOnUnlock) &&
         Objects.equals(this.rotationEventIn, rotatedSecretCreateDockerhub.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateDockerhub.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateDockerhub.rotationInterval) &&
@@ -736,7 +861,7 @@ public class RotatedSecretCreateDockerhub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotationEventIn, rotationHour, rotationInterval, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, key, lockOnRead, lockTtl, maxVersions, name, outputRule, passwordLength, rotateOnUnlock, rotationEventIn, rotationHour, rotationInterval, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -748,14 +873,19 @@ public class RotatedSecretCreateDockerhub {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
@@ -786,7 +916,7 @@ public class RotatedSecretCreateDockerhub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-on-unlock", "rotation-event-in", "rotation-hour", "rotation-interval", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -839,6 +969,12 @@ public class RotatedSecretCreateDockerhub {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -851,6 +987,9 @@ public class RotatedSecretCreateDockerhub {
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rotation-event-in") != null && !jsonObj.get("rotation-event-in").isJsonNull() && !jsonObj.get("rotation-event-in").isJsonArray()) {

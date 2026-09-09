@@ -24,6 +24,7 @@
 |**producersStatus** | **String** |  |  [optional] |
 |**rotators** | **Object** |  |  [optional] |
 |**saml** | **String** |  |  [optional] |
+|**samlSp** | **String** |  |  [optional] |
 |**universalIdentity** | **String** |  |  [optional] |
 
 

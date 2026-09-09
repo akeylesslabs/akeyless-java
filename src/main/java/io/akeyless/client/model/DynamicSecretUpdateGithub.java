@@ -69,6 +69,16 @@ public class DynamicSecretUpdateGithub {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_GITHUB_APP_ID = "github-app-id";
   @SerializedName(SERIALIZED_NAME_GITHUB_APP_ID)
   @javax.annotation.Nullable
@@ -226,6 +236,44 @@ public class DynamicSecretUpdateGithub {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateGithub enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateGithub enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -670,6 +718,8 @@ public class DynamicSecretUpdateGithub {
     return Objects.equals(this.araEnabled, dynamicSecretUpdateGithub.araEnabled) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateGithub.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateGithub.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateGithub.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateGithub.enableAiQuorum) &&
         Objects.equals(this.githubAppId, dynamicSecretUpdateGithub.githubAppId) &&
         Objects.equals(this.githubAppPrivateKey, dynamicSecretUpdateGithub.githubAppPrivateKey) &&
         Objects.equals(this.githubBaseUrl, dynamicSecretUpdateGithub.githubBaseUrl) &&
@@ -694,7 +744,7 @@ public class DynamicSecretUpdateGithub {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, description, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, newName, outputRule, skipDryRun, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
+    return Objects.hash(araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, githubAppId, githubAppPrivateKey, githubBaseUrl, inputRule, installationId, installationOrganization, installationRepository, itemCustomFields, json, name, newName, outputRule, skipDryRun, tags, targetName, token, tokenPermissions, tokenRepositories, tokenTtl, uidToken);
   }
 
   @Override
@@ -704,6 +754,8 @@ public class DynamicSecretUpdateGithub {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
     sb.append("    githubAppPrivateKey: ").append(toIndentedString(githubAppPrivateKey)).append("\n");
     sb.append("    githubBaseUrl: ").append(toIndentedString(githubBaseUrl)).append("\n");
@@ -742,7 +794,7 @@ public class DynamicSecretUpdateGithub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "new-name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "new-name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

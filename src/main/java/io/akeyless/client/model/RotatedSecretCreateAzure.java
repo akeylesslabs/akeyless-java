@@ -94,6 +94,16 @@ public class RotatedSecretCreateAzure {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_EXPLICITLY_SET_SA = "explicitly-set-sa";
   @SerializedName(SERIALIZED_NAME_EXPLICITLY_SET_SA)
   @javax.annotation.Nullable
@@ -144,6 +154,16 @@ public class RotatedSecretCreateAzure {
   @javax.annotation.Nullable
   private String lockDuringSraSession;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -183,6 +203,11 @@ public class RotatedSecretCreateAzure {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private String rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
   @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
@@ -444,6 +469,44 @@ public class RotatedSecretCreateAzure {
   }
 
 
+  public RotatedSecretCreateAzure enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretCreateAzure enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretCreateAzure explicitlySetSa(@javax.annotation.Nullable String explicitlySetSa) {
     this.explicitlySetSa = explicitlySetSa;
     return this;
@@ -650,6 +713,44 @@ public class RotatedSecretCreateAzure {
   }
 
 
+  public RotatedSecretCreateAzure lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretCreateAzure lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public RotatedSecretCreateAzure maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -807,6 +908,25 @@ public class RotatedSecretCreateAzure {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public RotatedSecretCreateAzure rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -1243,6 +1363,8 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.autoRotate, rotatedSecretCreateAzure.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateAzure.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateAzure.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretCreateAzure.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretCreateAzure.enableAiQuorum) &&
         Objects.equals(this.explicitlySetSa, rotatedSecretCreateAzure.explicitlySetSa) &&
         Objects.equals(this.graceRotation, rotatedSecretCreateAzure.graceRotation) &&
         Objects.equals(this.graceRotationHour, rotatedSecretCreateAzure.graceRotationHour) &&
@@ -1253,6 +1375,8 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.json, rotatedSecretCreateAzure.json) &&
         Objects.equals(this.key, rotatedSecretCreateAzure.key) &&
         Objects.equals(this.lockDuringSraSession, rotatedSecretCreateAzure.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, rotatedSecretCreateAzure.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretCreateAzure.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateAzure.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateAzure.name) &&
         Objects.equals(this.outputRule, rotatedSecretCreateAzure.outputRule) &&
@@ -1261,6 +1385,7 @@ public class RotatedSecretCreateAzure {
         Objects.equals(this.resourceGroupName, rotatedSecretCreateAzure.resourceGroupName) &&
         Objects.equals(this.resourceName, rotatedSecretCreateAzure.resourceName) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateAzure.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretCreateAzure.rotateOnUnlock) &&
         Objects.equals(this.rotationEventIn, rotatedSecretCreateAzure.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateAzure.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateAzure.rotationInterval) &&
@@ -1286,7 +1411,7 @@ public class RotatedSecretCreateAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiId, apiKey, applicationId, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, password, passwordLength, resourceGroupName, resourceName, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, storageAccountKeyName, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
+    return Objects.hash(apiId, apiKey, applicationId, araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, explicitlySetSa, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, outputRule, password, passwordLength, resourceGroupName, resourceName, rotateAfterDisconnect, rotateOnUnlock, rotationEventIn, rotationHour, rotationInterval, rotatorType, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, storageAccountKeyName, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, username);
   }
 
   @Override
@@ -1301,6 +1426,8 @@ public class RotatedSecretCreateAzure {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    explicitlySetSa: ").append(toIndentedString(explicitlySetSa)).append("\n");
     sb.append("    graceRotation: ").append(toIndentedString(graceRotation)).append("\n");
     sb.append("    graceRotationHour: ").append(toIndentedString(graceRotationHour)).append("\n");
@@ -1311,6 +1438,8 @@ public class RotatedSecretCreateAzure {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
@@ -1319,6 +1448,7 @@ public class RotatedSecretCreateAzure {
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    resourceName: ").append(toIndentedString(resourceName)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
@@ -1358,7 +1488,7 @@ public class RotatedSecretCreateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("api-id", "api-key", "application-id", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "storage-account-key-name", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("api-id", "api-key", "application-id", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rotate-after-disconnect", "rotate-on-unlock", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "storage-account-key-name", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1435,6 +1565,12 @@ public class RotatedSecretCreateAzure {
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1459,6 +1595,9 @@ public class RotatedSecretCreateAzure {
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rotation-event-in") != null && !jsonObj.get("rotation-event-in").isJsonNull() && !jsonObj.get("rotation-event-in").isJsonArray()) {

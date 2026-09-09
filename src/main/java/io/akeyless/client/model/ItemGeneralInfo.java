@@ -128,6 +128,16 @@ public class ItemGeneralInfo {
   @javax.annotation.Nullable
   private IssuerOverviewInfo issuerOverviewInfo;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock_on_read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private Boolean lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock_ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private Long lockTtl;
+
   public static final String SERIALIZED_NAME_NEXT_ROTATION_EVENTS = "next_rotation_events";
   @SerializedName(SERIALIZED_NAME_NEXT_ROTATION_EVENTS)
   @javax.annotation.Nullable
@@ -142,6 +152,16 @@ public class ItemGeneralInfo {
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
   @javax.annotation.Nullable
   private PasswordPolicyInfo passwordPolicy;
+
+  public static final String SERIALIZED_NAME_PENDING_ROTATE_ON_UNLOCK = "pending_rotate_on_unlock";
+  @SerializedName(SERIALIZED_NAME_PENDING_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private Boolean pendingRotateOnUnlock;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate_on_unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private Boolean rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATED_SECRET_DETAILS = "rotated_secret_details";
   @SerializedName(SERIALIZED_NAME_ROTATED_SECRET_DETAILS)
@@ -402,6 +422,44 @@ public class ItemGeneralInfo {
   }
 
 
+  public ItemGeneralInfo lockOnRead(@javax.annotation.Nullable Boolean lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Get lockOnRead
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public Boolean getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable Boolean lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public ItemGeneralInfo lockTtl(@javax.annotation.Nullable Long lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Get lockTtl
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public Long getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable Long lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public ItemGeneralInfo nextRotationEvents(@javax.annotation.Nullable List<NextAutoRotationEvent> nextRotationEvents) {
     this.nextRotationEvents = nextRotationEvents;
     return this;
@@ -464,6 +522,44 @@ public class ItemGeneralInfo {
 
   public void setPasswordPolicy(@javax.annotation.Nullable PasswordPolicyInfo passwordPolicy) {
     this.passwordPolicy = passwordPolicy;
+  }
+
+
+  public ItemGeneralInfo pendingRotateOnUnlock(@javax.annotation.Nullable Boolean pendingRotateOnUnlock) {
+    this.pendingRotateOnUnlock = pendingRotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Get pendingRotateOnUnlock
+   * @return pendingRotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public Boolean getPendingRotateOnUnlock() {
+    return pendingRotateOnUnlock;
+  }
+
+  public void setPendingRotateOnUnlock(@javax.annotation.Nullable Boolean pendingRotateOnUnlock) {
+    this.pendingRotateOnUnlock = pendingRotateOnUnlock;
+  }
+
+
+  public ItemGeneralInfo rotateOnUnlock(@javax.annotation.Nullable Boolean rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Get rotateOnUnlock
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public Boolean getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable Boolean rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -565,9 +661,13 @@ public class ItemGeneralInfo {
         Objects.equals(this.expirationEvents, itemGeneralInfo.expirationEvents) &&
         Objects.equals(this.importerInfo, itemGeneralInfo.importerInfo) &&
         Objects.equals(this.issuerOverviewInfo, itemGeneralInfo.issuerOverviewInfo) &&
+        Objects.equals(this.lockOnRead, itemGeneralInfo.lockOnRead) &&
+        Objects.equals(this.lockTtl, itemGeneralInfo.lockTtl) &&
         Objects.equals(this.nextRotationEvents, itemGeneralInfo.nextRotationEvents) &&
         Objects.equals(this.oidcClientInfo, itemGeneralInfo.oidcClientInfo) &&
         Objects.equals(this.passwordPolicy, itemGeneralInfo.passwordPolicy) &&
+        Objects.equals(this.pendingRotateOnUnlock, itemGeneralInfo.pendingRotateOnUnlock) &&
+        Objects.equals(this.rotateOnUnlock, itemGeneralInfo.rotateOnUnlock) &&
         Objects.equals(this.rotatedSecretDetails, itemGeneralInfo.rotatedSecretDetails) &&
         Objects.equals(this.secureRemoteAccessDetails, itemGeneralInfo.secureRemoteAccessDetails) &&
         Objects.equals(this.staticSecretInfo, itemGeneralInfo.staticSecretInfo) &&
@@ -576,7 +676,7 @@ public class ItemGeneralInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(agenticRules, certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, issuerOverviewInfo, nextRotationEvents, oidcClientInfo, passwordPolicy, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
+    return Objects.hash(agenticRules, certIssueDetails, certificateChainInfo, certificateFormat, certificatesTemplateInfo, classicKeyDetails, clusterGwUrl, displayMetadata, dynamicSecretProducerDetails, expirationEvents, importerInfo, issuerOverviewInfo, lockOnRead, lockTtl, nextRotationEvents, oidcClientInfo, passwordPolicy, pendingRotateOnUnlock, rotateOnUnlock, rotatedSecretDetails, secureRemoteAccessDetails, staticSecretInfo, tokenizerInfo);
   }
 
   @Override
@@ -595,9 +695,13 @@ public class ItemGeneralInfo {
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    importerInfo: ").append(toIndentedString(importerInfo)).append("\n");
     sb.append("    issuerOverviewInfo: ").append(toIndentedString(issuerOverviewInfo)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    nextRotationEvents: ").append(toIndentedString(nextRotationEvents)).append("\n");
     sb.append("    oidcClientInfo: ").append(toIndentedString(oidcClientInfo)).append("\n");
     sb.append("    passwordPolicy: ").append(toIndentedString(passwordPolicy)).append("\n");
+    sb.append("    pendingRotateOnUnlock: ").append(toIndentedString(pendingRotateOnUnlock)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotatedSecretDetails: ").append(toIndentedString(rotatedSecretDetails)).append("\n");
     sb.append("    secureRemoteAccessDetails: ").append(toIndentedString(secureRemoteAccessDetails)).append("\n");
     sb.append("    staticSecretInfo: ").append(toIndentedString(staticSecretInfo)).append("\n");
@@ -620,7 +724,7 @@ public class ItemGeneralInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("agentic_rules", "cert_issue_details", "certificate_chain_info", "certificate_format", "certificates_template_info", "classic_key_details", "cluster_gw_url", "display_metadata", "dynamic_secret_producer_details", "expiration_events", "importer_info", "issuer_overview_info", "next_rotation_events", "oidc_client_info", "password_policy", "rotated_secret_details", "secure_remote_access_details", "static_secret_info", "tokenizer_info"));
+    openapiFields = new HashSet<String>(Arrays.asList("agentic_rules", "cert_issue_details", "certificate_chain_info", "certificate_format", "certificates_template_info", "classic_key_details", "cluster_gw_url", "display_metadata", "dynamic_secret_producer_details", "expiration_events", "importer_info", "issuer_overview_info", "lock_on_read", "lock_ttl", "next_rotation_events", "oidc_client_info", "password_policy", "pending_rotate_on_unlock", "rotate_on_unlock", "rotated_secret_details", "secure_remote_access_details", "static_secret_info", "tokenizer_info"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

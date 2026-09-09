@@ -117,6 +117,21 @@ public class SraSessionEntryOut {
   @javax.annotation.Nullable
   private String targetHost;
 
+  public static final String SERIALIZED_NAME_TARGET_ID = "target_id";
+  @SerializedName(SERIALIZED_NAME_TARGET_ID)
+  @javax.annotation.Nullable
+  private Long targetId;
+
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target_name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  @javax.annotation.Nullable
+  private String targetName;
+
+  public static final String SERIALIZED_NAME_TARGET_TYPE = "target_type";
+  @SerializedName(SERIALIZED_NAME_TARGET_TYPE)
+  @javax.annotation.Nullable
+  private String targetType;
+
   public static final String SERIALIZED_NAME_TTL = "ttl";
   @SerializedName(SERIALIZED_NAME_TTL)
   @javax.annotation.Nullable
@@ -377,6 +392,63 @@ public class SraSessionEntryOut {
   }
 
 
+  public SraSessionEntryOut targetId(@javax.annotation.Nullable Long targetId) {
+    this.targetId = targetId;
+    return this;
+  }
+
+  /**
+   * Get targetId
+   * @return targetId
+   */
+  @javax.annotation.Nullable
+  public Long getTargetId() {
+    return targetId;
+  }
+
+  public void setTargetId(@javax.annotation.Nullable Long targetId) {
+    this.targetId = targetId;
+  }
+
+
+  public SraSessionEntryOut targetName(@javax.annotation.Nullable String targetName) {
+    this.targetName = targetName;
+    return this;
+  }
+
+  /**
+   * Get targetName
+   * @return targetName
+   */
+  @javax.annotation.Nullable
+  public String getTargetName() {
+    return targetName;
+  }
+
+  public void setTargetName(@javax.annotation.Nullable String targetName) {
+    this.targetName = targetName;
+  }
+
+
+  public SraSessionEntryOut targetType(@javax.annotation.Nullable String targetType) {
+    this.targetType = targetType;
+    return this;
+  }
+
+  /**
+   * Get targetType
+   * @return targetType
+   */
+  @javax.annotation.Nullable
+  public String getTargetType() {
+    return targetType;
+  }
+
+  public void setTargetType(@javax.annotation.Nullable String targetType) {
+    this.targetType = targetType;
+  }
+
+
   public SraSessionEntryOut ttl(@javax.annotation.Nullable String ttl) {
     this.ttl = ttl;
     return this;
@@ -438,13 +510,16 @@ public class SraSessionEntryOut {
         Objects.equals(this.startTime, sraSessionEntryOut.startTime) &&
         Objects.equals(this.status, sraSessionEntryOut.status) &&
         Objects.equals(this.targetHost, sraSessionEntryOut.targetHost) &&
+        Objects.equals(this.targetId, sraSessionEntryOut.targetId) &&
+        Objects.equals(this.targetName, sraSessionEntryOut.targetName) &&
+        Objects.equals(this.targetType, sraSessionEntryOut.targetType) &&
         Objects.equals(this.ttl, sraSessionEntryOut.ttl) &&
         Objects.equals(this.userIdentifier, sraSessionEntryOut.userIdentifier);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, clientType, clusterUniqueId, connectionType, endTime, errorMsg, gatewayInfo, instanceId, secretName, sessionId, startTime, status, targetHost, ttl, userIdentifier);
+    return Objects.hash(accessId, clientType, clusterUniqueId, connectionType, endTime, errorMsg, gatewayInfo, instanceId, secretName, sessionId, startTime, status, targetHost, targetId, targetName, targetType, ttl, userIdentifier);
   }
 
   @Override
@@ -464,6 +539,9 @@ public class SraSessionEntryOut {
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    targetHost: ").append(toIndentedString(targetHost)).append("\n");
+    sb.append("    targetId: ").append(toIndentedString(targetId)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
+    sb.append("    targetType: ").append(toIndentedString(targetType)).append("\n");
     sb.append("    ttl: ").append(toIndentedString(ttl)).append("\n");
     sb.append("    userIdentifier: ").append(toIndentedString(userIdentifier)).append("\n");
     sb.append("}");
@@ -484,7 +562,7 @@ public class SraSessionEntryOut {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_id", "client_type", "cluster_unique_id", "connection_type", "end_time", "error_msg", "gateway_info", "instance_id", "secret_name", "session_id", "start_time", "status", "target_host", "ttl", "user_identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "client_type", "cluster_unique_id", "connection_type", "end_time", "error_msg", "gateway_info", "instance_id", "secret_name", "session_id", "start_time", "status", "target_host", "target_id", "target_name", "target_type", "ttl", "user_identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -541,6 +619,12 @@ public class SraSessionEntryOut {
       }
       if ((jsonObj.get("target_host") != null && !jsonObj.get("target_host").isJsonNull()) && !jsonObj.get("target_host").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_host").toString()));
+      }
+      if ((jsonObj.get("target_name") != null && !jsonObj.get("target_name").isJsonNull()) && !jsonObj.get("target_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_name").toString()));
+      }
+      if ((jsonObj.get("target_type") != null && !jsonObj.get("target_type").isJsonNull()) && !jsonObj.get("target_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_type").toString()));
       }
       if ((jsonObj.get("ttl") != null && !jsonObj.get("ttl").isJsonNull()) && !jsonObj.get("ttl").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ttl").toString()));

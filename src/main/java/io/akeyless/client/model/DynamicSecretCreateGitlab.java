@@ -69,6 +69,16 @@ public class DynamicSecretCreateGitlab {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_GITLAB_ACCESS_TOKEN = "gitlab-access-token";
   @SerializedName(SERIALIZED_NAME_GITLAB_ACCESS_TOKEN)
   @javax.annotation.Nullable
@@ -221,6 +231,44 @@ public class DynamicSecretCreateGitlab {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretCreateGitlab enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretCreateGitlab enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -630,6 +678,8 @@ public class DynamicSecretCreateGitlab {
     return Objects.equals(this.araEnabled, dynamicSecretCreateGitlab.araEnabled) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateGitlab.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateGitlab.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretCreateGitlab.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretCreateGitlab.enableAiQuorum) &&
         Objects.equals(this.gitlabAccessToken, dynamicSecretCreateGitlab.gitlabAccessToken) &&
         Objects.equals(this.gitlabAccessType, dynamicSecretCreateGitlab.gitlabAccessType) &&
         Objects.equals(this.gitlabCertificate, dynamicSecretCreateGitlab.gitlabCertificate) &&
@@ -653,7 +703,7 @@ public class DynamicSecretCreateGitlab {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, description, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabRole, gitlabTokenScopes, gitlabUrl, groupName, inputRule, installationOrganization, itemCustomFields, json, name, outputRule, skipDryRun, tags, targetName, token, ttl, uidToken);
+    return Objects.hash(araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabRole, gitlabTokenScopes, gitlabUrl, groupName, inputRule, installationOrganization, itemCustomFields, json, name, outputRule, skipDryRun, tags, targetName, token, ttl, uidToken);
   }
 
   @Override
@@ -663,6 +713,8 @@ public class DynamicSecretCreateGitlab {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    gitlabAccessToken: ").append(toIndentedString(gitlabAccessToken)).append("\n");
     sb.append("    gitlabAccessType: ").append(toIndentedString(gitlabAccessType)).append("\n");
     sb.append("    gitlabCertificate: ").append(toIndentedString(gitlabCertificate)).append("\n");
@@ -700,7 +752,7 @@ public class DynamicSecretCreateGitlab {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "gitlab-access-token", "gitlab-access-type", "gitlab-certificate", "gitlab-role", "gitlab-token-scopes", "gitlab-url", "group-name", "input-rule", "installation-organization", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "gitlab-access-token", "gitlab-access-type", "gitlab-certificate", "gitlab-role", "gitlab-token-scopes", "gitlab-url", "group-name", "input-rule", "installation-organization", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("gitlab-access-type", "gitlab-token-scopes", "name"));

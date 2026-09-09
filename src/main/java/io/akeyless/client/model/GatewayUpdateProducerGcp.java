@@ -74,6 +74,16 @@ public class GatewayUpdateProducerGcp {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
   @javax.annotation.Nullable
@@ -290,6 +300,44 @@ public class GatewayUpdateProducerGcp {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerGcp enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayUpdateProducerGcp enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -871,6 +919,8 @@ public class GatewayUpdateProducerGcp {
         Objects.equals(this.araEnabled, gatewayUpdateProducerGcp.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerGcp.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerGcp.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayUpdateProducerGcp.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayUpdateProducerGcp.enableAiQuorum) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerGcp.fixedUserClaimKeyname) &&
         Objects.equals(this.gcpCredType, gatewayUpdateProducerGcp.gcpCredType) &&
         Objects.equals(this.gcpKey, gatewayUpdateProducerGcp.gcpKey) &&
@@ -903,7 +953,7 @@ public class GatewayUpdateProducerGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessType, araEnabled, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessType, araEnabled, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, fixedUserClaimKeyname, gcpCredType, gcpKey, gcpKeyAlgo, gcpProjectId, gcpSaEmail, gcpTokenScopes, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, roleBinding, roleNames, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, serviceAccountType, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -914,6 +964,8 @@ public class GatewayUpdateProducerGcp {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    gcpCredType: ").append(toIndentedString(gcpCredType)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
@@ -960,7 +1012,7 @@ public class GatewayUpdateProducerGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-type", "ara-enabled", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "gcp-cred-type", "gcp-key", "gcp-key-algo", "gcp-project-id", "gcp-sa-email", "gcp-token-scopes", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "role-binding", "role-names", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "service-account-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-type", "ara-enabled", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "fixed-user-claim-keyname", "gcp-cred-type", "gcp-key", "gcp-key-algo", "gcp-project-id", "gcp-sa-email", "gcp-token-scopes", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "role-binding", "role-names", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "service-account-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

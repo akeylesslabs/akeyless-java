@@ -224,7 +224,7 @@ public class Configure {
   }
 
   /**
-   * Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/gcp/k8s/cert)
+   * Access Type (access_key/password/azure_ad/saml/oidc/aws_iam/alicloud/gcp/k8s/cert/oci/kerberos)
    * @return accessType
    */
   @javax.annotation.Nullable

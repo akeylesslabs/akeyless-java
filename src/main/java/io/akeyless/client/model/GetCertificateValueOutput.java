@@ -55,6 +55,11 @@ public class GetCertificateValueOutput {
   @javax.annotation.Nullable
   private String certificatePem;
 
+  public static final String SERIALIZED_NAME_ENCODED_CERTIFICATE = "encoded_certificate";
+  @SerializedName(SERIALIZED_NAME_ENCODED_CERTIFICATE)
+  @javax.annotation.Nullable
+  private String encodedCertificate;
+
   public static final String SERIALIZED_NAME_PRIVATE_KEY_PEM = "private_key_pem";
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY_PEM)
   @javax.annotation.Nullable
@@ -79,6 +84,25 @@ public class GetCertificateValueOutput {
 
   public void setCertificatePem(@javax.annotation.Nullable String certificatePem) {
     this.certificatePem = certificatePem;
+  }
+
+
+  public GetCertificateValueOutput encodedCertificate(@javax.annotation.Nullable String encodedCertificate) {
+    this.encodedCertificate = encodedCertificate;
+    return this;
+  }
+
+  /**
+   * Get encodedCertificate
+   * @return encodedCertificate
+   */
+  @javax.annotation.Nullable
+  public String getEncodedCertificate() {
+    return encodedCertificate;
+  }
+
+  public void setEncodedCertificate(@javax.annotation.Nullable String encodedCertificate) {
+    this.encodedCertificate = encodedCertificate;
   }
 
 
@@ -112,12 +136,13 @@ public class GetCertificateValueOutput {
     }
     GetCertificateValueOutput getCertificateValueOutput = (GetCertificateValueOutput) o;
     return Objects.equals(this.certificatePem, getCertificateValueOutput.certificatePem) &&
+        Objects.equals(this.encodedCertificate, getCertificateValueOutput.encodedCertificate) &&
         Objects.equals(this.privateKeyPem, getCertificateValueOutput.privateKeyPem);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificatePem, privateKeyPem);
+    return Objects.hash(certificatePem, encodedCertificate, privateKeyPem);
   }
 
   @Override
@@ -125,6 +150,7 @@ public class GetCertificateValueOutput {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCertificateValueOutput {\n");
     sb.append("    certificatePem: ").append(toIndentedString(certificatePem)).append("\n");
+    sb.append("    encodedCertificate: ").append(toIndentedString(encodedCertificate)).append("\n");
     sb.append("    privateKeyPem: ").append(toIndentedString(privateKeyPem)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -144,7 +170,7 @@ public class GetCertificateValueOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("certificate_pem", "private_key_pem"));
+    openapiFields = new HashSet<String>(Arrays.asList("certificate_pem", "encoded_certificate", "private_key_pem"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -173,6 +199,9 @@ public class GetCertificateValueOutput {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("certificate_pem") != null && !jsonObj.get("certificate_pem").isJsonNull()) && !jsonObj.get("certificate_pem").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate_pem").toString()));
+      }
+      if ((jsonObj.get("encoded_certificate") != null && !jsonObj.get("encoded_certificate").isJsonNull()) && !jsonObj.get("encoded_certificate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `encoded_certificate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encoded_certificate").toString()));
       }
       if ((jsonObj.get("private_key_pem") != null && !jsonObj.get("private_key_pem").isJsonNull()) && !jsonObj.get("private_key_pem").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `private_key_pem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private_key_pem").toString()));

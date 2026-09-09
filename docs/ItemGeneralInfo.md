@@ -19,9 +19,13 @@
 |**expirationEvents** | [**List&lt;CertificateExpirationEvent&gt;**](CertificateExpirationEvent.md) |  |  [optional] |
 |**importerInfo** | [**ImporterInfo**](ImporterInfo.md) |  |  [optional] |
 |**issuerOverviewInfo** | [**IssuerOverviewInfo**](IssuerOverviewInfo.md) |  |  [optional] |
+|**lockOnRead** | **Boolean** |  |  [optional] |
+|**lockTtl** | **Long** |  |  [optional] |
 |**nextRotationEvents** | [**List&lt;NextAutoRotationEvent&gt;**](NextAutoRotationEvent.md) |  |  [optional] |
 |**oidcClientInfo** | [**OidcClientInfo**](OidcClientInfo.md) |  |  [optional] |
 |**passwordPolicy** | [**PasswordPolicyInfo**](PasswordPolicyInfo.md) |  |  [optional] |
+|**pendingRotateOnUnlock** | **Boolean** |  |  [optional] |
+|**rotateOnUnlock** | **Boolean** |  |  [optional] |
 |**rotatedSecretDetails** | [**RotatedSecretDetailsInfo**](RotatedSecretDetailsInfo.md) |  |  [optional] |
 |**secureRemoteAccessDetails** | [**SecureRemoteAccess**](SecureRemoteAccess.md) |  |  [optional] |
 |**staticSecretInfo** | [**StaticSecretDetailsInfo**](StaticSecretDetailsInfo.md) |  |  [optional] |

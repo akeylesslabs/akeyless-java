@@ -60,10 +60,20 @@ public class GetCertificateValue {
   @javax.annotation.Nullable
   private String displayId;
 
+  public static final String SERIALIZED_NAME_FORMAT = "format";
+  @SerializedName(SERIALIZED_NAME_FORMAT)
+  @javax.annotation.Nullable
+  private String format = "pem";
+
   public static final String SERIALIZED_NAME_IGNORE_CACHE = "ignore-cache";
   @SerializedName(SERIALIZED_NAME_IGNORE_CACHE)
   @javax.annotation.Nullable
   private String ignoreCache = "false";
+
+  public static final String SERIALIZED_NAME_INCLUDE_PRIVATE_KEY = "include-private-key";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_PRIVATE_KEY)
+  @javax.annotation.Nullable
+  private Boolean includePrivateKey;
 
   public static final String SERIALIZED_NAME_ISSUANCE_TOKEN = "issuance-token";
   @SerializedName(SERIALIZED_NAME_ISSUANCE_TOKEN)
@@ -75,10 +85,20 @@ public class GetCertificateValue {
   @javax.annotation.Nullable
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_LEAF_ONLY = "leaf-only";
+  @SerializedName(SERIALIZED_NAME_LEAF_ONLY)
+  @javax.annotation.Nullable
+  private Boolean leafOnly;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
   private String name;
+
+  public static final String SERIALIZED_NAME_PASSWORD = "password";
+  @SerializedName(SERIALIZED_NAME_PASSWORD)
+  @javax.annotation.Nullable
+  private String password;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -136,6 +156,25 @@ public class GetCertificateValue {
   }
 
 
+  public GetCertificateValue format(@javax.annotation.Nullable String format) {
+    this.format = format;
+    return this;
+  }
+
+  /**
+   * Format to download the certificate in [pem/pfx/jks], pfx/jks require a password
+   * @return format
+   */
+  @javax.annotation.Nullable
+  public String getFormat() {
+    return format;
+  }
+
+  public void setFormat(@javax.annotation.Nullable String format) {
+    this.format = format;
+  }
+
+
   public GetCertificateValue ignoreCache(@javax.annotation.Nullable String ignoreCache) {
     this.ignoreCache = ignoreCache;
     return this;
@@ -152,6 +191,25 @@ public class GetCertificateValue {
 
   public void setIgnoreCache(@javax.annotation.Nullable String ignoreCache) {
     this.ignoreCache = ignoreCache;
+  }
+
+
+  public GetCertificateValue includePrivateKey(@javax.annotation.Nullable Boolean includePrivateKey) {
+    this.includePrivateKey = includePrivateKey;
+    return this;
+  }
+
+  /**
+   * If set, includes the private key in the pfx/jks file, only relevant when format is pfx or jks
+   * @return includePrivateKey
+   */
+  @javax.annotation.Nullable
+  public Boolean getIncludePrivateKey() {
+    return includePrivateKey;
+  }
+
+  public void setIncludePrivateKey(@javax.annotation.Nullable Boolean includePrivateKey) {
+    this.includePrivateKey = includePrivateKey;
   }
 
 
@@ -193,6 +251,25 @@ public class GetCertificateValue {
   }
 
 
+  public GetCertificateValue leafOnly(@javax.annotation.Nullable Boolean leafOnly) {
+    this.leafOnly = leafOnly;
+    return this;
+  }
+
+  /**
+   * If set, downloads only the leaf certificate instead of the full chain, only available for certificates issued with split certificate chain enabled
+   * @return leafOnly
+   */
+  @javax.annotation.Nullable
+  public Boolean getLeafOnly() {
+    return leafOnly;
+  }
+
+  public void setLeafOnly(@javax.annotation.Nullable Boolean leafOnly) {
+    this.leafOnly = leafOnly;
+  }
+
+
   public GetCertificateValue name(@javax.annotation.Nullable String name) {
     this.name = name;
     return this;
@@ -209,6 +286,25 @@ public class GetCertificateValue {
 
   public void setName(@javax.annotation.Nullable String name) {
     this.name = name;
+  }
+
+
+  public GetCertificateValue password(@javax.annotation.Nullable String password) {
+    this.password = password;
+    return this;
+  }
+
+  /**
+   * Password to protect the pfx/jks file, required when format is pfx or jks
+   * @return password
+   */
+  @javax.annotation.Nullable
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(@javax.annotation.Nullable String password) {
+    this.password = password;
   }
 
 
@@ -281,10 +377,14 @@ public class GetCertificateValue {
     GetCertificateValue getCertificateValue = (GetCertificateValue) o;
     return Objects.equals(this.certIssuerName, getCertificateValue.certIssuerName) &&
         Objects.equals(this.displayId, getCertificateValue.displayId) &&
+        Objects.equals(this.format, getCertificateValue.format) &&
         Objects.equals(this.ignoreCache, getCertificateValue.ignoreCache) &&
+        Objects.equals(this.includePrivateKey, getCertificateValue.includePrivateKey) &&
         Objects.equals(this.issuanceToken, getCertificateValue.issuanceToken) &&
         Objects.equals(this.json, getCertificateValue.json) &&
+        Objects.equals(this.leafOnly, getCertificateValue.leafOnly) &&
         Objects.equals(this.name, getCertificateValue.name) &&
+        Objects.equals(this.password, getCertificateValue.password) &&
         Objects.equals(this.token, getCertificateValue.token) &&
         Objects.equals(this.uidToken, getCertificateValue.uidToken) &&
         Objects.equals(this.version, getCertificateValue.version);
@@ -292,7 +392,7 @@ public class GetCertificateValue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certIssuerName, displayId, ignoreCache, issuanceToken, json, name, token, uidToken, version);
+    return Objects.hash(certIssuerName, displayId, format, ignoreCache, includePrivateKey, issuanceToken, json, leafOnly, name, password, token, uidToken, version);
   }
 
   @Override
@@ -301,10 +401,14 @@ public class GetCertificateValue {
     sb.append("class GetCertificateValue {\n");
     sb.append("    certIssuerName: ").append(toIndentedString(certIssuerName)).append("\n");
     sb.append("    displayId: ").append(toIndentedString(displayId)).append("\n");
+    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    ignoreCache: ").append(toIndentedString(ignoreCache)).append("\n");
+    sb.append("    includePrivateKey: ").append(toIndentedString(includePrivateKey)).append("\n");
     sb.append("    issuanceToken: ").append(toIndentedString(issuanceToken)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    leafOnly: ").append(toIndentedString(leafOnly)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -326,7 +430,7 @@ public class GetCertificateValue {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("cert-issuer-name", "display-id", "ignore-cache", "issuance-token", "json", "name", "token", "uid-token", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("cert-issuer-name", "display-id", "format", "ignore-cache", "include-private-key", "issuance-token", "json", "leaf-only", "name", "password", "token", "uid-token", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -359,6 +463,9 @@ public class GetCertificateValue {
       if ((jsonObj.get("display-id") != null && !jsonObj.get("display-id").isJsonNull()) && !jsonObj.get("display-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `display-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display-id").toString()));
       }
+      if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
+      }
       if ((jsonObj.get("ignore-cache") != null && !jsonObj.get("ignore-cache").isJsonNull()) && !jsonObj.get("ignore-cache").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ignore-cache` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ignore-cache").toString()));
       }
@@ -367,6 +474,9 @@ public class GetCertificateValue {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

@@ -89,6 +89,16 @@ public class CreateSecret {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_FORMAT = "format";
   @SerializedName(SERIALIZED_NAME_FORMAT)
   @javax.annotation.Nullable
@@ -123,6 +133,16 @@ public class CreateSecret {
   @SerializedName(SERIALIZED_NAME_LOCK_DURING_SRA_SESSION)
   @javax.annotation.Nullable
   private String lockDuringSraSession;
+
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
 
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
@@ -398,6 +418,44 @@ public class CreateSecret {
   }
 
 
+  public CreateSecret enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public CreateSecret enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public CreateSecret format(@javax.annotation.Nullable String format) {
     this.format = format;
     return this;
@@ -552,6 +610,44 @@ public class CreateSecret {
 
   public void setLockDuringSraSession(@javax.annotation.Nullable String lockDuringSraSession) {
     this.lockDuringSraSession = lockDuringSraSession;
+  }
+
+
+  public CreateSecret lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public CreateSecret lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
   }
 
 
@@ -1098,6 +1194,8 @@ public class CreateSecret {
         Objects.equals(this.customField, createSecret.customField) &&
         Objects.equals(this.deleteProtection, createSecret.deleteProtection) &&
         Objects.equals(this.description, createSecret.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, createSecret.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, createSecret.enableAiQuorum) &&
         Objects.equals(this.format, createSecret.format) &&
         Objects.equals(this.hostProvider, createSecret.hostProvider) &&
         Objects.equals(this.injectUrl, createSecret.injectUrl) &&
@@ -1105,6 +1203,8 @@ public class CreateSecret {
         Objects.equals(this.itemCustomFields, createSecret.itemCustomFields) &&
         Objects.equals(this.json, createSecret.json) &&
         Objects.equals(this.lockDuringSraSession, createSecret.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, createSecret.lockOnRead) &&
+        Objects.equals(this.lockTtl, createSecret.lockTtl) &&
         Objects.equals(this.maxVersions, createSecret.maxVersions) &&
         Objects.equals(this.metadata, createSecret.metadata) &&
         Objects.equals(this.multilineValue, createSecret.multilineValue) &&
@@ -1135,7 +1235,7 @@ public class CreateSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, araEnabled, changeEvent, customField, deleteProtection, description, format, hostProvider, injectUrl, inputRule, itemCustomFields, json, lockDuringSraSession, maxVersions, metadata, multilineValue, name, outputRule, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, token, type, uidToken, username, value);
+    return Objects.hash(providerType, accessibility, araEnabled, changeEvent, customField, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, format, hostProvider, injectUrl, inputRule, itemCustomFields, json, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, metadata, multilineValue, name, outputRule, password, protectionKey, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdpUser, secureAccessSshCreds, secureAccessSshUser, secureAccessUrl, secureAccessWebBrowsing, secureAccessWebProxy, tags, target, token, type, uidToken, username, value);
   }
 
   @Override
@@ -1149,6 +1249,8 @@ public class CreateSecret {
     sb.append("    customField: ").append(toIndentedString(customField)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    injectUrl: ").append(toIndentedString(injectUrl)).append("\n");
@@ -1156,6 +1258,8 @@ public class CreateSecret {
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    multilineValue: ").append(toIndentedString(multilineValue)).append("\n");
@@ -1200,7 +1304,7 @@ public class CreateSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "ara-enabled", "change-event", "custom-field", "delete_protection", "description", "format", "host-provider", "inject-url", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "max-versions", "metadata", "multiline_value", "name", "output-rule", "password", "protection_key", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target", "token", "type", "uid-token", "username", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "ara-enabled", "change-event", "custom-field", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "format", "host-provider", "inject-url", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "metadata", "multiline_value", "name", "output-rule", "password", "protection_key", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rdp-user", "secure-access-ssh-creds", "secure-access-ssh-user", "secure-access-url", "secure-access-web-browsing", "secure-access-web-proxy", "tags", "target", "token", "type", "uid-token", "username", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "value"));
@@ -1265,6 +1369,12 @@ public class CreateSecret {
       }
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
+      }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
       }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));

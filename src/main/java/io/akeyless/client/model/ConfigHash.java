@@ -136,6 +136,11 @@ public class ConfigHash {
   @javax.annotation.Nullable
   private String saml;
 
+  public static final String SERIALIZED_NAME_SAML_SP = "saml_sp";
+  @SerializedName(SERIALIZED_NAME_SAML_SP)
+  @javax.annotation.Nullable
+  private String samlSp;
+
   public static final String SERIALIZED_NAME_UNIVERSAL_IDENTITY = "universal_identity";
   @SerializedName(SERIALIZED_NAME_UNIVERSAL_IDENTITY)
   @javax.annotation.Nullable
@@ -467,6 +472,25 @@ public class ConfigHash {
   }
 
 
+  public ConfigHash samlSp(@javax.annotation.Nullable String samlSp) {
+    this.samlSp = samlSp;
+    return this;
+  }
+
+  /**
+   * Get samlSp
+   * @return samlSp
+   */
+  @javax.annotation.Nullable
+  public String getSamlSp() {
+    return samlSp;
+  }
+
+  public void setSamlSp(@javax.annotation.Nullable String samlSp) {
+    this.samlSp = samlSp;
+  }
+
+
   public ConfigHash universalIdentity(@javax.annotation.Nullable String universalIdentity) {
     this.universalIdentity = universalIdentity;
     return this;
@@ -513,6 +537,7 @@ public class ConfigHash {
         Objects.equals(this.producersStatus, configHash.producersStatus) &&
         Objects.equals(this.rotators, configHash.rotators) &&
         Objects.equals(this.saml, configHash.saml) &&
+        Objects.equals(this.samlSp, configHash.samlSp) &&
         Objects.equals(this.universalIdentity, configHash.universalIdentity);
   }
 
@@ -522,7 +547,7 @@ public class ConfigHash {
 
   @Override
   public int hashCode() {
-    return Objects.hash(admins, aiInsights, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrationStatus, migrations, producers, producersStatus, rotators, saml, universalIdentity);
+    return Objects.hash(admins, aiInsights, cache, customerFragements, general, k8sAuths, kmip, ldap, leadership, logForwarding, mQueue, migrationStatus, migrations, producers, producersStatus, rotators, saml, samlSp, universalIdentity);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -553,6 +578,7 @@ public class ConfigHash {
     sb.append("    producersStatus: ").append(toIndentedString(producersStatus)).append("\n");
     sb.append("    rotators: ").append(toIndentedString(rotators)).append("\n");
     sb.append("    saml: ").append(toIndentedString(saml)).append("\n");
+    sb.append("    samlSp: ").append(toIndentedString(samlSp)).append("\n");
     sb.append("    universalIdentity: ").append(toIndentedString(universalIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -572,7 +598,7 @@ public class ConfigHash {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admins", "ai_insights", "cache", "customer_fragements", "general", "k8s_auths", "kmip", "ldap", "leadership", "log_forwarding", "m_queue", "migration_status", "migrations", "producers", "producers_status", "rotators", "saml", "universal_identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("admins", "ai_insights", "cache", "customer_fragements", "general", "k8s_auths", "kmip", "ldap", "leadership", "log_forwarding", "m_queue", "migration_status", "migrations", "producers", "producers_status", "rotators", "saml", "saml_sp", "universal_identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -643,6 +669,9 @@ public class ConfigHash {
       }
       if ((jsonObj.get("saml") != null && !jsonObj.get("saml").isJsonNull()) && !jsonObj.get("saml").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `saml` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saml").toString()));
+      }
+      if ((jsonObj.get("saml_sp") != null && !jsonObj.get("saml_sp").isJsonNull()) && !jsonObj.get("saml_sp").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `saml_sp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saml_sp").toString()));
       }
       if ((jsonObj.get("universal_identity") != null && !jsonObj.get("universal_identity").isJsonNull()) && !jsonObj.get("universal_identity").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `universal_identity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("universal_identity").toString()));

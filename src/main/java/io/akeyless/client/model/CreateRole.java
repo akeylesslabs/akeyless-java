@@ -57,6 +57,11 @@ public class CreateRole {
   @javax.annotation.Nullable
   private String analyticsAccess;
 
+  public static final String SERIALIZED_NAME_APPROVE_ACCESS_REQUEST = "approve-access-request";
+  @SerializedName(SERIALIZED_NAME_APPROVE_ACCESS_REQUEST)
+  @javax.annotation.Nullable
+  private String approveAccessRequest;
+
   public static final String SERIALIZED_NAME_ARA_REPORTS_ACCESS = "ara-reports-access";
   @SerializedName(SERIALIZED_NAME_ARA_REPORTS_ACCESS)
   @javax.annotation.Nullable
@@ -137,6 +142,11 @@ public class CreateRole {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_UNLOCK_SECRETS = "unlock-secrets";
+  @SerializedName(SERIALIZED_NAME_UNLOCK_SECRETS)
+  @javax.annotation.Nullable
+  private String unlockSecrets;
+
   public static final String SERIALIZED_NAME_USAGE_REPORTS_ACCESS = "usage-reports-access";
   @SerializedName(SERIALIZED_NAME_USAGE_REPORTS_ACCESS)
   @javax.annotation.Nullable
@@ -161,6 +171,25 @@ public class CreateRole {
 
   public void setAnalyticsAccess(@javax.annotation.Nullable String analyticsAccess) {
     this.analyticsAccess = analyticsAccess;
+  }
+
+
+  public CreateRole approveAccessRequest(@javax.annotation.Nullable String approveAccessRequest) {
+    this.approveAccessRequest = approveAccessRequest;
+    return this;
+  }
+
+  /**
+   * Allow this role to approve Access Requests for items. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported. The tier controls how broadly the approver may list Auth Methods; neither tier lets them grant permissions they do not already hold on the requested item or target.
+   * @return approveAccessRequest
+   */
+  @javax.annotation.Nullable
+  public String getApproveAccessRequest() {
+    return approveAccessRequest;
+  }
+
+  public void setApproveAccessRequest(@javax.annotation.Nullable String approveAccessRequest) {
+    this.approveAccessRequest = approveAccessRequest;
   }
 
 
@@ -476,6 +505,25 @@ public class CreateRole {
   }
 
 
+  public CreateRole unlockSecrets(@javax.annotation.Nullable String unlockSecrets) {
+    this.unlockSecrets = unlockSecrets;
+    return this;
+  }
+
+  /**
+   * Allow this role to force-unlock locked secrets. Currently only &#39;none&#39;, &#39;scoped&#39; and &#39;all&#39; values are supported.
+   * @return unlockSecrets
+   */
+  @javax.annotation.Nullable
+  public String getUnlockSecrets() {
+    return unlockSecrets;
+  }
+
+  public void setUnlockSecrets(@javax.annotation.Nullable String unlockSecrets) {
+    this.unlockSecrets = unlockSecrets;
+  }
+
+
   public CreateRole usageReportsAccess(@javax.annotation.Nullable String usageReportsAccess) {
     this.usageReportsAccess = usageReportsAccess;
     return this;
@@ -506,6 +554,7 @@ public class CreateRole {
     }
     CreateRole createRole = (CreateRole) o;
     return Objects.equals(this.analyticsAccess, createRole.analyticsAccess) &&
+        Objects.equals(this.approveAccessRequest, createRole.approveAccessRequest) &&
         Objects.equals(this.araReportsAccess, createRole.araReportsAccess) &&
         Objects.equals(this.auditAccess, createRole.auditAccess) &&
         Objects.equals(this.comment, createRole.comment) &&
@@ -522,12 +571,13 @@ public class CreateRole {
         Objects.equals(this.sraReportsAccess, createRole.sraReportsAccess) &&
         Objects.equals(this.token, createRole.token) &&
         Objects.equals(this.uidToken, createRole.uidToken) &&
+        Objects.equals(this.unlockSecrets, createRole.unlockSecrets) &&
         Objects.equals(this.usageReportsAccess, createRole.usageReportsAccess);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(analyticsAccess, araReportsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, isiAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, usageReportsAccess);
+    return Objects.hash(analyticsAccess, approveAccessRequest, araReportsAccess, auditAccess, comment, deleteProtection, description, eventCenterAccess, eventForwardersAccess, eventForwardersName, gwAnalyticsAccess, isiAccess, json, name, reverseRbacAccess, sraReportsAccess, token, uidToken, unlockSecrets, usageReportsAccess);
   }
 
   @Override
@@ -535,6 +585,7 @@ public class CreateRole {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateRole {\n");
     sb.append("    analyticsAccess: ").append(toIndentedString(analyticsAccess)).append("\n");
+    sb.append("    approveAccessRequest: ").append(toIndentedString(approveAccessRequest)).append("\n");
     sb.append("    araReportsAccess: ").append(toIndentedString(araReportsAccess)).append("\n");
     sb.append("    auditAccess: ").append(toIndentedString(auditAccess)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
@@ -551,6 +602,7 @@ public class CreateRole {
     sb.append("    sraReportsAccess: ").append(toIndentedString(sraReportsAccess)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    unlockSecrets: ").append(toIndentedString(unlockSecrets)).append("\n");
     sb.append("    usageReportsAccess: ").append(toIndentedString(usageReportsAccess)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -570,7 +622,7 @@ public class CreateRole {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("analytics-access", "ara-reports-access", "audit-access", "comment", "delete_protection", "description", "event-center-access", "event-forwarders-access", "event-forwarders-name", "gw-analytics-access", "isi-access", "json", "name", "reverse-rbac-access", "sra-reports-access", "token", "uid-token", "usage-reports-access"));
+    openapiFields = new HashSet<String>(Arrays.asList("analytics-access", "approve-access-request", "ara-reports-access", "audit-access", "comment", "delete_protection", "description", "event-center-access", "event-forwarders-access", "event-forwarders-name", "gw-analytics-access", "isi-access", "json", "name", "reverse-rbac-access", "sra-reports-access", "token", "uid-token", "unlock-secrets", "usage-reports-access"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -606,6 +658,9 @@ public class CreateRole {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("analytics-access") != null && !jsonObj.get("analytics-access").isJsonNull()) && !jsonObj.get("analytics-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `analytics-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("analytics-access").toString()));
+      }
+      if ((jsonObj.get("approve-access-request") != null && !jsonObj.get("approve-access-request").isJsonNull()) && !jsonObj.get("approve-access-request").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `approve-access-request` to be a primitive type in the JSON string but got `%s`", jsonObj.get("approve-access-request").toString()));
       }
       if ((jsonObj.get("ara-reports-access") != null && !jsonObj.get("ara-reports-access").isJsonNull()) && !jsonObj.get("ara-reports-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ara-reports-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ara-reports-access").toString()));
@@ -652,6 +707,9 @@ public class CreateRole {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("unlock-secrets") != null && !jsonObj.get("unlock-secrets").isJsonNull()) && !jsonObj.get("unlock-secrets").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unlock-secrets` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unlock-secrets").toString()));
       }
       if ((jsonObj.get("usage-reports-access") != null && !jsonObj.get("usage-reports-access").isJsonNull()) && !jsonObj.get("usage-reports-access").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `usage-reports-access` to be a primitive type in the JSON string but got `%s`", jsonObj.get("usage-reports-access").toString()));

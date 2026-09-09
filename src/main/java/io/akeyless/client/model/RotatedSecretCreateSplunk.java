@@ -84,6 +84,16 @@ public class RotatedSecretCreateSplunk {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_EXPIRATION_DATE = "expiration-date";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_DATE)
   @javax.annotation.Nullable
@@ -119,6 +129,16 @@ public class RotatedSecretCreateSplunk {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -138,6 +158,11 @@ public class RotatedSecretCreateSplunk {
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   @javax.annotation.Nullable
   private String passwordLength;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -341,6 +366,44 @@ public class RotatedSecretCreateSplunk {
   }
 
 
+  public RotatedSecretCreateSplunk enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretCreateSplunk enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretCreateSplunk expirationDate(@javax.annotation.Nullable String expirationDate) {
     this.expirationDate = expirationDate;
     return this;
@@ -490,6 +553,44 @@ public class RotatedSecretCreateSplunk {
   }
 
 
+  public RotatedSecretCreateSplunk lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretCreateSplunk lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public RotatedSecretCreateSplunk maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -571,6 +672,25 @@ public class RotatedSecretCreateSplunk {
 
   public void setPasswordLength(@javax.annotation.Nullable String passwordLength) {
     this.passwordLength = passwordLength;
+  }
+
+
+  public RotatedSecretCreateSplunk rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -929,6 +1049,8 @@ public class RotatedSecretCreateSplunk {
         Objects.equals(this.autoRotate, rotatedSecretCreateSplunk.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateSplunk.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateSplunk.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretCreateSplunk.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretCreateSplunk.enableAiQuorum) &&
         Objects.equals(this.expirationDate, rotatedSecretCreateSplunk.expirationDate) &&
         Objects.equals(this.hecToken, rotatedSecretCreateSplunk.hecToken) &&
         Objects.equals(this.hecTokenName, rotatedSecretCreateSplunk.hecTokenName) &&
@@ -936,10 +1058,13 @@ public class RotatedSecretCreateSplunk {
         Objects.equals(this.itemCustomFields, rotatedSecretCreateSplunk.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateSplunk.json) &&
         Objects.equals(this.key, rotatedSecretCreateSplunk.key) &&
+        Objects.equals(this.lockOnRead, rotatedSecretCreateSplunk.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretCreateSplunk.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateSplunk.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateSplunk.name) &&
         Objects.equals(this.outputRule, rotatedSecretCreateSplunk.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateSplunk.passwordLength) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretCreateSplunk.rotateOnUnlock) &&
         Objects.equals(this.rotatedPassword, rotatedSecretCreateSplunk.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, rotatedSecretCreateSplunk.rotatedUsername) &&
         Objects.equals(this.rotationEventIn, rotatedSecretCreateSplunk.rotationEventIn) &&
@@ -961,7 +1086,7 @@ public class RotatedSecretCreateSplunk {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, audience, authenticationCredentials, autoRotate, deleteProtection, description, expirationDate, hecToken, hecTokenName, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, splunkToken, tags, targetName, token, tokenOwner, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(araEnabled, audience, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, expirationDate, hecToken, hecTokenName, inputRule, itemCustomFields, json, key, lockOnRead, lockTtl, maxVersions, name, outputRule, passwordLength, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, splunkToken, tags, targetName, token, tokenOwner, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -974,6 +1099,8 @@ public class RotatedSecretCreateSplunk {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    expirationDate: ").append(toIndentedString(expirationDate)).append("\n");
     sb.append("    hecToken: ").append(toIndentedString(hecToken)).append("\n");
     sb.append("    hecTokenName: ").append(toIndentedString(hecTokenName)).append("\n");
@@ -981,10 +1108,13 @@ public class RotatedSecretCreateSplunk {
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
@@ -1020,7 +1150,7 @@ public class RotatedSecretCreateSplunk {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "audience", "authentication-credentials", "auto-rotate", "delete_protection", "description", "expiration-date", "hec-token", "hec-token-name", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "splunk-token", "tags", "target-name", "token", "token-owner", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "audience", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "expiration-date", "hec-token", "hec-token-name", "input-rule", "item-custom-fields", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "splunk-token", "tags", "target-name", "token", "token-owner", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1085,6 +1215,12 @@ public class RotatedSecretCreateSplunk {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1097,6 +1233,9 @@ public class RotatedSecretCreateSplunk {
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("rotated-password") != null && !jsonObj.get("rotated-password").isJsonNull()) && !jsonObj.get("rotated-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotated-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotated-password").toString()));

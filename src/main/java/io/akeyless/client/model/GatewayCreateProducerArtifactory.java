@@ -94,6 +94,16 @@ public class GatewayCreateProducerArtifactory {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -306,6 +316,44 @@ public class GatewayCreateProducerArtifactory {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayCreateProducerArtifactory enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayCreateProducerArtifactory enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -587,6 +635,8 @@ public class GatewayCreateProducerArtifactory {
         Objects.equals(this.baseUrl, gatewayCreateProducerArtifactory.baseUrl) &&
         Objects.equals(this.customUsernameTemplate, gatewayCreateProducerArtifactory.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayCreateProducerArtifactory.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayCreateProducerArtifactory.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayCreateProducerArtifactory.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayCreateProducerArtifactory.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayCreateProducerArtifactory.itemCustomFields) &&
         Objects.equals(this.json, gatewayCreateProducerArtifactory.json) &&
@@ -603,7 +653,7 @@ public class GatewayCreateProducerArtifactory {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, customUsernameTemplate, deleteProtection, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, artifactoryAdminName, artifactoryAdminPwd, artifactoryTokenAudience, artifactoryTokenScope, baseUrl, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -618,6 +668,8 @@ public class GatewayCreateProducerArtifactory {
     sb.append("    baseUrl: ").append(toIndentedString(baseUrl)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -648,7 +700,7 @@ public class GatewayCreateProducerArtifactory {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "artifactory-admin-name", "artifactory-admin-pwd", "artifactory-token-audience", "artifactory-token-scope", "base-url", "custom-username-template", "delete_protection", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "artifactory-admin-name", "artifactory-admin-pwd", "artifactory-token-audience", "artifactory-token-scope", "base-url", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("artifactory-token-audience", "artifactory-token-scope", "name"));

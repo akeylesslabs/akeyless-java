@@ -107,6 +107,11 @@ public class SecretInfo {
   @javax.annotation.Nullable
   private String namespace;
 
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  @javax.annotation.Nullable
+  private String project;
+
   public static final String SERIALIZED_NAME_REGION = "region";
   @SerializedName(SERIALIZED_NAME_REGION)
   @javax.annotation.Nullable
@@ -345,6 +350,25 @@ public class SecretInfo {
   }
 
 
+  public SecretInfo project(@javax.annotation.Nullable String project) {
+    this.project = project;
+    return this;
+  }
+
+  /**
+   * Get project
+   * @return project
+   */
+  @javax.annotation.Nullable
+  public String getProject() {
+    return project;
+  }
+
+  public void setProject(@javax.annotation.Nullable String project) {
+    this.project = project;
+  }
+
+
   public SecretInfo region(@javax.annotation.Nullable String region) {
     this.region = region;
     return this;
@@ -552,6 +576,7 @@ public class SecretInfo {
         Objects.equals(this.location, secretInfo.location) &&
         Objects.equals(this.name, secretInfo.name) &&
         Objects.equals(this.namespace, secretInfo.namespace) &&
+        Objects.equals(this.project, secretInfo.project) &&
         Objects.equals(this.region, secretInfo.region) &&
         Objects.equals(this.secretId, secretInfo.secretId) &&
         Objects.equals(this.status, secretInfo.status) &&
@@ -569,7 +594,7 @@ public class SecretInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activationDate, created, description, expiration, github, keyId, lastRetrieved, location, name, namespace, region, secretId, status, tags, thumbprint, type, version, versionId, versionIds);
+    return Objects.hash(activationDate, created, description, expiration, github, keyId, lastRetrieved, location, name, namespace, project, region, secretId, status, tags, thumbprint, type, version, versionId, versionIds);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -593,6 +618,7 @@ public class SecretInfo {
     sb.append("    location: ").append(toIndentedString(location)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -620,7 +646,7 @@ public class SecretInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("activation_date", "created", "description", "expiration", "github", "key_id", "last_retrieved", "location", "name", "namespace", "region", "secret_id", "status", "tags", "thumbprint", "type", "version", "version_id", "version_ids"));
+    openapiFields = new HashSet<String>(Arrays.asList("activation_date", "created", "description", "expiration", "github", "key_id", "last_retrieved", "location", "name", "namespace", "project", "region", "secret_id", "status", "tags", "thumbprint", "type", "version", "version_id", "version_ids"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -662,6 +688,9 @@ public class SecretInfo {
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+      }
+      if ((jsonObj.get("project") != null && !jsonObj.get("project").isJsonNull()) && !jsonObj.get("project").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `project` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project").toString()));
       }
       if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));

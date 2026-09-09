@@ -74,6 +74,16 @@ public class GatewayUpdateProducerRedis {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nullable
@@ -270,6 +280,44 @@ public class GatewayUpdateProducerRedis {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerRedis enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayUpdateProducerRedis enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -775,6 +823,8 @@ public class GatewayUpdateProducerRedis {
         Objects.equals(this.araEnabled, gatewayUpdateProducerRedis.araEnabled) &&
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerRedis.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerRedis.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayUpdateProducerRedis.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayUpdateProducerRedis.enableAiQuorum) &&
         Objects.equals(this.host, gatewayUpdateProducerRedis.host) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerRedis.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerRedis.itemCustomFields) &&
@@ -803,7 +853,7 @@ public class GatewayUpdateProducerRedis {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aclRules, araEnabled, customUsernameTemplate, deleteProtection, host, inputRule, itemCustomFields, json, name, newName, outputRule, password, passwordLength, port, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, username);
+    return Objects.hash(aclRules, araEnabled, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, host, inputRule, itemCustomFields, json, name, newName, outputRule, password, passwordLength, port, producerEncryptionKeyName, skipDryRun, ssl, sslCertificate, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, username);
   }
 
   @Override
@@ -814,6 +864,8 @@ public class GatewayUpdateProducerRedis {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
@@ -856,7 +908,7 @@ public class GatewayUpdateProducerRedis {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acl-rules", "ara-enabled", "custom-username-template", "delete_protection", "host", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password", "password-length", "port", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("acl-rules", "ara-enabled", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "host", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password", "password-length", "port", "producer-encryption-key-name", "skip_dry_run", "ssl", "ssl-certificate", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

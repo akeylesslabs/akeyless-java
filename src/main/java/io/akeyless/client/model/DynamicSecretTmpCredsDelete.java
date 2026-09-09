@@ -57,6 +57,16 @@ public class DynamicSecretTmpCredsDelete {
   @javax.annotation.Nullable
   private Boolean araEnabled;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nullable
@@ -131,6 +141,44 @@ public class DynamicSecretTmpCredsDelete {
 
   public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
     this.araEnabled = araEnabled;
+  }
+
+
+  public DynamicSecretTmpCredsDelete enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretTmpCredsDelete enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -370,6 +418,8 @@ public class DynamicSecretTmpCredsDelete {
     }
     DynamicSecretTmpCredsDelete dynamicSecretTmpCredsDelete = (DynamicSecretTmpCredsDelete) o;
     return Objects.equals(this.araEnabled, dynamicSecretTmpCredsDelete.araEnabled) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretTmpCredsDelete.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretTmpCredsDelete.enableAiQuorum) &&
         Objects.equals(this.host, dynamicSecretTmpCredsDelete.host) &&
         Objects.equals(this.inputRule, dynamicSecretTmpCredsDelete.inputRule) &&
         Objects.equals(this.json, dynamicSecretTmpCredsDelete.json) &&
@@ -385,7 +435,7 @@ public class DynamicSecretTmpCredsDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, host, inputRule, json, name, outputRule, revokeAll, skipDryRun, softDelete, tmpCredsId, token, uidToken);
+    return Objects.hash(araEnabled, enableAgenticRuntimeAuthority, enableAiQuorum, host, inputRule, json, name, outputRule, revokeAll, skipDryRun, softDelete, tmpCredsId, token, uidToken);
   }
 
   @Override
@@ -393,6 +443,8 @@ public class DynamicSecretTmpCredsDelete {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretTmpCredsDelete {\n");
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -422,7 +474,7 @@ public class DynamicSecretTmpCredsDelete {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "host", "input-rule", "json", "name", "output-rule", "revoke-all", "skip_dry_run", "soft-delete", "tmp-creds-id", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "enable-agentic-runtime-authority", "enable-ai-quorum", "host", "input-rule", "json", "name", "output-rule", "revoke-all", "skip_dry_run", "soft-delete", "tmp-creds-id", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

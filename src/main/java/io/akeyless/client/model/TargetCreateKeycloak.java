@@ -80,6 +80,16 @@ public class TargetCreateKeycloak {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -94,6 +104,11 @@ public class TargetCreateKeycloak {
   @SerializedName(SERIALIZED_NAME_REALM)
   @javax.annotation.Nullable
   private String realm;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -227,6 +242,44 @@ public class TargetCreateKeycloak {
   }
 
 
+  public TargetCreateKeycloak lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetCreateKeycloak lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetCreateKeycloak maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -281,6 +334,25 @@ public class TargetCreateKeycloak {
 
   public void setRealm(@javax.annotation.Nullable String realm) {
     this.realm = realm;
+  }
+
+
+  public TargetCreateKeycloak rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -357,9 +429,12 @@ public class TargetCreateKeycloak {
         Objects.equals(this.description, targetCreateKeycloak.description) &&
         Objects.equals(this.json, targetCreateKeycloak.json) &&
         Objects.equals(this.key, targetCreateKeycloak.key) &&
+        Objects.equals(this.lockOnRead, targetCreateKeycloak.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetCreateKeycloak.lockTtl) &&
         Objects.equals(this.maxVersions, targetCreateKeycloak.maxVersions) &&
         Objects.equals(this.name, targetCreateKeycloak.name) &&
         Objects.equals(this.realm, targetCreateKeycloak.realm) &&
+        Objects.equals(this.rotateOnUnlock, targetCreateKeycloak.rotateOnUnlock) &&
         Objects.equals(this.token, targetCreateKeycloak.token) &&
         Objects.equals(this.uidToken, targetCreateKeycloak.uidToken) &&
         Objects.equals(this.url, targetCreateKeycloak.url);
@@ -367,7 +442,7 @@ public class TargetCreateKeycloak {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, clientSecret, deleteProtection, description, json, key, maxVersions, name, realm, token, uidToken, url);
+    return Objects.hash(clientId, clientSecret, deleteProtection, description, json, key, lockOnRead, lockTtl, maxVersions, name, realm, rotateOnUnlock, token, uidToken, url);
   }
 
   @Override
@@ -380,9 +455,12 @@ public class TargetCreateKeycloak {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    realm: ").append(toIndentedString(realm)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -404,7 +482,7 @@ public class TargetCreateKeycloak {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("client-id", "client-secret", "delete_protection", "description", "json", "key", "max-versions", "name", "realm", "token", "uid-token", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("client-id", "client-secret", "delete_protection", "description", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "realm", "rotate-on-unlock", "token", "uid-token", "url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -453,6 +531,12 @@ public class TargetCreateKeycloak {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -461,6 +545,9 @@ public class TargetCreateKeycloak {
       }
       if ((jsonObj.get("realm") != null && !jsonObj.get("realm").isJsonNull()) && !jsonObj.get("realm").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `realm` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realm").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

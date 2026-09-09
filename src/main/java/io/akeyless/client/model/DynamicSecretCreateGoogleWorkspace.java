@@ -79,6 +79,16 @@ public class DynamicSecretCreateGoogleWorkspace {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
   @javax.annotation.Nullable
@@ -294,6 +304,44 @@ public class DynamicSecretCreateGoogleWorkspace {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretCreateGoogleWorkspace enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretCreateGoogleWorkspace enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -800,6 +848,8 @@ public class DynamicSecretCreateGoogleWorkspace {
         Objects.equals(this.araEnabled, dynamicSecretCreateGoogleWorkspace.araEnabled) &&
         Objects.equals(this.deleteProtection, dynamicSecretCreateGoogleWorkspace.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretCreateGoogleWorkspace.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretCreateGoogleWorkspace.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretCreateGoogleWorkspace.enableAiQuorum) &&
         Objects.equals(this.fixedUserClaimKeyname, dynamicSecretCreateGoogleWorkspace.fixedUserClaimKeyname) &&
         Objects.equals(this.gcpKey, dynamicSecretCreateGoogleWorkspace.gcpKey) &&
         Objects.equals(this.groupEmail, dynamicSecretCreateGoogleWorkspace.groupEmail) &&
@@ -828,7 +878,7 @@ public class DynamicSecretCreateGoogleWorkspace {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminEmail, araEnabled, deleteProtection, description, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(accessMode, adminEmail, araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, fixedUserClaimKeyname, gcpKey, groupEmail, groupRole, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, roleName, roleScope, secureAccessDelay, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -840,6 +890,8 @@ public class DynamicSecretCreateGoogleWorkspace {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    groupEmail: ").append(toIndentedString(groupEmail)).append("\n");
@@ -882,7 +934,7 @@ public class DynamicSecretCreateGoogleWorkspace {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "ara-enabled", "delete_protection", "description", "fixed-user-claim-keyname", "gcp-key", "group-email", "group-role", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "role-name", "role-scope", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "ara-enabled", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "fixed-user-claim-keyname", "gcp-key", "group-email", "group-role", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "role-name", "role-scope", "secure-access-delay", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("access-mode", "admin-email", "name"));

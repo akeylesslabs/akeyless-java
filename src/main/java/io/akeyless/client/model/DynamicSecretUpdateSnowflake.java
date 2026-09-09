@@ -99,6 +99,16 @@ public class DynamicSecretUpdateSnowflake {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -380,6 +390,44 @@ public class DynamicSecretUpdateSnowflake {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateSnowflake enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateSnowflake enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -852,6 +900,8 @@ public class DynamicSecretUpdateSnowflake {
         Objects.equals(this.dbName, dynamicSecretUpdateSnowflake.dbName) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateSnowflake.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateSnowflake.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateSnowflake.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateSnowflake.enableAiQuorum) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateSnowflake.inputRule) &&
         Objects.equals(this.itemCustomFields, dynamicSecretUpdateSnowflake.itemCustomFields) &&
         Objects.equals(this.json, dynamicSecretUpdateSnowflake.json) &&
@@ -878,7 +928,7 @@ public class DynamicSecretUpdateSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, araEnabled, authMode, customUsernameTemplate, dbName, deleteProtection, description, inputRule, itemCustomFields, json, keyAlgo, name, newName, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, araEnabled, authMode, customUsernameTemplate, dbName, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, keyAlgo, name, newName, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
   }
 
   @Override
@@ -894,6 +944,8 @@ public class DynamicSecretUpdateSnowflake {
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -934,7 +986,7 @@ public class DynamicSecretUpdateSnowflake {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "ara-enabled", "auth-mode", "custom-username-template", "db-name", "delete_protection", "description", "input-rule", "item-custom-fields", "json", "key-algo", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
+    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "ara-enabled", "auth-mode", "custom-username-template", "db-name", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "key-algo", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

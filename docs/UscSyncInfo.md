@@ -11,6 +11,7 @@
 |**jqSecretFilter** | **String** |  |  [optional] |
 |**lastError** | **String** |  |  [optional] |
 |**namespace** | **String** |  |  [optional] |
+|**project** | **String** |  |  [optional] |
 |**secretId** | **String** |  |  [optional] |
 |**secretName** | **String** |  |  [optional] |
 |**selectedEnvironments** | **String** |  |  [optional] |

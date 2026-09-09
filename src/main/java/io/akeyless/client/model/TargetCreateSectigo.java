@@ -85,6 +85,16 @@ public class TargetCreateSectigo {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -104,6 +114,11 @@ public class TargetCreateSectigo {
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   @javax.annotation.Nonnull
   private String password;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
   @SerializedName(SERIALIZED_NAME_TIMEOUT)
@@ -261,6 +276,44 @@ public class TargetCreateSectigo {
   }
 
 
+  public TargetCreateSectigo lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetCreateSectigo lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetCreateSectigo maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -334,6 +387,25 @@ public class TargetCreateSectigo {
 
   public void setPassword(@javax.annotation.Nonnull String password) {
     this.password = password;
+  }
+
+
+  public TargetCreateSectigo rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -430,10 +502,13 @@ public class TargetCreateSectigo {
         Objects.equals(this.externalRequester, targetCreateSectigo.externalRequester) &&
         Objects.equals(this.json, targetCreateSectigo.json) &&
         Objects.equals(this.key, targetCreateSectigo.key) &&
+        Objects.equals(this.lockOnRead, targetCreateSectigo.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetCreateSectigo.lockTtl) &&
         Objects.equals(this.maxVersions, targetCreateSectigo.maxVersions) &&
         Objects.equals(this.name, targetCreateSectigo.name) &&
         Objects.equals(this.organizationId, targetCreateSectigo.organizationId) &&
         Objects.equals(this.password, targetCreateSectigo.password) &&
+        Objects.equals(this.rotateOnUnlock, targetCreateSectigo.rotateOnUnlock) &&
         Objects.equals(this.timeout, targetCreateSectigo.timeout) &&
         Objects.equals(this.token, targetCreateSectigo.token) &&
         Objects.equals(this.uidToken, targetCreateSectigo.uidToken) &&
@@ -442,7 +517,7 @@ public class TargetCreateSectigo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificateProfileId, customerUri, deleteProtection, description, externalRequester, json, key, maxVersions, name, organizationId, password, timeout, token, uidToken, username);
+    return Objects.hash(certificateProfileId, customerUri, deleteProtection, description, externalRequester, json, key, lockOnRead, lockTtl, maxVersions, name, organizationId, password, rotateOnUnlock, timeout, token, uidToken, username);
   }
 
   @Override
@@ -456,10 +531,13 @@ public class TargetCreateSectigo {
     sb.append("    externalRequester: ").append(toIndentedString(externalRequester)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    organizationId: ").append(toIndentedString(organizationId)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -482,7 +560,7 @@ public class TargetCreateSectigo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("certificate-profile-id", "customer-uri", "delete_protection", "description", "external-requester", "json", "key", "max-versions", "name", "organization-id", "password", "timeout", "token", "uid-token", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("certificate-profile-id", "customer-uri", "delete_protection", "description", "external-requester", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "organization-id", "password", "rotate-on-unlock", "timeout", "token", "uid-token", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("certificate-profile-id", "customer-uri", "external-requester", "name", "organization-id", "password", "username"));
@@ -531,6 +609,12 @@ public class TargetCreateSectigo {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -539,6 +623,9 @@ public class TargetCreateSectigo {
       }
       if (!jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("timeout") != null && !jsonObj.get("timeout").isJsonNull()) && !jsonObj.get("timeout").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `timeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("timeout").toString()));

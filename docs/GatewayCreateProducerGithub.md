@@ -10,6 +10,8 @@ gatewayCreateProducerGithub is a command that creates github producer [Deprecate
 |------------ | ------------- | ------------- | -------------|
 |**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
+|**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. |  [optional] |
+|**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**githubAppId** | **Long** | Github app id |  [optional] |
 |**githubAppPrivateKey** | **String** | App private key |  [optional] |
 |**githubBaseUrl** | **String** | Base URL |  [optional] |

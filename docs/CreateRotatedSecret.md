@@ -26,10 +26,13 @@ createRotatedSecret is a command that creates a rotated secret [Deprecated: Use 
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**key** | **String** | The name of a key that used to encrypt the secret value (if empty, the account default protectionKey key will be used) |  [optional] |
 |**lockDuringSraSession** | **String** | Lock this secret for read/update while an SRA session is active |  [optional] |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**metadata** | **String** | Deprecated - use description |  [optional] |
 |**name** | **String** | Secret name |  |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |
 |**rotateAfterDisconnect** | **String** | StringOrBool accepts JSON strings, booleans, and numbers for backward compatibility with older SDK versions that send boolean values for rotate-after-disconnect. |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**rotatedPassword** | **String** | rotated-username password (relevant only for rotator-type&#x3D;password) |  [optional] |
 |**rotatedUsername** | **String** | username to be rotated, if selected use-self-creds at rotator-creds-type, this username will try to rotate it&#39;s own password, if use-target-creds is selected, target credentials will be use to rotate the rotated-password (relevant only for rotator-type&#x3D;password) |  [optional] |
 |**rotationHour** | **Integer** | The Hour of the rotation in UTC. Default rotation-hour is 14:00 |  [optional] |

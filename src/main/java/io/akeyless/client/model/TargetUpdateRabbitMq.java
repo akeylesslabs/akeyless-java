@@ -75,6 +75,16 @@ public class TargetUpdateRabbitMq {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -104,6 +114,11 @@ public class TargetUpdateRabbitMq {
   @SerializedName(SERIALIZED_NAME_RABBITMQ_SERVER_USER)
   @javax.annotation.Nullable
   private String rabbitmqServerUser;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
@@ -210,6 +225,44 @@ public class TargetUpdateRabbitMq {
 
   public void setKey(@javax.annotation.Nullable String key) {
     this.key = key;
+  }
+
+
+  public TargetUpdateRabbitMq lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetUpdateRabbitMq lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
   }
 
 
@@ -327,6 +380,25 @@ public class TargetUpdateRabbitMq {
   }
 
 
+  public TargetUpdateRabbitMq rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+  }
+
+
   public TargetUpdateRabbitMq token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -380,19 +452,22 @@ public class TargetUpdateRabbitMq {
         Objects.equals(this.json, targetUpdateRabbitMq.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateRabbitMq.keepPrevVersion) &&
         Objects.equals(this.key, targetUpdateRabbitMq.key) &&
+        Objects.equals(this.lockOnRead, targetUpdateRabbitMq.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetUpdateRabbitMq.lockTtl) &&
         Objects.equals(this.maxVersions, targetUpdateRabbitMq.maxVersions) &&
         Objects.equals(this.name, targetUpdateRabbitMq.name) &&
         Objects.equals(this.newName, targetUpdateRabbitMq.newName) &&
         Objects.equals(this.rabbitmqServerPassword, targetUpdateRabbitMq.rabbitmqServerPassword) &&
         Objects.equals(this.rabbitmqServerUri, targetUpdateRabbitMq.rabbitmqServerUri) &&
         Objects.equals(this.rabbitmqServerUser, targetUpdateRabbitMq.rabbitmqServerUser) &&
+        Objects.equals(this.rotateOnUnlock, targetUpdateRabbitMq.rotateOnUnlock) &&
         Objects.equals(this.token, targetUpdateRabbitMq.token) &&
         Objects.equals(this.uidToken, targetUpdateRabbitMq.uidToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(deleteProtection, description, json, keepPrevVersion, key, maxVersions, name, newName, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, token, uidToken);
+    return Objects.hash(deleteProtection, description, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, name, newName, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rotateOnUnlock, token, uidToken);
   }
 
   @Override
@@ -404,12 +479,15 @@ public class TargetUpdateRabbitMq {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    rabbitmqServerPassword: ").append(toIndentedString(rabbitmqServerPassword)).append("\n");
     sb.append("    rabbitmqServerUri: ").append(toIndentedString(rabbitmqServerUri)).append("\n");
     sb.append("    rabbitmqServerUser: ").append(toIndentedString(rabbitmqServerUser)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("}");
@@ -430,7 +508,7 @@ public class TargetUpdateRabbitMq {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "rabbitmq-server-password", "rabbitmq-server-uri", "rabbitmq-server-user", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("delete_protection", "description", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rabbitmq-server-password", "rabbitmq-server-uri", "rabbitmq-server-user", "rotate-on-unlock", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -476,6 +554,12 @@ public class TargetUpdateRabbitMq {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -493,6 +577,9 @@ public class TargetUpdateRabbitMq {
       }
       if ((jsonObj.get("rabbitmq-server-user") != null && !jsonObj.get("rabbitmq-server-user").isJsonNull()) && !jsonObj.get("rabbitmq-server-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rabbitmq-server-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rabbitmq-server-user").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

@@ -283,7 +283,7 @@ public class CreateUSC {
   }
 
   /**
-   * GCP Organization ID (Relevant only for GCP targets)
+   * GCP Organization ID (Relevant only for GCP targets with folder or organization scope)
    * @return gcpOrganizationId
    */
   @javax.annotation.Nullable
@@ -302,7 +302,7 @@ public class CreateUSC {
   }
 
   /**
-   * GCP Project ID (Relevant only for GCP targets)
+   * GCP Project ID to manage secrets in (Relevant only for GCP targets with project scope). If empty, the project is taken from the target.
    * @return gcpProjectId
    */
   @javax.annotation.Nullable
@@ -321,7 +321,7 @@ public class CreateUSC {
   }
 
   /**
-   * The gcp usc scope [ project / organization / folder]
+   * The GCP USC scope [project/folder/organization]. With folder/organization, all projects under the folder/org are manageable. Relevant only for GCP targets. Defaults to project when empty.
    * @return gcpScope
    */
   @javax.annotation.Nullable

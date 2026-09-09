@@ -62,6 +62,16 @@ public class UpdateMcpSecretOAuthAuthCode {
   @javax.annotation.Nullable
   private Boolean araEnabled;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -180,6 +190,44 @@ public class UpdateMcpSecretOAuthAuthCode {
 
   public void setAraEnabled(@javax.annotation.Nullable Boolean araEnabled) {
     this.araEnabled = araEnabled;
+  }
+
+
+  public UpdateMcpSecretOAuthAuthCode enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public UpdateMcpSecretOAuthAuthCode enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -523,6 +571,8 @@ public class UpdateMcpSecretOAuthAuthCode {
     UpdateMcpSecretOAuthAuthCode updateMcpSecretOAuthAuthCode = (UpdateMcpSecretOAuthAuthCode) o;
     return Objects.equals(this.accessibility, updateMcpSecretOAuthAuthCode.accessibility) &&
         Objects.equals(this.araEnabled, updateMcpSecretOAuthAuthCode.araEnabled) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, updateMcpSecretOAuthAuthCode.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, updateMcpSecretOAuthAuthCode.enableAiQuorum) &&
         Objects.equals(this.inputRule, updateMcpSecretOAuthAuthCode.inputRule) &&
         Objects.equals(this.json, updateMcpSecretOAuthAuthCode.json) &&
         Objects.equals(this.keepPrevVersion, updateMcpSecretOAuthAuthCode.keepPrevVersion) &&
@@ -543,7 +593,7 @@ public class UpdateMcpSecretOAuthAuthCode {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessibility, araEnabled, inputRule, json, keepPrevVersion, key, lastVersion, name, oauthClientId, oauthClientSecret, oauthRedirectUri, oauthRefreshToken, oauthScopes, oauthTokenUrl, outputRule, token, uidToken, url);
+    return Objects.hash(accessibility, araEnabled, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, json, keepPrevVersion, key, lastVersion, name, oauthClientId, oauthClientSecret, oauthRedirectUri, oauthRefreshToken, oauthScopes, oauthTokenUrl, outputRule, token, uidToken, url);
   }
 
   @Override
@@ -552,6 +602,8 @@ public class UpdateMcpSecretOAuthAuthCode {
     sb.append("class UpdateMcpSecretOAuthAuthCode {\n");
     sb.append("    accessibility: ").append(toIndentedString(accessibility)).append("\n");
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
@@ -586,7 +638,7 @@ public class UpdateMcpSecretOAuthAuthCode {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "ara-enabled", "input-rule", "json", "keep-prev-version", "key", "last-version", "name", "oauth-client-id", "oauth-client-secret", "oauth-redirect-uri", "oauth-refresh-token", "oauth-scopes", "oauth-token-url", "output-rule", "token", "uid-token", "url"));
+    openapiFields = new HashSet<String>(Arrays.asList("accessibility", "ara-enabled", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "json", "keep-prev-version", "key", "last-version", "name", "oauth-client-id", "oauth-client-secret", "oauth-redirect-uri", "oauth-refresh-token", "oauth-scopes", "oauth-token-url", "output-rule", "token", "uid-token", "url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -142,6 +142,16 @@ public class CreateRotatedSecret {
   @javax.annotation.Nullable
   private String lockDuringSraSession;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   @javax.annotation.Nullable
@@ -161,6 +171,11 @@ public class CreateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private String rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATED_PASSWORD = "rotated-password";
   @SerializedName(SERIALIZED_NAME_ROTATED_PASSWORD)
@@ -682,6 +697,44 @@ public class CreateRotatedSecret {
   }
 
 
+  public CreateRotatedSecret lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public CreateRotatedSecret lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public CreateRotatedSecret metadata(@javax.annotation.Nullable String metadata) {
     this.metadata = metadata;
     return this;
@@ -755,6 +808,25 @@ public class CreateRotatedSecret {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public CreateRotatedSecret rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -1475,10 +1547,13 @@ public class CreateRotatedSecret {
         Objects.equals(this.json, createRotatedSecret.json) &&
         Objects.equals(this.key, createRotatedSecret.key) &&
         Objects.equals(this.lockDuringSraSession, createRotatedSecret.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, createRotatedSecret.lockOnRead) &&
+        Objects.equals(this.lockTtl, createRotatedSecret.lockTtl) &&
         Objects.equals(this.metadata, createRotatedSecret.metadata) &&
         Objects.equals(this.name, createRotatedSecret.name) &&
         Objects.equals(this.passwordLength, createRotatedSecret.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, createRotatedSecret.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateOnUnlock, createRotatedSecret.rotateOnUnlock) &&
         Objects.equals(this.rotatedPassword, createRotatedSecret.rotatedPassword) &&
         Objects.equals(this.rotatedUsername, createRotatedSecret.rotatedUsername) &&
         Objects.equals(this.rotationHour, createRotatedSecret.rotationHour) &&
@@ -1518,7 +1593,7 @@ public class CreateRotatedSecret {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, lockDuringSraSession, metadata, name, passwordLength, rotateAfterDisconnect, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, apiId, apiKey, applicationId, authenticationCredentials, autoRotate, awsRegion, customPayload, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, hostProvider, json, key, lockDuringSraSession, lockOnRead, lockTtl, metadata, name, passwordLength, rotateAfterDisconnect, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, rotatorType, samePassword, secureAccessAllowExternalUser, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, tags, target, targetName, token, uidToken, userAttribute, userDn);
   }
 
   @Override
@@ -1543,10 +1618,13 @@ public class CreateRotatedSecret {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotatedPassword: ").append(toIndentedString(rotatedPassword)).append("\n");
     sb.append("    rotatedUsername: ").append(toIndentedString(rotatedUsername)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
@@ -1600,7 +1678,7 @@ public class CreateRotatedSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "aws-region", "custom-payload", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "host-provider", "json", "key", "lock-during-sra-session", "metadata", "name", "password-length", "rotate-after-disconnect", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "tags", "target", "target-name", "token", "uid-token", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "api-id", "api-key", "application-id", "authentication-credentials", "auto-rotate", "aws-region", "custom-payload", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "host-provider", "json", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "metadata", "name", "password-length", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "tags", "target", "target-name", "token", "uid-token", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1685,6 +1763,12 @@ public class CreateRotatedSecret {
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
       }
@@ -1696,6 +1780,9 @@ public class CreateRotatedSecret {
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("rotated-password") != null && !jsonObj.get("rotated-password").isJsonNull()) && !jsonObj.get("rotated-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotated-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotated-password").toString()));

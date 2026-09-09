@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.MigrationDownloadReport;
 import io.akeyless.client.model.MigrationItems;
 import io.akeyless.client.model.SyncCounters;
 import java.io.IOException;
@@ -61,6 +62,11 @@ public class MigrationStatusReplyObj {
   @SerializedName(SERIALIZED_NAME_COMPUTERS)
   @javax.annotation.Nullable
   private Long computers;
+
+  public static final String SERIALIZED_NAME_DOWNLOAD_REPORT = "download_report";
+  @SerializedName(SERIALIZED_NAME_DOWNLOAD_REPORT)
+  @javax.annotation.Nullable
+  private MigrationDownloadReport downloadReport;
 
   public static final String SERIALIZED_NAME_DURATION_TIME = "duration_time";
   @SerializedName(SERIALIZED_NAME_DURATION_TIME)
@@ -175,6 +181,25 @@ public class MigrationStatusReplyObj {
 
   public void setComputers(@javax.annotation.Nullable Long computers) {
     this.computers = computers;
+  }
+
+
+  public MigrationStatusReplyObj downloadReport(@javax.annotation.Nullable MigrationDownloadReport downloadReport) {
+    this.downloadReport = downloadReport;
+    return this;
+  }
+
+  /**
+   * Get downloadReport
+   * @return downloadReport
+   */
+  @javax.annotation.Nullable
+  public MigrationDownloadReport getDownloadReport() {
+    return downloadReport;
+  }
+
+  public void setDownloadReport(@javax.annotation.Nullable MigrationDownloadReport downloadReport) {
+    this.downloadReport = downloadReport;
   }
 
 
@@ -475,6 +500,7 @@ public class MigrationStatusReplyObj {
     MigrationStatusReplyObj migrationStatusReplyObj = (MigrationStatusReplyObj) o;
     return Objects.equals(this.certificates, migrationStatusReplyObj.certificates) &&
         Objects.equals(this.computers, migrationStatusReplyObj.computers) &&
+        Objects.equals(this.downloadReport, migrationStatusReplyObj.downloadReport) &&
         Objects.equals(this.durationTime, migrationStatusReplyObj.durationTime) &&
         Objects.equals(this.error, migrationStatusReplyObj.error) &&
         Objects.equals(this.lastStatusMessage, migrationStatusReplyObj.lastStatusMessage) &&
@@ -494,7 +520,7 @@ public class MigrationStatusReplyObj {
 
   @Override
   public int hashCode() {
-    return Objects.hash(certificates, computers, durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, sync, targets);
+    return Objects.hash(certificates, computers, downloadReport, durationTime, error, lastStatusMessage, maxNameLength, maxValueLength, migrationId, migrationItems, migrationName, migrationState, migrationType, migrationTypeName, rotatedSecrets, startTime, sync, targets);
   }
 
   @Override
@@ -503,6 +529,7 @@ public class MigrationStatusReplyObj {
     sb.append("class MigrationStatusReplyObj {\n");
     sb.append("    certificates: ").append(toIndentedString(certificates)).append("\n");
     sb.append("    computers: ").append(toIndentedString(computers)).append("\n");
+    sb.append("    downloadReport: ").append(toIndentedString(downloadReport)).append("\n");
     sb.append("    durationTime: ").append(toIndentedString(durationTime)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    lastStatusMessage: ").append(toIndentedString(lastStatusMessage)).append("\n");
@@ -536,7 +563,7 @@ public class MigrationStatusReplyObj {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("certificates", "computers", "duration_time", "error", "last_status_message", "max_name_length", "max_value_length", "migration_id", "migration_items", "migration_name", "migration_state", "migration_type", "migration_type_name", "rotated_secrets", "start_time", "sync", "targets"));
+    openapiFields = new HashSet<String>(Arrays.asList("certificates", "computers", "download_report", "duration_time", "error", "last_status_message", "max_name_length", "max_value_length", "migration_id", "migration_items", "migration_name", "migration_state", "migration_type", "migration_type_name", "rotated_secrets", "start_time", "sync", "targets"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -566,6 +593,10 @@ public class MigrationStatusReplyObj {
       // validate the optional field `certificates`
       if (jsonObj.get("certificates") != null && !jsonObj.get("certificates").isJsonNull()) {
         MigrationItems.validateJsonElement(jsonObj.get("certificates"));
+      }
+      // validate the optional field `download_report`
+      if (jsonObj.get("download_report") != null && !jsonObj.get("download_report").isJsonNull()) {
+        MigrationDownloadReport.validateJsonElement(jsonObj.get("download_report"));
       }
       if ((jsonObj.get("duration_time") != null && !jsonObj.get("duration_time").isJsonNull()) && !jsonObj.get("duration_time").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `duration_time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("duration_time").toString()));

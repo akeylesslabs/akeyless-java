@@ -51,6 +51,7 @@
 |**scheduledRenew** | **Long** | Number of days before expiration to renew certificates |  [optional] |
 |**serverFlag** | **Boolean** | If set, certificates will be flagged for server auth use |  [optional] |
 |**signerKeyName** | **String** | A key to sign the certificate with, required in Private CA mode |  [optional] |
+|**splitCertificateChain** | **Boolean** | If set, separates the leaf certificate from the certificate chain. |  [optional] |
 |**streetAddress** | **String** | A comma-separated list of street addresses that will be set in the issued certificate |  [optional] |
 |**tag** | **List&lt;String&gt;** | List of the tags attached to this key |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

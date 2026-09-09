@@ -79,6 +79,16 @@ public class RotatedSecretCreateGcp {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_GCP_KEY = "gcp-key";
   @SerializedName(SERIALIZED_NAME_GCP_KEY)
   @javax.annotation.Nullable
@@ -134,6 +144,16 @@ public class RotatedSecretCreateGcp {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -153,6 +173,11 @@ public class RotatedSecretCreateGcp {
   @SerializedName(SERIALIZED_NAME_PASSWORD_LENGTH)
   @javax.annotation.Nullable
   private String passwordLength;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
   @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
@@ -314,6 +339,44 @@ public class RotatedSecretCreateGcp {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public RotatedSecretCreateGcp enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretCreateGcp enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -542,6 +605,44 @@ public class RotatedSecretCreateGcp {
   }
 
 
+  public RotatedSecretCreateGcp lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretCreateGcp lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public RotatedSecretCreateGcp maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -623,6 +724,25 @@ public class RotatedSecretCreateGcp {
 
   public void setPasswordLength(@javax.annotation.Nullable String passwordLength) {
     this.passwordLength = passwordLength;
+  }
+
+
+  public RotatedSecretCreateGcp rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -904,6 +1024,8 @@ public class RotatedSecretCreateGcp {
         Objects.equals(this.autoRotate, rotatedSecretCreateGcp.autoRotate) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateGcp.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateGcp.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretCreateGcp.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretCreateGcp.enableAiQuorum) &&
         Objects.equals(this.gcpKey, rotatedSecretCreateGcp.gcpKey) &&
         Objects.equals(this.gcpServiceAccountEmail, rotatedSecretCreateGcp.gcpServiceAccountEmail) &&
         Objects.equals(this.gcpServiceAccountKeyId, rotatedSecretCreateGcp.gcpServiceAccountKeyId) &&
@@ -915,10 +1037,13 @@ public class RotatedSecretCreateGcp {
         Objects.equals(this.itemCustomFields, rotatedSecretCreateGcp.itemCustomFields) &&
         Objects.equals(this.json, rotatedSecretCreateGcp.json) &&
         Objects.equals(this.key, rotatedSecretCreateGcp.key) &&
+        Objects.equals(this.lockOnRead, rotatedSecretCreateGcp.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretCreateGcp.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateGcp.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateGcp.name) &&
         Objects.equals(this.outputRule, rotatedSecretCreateGcp.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateGcp.passwordLength) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretCreateGcp.rotateOnUnlock) &&
         Objects.equals(this.rotationEventIn, rotatedSecretCreateGcp.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateGcp.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateGcp.rotationInterval) &&
@@ -936,7 +1061,7 @@ public class RotatedSecretCreateGcp {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, maxVersions, name, outputRule, passwordLength, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(araEnabled, authenticationCredentials, autoRotate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, gcpKey, gcpServiceAccountEmail, gcpServiceAccountKeyId, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, inputRule, itemCustomFields, json, key, lockOnRead, lockTtl, maxVersions, name, outputRule, passwordLength, rotateOnUnlock, rotationEventIn, rotationHour, rotationInterval, rotatorType, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -948,6 +1073,8 @@ public class RotatedSecretCreateGcp {
     sb.append("    autoRotate: ").append(toIndentedString(autoRotate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    gcpKey: ").append(toIndentedString(gcpKey)).append("\n");
     sb.append("    gcpServiceAccountEmail: ").append(toIndentedString(gcpServiceAccountEmail)).append("\n");
     sb.append("    gcpServiceAccountKeyId: ").append(toIndentedString(gcpServiceAccountKeyId)).append("\n");
@@ -959,10 +1086,13 @@ public class RotatedSecretCreateGcp {
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
@@ -994,7 +1124,7 @@ public class RotatedSecretCreateGcp {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "max-versions", "name", "output-rule", "password-length", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "gcp-key", "gcp-service-account-email", "gcp-service-account-key-id", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-on-unlock", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1065,6 +1195,12 @@ public class RotatedSecretCreateGcp {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1077,6 +1213,9 @@ public class RotatedSecretCreateGcp {
       }
       if ((jsonObj.get("password-length") != null && !jsonObj.get("password-length").isJsonNull()) && !jsonObj.get("password-length").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password-length` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password-length").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rotation-event-in") != null && !jsonObj.get("rotation-event-in").isJsonNull() && !jsonObj.get("rotation-event-in").isJsonArray()) {

@@ -13,6 +13,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**assocRoleAuthMethod**](V2Api.md#assocRoleAuthMethod) | **POST** /assoc-role-am |  |
 | [**assocTargetItem**](V2Api.md#assocTargetItem) | **POST** /assoc-target-item |  |
 | [**auth**](V2Api.md#auth) | **POST** /auth |  |
+| [**authMethodCreateAliCloud**](V2Api.md#authMethodCreateAliCloud) | **POST** /auth-method-create-alicloud |  |
 | [**authMethodCreateApiKey**](V2Api.md#authMethodCreateApiKey) | **POST** /auth-method-create-api-key |  |
 | [**authMethodCreateAwsIam**](V2Api.md#authMethodCreateAwsIam) | **POST** /auth-method-create-aws-iam |  |
 | [**authMethodCreateAzureAD**](V2Api.md#authMethodCreateAzureAD) | **POST** /auth-method-create-azure-ad |  |
@@ -30,6 +31,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**authMethodDelete**](V2Api.md#authMethodDelete) | **POST** /auth-method-delete |  |
 | [**authMethodGet**](V2Api.md#authMethodGet) | **POST** /auth-method-get |  |
 | [**authMethodList**](V2Api.md#authMethodList) | **POST** /auth-method-list |  |
+| [**authMethodUpdateAliCloud**](V2Api.md#authMethodUpdateAliCloud) | **POST** /auth-method-update-alicloud |  |
 | [**authMethodUpdateApiKey**](V2Api.md#authMethodUpdateApiKey) | **POST** /auth-method-update-api-key |  |
 | [**authMethodUpdateAwsIam**](V2Api.md#authMethodUpdateAwsIam) | **POST** /auth-method-update-aws-iam |  |
 | [**authMethodUpdateAzureAD**](V2Api.md#authMethodUpdateAzureAD) | **POST** /auth-method-update-azure-ad |  |
@@ -1213,6 +1215,67 @@ No authorization required
 | **401** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="authMethodCreateAliCloud"></a>
+# **authMethodCreateAliCloud**
+> AuthMethodCreateOutput authMethodCreateAliCloud(authMethodCreateAliCloud)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AuthMethodCreateAliCloud authMethodCreateAliCloud = new AuthMethodCreateAliCloud(); // AuthMethodCreateAliCloud | 
+    try {
+      AuthMethodCreateOutput result = apiInstance.authMethodCreateAliCloud(authMethodCreateAliCloud);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#authMethodCreateAliCloud");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **authMethodCreateAliCloud** | [**AuthMethodCreateAliCloud**](AuthMethodCreateAliCloud.md)|  | |
+
+### Return type
+
+[**AuthMethodCreateOutput**](AuthMethodCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | authMethodCreateAliCloudResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="authMethodCreateApiKey"></a>
 # **authMethodCreateApiKey**
 > AuthMethodCreateOutput authMethodCreateApiKey(authMethodCreateApiKey)
@@ -2248,6 +2311,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | authMethodListResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="authMethodUpdateAliCloud"></a>
+# **authMethodUpdateAliCloud**
+> AuthMethodUpdateOutput authMethodUpdateAliCloud(authMethodUpdateAliCloud)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    AuthMethodUpdateAliCloud authMethodUpdateAliCloud = new AuthMethodUpdateAliCloud(); // AuthMethodUpdateAliCloud | 
+    try {
+      AuthMethodUpdateOutput result = apiInstance.authMethodUpdateAliCloud(authMethodUpdateAliCloud);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#authMethodUpdateAliCloud");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **authMethodUpdateAliCloud** | [**AuthMethodUpdateAliCloud**](AuthMethodUpdateAliCloud.md)|  | |
+
+### Return type
+
+[**AuthMethodUpdateOutput**](AuthMethodUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | authMethodUpdateAliCloudResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="authMethodUpdateApiKey"></a>

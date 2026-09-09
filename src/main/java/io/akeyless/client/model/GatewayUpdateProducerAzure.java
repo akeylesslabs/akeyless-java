@@ -94,6 +94,16 @@ public class GatewayUpdateProducerAzure {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME = "fixed-user-claim-keyname";
   @SerializedName(SERIALIZED_NAME_FIXED_USER_CLAIM_KEYNAME)
   @javax.annotation.Nullable
@@ -396,6 +406,44 @@ public class GatewayUpdateProducerAzure {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerAzure enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayUpdateProducerAzure enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -1019,6 +1067,8 @@ public class GatewayUpdateProducerAzure {
         Objects.equals(this.azureTenantId, gatewayUpdateProducerAzure.azureTenantId) &&
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerAzure.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerAzure.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayUpdateProducerAzure.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayUpdateProducerAzure.enableAiQuorum) &&
         Objects.equals(this.fixedUserClaimKeyname, gatewayUpdateProducerAzure.fixedUserClaimKeyname) &&
         Objects.equals(this.fixedUserOnly, gatewayUpdateProducerAzure.fixedUserOnly) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerAzure.inputRule) &&
@@ -1053,7 +1103,7 @@ public class GatewayUpdateProducerAzure {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appObjId, araEnabled, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
+    return Objects.hash(appObjId, araEnabled, azureAdministrativeUnit, azureClientId, azureClientSecret, azureTenantId, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, fixedUserClaimKeyname, fixedUserOnly, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, secureAccessEnable, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userGroupObjId, userPortalAccess, userPrincipalName, userProgrammaticAccess, userRoleTemplateId, userTtl);
   }
 
   @Override
@@ -1068,6 +1118,8 @@ public class GatewayUpdateProducerAzure {
     sb.append("    azureTenantId: ").append(toIndentedString(azureTenantId)).append("\n");
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    fixedUserClaimKeyname: ").append(toIndentedString(fixedUserClaimKeyname)).append("\n");
     sb.append("    fixedUserOnly: ").append(toIndentedString(fixedUserOnly)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -1116,7 +1168,7 @@ public class GatewayUpdateProducerAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("app-obj-id", "ara-enabled", "azure-administrative-unit", "azure-client-id", "azure-client-secret", "azure-tenant-id", "custom-username-template", "delete_protection", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-group-obj-id", "user-portal-access", "user-principal-name", "user-programmatic-access", "user-role-template-id", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("app-obj-id", "ara-enabled", "azure-administrative-unit", "azure-client-id", "azure-client-secret", "azure-tenant-id", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "fixed-user-claim-keyname", "fixed-user-only", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-group-obj-id", "user-portal-access", "user-principal-name", "user-programmatic-access", "user-role-template-id", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

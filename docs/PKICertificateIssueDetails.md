@@ -51,6 +51,7 @@
 |**renewBeforeExpirationInDays** | **Long** |  |  [optional] |
 |**requireCn** | **Boolean** |  |  [optional] |
 |**serverFlag** | **Boolean** |  |  [optional] |
+|**splitCertificateChain** | **Boolean** | SplitCertificateChain, when enabled, separates the leaf certificate from the certificate chain. |  [optional] |
 |**streetAddress** | **List&lt;String&gt;** |  |  [optional] |
 
 

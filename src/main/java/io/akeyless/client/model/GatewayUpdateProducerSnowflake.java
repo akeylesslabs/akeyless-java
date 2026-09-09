@@ -94,6 +94,16 @@ public class GatewayUpdateProducerSnowflake {
   @javax.annotation.Nullable
   private String deleteProtection;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_INPUT_RULE = "input-rule";
   @SerializedName(SERIALIZED_NAME_INPUT_RULE)
   @javax.annotation.Nullable
@@ -356,6 +366,44 @@ public class GatewayUpdateProducerSnowflake {
 
   public void setDeleteProtection(@javax.annotation.Nullable String deleteProtection) {
     this.deleteProtection = deleteProtection;
+  }
+
+
+  public GatewayUpdateProducerSnowflake enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public GatewayUpdateProducerSnowflake enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -827,6 +875,8 @@ public class GatewayUpdateProducerSnowflake {
         Objects.equals(this.customUsernameTemplate, gatewayUpdateProducerSnowflake.customUsernameTemplate) &&
         Objects.equals(this.dbName, gatewayUpdateProducerSnowflake.dbName) &&
         Objects.equals(this.deleteProtection, gatewayUpdateProducerSnowflake.deleteProtection) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, gatewayUpdateProducerSnowflake.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, gatewayUpdateProducerSnowflake.enableAiQuorum) &&
         Objects.equals(this.inputRule, gatewayUpdateProducerSnowflake.inputRule) &&
         Objects.equals(this.itemCustomFields, gatewayUpdateProducerSnowflake.itemCustomFields) &&
         Objects.equals(this.json, gatewayUpdateProducerSnowflake.json) &&
@@ -853,7 +903,7 @@ public class GatewayUpdateProducerSnowflake {
 
   @Override
   public int hashCode() {
-    return Objects.hash(account, accountPassword, accountUsername, araEnabled, authMode, customUsernameTemplate, dbName, deleteProtection, inputRule, itemCustomFields, json, keyAlgo, name, newName, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
+    return Objects.hash(account, accountPassword, accountUsername, araEnabled, authMode, customUsernameTemplate, dbName, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, keyAlgo, name, newName, outputRule, passwordLength, privateKey, privateKeyPassphrase, role, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl, warehouse);
   }
 
   @Override
@@ -868,6 +918,8 @@ public class GatewayUpdateProducerSnowflake {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    dbName: ").append(toIndentedString(dbName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
     sb.append("    itemCustomFields: ").append(toIndentedString(itemCustomFields)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -908,7 +960,7 @@ public class GatewayUpdateProducerSnowflake {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "ara-enabled", "auth-mode", "custom-username-template", "db-name", "delete_protection", "input-rule", "item-custom-fields", "json", "key-algo", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
+    openapiFields = new HashSet<String>(Arrays.asList("account", "account-password", "account-username", "ara-enabled", "auth-mode", "custom-username-template", "db-name", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "key-algo", "name", "new-name", "output-rule", "password-length", "private-key", "private-key-passphrase", "role", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl", "warehouse"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

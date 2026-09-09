@@ -69,6 +69,16 @@ public class DynamicSecretUpdateGke {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_GKE_ACCOUNT_KEY = "gke-account-key";
   @SerializedName(SERIALIZED_NAME_GKE_ACCOUNT_KEY)
   @javax.annotation.Nullable
@@ -251,6 +261,44 @@ public class DynamicSecretUpdateGke {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public DynamicSecretUpdateGke enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public DynamicSecretUpdateGke enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
   }
 
 
@@ -774,6 +822,8 @@ public class DynamicSecretUpdateGke {
     return Objects.equals(this.araEnabled, dynamicSecretUpdateGke.araEnabled) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateGke.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateGke.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateGke.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, dynamicSecretUpdateGke.enableAiQuorum) &&
         Objects.equals(this.gkeAccountKey, dynamicSecretUpdateGke.gkeAccountKey) &&
         Objects.equals(this.gkeClusterCert, dynamicSecretUpdateGke.gkeClusterCert) &&
         Objects.equals(this.gkeClusterEndpoint, dynamicSecretUpdateGke.gkeClusterEndpoint) &&
@@ -803,7 +853,7 @@ public class DynamicSecretUpdateGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, description, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, newName, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -813,6 +863,8 @@ public class DynamicSecretUpdateGke {
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    gkeAccountKey: ").append(toIndentedString(gkeAccountKey)).append("\n");
     sb.append("    gkeClusterCert: ").append(toIndentedString(gkeClusterCert)).append("\n");
     sb.append("    gkeClusterEndpoint: ").append(toIndentedString(gkeClusterEndpoint)).append("\n");
@@ -856,7 +908,7 @@ public class DynamicSecretUpdateGke {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip_dry_run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

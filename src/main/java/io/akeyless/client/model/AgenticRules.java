@@ -68,6 +68,11 @@ public class AgenticRules {
   @javax.annotation.Nullable
   private List<AgenticRule> outputRules = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_QUORUM_ENABLED = "quorum_enabled";
+  @SerializedName(SERIALIZED_NAME_QUORUM_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean quorumEnabled;
+
   public AgenticRules() {
   }
 
@@ -144,6 +149,25 @@ public class AgenticRules {
   }
 
 
+  public AgenticRules quorumEnabled(@javax.annotation.Nullable Boolean quorumEnabled) {
+    this.quorumEnabled = quorumEnabled;
+    return this;
+  }
+
+  /**
+   * QuorumEnabled asks for this item&#39;s policy decisions to be evaluated by every model configured on the gateway rather than the Default alone.  Also a pointer, but with the opposite nil meaning to Enabled above: nil is OFF. Enabled defaults on because it governs rules that were already being enforced before the field existed, whereas quorum is new behavior that multiplies latency and denies fail-closed - an item that never asked for it must not acquire it by upgrade.
+   * @return quorumEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getQuorumEnabled() {
+    return quorumEnabled;
+  }
+
+  public void setQuorumEnabled(@javax.annotation.Nullable Boolean quorumEnabled) {
+    this.quorumEnabled = quorumEnabled;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -156,12 +180,13 @@ public class AgenticRules {
     AgenticRules agenticRules = (AgenticRules) o;
     return Objects.equals(this.enabled, agenticRules.enabled) &&
         Objects.equals(this.inputRules, agenticRules.inputRules) &&
-        Objects.equals(this.outputRules, agenticRules.outputRules);
+        Objects.equals(this.outputRules, agenticRules.outputRules) &&
+        Objects.equals(this.quorumEnabled, agenticRules.quorumEnabled);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, inputRules, outputRules);
+    return Objects.hash(enabled, inputRules, outputRules, quorumEnabled);
   }
 
   @Override
@@ -171,6 +196,7 @@ public class AgenticRules {
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    inputRules: ").append(toIndentedString(inputRules)).append("\n");
     sb.append("    outputRules: ").append(toIndentedString(outputRules)).append("\n");
+    sb.append("    quorumEnabled: ").append(toIndentedString(quorumEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -189,7 +215,7 @@ public class AgenticRules {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("enabled", "input_rules", "output_rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("enabled", "input_rules", "output_rules", "quorum_enabled"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

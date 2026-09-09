@@ -368,7 +368,7 @@ public class AuthMethod {
   }
 
   /**
-   * BookmarkLoginURLTemplate is an OIDC login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback.
+   * BookmarkLoginURLTemplate is an OIDC/SAML login URL template for console bookmarks. SaaS-owned methods use {redirect_uri} for client substitution; AuthViaGw embeds the GW console callback.
    * @return bookmarkLoginUrlTemplate
    */
   @javax.annotation.Nullable

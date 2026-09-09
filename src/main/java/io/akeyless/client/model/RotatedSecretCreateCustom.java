@@ -89,6 +89,16 @@ public class RotatedSecretCreateCustom {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
+  @javax.annotation.Nullable
+  private Boolean enableAgenticRuntimeAuthority;
+
+  public static final String SERIALIZED_NAME_ENABLE_AI_QUORUM = "enable-ai-quorum";
+  @SerializedName(SERIALIZED_NAME_ENABLE_AI_QUORUM)
+  @javax.annotation.Nullable
+  private Boolean enableAiQuorum;
+
   public static final String SERIALIZED_NAME_ENABLE_PASSWORD_POLICY = "enable-password-policy";
   @SerializedName(SERIALIZED_NAME_ENABLE_PASSWORD_POLICY)
   @javax.annotation.Nullable
@@ -124,6 +134,16 @@ public class RotatedSecretCreateCustom {
   @javax.annotation.Nullable
   private String lockDuringSraSession;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -148,6 +168,11 @@ public class RotatedSecretCreateCustom {
   @SerializedName(SERIALIZED_NAME_ROTATE_AFTER_DISCONNECT)
   @javax.annotation.Nullable
   private String rotateAfterDisconnect;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_ROTATION_EVENT_IN = "rotation-event-in";
   @SerializedName(SERIALIZED_NAME_ROTATION_EVENT_IN)
@@ -420,6 +445,44 @@ public class RotatedSecretCreateCustom {
   }
 
 
+  public RotatedSecretCreateCustom enableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+    return this;
+  }
+
+  /**
+   * EnableAra is the documented spelling of AraEnabled. Both set the same field; --ara-enabled shipped first and stays as an undocumented alias so existing scripts and the Terraform provider keep working.
+   * @return enableAgenticRuntimeAuthority
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAgenticRuntimeAuthority() {
+    return enableAgenticRuntimeAuthority;
+  }
+
+  public void setEnableAgenticRuntimeAuthority(@javax.annotation.Nullable Boolean enableAgenticRuntimeAuthority) {
+    this.enableAgenticRuntimeAuthority = enableAgenticRuntimeAuthority;
+  }
+
+
+  public RotatedSecretCreateCustom enableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+    return this;
+  }
+
+  /**
+   * Turns on AI Quorum checks for this item.
+   * @return enableAiQuorum
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableAiQuorum() {
+    return enableAiQuorum;
+  }
+
+  public void setEnableAiQuorum(@javax.annotation.Nullable Boolean enableAiQuorum) {
+    this.enableAiQuorum = enableAiQuorum;
+  }
+
+
   public RotatedSecretCreateCustom enablePasswordPolicy(@javax.annotation.Nullable String enablePasswordPolicy) {
     this.enablePasswordPolicy = enablePasswordPolicy;
     return this;
@@ -569,6 +632,44 @@ public class RotatedSecretCreateCustom {
   }
 
 
+  public RotatedSecretCreateCustom lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public RotatedSecretCreateCustom lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public RotatedSecretCreateCustom maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -669,6 +770,25 @@ public class RotatedSecretCreateCustom {
 
   public void setRotateAfterDisconnect(@javax.annotation.Nullable String rotateAfterDisconnect) {
     this.rotateAfterDisconnect = rotateAfterDisconnect;
+  }
+
+
+  public RotatedSecretCreateCustom rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -1234,6 +1354,8 @@ public class RotatedSecretCreateCustom {
         Objects.equals(this.customPayload, rotatedSecretCreateCustom.customPayload) &&
         Objects.equals(this.deleteProtection, rotatedSecretCreateCustom.deleteProtection) &&
         Objects.equals(this.description, rotatedSecretCreateCustom.description) &&
+        Objects.equals(this.enableAgenticRuntimeAuthority, rotatedSecretCreateCustom.enableAgenticRuntimeAuthority) &&
+        Objects.equals(this.enableAiQuorum, rotatedSecretCreateCustom.enableAiQuorum) &&
         Objects.equals(this.enablePasswordPolicy, rotatedSecretCreateCustom.enablePasswordPolicy) &&
         Objects.equals(this.hostProvider, rotatedSecretCreateCustom.hostProvider) &&
         Objects.equals(this.inputRule, rotatedSecretCreateCustom.inputRule) &&
@@ -1241,11 +1363,14 @@ public class RotatedSecretCreateCustom {
         Objects.equals(this.json, rotatedSecretCreateCustom.json) &&
         Objects.equals(this.key, rotatedSecretCreateCustom.key) &&
         Objects.equals(this.lockDuringSraSession, rotatedSecretCreateCustom.lockDuringSraSession) &&
+        Objects.equals(this.lockOnRead, rotatedSecretCreateCustom.lockOnRead) &&
+        Objects.equals(this.lockTtl, rotatedSecretCreateCustom.lockTtl) &&
         Objects.equals(this.maxVersions, rotatedSecretCreateCustom.maxVersions) &&
         Objects.equals(this.name, rotatedSecretCreateCustom.name) &&
         Objects.equals(this.outputRule, rotatedSecretCreateCustom.outputRule) &&
         Objects.equals(this.passwordLength, rotatedSecretCreateCustom.passwordLength) &&
         Objects.equals(this.rotateAfterDisconnect, rotatedSecretCreateCustom.rotateAfterDisconnect) &&
+        Objects.equals(this.rotateOnUnlock, rotatedSecretCreateCustom.rotateOnUnlock) &&
         Objects.equals(this.rotationEventIn, rotatedSecretCreateCustom.rotationEventIn) &&
         Objects.equals(this.rotationHour, rotatedSecretCreateCustom.rotationHour) &&
         Objects.equals(this.rotationInterval, rotatedSecretCreateCustom.rotationInterval) &&
@@ -1277,7 +1402,7 @@ public class RotatedSecretCreateCustom {
 
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, araEnabled, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, enablePasswordPolicy, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, timeoutSec, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(providerType, araEnabled, authenticationCredentials, autoRotate, customPayload, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, enablePasswordPolicy, hostProvider, inputRule, itemCustomFields, json, key, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, outputRule, passwordLength, rotateAfterDisconnect, rotateOnUnlock, rotationEventIn, rotationHour, rotationInterval, secureAccessAllowExternalUser, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessSshUser, secureAccessUrl, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, target, targetName, timeoutSec, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1291,6 +1416,8 @@ public class RotatedSecretCreateCustom {
     sb.append("    customPayload: ").append(toIndentedString(customPayload)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
+    sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    enablePasswordPolicy: ").append(toIndentedString(enablePasswordPolicy)).append("\n");
     sb.append("    hostProvider: ").append(toIndentedString(hostProvider)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -1298,11 +1425,14 @@ public class RotatedSecretCreateCustom {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
     sb.append("    lockDuringSraSession: ").append(toIndentedString(lockDuringSraSession)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    rotateAfterDisconnect: ").append(toIndentedString(rotateAfterDisconnect)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    rotationEventIn: ").append(toIndentedString(rotationEventIn)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationInterval: ").append(toIndentedString(rotationInterval)).append("\n");
@@ -1348,7 +1478,7 @@ public class RotatedSecretCreateCustom {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "custom-payload", "delete_protection", "description", "enable-password-policy", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "timeout-sec", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "custom-payload", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "enable-password-policy", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotate-on-unlock", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-ssh-user", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "timeout-sec", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -1416,6 +1546,12 @@ public class RotatedSecretCreateCustom {
       if ((jsonObj.get("lock-during-sra-session") != null && !jsonObj.get("lock-during-sra-session").isJsonNull()) && !jsonObj.get("lock-during-sra-session").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-during-sra-session` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-during-sra-session").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -1431,6 +1567,9 @@ public class RotatedSecretCreateCustom {
       }
       if ((jsonObj.get("rotate-after-disconnect") != null && !jsonObj.get("rotate-after-disconnect").isJsonNull()) && !jsonObj.get("rotate-after-disconnect").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-after-disconnect` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-after-disconnect").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("rotation-event-in") != null && !jsonObj.get("rotation-event-in").isJsonNull() && !jsonObj.get("rotation-event-in").isJsonArray()) {

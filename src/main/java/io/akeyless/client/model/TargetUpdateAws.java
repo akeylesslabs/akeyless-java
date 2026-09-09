@@ -90,6 +90,16 @@ public class TargetUpdateAws {
   @javax.annotation.Nullable
   private String key;
 
+  public static final String SERIALIZED_NAME_LOCK_ON_READ = "lock-on-read";
+  @SerializedName(SERIALIZED_NAME_LOCK_ON_READ)
+  @javax.annotation.Nullable
+  private String lockOnRead;
+
+  public static final String SERIALIZED_NAME_LOCK_TTL = "lock-ttl";
+  @SerializedName(SERIALIZED_NAME_LOCK_TTL)
+  @javax.annotation.Nullable
+  private String lockTtl;
+
   public static final String SERIALIZED_NAME_MAX_VERSIONS = "max-versions";
   @SerializedName(SERIALIZED_NAME_MAX_VERSIONS)
   @javax.annotation.Nullable
@@ -114,6 +124,11 @@ public class TargetUpdateAws {
   @SerializedName(SERIALIZED_NAME_ROLE_ARN)
   @javax.annotation.Nullable
   private String roleArn;
+
+  public static final String SERIALIZED_NAME_ROTATE_ON_UNLOCK = "rotate-on-unlock";
+  @SerializedName(SERIALIZED_NAME_ROTATE_ON_UNLOCK)
+  @javax.annotation.Nullable
+  private String rotateOnUnlock;
 
   public static final String SERIALIZED_NAME_SESSION_TOKEN = "session-token";
   @SerializedName(SERIALIZED_NAME_SESSION_TOKEN)
@@ -290,6 +305,44 @@ public class TargetUpdateAws {
   }
 
 
+  public TargetUpdateAws lockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+    return this;
+  }
+
+  /**
+   * Lock this secret after each successful value read
+   * @return lockOnRead
+   */
+  @javax.annotation.Nullable
+  public String getLockOnRead() {
+    return lockOnRead;
+  }
+
+  public void setLockOnRead(@javax.annotation.Nullable String lockOnRead) {
+    this.lockOnRead = lockOnRead;
+  }
+
+
+  public TargetUpdateAws lockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+    return this;
+  }
+
+  /**
+   * Lock TTL in minutes
+   * @return lockTtl
+   */
+  @javax.annotation.Nullable
+  public String getLockTtl() {
+    return lockTtl;
+  }
+
+  public void setLockTtl(@javax.annotation.Nullable String lockTtl) {
+    this.lockTtl = lockTtl;
+  }
+
+
   public TargetUpdateAws maxVersions(@javax.annotation.Nullable String maxVersions) {
     this.maxVersions = maxVersions;
     return this;
@@ -382,6 +435,25 @@ public class TargetUpdateAws {
 
   public void setRoleArn(@javax.annotation.Nullable String roleArn) {
     this.roleArn = roleArn;
+  }
+
+
+  public TargetUpdateAws rotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
+    return this;
+  }
+
+  /**
+   * Rotate this secret after it is unlocked
+   * @return rotateOnUnlock
+   */
+  @javax.annotation.Nullable
+  public String getRotateOnUnlock() {
+    return rotateOnUnlock;
+  }
+
+  public void setRotateOnUnlock(@javax.annotation.Nullable String rotateOnUnlock) {
+    this.rotateOnUnlock = rotateOnUnlock;
   }
 
 
@@ -479,11 +551,14 @@ public class TargetUpdateAws {
         Objects.equals(this.json, targetUpdateAws.json) &&
         Objects.equals(this.keepPrevVersion, targetUpdateAws.keepPrevVersion) &&
         Objects.equals(this.key, targetUpdateAws.key) &&
+        Objects.equals(this.lockOnRead, targetUpdateAws.lockOnRead) &&
+        Objects.equals(this.lockTtl, targetUpdateAws.lockTtl) &&
         Objects.equals(this.maxVersions, targetUpdateAws.maxVersions) &&
         Objects.equals(this.name, targetUpdateAws.name) &&
         Objects.equals(this.newName, targetUpdateAws.newName) &&
         Objects.equals(this.region, targetUpdateAws.region) &&
         Objects.equals(this.roleArn, targetUpdateAws.roleArn) &&
+        Objects.equals(this.rotateOnUnlock, targetUpdateAws.rotateOnUnlock) &&
         Objects.equals(this.sessionToken, targetUpdateAws.sessionToken) &&
         Objects.equals(this.token, targetUpdateAws.token) &&
         Objects.equals(this.uidToken, targetUpdateAws.uidToken) &&
@@ -492,7 +567,7 @@ public class TargetUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKey, accessKeyId, deleteProtection, description, generateExternalId, json, keepPrevVersion, key, maxVersions, name, newName, region, roleArn, sessionToken, token, uidToken, useGwCloudIdentity);
+    return Objects.hash(accessKey, accessKeyId, deleteProtection, description, generateExternalId, json, keepPrevVersion, key, lockOnRead, lockTtl, maxVersions, name, newName, region, roleArn, rotateOnUnlock, sessionToken, token, uidToken, useGwCloudIdentity);
   }
 
   @Override
@@ -507,11 +582,14 @@ public class TargetUpdateAws {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keepPrevVersion: ").append(toIndentedString(keepPrevVersion)).append("\n");
     sb.append("    key: ").append(toIndentedString(key)).append("\n");
+    sb.append("    lockOnRead: ").append(toIndentedString(lockOnRead)).append("\n");
+    sb.append("    lockTtl: ").append(toIndentedString(lockTtl)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    roleArn: ").append(toIndentedString(roleArn)).append("\n");
+    sb.append("    rotateOnUnlock: ").append(toIndentedString(rotateOnUnlock)).append("\n");
     sb.append("    sessionToken: ").append(toIndentedString(sessionToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -534,7 +612,7 @@ public class TargetUpdateAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-key", "access-key-id", "delete_protection", "description", "generate-external-id", "json", "keep-prev-version", "key", "max-versions", "name", "new-name", "region", "role-arn", "session-token", "token", "uid-token", "use-gw-cloud-identity"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-key", "access-key-id", "delete_protection", "description", "generate-external-id", "json", "keep-prev-version", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "region", "role-arn", "rotate-on-unlock", "session-token", "token", "uid-token", "use-gw-cloud-identity"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("access-key", "access-key-id", "name"));
@@ -586,6 +664,12 @@ public class TargetUpdateAws {
       if ((jsonObj.get("key") != null && !jsonObj.get("key").isJsonNull()) && !jsonObj.get("key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key").toString()));
       }
+      if ((jsonObj.get("lock-on-read") != null && !jsonObj.get("lock-on-read").isJsonNull()) && !jsonObj.get("lock-on-read").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-on-read` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-on-read").toString()));
+      }
+      if ((jsonObj.get("lock-ttl") != null && !jsonObj.get("lock-ttl").isJsonNull()) && !jsonObj.get("lock-ttl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `lock-ttl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lock-ttl").toString()));
+      }
       if ((jsonObj.get("max-versions") != null && !jsonObj.get("max-versions").isJsonNull()) && !jsonObj.get("max-versions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `max-versions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("max-versions").toString()));
       }
@@ -600,6 +684,9 @@ public class TargetUpdateAws {
       }
       if ((jsonObj.get("role-arn") != null && !jsonObj.get("role-arn").isJsonNull()) && !jsonObj.get("role-arn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `role-arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role-arn").toString()));
+      }
+      if ((jsonObj.get("rotate-on-unlock") != null && !jsonObj.get("rotate-on-unlock").isJsonNull()) && !jsonObj.get("rotate-on-unlock").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-on-unlock` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-on-unlock").toString()));
       }
       if ((jsonObj.get("session-token") != null && !jsonObj.get("session-token").isJsonNull()) && !jsonObj.get("session-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `session-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session-token").toString()));

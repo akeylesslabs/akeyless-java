@@ -17,9 +17,12 @@ targetUpdateLdap is a command that updates an existing ldap target
 |**key** | **String** | The name of a key that used to encrypt the target secret value (if empty, the account default protectionKey key will be used) |  [optional] |
 |**ldapCaCert** | **String** | CA Certificate File Content |  [optional] |
 |**ldapUrl** | **String** | LDAP Server URL |  |
+|**lockOnRead** | **String** | Lock this secret after each successful value read |  [optional] |
+|**lockTtl** | **String** | Lock TTL in minutes |  [optional] |
 |**maxVersions** | **String** | Set the maximum number of versions, limited by the account settings defaults. |  [optional] |
 |**name** | **String** | Target name |  |
 |**newName** | **String** | New target name |  [optional] |
+|**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**serverType** | **String** | Set Ldap server type, Options:[OpenLDAP, ActiveDirectory] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**tokenExpiration** | **String** | Token expiration |  [optional] |
