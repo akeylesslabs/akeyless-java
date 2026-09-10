@@ -75,6 +75,11 @@ public class UscList {
   @javax.annotation.Nullable
   private String pageToken;
 
+  public static final String SERIALIZED_NAME_SEARCH = "search";
+  @SerializedName(SERIALIZED_NAME_SEARCH)
+  @javax.annotation.Nullable
+  private String search;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -156,7 +161,7 @@ public class UscList {
   }
 
   /**
-   * Optional: number of items requested per response (Azure KV). When set, response may include next_token
+   * Optional: number of items requested per response. When set, response may include next_token
    * @return pageSize
    */
   @javax.annotation.Nullable
@@ -185,6 +190,25 @@ public class UscList {
 
   public void setPageToken(@javax.annotation.Nullable String pageToken) {
     this.pageToken = pageToken;
+  }
+
+
+  public UscList search(@javax.annotation.Nullable String search) {
+    this.search = search;
+    return this;
+  }
+
+  /**
+   * Search query used to match secret names and paths.
+   * @return search
+   */
+  @javax.annotation.Nullable
+  public String getSearch() {
+    return search;
+  }
+
+  public void setSearch(@javax.annotation.Nullable String search) {
+    this.search = search;
   }
 
 
@@ -260,6 +284,7 @@ public class UscList {
         Objects.equals(this.objectType, uscList.objectType) &&
         Objects.equals(this.pageSize, uscList.pageSize) &&
         Objects.equals(this.pageToken, uscList.pageToken) &&
+        Objects.equals(this.search, uscList.search) &&
         Objects.equals(this.token, uscList.token) &&
         Objects.equals(this.uidToken, uscList.uidToken) &&
         Objects.equals(this.uscName, uscList.uscName);
@@ -267,7 +292,7 @@ public class UscList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpProjectId, json, objectType, pageSize, pageToken, token, uidToken, uscName);
+    return Objects.hash(gcpProjectId, json, objectType, pageSize, pageToken, search, token, uidToken, uscName);
   }
 
   @Override
@@ -279,6 +304,7 @@ public class UscList {
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
+    sb.append("    search: ").append(toIndentedString(search)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    uscName: ").append(toIndentedString(uscName)).append("\n");
@@ -300,7 +326,7 @@ public class UscList {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("gcp-project-id", "json", "object-type", "page-size", "page-token", "token", "uid-token", "usc-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("gcp-project-id", "json", "object-type", "page-size", "page-token", "search", "token", "uid-token", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("usc-name"));
@@ -342,6 +368,9 @@ public class UscList {
       }
       if ((jsonObj.get("page-token") != null && !jsonObj.get("page-token").isJsonNull()) && !jsonObj.get("page-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `page-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("page-token").toString()));
+      }
+      if ((jsonObj.get("search") != null && !jsonObj.get("search").isJsonNull()) && !jsonObj.get("search").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `search` to be a primitive type in the JSON string but got `%s`", jsonObj.get("search").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

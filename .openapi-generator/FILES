@@ -2580,13 +2580,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AiModelEntryTest.java
-src/test/java/io/akeyless/client/model/AiQuorumSettingTest.java
-src/test/java/io/akeyless/client/model/AliCloudAccessRulesTest.java
-src/test/java/io/akeyless/client/model/AuthMethodCreateAliCloudTest.java
-src/test/java/io/akeyless/client/model/AuthMethodUpdateAliCloudTest.java
-src/test/java/io/akeyless/client/model/MigrationDownloadJobTest.java
-src/test/java/io/akeyless/client/model/MigrationDownloadReportTest.java
-src/test/java/io/akeyless/client/model/MigrationDownloadSecretTest.java
-src/test/java/io/akeyless/client/model/MigrationDownloadSummaryTest.java
-src/test/java/io/akeyless/client/model/SamlSpConfigPartTest.java
