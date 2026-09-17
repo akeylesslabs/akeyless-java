@@ -30,7 +30,7 @@ GatewayUpdateProducerSnowflakeCmd is a command that updates a Snowflake dynamic 
 |**privateKey** | **String** | RSA Private key (base64 encoded) |  [optional] |
 |**privateKeyPassphrase** | **String** | The Private key passphrase |  [optional] |
 |**role** | **String** | User role |  [optional] |
-|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
+|**skipDryRun** | **Boolean** | If set, dry-run will be skipped [true/false] |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**targetName** | **String** | Target name |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

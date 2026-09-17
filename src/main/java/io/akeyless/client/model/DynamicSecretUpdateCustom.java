@@ -144,10 +144,10 @@ public class DynamicSecretUpdateCustom {
   @javax.annotation.Nullable
   private String rotateSyncUrl;
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -543,21 +543,21 @@ public class DynamicSecretUpdateCustom {
   }
 
 
-  public DynamicSecretUpdateCustom skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public DynamicSecretUpdateCustom skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -752,7 +752,7 @@ public class DynamicSecretUpdateCustom {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "ara-enabled", "create-sync-url", "delete_protection", "description", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "payload", "producer-encryption-key-name", "revoke-sync-url", "rotate-sync-url", "skip_dry_run", "tags", "timeout-sec", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "ara-enabled", "create-sync-url", "delete_protection", "description", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "payload", "producer-encryption-key-name", "revoke-sync-url", "rotate-sync-url", "skip-dry-run", "tags", "timeout-sec", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("create-sync-url", "name", "revoke-sync-url"));
@@ -820,9 +820,6 @@ public class DynamicSecretUpdateCustom {
       }
       if ((jsonObj.get("rotate-sync-url") != null && !jsonObj.get("rotate-sync-url").isJsonNull()) && !jsonObj.get("rotate-sync-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `rotate-sync-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rotate-sync-url").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

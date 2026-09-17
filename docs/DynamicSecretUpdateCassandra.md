@@ -27,7 +27,7 @@ dynamicSecretUpdateCassandra is a command that updates a Cassandra dynamic secre
 |**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**passwordLength** | **String** | The length of the password to be generated |  [optional] |
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
-|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
+|**skipDryRun** | **Boolean** | If set, dry-run will be skipped [true/false] |  [optional] |
 |**ssl** | **Boolean** | Enable/Disable SSL [true/false] |  [optional] |
 |**sslCertificate** | **String** | SSL CA certificate in base64 encoding generated from a trusted Certificate Authority (CA) |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |

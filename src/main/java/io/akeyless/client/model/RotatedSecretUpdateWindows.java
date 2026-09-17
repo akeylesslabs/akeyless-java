@@ -259,10 +259,10 @@ public class RotatedSecretUpdateWindows {
   @javax.annotation.Nullable
   private String secureAccessRdpUser;
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
   @SerializedName(SERIALIZED_NAME_TARGET)
@@ -1137,21 +1137,21 @@ public class RotatedSecretUpdateWindows {
   }
 
 
-  public RotatedSecretUpdateWindows skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public RotatedSecretUpdateWindows skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -1434,7 +1434,7 @@ public class RotatedSecretUpdateWindows {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "host-provider", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "skip_dry_run", "target", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "host-provider", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "output-rule", "password-length", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "same-password", "secure-access-allow-external-user", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "skip-dry-run", "target", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type"));
@@ -1572,9 +1572,6 @@ public class RotatedSecretUpdateWindows {
       }
       if ((jsonObj.get("secure-access-rdp-user") != null && !jsonObj.get("secure-access-rdp-user").isJsonNull()) && !jsonObj.get("secure-access-rdp-user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-rdp-user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-rdp-user").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull() && !jsonObj.get("target").isJsonArray()) {

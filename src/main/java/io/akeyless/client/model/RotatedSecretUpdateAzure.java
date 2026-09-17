@@ -274,10 +274,10 @@ public class RotatedSecretUpdateAzure {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME = "storage-account-key-name";
   @SerializedName(SERIALIZED_NAME_STORAGE_ACCOUNT_KEY_NAME)
@@ -1206,21 +1206,21 @@ public class RotatedSecretUpdateAzure {
   }
 
 
-  public RotatedSecretUpdateAzure skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public RotatedSecretUpdateAzure skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -1522,7 +1522,7 @@ public class RotatedSecretUpdateAzure {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "application-id", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "storage-account-key-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("add-tag", "api-id", "api-key", "application-id", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "explicitly-set-sa", "grace-rotation", "grace-rotation-hour", "grace-rotation-interval", "grace-rotation-timing", "input-rule", "item-custom-fields", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "output-rule", "password", "password-length", "resource-group-name", "resource-name", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotation-event-in", "rotation-hour", "rotation-interval", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip-dry-run", "storage-account-key-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1659,9 +1659,6 @@ public class RotatedSecretUpdateAzure {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       if ((jsonObj.get("storage-account-key-name") != null && !jsonObj.get("storage-account-key-name").isJsonNull()) && !jsonObj.get("storage-account-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `storage-account-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storage-account-key-name").toString()));

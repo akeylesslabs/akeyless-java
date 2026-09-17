@@ -124,6 +124,11 @@ public class AuthMethodAccessInfo {
   @javax.annotation.Nullable
   private EmailPassAccessRules emailPassAccessRules;
 
+  public static final String SERIALIZED_NAME_ENFORCE_CLIENT_TYPE = "enforce_client_type";
+  @SerializedName(SERIALIZED_NAME_ENFORCE_CLIENT_TYPE)
+  @javax.annotation.Nullable
+  private Boolean enforceClientType;
+
   public static final String SERIALIZED_NAME_FORCE_SUB_CLAIMS = "force_sub_claims";
   @SerializedName(SERIALIZED_NAME_FORCE_SUB_CLAIMS)
   @javax.annotation.Nullable
@@ -434,6 +439,25 @@ public class AuthMethodAccessInfo {
 
   public void setEmailPassAccessRules(@javax.annotation.Nullable EmailPassAccessRules emailPassAccessRules) {
     this.emailPassAccessRules = emailPassAccessRules;
+  }
+
+
+  public AuthMethodAccessInfo enforceClientType(@javax.annotation.Nullable Boolean enforceClientType) {
+    this.enforceClientType = enforceClientType;
+    return this;
+  }
+
+  /**
+   * EnforceClientType mirrors the SaaS Auth client-type enforcement decision (GwAuthEligibilityReply.EnforceClientType) captured online, so Gateway-owned offline auth and cached-creds usage honor the same enforce flag SaaS uses (see base_access.AuthenticateClientType). When false, client-type mismatches are not rejected.
+   * @return enforceClientType
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnforceClientType() {
+    return enforceClientType;
+  }
+
+  public void setEnforceClientType(@javax.annotation.Nullable Boolean enforceClientType) {
+    this.enforceClientType = enforceClientType;
   }
 
 
@@ -805,6 +829,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.certAccessRules, authMethodAccessInfo.certAccessRules) &&
         Objects.equals(this.cidrWhitelist, authMethodAccessInfo.cidrWhitelist) &&
         Objects.equals(this.emailPassAccessRules, authMethodAccessInfo.emailPassAccessRules) &&
+        Objects.equals(this.enforceClientType, authMethodAccessInfo.enforceClientType) &&
         Objects.equals(this.forceSubClaims, authMethodAccessInfo.forceSubClaims) &&
         Objects.equals(this.gcpAccessRules, authMethodAccessInfo.gcpAccessRules) &&
         Objects.equals(this.gwCidrWhitelist, authMethodAccessInfo.gwCidrWhitelist) &&
@@ -826,7 +851,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, alicloudAccessRules, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, alicloudAccessRules, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, enforceClientType, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
   }
 
   @Override
@@ -844,6 +869,7 @@ public class AuthMethodAccessInfo {
     sb.append("    certAccessRules: ").append(toIndentedString(certAccessRules)).append("\n");
     sb.append("    cidrWhitelist: ").append(toIndentedString(cidrWhitelist)).append("\n");
     sb.append("    emailPassAccessRules: ").append(toIndentedString(emailPassAccessRules)).append("\n");
+    sb.append("    enforceClientType: ").append(toIndentedString(enforceClientType)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
     sb.append("    gcpAccessRules: ").append(toIndentedString(gcpAccessRules)).append("\n");
     sb.append("    gwCidrWhitelist: ").append(toIndentedString(gwCidrWhitelist)).append("\n");
@@ -879,7 +905,7 @@ public class AuthMethodAccessInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "alicloud_access_rules", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "alicloud_access_rules", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "enforce_client_type", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

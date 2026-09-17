@@ -24,7 +24,7 @@
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
 |**revokeSyncUrl** | **String** | URL of an endpoint that implements /sync/revoke method, for example https://webhook.example.com/sync/revoke |  |
 |**rotateSyncUrl** | **String** | URL of an endpoint that implements /sync/rotate method, for example https://webhook.example.com/sync/rotate |  [optional] |
-|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
+|**skipDryRun** | **Boolean** | If set, dry-run will be skipped [true/false] |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**timeoutSec** | **Long** | Maximum allowed time in seconds for the webhook to return the results |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

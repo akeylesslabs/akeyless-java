@@ -97,6 +97,11 @@ public class CreateAuthMethodSAML {
   @javax.annotation.Nullable
   private Boolean forceSubClaims;
 
+  public static final String SERIALIZED_NAME_GATEWAY_URL = "gateway-url";
+  @SerializedName(SERIALIZED_NAME_GATEWAY_URL)
+  @javax.annotation.Nullable
+  private String gatewayUrl;
+
   public static final String SERIALIZED_NAME_GW_BOUND_IPS = "gw-bound-ips";
   @SerializedName(SERIALIZED_NAME_GW_BOUND_IPS)
   @javax.annotation.Nullable
@@ -371,6 +376,25 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML gatewayUrl(@javax.annotation.Nullable String gatewayUrl) {
+    this.gatewayUrl = gatewayUrl;
+    return this;
+  }
+
+  /**
+   * Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode
+   * @return gatewayUrl
+   */
+  @javax.annotation.Nullable
+  public String getGatewayUrl() {
+    return gatewayUrl;
+  }
+
+  public void setGatewayUrl(@javax.annotation.Nullable String gatewayUrl) {
+    this.gatewayUrl = gatewayUrl;
+  }
+
+
   public CreateAuthMethodSAML gwBoundIps(@javax.annotation.Nullable List<String> gwBoundIps) {
     this.gwBoundIps = gwBoundIps;
     return this;
@@ -642,6 +666,7 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.description, createAuthMethodSAML.description) &&
         Objects.equals(this.expirationEventIn, createAuthMethodSAML.expirationEventIn) &&
         Objects.equals(this.forceSubClaims, createAuthMethodSAML.forceSubClaims) &&
+        Objects.equals(this.gatewayUrl, createAuthMethodSAML.gatewayUrl) &&
         Objects.equals(this.gwBoundIps, createAuthMethodSAML.gwBoundIps) &&
         Objects.equals(this.idpMetadataUrl, createAuthMethodSAML.idpMetadataUrl) &&
         Objects.equals(this.idpMetadataXmlData, createAuthMethodSAML.idpMetadataXmlData) &&
@@ -658,7 +683,7 @@ public class CreateAuthMethodSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
   }
 
   @Override
@@ -674,6 +699,7 @@ public class CreateAuthMethodSAML {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    forceSubClaims: ").append(toIndentedString(forceSubClaims)).append("\n");
+    sb.append("    gatewayUrl: ").append(toIndentedString(gatewayUrl)).append("\n");
     sb.append("    gwBoundIps: ").append(toIndentedString(gwBoundIps)).append("\n");
     sb.append("    idpMetadataUrl: ").append(toIndentedString(idpMetadataUrl)).append("\n");
     sb.append("    idpMetadataXmlData: ").append(toIndentedString(idpMetadataXmlData)).append("\n");
@@ -704,7 +730,7 @@ public class CreateAuthMethodSAML {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -763,6 +789,9 @@ public class CreateAuthMethodSAML {
       // ensure the optional json data is an array if present
       if (jsonObj.get("expiration-event-in") != null && !jsonObj.get("expiration-event-in").isJsonNull() && !jsonObj.get("expiration-event-in").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `expiration-event-in` to be an array in the JSON string but got `%s`", jsonObj.get("expiration-event-in").toString()));
+      }
+      if ((jsonObj.get("gateway-url") != null && !jsonObj.get("gateway-url").isJsonNull()) && !jsonObj.get("gateway-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gateway-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gateway-url").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("gw-bound-ips") != null && !jsonObj.get("gw-bound-ips").isJsonNull() && !jsonObj.get("gw-bound-ips").isJsonArray()) {

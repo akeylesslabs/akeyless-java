@@ -17,7 +17,7 @@ gatewayUpdateTmpUsers is a command that returns gateway configuration [Deprecate
 |**name** | **String** | Dynamic secret name |  |
 |**newTtlMin** | **Long** | New TTL in Minutes |  |
 |**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
-|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
+|**skipDryRun** | **Boolean** | If set, dry-run will be skipped [true/false] |  [optional] |
 |**tmpCredsId** | **String** | Tmp Creds ID |  |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

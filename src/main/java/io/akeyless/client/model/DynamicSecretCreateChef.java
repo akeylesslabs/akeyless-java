@@ -139,15 +139,15 @@ public class DynamicSecretCreateChef {
   @javax.annotation.Nullable
   private String producerEncryptionKeyName;
 
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
+  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
+  @javax.annotation.Nullable
+  private Boolean skipDryRun;
+
   public static final String SERIALIZED_NAME_SKIP_SSL = "skip-ssl";
   @SerializedName(SERIALIZED_NAME_SKIP_SSL)
   @javax.annotation.Nullable
   private Boolean skipSsl = true;
-
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
-  @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
-  @javax.annotation.Nullable
-  private String skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -544,6 +544,25 @@ public class DynamicSecretCreateChef {
   }
 
 
+  public DynamicSecretCreateChef skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+    return this;
+  }
+
+  /**
+   * If set, dry-run will be skipped [true/false]
+   * @return skipDryRun
+   */
+  @javax.annotation.Nullable
+  public Boolean getSkipDryRun() {
+    return skipDryRun;
+  }
+
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
+    this.skipDryRun = skipDryRun;
+  }
+
+
   public DynamicSecretCreateChef skipSsl(@javax.annotation.Nullable Boolean skipSsl) {
     this.skipSsl = skipSsl;
     return this;
@@ -560,25 +579,6 @@ public class DynamicSecretCreateChef {
 
   public void setSkipSsl(@javax.annotation.Nullable Boolean skipSsl) {
     this.skipSsl = skipSsl;
-  }
-
-
-  public DynamicSecretCreateChef skipDryRun(@javax.annotation.Nullable String skipDryRun) {
-    this.skipDryRun = skipDryRun;
-    return this;
-  }
-
-  /**
-   * If set, dry-run will be skipped
-   * @return skipDryRun
-   */
-  @javax.annotation.Nullable
-  public String getSkipDryRun() {
-    return skipDryRun;
-  }
-
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
-    this.skipDryRun = skipDryRun;
   }
 
 
@@ -788,8 +788,8 @@ public class DynamicSecretCreateChef {
         Objects.equals(this.outputRule, dynamicSecretCreateChef.outputRule) &&
         Objects.equals(this.passwordLength, dynamicSecretCreateChef.passwordLength) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateChef.producerEncryptionKeyName) &&
-        Objects.equals(this.skipSsl, dynamicSecretCreateChef.skipSsl) &&
         Objects.equals(this.skipDryRun, dynamicSecretCreateChef.skipDryRun) &&
+        Objects.equals(this.skipSsl, dynamicSecretCreateChef.skipSsl) &&
         Objects.equals(this.tags, dynamicSecretCreateChef.tags) &&
         Objects.equals(this.targetName, dynamicSecretCreateChef.targetName) &&
         Objects.equals(this.token, dynamicSecretCreateChef.token) &&
@@ -803,7 +803,7 @@ public class DynamicSecretCreateChef {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipSsl, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(araEnabled, chefOrgs, chefServerKey, chefServerUrl, chefServerUsername, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, skipSsl, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -827,8 +827,8 @@ public class DynamicSecretCreateChef {
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
-    sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
     sb.append("    skipDryRun: ").append(toIndentedString(skipDryRun)).append("\n");
+    sb.append("    skipSsl: ").append(toIndentedString(skipSsl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -856,7 +856,7 @@ public class DynamicSecretCreateChef {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip-ssl", "skip_dry_run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "chef-orgs", "chef-server-key", "chef-server-url", "chef-server-username", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "output-rule", "password-length", "producer-encryption-key-name", "skip-dry-run", "skip-ssl", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -927,9 +927,6 @@ public class DynamicSecretCreateChef {
       }
       if ((jsonObj.get("producer-encryption-key-name") != null && !jsonObj.get("producer-encryption-key-name").isJsonNull()) && !jsonObj.get("producer-encryption-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `producer-encryption-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("producer-encryption-key-name").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

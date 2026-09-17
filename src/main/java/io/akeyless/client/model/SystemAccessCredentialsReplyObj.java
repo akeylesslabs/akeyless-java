@@ -21,6 +21,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -90,6 +93,11 @@ public class SystemAccessCredentialsReplyObj {
   @javax.annotation.Nullable
   private String requiredMfa;
 
+  public static final String SERIALIZED_NAME_SUB_CLAIMS = "sub_claims";
+  @SerializedName(SERIALIZED_NAME_SUB_CLAIMS)
+  @javax.annotation.Nullable
+  private Map<String, List<String>> subClaims = new HashMap<>();
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -99,6 +107,11 @@ public class SystemAccessCredentialsReplyObj {
   @SerializedName(SERIALIZED_NAME_UAM_CREDS)
   @javax.annotation.Nullable
   private String uamCreds;
+
+  public static final String SERIALIZED_NAME_UNIQUE_ID = "unique_id";
+  @SerializedName(SERIALIZED_NAME_UNIQUE_ID)
+  @javax.annotation.Nullable
+  private String uniqueId;
 
   public SystemAccessCredentialsReplyObj() {
   }
@@ -255,6 +268,33 @@ public class SystemAccessCredentialsReplyObj {
   }
 
 
+  public SystemAccessCredentialsReplyObj subClaims(@javax.annotation.Nullable Map<String, List<String>> subClaims) {
+    this.subClaims = subClaims;
+    return this;
+  }
+
+  public SystemAccessCredentialsReplyObj putSubClaimsItem(String key, List<String> subClaimsItem) {
+    if (this.subClaims == null) {
+      this.subClaims = new HashMap<>();
+    }
+    this.subClaims.put(key, subClaimsItem);
+    return this;
+  }
+
+  /**
+   * SubClaims carries the IdP-verified RBAC claims for offline placeholder creds (empty UAM JWT); parsed from the ID token at callback time.
+   * @return subClaims
+   */
+  @javax.annotation.Nullable
+  public Map<String, List<String>> getSubClaims() {
+    return subClaims;
+  }
+
+  public void setSubClaims(@javax.annotation.Nullable Map<String, List<String>> subClaims) {
+    this.subClaims = subClaims;
+  }
+
+
   public SystemAccessCredentialsReplyObj token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -293,6 +333,25 @@ public class SystemAccessCredentialsReplyObj {
   }
 
 
+  public SystemAccessCredentialsReplyObj uniqueId(@javax.annotation.Nullable String uniqueId) {
+    this.uniqueId = uniqueId;
+    return this;
+  }
+
+  /**
+   * UniqueId is set only on Gateway-minted offline placeholder creds (empty UAM JWT), carrying the IdP unique identifier so usage-time RBAC can resolve identity.
+   * @return uniqueId
+   */
+  @javax.annotation.Nullable
+  public String getUniqueId() {
+    return uniqueId;
+  }
+
+  public void setUniqueId(@javax.annotation.Nullable String uniqueId) {
+    this.uniqueId = uniqueId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -311,13 +370,15 @@ public class SystemAccessCredentialsReplyObj {
         Objects.equals(this.needMfaAppFirstConfig, systemAccessCredentialsReplyObj.needMfaAppFirstConfig) &&
         Objects.equals(this.recoveryKeyId, systemAccessCredentialsReplyObj.recoveryKeyId) &&
         Objects.equals(this.requiredMfa, systemAccessCredentialsReplyObj.requiredMfa) &&
+        Objects.equals(this.subClaims, systemAccessCredentialsReplyObj.subClaims) &&
         Objects.equals(this.token, systemAccessCredentialsReplyObj.token) &&
-        Objects.equals(this.uamCreds, systemAccessCredentialsReplyObj.uamCreds);
+        Objects.equals(this.uamCreds, systemAccessCredentialsReplyObj.uamCreds) &&
+        Objects.equals(this.uniqueId, systemAccessCredentialsReplyObj.uniqueId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, authCreds, csrfToken, expiry, kfmCreds, needMfaAppFirstConfig, recoveryKeyId, requiredMfa, token, uamCreds);
+    return Objects.hash(accessId, authCreds, csrfToken, expiry, kfmCreds, needMfaAppFirstConfig, recoveryKeyId, requiredMfa, subClaims, token, uamCreds, uniqueId);
   }
 
   @Override
@@ -332,8 +393,10 @@ public class SystemAccessCredentialsReplyObj {
     sb.append("    needMfaAppFirstConfig: ").append(toIndentedString(needMfaAppFirstConfig)).append("\n");
     sb.append("    recoveryKeyId: ").append(toIndentedString(recoveryKeyId)).append("\n");
     sb.append("    requiredMfa: ").append(toIndentedString(requiredMfa)).append("\n");
+    sb.append("    subClaims: ").append(toIndentedString(subClaims)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uamCreds: ").append(toIndentedString(uamCreds)).append("\n");
+    sb.append("    uniqueId: ").append(toIndentedString(uniqueId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -352,7 +415,7 @@ public class SystemAccessCredentialsReplyObj {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_id", "auth_creds", "csrf_token", "expiry", "kfm_creds", "need_mfa_app_first_config", "recovery_key_id", "required_mfa", "token", "uam_creds"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "auth_creds", "csrf_token", "expiry", "kfm_creds", "need_mfa_app_first_config", "recovery_key_id", "required_mfa", "sub_claims", "token", "uam_creds", "unique_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -402,6 +465,9 @@ public class SystemAccessCredentialsReplyObj {
       }
       if ((jsonObj.get("uam_creds") != null && !jsonObj.get("uam_creds").isJsonNull()) && !jsonObj.get("uam_creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uam_creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uam_creds").toString()));
+      }
+      if ((jsonObj.get("unique_id") != null && !jsonObj.get("unique_id").isJsonNull()) && !jsonObj.get("unique_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `unique_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unique_id").toString()));
       }
   }
 

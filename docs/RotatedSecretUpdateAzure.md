@@ -51,7 +51,7 @@
 |**secureAccessWeb** | **Boolean** | Enable Web Secure Remote Access |  [optional] |
 |**secureAccessWebBrowsing** | **Boolean** | Secure browser via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
 |**secureAccessWebProxy** | **Boolean** | Web-Proxy via Akeyless&#39;s Secure Remote Access (SRA) |  [optional] |
-|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
+|**skipDryRun** | **Boolean** | If set, dry-run will be skipped [true/false] |  [optional] |
 |**storageAccountKeyName** | **String** | The name of the storage account key to rotate [key1/key2/kerb1/kerb2] (relevat to azure-storage-account) |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

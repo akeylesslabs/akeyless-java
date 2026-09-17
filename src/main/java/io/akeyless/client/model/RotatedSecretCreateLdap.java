@@ -244,10 +244,10 @@ public class RotatedSecretCreateLdap {
   @javax.annotation.Nullable
   private Boolean secureAccessWebProxy = false;
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -1069,21 +1069,21 @@ public class RotatedSecretCreateLdap {
   }
 
 
-  public RotatedSecretCreateLdap skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public RotatedSecretCreateLdap skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -1452,7 +1452,7 @@ public class RotatedSecretCreateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip_dry_run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "ara-enabled", "authentication-credentials", "auto-rotate", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "host-provider", "input-rule", "item-custom-fields", "json", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "output-rule", "password-length", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-event-in", "rotation-hour", "rotation-interval", "rotator-type", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-url", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip-dry-run", "tags", "target", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "rotator-type", "target-name"));
@@ -1573,9 +1573,6 @@ public class RotatedSecretCreateLdap {
       }
       if ((jsonObj.get("secure-access-url") != null && !jsonObj.get("secure-access-url").isJsonNull()) && !jsonObj.get("secure-access-url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secure-access-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secure-access-url").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

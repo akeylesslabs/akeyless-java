@@ -129,10 +129,10 @@ public class GatewayCreateProducerGithub {
   @javax.annotation.Nullable
   private List<String> outputRule = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -481,21 +481,21 @@ public class GatewayCreateProducerGithub {
   }
 
 
-  public GatewayCreateProducerGithub skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public GatewayCreateProducerGithub skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -742,7 +742,7 @@ public class GatewayCreateProducerGithub {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "output-rule", "skip_dry_run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "github-app-id", "github-app-private-key", "github-base-url", "input-rule", "installation-id", "installation-organization", "installation-repository", "item-custom-fields", "json", "name", "output-rule", "skip-dry-run", "tags", "target-name", "token", "token-permissions", "token-repositories", "token-ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -801,9 +801,6 @@ public class GatewayCreateProducerGithub {
       // ensure the optional json data is an array if present
       if (jsonObj.get("output-rule") != null && !jsonObj.get("output-rule").isJsonNull() && !jsonObj.get("output-rule").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `output-rule` to be an array in the JSON string but got `%s`", jsonObj.get("output-rule").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

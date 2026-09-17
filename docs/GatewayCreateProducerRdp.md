@@ -41,7 +41,7 @@ gatewayCreateProducerRdp is a command that creates rdp producer [Deprecated: Use
 |**secureAccessRdGatewayServer** | **String** | RD Gateway server |  [optional] |
 |**secureAccessRdpDomain** | **String** | Required when the Dynamic Secret is used for a domain user |  [optional] |
 |**secureAccessRdpUser** | **String** | Override the RDP Domain username |  [optional] |
-|**skipDryRun** | **String** | If set, dry-run will be skipped |  [optional] |
+|**skipDryRun** | **Boolean** | If set, dry-run will be skipped [true/false] |  [optional] |
 |**tags** | **List&lt;String&gt;** | Add tags attached to this object |  [optional] |
 |**target** | **List&lt;String&gt;** | A list of targets to be associated with an SRA item, To specify multiple targets use argument multiple times |  [optional] |
 |**targetName** | **String** | Target name |  [optional] |

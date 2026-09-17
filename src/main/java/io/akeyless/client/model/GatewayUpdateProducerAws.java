@@ -229,10 +229,10 @@ public class GatewayUpdateProducerAws {
   @javax.annotation.Nullable
   private String sessionTags;
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -976,21 +976,21 @@ public class GatewayUpdateProducerAws {
   }
 
 
-  public GatewayUpdateProducerAws skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public GatewayUpdateProducerAws skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -1324,7 +1324,7 @@ public class GatewayUpdateProducerAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "ara-enabled", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip_dry_run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "ara-enabled", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip-dry-run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1422,9 +1422,6 @@ public class GatewayUpdateProducerAws {
       }
       if ((jsonObj.get("session-tags") != null && !jsonObj.get("session-tags").isJsonNull()) && !jsonObj.get("session-tags").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `session-tags` to be a primitive type in the JSON string but got `%s`", jsonObj.get("session-tags").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

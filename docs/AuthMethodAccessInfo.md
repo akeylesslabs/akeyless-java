@@ -18,6 +18,7 @@
 |**certAccessRules** | [**CertAccessRules**](CertAccessRules.md) |  |  [optional] |
 |**cidrWhitelist** | **String** |  |  [optional] |
 |**emailPassAccessRules** | [**EmailPassAccessRules**](EmailPassAccessRules.md) |  |  [optional] |
+|**enforceClientType** | **Boolean** | EnforceClientType mirrors the SaaS Auth client-type enforcement decision (GwAuthEligibilityReply.EnforceClientType) captured online, so Gateway-owned offline auth and cached-creds usage honor the same enforce flag SaaS uses (see base_access.AuthenticateClientType). When false, client-type mismatches are not rejected. |  [optional] |
 |**forceSubClaims** | **Boolean** | if true the role associated with this auth method must include sub claims |  [optional] |
 |**gcpAccessRules** | [**GCPAccessRules**](GCPAccessRules.md) |  |  [optional] |
 |**gwCidrWhitelist** | **String** |  |  [optional] |

@@ -149,10 +149,10 @@ public class GatewayUpdateProducerVenafi {
   @javax.annotation.Nullable
   private String signerKeyName;
 
-  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip_dry_run";
+  public static final String SERIALIZED_NAME_SKIP_DRY_RUN = "skip-dry-run";
   @SerializedName(SERIALIZED_NAME_SKIP_DRY_RUN)
   @javax.annotation.Nullable
-  private String skipDryRun;
+  private Boolean skipDryRun;
 
   public static final String SERIALIZED_NAME_STORE_PRIVATE_KEY = "store-private-key";
   @SerializedName(SERIALIZED_NAME_STORE_PRIVATE_KEY)
@@ -615,21 +615,21 @@ public class GatewayUpdateProducerVenafi {
   }
 
 
-  public GatewayUpdateProducerVenafi skipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public GatewayUpdateProducerVenafi skipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
     return this;
   }
 
   /**
-   * If set, dry-run will be skipped
+   * If set, dry-run will be skipped [true/false]
    * @return skipDryRun
    */
   @javax.annotation.Nullable
-  public String getSkipDryRun() {
+  public Boolean getSkipDryRun() {
     return skipDryRun;
   }
 
-  public void setSkipDryRun(@javax.annotation.Nullable String skipDryRun) {
+  public void setSkipDryRun(@javax.annotation.Nullable Boolean skipDryRun) {
     this.skipDryRun = skipDryRun;
   }
 
@@ -994,7 +994,7 @@ public class GatewayUpdateProducerVenafi {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "allow-subdomains", "allowed-domains", "ara-enabled", "auto-generated-folder", "delete_protection", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "root-first-in-chain", "sign-using-akeyless-pki", "signer-key-name", "skip_dry_run", "store-private-key", "tags", "target-name", "token", "uid-token", "user-ttl", "venafi-access-token", "venafi-api-key", "venafi-baseurl", "venafi-client-id", "venafi-refresh-token", "venafi-use-tpp", "venafi-zone"));
+    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "allow-subdomains", "allowed-domains", "ara-enabled", "auto-generated-folder", "delete_protection", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "producer-encryption-key-name", "root-first-in-chain", "sign-using-akeyless-pki", "signer-key-name", "skip-dry-run", "store-private-key", "tags", "target-name", "token", "uid-token", "user-ttl", "venafi-access-token", "venafi-api-key", "venafi-baseurl", "venafi-client-id", "venafi-refresh-token", "venafi-use-tpp", "venafi-zone"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1057,9 +1057,6 @@ public class GatewayUpdateProducerVenafi {
       }
       if ((jsonObj.get("signer-key-name") != null && !jsonObj.get("signer-key-name").isJsonNull()) && !jsonObj.get("signer-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `signer-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signer-key-name").toString()));
-      }
-      if ((jsonObj.get("skip_dry_run") != null && !jsonObj.get("skip_dry_run").isJsonNull()) && !jsonObj.get("skip_dry_run").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `skip_dry_run` to be a primitive type in the JSON string but got `%s`", jsonObj.get("skip_dry_run").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {

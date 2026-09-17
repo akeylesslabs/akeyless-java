@@ -20,6 +20,7 @@ authMethodCreateOIDC is a command that creates a new auth method that will be av
 |**description** | **String** | Auth Method description |  [optional] |
 |**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the auth method would you like to be notified. |  [optional] |
 |**forceSubClaims** | **Boolean** | if true: enforce role-association must include sub claims |  [optional] |
+|**gatewayUrl** | **String** | Akeyless Gateway URL (Configuration Management port). Relevant only when working with Gateway mode |  [optional] |
 |**gwBoundIps** | **List&lt;String&gt;** | A CIDR whitelist with the GW IPs that the access is restricted to |  [optional] |
 |**issuer** | **String** | Issuer URL |  [optional] |
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
