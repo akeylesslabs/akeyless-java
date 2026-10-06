@@ -2594,10 +2594,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/ClientEventOutputTest.java
-src/test/java/io/akeyless/client/model/ClientEventTest.java
-src/test/java/io/akeyless/client/model/GenerateIntermediateCAOutputTest.java
-src/test/java/io/akeyless/client/model/GenerateIntermediateCATest.java
-src/test/java/io/akeyless/client/model/InjectorCertificateEventTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretCreateOktaTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretUpdateOktaTest.java
