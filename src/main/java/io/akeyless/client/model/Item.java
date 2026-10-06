@@ -221,6 +221,11 @@ public class Item {
   @javax.annotation.Nullable
   private List<ItemVersion> itemVersions = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_LAST_ACCESS_REQUEST_STATUS = "last_access_request_status";
+  @SerializedName(SERIALIZED_NAME_LAST_ACCESS_REQUEST_STATUS)
+  @javax.annotation.Nullable
+  private String lastAccessRequestStatus;
+
   public static final String SERIALIZED_NAME_LAST_ROTATION_DATE = "last_rotation_date";
   @SerializedName(SERIALIZED_NAME_LAST_ROTATION_DATE)
   @javax.annotation.Nullable
@@ -931,6 +936,25 @@ public class Item {
   }
 
 
+  public Item lastAccessRequestStatus(@javax.annotation.Nullable String lastAccessRequestStatus) {
+    this.lastAccessRequestStatus = lastAccessRequestStatus;
+    return this;
+  }
+
+  /**
+   * Get lastAccessRequestStatus
+   * @return lastAccessRequestStatus
+   */
+  @javax.annotation.Nullable
+  public String getLastAccessRequestStatus() {
+    return lastAccessRequestStatus;
+  }
+
+  public void setLastAccessRequestStatus(@javax.annotation.Nullable String lastAccessRequestStatus) {
+    this.lastAccessRequestStatus = lastAccessRequestStatus;
+  }
+
+
   public Item lastRotationDate(@javax.annotation.Nullable OffsetDateTime lastRotationDate) {
     this.lastRotationDate = lastRotationDate;
     return this;
@@ -1254,6 +1278,7 @@ public class Item {
         Objects.equals(this.itemTargetsAssoc, item.itemTargetsAssoc) &&
         Objects.equals(this.itemType, item.itemType) &&
         Objects.equals(this.itemVersions, item.itemVersions) &&
+        Objects.equals(this.lastAccessRequestStatus, item.lastAccessRequestStatus) &&
         Objects.equals(this.lastRotationDate, item.lastRotationDate) &&
         Objects.equals(this.lastVersion, item.lastVersion) &&
         Objects.equals(this.linkedDetails, item.linkedDetails) &&
@@ -1272,7 +1297,7 @@ public class Item {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, fileDownload, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastRotationDate, lastVersion, linkedDetails, lockingInfo, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, autoRotate, bastionDetails, certIssuerSignerKeyName, certificateIssueDetails, certificates, clientPermissions, creationDate, customerFragmentId, deleteProtection, deletionDate, displayId, fileDownload, gatewayDetails, isAccessRequestEnabled, isEnabled, itemAccessibility, itemCustomFieldsDetails, itemGeneralInfo, itemId, itemMetadata, itemName, itemSize, itemState, itemSubType, itemTags, itemTargetsAssoc, itemType, itemVersions, lastAccessRequestStatus, lastRotationDate, lastVersion, linkedDetails, lockingInfo, modificationDate, nextRotationDate, protectionKeyName, protectionKeyType, publicValue, rotationInterval, sharedBy, targetVersions, uscSyncAssociatedItems, withCustomerFragment);
   }
 
   @Override
@@ -1310,6 +1335,7 @@ public class Item {
     sb.append("    itemTargetsAssoc: ").append(toIndentedString(itemTargetsAssoc)).append("\n");
     sb.append("    itemType: ").append(toIndentedString(itemType)).append("\n");
     sb.append("    itemVersions: ").append(toIndentedString(itemVersions)).append("\n");
+    sb.append("    lastAccessRequestStatus: ").append(toIndentedString(lastAccessRequestStatus)).append("\n");
     sb.append("    lastRotationDate: ").append(toIndentedString(lastRotationDate)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    linkedDetails: ").append(toIndentedString(linkedDetails)).append("\n");
@@ -1342,7 +1368,7 @@ public class Item {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_request_status", "auto_rotate", "bastion_details", "cert_issuer_signer_key_name", "certificate_issue_details", "certificates", "client_permissions", "creation_date", "customer_fragment_id", "delete_protection", "deletion_date", "display_id", "file_download", "gateway_details", "is_access_request_enabled", "is_enabled", "item_accessibility", "item_custom_fields_details", "item_general_info", "item_id", "item_metadata", "item_name", "item_size", "item_state", "item_sub_type", "item_tags", "item_targets_assoc", "item_type", "item_versions", "last_rotation_date", "last_version", "linked_details", "locking_info", "modification_date", "next_rotation_date", "protection_key_name", "protection_key_type", "public_value", "rotation_interval", "shared_by", "target_versions", "usc_sync_associated_items", "with_customer_fragment"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_request_status", "auto_rotate", "bastion_details", "cert_issuer_signer_key_name", "certificate_issue_details", "certificates", "client_permissions", "creation_date", "customer_fragment_id", "delete_protection", "deletion_date", "display_id", "file_download", "gateway_details", "is_access_request_enabled", "is_enabled", "item_accessibility", "item_custom_fields_details", "item_general_info", "item_id", "item_metadata", "item_name", "item_size", "item_state", "item_sub_type", "item_tags", "item_targets_assoc", "item_type", "item_versions", "last_access_request_status", "last_rotation_date", "last_version", "linked_details", "locking_info", "modification_date", "next_rotation_date", "protection_key_name", "protection_key_type", "public_value", "rotation_interval", "shared_by", "target_versions", "usc_sync_associated_items", "with_customer_fragment"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1481,6 +1507,9 @@ public class Item {
             ItemVersion.validateJsonElement(jsonArrayitemVersions.get(i));
           };
         }
+      }
+      if ((jsonObj.get("last_access_request_status") != null && !jsonObj.get("last_access_request_status").isJsonNull()) && !jsonObj.get("last_access_request_status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_access_request_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_access_request_status").toString()));
       }
       // validate the optional field `linked_details`
       if (jsonObj.get("linked_details") != null && !jsonObj.get("linked_details").isJsonNull()) {

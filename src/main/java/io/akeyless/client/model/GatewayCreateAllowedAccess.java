@@ -225,7 +225,7 @@ public class GatewayCreateAllowedAccess {
   }
 
   /**
-   * Permissions  Comma-seperated list of permissions for this allowed access. Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,kerberos_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general,sra_config,hsm,acme,sdr,rotate_secret_value]
+   * Permissions  Comma-seperated list of permissions for this allowed access. Available permissions: [defaults,targets,classic_keys,automatic_migration,ldap_auth,kerberos_auth,dynamic_secret,k8s_auth,log_forwarding,zero_knowledge_encryption,rotated_secret,caching,event_forwarding,admin,kmip,general,sra_config,hsm,acme,scep,sdr,rotate_secret_value]
    * @return permissions
    */
   @javax.annotation.Nullable

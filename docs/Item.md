@@ -38,6 +38,7 @@
 |**itemTargetsAssoc** | [**List&lt;ItemTargetAssociation&gt;**](ItemTargetAssociation.md) |  |  [optional] |
 |**itemType** | **String** |  |  [optional] |
 |**itemVersions** | [**List&lt;ItemVersion&gt;**](ItemVersion.md) |  |  [optional] |
+|**lastAccessRequestStatus** | **String** |  |  [optional] |
 |**lastRotationDate** | **OffsetDateTime** |  |  [optional] |
 |**lastVersion** | **Integer** |  |  [optional] |
 |**linkedDetails** | [**LinkedDetails**](LinkedDetails.md) |  |  [optional] |

@@ -12,8 +12,12 @@ LetsEncryptTargetDetails defines configuration for Let's Encrypt ACME target
 |**accountUrl** | **String** | ACME Account URL (returned after registration with Let&#39;s Encrypt) Used to retrieve existing account instead of re-registering |  [optional] |
 |**acmeEnvironment** | **String** | ACMEEnvironment defines Let&#39;s Encrypt ACME directory environment |  [optional] |
 |**challengeType** | **String** | ACMEChallengeType defines ACME challenge type for Let&#39;s Encrypt |  [optional] |
+|**dnsPropagationWait** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional] |
+|**dnsResolvers** | **List&lt;String&gt;** | Custom recursive DNS resolvers (ip:port) for propagation checks. |  [optional] |
+|**dnsSkipPrecheck** | **Boolean** | Skip authoritative nameserver propagation pre-check. |  [optional] |
 |**dnsTargetName** | **String** | Name of DNS target (transient field - not stored in DB) Used by CLI to pass DNS target name to SDK for creating target_object_assoc Retrieved from target_object_assoc when reading target Required when ChallengeType is \&quot;dns\&quot; |  [optional] |
 |**dnsTargetType** | **String** |  |  [optional] |
+|**dnsTimeout** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional] |
 |**dnsZone** | **String** | Cloudflare zone identifier Required when DNSTargetType is Cloudflare |  [optional] |
 |**email** | **String** | Email address for ACME account registration Required |  [optional] |
 |**gcpProject** | **String** | GCP Cloud DNS: Project ID Optional - can be derived from service account |  [optional] |

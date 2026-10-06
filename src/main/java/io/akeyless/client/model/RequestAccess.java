@@ -77,6 +77,11 @@ public class RequestAccess {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_REQUESTED_TTL = "requested_ttl";
+  @SerializedName(SERIALIZED_NAME_REQUESTED_TTL)
+  @javax.annotation.Nullable
+  private Long requestedTtl;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -198,6 +203,25 @@ public class RequestAccess {
   }
 
 
+  public RequestAccess requestedTtl(@javax.annotation.Nullable Long requestedTtl) {
+    this.requestedTtl = requestedTtl;
+    return this;
+  }
+
+  /**
+   * Requested access TTL in minutes. Allowed range is 1 to 1440. Defaults to 60 when omitted.
+   * @return requestedTtl
+   */
+  @javax.annotation.Nullable
+  public Long getRequestedTtl() {
+    return requestedTtl;
+  }
+
+  public void setRequestedTtl(@javax.annotation.Nullable Long requestedTtl) {
+    this.requestedTtl = requestedTtl;
+  }
+
+
   public RequestAccess token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -270,6 +294,7 @@ public class RequestAccess {
         Objects.equals(this.description, requestAccess.description) &&
         Objects.equals(this.json, requestAccess.json) &&
         Objects.equals(this.name, requestAccess.name) &&
+        Objects.equals(this.requestedTtl, requestAccess.requestedTtl) &&
         Objects.equals(this.token, requestAccess.token) &&
         Objects.equals(this.type, requestAccess.type) &&
         Objects.equals(this.uidToken, requestAccess.uidToken);
@@ -277,7 +302,7 @@ public class RequestAccess {
 
   @Override
   public int hashCode() {
-    return Objects.hash(capability, comment, description, json, name, token, type, uidToken);
+    return Objects.hash(capability, comment, description, json, name, requestedTtl, token, type, uidToken);
   }
 
   @Override
@@ -289,6 +314,7 @@ public class RequestAccess {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    requestedTtl: ").append(toIndentedString(requestedTtl)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -310,7 +336,7 @@ public class RequestAccess {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("capability", "comment", "description", "json", "name", "token", "type", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("capability", "comment", "description", "json", "name", "requested_ttl", "token", "type", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("capability", "name", "type"));

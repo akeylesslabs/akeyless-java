@@ -16,6 +16,7 @@
 |**creationDate** | **OffsetDateTime** |  |  [optional] |
 |**deleteProtection** | **Boolean** |  |  [optional] |
 |**isAccessRequestEnabled** | **Boolean** |  |  [optional] |
+|**lastAccessRequestStatus** | **String** |  |  [optional] |
 |**lastVersion** | **Integer** |  |  [optional] |
 |**lockingInfo** | [**LockingInfo**](LockingInfo.md) |  |  [optional] |
 |**modificationDate** | **OffsetDateTime** |  |  [optional] |

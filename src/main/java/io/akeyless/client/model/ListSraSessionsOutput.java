@@ -86,7 +86,7 @@ public class ListSraSessionsOutput {
   }
 
   /**
-   * Get allowedGateways
+   * Gateways whose sessions the caller may see in full. Omitted when the request asks for own sessions only, and when it carries a pagination token
    * @return allowedGateways
    */
   @javax.annotation.Nullable
@@ -105,7 +105,7 @@ public class ListSraSessionsOutput {
   }
 
   /**
-   * Get nextPage
+   * Cursor for the following page, sent back as the pagination token. Empty when the result set is exhausted, so stop when it is empty rather than waiting for the field to disappear
    * @return nextPage
    */
   @javax.annotation.Nullable
@@ -132,7 +132,7 @@ public class ListSraSessionsOutput {
   }
 
   /**
-   * Get sessions
+   * The requested page of sessions, newest first by start time then session id
    * @return sessions
    */
   @javax.annotation.Nullable

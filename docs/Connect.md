@@ -20,6 +20,7 @@ Connect is a command that performs secure remote access
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**justification** | **String** |  |  [optional] |
 |**name** | **String** | The Secret name (for database and AWS producers - producer name) |  [optional] |
+|**requestedTtl** | **Long** | For how long to grant the requested access, in minutes |  [optional] |
 |**sraCtrlPath** | **String** | The Bastion API path |  [optional] |
 |**sraCtrlPort** | **String** | The Bastion API Port |  [optional] |
 |**sraCtrlProto** | **String** | The SRA API protocol |  [optional] |

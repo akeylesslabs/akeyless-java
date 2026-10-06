@@ -103,6 +103,11 @@ public class Target {
   @javax.annotation.Nullable
   private Boolean isAccessRequestEnabled;
 
+  public static final String SERIALIZED_NAME_LAST_ACCESS_REQUEST_STATUS = "last_access_request_status";
+  @SerializedName(SERIALIZED_NAME_LAST_ACCESS_REQUEST_STATUS)
+  @javax.annotation.Nullable
+  private String lastAccessRequestStatus;
+
   public static final String SERIALIZED_NAME_LAST_VERSION = "last_version";
   @SerializedName(SERIALIZED_NAME_LAST_VERSION)
   @javax.annotation.Nullable
@@ -355,6 +360,25 @@ public class Target {
 
   public void setIsAccessRequestEnabled(@javax.annotation.Nullable Boolean isAccessRequestEnabled) {
     this.isAccessRequestEnabled = isAccessRequestEnabled;
+  }
+
+
+  public Target lastAccessRequestStatus(@javax.annotation.Nullable String lastAccessRequestStatus) {
+    this.lastAccessRequestStatus = lastAccessRequestStatus;
+    return this;
+  }
+
+  /**
+   * Get lastAccessRequestStatus
+   * @return lastAccessRequestStatus
+   */
+  @javax.annotation.Nullable
+  public String getLastAccessRequestStatus() {
+    return lastAccessRequestStatus;
+  }
+
+  public void setLastAccessRequestStatus(@javax.annotation.Nullable String lastAccessRequestStatus) {
+    this.lastAccessRequestStatus = lastAccessRequestStatus;
   }
 
 
@@ -640,6 +664,7 @@ public class Target {
         Objects.equals(this.creationDate, target.creationDate) &&
         Objects.equals(this.deleteProtection, target.deleteProtection) &&
         Objects.equals(this.isAccessRequestEnabled, target.isAccessRequestEnabled) &&
+        Objects.equals(this.lastAccessRequestStatus, target.lastAccessRequestStatus) &&
         Objects.equals(this.lastVersion, target.lastVersion) &&
         Objects.equals(this.lockingInfo, target.lockingInfo) &&
         Objects.equals(this.modificationDate, target.modificationDate) &&
@@ -657,7 +682,7 @@ public class Target {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, deleteProtection, isAccessRequestEnabled, lastVersion, lockingInfo, modificationDate, parentTargetName, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
+    return Objects.hash(accessDate, accessDateDisplay, accessRequestStatus, attributes, clientPermissions, comment, creationDate, deleteProtection, isAccessRequestEnabled, lastAccessRequestStatus, lastVersion, lockingInfo, modificationDate, parentTargetName, protectionKeyName, targetDetails, targetId, targetItemsAssoc, targetName, targetSubType, targetType, targetVersions, withCustomerFragment);
   }
 
   @Override
@@ -673,6 +698,7 @@ public class Target {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    isAccessRequestEnabled: ").append(toIndentedString(isAccessRequestEnabled)).append("\n");
+    sb.append("    lastAccessRequestStatus: ").append(toIndentedString(lastAccessRequestStatus)).append("\n");
     sb.append("    lastVersion: ").append(toIndentedString(lastVersion)).append("\n");
     sb.append("    lockingInfo: ").append(toIndentedString(lockingInfo)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
@@ -704,7 +730,7 @@ public class Target {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_request_status", "attributes", "client_permissions", "comment", "creation_date", "delete_protection", "is_access_request_enabled", "last_version", "locking_info", "modification_date", "parent_target_name", "protection_key_name", "target_details", "target_id", "target_items_assoc", "target_name", "target_sub_type", "target_type", "target_versions", "with_customer_fragment"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_request_status", "attributes", "client_permissions", "comment", "creation_date", "delete_protection", "is_access_request_enabled", "last_access_request_status", "last_version", "locking_info", "modification_date", "parent_target_name", "protection_key_name", "target_details", "target_id", "target_items_assoc", "target_name", "target_sub_type", "target_type", "target_versions", "with_customer_fragment"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -743,6 +769,9 @@ public class Target {
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
+      }
+      if ((jsonObj.get("last_access_request_status") != null && !jsonObj.get("last_access_request_status").isJsonNull()) && !jsonObj.get("last_access_request_status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_access_request_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_access_request_status").toString()));
       }
       // validate the optional field `locking_info`
       if (jsonObj.get("locking_info") != null && !jsonObj.get("locking_info").isJsonNull()) {

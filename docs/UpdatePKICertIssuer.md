@@ -30,6 +30,7 @@
 |**destinationPath** | **String** | A path in which to save generated certificates |  [optional] |
 |**disableWildcards** | **Boolean** | If set, generation of wildcard certificates will be disabled. |  [optional] |
 |**enableAcme** | **Boolean** | If set, the cert issuer will support the acme protocol |  [optional] |
+|**enableScep** | **Boolean** | If set, the cert issuer will support the scep protocol |  [optional] |
 |**expirationEventIn** | **List&lt;String&gt;** | How many days before the expiration of the certificate would you like to be notified. |  [optional] |
 |**gwClusterUrl** | **String** | The GW cluster URL to issue the certificate from. Required in Public CA mode, to allow CRLs on private CA, or to enable ACME |  [optional] |
 |**isCa** | **Boolean** | If set, the basic constraints extension will be added to certificate |  [optional] |
@@ -50,6 +51,8 @@
 |**protectCertificates** | **Boolean** | Whether to protect generated certificates from deletion |  [optional] |
 |**province** | **String** | A comma-separated list of provinces that will be set in the issued certificate |  [optional] |
 |**rmTag** | **List&lt;String&gt;** | List of the existent tags that will be removed from this item |  [optional] |
+|**scepChallengeType** | **String** | SCEP challenge type. Only static is supported in this stage |  [optional] |
+|**scepPassword** | **String** | SCEP static challenge password. Request-only; never returned by Describe |  [optional] |
 |**scheduledRenew** | **Long** | Number of days before expiration to renew certificates |  [optional] |
 |**serverFlag** | **Boolean** | If set, certificates will be flagged for server auth use |  [optional] |
 |**signerKeyName** | **String** | A key to sign the certificate with, required in Private CA mode |  [optional] |

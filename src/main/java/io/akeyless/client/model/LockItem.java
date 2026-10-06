@@ -127,7 +127,7 @@ public class LockItem {
   }
 
   /**
-   * Lock TTL in minutes
+   * Lock TTL in minutes.
    * @return lockTtl
    */
   @javax.annotation.Nullable

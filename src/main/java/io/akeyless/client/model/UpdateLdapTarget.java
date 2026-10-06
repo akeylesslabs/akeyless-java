@@ -150,6 +150,11 @@ public class UpdateLdapTarget {
   @javax.annotation.Nullable
   private Boolean updateVersion;
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nullable
+  private String username;
+
   public UpdateLdapTarget() {
   }
 
@@ -533,6 +538,25 @@ public class UpdateLdapTarget {
   }
 
 
+  public UpdateLdapTarget username(@javax.annotation.Nullable String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Username returned for Rotated Secrets. Use the format required by your application, such as sAMAccountName, with or without the domain.
+   * @return username
+   */
+  @javax.annotation.Nullable
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@javax.annotation.Nullable String username) {
+    this.username = username;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -562,12 +586,13 @@ public class UpdateLdapTarget {
         Objects.equals(this.token, updateLdapTarget.token) &&
         Objects.equals(this.tokenExpiration, updateLdapTarget.tokenExpiration) &&
         Objects.equals(this.uidToken, updateLdapTarget.uidToken) &&
-        Objects.equals(this.updateVersion, updateLdapTarget.updateVersion);
+        Objects.equals(this.updateVersion, updateLdapTarget.updateVersion) &&
+        Objects.equals(this.username, updateLdapTarget.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, lockOnRead, lockTtl, maxVersions, name, newName, rotateOnUnlock, serverType, token, tokenExpiration, uidToken, updateVersion);
+    return Objects.hash(bindDn, bindDnPassword, comment, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, lockOnRead, lockTtl, maxVersions, name, newName, rotateOnUnlock, serverType, token, tokenExpiration, uidToken, updateVersion, username);
   }
 
   @Override
@@ -594,6 +619,7 @@ public class UpdateLdapTarget {
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    updateVersion: ").append(toIndentedString(updateVersion)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -612,7 +638,7 @@ public class UpdateLdapTarget {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "comment", "description", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rotate-on-unlock", "server-type", "token", "token-expiration", "uid-token", "update-version"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "comment", "description", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rotate-on-unlock", "server-type", "token", "token-expiration", "uid-token", "update-version", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "ldap-url", "name"));
@@ -699,6 +725,9 @@ public class UpdateLdapTarget {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

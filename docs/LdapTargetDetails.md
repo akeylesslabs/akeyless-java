@@ -15,6 +15,7 @@ LdapTargetDetails
 |**ldapCertificate** | **String** |  |  [optional] |
 |**ldapTokenExpiration** | **String** |  |  [optional] |
 |**ldapUrl** | **String** |  |  [optional] |
+|**ldapUsername** | **String** |  |  [optional] |
 
 
 

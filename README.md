@@ -151,6 +151,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**calcPasswordSecurityInfo**](docs/V2Api.md#calcPasswordSecurityInfo) | **POST** /calc-password-security-info | 
 *V2Api* | [**certificateDiscovery**](docs/V2Api.md#certificateDiscovery) | **POST** /certificate-discovery | 
 *V2Api* | [**changeAdminAccountPassword**](docs/V2Api.md#changeAdminAccountPassword) | **POST** /change-admin-account-password | 
+*V2Api* | [**clientEvent**](docs/V2Api.md#clientEvent) | **POST** /client-event | 
 *V2Api* | [**configure**](docs/V2Api.md#configure) | **POST** /configure | 
 *V2Api* | [**connect**](docs/V2Api.md#connect) | **POST** /connect | 
 *V2Api* | [**createAWSTarget**](docs/V2Api.md#createAWSTarget) | **POST** /create-aws-target | 
@@ -443,6 +444,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**generateAcmeEab**](docs/V2Api.md#generateAcmeEab) | **POST** /generate-acme-eab | 
 *V2Api* | [**generateCA**](docs/V2Api.md#generateCA) | **POST** /generate-ca | 
 *V2Api* | [**generateCsr**](docs/V2Api.md#generateCsr) | **POST** /generate-csr | 
+*V2Api* | [**generateIntermediateCA**](docs/V2Api.md#generateIntermediateCA) | **POST** /generate-intermediate-ca | 
 *V2Api* | [**getAccountLogo**](docs/V2Api.md#getAccountLogo) | **POST** /get-account-logo | 
 *V2Api* | [**getAccountSettings**](docs/V2Api.md#getAccountSettings) | **POST** /get-account-settings | 
 *V2Api* | [**getAnalyticsData**](docs/V2Api.md#getAnalyticsData) | **POST** /get-analytics-data | 
@@ -503,7 +505,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**listItems**](docs/V2Api.md#listItems) | **POST** /list-items | 
 *V2Api* | [**listRoles**](docs/V2Api.md#listRoles) | **POST** /list-roles | 
 *V2Api* | [**listSRABastions**](docs/V2Api.md#listSRABastions) | **POST** /list-sra-bastions | 
-*V2Api* | [**listSRASessions**](docs/V2Api.md#listSRASessions) | **POST** /list-sra-sessions | 
+*V2Api* | [**listSRASessions**](docs/V2Api.md#listSRASessions) | **POST** /list-sra-sessions | Lists SRA sessions.
 *V2Api* | [**listSharedItems**](docs/V2Api.md#listSharedItems) | **POST** /list-shared-items | 
 *V2Api* | [**listTargets**](docs/V2Api.md#listTargets) | **POST** /list-targets | 
 *V2Api* | [**lockItem**](docs/V2Api.md#lockItem) | **POST** /lock-item | 
@@ -541,6 +543,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretCreateMongodb**](docs/V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb | 
 *V2Api* | [**rotatedSecretCreateMssql**](docs/V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql | 
 *V2Api* | [**rotatedSecretCreateMysql**](docs/V2Api.md#rotatedSecretCreateMysql) | **POST** /rotated-secret-create-mysql | 
+*V2Api* | [**rotatedSecretCreateOkta**](docs/V2Api.md#rotatedSecretCreateOkta) | **POST** /rotated-secret-create-okta | 
 *V2Api* | [**rotatedSecretCreateOpenAI**](docs/V2Api.md#rotatedSecretCreateOpenAI) | **POST** /rotated-secret-create-openai | 
 *V2Api* | [**rotatedSecretCreateOracledb**](docs/V2Api.md#rotatedSecretCreateOracledb) | **POST** /rotated-secret-create-oracledb | 
 *V2Api* | [**rotatedSecretCreatePostgresql**](docs/V2Api.md#rotatedSecretCreatePostgresql) | **POST** /rotated-secret-create-postgresql | 
@@ -568,6 +571,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretUpdateMongodb**](docs/V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb | 
 *V2Api* | [**rotatedSecretUpdateMssql**](docs/V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql | 
 *V2Api* | [**rotatedSecretUpdateMysql**](docs/V2Api.md#rotatedSecretUpdateMysql) | **POST** /rotated-secret-update-mysql | 
+*V2Api* | [**rotatedSecretUpdateOkta**](docs/V2Api.md#rotatedSecretUpdateOkta) | **POST** /rotated-secret-update-okta | 
 *V2Api* | [**rotatedSecretUpdateOpenAI**](docs/V2Api.md#rotatedSecretUpdateOpenAI) | **POST** /rotated-secret-update-openai | 
 *V2Api* | [**rotatedSecretUpdateOracledb**](docs/V2Api.md#rotatedSecretUpdateOracledb) | **POST** /rotated-secret-update-oracledb | 
 *V2Api* | [**rotatedSecretUpdatePostgresql**](docs/V2Api.md#rotatedSecretUpdatePostgresql) | **POST** /rotated-secret-update-postgresql | 
@@ -897,6 +901,8 @@ Class | Method | HTTP request | Description
  - [ClassicKeyStatusInfo](docs/ClassicKeyStatusInfo.md)
  - [ClassicKeyTargetInfo](docs/ClassicKeyTargetInfo.md)
  - [ClientData](docs/ClientData.md)
+ - [ClientEvent](docs/ClientEvent.md)
+ - [ClientEventOutput](docs/ClientEventOutput.md)
  - [ClientUsageInfo](docs/ClientUsageInfo.md)
  - [ClientsUsageReport](docs/ClientsUsageReport.md)
  - [CloudflareTargetDetails](docs/CloudflareTargetDetails.md)
@@ -1416,6 +1422,8 @@ Class | Method | HTTP request | Description
  - [GenerateCAOutput](docs/GenerateCAOutput.md)
  - [GenerateCsr](docs/GenerateCsr.md)
  - [GenerateCsrOutput](docs/GenerateCsrOutput.md)
+ - [GenerateIntermediateCA](docs/GenerateIntermediateCA.md)
+ - [GenerateIntermediateCAOutput](docs/GenerateIntermediateCAOutput.md)
  - [GetAccountSettings](docs/GetAccountSettings.md)
  - [GetAccountSettingsCommandOutput](docs/GetAccountSettingsCommandOutput.md)
  - [GetAnalyticsData](docs/GetAnalyticsData.md)
@@ -1480,6 +1488,7 @@ Class | Method | HTTP request | Description
  - [ImportPasswords](docs/ImportPasswords.md)
  - [ImportPasswordsOutput](docs/ImportPasswordsOutput.md)
  - [ImporterInfo](docs/ImporterInfo.md)
+ - [InjectorCertificateEvent](docs/InjectorCertificateEvent.md)
  - [IssuerOverviewInfo](docs/IssuerOverviewInfo.md)
  - [Item](docs/Item.md)
  - [ItemCustomFieldsDetails](docs/ItemCustomFieldsDetails.md)
@@ -1679,6 +1688,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretCreateMongodb](docs/RotatedSecretCreateMongodb.md)
  - [RotatedSecretCreateMssql](docs/RotatedSecretCreateMssql.md)
  - [RotatedSecretCreateMysql](docs/RotatedSecretCreateMysql.md)
+ - [RotatedSecretCreateOkta](docs/RotatedSecretCreateOkta.md)
  - [RotatedSecretCreateOpenAI](docs/RotatedSecretCreateOpenAI.md)
  - [RotatedSecretCreateOracledb](docs/RotatedSecretCreateOracledb.md)
  - [RotatedSecretCreateOutput](docs/RotatedSecretCreateOutput.md)
@@ -1710,6 +1720,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretUpdateMongodb](docs/RotatedSecretUpdateMongodb.md)
  - [RotatedSecretUpdateMssql](docs/RotatedSecretUpdateMssql.md)
  - [RotatedSecretUpdateMysql](docs/RotatedSecretUpdateMysql.md)
+ - [RotatedSecretUpdateOkta](docs/RotatedSecretUpdateOkta.md)
  - [RotatedSecretUpdateOpenAI](docs/RotatedSecretUpdateOpenAI.md)
  - [RotatedSecretUpdateOracledb](docs/RotatedSecretUpdateOracledb.md)
  - [RotatedSecretUpdateOutput](docs/RotatedSecretUpdateOutput.md)

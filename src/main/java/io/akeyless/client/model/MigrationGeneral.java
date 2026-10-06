@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -60,6 +61,16 @@ public class MigrationGeneral {
   @javax.annotation.Nullable
   private String lastMigration;
 
+  public static final String SERIALIZED_NAME_LAST_MODIFIED = "last_modified";
+  @SerializedName(SERIALIZED_NAME_LAST_MODIFIED)
+  @javax.annotation.Nullable
+  private OffsetDateTime lastModified;
+
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  @javax.annotation.Nullable
+  private String message;
+
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nullable
@@ -79,6 +90,11 @@ public class MigrationGeneral {
   @SerializedName(SERIALIZED_NAME_PROTECTION_KEY)
   @javax.annotation.Nullable
   private String protectionKey;
+
+  public static final String SERIALIZED_NAME_SCHEDULE = "schedule";
+  @SerializedName(SERIALIZED_NAME_SCHEDULE)
+  @javax.annotation.Nullable
+  private String schedule;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -128,6 +144,44 @@ public class MigrationGeneral {
 
   public void setLastMigration(@javax.annotation.Nullable String lastMigration) {
     this.lastMigration = lastMigration;
+  }
+
+
+  public MigrationGeneral lastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    this.lastModified = lastModified;
+    return this;
+  }
+
+  /**
+   * Get lastModified
+   * @return lastModified
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getLastModified() {
+    return lastModified;
+  }
+
+  public void setLastModified(@javax.annotation.Nullable OffsetDateTime lastModified) {
+    this.lastModified = lastModified;
+  }
+
+
+  public MigrationGeneral message(@javax.annotation.Nullable String message) {
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   * @return message
+   */
+  @javax.annotation.Nullable
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(@javax.annotation.Nullable String message) {
+    this.message = message;
   }
 
 
@@ -207,6 +261,25 @@ public class MigrationGeneral {
   }
 
 
+  public MigrationGeneral schedule(@javax.annotation.Nullable String schedule) {
+    this.schedule = schedule;
+    return this;
+  }
+
+  /**
+   * Get schedule
+   * @return schedule
+   */
+  @javax.annotation.Nullable
+  public String getSchedule() {
+    return schedule;
+  }
+
+  public void setSchedule(@javax.annotation.Nullable String schedule) {
+    this.schedule = schedule;
+  }
+
+
   public MigrationGeneral status(@javax.annotation.Nullable String status) {
     this.status = status;
     return this;
@@ -257,17 +330,20 @@ public class MigrationGeneral {
     MigrationGeneral migrationGeneral = (MigrationGeneral) o;
     return Objects.equals(this.id, migrationGeneral.id) &&
         Objects.equals(this.lastMigration, migrationGeneral.lastMigration) &&
+        Objects.equals(this.lastModified, migrationGeneral.lastModified) &&
+        Objects.equals(this.message, migrationGeneral.message) &&
         Objects.equals(this.name, migrationGeneral.name) &&
         Objects.equals(this.newName, migrationGeneral.newName) &&
         Objects.equals(this.prefix, migrationGeneral.prefix) &&
         Objects.equals(this.protectionKey, migrationGeneral.protectionKey) &&
+        Objects.equals(this.schedule, migrationGeneral.schedule) &&
         Objects.equals(this.status, migrationGeneral.status) &&
         Objects.equals(this.type, migrationGeneral.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, lastMigration, name, newName, prefix, protectionKey, status, type);
+    return Objects.hash(id, lastMigration, lastModified, message, name, newName, prefix, protectionKey, schedule, status, type);
   }
 
   @Override
@@ -276,10 +352,13 @@ public class MigrationGeneral {
     sb.append("class MigrationGeneral {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    lastMigration: ").append(toIndentedString(lastMigration)).append("\n");
+    sb.append("    lastModified: ").append(toIndentedString(lastModified)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    prefix: ").append(toIndentedString(prefix)).append("\n");
     sb.append("    protectionKey: ").append(toIndentedString(protectionKey)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
@@ -300,7 +379,7 @@ public class MigrationGeneral {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "last_migration", "name", "new_name", "prefix", "protection_key", "status", "type"));
+    openapiFields = new HashSet<String>(Arrays.asList("id", "last_migration", "last_modified", "message", "name", "new_name", "prefix", "protection_key", "schedule", "status", "type"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -333,6 +412,9 @@ public class MigrationGeneral {
       if ((jsonObj.get("last_migration") != null && !jsonObj.get("last_migration").isJsonNull()) && !jsonObj.get("last_migration").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `last_migration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_migration").toString()));
       }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -344,6 +426,9 @@ public class MigrationGeneral {
       }
       if ((jsonObj.get("protection_key") != null && !jsonObj.get("protection_key").isJsonNull()) && !jsonObj.get("protection_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection_key").toString()));
+      }
+      if ((jsonObj.get("schedule") != null && !jsonObj.get("schedule").isJsonNull()) && !jsonObj.get("schedule").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `schedule` to be a primitive type in the JSON string but got `%s`", jsonObj.get("schedule").toString()));
       }
       if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));

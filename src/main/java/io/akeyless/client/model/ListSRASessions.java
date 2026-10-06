@@ -48,7 +48,7 @@ import java.util.Set;
 import io.akeyless.client.JSON;
 
 /**
- * listSRASessions is a command that returns sra sessions of the given user
+ * listSRASessions is a command that returns the sra sessions the caller is entitled to see
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class ListSRASessions {
@@ -56,6 +56,11 @@ public class ListSRASessions {
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
   private Boolean json = false;
+
+  public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
+  @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
+  @javax.annotation.Nullable
+  private String paginationToken;
 
   public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource-type";
   @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
@@ -96,6 +101,25 @@ public class ListSRASessions {
 
   public void setJson(@javax.annotation.Nullable Boolean json) {
     this.json = json;
+  }
+
+
+  public ListSRASessions paginationToken(@javax.annotation.Nullable String paginationToken) {
+    this.paginationToken = paginationToken;
+    return this;
+  }
+
+  /**
+   * Next page reference
+   * @return paginationToken
+   */
+  @javax.annotation.Nullable
+  public String getPaginationToken() {
+    return paginationToken;
+  }
+
+  public void setPaginationToken(@javax.annotation.Nullable String paginationToken) {
+    this.paginationToken = paginationToken;
   }
 
 
@@ -202,6 +226,7 @@ public class ListSRASessions {
     }
     ListSRASessions listSRASessions = (ListSRASessions) o;
     return Objects.equals(this.json, listSRASessions.json) &&
+        Objects.equals(this.paginationToken, listSRASessions.paginationToken) &&
         Objects.equals(this.resourceType, listSRASessions.resourceType) &&
         Objects.equals(this.statusType, listSRASessions.statusType) &&
         Objects.equals(this.token, listSRASessions.token) &&
@@ -210,7 +235,7 @@ public class ListSRASessions {
 
   @Override
   public int hashCode() {
-    return Objects.hash(json, resourceType, statusType, token, uidToken);
+    return Objects.hash(json, paginationToken, resourceType, statusType, token, uidToken);
   }
 
   @Override
@@ -218,6 +243,7 @@ public class ListSRASessions {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListSRASessions {\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
     sb.append("    statusType: ").append(toIndentedString(statusType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -240,7 +266,7 @@ public class ListSRASessions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("json", "resource-type", "status-type", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("json", "pagination-token", "resource-type", "status-type", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -267,6 +293,9 @@ public class ListSRASessions {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("pagination-token") != null && !jsonObj.get("pagination-token").isJsonNull()) && !jsonObj.get("pagination-token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pagination-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pagination-token").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("resource-type") != null && !jsonObj.get("resource-type").isJsonNull() && !jsonObj.get("resource-type").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `resource-type` to be an array in the JSON string but got `%s`", jsonObj.get("resource-type").toString()));

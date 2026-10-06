@@ -57,6 +57,11 @@ public class AssocTargetItem {
   @javax.annotation.Nullable
   private List<String> bindSslProfiles = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
+  @javax.annotation.Nullable
+  private String certificateFormat = "pem";
+
   public static final String SERIALIZED_NAME_CERTIFICATE_PATH = "certificate-path";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PATH)
   @javax.annotation.Nullable
@@ -111,6 +116,11 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_PFX_PASSWORD = "pfx-password";
+  @SerializedName(SERIALIZED_NAME_PFX_PASSWORD)
+  @javax.annotation.Nullable
+  private String pfxPassword;
 
   public static final String SERIALIZED_NAME_POST_PROVISION_COMMAND = "post-provision-command";
   @SerializedName(SERIALIZED_NAME_POST_PROVISION_COMMAND)
@@ -189,7 +199,7 @@ public class AssocTargetItem {
   }
 
   /**
-   * Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format &lt;type&gt;:&lt;partition&gt;:&lt;name&gt; (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate&#39;s partition. Repeat the parameter to bind several profiles.
+   * Bind the provisioned certificate to an existing client-ssl/server-ssl profile, in the format &lt;type&gt;:&lt;partition&gt;:&lt;name&gt; (relevant only for F5 BIG-IP certificate provisioning). Leave the partition empty to use the certificate&#39;s partition. For a profile in a folder, add the folder to the partition, for example client-ssl:Common/Shared:my-profile. Repeat the parameter to bind several profiles.
    * @return bindSslProfiles
    */
   @javax.annotation.Nullable
@@ -199,6 +209,25 @@ public class AssocTargetItem {
 
   public void setBindSslProfiles(@javax.annotation.Nullable List<String> bindSslProfiles) {
     this.bindSslProfiles = bindSslProfiles;
+  }
+
+
+  public AssocTargetItem certificateFormat(@javax.annotation.Nullable String certificateFormat) {
+    this.certificateFormat = certificateFormat;
+    return this;
+  }
+
+  /**
+   * The format the certificate will be provisioned with, available options: pem,pfx (relevant only for certificate provisioning)
+   * @return certificateFormat
+   */
+  @javax.annotation.Nullable
+  public String getCertificateFormat() {
+    return certificateFormat;
+  }
+
+  public void setCertificateFormat(@javax.annotation.Nullable String certificateFormat) {
+    this.certificateFormat = certificateFormat;
   }
 
 
@@ -416,6 +445,25 @@ public class AssocTargetItem {
 
   public void setName(@javax.annotation.Nonnull String name) {
     this.name = name;
+  }
+
+
+  public AssocTargetItem pfxPassword(@javax.annotation.Nullable String pfxPassword) {
+    this.pfxPassword = pfxPassword;
+    return this;
+  }
+
+  /**
+   * Password used to protect the provisioned PFX file. Required when --certificate-format&#x3D;pfx (relevant only for certificate provisioning)
+   * @return pfxPassword
+   */
+  @javax.annotation.Nullable
+  public String getPfxPassword() {
+    return pfxPassword;
+  }
+
+  public void setPfxPassword(@javax.annotation.Nullable String pfxPassword) {
+    this.pfxPassword = pfxPassword;
   }
 
 
@@ -666,6 +714,7 @@ public class AssocTargetItem {
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
     return Objects.equals(this.bindSslProfiles, assocTargetItem.bindSslProfiles) &&
+        Objects.equals(this.certificateFormat, assocTargetItem.certificateFormat) &&
         Objects.equals(this.certificatePath, assocTargetItem.certificatePath) &&
         Objects.equals(this.chainPath, assocTargetItem.chainPath) &&
         Objects.equals(this.disablePreviousKeyVersion, assocTargetItem.disablePreviousKeyVersion) &&
@@ -677,6 +726,7 @@ public class AssocTargetItem {
         Objects.equals(this.locationId, assocTargetItem.locationId) &&
         Objects.equals(this.multiRegion, assocTargetItem.multiRegion) &&
         Objects.equals(this.name, assocTargetItem.name) &&
+        Objects.equals(this.pfxPassword, assocTargetItem.pfxPassword) &&
         Objects.equals(this.postProvisionCommand, assocTargetItem.postProvisionCommand) &&
         Objects.equals(this.privateKeyPath, assocTargetItem.privateKeyPath) &&
         Objects.equals(this.projectId, assocTargetItem.projectId) &&
@@ -693,7 +743,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindSslProfiles, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(bindSslProfiles, certificateFormat, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, pfxPassword, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
@@ -701,6 +751,7 @@ public class AssocTargetItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
     sb.append("    bindSslProfiles: ").append(toIndentedString(bindSslProfiles)).append("\n");
+    sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
     sb.append("    certificatePath: ").append(toIndentedString(certificatePath)).append("\n");
     sb.append("    chainPath: ").append(toIndentedString(chainPath)).append("\n");
     sb.append("    disablePreviousKeyVersion: ").append(toIndentedString(disablePreviousKeyVersion)).append("\n");
@@ -712,6 +763,7 @@ public class AssocTargetItem {
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
     sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    pfxPassword: ").append(toIndentedString(pfxPassword)).append("\n");
     sb.append("    postProvisionCommand: ").append(toIndentedString(postProvisionCommand)).append("\n");
     sb.append("    privateKeyPath: ").append(toIndentedString(privateKeyPath)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
@@ -742,7 +794,7 @@ public class AssocTargetItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "json", "key-operations", "keyring-name", "kms-algorithm", "location-id", "multi-region", "name", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-format", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "json", "key-operations", "keyring-name", "kms-algorithm", "location-id", "multi-region", "name", "pfx-password", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -780,6 +832,9 @@ public class AssocTargetItem {
       if (jsonObj.get("bind-ssl-profiles") != null && !jsonObj.get("bind-ssl-profiles").isJsonNull() && !jsonObj.get("bind-ssl-profiles").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bind-ssl-profiles` to be an array in the JSON string but got `%s`", jsonObj.get("bind-ssl-profiles").toString()));
       }
+      if ((jsonObj.get("certificate-format") != null && !jsonObj.get("certificate-format").isJsonNull()) && !jsonObj.get("certificate-format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-format").toString()));
+      }
       if ((jsonObj.get("certificate-path") != null && !jsonObj.get("certificate-path").isJsonNull()) && !jsonObj.get("certificate-path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-path").toString()));
       }
@@ -807,6 +862,9 @@ public class AssocTargetItem {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("pfx-password") != null && !jsonObj.get("pfx-password").isJsonNull()) && !jsonObj.get("pfx-password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pfx-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pfx-password").toString()));
       }
       if ((jsonObj.get("post-provision-command") != null && !jsonObj.get("post-provision-command").isJsonNull()) && !jsonObj.get("post-provision-command").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `post-provision-command` to be a primitive type in the JSON string but got `%s`", jsonObj.get("post-provision-command").toString()));

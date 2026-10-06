@@ -49,6 +49,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**calcPasswordSecurityInfo**](V2Api.md#calcPasswordSecurityInfo) | **POST** /calc-password-security-info |  |
 | [**certificateDiscovery**](V2Api.md#certificateDiscovery) | **POST** /certificate-discovery |  |
 | [**changeAdminAccountPassword**](V2Api.md#changeAdminAccountPassword) | **POST** /change-admin-account-password |  |
+| [**clientEvent**](V2Api.md#clientEvent) | **POST** /client-event |  |
 | [**configure**](V2Api.md#configure) | **POST** /configure |  |
 | [**connect**](V2Api.md#connect) | **POST** /connect |  |
 | [**createAWSTarget**](V2Api.md#createAWSTarget) | **POST** /create-aws-target |  |
@@ -341,6 +342,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**generateAcmeEab**](V2Api.md#generateAcmeEab) | **POST** /generate-acme-eab |  |
 | [**generateCA**](V2Api.md#generateCA) | **POST** /generate-ca |  |
 | [**generateCsr**](V2Api.md#generateCsr) | **POST** /generate-csr |  |
+| [**generateIntermediateCA**](V2Api.md#generateIntermediateCA) | **POST** /generate-intermediate-ca |  |
 | [**getAccountLogo**](V2Api.md#getAccountLogo) | **POST** /get-account-logo |  |
 | [**getAccountSettings**](V2Api.md#getAccountSettings) | **POST** /get-account-settings |  |
 | [**getAnalyticsData**](V2Api.md#getAnalyticsData) | **POST** /get-analytics-data |  |
@@ -401,7 +403,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**listItems**](V2Api.md#listItems) | **POST** /list-items |  |
 | [**listRoles**](V2Api.md#listRoles) | **POST** /list-roles |  |
 | [**listSRABastions**](V2Api.md#listSRABastions) | **POST** /list-sra-bastions |  |
-| [**listSRASessions**](V2Api.md#listSRASessions) | **POST** /list-sra-sessions |  |
+| [**listSRASessions**](V2Api.md#listSRASessions) | **POST** /list-sra-sessions | Lists SRA sessions. |
 | [**listSharedItems**](V2Api.md#listSharedItems) | **POST** /list-shared-items |  |
 | [**listTargets**](V2Api.md#listTargets) | **POST** /list-targets |  |
 | [**lockItem**](V2Api.md#lockItem) | **POST** /lock-item |  |
@@ -439,6 +441,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretCreateMongodb**](V2Api.md#rotatedSecretCreateMongodb) | **POST** /rotated-secret-create-mongodb |  |
 | [**rotatedSecretCreateMssql**](V2Api.md#rotatedSecretCreateMssql) | **POST** /rotated-secret-create-mssql |  |
 | [**rotatedSecretCreateMysql**](V2Api.md#rotatedSecretCreateMysql) | **POST** /rotated-secret-create-mysql |  |
+| [**rotatedSecretCreateOkta**](V2Api.md#rotatedSecretCreateOkta) | **POST** /rotated-secret-create-okta |  |
 | [**rotatedSecretCreateOpenAI**](V2Api.md#rotatedSecretCreateOpenAI) | **POST** /rotated-secret-create-openai |  |
 | [**rotatedSecretCreateOracledb**](V2Api.md#rotatedSecretCreateOracledb) | **POST** /rotated-secret-create-oracledb |  |
 | [**rotatedSecretCreatePostgresql**](V2Api.md#rotatedSecretCreatePostgresql) | **POST** /rotated-secret-create-postgresql |  |
@@ -466,6 +469,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretUpdateMongodb**](V2Api.md#rotatedSecretUpdateMongodb) | **POST** /rotated-secret-update-mongodb |  |
 | [**rotatedSecretUpdateMssql**](V2Api.md#rotatedSecretUpdateMssql) | **POST** /rotated-secret-update-mssql |  |
 | [**rotatedSecretUpdateMysql**](V2Api.md#rotatedSecretUpdateMysql) | **POST** /rotated-secret-update-mysql |  |
+| [**rotatedSecretUpdateOkta**](V2Api.md#rotatedSecretUpdateOkta) | **POST** /rotated-secret-update-okta |  |
 | [**rotatedSecretUpdateOpenAI**](V2Api.md#rotatedSecretUpdateOpenAI) | **POST** /rotated-secret-update-openai |  |
 | [**rotatedSecretUpdateOracledb**](V2Api.md#rotatedSecretUpdateOracledb) | **POST** /rotated-secret-update-oracledb |  |
 | [**rotatedSecretUpdatePostgresql**](V2Api.md#rotatedSecretUpdatePostgresql) | **POST** /rotated-secret-update-postgresql |  |
@@ -3409,6 +3413,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | changeAdminAccountPasswordResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="clientEvent"></a>
+# **clientEvent**
+> ClientEventOutput clientEvent(clientEvent)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    ClientEvent clientEvent = new ClientEvent(); // ClientEvent | 
+    try {
+      ClientEventOutput result = apiInstance.clientEvent(clientEvent);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#clientEvent");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **clientEvent** | [**ClientEvent**](ClientEvent.md)|  | |
+
+### Return type
+
+[**ClientEventOutput**](ClientEventOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | clientEventResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="configure"></a>
@@ -21220,6 +21285,67 @@ No authorization required
 | **200** | generateCsrResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="generateIntermediateCA"></a>
+# **generateIntermediateCA**
+> GenerateIntermediateCAOutput generateIntermediateCA(generateIntermediateCA)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    GenerateIntermediateCA generateIntermediateCA = new GenerateIntermediateCA(); // GenerateIntermediateCA | 
+    try {
+      GenerateIntermediateCAOutput result = apiInstance.generateIntermediateCA(generateIntermediateCA);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#generateIntermediateCA");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **generateIntermediateCA** | [**GenerateIntermediateCA**](GenerateIntermediateCA.md)|  | |
+
+### Return type
+
+[**GenerateIntermediateCAOutput**](GenerateIntermediateCAOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | GenerateIntermediateCAResponse wraps the response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="getAccountLogo"></a>
 # **getAccountLogo**
 > Map&lt;String, String&gt; getAccountLogo()
@@ -24877,7 +25003,9 @@ No authorization required
 # **listSRASessions**
 > ListSraSessionsOutput listSRASessions(listSRASessions)
 
+Lists SRA sessions.
 
+Results are returned newest first, ordered by start time, then by session ID. Responses contain up to 1000 sessions.  Pagination: Pass the response&#39;s &#x60;next_page&#x60; value as the &#x60;pagination-token&#x60; in subsequent requests to fetch the next page. Pagination is complete when &#x60;next_page&#x60; is empty. Sending an empty &#x60;pagination-token&#x60; retrieves the first page. Filters must remain identical across paginated requests to maintain cursor validity.
 
 ### Example
 ```java
@@ -27186,6 +27314,67 @@ No authorization required
 | **200** | rotatedSecretCreateMysqlResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="rotatedSecretCreateOkta"></a>
+# **rotatedSecretCreateOkta**
+> RotatedSecretCreateOutput rotatedSecretCreateOkta(rotatedSecretCreateOkta)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretCreateOkta rotatedSecretCreateOkta = new RotatedSecretCreateOkta(); // RotatedSecretCreateOkta | 
+    try {
+      RotatedSecretCreateOutput result = apiInstance.rotatedSecretCreateOkta(rotatedSecretCreateOkta);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretCreateOkta");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretCreateOkta** | [**RotatedSecretCreateOkta**](RotatedSecretCreateOkta.md)|  | |
+
+### Return type
+
+[**RotatedSecretCreateOutput**](RotatedSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | rotatedSecretCreateOktaResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="rotatedSecretCreateOpenAI"></a>
 # **rotatedSecretCreateOpenAI**
 > RotatedSecretCreateOutput rotatedSecretCreateOpenAI(rotatedSecretCreateOpenAI)
@@ -28831,6 +29020,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | rotatedSecretUpdateMysqlResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="rotatedSecretUpdateOkta"></a>
+# **rotatedSecretUpdateOkta**
+> RotatedSecretUpdateOutput rotatedSecretUpdateOkta(rotatedSecretUpdateOkta)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretUpdateOkta rotatedSecretUpdateOkta = new RotatedSecretUpdateOkta(); // RotatedSecretUpdateOkta | 
+    try {
+      RotatedSecretUpdateOutput result = apiInstance.rotatedSecretUpdateOkta(rotatedSecretUpdateOkta);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretUpdateOkta");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretUpdateOkta** | [**RotatedSecretUpdateOkta**](RotatedSecretUpdateOkta.md)|  | |
+
+### Return type
+
+[**RotatedSecretUpdateOutput**](RotatedSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | rotatedSecretUpdateOktaResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="rotatedSecretUpdateOpenAI"></a>

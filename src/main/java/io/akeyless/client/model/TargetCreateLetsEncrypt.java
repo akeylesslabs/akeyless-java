@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -65,10 +67,30 @@ public class TargetCreateLetsEncrypt {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_DNS_PROPAGATION_WAIT = "dns-propagation-wait";
+  @SerializedName(SERIALIZED_NAME_DNS_PROPAGATION_WAIT)
+  @javax.annotation.Nullable
+  private String dnsPropagationWait;
+
+  public static final String SERIALIZED_NAME_DNS_RESOLVERS = "dns-resolvers";
+  @SerializedName(SERIALIZED_NAME_DNS_RESOLVERS)
+  @javax.annotation.Nullable
+  private List<String> dnsResolvers = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_DNS_SKIP_PRECHECK = "dns-skip-precheck";
+  @SerializedName(SERIALIZED_NAME_DNS_SKIP_PRECHECK)
+  @javax.annotation.Nullable
+  private Boolean dnsSkipPrecheck;
+
   public static final String SERIALIZED_NAME_DNS_TARGET_CREDS = "dns-target-creds";
   @SerializedName(SERIALIZED_NAME_DNS_TARGET_CREDS)
   @javax.annotation.Nullable
   private String dnsTargetCreds;
+
+  public static final String SERIALIZED_NAME_DNS_TIMEOUT = "dns-timeout";
+  @SerializedName(SERIALIZED_NAME_DNS_TIMEOUT)
+  @javax.annotation.Nullable
+  private String dnsTimeout;
 
   public static final String SERIALIZED_NAME_DNS_ZONE = "dns-zone";
   @SerializedName(SERIALIZED_NAME_DNS_ZONE)
@@ -210,6 +232,71 @@ public class TargetCreateLetsEncrypt {
   }
 
 
+  public TargetCreateLetsEncrypt dnsPropagationWait(@javax.annotation.Nullable String dnsPropagationWait) {
+    this.dnsPropagationWait = dnsPropagationWait;
+    return this;
+  }
+
+  /**
+   * Fixed wait after TXT publish (e.g. 30s, 2m). If omitted with pre-check on, no extra sleep (polling only). If omitted with --dns-skip-precheck, gateway uses 30s. DNS challenge only
+   * @return dnsPropagationWait
+   */
+  @javax.annotation.Nullable
+  public String getDnsPropagationWait() {
+    return dnsPropagationWait;
+  }
+
+  public void setDnsPropagationWait(@javax.annotation.Nullable String dnsPropagationWait) {
+    this.dnsPropagationWait = dnsPropagationWait;
+  }
+
+
+  public TargetCreateLetsEncrypt dnsResolvers(@javax.annotation.Nullable List<String> dnsResolvers) {
+    this.dnsResolvers = dnsResolvers;
+    return this;
+  }
+
+  public TargetCreateLetsEncrypt addDnsResolversItem(String dnsResolversItem) {
+    if (this.dnsResolvers == null) {
+      this.dnsResolvers = new ArrayList<>();
+    }
+    this.dnsResolvers.add(dnsResolversItem);
+    return this;
+  }
+
+  /**
+   * Custom DNS resolvers (ip:port) for DNS-01. Repeat for multiple. If omitted, Lego uses /etc/resolv.conf or Google Public DNS. DNS challenge only
+   * @return dnsResolvers
+   */
+  @javax.annotation.Nullable
+  public List<String> getDnsResolvers() {
+    return dnsResolvers;
+  }
+
+  public void setDnsResolvers(@javax.annotation.Nullable List<String> dnsResolvers) {
+    this.dnsResolvers = dnsResolvers;
+  }
+
+
+  public TargetCreateLetsEncrypt dnsSkipPrecheck(@javax.annotation.Nullable Boolean dnsSkipPrecheck) {
+    this.dnsSkipPrecheck = dnsSkipPrecheck;
+    return this;
+  }
+
+  /**
+   * Skip DNS TXT pre-check before CA validation. If --dns-propagation-wait is omitted and this flag is set, gateway waits 30s before CA validation. DNS challenge only
+   * @return dnsSkipPrecheck
+   */
+  @javax.annotation.Nullable
+  public Boolean getDnsSkipPrecheck() {
+    return dnsSkipPrecheck;
+  }
+
+  public void setDnsSkipPrecheck(@javax.annotation.Nullable Boolean dnsSkipPrecheck) {
+    this.dnsSkipPrecheck = dnsSkipPrecheck;
+  }
+
+
   public TargetCreateLetsEncrypt dnsTargetCreds(@javax.annotation.Nullable String dnsTargetCreds) {
     this.dnsTargetCreds = dnsTargetCreds;
     return this;
@@ -226,6 +313,25 @@ public class TargetCreateLetsEncrypt {
 
   public void setDnsTargetCreds(@javax.annotation.Nullable String dnsTargetCreds) {
     this.dnsTargetCreds = dnsTargetCreds;
+  }
+
+
+  public TargetCreateLetsEncrypt dnsTimeout(@javax.annotation.Nullable String dnsTimeout) {
+    this.dnsTimeout = dnsTimeout;
+    return this;
+  }
+
+  /**
+   * Per-query DNS lookup timeout during pre-check (e.g. 10s), not total poll time. If omitted with pre-check on, Lego library default applies (10s per query on Linux). Ignored when --dns-skip-precheck is set. DNS challenge only
+   * @return dnsTimeout
+   */
+  @javax.annotation.Nullable
+  public String getDnsTimeout() {
+    return dnsTimeout;
+  }
+
+  public void setDnsTimeout(@javax.annotation.Nullable String dnsTimeout) {
+    this.dnsTimeout = dnsTimeout;
   }
 
 
@@ -546,7 +652,11 @@ public class TargetCreateLetsEncrypt {
     return Objects.equals(this.acmeChallenge, targetCreateLetsEncrypt.acmeChallenge) &&
         Objects.equals(this.deleteProtection, targetCreateLetsEncrypt.deleteProtection) &&
         Objects.equals(this.description, targetCreateLetsEncrypt.description) &&
+        Objects.equals(this.dnsPropagationWait, targetCreateLetsEncrypt.dnsPropagationWait) &&
+        Objects.equals(this.dnsResolvers, targetCreateLetsEncrypt.dnsResolvers) &&
+        Objects.equals(this.dnsSkipPrecheck, targetCreateLetsEncrypt.dnsSkipPrecheck) &&
         Objects.equals(this.dnsTargetCreds, targetCreateLetsEncrypt.dnsTargetCreds) &&
+        Objects.equals(this.dnsTimeout, targetCreateLetsEncrypt.dnsTimeout) &&
         Objects.equals(this.dnsZone, targetCreateLetsEncrypt.dnsZone) &&
         Objects.equals(this.email, targetCreateLetsEncrypt.email) &&
         Objects.equals(this.gcpProject, targetCreateLetsEncrypt.gcpProject) &&
@@ -567,7 +677,7 @@ public class TargetCreateLetsEncrypt {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, deleteProtection, description, dnsTargetCreds, dnsZone, email, gcpProject, hostedZone, json, key, letsEncryptUrl, lockOnRead, lockTtl, maxVersions, name, resourceGroup, rotateOnUnlock, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, deleteProtection, description, dnsPropagationWait, dnsResolvers, dnsSkipPrecheck, dnsTargetCreds, dnsTimeout, dnsZone, email, gcpProject, hostedZone, json, key, letsEncryptUrl, lockOnRead, lockTtl, maxVersions, name, resourceGroup, rotateOnUnlock, timeout, token, uidToken);
   }
 
   @Override
@@ -577,7 +687,11 @@ public class TargetCreateLetsEncrypt {
     sb.append("    acmeChallenge: ").append(toIndentedString(acmeChallenge)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    dnsPropagationWait: ").append(toIndentedString(dnsPropagationWait)).append("\n");
+    sb.append("    dnsResolvers: ").append(toIndentedString(dnsResolvers)).append("\n");
+    sb.append("    dnsSkipPrecheck: ").append(toIndentedString(dnsSkipPrecheck)).append("\n");
     sb.append("    dnsTargetCreds: ").append(toIndentedString(dnsTargetCreds)).append("\n");
+    sb.append("    dnsTimeout: ").append(toIndentedString(dnsTimeout)).append("\n");
     sb.append("    dnsZone: ").append(toIndentedString(dnsZone)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    gcpProject: ").append(toIndentedString(gcpProject)).append("\n");
@@ -612,7 +726,7 @@ public class TargetCreateLetsEncrypt {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acme-challenge", "delete_protection", "description", "dns-target-creds", "dns-zone", "email", "gcp-project", "hosted-zone", "json", "key", "lets-encrypt-url", "lock-on-read", "lock-ttl", "max-versions", "name", "resource-group", "rotate-on-unlock", "timeout", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("acme-challenge", "delete_protection", "description", "dns-propagation-wait", "dns-resolvers", "dns-skip-precheck", "dns-target-creds", "dns-timeout", "dns-zone", "email", "gcp-project", "hosted-zone", "json", "key", "lets-encrypt-url", "lock-on-read", "lock-ttl", "max-versions", "name", "resource-group", "rotate-on-unlock", "timeout", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "name"));
@@ -655,8 +769,18 @@ public class TargetCreateLetsEncrypt {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if ((jsonObj.get("dns-propagation-wait") != null && !jsonObj.get("dns-propagation-wait").isJsonNull()) && !jsonObj.get("dns-propagation-wait").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns-propagation-wait` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-propagation-wait").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dns-resolvers") != null && !jsonObj.get("dns-resolvers").isJsonNull() && !jsonObj.get("dns-resolvers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns-resolvers` to be an array in the JSON string but got `%s`", jsonObj.get("dns-resolvers").toString()));
+      }
       if ((jsonObj.get("dns-target-creds") != null && !jsonObj.get("dns-target-creds").isJsonNull()) && !jsonObj.get("dns-target-creds").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns-target-creds` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-target-creds").toString()));
+      }
+      if ((jsonObj.get("dns-timeout") != null && !jsonObj.get("dns-timeout").isJsonNull()) && !jsonObj.get("dns-timeout").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns-timeout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-timeout").toString()));
       }
       if ((jsonObj.get("dns-zone") != null && !jsonObj.get("dns-zone").isJsonNull()) && !jsonObj.get("dns-zone").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns-zone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns-zone").toString()));

@@ -25,6 +25,7 @@ createldapTarget is a command that creates a new target. [Deprecated: Use target
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**tokenExpiration** | **String** | Token expiration |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
+|**username** | **String** | Username returned for Rotated Secrets. Use the format required by your application, such as sAMAccountName, with or without the domain. |  [optional] |
 
 
 

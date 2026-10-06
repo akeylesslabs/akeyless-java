@@ -270,6 +270,16 @@ public class PKICertificateIssueDetails {
   @javax.annotation.Nullable
   private Boolean requireCn;
 
+  public static final String SERIALIZED_NAME_SCEP_CHALLENGE_MODE = "scep_challenge_mode";
+  @SerializedName(SERIALIZED_NAME_SCEP_CHALLENGE_MODE)
+  @javax.annotation.Nullable
+  private String scepChallengeMode;
+
+  public static final String SERIALIZED_NAME_SCEP_ENABLED = "scep_enabled";
+  @SerializedName(SERIALIZED_NAME_SCEP_ENABLED)
+  @javax.annotation.Nullable
+  private Boolean scepEnabled;
+
   public static final String SERIALIZED_NAME_SERVER_FLAG = "server_flag";
   @SerializedName(SERIALIZED_NAME_SERVER_FLAG)
   @javax.annotation.Nullable
@@ -1201,6 +1211,44 @@ public class PKICertificateIssueDetails {
   }
 
 
+  public PKICertificateIssueDetails scepChallengeMode(@javax.annotation.Nullable String scepChallengeMode) {
+    this.scepChallengeMode = scepChallengeMode;
+    return this;
+  }
+
+  /**
+   * ScepChallengeMode is the SCEP challenge mode. Stage 1 supports only \&quot;static\&quot;.
+   * @return scepChallengeMode
+   */
+  @javax.annotation.Nullable
+  public String getScepChallengeMode() {
+    return scepChallengeMode;
+  }
+
+  public void setScepChallengeMode(@javax.annotation.Nullable String scepChallengeMode) {
+    this.scepChallengeMode = scepChallengeMode;
+  }
+
+
+  public PKICertificateIssueDetails scepEnabled(@javax.annotation.Nullable Boolean scepEnabled) {
+    this.scepEnabled = scepEnabled;
+    return this;
+  }
+
+  /**
+   * ScepEnabled turns on SCEP enrollment for this dedicated PKI issuer.
+   * @return scepEnabled
+   */
+  @javax.annotation.Nullable
+  public Boolean getScepEnabled() {
+    return scepEnabled;
+  }
+
+  public void setScepEnabled(@javax.annotation.Nullable Boolean scepEnabled) {
+    this.scepEnabled = scepEnabled;
+  }
+
+
   public PKICertificateIssueDetails serverFlag(@javax.annotation.Nullable Boolean serverFlag) {
     this.serverFlag = serverFlag;
     return this;
@@ -1319,6 +1367,8 @@ public class PKICertificateIssueDetails {
         Objects.equals(this.province, pkICertificateIssueDetails.province) &&
         Objects.equals(this.renewBeforeExpirationInDays, pkICertificateIssueDetails.renewBeforeExpirationInDays) &&
         Objects.equals(this.requireCn, pkICertificateIssueDetails.requireCn) &&
+        Objects.equals(this.scepChallengeMode, pkICertificateIssueDetails.scepChallengeMode) &&
+        Objects.equals(this.scepEnabled, pkICertificateIssueDetails.scepEnabled) &&
         Objects.equals(this.serverFlag, pkICertificateIssueDetails.serverFlag) &&
         Objects.equals(this.splitCertificateChain, pkICertificateIssueDetails.splitCertificateChain) &&
         Objects.equals(this.streetAddress, pkICertificateIssueDetails.streetAddress);
@@ -1326,7 +1376,7 @@ public class PKICertificateIssueDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraints, basicConstraintsCritical, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, serverFlag, splitCertificateChain, streetAddress);
+    return Objects.hash(acmeEnabled, allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomainsList, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenewCertificate, basicConstraints, basicConstraintsCritical, basicConstraintsValidForNonCa, certificateAuthorityMode, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, destinationPath, disableWildcards, enforceHostnames, expirationEvents, gwClusterId, gwClusterUrl, isCa, keyBits, keyType, keyUsageList, locality, maxPathLen, nonCriticalKeyUsage, notBeforeDuration, ocspNextUpdate, organizationList, organizationUnitList, pkiIssuerType, postalCode, protectGeneratedCertificates, province, renewBeforeExpirationInDays, requireCn, scepChallengeMode, scepEnabled, serverFlag, splitCertificateChain, streetAddress);
   }
 
   @Override
@@ -1376,6 +1426,8 @@ public class PKICertificateIssueDetails {
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
     sb.append("    renewBeforeExpirationInDays: ").append(toIndentedString(renewBeforeExpirationInDays)).append("\n");
     sb.append("    requireCn: ").append(toIndentedString(requireCn)).append("\n");
+    sb.append("    scepChallengeMode: ").append(toIndentedString(scepChallengeMode)).append("\n");
+    sb.append("    scepEnabled: ").append(toIndentedString(scepEnabled)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
     sb.append("    splitCertificateChain: ").append(toIndentedString(splitCertificateChain)).append("\n");
     sb.append("    streetAddress: ").append(toIndentedString(streetAddress)).append("\n");
@@ -1397,7 +1449,7 @@ public class PKICertificateIssueDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acme_enabled", "allow_any_name", "allow_copy_ext_from_csr", "allow_subdomains", "allowed_domains_list", "allowed_extra_extensions", "allowed_ip_sans", "allowed_uri_sans", "auto_renew_certificate", "basic_constraints", "basic_constraints_critical", "basic_constraints_valid_for_non_ca", "certificate_authority_mode", "client_flag", "code_signing_flag", "country", "create_private_crl", "create_private_ocsp", "create_public_crl", "create_public_ocsp", "destination_path", "disable_wildcards", "enforce_hostnames", "expiration_events", "gw_cluster_id", "gw_cluster_url", "is_ca", "key_bits", "key_type", "key_usage_list", "locality", "max_path_len", "non_critical_key_usage", "not_before_duration", "ocsp_next_update", "organization_list", "organization_unit_list", "pki_issuer_type", "postal_code", "protect_generated_certificates", "province", "renew_before_expiration_in_days", "require_cn", "server_flag", "split_certificate_chain", "street_address"));
+    openapiFields = new HashSet<String>(Arrays.asList("acme_enabled", "allow_any_name", "allow_copy_ext_from_csr", "allow_subdomains", "allowed_domains_list", "allowed_extra_extensions", "allowed_ip_sans", "allowed_uri_sans", "auto_renew_certificate", "basic_constraints", "basic_constraints_critical", "basic_constraints_valid_for_non_ca", "certificate_authority_mode", "client_flag", "code_signing_flag", "country", "create_private_crl", "create_private_ocsp", "create_public_crl", "create_public_ocsp", "destination_path", "disable_wildcards", "enforce_hostnames", "expiration_events", "gw_cluster_id", "gw_cluster_url", "is_ca", "key_bits", "key_type", "key_usage_list", "locality", "max_path_len", "non_critical_key_usage", "not_before_duration", "ocsp_next_update", "organization_list", "organization_unit_list", "pki_issuer_type", "postal_code", "protect_generated_certificates", "province", "renew_before_expiration_in_days", "require_cn", "scep_challenge_mode", "scep_enabled", "server_flag", "split_certificate_chain", "street_address"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1495,6 +1547,9 @@ public class PKICertificateIssueDetails {
       // ensure the optional json data is an array if present
       if (jsonObj.get("province") != null && !jsonObj.get("province").isJsonNull() && !jsonObj.get("province").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `province` to be an array in the JSON string but got `%s`", jsonObj.get("province").toString()));
+      }
+      if ((jsonObj.get("scep_challenge_mode") != null && !jsonObj.get("scep_challenge_mode").isJsonNull()) && !jsonObj.get("scep_challenge_mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scep_challenge_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scep_challenge_mode").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("street_address") != null && !jsonObj.get("street_address").isJsonNull() && !jsonObj.get("street_address").isJsonArray()) {

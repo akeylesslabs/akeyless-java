@@ -145,6 +145,11 @@ public class TargetUpdateLdap {
   @javax.annotation.Nullable
   private String uidToken;
 
+  public static final String SERIALIZED_NAME_USERNAME = "username";
+  @SerializedName(SERIALIZED_NAME_USERNAME)
+  @javax.annotation.Nullable
+  private String username;
+
   public TargetUpdateLdap() {
   }
 
@@ -509,6 +514,25 @@ public class TargetUpdateLdap {
   }
 
 
+  public TargetUpdateLdap username(@javax.annotation.Nullable String username) {
+    this.username = username;
+    return this;
+  }
+
+  /**
+   * Username returned for Rotated Secrets. Use the format required by your application, such as sAMAccountName, with or without the domain.
+   * @return username
+   */
+  @javax.annotation.Nullable
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(@javax.annotation.Nullable String username) {
+    this.username = username;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -537,12 +561,13 @@ public class TargetUpdateLdap {
         Objects.equals(this.serverType, targetUpdateLdap.serverType) &&
         Objects.equals(this.token, targetUpdateLdap.token) &&
         Objects.equals(this.tokenExpiration, targetUpdateLdap.tokenExpiration) &&
-        Objects.equals(this.uidToken, targetUpdateLdap.uidToken);
+        Objects.equals(this.uidToken, targetUpdateLdap.uidToken) &&
+        Objects.equals(this.username, targetUpdateLdap.username);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindDn, bindDnPassword, deleteProtection, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, lockOnRead, lockTtl, maxVersions, name, newName, rotateOnUnlock, serverType, token, tokenExpiration, uidToken);
+    return Objects.hash(bindDn, bindDnPassword, deleteProtection, description, json, keepPrevVersion, key, ldapCaCert, ldapUrl, lockOnRead, lockTtl, maxVersions, name, newName, rotateOnUnlock, serverType, token, tokenExpiration, uidToken, username);
   }
 
   @Override
@@ -568,6 +593,7 @@ public class TargetUpdateLdap {
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    tokenExpiration: ").append(toIndentedString(tokenExpiration)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
+    sb.append("    username: ").append(toIndentedString(username)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -586,7 +612,7 @@ public class TargetUpdateLdap {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "delete_protection", "description", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rotate-on-unlock", "server-type", "token", "token-expiration", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "delete_protection", "description", "json", "keep-prev-version", "key", "ldap-ca-cert", "ldap-url", "lock-on-read", "lock-ttl", "max-versions", "name", "new-name", "rotate-on-unlock", "server-type", "token", "token-expiration", "uid-token", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("bind-dn", "bind-dn-password", "ldap-url", "name"));
@@ -673,6 +699,9 @@ public class TargetUpdateLdap {
       }
       if ((jsonObj.get("uid-token") != null && !jsonObj.get("uid-token").isJsonNull()) && !jsonObj.get("uid-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `uid-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid-token").toString()));
+      }
+      if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
   }
 

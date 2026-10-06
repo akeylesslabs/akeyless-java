@@ -135,6 +135,8 @@ docs/ClassicKeyDetailsInfo.md
 docs/ClassicKeyStatusInfo.md
 docs/ClassicKeyTargetInfo.md
 docs/ClientData.md
+docs/ClientEvent.md
+docs/ClientEventOutput.md
 docs/ClientUsageInfo.md
 docs/ClientsUsageReport.md
 docs/CloudflareTargetDetails.md
@@ -654,6 +656,8 @@ docs/GenerateCA.md
 docs/GenerateCAOutput.md
 docs/GenerateCsr.md
 docs/GenerateCsrOutput.md
+docs/GenerateIntermediateCA.md
+docs/GenerateIntermediateCAOutput.md
 docs/GetAccountSettings.md
 docs/GetAccountSettingsCommandOutput.md
 docs/GetAnalyticsData.md
@@ -718,6 +722,7 @@ docs/HuaweiAccessRules.md
 docs/ImportPasswords.md
 docs/ImportPasswordsOutput.md
 docs/ImporterInfo.md
+docs/InjectorCertificateEvent.md
 docs/IssuerOverviewInfo.md
 docs/Item.md
 docs/ItemCustomFieldsDetails.md
@@ -917,6 +922,7 @@ docs/RotatedSecretCreateLdap.md
 docs/RotatedSecretCreateMongodb.md
 docs/RotatedSecretCreateMssql.md
 docs/RotatedSecretCreateMysql.md
+docs/RotatedSecretCreateOkta.md
 docs/RotatedSecretCreateOpenAI.md
 docs/RotatedSecretCreateOracledb.md
 docs/RotatedSecretCreateOutput.md
@@ -948,6 +954,7 @@ docs/RotatedSecretUpdateLdap.md
 docs/RotatedSecretUpdateMongodb.md
 docs/RotatedSecretUpdateMssql.md
 docs/RotatedSecretUpdateMysql.md
+docs/RotatedSecretUpdateOkta.md
 docs/RotatedSecretUpdateOpenAI.md
 docs/RotatedSecretUpdateOracledb.md
 docs/RotatedSecretUpdateOutput.md
@@ -1437,6 +1444,8 @@ src/main/java/io/akeyless/client/model/ClassicKeyDetailsInfo.java
 src/main/java/io/akeyless/client/model/ClassicKeyStatusInfo.java
 src/main/java/io/akeyless/client/model/ClassicKeyTargetInfo.java
 src/main/java/io/akeyless/client/model/ClientData.java
+src/main/java/io/akeyless/client/model/ClientEvent.java
+src/main/java/io/akeyless/client/model/ClientEventOutput.java
 src/main/java/io/akeyless/client/model/ClientUsageInfo.java
 src/main/java/io/akeyless/client/model/ClientsUsageReport.java
 src/main/java/io/akeyless/client/model/CloudflareTargetDetails.java
@@ -1956,6 +1965,8 @@ src/main/java/io/akeyless/client/model/GenerateCA.java
 src/main/java/io/akeyless/client/model/GenerateCAOutput.java
 src/main/java/io/akeyless/client/model/GenerateCsr.java
 src/main/java/io/akeyless/client/model/GenerateCsrOutput.java
+src/main/java/io/akeyless/client/model/GenerateIntermediateCA.java
+src/main/java/io/akeyless/client/model/GenerateIntermediateCAOutput.java
 src/main/java/io/akeyless/client/model/GetAccountSettings.java
 src/main/java/io/akeyless/client/model/GetAccountSettingsCommandOutput.java
 src/main/java/io/akeyless/client/model/GetAnalyticsData.java
@@ -2020,6 +2031,7 @@ src/main/java/io/akeyless/client/model/HuaweiAccessRules.java
 src/main/java/io/akeyless/client/model/ImportPasswords.java
 src/main/java/io/akeyless/client/model/ImportPasswordsOutput.java
 src/main/java/io/akeyless/client/model/ImporterInfo.java
+src/main/java/io/akeyless/client/model/InjectorCertificateEvent.java
 src/main/java/io/akeyless/client/model/IssuerOverviewInfo.java
 src/main/java/io/akeyless/client/model/Item.java
 src/main/java/io/akeyless/client/model/ItemCustomFieldsDetails.java
@@ -2219,6 +2231,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretCreateLdap.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMongodb.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMssql.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateMysql.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateOkta.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateOpenAI.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateOracledb.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateOutput.java
@@ -2250,6 +2263,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretUpdateLdap.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMongodb.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMssql.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateMysql.java
+src/main/java/io/akeyless/client/model/RotatedSecretUpdateOkta.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateOpenAI.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateOracledb.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateOutput.java
@@ -2580,3 +2594,10 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/ClientEventOutputTest.java
+src/test/java/io/akeyless/client/model/ClientEventTest.java
+src/test/java/io/akeyless/client/model/GenerateIntermediateCAOutputTest.java
+src/test/java/io/akeyless/client/model/GenerateIntermediateCATest.java
+src/test/java/io/akeyless/client/model/InjectorCertificateEventTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateOktaTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretUpdateOktaTest.java

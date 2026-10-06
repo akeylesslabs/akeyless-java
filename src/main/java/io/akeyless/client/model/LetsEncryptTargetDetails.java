@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -70,6 +72,21 @@ public class LetsEncryptTargetDetails {
   @javax.annotation.Nullable
   private String challengeType;
 
+  public static final String SERIALIZED_NAME_DNS_PROPAGATION_WAIT = "dns_propagation_wait";
+  @SerializedName(SERIALIZED_NAME_DNS_PROPAGATION_WAIT)
+  @javax.annotation.Nullable
+  private Long dnsPropagationWait;
+
+  public static final String SERIALIZED_NAME_DNS_RESOLVERS = "dns_resolvers";
+  @SerializedName(SERIALIZED_NAME_DNS_RESOLVERS)
+  @javax.annotation.Nullable
+  private List<String> dnsResolvers = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_DNS_SKIP_PRECHECK = "dns_skip_precheck";
+  @SerializedName(SERIALIZED_NAME_DNS_SKIP_PRECHECK)
+  @javax.annotation.Nullable
+  private Boolean dnsSkipPrecheck;
+
   public static final String SERIALIZED_NAME_DNS_TARGET_NAME = "dns_target_name";
   @SerializedName(SERIALIZED_NAME_DNS_TARGET_NAME)
   @javax.annotation.Nullable
@@ -79,6 +96,11 @@ public class LetsEncryptTargetDetails {
   @SerializedName(SERIALIZED_NAME_DNS_TARGET_TYPE)
   @javax.annotation.Nullable
   private String dnsTargetType;
+
+  public static final String SERIALIZED_NAME_DNS_TIMEOUT = "dns_timeout";
+  @SerializedName(SERIALIZED_NAME_DNS_TIMEOUT)
+  @javax.annotation.Nullable
+  private Long dnsTimeout;
 
   public static final String SERIALIZED_NAME_DNS_ZONE = "dns_zone";
   @SerializedName(SERIALIZED_NAME_DNS_ZONE)
@@ -189,6 +211,71 @@ public class LetsEncryptTargetDetails {
   }
 
 
+  public LetsEncryptTargetDetails dnsPropagationWait(@javax.annotation.Nullable Long dnsPropagationWait) {
+    this.dnsPropagationWait = dnsPropagationWait;
+    return this;
+  }
+
+  /**
+   * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+   * @return dnsPropagationWait
+   */
+  @javax.annotation.Nullable
+  public Long getDnsPropagationWait() {
+    return dnsPropagationWait;
+  }
+
+  public void setDnsPropagationWait(@javax.annotation.Nullable Long dnsPropagationWait) {
+    this.dnsPropagationWait = dnsPropagationWait;
+  }
+
+
+  public LetsEncryptTargetDetails dnsResolvers(@javax.annotation.Nullable List<String> dnsResolvers) {
+    this.dnsResolvers = dnsResolvers;
+    return this;
+  }
+
+  public LetsEncryptTargetDetails addDnsResolversItem(String dnsResolversItem) {
+    if (this.dnsResolvers == null) {
+      this.dnsResolvers = new ArrayList<>();
+    }
+    this.dnsResolvers.add(dnsResolversItem);
+    return this;
+  }
+
+  /**
+   * Custom recursive DNS resolvers (ip:port) for propagation checks.
+   * @return dnsResolvers
+   */
+  @javax.annotation.Nullable
+  public List<String> getDnsResolvers() {
+    return dnsResolvers;
+  }
+
+  public void setDnsResolvers(@javax.annotation.Nullable List<String> dnsResolvers) {
+    this.dnsResolvers = dnsResolvers;
+  }
+
+
+  public LetsEncryptTargetDetails dnsSkipPrecheck(@javax.annotation.Nullable Boolean dnsSkipPrecheck) {
+    this.dnsSkipPrecheck = dnsSkipPrecheck;
+    return this;
+  }
+
+  /**
+   * Skip authoritative nameserver propagation pre-check.
+   * @return dnsSkipPrecheck
+   */
+  @javax.annotation.Nullable
+  public Boolean getDnsSkipPrecheck() {
+    return dnsSkipPrecheck;
+  }
+
+  public void setDnsSkipPrecheck(@javax.annotation.Nullable Boolean dnsSkipPrecheck) {
+    this.dnsSkipPrecheck = dnsSkipPrecheck;
+  }
+
+
   public LetsEncryptTargetDetails dnsTargetName(@javax.annotation.Nullable String dnsTargetName) {
     this.dnsTargetName = dnsTargetName;
     return this;
@@ -224,6 +311,25 @@ public class LetsEncryptTargetDetails {
 
   public void setDnsTargetType(@javax.annotation.Nullable String dnsTargetType) {
     this.dnsTargetType = dnsTargetType;
+  }
+
+
+  public LetsEncryptTargetDetails dnsTimeout(@javax.annotation.Nullable Long dnsTimeout) {
+    this.dnsTimeout = dnsTimeout;
+    return this;
+  }
+
+  /**
+   * A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
+   * @return dnsTimeout
+   */
+  @javax.annotation.Nullable
+  public Long getDnsTimeout() {
+    return dnsTimeout;
+  }
+
+  public void setDnsTimeout(@javax.annotation.Nullable Long dnsTimeout) {
+    this.dnsTimeout = dnsTimeout;
   }
 
 
@@ -355,8 +461,12 @@ public class LetsEncryptTargetDetails {
         Objects.equals(this.accountUrl, letsEncryptTargetDetails.accountUrl) &&
         Objects.equals(this.acmeEnvironment, letsEncryptTargetDetails.acmeEnvironment) &&
         Objects.equals(this.challengeType, letsEncryptTargetDetails.challengeType) &&
+        Objects.equals(this.dnsPropagationWait, letsEncryptTargetDetails.dnsPropagationWait) &&
+        Objects.equals(this.dnsResolvers, letsEncryptTargetDetails.dnsResolvers) &&
+        Objects.equals(this.dnsSkipPrecheck, letsEncryptTargetDetails.dnsSkipPrecheck) &&
         Objects.equals(this.dnsTargetName, letsEncryptTargetDetails.dnsTargetName) &&
         Objects.equals(this.dnsTargetType, letsEncryptTargetDetails.dnsTargetType) &&
+        Objects.equals(this.dnsTimeout, letsEncryptTargetDetails.dnsTimeout) &&
         Objects.equals(this.dnsZone, letsEncryptTargetDetails.dnsZone) &&
         Objects.equals(this.email, letsEncryptTargetDetails.email) &&
         Objects.equals(this.gcpProject, letsEncryptTargetDetails.gcpProject) &&
@@ -367,7 +477,7 @@ public class LetsEncryptTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountKeyPem, accountUrl, acmeEnvironment, challengeType, dnsTargetName, dnsTargetType, dnsZone, email, gcpProject, hostedZone, resourceGroup, timeout);
+    return Objects.hash(accountKeyPem, accountUrl, acmeEnvironment, challengeType, dnsPropagationWait, dnsResolvers, dnsSkipPrecheck, dnsTargetName, dnsTargetType, dnsTimeout, dnsZone, email, gcpProject, hostedZone, resourceGroup, timeout);
   }
 
   @Override
@@ -378,8 +488,12 @@ public class LetsEncryptTargetDetails {
     sb.append("    accountUrl: ").append(toIndentedString(accountUrl)).append("\n");
     sb.append("    acmeEnvironment: ").append(toIndentedString(acmeEnvironment)).append("\n");
     sb.append("    challengeType: ").append(toIndentedString(challengeType)).append("\n");
+    sb.append("    dnsPropagationWait: ").append(toIndentedString(dnsPropagationWait)).append("\n");
+    sb.append("    dnsResolvers: ").append(toIndentedString(dnsResolvers)).append("\n");
+    sb.append("    dnsSkipPrecheck: ").append(toIndentedString(dnsSkipPrecheck)).append("\n");
     sb.append("    dnsTargetName: ").append(toIndentedString(dnsTargetName)).append("\n");
     sb.append("    dnsTargetType: ").append(toIndentedString(dnsTargetType)).append("\n");
+    sb.append("    dnsTimeout: ").append(toIndentedString(dnsTimeout)).append("\n");
     sb.append("    dnsZone: ").append(toIndentedString(dnsZone)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    gcpProject: ").append(toIndentedString(gcpProject)).append("\n");
@@ -404,7 +518,7 @@ public class LetsEncryptTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account_key_pem", "account_url", "acme_environment", "challenge_type", "dns_target_name", "dns_target_type", "dns_zone", "email", "gcp_project", "hosted_zone", "resource_group", "timeout"));
+    openapiFields = new HashSet<String>(Arrays.asList("account_key_pem", "account_url", "acme_environment", "challenge_type", "dns_propagation_wait", "dns_resolvers", "dns_skip_precheck", "dns_target_name", "dns_target_type", "dns_timeout", "dns_zone", "email", "gcp_project", "hosted_zone", "resource_group", "timeout"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -442,6 +556,10 @@ public class LetsEncryptTargetDetails {
       }
       if ((jsonObj.get("challenge_type") != null && !jsonObj.get("challenge_type").isJsonNull()) && !jsonObj.get("challenge_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `challenge_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("challenge_type").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dns_resolvers") != null && !jsonObj.get("dns_resolvers").isJsonNull() && !jsonObj.get("dns_resolvers").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns_resolvers` to be an array in the JSON string but got `%s`", jsonObj.get("dns_resolvers").toString()));
       }
       if ((jsonObj.get("dns_target_name") != null && !jsonObj.get("dns_target_name").isJsonNull()) && !jsonObj.get("dns_target_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `dns_target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dns_target_name").toString()));

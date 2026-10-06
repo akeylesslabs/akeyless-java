@@ -169,6 +169,11 @@ public class CreatePKICertIssuer {
   @javax.annotation.Nullable
   private Boolean enableAcme;
 
+  public static final String SERIALIZED_NAME_ENABLE_SCEP = "enable-scep";
+  @SerializedName(SERIALIZED_NAME_ENABLE_SCEP)
+  @javax.annotation.Nullable
+  private Boolean enableScep;
+
   public static final String SERIALIZED_NAME_EXPIRATION_EVENT_IN = "expiration-event-in";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_EVENT_IN)
   @javax.annotation.Nullable
@@ -258,6 +263,16 @@ public class CreatePKICertIssuer {
   @SerializedName(SERIALIZED_NAME_PROVINCE)
   @javax.annotation.Nullable
   private String province;
+
+  public static final String SERIALIZED_NAME_SCEP_CHALLENGE_TYPE = "scep-challenge-type";
+  @SerializedName(SERIALIZED_NAME_SCEP_CHALLENGE_TYPE)
+  @javax.annotation.Nullable
+  private String scepChallengeType;
+
+  public static final String SERIALIZED_NAME_SCEP_PASSWORD = "scep-password";
+  @SerializedName(SERIALIZED_NAME_SCEP_PASSWORD)
+  @javax.annotation.Nullable
+  private String scepPassword;
 
   public static final String SERIALIZED_NAME_SCHEDULED_RENEW = "scheduled-renew";
   @SerializedName(SERIALIZED_NAME_SCHEDULED_RENEW)
@@ -744,6 +759,25 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer enableScep(@javax.annotation.Nullable Boolean enableScep) {
+    this.enableScep = enableScep;
+    return this;
+  }
+
+  /**
+   * If set, the cert issuer will support the scep protocol
+   * @return enableScep
+   */
+  @javax.annotation.Nullable
+  public Boolean getEnableScep() {
+    return enableScep;
+  }
+
+  public void setEnableScep(@javax.annotation.Nullable Boolean enableScep) {
+    this.enableScep = enableScep;
+  }
+
+
   public CreatePKICertIssuer expirationEventIn(@javax.annotation.Nullable List<String> expirationEventIn) {
     this.expirationEventIn = expirationEventIn;
     return this;
@@ -1102,6 +1136,44 @@ public class CreatePKICertIssuer {
   }
 
 
+  public CreatePKICertIssuer scepChallengeType(@javax.annotation.Nullable String scepChallengeType) {
+    this.scepChallengeType = scepChallengeType;
+    return this;
+  }
+
+  /**
+   * SCEP challenge type. Only static is supported in this stage
+   * @return scepChallengeType
+   */
+  @javax.annotation.Nullable
+  public String getScepChallengeType() {
+    return scepChallengeType;
+  }
+
+  public void setScepChallengeType(@javax.annotation.Nullable String scepChallengeType) {
+    this.scepChallengeType = scepChallengeType;
+  }
+
+
+  public CreatePKICertIssuer scepPassword(@javax.annotation.Nullable String scepPassword) {
+    this.scepPassword = scepPassword;
+    return this;
+  }
+
+  /**
+   * SCEP static challenge password. Request-only; never returned by Describe
+   * @return scepPassword
+   */
+  @javax.annotation.Nullable
+  public String getScepPassword() {
+    return scepPassword;
+  }
+
+  public void setScepPassword(@javax.annotation.Nullable String scepPassword) {
+    this.scepPassword = scepPassword;
+  }
+
+
   public CreatePKICertIssuer scheduledRenew(@javax.annotation.Nullable Long scheduledRenew) {
     this.scheduledRenew = scheduledRenew;
     return this;
@@ -1314,6 +1386,7 @@ public class CreatePKICertIssuer {
         Objects.equals(this.destinationPath, createPKICertIssuer.destinationPath) &&
         Objects.equals(this.disableWildcards, createPKICertIssuer.disableWildcards) &&
         Objects.equals(this.enableAcme, createPKICertIssuer.enableAcme) &&
+        Objects.equals(this.enableScep, createPKICertIssuer.enableScep) &&
         Objects.equals(this.expirationEventIn, createPKICertIssuer.expirationEventIn) &&
         Objects.equals(this.gwClusterUrl, createPKICertIssuer.gwClusterUrl) &&
         Objects.equals(this.isCa, createPKICertIssuer.isCa) &&
@@ -1332,6 +1405,8 @@ public class CreatePKICertIssuer {
         Objects.equals(this.postalCode, createPKICertIssuer.postalCode) &&
         Objects.equals(this.protectCertificates, createPKICertIssuer.protectCertificates) &&
         Objects.equals(this.province, createPKICertIssuer.province) &&
+        Objects.equals(this.scepChallengeType, createPKICertIssuer.scepChallengeType) &&
+        Objects.equals(this.scepPassword, createPKICertIssuer.scepPassword) &&
         Objects.equals(this.scheduledRenew, createPKICertIssuer.scheduledRenew) &&
         Objects.equals(this.serverFlag, createPKICertIssuer.serverFlag) &&
         Objects.equals(this.signerKeyName, createPKICertIssuer.signerKeyName) &&
@@ -1345,7 +1420,7 @@ public class CreatePKICertIssuer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, basicConstraints, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scheduledRenew, serverFlag, signerKeyName, splitCertificateChain, streetAddress, tag, token, ttl, uidToken);
+    return Objects.hash(allowAnyName, allowCopyExtFromCsr, allowSubdomains, allowedDomains, allowedExtraExtensions, allowedIpSans, allowedUriSans, autoRenew, basicConstraints, caTarget, clientFlag, codeSigningFlag, country, createPrivateCrl, createPrivateOcsp, createPublicCrl, createPublicOcsp, criticalKeyUsage, deleteProtection, description, destinationPath, disableWildcards, enableAcme, enableScep, expirationEventIn, gwClusterUrl, isCa, itemCustomFields, json, keyUsage, locality, maxPathLen, metadata, name, notEnforceHostnames, notRequireCn, ocspTtl, organizationalUnits, organizations, postalCode, protectCertificates, province, scepChallengeType, scepPassword, scheduledRenew, serverFlag, signerKeyName, splitCertificateChain, streetAddress, tag, token, ttl, uidToken);
   }
 
   @Override
@@ -1375,6 +1450,7 @@ public class CreatePKICertIssuer {
     sb.append("    destinationPath: ").append(toIndentedString(destinationPath)).append("\n");
     sb.append("    disableWildcards: ").append(toIndentedString(disableWildcards)).append("\n");
     sb.append("    enableAcme: ").append(toIndentedString(enableAcme)).append("\n");
+    sb.append("    enableScep: ").append(toIndentedString(enableScep)).append("\n");
     sb.append("    expirationEventIn: ").append(toIndentedString(expirationEventIn)).append("\n");
     sb.append("    gwClusterUrl: ").append(toIndentedString(gwClusterUrl)).append("\n");
     sb.append("    isCa: ").append(toIndentedString(isCa)).append("\n");
@@ -1393,6 +1469,8 @@ public class CreatePKICertIssuer {
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
     sb.append("    protectCertificates: ").append(toIndentedString(protectCertificates)).append("\n");
     sb.append("    province: ").append(toIndentedString(province)).append("\n");
+    sb.append("    scepChallengeType: ").append(toIndentedString(scepChallengeType)).append("\n");
+    sb.append("    scepPassword: ").append(toIndentedString(scepPassword)).append("\n");
     sb.append("    scheduledRenew: ").append(toIndentedString(scheduledRenew)).append("\n");
     sb.append("    serverFlag: ").append(toIndentedString(serverFlag)).append("\n");
     sb.append("    signerKeyName: ").append(toIndentedString(signerKeyName)).append("\n");
@@ -1420,7 +1498,7 @@ public class CreatePKICertIssuer {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("allow-any-name", "allow-copy-ext-from-csr", "allow-subdomains", "allowed-domains", "allowed-extra-extensions", "allowed-ip-sans", "allowed-uri-sans", "auto-renew", "basic-constraints", "ca-target", "client-flag", "code-signing-flag", "country", "create-private-crl", "create-private-ocsp", "create-public-crl", "create-public-ocsp", "critical-key-usage", "delete_protection", "description", "destination-path", "disable-wildcards", "enable-acme", "expiration-event-in", "gw-cluster-url", "is-ca", "item-custom-fields", "json", "key-usage", "locality", "max-path-len", "metadata", "name", "not-enforce-hostnames", "not-require-cn", "ocsp-ttl", "organizational-units", "organizations", "postal-code", "protect-certificates", "province", "scheduled-renew", "server-flag", "signer-key-name", "split-certificate-chain", "street-address", "tag", "token", "ttl", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("allow-any-name", "allow-copy-ext-from-csr", "allow-subdomains", "allowed-domains", "allowed-extra-extensions", "allowed-ip-sans", "allowed-uri-sans", "auto-renew", "basic-constraints", "ca-target", "client-flag", "code-signing-flag", "country", "create-private-crl", "create-private-ocsp", "create-public-crl", "create-public-ocsp", "critical-key-usage", "delete_protection", "description", "destination-path", "disable-wildcards", "enable-acme", "enable-scep", "expiration-event-in", "gw-cluster-url", "is-ca", "item-custom-fields", "json", "key-usage", "locality", "max-path-len", "metadata", "name", "not-enforce-hostnames", "not-require-cn", "ocsp-ttl", "organizational-units", "organizations", "postal-code", "protect-certificates", "province", "scep-challenge-type", "scep-password", "scheduled-renew", "server-flag", "signer-key-name", "split-certificate-chain", "street-address", "tag", "token", "ttl", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "ttl"));
@@ -1520,6 +1598,12 @@ public class CreatePKICertIssuer {
       }
       if ((jsonObj.get("province") != null && !jsonObj.get("province").isJsonNull()) && !jsonObj.get("province").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `province` to be a primitive type in the JSON string but got `%s`", jsonObj.get("province").toString()));
+      }
+      if ((jsonObj.get("scep-challenge-type") != null && !jsonObj.get("scep-challenge-type").isJsonNull()) && !jsonObj.get("scep-challenge-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scep-challenge-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scep-challenge-type").toString()));
+      }
+      if ((jsonObj.get("scep-password") != null && !jsonObj.get("scep-password").isJsonNull()) && !jsonObj.get("scep-password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scep-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scep-password").toString()));
       }
       if ((jsonObj.get("signer-key-name") != null && !jsonObj.get("signer-key-name").isJsonNull()) && !jsonObj.get("signer-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `signer-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signer-key-name").toString()));

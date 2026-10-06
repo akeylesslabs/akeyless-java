@@ -85,6 +85,11 @@ public class LdapTargetDetails {
   @javax.annotation.Nullable
   private String ldapUrl;
 
+  public static final String SERIALIZED_NAME_LDAP_USERNAME = "ldap_username";
+  @SerializedName(SERIALIZED_NAME_LDAP_USERNAME)
+  @javax.annotation.Nullable
+  private String ldapUsername;
+
   public LdapTargetDetails() {
   }
 
@@ -221,6 +226,25 @@ public class LdapTargetDetails {
   }
 
 
+  public LdapTargetDetails ldapUsername(@javax.annotation.Nullable String ldapUsername) {
+    this.ldapUsername = ldapUsername;
+    return this;
+  }
+
+  /**
+   * Get ldapUsername
+   * @return ldapUsername
+   */
+  @javax.annotation.Nullable
+  public String getLdapUsername() {
+    return ldapUsername;
+  }
+
+  public void setLdapUsername(@javax.annotation.Nullable String ldapUsername) {
+    this.ldapUsername = ldapUsername;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -237,12 +261,13 @@ public class LdapTargetDetails {
         Objects.equals(this.ldapBindPassword, ldapTargetDetails.ldapBindPassword) &&
         Objects.equals(this.ldapCertificate, ldapTargetDetails.ldapCertificate) &&
         Objects.equals(this.ldapTokenExpiration, ldapTargetDetails.ldapTokenExpiration) &&
-        Objects.equals(this.ldapUrl, ldapTargetDetails.ldapUrl);
+        Objects.equals(this.ldapUrl, ldapTargetDetails.ldapUrl) &&
+        Objects.equals(this.ldapUsername, ldapTargetDetails.ldapUsername);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(implementationType, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl);
+    return Objects.hash(implementationType, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapTokenExpiration, ldapUrl, ldapUsername);
   }
 
   @Override
@@ -256,6 +281,7 @@ public class LdapTargetDetails {
     sb.append("    ldapCertificate: ").append(toIndentedString(ldapCertificate)).append("\n");
     sb.append("    ldapTokenExpiration: ").append(toIndentedString(ldapTokenExpiration)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
+    sb.append("    ldapUsername: ").append(toIndentedString(ldapUsername)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -274,7 +300,7 @@ public class LdapTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("implementation_type", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_token_expiration", "ldap_url"));
+    openapiFields = new HashSet<String>(Arrays.asList("implementation_type", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_token_expiration", "ldap_url", "ldap_username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -321,6 +347,9 @@ public class LdapTargetDetails {
       }
       if ((jsonObj.get("ldap_url") != null && !jsonObj.get("ldap_url").isJsonNull()) && !jsonObj.get("ldap_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_url").toString()));
+      }
+      if ((jsonObj.get("ldap_username") != null && !jsonObj.get("ldap_username").isJsonNull()) && !jsonObj.get("ldap_username").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `ldap_username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ldap_username").toString()));
       }
   }
 

@@ -11,8 +11,12 @@
 |**accountUrl** | **String** | ACME Account URL (returned after registration with DigiCert ACME). Used to retrieve existing account instead of re-registering. |  [optional] |
 |**challengeType** | **String** | ACMEChallengeType defines ACME challenge type for Let&#39;s Encrypt |  [optional] |
 |**digicertDirectoryType** | **String** |  |  [optional] |
+|**dnsPropagationWait** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional] |
+|**dnsResolvers** | **List&lt;String&gt;** | Custom recursive DNS resolvers (ip:port) for propagation checks. |  [optional] |
+|**dnsSkipPrecheck** | **Boolean** | Skip authoritative nameserver propagation pre-check. |  [optional] |
 |**dnsTargetName** | **String** | Name of DNS target (transient field - not stored in DB). Used by CLI to pass DNS target name to SDK for creating target_object_assoc. Retrieved from target_object_assoc when reading target. Required when ChallengeType is dns. |  [optional] |
 |**dnsTargetType** | **String** |  |  [optional] |
+|**dnsTimeout** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional] |
 |**dnsZone** | **String** | Cloudflare zone identifier. Required when DNSTargetType is Cloudflare. |  [optional] |
 |**eabHmacKey** | **String** | External Account Binding HMAC key. Required until ACME account is bootstrapped on first issuance. |  [optional] |
 |**eabKeyId** | **String** | External Account Binding key identifier. Required until ACME account is bootstrapped on first issuance. |  [optional] |

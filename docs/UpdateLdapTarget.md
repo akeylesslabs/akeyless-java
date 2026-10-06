@@ -28,6 +28,7 @@ updateLdapTarget is a command that updates an existing target. [Deprecated: Use 
 |**tokenExpiration** | **String** | Token expiration |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 |**updateVersion** | **Boolean** | Deprecated |  [optional] |
+|**username** | **String** | Username returned for Rotated Secrets. Use the format required by your application, such as sAMAccountName, with or without the domain. |  [optional] |
 
 
 

@@ -110,6 +110,11 @@ public class Connect {
   @javax.annotation.Nullable
   private String name;
 
+  public static final String SERIALIZED_NAME_REQUESTED_TTL = "requested-ttl";
+  @SerializedName(SERIALIZED_NAME_REQUESTED_TTL)
+  @javax.annotation.Nullable
+  private Long requestedTtl;
+
   public static final String SERIALIZED_NAME_SRA_CTRL_PATH = "sra-ctrl-path";
   @SerializedName(SERIALIZED_NAME_SRA_CTRL_PATH)
   @javax.annotation.Nullable
@@ -406,6 +411,25 @@ public class Connect {
   }
 
 
+  public Connect requestedTtl(@javax.annotation.Nullable Long requestedTtl) {
+    this.requestedTtl = requestedTtl;
+    return this;
+  }
+
+  /**
+   * For how long to grant the requested access, in minutes
+   * @return requestedTtl
+   */
+  @javax.annotation.Nullable
+  public Long getRequestedTtl() {
+    return requestedTtl;
+  }
+
+  public void setRequestedTtl(@javax.annotation.Nullable Long requestedTtl) {
+    this.requestedTtl = requestedTtl;
+  }
+
+
   public Connect sraCtrlPath(@javax.annotation.Nullable String sraCtrlPath) {
     this.sraCtrlPath = sraCtrlPath;
     return this;
@@ -675,6 +699,7 @@ public class Connect {
         Objects.equals(this.json, connect.json) &&
         Objects.equals(this.justification, connect.justification) &&
         Objects.equals(this.name, connect.name) &&
+        Objects.equals(this.requestedTtl, connect.requestedTtl) &&
         Objects.equals(this.sraCtrlPath, connect.sraCtrlPath) &&
         Objects.equals(this.sraCtrlPort, connect.sraCtrlPort) &&
         Objects.equals(this.sraCtrlProto, connect.sraCtrlProto) &&
@@ -692,7 +717,7 @@ public class Connect {
 
   @Override
   public int hashCode() {
-    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, gatewayUrl, identityFile, json, justification, name, sraCtrlPath, sraCtrlPort, sraCtrlProto, sraCtrlSubdomain, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion, viaSra);
+    return Objects.hash(helper, rcFileOverride, bastionCtrlPath, bastionCtrlPort, bastionCtrlProto, bastionCtrlSubdomain, certIssuerName, gatewayUrl, identityFile, json, justification, name, requestedTtl, sraCtrlPath, sraCtrlPort, sraCtrlProto, sraCtrlSubdomain, sshCommand, sshExtraArgs, sshLegacySigningAlg, target, token, uidToken, useSshAgent, viaBastion, viaSra);
   }
 
   @Override
@@ -711,6 +736,7 @@ public class Connect {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    justification: ").append(toIndentedString(justification)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    requestedTtl: ").append(toIndentedString(requestedTtl)).append("\n");
     sb.append("    sraCtrlPath: ").append(toIndentedString(sraCtrlPath)).append("\n");
     sb.append("    sraCtrlPort: ").append(toIndentedString(sraCtrlPort)).append("\n");
     sb.append("    sraCtrlProto: ").append(toIndentedString(sraCtrlProto)).append("\n");
@@ -742,7 +768,7 @@ public class Connect {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("Helper", "RcFileOverride", "bastion-ctrl-path", "bastion-ctrl-port", "bastion-ctrl-proto", "bastion-ctrl-subdomain", "cert-issuer-name", "gateway-url", "identity-file", "json", "justification", "name", "sra-ctrl-path", "sra-ctrl-port", "sra-ctrl-proto", "sra-ctrl-subdomain", "ssh-command", "ssh-extra-args", "ssh-legacy-signing-alg", "target", "token", "uid-token", "use-ssh-agent", "via-bastion", "via-sra"));
+    openapiFields = new HashSet<String>(Arrays.asList("Helper", "RcFileOverride", "bastion-ctrl-path", "bastion-ctrl-port", "bastion-ctrl-proto", "bastion-ctrl-subdomain", "cert-issuer-name", "gateway-url", "identity-file", "json", "justification", "name", "requested-ttl", "sra-ctrl-path", "sra-ctrl-port", "sra-ctrl-proto", "sra-ctrl-subdomain", "ssh-command", "ssh-extra-args", "ssh-legacy-signing-alg", "target", "token", "uid-token", "use-ssh-agent", "via-bastion", "via-sra"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
