@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -133,6 +134,11 @@ public class GatewayCreateProducerGke {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
   @javax.annotation.Nullable
   private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING = "secure-access-allow-port-forwarding";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessAllowPortForwarding;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
@@ -512,7 +518,7 @@ public class GatewayCreateProducerGke {
   }
 
   /**
-   * Enable Port forwarding while using CLI access
+   * Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
    * @return secureAccessAllowPortForwading
    */
   @javax.annotation.Nullable
@@ -522,6 +528,25 @@ public class GatewayCreateProducerGke {
 
   public void setSecureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
     this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public GatewayCreateProducerGke secureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
+    return this;
+  }
+
+  /**
+   * Enable Port forwarding while using CLI access
+   * @return secureAccessAllowPortForwarding
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessAllowPortForwarding() {
+    return secureAccessAllowPortForwarding;
+  }
+
+  public void setSecureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
   }
 
 
@@ -787,6 +812,7 @@ public class GatewayCreateProducerGke {
         Objects.equals(this.outputRule, gatewayCreateProducerGke.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerGke.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerGke.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessAllowPortForwarding, gatewayCreateProducerGke.secureAccessAllowPortForwarding) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerGke.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, gatewayCreateProducerGke.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerGke.secureAccessClusterEndpoint) &&
@@ -801,9 +827,20 @@ public class GatewayCreateProducerGke {
         Objects.equals(this.userTtl, gatewayCreateProducerGke.userTtl);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessAllowPortForwarding, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -826,6 +863,7 @@ public class GatewayCreateProducerGke {
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessAllowPortForwarding: ").append(toIndentedString(secureAccessAllowPortForwarding)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
@@ -856,7 +894,7 @@ public class GatewayCreateProducerGke {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip-dry-run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-allow-port-forwarding", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip-dry-run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

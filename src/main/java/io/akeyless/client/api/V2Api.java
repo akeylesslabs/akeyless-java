@@ -578,6 +578,7 @@ import io.akeyless.client.model.GetRole;
 import io.akeyless.client.model.GetRotatedSecretValue;
 import io.akeyless.client.model.GetSSHCertificate;
 import io.akeyless.client.model.GetSSHCertificateOutput;
+import io.akeyless.client.model.GetScimStatus;
 import io.akeyless.client.model.GetSecretValue;
 import io.akeyless.client.model.GetTags;
 import io.akeyless.client.model.GetTarget;
@@ -693,6 +694,7 @@ import io.akeyless.client.model.RotateOidcClientOutput;
 import io.akeyless.client.model.RotateOidcClientSecret;
 import io.akeyless.client.model.RotateSecret;
 import io.akeyless.client.model.RotatedSecretCreateAerospike;
+import io.akeyless.client.model.RotatedSecretCreateAliCloud;
 import io.akeyless.client.model.RotatedSecretCreateAws;
 import io.akeyless.client.model.RotatedSecretCreateAzure;
 import io.akeyless.client.model.RotatedSecretCreateCassandra;
@@ -725,6 +727,7 @@ import io.akeyless.client.model.RotatedSecretList;
 import io.akeyless.client.model.RotatedSecretOutput;
 import io.akeyless.client.model.RotatedSecretSync;
 import io.akeyless.client.model.RotatedSecretUpdateAerospike;
+import io.akeyless.client.model.RotatedSecretUpdateAliCloud;
 import io.akeyless.client.model.RotatedSecretUpdateAws;
 import io.akeyless.client.model.RotatedSecretUpdateAzure;
 import io.akeyless.client.model.RotatedSecretUpdateCassandra;
@@ -749,6 +752,7 @@ import io.akeyless.client.model.RotatedSecretUpdateSplunk;
 import io.akeyless.client.model.RotatedSecretUpdateSsh;
 import io.akeyless.client.model.RotatedSecretUpdateWindows;
 import io.akeyless.client.model.RuntimeAuthorityCommand;
+import io.akeyless.client.model.ScimStatus;
 import io.akeyless.client.model.SecretSyncOutput;
 import io.akeyless.client.model.SetItemState;
 import io.akeyless.client.model.SetRoleRule;
@@ -776,6 +780,7 @@ import io.akeyless.client.model.StaticSecretSync;
 import io.akeyless.client.model.SystemAccessCredentialsReplyObj;
 import io.akeyless.client.model.Target;
 import io.akeyless.client.model.TargetCreateAerospike;
+import io.akeyless.client.model.TargetCreateAliCloud;
 import io.akeyless.client.model.TargetCreateAnthropic;
 import io.akeyless.client.model.TargetCreateArtifactory;
 import io.akeyless.client.model.TargetCreateAws;
@@ -821,6 +826,7 @@ import io.akeyless.client.model.TargetGet;
 import io.akeyless.client.model.TargetGetDetails;
 import io.akeyless.client.model.TargetList;
 import io.akeyless.client.model.TargetUpdateAerospike;
+import io.akeyless.client.model.TargetUpdateAliCloud;
 import io.akeyless.client.model.TargetUpdateAnthropic;
 import io.akeyless.client.model.TargetUpdateArtifactory;
 import io.akeyless.client.model.TargetUpdateAws;
@@ -47512,6 +47518,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for getScimStatus
+     * @param getScimStatus  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getScimStatusResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getScimStatusCall(@javax.annotation.Nonnull GetScimStatus getScimStatus, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = getScimStatus;
+
+        // create path and map variables
+        String localVarPath = "/get-scim-status";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getScimStatusValidateBeforeCall(@javax.annotation.Nonnull GetScimStatus getScimStatus, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'getScimStatus' is set
+        if (getScimStatus == null) {
+            throw new ApiException("Missing the required parameter 'getScimStatus' when calling getScimStatus(Async)");
+        }
+
+        return getScimStatusCall(getScimStatus, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param getScimStatus  (required)
+     * @return ScimStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getScimStatusResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ScimStatus getScimStatus(@javax.annotation.Nonnull GetScimStatus getScimStatus) throws ApiException {
+        ApiResponse<ScimStatus> localVarResp = getScimStatusWithHttpInfo(getScimStatus);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param getScimStatus  (required)
+     * @return ApiResponse&lt;ScimStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getScimStatusResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ScimStatus> getScimStatusWithHttpInfo(@javax.annotation.Nonnull GetScimStatus getScimStatus) throws ApiException {
+        okhttp3.Call localVarCall = getScimStatusValidateBeforeCall(getScimStatus, null);
+        Type localVarReturnType = new TypeToken<ScimStatus>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param getScimStatus  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> getScimStatusResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getScimStatusAsync(@javax.annotation.Nonnull GetScimStatus getScimStatus, final ApiCallback<ScimStatus> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getScimStatusValidateBeforeCall(getScimStatus, _callback);
+        Type localVarReturnType = new TypeToken<ScimStatus>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSecretValue
      * @param getSecretValue  (required)
      * @param _callback Callback for upload/download progress
@@ -56427,6 +56564,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for rotatedSecretCreateAliCloud
+     * @param rotatedSecretCreateAliCloud  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretCreateAliCloudCall(@javax.annotation.Nonnull RotatedSecretCreateAliCloud rotatedSecretCreateAliCloud, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rotatedSecretCreateAliCloud;
+
+        // create path and map variables
+        String localVarPath = "/rotated-secret-create-alicloud";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rotatedSecretCreateAliCloudValidateBeforeCall(@javax.annotation.Nonnull RotatedSecretCreateAliCloud rotatedSecretCreateAliCloud, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rotatedSecretCreateAliCloud' is set
+        if (rotatedSecretCreateAliCloud == null) {
+            throw new ApiException("Missing the required parameter 'rotatedSecretCreateAliCloud' when calling rotatedSecretCreateAliCloud(Async)");
+        }
+
+        return rotatedSecretCreateAliCloudCall(rotatedSecretCreateAliCloud, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretCreateAliCloud  (required)
+     * @return RotatedSecretCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RotatedSecretCreateOutput rotatedSecretCreateAliCloud(@javax.annotation.Nonnull RotatedSecretCreateAliCloud rotatedSecretCreateAliCloud) throws ApiException {
+        ApiResponse<RotatedSecretCreateOutput> localVarResp = rotatedSecretCreateAliCloudWithHttpInfo(rotatedSecretCreateAliCloud);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretCreateAliCloud  (required)
+     * @return ApiResponse&lt;RotatedSecretCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RotatedSecretCreateOutput> rotatedSecretCreateAliCloudWithHttpInfo(@javax.annotation.Nonnull RotatedSecretCreateAliCloud rotatedSecretCreateAliCloud) throws ApiException {
+        okhttp3.Call localVarCall = rotatedSecretCreateAliCloudValidateBeforeCall(rotatedSecretCreateAliCloud, null);
+        Type localVarReturnType = new TypeToken<RotatedSecretCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param rotatedSecretCreateAliCloud  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> rotatedSecretCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretCreateAliCloudAsync(@javax.annotation.Nonnull RotatedSecretCreateAliCloud rotatedSecretCreateAliCloud, final ApiCallback<RotatedSecretCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rotatedSecretCreateAliCloudValidateBeforeCall(rotatedSecretCreateAliCloud, _callback);
+        Type localVarReturnType = new TypeToken<RotatedSecretCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for rotatedSecretCreateAws
      * @param rotatedSecretCreateAws  (required)
      * @param _callback Callback for upload/download progress
@@ -60226,6 +60494,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for rotatedSecretUpdateAliCloud
+     * @param rotatedSecretUpdateAliCloud  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretUpdateAliCloudCall(@javax.annotation.Nonnull RotatedSecretUpdateAliCloud rotatedSecretUpdateAliCloud, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = rotatedSecretUpdateAliCloud;
+
+        // create path and map variables
+        String localVarPath = "/rotated-secret-update-alicloud";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call rotatedSecretUpdateAliCloudValidateBeforeCall(@javax.annotation.Nonnull RotatedSecretUpdateAliCloud rotatedSecretUpdateAliCloud, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'rotatedSecretUpdateAliCloud' is set
+        if (rotatedSecretUpdateAliCloud == null) {
+            throw new ApiException("Missing the required parameter 'rotatedSecretUpdateAliCloud' when calling rotatedSecretUpdateAliCloud(Async)");
+        }
+
+        return rotatedSecretUpdateAliCloudCall(rotatedSecretUpdateAliCloud, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretUpdateAliCloud  (required)
+     * @return RotatedSecretUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public RotatedSecretUpdateOutput rotatedSecretUpdateAliCloud(@javax.annotation.Nonnull RotatedSecretUpdateAliCloud rotatedSecretUpdateAliCloud) throws ApiException {
+        ApiResponse<RotatedSecretUpdateOutput> localVarResp = rotatedSecretUpdateAliCloudWithHttpInfo(rotatedSecretUpdateAliCloud);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param rotatedSecretUpdateAliCloud  (required)
+     * @return ApiResponse&lt;RotatedSecretUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RotatedSecretUpdateOutput> rotatedSecretUpdateAliCloudWithHttpInfo(@javax.annotation.Nonnull RotatedSecretUpdateAliCloud rotatedSecretUpdateAliCloud) throws ApiException {
+        okhttp3.Call localVarCall = rotatedSecretUpdateAliCloudValidateBeforeCall(rotatedSecretUpdateAliCloud, null);
+        Type localVarReturnType = new TypeToken<RotatedSecretUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param rotatedSecretUpdateAliCloud  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> rotatedSecretUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call rotatedSecretUpdateAliCloudAsync(@javax.annotation.Nonnull RotatedSecretUpdateAliCloud rotatedSecretUpdateAliCloud, final ApiCallback<RotatedSecretUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = rotatedSecretUpdateAliCloudValidateBeforeCall(rotatedSecretUpdateAliCloud, _callback);
+        Type localVarReturnType = new TypeToken<RotatedSecretUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for rotatedSecretUpdateAws
      * @param rotatedSecretUpdateAws  (required)
      * @param _callback Callback for upload/download progress
@@ -63181,6 +63580,7 @@ public class V2Api {
      * 
      * 
      * @param runtimeAuthorityCommand  (required)
+     * @return List&lt;Integer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -63190,15 +63590,16 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public void runtimeAuthority(@javax.annotation.Nonnull RuntimeAuthorityCommand runtimeAuthorityCommand) throws ApiException {
-        runtimeAuthorityWithHttpInfo(runtimeAuthorityCommand);
+    public List<Integer> runtimeAuthority(@javax.annotation.Nonnull RuntimeAuthorityCommand runtimeAuthorityCommand) throws ApiException {
+        ApiResponse<List<Integer>> localVarResp = runtimeAuthorityWithHttpInfo(runtimeAuthorityCommand);
+        return localVarResp.getData();
     }
 
     /**
      * 
      * 
      * @param runtimeAuthorityCommand  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;List&lt;Integer&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table border="1">
@@ -63208,9 +63609,10 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> runtimeAuthorityWithHttpInfo(@javax.annotation.Nonnull RuntimeAuthorityCommand runtimeAuthorityCommand) throws ApiException {
+    public ApiResponse<List<Integer>> runtimeAuthorityWithHttpInfo(@javax.annotation.Nonnull RuntimeAuthorityCommand runtimeAuthorityCommand) throws ApiException {
         okhttp3.Call localVarCall = runtimeAuthorityValidateBeforeCall(runtimeAuthorityCommand, null);
-        return localVarApiClient.execute(localVarCall);
+        Type localVarReturnType = new TypeToken<List<Integer>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
@@ -63228,10 +63630,11 @@ public class V2Api {
         <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call runtimeAuthorityAsync(@javax.annotation.Nonnull RuntimeAuthorityCommand runtimeAuthorityCommand, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call runtimeAuthorityAsync(@javax.annotation.Nonnull RuntimeAuthorityCommand runtimeAuthorityCommand, final ApiCallback<List<Integer>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = runtimeAuthorityValidateBeforeCall(runtimeAuthorityCommand, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        Type localVarReturnType = new TypeToken<List<Integer>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -65064,6 +65467,137 @@ public class V2Api {
     public okhttp3.Call targetCreateAerospikeAsync(@javax.annotation.Nonnull TargetCreateAerospike targetCreateAerospike, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetCreateAerospikeValidateBeforeCall(targetCreateAerospike, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetCreateAliCloud
+     * @param targetCreateAliCloud  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateAliCloudCall(@javax.annotation.Nonnull TargetCreateAliCloud targetCreateAliCloud, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateAliCloud;
+
+        // create path and map variables
+        String localVarPath = "/target-create-alicloud";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateAliCloudValidateBeforeCall(@javax.annotation.Nonnull TargetCreateAliCloud targetCreateAliCloud, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateAliCloud' is set
+        if (targetCreateAliCloud == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateAliCloud' when calling targetCreateAliCloud(Async)");
+        }
+
+        return targetCreateAliCloudCall(targetCreateAliCloud, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateAliCloud  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateAliCloud(@javax.annotation.Nonnull TargetCreateAliCloud targetCreateAliCloud) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateAliCloudWithHttpInfo(targetCreateAliCloud);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateAliCloud  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateAliCloudWithHttpInfo(@javax.annotation.Nonnull TargetCreateAliCloud targetCreateAliCloud) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateAliCloudValidateBeforeCall(targetCreateAliCloud, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateAliCloud  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateAliCloudAsync(@javax.annotation.Nonnull TargetCreateAliCloud targetCreateAliCloud, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateAliCloudValidateBeforeCall(targetCreateAliCloud, _callback);
         Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -70828,6 +71362,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateAerospikeAsync(@javax.annotation.Nonnull TargetUpdateAerospike targetUpdateAerospike, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateAerospikeValidateBeforeCall(targetUpdateAerospike, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateAliCloud
+     * @param targetUpdateAliCloud  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateAliCloudCall(@javax.annotation.Nonnull TargetUpdateAliCloud targetUpdateAliCloud, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateAliCloud;
+
+        // create path and map variables
+        String localVarPath = "/target-update-alicloud";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateAliCloudValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateAliCloud targetUpdateAliCloud, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateAliCloud' is set
+        if (targetUpdateAliCloud == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateAliCloud' when calling targetUpdateAliCloud(Async)");
+        }
+
+        return targetUpdateAliCloudCall(targetUpdateAliCloud, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateAliCloud  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateAliCloud(@javax.annotation.Nonnull TargetUpdateAliCloud targetUpdateAliCloud) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateAliCloudWithHttpInfo(targetUpdateAliCloud);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateAliCloud  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateAliCloudWithHttpInfo(@javax.annotation.Nonnull TargetUpdateAliCloud targetUpdateAliCloud) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateAliCloudValidateBeforeCall(targetUpdateAliCloud, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateAliCloud  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateAliCloudResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateAliCloudAsync(@javax.annotation.Nonnull TargetUpdateAliCloud targetUpdateAliCloud, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateAliCloudValidateBeforeCall(targetUpdateAliCloud, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

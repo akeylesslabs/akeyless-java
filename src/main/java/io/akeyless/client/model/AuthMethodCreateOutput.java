@@ -70,6 +70,11 @@ public class AuthMethodCreateOutput {
   @javax.annotation.Nullable
   private String prvKey;
 
+  public static final String SERIALIZED_NAME_SCIM_BASE_URL = "scim_base_url";
+  @SerializedName(SERIALIZED_NAME_SCIM_BASE_URL)
+  @javax.annotation.Nullable
+  private String scimBaseUrl;
+
   public AuthMethodCreateOutput() {
   }
 
@@ -149,6 +154,25 @@ public class AuthMethodCreateOutput {
   }
 
 
+  public AuthMethodCreateOutput scimBaseUrl(@javax.annotation.Nullable String scimBaseUrl) {
+    this.scimBaseUrl = scimBaseUrl;
+    return this;
+  }
+
+  /**
+   * SCIM Base URL the IdP calls, set when SCIM flags were given
+   * @return scimBaseUrl
+   */
+  @javax.annotation.Nullable
+  public String getScimBaseUrl() {
+    return scimBaseUrl;
+  }
+
+  public void setScimBaseUrl(@javax.annotation.Nullable String scimBaseUrl) {
+    this.scimBaseUrl = scimBaseUrl;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -162,12 +186,13 @@ public class AuthMethodCreateOutput {
     return Objects.equals(this.accessId, authMethodCreateOutput.accessId) &&
         Objects.equals(this.accessKey, authMethodCreateOutput.accessKey) &&
         Objects.equals(this.name, authMethodCreateOutput.name) &&
-        Objects.equals(this.prvKey, authMethodCreateOutput.prvKey);
+        Objects.equals(this.prvKey, authMethodCreateOutput.prvKey) &&
+        Objects.equals(this.scimBaseUrl, authMethodCreateOutput.scimBaseUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, name, prvKey);
+    return Objects.hash(accessId, accessKey, name, prvKey, scimBaseUrl);
   }
 
   @Override
@@ -178,6 +203,7 @@ public class AuthMethodCreateOutput {
     sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prvKey: ").append(toIndentedString(prvKey)).append("\n");
+    sb.append("    scimBaseUrl: ").append(toIndentedString(scimBaseUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -196,7 +222,7 @@ public class AuthMethodCreateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_id", "access_key", "name", "prv_key"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_id", "access_key", "name", "prv_key", "scim_base_url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -234,6 +260,9 @@ public class AuthMethodCreateOutput {
       }
       if ((jsonObj.get("prv_key") != null && !jsonObj.get("prv_key").isJsonNull()) && !jsonObj.get("prv_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `prv_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prv_key").toString()));
+      }
+      if ((jsonObj.get("scim_base_url") != null && !jsonObj.get("scim_base_url").isJsonNull()) && !jsonObj.get("scim_base_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim_base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim_base_url").toString()));
       }
   }
 

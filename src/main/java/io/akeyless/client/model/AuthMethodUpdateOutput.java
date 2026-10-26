@@ -60,6 +60,11 @@ public class AuthMethodUpdateOutput {
   @javax.annotation.Nullable
   private String prvKey;
 
+  public static final String SERIALIZED_NAME_SCIM_BASE_URL = "scim_base_url";
+  @SerializedName(SERIALIZED_NAME_SCIM_BASE_URL)
+  @javax.annotation.Nullable
+  private String scimBaseUrl;
+
   public AuthMethodUpdateOutput() {
   }
 
@@ -101,6 +106,25 @@ public class AuthMethodUpdateOutput {
   }
 
 
+  public AuthMethodUpdateOutput scimBaseUrl(@javax.annotation.Nullable String scimBaseUrl) {
+    this.scimBaseUrl = scimBaseUrl;
+    return this;
+  }
+
+  /**
+   * SCIM Base URL the IdP calls, set when SCIM flags were given
+   * @return scimBaseUrl
+   */
+  @javax.annotation.Nullable
+  public String getScimBaseUrl() {
+    return scimBaseUrl;
+  }
+
+  public void setScimBaseUrl(@javax.annotation.Nullable String scimBaseUrl) {
+    this.scimBaseUrl = scimBaseUrl;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -112,12 +136,13 @@ public class AuthMethodUpdateOutput {
     }
     AuthMethodUpdateOutput authMethodUpdateOutput = (AuthMethodUpdateOutput) o;
     return Objects.equals(this.name, authMethodUpdateOutput.name) &&
-        Objects.equals(this.prvKey, authMethodUpdateOutput.prvKey);
+        Objects.equals(this.prvKey, authMethodUpdateOutput.prvKey) &&
+        Objects.equals(this.scimBaseUrl, authMethodUpdateOutput.scimBaseUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, prvKey);
+    return Objects.hash(name, prvKey, scimBaseUrl);
   }
 
   @Override
@@ -126,6 +151,7 @@ public class AuthMethodUpdateOutput {
     sb.append("class AuthMethodUpdateOutput {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    prvKey: ").append(toIndentedString(prvKey)).append("\n");
+    sb.append("    scimBaseUrl: ").append(toIndentedString(scimBaseUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +170,7 @@ public class AuthMethodUpdateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("name", "prv_key"));
+    openapiFields = new HashSet<String>(Arrays.asList("name", "prv_key", "scim_base_url"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -176,6 +202,9 @@ public class AuthMethodUpdateOutput {
       }
       if ((jsonObj.get("prv_key") != null && !jsonObj.get("prv_key").isJsonNull()) && !jsonObj.get("prv_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `prv_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prv_key").toString()));
+      }
+      if ((jsonObj.get("scim_base_url") != null && !jsonObj.get("scim_base_url").isJsonNull()) && !jsonObj.get("scim_base_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim_base_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim_base_url").toString()));
       }
   }
 

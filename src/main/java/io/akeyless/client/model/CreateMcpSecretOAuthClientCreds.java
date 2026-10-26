@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -624,9 +625,20 @@ public class CreateMcpSecretOAuthClientCreds {
         Objects.equals(this.url, createMcpSecretOAuthClientCreds.url);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(accessibility, araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, json, maxVersions, metadata, name, oauthClientId, oauthClientSecret, oauthScopes, oauthTokenUrl, outputRule, protectionKey, tags, token, uidToken, url);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

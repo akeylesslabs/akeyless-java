@@ -37,7 +37,8 @@
 |**rotateOnUnlock** | **String** | Rotate this secret after it is unlocked |  [optional] |
 |**secureAccessAddHost** | **List&lt;String&gt;** | List of the new hosts that will be attached to SRA servers host |  [optional] |
 |**secureAccessAllowExternalUser** | **String** | Allow providing external user for a domain users [true/false] |  [optional] |
-|**secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) |  [optional] |
+|**secureAccessAllowPortForwading** | **Boolean** | Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead. |  [optional] |
+|**secureAccessAllowPortForwarding** | **Boolean** | Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret) |  [optional] |
 |**secureAccessApi** | **String** | Bastion&#39;s SSH control API endpoint. E.g. https://my.sra-server:9900 (relevant only for ssh cert issuer) |  [optional] |
 |**secureAccessAwsAccountId** | **String** | The AWS account id (relevant only for aws) |  [optional] |
 |**secureAccessAwsNativeCli** | **Boolean** | The AWS native cli (relevant only for aws) |  [optional] |

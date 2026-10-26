@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscCreate {
+  public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws-account-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String awsAccountId;
+
   public static final String SERIALIZED_NAME_BINARY_VALUE = "binary-value";
   @SerializedName(SERIALIZED_NAME_BINARY_VALUE)
   @javax.annotation.Nullable
@@ -144,6 +149,25 @@ public class UscCreate {
 
   public UscCreate() {
   }
+
+  public UscCreate awsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+    return this;
+  }
+
+  /**
+   * The AWS account ID to create the secret in. Required when the connector spans multiple account IDs.
+   * @return awsAccountId
+   */
+  @javax.annotation.Nullable
+  public String getAwsAccountId() {
+    return awsAccountId;
+  }
+
+  public void setAwsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+  }
+
 
   public UscCreate binaryValue(@javax.annotation.Nullable Boolean binaryValue) {
     this.binaryValue = binaryValue;
@@ -284,7 +308,7 @@ public class UscCreate {
   }
 
   /**
-   * Optional, create secret in a specific region (GCP only). If empty, a global secret will be created (provider default).
+   * AWS Organization scope region or GCP regional secret location. GCP creates a global secret when empty.
    * @return region
    */
   @javax.annotation.Nullable
@@ -505,7 +529,8 @@ public class UscCreate {
       return false;
     }
     UscCreate uscCreate = (UscCreate) o;
-    return Objects.equals(this.binaryValue, uscCreate.binaryValue) &&
+    return Objects.equals(this.awsAccountId, uscCreate.awsAccountId) &&
+        Objects.equals(this.binaryValue, uscCreate.binaryValue) &&
         Objects.equals(this.description, uscCreate.description) &&
         Objects.equals(this.gcpProjectId, uscCreate.gcpProjectId) &&
         Objects.equals(this.json, uscCreate.json) &&
@@ -527,13 +552,14 @@ public class UscCreate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, gcpProjectId, json, namespace, objectType, pfxPassword, region, remoteSecretActivationDate, remoteSecretExpires, secretName, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
+    return Objects.hash(awsAccountId, binaryValue, description, gcpProjectId, json, namespace, objectType, pfxPassword, region, remoteSecretActivationDate, remoteSecretExpires, secretName, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscCreate {\n");
+    sb.append("    awsAccountId: ").append(toIndentedString(awsAccountId)).append("\n");
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
@@ -570,7 +596,7 @@ public class UscCreate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary-value", "description", "gcp-project-id", "json", "namespace", "object-type", "pfx-password", "region", "remote-secret-activation-date", "remote-secret-expires", "secret-name", "selected-repositories", "tags", "token", "uid-token", "usc-encryption-key", "usc-name", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws-account-id", "binary-value", "description", "gcp-project-id", "json", "namespace", "object-type", "pfx-password", "region", "remote-secret-activation-date", "remote-secret-expires", "secret-name", "selected-repositories", "tags", "token", "uid-token", "usc-encryption-key", "usc-name", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("secret-name", "usc-name", "value"));
@@ -604,6 +630,9 @@ public class UscCreate {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws-account-id") != null && !jsonObj.get("aws-account-id").isJsonNull()) && !jsonObj.get("aws-account-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-account-id").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }

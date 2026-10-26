@@ -52,6 +52,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscUpdate {
+  public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws-account-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String awsAccountId;
+
   public static final String SERIALIZED_NAME_BINARY_VALUE = "binary-value";
   @SerializedName(SERIALIZED_NAME_BINARY_VALUE)
   @javax.annotation.Nullable
@@ -81,6 +86,11 @@ public class UscUpdate {
   @SerializedName(SERIALIZED_NAME_PFX_PASSWORD)
   @javax.annotation.Nullable
   private String pfxPassword;
+
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  @javax.annotation.Nullable
+  private String region;
 
   public static final String SERIALIZED_NAME_REMOTE_SECRET_ACTIVATION_DATE = "remote-secret-activation-date";
   @SerializedName(SERIALIZED_NAME_REMOTE_SECRET_ACTIVATION_DATE)
@@ -134,6 +144,25 @@ public class UscUpdate {
 
   public UscUpdate() {
   }
+
+  public UscUpdate awsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+    return this;
+  }
+
+  /**
+   * The AWS account ID that contains the secret. Required when the connector spans multiple account IDs.
+   * @return awsAccountId
+   */
+  @javax.annotation.Nullable
+  public String getAwsAccountId() {
+    return awsAccountId;
+  }
+
+  public void setAwsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+  }
+
 
   public UscUpdate binaryValue(@javax.annotation.Nullable Boolean binaryValue) {
     this.binaryValue = binaryValue;
@@ -246,6 +275,25 @@ public class UscUpdate {
 
   public void setPfxPassword(@javax.annotation.Nullable String pfxPassword) {
     this.pfxPassword = pfxPassword;
+  }
+
+
+  public UscUpdate region(@javax.annotation.Nullable String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The AWS region that contains the secret (AWS only). If empty, uses the target region.
+   * @return region
+   */
+  @javax.annotation.Nullable
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(@javax.annotation.Nullable String region) {
+    this.region = region;
   }
 
 
@@ -457,12 +505,14 @@ public class UscUpdate {
       return false;
     }
     UscUpdate uscUpdate = (UscUpdate) o;
-    return Objects.equals(this.binaryValue, uscUpdate.binaryValue) &&
+    return Objects.equals(this.awsAccountId, uscUpdate.awsAccountId) &&
+        Objects.equals(this.binaryValue, uscUpdate.binaryValue) &&
         Objects.equals(this.description, uscUpdate.description) &&
         Objects.equals(this.json, uscUpdate.json) &&
         Objects.equals(this.namespace, uscUpdate.namespace) &&
         Objects.equals(this.objectType, uscUpdate.objectType) &&
         Objects.equals(this.pfxPassword, uscUpdate.pfxPassword) &&
+        Objects.equals(this.region, uscUpdate.region) &&
         Objects.equals(this.remoteSecretActivationDate, uscUpdate.remoteSecretActivationDate) &&
         Objects.equals(this.remoteSecretExpires, uscUpdate.remoteSecretExpires) &&
         Objects.equals(this.secretId, uscUpdate.secretId) &&
@@ -477,19 +527,21 @@ public class UscUpdate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(binaryValue, description, json, namespace, objectType, pfxPassword, remoteSecretActivationDate, remoteSecretExpires, secretId, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
+    return Objects.hash(awsAccountId, binaryValue, description, json, namespace, objectType, pfxPassword, region, remoteSecretActivationDate, remoteSecretExpires, secretId, selectedRepositories, tags, token, uidToken, uscEncryptionKey, uscName, value);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscUpdate {\n");
+    sb.append("    awsAccountId: ").append(toIndentedString(awsAccountId)).append("\n");
     sb.append("    binaryValue: ").append(toIndentedString(binaryValue)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pfxPassword: ").append(toIndentedString(pfxPassword)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    remoteSecretActivationDate: ").append(toIndentedString(remoteSecretActivationDate)).append("\n");
     sb.append("    remoteSecretExpires: ").append(toIndentedString(remoteSecretExpires)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
@@ -518,7 +570,7 @@ public class UscUpdate {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("binary-value", "description", "json", "namespace", "object-type", "pfx-password", "remote-secret-activation-date", "remote-secret-expires", "secret-id", "selected-repositories", "tags", "token", "uid-token", "usc-encryption-key", "usc-name", "value"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws-account-id", "binary-value", "description", "json", "namespace", "object-type", "pfx-password", "region", "remote-secret-activation-date", "remote-secret-expires", "secret-id", "selected-repositories", "tags", "token", "uid-token", "usc-encryption-key", "usc-name", "value"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("secret-id", "usc-name", "value"));
@@ -552,6 +604,9 @@ public class UscUpdate {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws-account-id") != null && !jsonObj.get("aws-account-id").isJsonNull()) && !jsonObj.get("aws-account-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-account-id").toString()));
+      }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
@@ -563,6 +618,9 @@ public class UscUpdate {
       }
       if ((jsonObj.get("pfx-password") != null && !jsonObj.get("pfx-password").isJsonNull()) && !jsonObj.get("pfx-password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pfx-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pfx-password").toString()));
+      }
+      if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       if ((jsonObj.get("remote-secret-activation-date") != null && !jsonObj.get("remote-secret-activation-date").isJsonNull()) && !jsonObj.get("remote-secret-activation-date").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `remote-secret-activation-date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("remote-secret-activation-date").toString()));

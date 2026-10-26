@@ -38,7 +38,9 @@ import io.akeyless.client.model.RotationSecretMaxInterval;
 import io.akeyless.client.model.SharingPolicyInfo;
 import io.akeyless.client.model.UsageEventSetting;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -162,6 +164,11 @@ public class AccountGeneralSettings {
   @SerializedName(SERIALIZED_NAME_ENABLE_SEARCH_HISTORY)
   @javax.annotation.Nullable
   private Boolean enableSearchHistory;
+
+  public static final String SERIALIZED_NAME_EVENT_FORWARDER_ALLOWED_EMAIL_DOMAINS = "event_forwarder_allowed_email_domains";
+  @SerializedName(SERIALIZED_NAME_EVENT_FORWARDER_ALLOWED_EMAIL_DOMAINS)
+  @javax.annotation.Nullable
+  private List<String> eventForwarderAllowedEmailDomains = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HIDE_PERSONAL_FOLDER = "hide_personal_folder";
   @SerializedName(SERIALIZED_NAME_HIDE_PERSONAL_FOLDER)
@@ -597,6 +604,33 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings eventForwarderAllowedEmailDomains(@javax.annotation.Nullable List<String> eventForwarderAllowedEmailDomains) {
+    this.eventForwarderAllowedEmailDomains = eventForwarderAllowedEmailDomains;
+    return this;
+  }
+
+  public AccountGeneralSettings addEventForwarderAllowedEmailDomainsItem(String eventForwarderAllowedEmailDomainsItem) {
+    if (this.eventForwarderAllowedEmailDomains == null) {
+      this.eventForwarderAllowedEmailDomains = new ArrayList<>();
+    }
+    this.eventForwarderAllowedEmailDomains.add(eventForwarderAllowedEmailDomainsItem);
+    return this;
+  }
+
+  /**
+   * EventForwarderAllowedEmailDomains lists extra recipient domains for email event forwarders. The signup email domain is always allowed as well. Account-settings updates leave this field unchanged.
+   * @return eventForwarderAllowedEmailDomains
+   */
+  @javax.annotation.Nullable
+  public List<String> getEventForwarderAllowedEmailDomains() {
+    return eventForwarderAllowedEmailDomains;
+  }
+
+  public void setEventForwarderAllowedEmailDomains(@javax.annotation.Nullable List<String> eventForwarderAllowedEmailDomains) {
+    this.eventForwarderAllowedEmailDomains = eventForwarderAllowedEmailDomains;
+  }
+
+
   public AccountGeneralSettings hidePersonalFolder(@javax.annotation.Nullable Boolean hidePersonalFolder) {
     this.hidePersonalFolder = hidePersonalFolder;
     return this;
@@ -892,6 +926,7 @@ public class AccountGeneralSettings {
         Objects.equals(this.emailCustomization, accountGeneralSettings.emailCustomization) &&
         Objects.equals(this.enableRequestForAccess, accountGeneralSettings.enableRequestForAccess) &&
         Objects.equals(this.enableSearchHistory, accountGeneralSettings.enableSearchHistory) &&
+        Objects.equals(this.eventForwarderAllowedEmailDomains, accountGeneralSettings.eventForwarderAllowedEmailDomains) &&
         Objects.equals(this.hidePersonalFolder, accountGeneralSettings.hidePersonalFolder) &&
         Objects.equals(this.hideSecretRevealCopy, accountGeneralSettings.hideSecretRevealCopy) &&
         Objects.equals(this.hideStaticPassword, accountGeneralSettings.hideStaticPassword) &&
@@ -910,7 +945,7 @@ public class AccountGeneralSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, aiQuorum, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, aiQuorum, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, eventForwarderAllowedEmailDomains, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -936,6 +971,7 @@ public class AccountGeneralSettings {
     sb.append("    emailCustomization: ").append(toIndentedString(emailCustomization)).append("\n");
     sb.append("    enableRequestForAccess: ").append(toIndentedString(enableRequestForAccess)).append("\n");
     sb.append("    enableSearchHistory: ").append(toIndentedString(enableSearchHistory)).append("\n");
+    sb.append("    eventForwarderAllowedEmailDomains: ").append(toIndentedString(eventForwarderAllowedEmailDomains)).append("\n");
     sb.append("    hidePersonalFolder: ").append(toIndentedString(hidePersonalFolder)).append("\n");
     sb.append("    hideSecretRevealCopy: ").append(toIndentedString(hideSecretRevealCopy)).append("\n");
     sb.append("    hideStaticPassword: ").append(toIndentedString(hideStaticPassword)).append("\n");
@@ -968,7 +1004,7 @@ public class AccountGeneralSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "ai_quorum", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
+    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "ai_quorum", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "event_forwarder_allowed_email_domains", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1045,6 +1081,10 @@ public class AccountGeneralSettings {
       // validate the optional field `email_customization`
       if (jsonObj.get("email_customization") != null && !jsonObj.get("email_customization").isJsonNull()) {
         EmailCustomization.validateJsonElement(jsonObj.get("email_customization"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("event_forwarder_allowed_email_domains") != null && !jsonObj.get("event_forwarder_allowed_email_domains").isJsonNull() && !jsonObj.get("event_forwarder_allowed_email_domains").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `event_forwarder_allowed_email_domains` to be an array in the JSON string but got `%s`", jsonObj.get("event_forwarder_allowed_email_domains").toString()));
       }
       if ((jsonObj.get("invalid_characters") != null && !jsonObj.get("invalid_characters").isJsonNull()) && !jsonObj.get("invalid_characters").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `invalid_characters` to be a primitive type in the JSON string but got `%s`", jsonObj.get("invalid_characters").toString()));

@@ -11698,6 +11698,38 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /get-scim-status:
+    post:
+      operationId: getScimStatus
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/getScimStatus"
+        required: true
+        x-go-name: Body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ScimStatus"
+          description: getScimStatusResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JSONError"
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-docs-category: Identity & access
+      x-docs-group: Authentication
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /get-secret-value:
     post:
       operationId: GetSecretValue
@@ -13529,6 +13561,38 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /rotated-secret-create-alicloud:
+    post:
+      operationId: rotatedSecretCreateAliCloud
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/rotatedSecretCreateAliCloud"
+        required: true
+        x-go-name: Body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/rotatedSecretCreateOutput"
+          description: rotatedSecretCreateAliCloudResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JSONError"
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-docs-category: Secrets & keys
+      x-docs-group: Rotated Secrets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /rotated-secret-create-aws:
     post:
       operationId: rotatedSecretCreateAws
@@ -14458,6 +14522,38 @@ paths:
       x-content-type: application/json
       x-accepts:
       - application/json
+  /rotated-secret-update-alicloud:
+    post:
+      operationId: rotatedSecretUpdateAliCloud
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/rotatedSecretUpdateAliCloud"
+        required: true
+        x-go-name: Body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/rotatedSecretUpdateOutput"
+          description: rotatedSecretUpdateAliCloudResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JSONError"
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-docs-category: Secrets & keys
+      x-docs-group: Rotated Secrets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
   /rotated-secret-update-aws:
     post:
       operationId: rotatedSecretUpdateAws
@@ -15174,6 +15270,10 @@ paths:
         x-go-name: Body
       responses:
         "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RawMessage"
           description: ""
         default:
           content:
@@ -15623,6 +15723,38 @@ paths:
               schema:
                 $ref: "#/components/schemas/targetCreateOutput"
           description: targetCreateAerospikeResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JSONError"
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-docs-category: Infrastructure & connectivity
+      x-docs-group: Targets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /target-create-alicloud:
+    post:
+      operationId: targetCreateAliCloud
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/targetCreateAliCloud"
+        required: true
+        x-go-name: Body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/targetCreateOutput"
+          description: targetCreateAliCloudResponse wraps response body.
         default:
           content:
             application/json:
@@ -17031,6 +17163,38 @@ paths:
               schema:
                 $ref: "#/components/schemas/targetUpdateOutput"
           description: targetUpdateAerospikeResponse wraps response body.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JSONError"
+          description: |-
+            errorResponse wraps any error to return it as a JSON object with one "error"
+            field.
+      tags:
+      - v2
+      x-docs-category: Infrastructure & connectivity
+      x-docs-group: Targets
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /target-update-alicloud:
+    post:
+      operationId: targetUpdateAliCloud
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/targetUpdateAliCloud"
+        required: true
+        x-go-name: Body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/targetUpdateOutput"
+          description: targetUpdateAliCloudResponse wraps response body.
         default:
           content:
             application/json:
@@ -23281,6 +23445,12 @@ components:
           schema:
             $ref: "#/components/schemas/getSSHCertificateOutput"
       description: getSSHCertificateResponse wraps response body.
+    getScimStatusResponse:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ScimStatus"
+      description: getScimStatusResponse wraps response body.
     getSecretValueResponse:
       content:
         application/json:
@@ -23636,6 +23806,12 @@ components:
           schema:
             $ref: "#/components/schemas/rotatedSecretCreateOutput"
       description: rotatedSecretCreateAerospikeResponse wraps response body.
+    rotatedSecretCreateAliCloudResponse:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/rotatedSecretCreateOutput"
+      description: rotatedSecretCreateAliCloudResponse wraps response body.
     rotatedSecretCreateAwsResponse:
       content:
         application/json:
@@ -23811,6 +23987,12 @@ components:
           schema:
             $ref: "#/components/schemas/rotatedSecretUpdateOutput"
       description: rotatedSecretUpdateAerospikeResponse wraps response body.
+    rotatedSecretUpdateAliCloudResponse:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/rotatedSecretUpdateOutput"
+      description: rotatedSecretUpdateAliCloudResponse wraps response body.
     rotatedSecretUpdateAwsResponse:
       content:
         application/json:
@@ -23944,6 +24126,10 @@ components:
             $ref: "#/components/schemas/rotatedSecretUpdateOutput"
       description: rotatedSecretUpdateWindowsResponse wraps response body.
     runtimeAuthorityResponse:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RawMessage"
       description: ""
     setDefaultProfileResponse:
       content:
@@ -24035,6 +24221,12 @@ components:
           schema:
             $ref: "#/components/schemas/targetCreateOutput"
       description: targetCreateAerospikeResponse wraps response body.
+    targetCreateAliCloudResponse:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/targetCreateOutput"
+      description: targetCreateAliCloudResponse wraps response body.
     targetCreateAnthropicResponse:
       content:
         application/json:
@@ -24299,6 +24491,12 @@ components:
           schema:
             $ref: "#/components/schemas/targetUpdateOutput"
       description: targetUpdateAerospikeResponse wraps response body.
+    targetUpdateAliCloudResponse:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/targetUpdateOutput"
+      description: targetUpdateAliCloudResponse wraps response body.
     targetUpdateAnthropicResponse:
       content:
         application/json:
@@ -25474,6 +25672,9 @@ components:
           enable: true
           enable_time: 2000-01-23T04:56:07.000+00:00
           interval_by_days: 1
+        event_forwarder_allowed_email_domains:
+        - event_forwarder_allowed_email_domains
+        - event_forwarder_allowed_email_domains
         item_locking:
           enable: true
           max_lock_ttl_mins: 5
@@ -25569,6 +25770,14 @@ components:
         enable_search_history:
           type: boolean
           x-go-name: EnableSearchHistory
+        event_forwarder_allowed_email_domains:
+          description: |-
+            EventForwarderAllowedEmailDomains lists extra recipient domains for email event forwarders.
+            The signup email domain is always allowed as well. Account-settings updates leave this field unchanged.
+          items:
+            type: string
+          type: array
+          x-go-name: EventForwarderAllowedEmailDomains
         hide_personal_folder:
           type: boolean
           x-go-name: HidePersonalFolder
@@ -27242,6 +27451,38 @@ components:
       title: AliCloudAccessRules contains access rules specific to AliCloud RAM/STS.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    AliCloudTargetDetails:
+      example:
+        access_key_id: access_key_id
+        session_token: session_token
+        use_gw_cloud_identity: true
+        gw_cloud_identity_external_id_opt:
+          generated_external_id: generated_external_id
+          is_enabled: true
+          role_arn: role_arn
+        access_key: access_key
+        region: region
+      properties:
+        access_key:
+          type: string
+          x-go-name: AccessKey
+        access_key_id:
+          type: string
+          x-go-name: AccessKeyID
+        gw_cloud_identity_external_id_opt:
+          $ref: "#/components/schemas/AWSGatewayCloudIdentityExternalIdOpt"
+        region:
+          type: string
+          x-go-name: Region
+        session_token:
+          type: string
+          x-go-name: SessionToken
+        use_gw_cloud_identity:
+          type: boolean
+          x-go-name: UseGatewayCloudIdentity
+      title: AliCloudTargetDetails ...
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AllAnalyticsData:
       example:
         usage_reports:
@@ -27528,8 +27769,19 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     AttributeTypeAndValue:
       description: |-
-        AttributeTypeAndValue mirrors the ASN.1 structure of the same name in
-        RFC 5280, Section 4.1.2.4.
+        When parsed as part of a pkix.Name structure in a crypto/x509 type,
+        the Value will be
+
+        a string if the ASN.1 type is PrintableString, IA5String,
+        NumericString, BMPString, T61String, or UTF8String;
+        an int64 if the ASN.1 type is INTEGER;
+        an asn1.BitString if the ASN.1 type is BIT STRING;
+        a []byte if the ASN.1 type is OCTET STRING;
+        an asn1.ObjectIdentifier if the ASN.1 type is OBJECT IDENTIFIER;
+        a time.Time if the ASN.1 type is UTCTIME or GENERALIZEDTIME;
+        a bool if the ASN.1 type is BOOLEAN;
+        nil if the ASN.1 type is NULL;
+        an asn1.RawValue otherwise.
       example:
         Type:
         - 1
@@ -27544,6 +27796,9 @@ components:
           type: array
           x-go-package: encoding/asn1
         Value: {}
+      title: |-
+        AttributeTypeAndValue mirrors the ASN.1 structure of the same name in
+        RFC 5280, Section 4.1.2.4.
       type: object
       x-go-package: crypto/x509/pkix
     Auth:
@@ -27885,6 +28140,14 @@ components:
         bookmark_login_url_template: bookmark_login_url_template
         access_info:
           jwt_ttl: 6
+          scim:
+            bearer_access_id: bearer_access_id
+            endpoint: endpoint
+            provisioned_type: provisioned_type
+            gateway_url: gateway_url
+            provisioned_access_id: provisioned_access_id
+            default_identity_type: default_identity_type
+            enabled: true
           azure_ad_access_rules:
             bound_group_ids:
             - bound_group_ids
@@ -28241,6 +28504,14 @@ components:
     AuthMethodAccessInfo:
       example:
         jwt_ttl: 6
+        scim:
+          bearer_access_id: bearer_access_id
+          endpoint: endpoint
+          provisioned_type: provisioned_type
+          gateway_url: gateway_url
+          provisioned_access_id: provisioned_access_id
+          default_identity_type: default_identity_type
+          enabled: true
         azure_ad_access_rules:
           bound_group_ids:
           - bound_group_ids
@@ -28599,6 +28870,8 @@ components:
           x-go-name: AccessRulesType
         saml_access_rules:
           $ref: "#/components/schemas/SAMLAccessRules"
+        scim:
+          $ref: "#/components/schemas/ScimSettings"
         sub_claims_delimiters:
           items:
             type: string
@@ -32157,6 +32430,7 @@ components:
       example:
         gcp-organization-id: gcp-organization-id
         target-to-associate: target-to-associate
+        aws-organization-id: aws-organization-id
         use-prefix-as-filter: "false"
         description: description
         repository-names: repository-names
@@ -32184,6 +32458,12 @@ components:
         name: name
         gcp-scope: project
       properties:
+        aws-organization-id:
+          description: The AWS Organization ID to use for a multi-account connector.
+            Requires a target in the AWS Management Account or a delegated administrator
+            account.
+          type: string
+          x-go-name: AwsOrganizationId
         azure-kv-name:
           description: Azure Key Vault name (Relevant only for Azure targets)
           type: string
@@ -36358,6 +36638,9 @@ components:
             enable: true
             enable_time: 2000-01-23T04:56:07.000+00:00
             interval_by_days: 1
+          event_forwarder_allowed_email_domains:
+          - event_forwarder_allowed_email_domains
+          - event_forwarder_allowed_email_domains
           item_locking:
             enable: true
             max_lock_ttl_mins: 5
@@ -36556,6 +36839,20 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GetGroupOutput:
       example:
+        group_name: group_name
+        granted_roles_known: true
+        description: description
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        is_subclaims_with_operator: true
+        scim_managed: true
+        version: version
+        scim_external_id: scim_external_id
+        scim_provisioned_access_id: scim_provisioned_access_id
+        granted_roles:
+        - conditional: true
+          name: name
+        - conditional: true
+          name: name
         account_id: account_id
         user_assignments:
         - sub_claims:
@@ -36571,11 +36868,7 @@ components:
           access_type: access_type
           access_id: access_id
         group_id: group_id
-        group_name: group_name
         modification_date: 2000-01-23T04:56:07.000+00:00
-        description: description
-        creation_date: 2000-01-23T04:56:07.000+00:00
-        is_subclaims_with_operator: true
         group_alias: group_alias
       properties:
         account_id:
@@ -36588,6 +36881,22 @@ components:
         description:
           type: string
           x-go-name: Description
+        granted_roles:
+          description: |-
+            GrantedRoles are the roles a member of this group gets at login, through the
+            group's akeyless_groups claim. Read-only, and filled only for the SCIM bearer
+            that owns the group: a group name on its own says nothing about the access it
+            carries, which is what a reviewer certifying the entitlement has to judge.
+          items:
+            $ref: "#/components/schemas/GrantedRole"
+          type: array
+          x-go-name: GrantedRoles
+        granted_roles_known:
+          description: |-
+            GrantedRolesKnown is set when GrantedRoles was computed, so an empty list means
+            "grants no role" rather than "not computed" (another caller, or an older UAM).
+          type: boolean
+          x-go-name: GrantedRolesKnown
         group_alias:
           type: string
           x-go-name: GroupAlias
@@ -36604,11 +36913,26 @@ components:
           format: date-time
           type: string
           x-go-name: ModificationDate
+        scim_external_id:
+          type: string
+          x-go-name: ScimExternalId
+        scim_managed:
+          type: boolean
+          x-go-name: ScimManaged
+        scim_provisioned_access_id:
+          type: string
+          x-go-name: ScimProvisionedAccessId
         user_assignments:
           items:
             $ref: "#/components/schemas/AccessPermissionAssignment"
           type: array
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        version:
+          description: |-
+            Version identifies the member assignments this group was read with. Pass it back
+            as UpdateGroupInput.ExpectedVersion to make the update conditional.
+          type: string
+          x-go-name: Version
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     GetPKICertificate:
@@ -36962,6 +37286,16 @@ components:
             ca_cert_data:
             - 1
             - 1
+          alicloud_target_details:
+            access_key_id: access_key_id
+            session_token: session_token
+            use_gw_cloud_identity: true
+            gw_cloud_identity_external_id_opt:
+              generated_external_id: generated_external_id
+              is_enabled: true
+              role_arn: role_arn
+            access_key: access_key
+            region: region
           digicert_target_details:
             challenge_type: challenge_type
             dns_target_name: dns_target_name
@@ -37622,6 +37956,23 @@ components:
     GraceRotationTiming:
       type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    GrantedRole:
+      example:
+        conditional: true
+        name: name
+      properties:
+        conditional:
+          description: |-
+            Conditional is set when the role association also needs something besides
+            this group: another claim, or membership in another group (" AND ").
+          type: boolean
+          x-go-name: Conditional
+        name:
+          type: string
+          x-go-name: Name
+      title: GrantedRole is a role a group member gets through the group claim.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GrokTargetDetails:
       description: |-
         GrokTargetDetails defines details related to connecting to an xAI (Grok)
@@ -37648,6 +37999,20 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     Group:
       example:
+        group_name: group_name
+        granted_roles_known: true
+        description: description
+        creation_date: 2000-01-23T04:56:07.000+00:00
+        is_subclaims_with_operator: true
+        scim_managed: true
+        version: version
+        scim_external_id: scim_external_id
+        scim_provisioned_access_id: scim_provisioned_access_id
+        granted_roles:
+        - conditional: true
+          name: name
+        - conditional: true
+          name: name
         account_id: account_id
         user_assignments:
         - sub_claims:
@@ -37663,11 +38028,7 @@ components:
           access_type: access_type
           access_id: access_id
         group_id: group_id
-        group_name: group_name
         modification_date: 2000-01-23T04:56:07.000+00:00
-        description: description
-        creation_date: 2000-01-23T04:56:07.000+00:00
-        is_subclaims_with_operator: true
         group_alias: group_alias
       properties:
         account_id:
@@ -37680,6 +38041,22 @@ components:
         description:
           type: string
           x-go-name: Description
+        granted_roles:
+          description: |-
+            GrantedRoles are the roles a member of this group gets at login, through the
+            group's akeyless_groups claim. Read-only, and filled only for the SCIM bearer
+            that owns the group: a group name on its own says nothing about the access it
+            carries, which is what a reviewer certifying the entitlement has to judge.
+          items:
+            $ref: "#/components/schemas/GrantedRole"
+          type: array
+          x-go-name: GrantedRoles
+        granted_roles_known:
+          description: |-
+            GrantedRolesKnown is set when GrantedRoles was computed, so an empty list means
+            "grants no role" rather than "not computed" (another caller, or an older UAM).
+          type: boolean
+          x-go-name: GrantedRolesKnown
         group_alias:
           type: string
           x-go-name: GroupAlias
@@ -37696,11 +38073,26 @@ components:
           format: date-time
           type: string
           x-go-name: ModificationDate
+        scim_external_id:
+          type: string
+          x-go-name: ScimExternalId
+        scim_managed:
+          type: boolean
+          x-go-name: ScimManaged
+        scim_provisioned_access_id:
+          type: string
+          x-go-name: ScimProvisionedAccessId
         user_assignments:
           items:
             $ref: "#/components/schemas/AccessPermissionAssignment"
           type: array
           x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        version:
+          description: |-
+            Version identifies the member assignments this group was read with. Pass it back
+            as UpdateGroupInput.ExpectedVersion to make the update conditional.
+          type: string
+          x-go-name: Version
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     GroupPermissionsAssignments:
@@ -38002,6 +38394,10 @@ components:
           x-go-name: UserName
       title: HuaweiAccessRules defines access rules specific to Huawei authentication.
       type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    IdentityType:
+      title: IdentityType is the kind of principal an Identity record describes.
+      type: string
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     ImportPasswordsOutput:
       example:
@@ -42139,6 +42535,14 @@ components:
           bookmark_login_url_template: bookmark_login_url_template
           access_info:
             jwt_ttl: 6
+            scim:
+              bearer_access_id: bearer_access_id
+              endpoint: endpoint
+              provisioned_type: provisioned_type
+              gateway_url: gateway_url
+              provisioned_access_id: provisioned_access_id
+              default_identity_type: default_identity_type
+              enabled: true
             azure_ad_access_rules:
               bound_group_ids:
               - bound_group_ids
@@ -42552,6 +42956,14 @@ components:
           bookmark_login_url_template: bookmark_login_url_template
           access_info:
             jwt_ttl: 6
+            scim:
+              bearer_access_id: bearer_access_id
+              endpoint: endpoint
+              provisioned_type: provisioned_type
+              gateway_url: gateway_url
+              provisioned_access_id: provisioned_access_id
+              default_identity_type: default_identity_type
+              enabled: true
             azure_ad_access_rules:
               bound_group_ids:
               - bound_group_ids
@@ -42844,7 +43256,21 @@ components:
       example:
         next_page: next_page
         groups:
-        - account_id: account_id
+        - group_name: group_name
+          granted_roles_known: true
+          description: description
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          is_subclaims_with_operator: true
+          scim_managed: true
+          version: version
+          scim_external_id: scim_external_id
+          scim_provisioned_access_id: scim_provisioned_access_id
+          granted_roles:
+          - conditional: true
+            name: name
+          - conditional: true
+            name: name
+          account_id: account_id
           user_assignments:
           - sub_claims:
               key:
@@ -42859,13 +43285,23 @@ components:
             access_type: access_type
             access_id: access_id
           group_id: group_id
-          group_name: group_name
           modification_date: 2000-01-23T04:56:07.000+00:00
-          description: description
-          creation_date: 2000-01-23T04:56:07.000+00:00
-          is_subclaims_with_operator: true
           group_alias: group_alias
-        - account_id: account_id
+        - group_name: group_name
+          granted_roles_known: true
+          description: description
+          creation_date: 2000-01-23T04:56:07.000+00:00
+          is_subclaims_with_operator: true
+          scim_managed: true
+          version: version
+          scim_external_id: scim_external_id
+          scim_provisioned_access_id: scim_provisioned_access_id
+          granted_roles:
+          - conditional: true
+            name: name
+          - conditional: true
+            name: name
+          account_id: account_id
           user_assignments:
           - sub_claims:
               key:
@@ -42880,11 +43316,7 @@ components:
             access_type: access_type
             access_id: access_id
           group_id: group_id
-          group_name: group_name
           modification_date: 2000-01-23T04:56:07.000+00:00
-          description: description
-          creation_date: 2000-01-23T04:56:07.000+00:00
-          is_subclaims_with_operator: true
           group_alias: group_alias
       properties:
         groups:
@@ -50120,6 +50552,16 @@ components:
       title: RabbitMQTargetDetails ...
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    RawMessage:
+      description: |-
+        It implements [Marshaler] and [Unmarshaler] and can
+        be used to delay JSON decoding or precompute a JSON encoding.
+      items:
+        format: uint8
+        type: integer
+      title: RawMessage is a raw encoded JSON value.
+      type: array
+      x-go-package: encoding/json
     RecordStorageType:
       title: RecordStorageType defines the storage backend for RDP session recordings.
       type: string
@@ -51453,6 +51895,121 @@ components:
           type: array
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/certificate/certificate_discovery/scanner/results
+    ScimEndpoint:
+      title: ScimEndpoint is where the IdP reaches the SCIM server.
+      type: string
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ScimSettings:
+      example:
+        bearer_access_id: bearer_access_id
+        endpoint: endpoint
+        provisioned_type: provisioned_type
+        gateway_url: gateway_url
+        provisioned_access_id: provisioned_access_id
+        default_identity_type: default_identity_type
+        enabled: true
+      properties:
+        bearer_access_id:
+          description: Access ID of the API Key auth method the IdP uses as the SCIM
+            bearer.
+          type: string
+          x-go-name: BearerAccessId
+        default_identity_type:
+          title: IdentityType is the kind of principal an Identity record describes.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        enabled:
+          type: boolean
+          x-go-name: Enabled
+        endpoint:
+          title: ScimEndpoint is where the IdP reaches the SCIM server.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        gateway_url:
+          description: "URL of the gateway that serves the SCIM endpoint to the IdP,\
+            \ for the private endpoint."
+          type: string
+          x-go-name: GatewayUrl
+        provisioned_access_id:
+          description: |-
+            ProvisionedAccessId and ProvisionedType are set on the bearer itself, not on the
+            auth method it provisions. They point back to the SAML or OIDC auth method the
+            bearer provisions, so the gateway can find that auth method from the bearer.
+          type: string
+          x-go-name: ProvisionedAccessId
+        provisioned_type:
+          title: Access rules type.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+      title: ScimSettings configures SCIM provisioning on a SAML or OIDC auth method.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+    ScimStatus:
+      example:
+        last_write_status: last_write_status
+        gateway_url: gateway_url
+        active_identities: 0
+        base_url: base_url
+        groups: 6
+        degraded: true
+        enabled: true
+        bearer_access_id: bearer_access_id
+        connected: true
+        endpoint: endpoint
+        inactive_identities: 1
+        last_write_ts: 2000-01-23T04:56:07.000+00:00
+        last_write_action: last_write_action
+      properties:
+        active_identities:
+          format: int64
+          type: integer
+          x-go-name: ActiveIdentities
+        base_url:
+          type: string
+          x-go-name: BaseUrl
+        bearer_access_id:
+          type: string
+          x-go-name: BearerAccessId
+        connected:
+          type: boolean
+          x-go-name: Connected
+        degraded:
+          description: |-
+            Degraded is true when live-token revocation is not active, so deactivation
+            only denies new logins.
+          type: boolean
+          x-go-name: Degraded
+        enabled:
+          type: boolean
+          x-go-name: Enabled
+        endpoint:
+          title: ScimEndpoint is where the IdP reaches the SCIM server.
+          type: string
+          x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
+        gateway_url:
+          type: string
+          x-go-name: GatewayUrl
+        groups:
+          format: int64
+          type: integer
+          x-go-name: Groups
+        inactive_identities:
+          format: int64
+          type: integer
+          x-go-name: InactiveIdentities
+        last_write_action:
+          type: string
+          x-go-name: LastWriteAction
+        last_write_status:
+          type: string
+          x-go-name: LastWriteStatus
+        last_write_ts:
+          format: date-time
+          type: string
+          x-go-name: LastWriteTs
+      title: ScimStatus is the SCIM provisioning status of a provisioned auth method.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/infra/types
     SecretInfo:
       example:
         secret_id: secret_id
@@ -51683,7 +52240,7 @@ components:
           x-go-name: AwsAccountId
         allow_port_forwarding:
           type: boolean
-          x-go-name: K8SAllowPortForwading
+          x-go-name: K8SAllowPortForwarding
         allow_providing_external_username:
           type: boolean
           x-go-name: AllowProvidingExternalUser
@@ -53218,6 +53775,16 @@ components:
           ca_cert_data:
           - 1
           - 1
+        alicloud_target_details:
+          access_key_id: access_key_id
+          session_token: session_token
+          use_gw_cloud_identity: true
+          gw_cloud_identity_external_id_opt:
+            generated_external_id: generated_external_id
+            is_enabled: true
+            role_arn: role_arn
+          access_key: access_key
+          region: region
         digicert_target_details:
           challenge_type: challenge_type
           dns_target_name: dns_target_name
@@ -53418,6 +53985,8 @@ components:
       properties:
         aerospike_target_details:
           $ref: "#/components/schemas/AerospikeTargetDetails"
+        alicloud_target_details:
+          $ref: "#/components/schemas/AliCloudTargetDetails"
         anthropic_target_details:
           $ref: "#/components/schemas/AnthropicTargetDetails"
         artifactory_target_details:
@@ -55238,12 +55807,24 @@ components:
             type: string
           type: array
           x-go-name: BindSslProfiles
+        certificate-arn:
+          description: "The ARN of an existing imported ACM certificate to re-import\
+            \ into, which replaces its certificate and key; if empty, a new ACM certificate\
+            \ is created on every provisioning, including after renewal (relevant\
+            \ only for AWS certificate provisioning)"
+          type: string
+          x-go-name: CertificateArn
         certificate-format:
           default: pem
           description: "The format the certificate will be provisioned with, available\
             \ options: pem,pfx (relevant only for certificate provisioning)"
           type: string
           x-go-name: CertificateFormat
+        certificate-name:
+          description: "The name of the certificate object in the cloud provider (relevant\
+            \ only for AWS, Azure, and GCP certificate provisioning)"
+          type: string
+          x-go-name: CertificateName
         certificate-path:
           description: A path on the target to store the certificate pem file (relevant
             only for certificate provisioning)
@@ -55265,6 +55846,20 @@ components:
             only for Classic Key AWS/Azure/GCP targets)
           type: string
           x-go-name: ExternalKeyName
+        f5-save-config:
+          default: false
+          description: "Save the F5 running configuration after each successful provisioning,\
+            \ so the certificate survives a reboot. This also saves any other unsaved\
+            \ change on the device (relevant only for F5 BIG-IP certificate provisioning)"
+          type: boolean
+          x-go-name: F5SaveConfig
+        f5-sync-device-group:
+          description: "Sync the F5 configuration to this device group after each\
+            \ successful provisioning, so the HA peer serves the same certificate.\
+            \ This overwrites unsynced changes on the other members of the group.\
+            \ Implies f5-save-config (relevant only for F5 BIG-IP certificate provisioning)"
+          type: string
+          x-go-name: F5SyncDeviceGroup
         json:
           default: false
           description: Set output format to JSON
@@ -55277,6 +55872,11 @@ components:
             type: string
           type: array
           x-go-name: KeyOperations
+        key-vault:
+          description: The Azure Key Vault name to provision the certificate to (relevant
+            only for Azure certificate provisioning)
+          type: string
+          x-go-name: KeyVaultName
         keyring-name:
           description: Keyring name of the GCP KMS (required for gcp targets)
           type: string
@@ -55289,6 +55889,12 @@ components:
           description: Location id of the GCP KMS (required for gcp targets)
           type: string
           x-go-name: LocationId
+        location-scope:
+          description: "The GCP Certificate Manager location to provision the certificate\
+            \ to: global or a region such as us-central1 (relevant only for GCP certificate\
+            \ provisioning)"
+          type: string
+          x-go-name: LocationScope
         multi-region:
           default: "false"
           description: Set to 'true' to create a multi-region managed key. (Relevant
@@ -56996,6 +57602,26 @@ components:
             \ ID URI)"
           type: string
           x-go-name: RequiredScopesPrefix
+        scim-bearer-access-id:
+          description: Access ID of the API Key auth method the IdP uses as the SCIM
+            bearer
+          type: string
+          x-go-name: ScimBearerAccessId
+        scim-enabled:
+          description: "Enable SCIM provisioning for this auth method [true/false]"
+          type: string
+          x-go-name: ScimEnabled
+        scim-endpoint:
+          description: "Where the IdP reaches the SCIM endpoint [public/private].\
+            \ public is served by Akeyless, private by your own Akeyless Gateway"
+          type: string
+          x-go-name: ScimEndpoint
+        scim-gateway-url:
+          description: "URL of the Akeyless Gateway that serves the SCIM endpoint\
+            \ to the IdP, for example https://gateway.example.com:8000. Required for\
+            \ the private endpoint"
+          type: string
+          x-go-name: ScimGatewayUrl
         subclaims-delimiters:
           description: "A list of additional sub claims delimiters (relevant only\
             \ for SAML, OIDC, OAuth2/JWT)"
@@ -57188,6 +57814,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     authMethodCreateOutput:
       example:
+        scim_base_url: scim_base_url
         access_key: access_key
         name: name
         access_id: access_id
@@ -57205,6 +57832,10 @@ components:
         prv_key:
           type: string
           x-go-name: PrivateKey
+        scim_base_url:
+          description: "SCIM Base URL the IdP calls, set when SCIM flags were given"
+          type: string
+          x-go-name: ScimBaseUrl
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     authMethodCreateSAML:
@@ -57307,6 +57938,26 @@ components:
             type: string
           type: array
           x-go-name: ProductTypes
+        scim-bearer-access-id:
+          description: Access ID of the API Key auth method the IdP uses as the SCIM
+            bearer
+          type: string
+          x-go-name: ScimBearerAccessId
+        scim-enabled:
+          description: "Enable SCIM provisioning for this auth method [true/false]"
+          type: string
+          x-go-name: ScimEnabled
+        scim-endpoint:
+          description: "Where the IdP reaches the SCIM endpoint [public/private].\
+            \ public is served by Akeyless, private by your own Akeyless Gateway"
+          type: string
+          x-go-name: ScimEndpoint
+        scim-gateway-url:
+          description: "URL of the Akeyless Gateway that serves the SCIM endpoint\
+            \ to the IdP, for example https://gateway.example.com:8000. Required for\
+            \ the private endpoint"
+          type: string
+          x-go-name: ScimGatewayUrl
         subclaims-delimiters:
           description: "A list of additional sub claims delimiters (relevant only\
             \ for SAML, OIDC, OAuth2/JWT)"
@@ -59230,6 +59881,26 @@ components:
             \ ID URI)"
           type: string
           x-go-name: RequiredScopesPrefix
+        scim-bearer-access-id:
+          description: Access ID of the API Key auth method the IdP uses as the SCIM
+            bearer
+          type: string
+          x-go-name: ScimBearerAccessId
+        scim-enabled:
+          description: "Enable SCIM provisioning for this auth method [true/false]"
+          type: string
+          x-go-name: ScimEnabled
+        scim-endpoint:
+          description: "Where the IdP reaches the SCIM endpoint [public/private].\
+            \ public is served by Akeyless, private by your own Akeyless Gateway"
+          type: string
+          x-go-name: ScimEndpoint
+        scim-gateway-url:
+          description: "URL of the Akeyless Gateway that serves the SCIM endpoint\
+            \ to the IdP, for example https://gateway.example.com:8000. Required for\
+            \ the private endpoint"
+          type: string
+          x-go-name: ScimGatewayUrl
         subclaims-delimiters:
           description: "A list of additional sub claims delimiters (relevant only\
             \ for SAML, OIDC, OAuth2/JWT)"
@@ -59426,6 +60097,7 @@ components:
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     authMethodUpdateOutput:
       example:
+        scim_base_url: scim_base_url
         name: name
         prv_key: prv_key
       properties:
@@ -59435,6 +60107,10 @@ components:
         prv_key:
           type: string
           x-go-name: PrivateKey
+        scim_base_url:
+          description: "SCIM Base URL the IdP calls, set when SCIM flags were given"
+          type: string
+          x-go-name: ScimBaseUrl
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     authMethodUpdateSAML:
@@ -59541,6 +60217,26 @@ components:
             type: string
           type: array
           x-go-name: ProductTypes
+        scim-bearer-access-id:
+          description: Access ID of the API Key auth method the IdP uses as the SCIM
+            bearer
+          type: string
+          x-go-name: ScimBearerAccessId
+        scim-enabled:
+          description: "Enable SCIM provisioning for this auth method [true/false]"
+          type: string
+          x-go-name: ScimEnabled
+        scim-endpoint:
+          description: "Where the IdP reaches the SCIM endpoint [public/private].\
+            \ public is served by Akeyless, private by your own Akeyless Gateway"
+          type: string
+          x-go-name: ScimEndpoint
+        scim-gateway-url:
+          description: "URL of the Akeyless Gateway that serves the SCIM endpoint\
+            \ to the IdP, for example https://gateway.example.com:8000. Required for\
+            \ the private endpoint"
+          type: string
+          x-go-name: ScimGatewayUrl
         subclaims-delimiters:
           description: "A list of additional sub claims delimiters (relevant only\
             \ for SAML, OIDC, OAuth2/JWT)"
@@ -64240,6 +64936,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         bearer-token:
@@ -64259,10 +64956,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -64340,6 +65039,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -64355,10 +65055,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -64463,6 +65165,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -64478,10 +65181,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -65711,6 +66416,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         change-event:
@@ -65737,10 +66443,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         format:
@@ -68759,9 +69467,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -69336,9 +70050,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -69863,9 +70583,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -74662,9 +75388,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -75255,9 +75987,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -75794,9 +76532,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -79498,7 +80242,8 @@ components:
           type: string
           x-go-name: EventForwarderName
         override-url:
-          description: Override Akeyless default URL with your Gateway url (port 18888)
+          description: Override the Akeyless event link with the cluster URL of an
+            active gateway in this account
           type: string
           x-go-name: OverrideURL
         runner-type:
@@ -80178,7 +80923,8 @@ components:
           type: string
           x-go-name: NewName
         override-url:
-          description: Override Akeyless default URL with your Gateway url (port 18888)
+          description: Override the Akeyless event link with the cluster URL of an
+            active gateway in this account
           type: string
           x-go-name: OverrideURL
         targets-event-source-locations:
@@ -81623,6 +82369,13 @@ components:
             \ empty, the account default key will be used)"
           type: string
           x-go-name: ProtectionKey
+        schedule-sync:
+          description: Runs the migration automatically on the specified schedule
+            in UTC. Accepts standard cron syntax. Limited to at most once every 24
+            hours.
+          nullable: true
+          type: string
+          x-go-name: Schedule
         si-auto-rotate:
           description: "Enable/Disable automatic/recurrent rotation for migrated secrets.\
             \ Default is false: only manual rotation is allowed for migrated secrets.\
@@ -81723,6 +82476,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         artifactory-admin-name:
@@ -81757,10 +82511,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -81800,6 +82556,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -82292,6 +83049,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         aws-access-key-id:
@@ -82347,10 +83105,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -82446,6 +83206,7 @@ components:
           x-go-name: SessionTags
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -82957,6 +83718,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         azure-administrative-unit:
@@ -82987,10 +83749,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         fixed-user-claim-keyname:
@@ -83067,6 +83831,7 @@ components:
           x-go-name: SecureAccessWebProxy
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -83591,6 +84356,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         cassandra-creation-statements:
@@ -83626,10 +84392,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -83673,6 +84441,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -84185,6 +84954,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         chef-orgs:
@@ -84215,10 +84985,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -84262,6 +85034,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         skip-ssl:
@@ -84774,6 +85547,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         create-sync-url:
@@ -84795,10 +85569,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -84854,6 +85630,7 @@ components:
           x-go-name: RotateSyncURL
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -85340,6 +86117,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -85365,10 +86143,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -85408,6 +86188,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -85889,6 +86670,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -85928,10 +86710,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -85970,9 +86754,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -86003,6 +86793,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -86487,6 +87278,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -86501,10 +87293,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         fixed-user-claim-keyname:
@@ -86616,6 +87410,7 @@ components:
           x-go-name: ServiceAccountType
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -87097,6 +87892,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -87107,10 +87903,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         github-app-id:
@@ -87175,6 +87973,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -87668,6 +88467,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -87678,10 +88478,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         gke-account-key:
@@ -87740,9 +88542,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -87773,6 +88581,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -88260,6 +89069,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -88274,10 +89084,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         hana-dbname:
@@ -88384,6 +89196,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -88889,6 +89702,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         bind-dn:
@@ -88911,10 +89725,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         external-username:
@@ -89025,6 +89841,7 @@ components:
           x-go-name: SecureAccessDomain
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -89546,6 +90363,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -89560,10 +90378,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -89682,6 +90502,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -90185,6 +91006,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -90199,10 +91021,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -90335,6 +91159,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -90837,6 +91662,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -90859,10 +91685,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -90971,6 +91799,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -91482,6 +92311,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -91496,10 +92326,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -91590,9 +92422,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -91637,6 +92475,7 @@ components:
           x-go-name: SecureAccessWebProxy
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -92122,6 +92961,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -92144,10 +92984,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -92247,6 +93089,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -92749,6 +93592,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -92759,10 +93603,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -92901,6 +93747,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -93382,6 +94229,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         creation-statements:
@@ -93400,10 +94248,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -93512,6 +94362,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -94019,6 +94870,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -94029,10 +94881,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -94131,6 +94985,7 @@ components:
           x-go-name: SecureAccessWebProxy
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -94641,6 +95496,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         block-parent-target-access:
@@ -94660,10 +95516,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         fixed-user-claim-keyname:
@@ -94792,6 +95650,7 @@ components:
           x-go-name: SecureAccessOverrideUser
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -95312,6 +96171,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -95326,10 +96186,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         host:
@@ -95387,6 +96249,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -95903,6 +96766,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         creation-statements:
@@ -95921,10 +96785,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -96001,6 +96867,7 @@ components:
           x-go-name: SecureAccessHost
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -96520,6 +97387,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         auth-mode:
@@ -96543,10 +97411,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -96602,6 +97472,7 @@ components:
           x-go-name: Role
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -97126,6 +97997,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         auto-generated-folder:
@@ -97145,10 +98017,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -97200,6 +98074,7 @@ components:
           x-go-name: SignerKeyName
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         store-private-key:
@@ -97877,16 +98752,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -97916,6 +98794,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         token:
@@ -98209,16 +99088,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -98248,6 +99130,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         token:
@@ -98291,16 +99174,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -98330,6 +99216,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         token:
@@ -99691,16 +100578,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         host:
@@ -99738,6 +100628,7 @@ components:
           x-go-name: RevokeAll
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         soft-delete:
@@ -99769,16 +100660,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -99808,6 +100702,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         token:
@@ -99867,16 +100762,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -99906,6 +100804,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         token:
@@ -101465,6 +102364,13 @@ components:
             \ empty, the account default key will be used)"
           type: string
           x-go-name: ProtectionKey
+        schedule-sync:
+          description: Runs the migration automatically on the specified schedule
+            in UTC. Accepts standard cron syntax. Limited to at most once every 24
+            hours.
+          nullable: true
+          type: string
+          x-go-name: Schedule
         si-auto-rotate:
           description: "Enable/Disable automatic/recurrent rotation for migrated secrets.\
             \ Default is false: only manual rotation is allowed for migrated secrets.\
@@ -101569,6 +102475,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         artifactory-admin-name:
@@ -101603,10 +102510,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -101650,6 +102559,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -102142,6 +103052,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         aws-access-key-id:
@@ -102197,10 +103108,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -102300,6 +103213,7 @@ components:
           x-go-name: SessionTags
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -102811,6 +103725,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         azure-administrative-unit:
@@ -102841,10 +103756,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         fixed-user-claim-keyname:
@@ -102925,6 +103842,7 @@ components:
           x-go-name: SecureAccessWebProxy
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -103449,6 +104367,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         cassandra-creation-statements:
@@ -103484,10 +104403,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -103535,6 +104456,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -104047,6 +104969,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         chef-orgs:
@@ -104077,10 +105000,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -104128,6 +105053,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         skip-ssl:
@@ -104640,6 +105566,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         create-sync-url:
@@ -104661,10 +105588,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -104724,6 +105653,7 @@ components:
           x-go-name: RotateSyncURL
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -105210,6 +106140,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -105235,10 +106166,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -105282,6 +106215,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -105763,6 +106697,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -105802,10 +106737,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -105848,9 +106785,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -105881,6 +106824,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -106365,6 +107309,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -106379,10 +107324,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         fixed-user-claim-keyname:
@@ -106498,6 +107445,7 @@ components:
           x-go-name: ServiceAccountType
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -106979,6 +107927,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -106989,10 +107938,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         github-app-id:
@@ -107061,6 +108012,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -107554,6 +108506,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -107564,10 +108517,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         gke-account-key:
@@ -107630,9 +108585,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -107663,6 +108624,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -108144,6 +109106,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -108158,10 +109121,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         hana-dbname:
@@ -108272,6 +109237,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -108777,6 +109743,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         bind-dn:
@@ -108799,10 +109766,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         external-username:
@@ -108917,6 +109886,7 @@ components:
           x-go-name: SecureAccessDomain
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -109438,6 +110408,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -109452,10 +110423,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -109578,6 +110551,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -110081,6 +111055,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -110095,10 +111070,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -110235,6 +111212,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -110737,6 +111715,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -110759,10 +111738,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -110875,6 +111856,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -111386,6 +112368,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -111400,10 +112383,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -111498,9 +112483,15 @@ components:
           type: string
           x-go-name: ProducerEncryptionKey
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-bastion-issuer:
           description: Deprecated. use secure-access-certificate-issuer
           type: string
@@ -111545,6 +112536,7 @@ components:
           x-go-name: SecureAccessWebProxy
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -112030,6 +113022,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -112052,10 +113045,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -112159,6 +113154,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -112661,6 +113657,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -112671,10 +113668,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -112817,6 +113816,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -113298,6 +114298,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         creation-statements:
@@ -113316,10 +114317,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -113432,6 +114435,7 @@ components:
           x-go-name: SecureAccessWebCategory
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -113939,6 +114943,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         delete_protection:
@@ -113949,10 +114954,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -114055,6 +115062,7 @@ components:
           x-go-name: SecureAccessWebProxy
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -114565,6 +115573,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         block-parent-target-access:
@@ -114584,10 +115593,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         fixed-user-claim-keyname:
@@ -114720,6 +115731,7 @@ components:
           x-go-name: SecureAccessOverrideUser
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -115240,6 +116252,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         custom-username-template:
@@ -115254,10 +116267,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         host:
@@ -115319,6 +116334,7 @@ components:
           x-go-name: ProducerEncryptionKey
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -115835,6 +116851,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         creation-statements:
@@ -115853,10 +116870,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -115937,6 +116956,7 @@ components:
           x-go-name: SecureAccessHost
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         ssl:
@@ -116456,6 +117476,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         auth-mode:
@@ -116479,10 +117500,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -116542,6 +117565,7 @@ components:
           x-go-name: Role
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tags:
@@ -117066,6 +118090,7 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         auto-generated-folder:
@@ -117085,10 +118110,12 @@ components:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -117144,6 +118171,7 @@ components:
           x-go-name: SignerKeyName
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         store-private-key:
@@ -117858,16 +118886,19 @@ components:
           description: |-
             Enable or disable Agentic Runtime Authority rule enforcement for this item.
             Mirrors commands.AgenticRulesParams.AraEnabled.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
           description: |-
             EnableAra is the documented spelling of AraEnabled; --ara-enabled
             shipped first and stays as an undocumented alias.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         host:
@@ -117906,6 +118937,7 @@ components:
           x-go-name: OutputRules
         skip-dry-run:
           description: "If set, dry-run will be skipped [true/false]"
+          nullable: true
           type: boolean
           x-go-name: SkipDryRun
         tmp-creds-id:
@@ -118809,6 +119841,32 @@ components:
         path:
           type: string
           x-go-name: Path
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    getScimStatus:
+      properties:
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        name:
+          description: SAML or OIDC auth method name
+          type: string
+          x-go-name: NName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: "The universal identity token, Required only for universal_identity\
+            \ authentication"
+          type: string
+          x-go-name: UIDToken
+      required:
+      - name
+      title: getScimStatus is a command that returns the SCIM provisioning status
+        of a SAML or OIDC auth method.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     getTags:
@@ -120680,7 +121738,7 @@ components:
         type:
           description: |-
             The target types list . In case it is empty, all
-            types of targets will be returned. options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub cloudflare ldap github chef web salesforce postgres]
+            types of targets will be returned. options: [hanadb cassandra aws alicloud ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub cloudflare ldap github chef web salesforce postgres]
           items:
             type: string
           type: array
@@ -121689,6 +122747,203 @@ components:
       title: Aerospike
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    rotatedSecretCreateAliCloud:
+      properties:
+        access-key:
+          description: AliCloud RAM user AccessKey secret to rotate (relevant only
+            for rotator-type=access-key)
+          type: string
+          x-go-name: AccessKey
+        access-key-id:
+          description: "AliCloud RAM user AccessKey ID to rotate (relevant only for\
+            \ rotator-type=access-key). On create with authentication-credentials=use-target-creds\
+            \ it may be empty, then Akeyless creates the AccessKey on the RAM user\
+            \ of the target and manages it"
+          type: string
+          x-go-name: AccessKeyID
+        ara-enabled:
+          description: |-
+            Enable or disable Agentic Runtime Authority rule enforcement for this item.
+            When false, user-defined input/output rules are stored but not enforced;
+            the base security validation still runs.
+
+            AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
+            its wire value (see akl.OptionalBool) so an explicit false survives the
+            curl-proxy relay instead of being dropped like a default-false bool flag.
+          type: boolean
+          x-go-name: AraEnabled
+        authentication-credentials:
+          default: use-user-creds
+          description: The credentials to connect with use-user-creds/use-target-creds
+          type: string
+          x-go-name: RotatorCredsType
+        auto-rotate:
+          type: string
+          x-go-name: AutoRotate
+        delete_protection:
+          description: "Protection from accidental deletion of this object [true/false]"
+          type: string
+          x-go-name: ObjectProtected
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        enable-agentic-runtime-authority:
+          description: |-
+            EnableAra is the documented spelling of AraEnabled. Both set the same
+            field; --ara-enabled shipped first and stays as an undocumented alias
+            so existing scripts and the Terraform provider keep working.
+          type: boolean
+          x-go-name: EnableAra
+        enable-ai-quorum:
+          description: Turns on AI Quorum checks for this item.
+          type: boolean
+          x-go-name: EnableAiQuorum
+        grace-rotation:
+          description: "Enable graceful rotation (keep both versions temporarily).\
+            \ When enabled, a new secret version is created while the previous version\
+            \ is kept for the grace period, so both versions exist for a limited time.\
+            \ [true/false]"
+          type: string
+          x-go-name: GraceRotation
+        grace-rotation-hour:
+          description: The Hour of the grace rotation in UTC
+          format: int32
+          type: integer
+          x-go-name: GraceRotationHour
+        grace-rotation-interval:
+          description: The number of days to wait before deleting the old key (must
+            be bigger than rotation-interval)
+          type: string
+          x-go-name: GraceRotationInterval
+        grace-rotation-timing:
+          description: "When to create the new version relative to the rotation date\
+            \ [after/before]"
+          type: string
+          x-go-name: GraceRotationTiming
+        input-rule:
+          description: "Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize\
+            \ input)"
+          items:
+            type: string
+          type: array
+          x-go-name: InputRules
+        item-custom-fields:
+          additionalProperties:
+            type: string
+          description: Additional custom fields to associate with the item
+          type: object
+          x-go-name: ItemCustomFields
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          type: string
+          x-go-name: ProtectionKey
+        lock-on-read:
+          description: Lock this secret after each successful value read
+          type: string
+          x-go-name: LockOnRead
+        lock-ttl:
+          description: Lock TTL in minutes
+          type: string
+          x-go-name: LockTTL
+        max-versions:
+          description: "Set the maximum number of versions, limited by the account\
+            \ settings defaults."
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Rotated secret name
+          type: string
+          x-go-name: SecretName
+        output-rule:
+          description: "Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask\
+            \ secrets)"
+          items:
+            type: string
+          type: array
+          x-go-name: OutputRules
+        password-length:
+          description: The length of the password to be generated
+          type: string
+          x-go-name: PasswordLengthInput
+        rotate-on-unlock:
+          description: Rotate this secret after it is unlocked
+          type: string
+          x-go-name: RotateOnUnlock
+        rotation-event-in:
+          description: How many days before the rotation of the item would you like
+            to be notified
+          items:
+            type: string
+          type: array
+          x-go-name: RotationEventsInDays
+        rotation-hour:
+          format: int32
+          type: integer
+          x-go-name: RotationHour
+        rotation-interval:
+          type: string
+          x-go-name: RotationInterval
+        rotator-type:
+          description: "The rotator type. options: [target/access-key]"
+          type: string
+          x-go-name: RotatorType
+        skip-dry-run:
+          description: "If set, dry-run will be skipped [true/false]"
+          type: boolean
+          x-go-name: SkipDryRun
+        tags:
+          description: Add tags attached to this object
+          items:
+            type: string
+          type: array
+          x-go-name: Tags
+        target-name:
+          description: The target name to associate
+          type: string
+          x-go-name: TargetName
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: "The universal identity token, Required only for universal_identity\
+            \ authentication"
+          type: string
+          x-go-name: UIDToken
+        use-capital-letters:
+          description: "Specifies whether the generated temporary password must contain\
+            \ at least one uppercase character from the ISO basic Latin alphabet (A\
+            \ to Z). [true/false]"
+          type: string
+          x-go-name: UseCapitalLettersV2
+        use-lower-letters:
+          description: "Specifies whether the generated temporary password must contain\
+            \ at least one lowercase character from the ISO basic Latin alphabet (a\
+            \ to z). [true/false]"
+          type: string
+          x-go-name: UseLowerLetters
+        use-numbers:
+          description: "Specifies whether the generated temporary password must contain\
+            \ at least one numeric character (0 to 9). [true/false]"
+          type: string
+          x-go-name: UseNumbers
+        use-special-characters:
+          example: "! @ # $. [true/false]"
+          type: string
+          x-go-name: UseSpecialCharacters
+      required:
+      - name
+      - rotator-type
+      - target-name
+      title: rotatedSecretCreateAliCloud is a command that creates an AliCloud rotated
+        secret.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     rotatedSecretCreateAws:
       properties:
         api-id:
@@ -121930,7 +123185,7 @@ components:
           x-go-name: ApiKey
         application-id:
           description: Id of the azure app that hold the serect to be rotated (relevant
-            only for rotator-type=api-key & authentication-credentials=use-target-creds)
+            only for rotator-type=api-key)
           type: string
           x-go-name: ApplicationId
         ara-enabled:
@@ -126850,6 +128105,209 @@ components:
       title: Aerospike
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    rotatedSecretUpdateAliCloud:
+      properties:
+        access-key:
+          description: AliCloud RAM user AccessKey secret to rotate (relevant only
+            for rotator-type=access-key)
+          type: string
+          x-go-name: AccessKey
+        access-key-id:
+          description: "AliCloud RAM user AccessKey ID to rotate (relevant only for\
+            \ rotator-type=access-key). On create with authentication-credentials=use-target-creds\
+            \ it may be empty, then Akeyless creates the AccessKey on the RAM user\
+            \ of the target and manages it"
+          type: string
+          x-go-name: AccessKeyID
+        add-tag:
+          description: List of the new tags that will be attached to this item
+          items:
+            type: string
+          type: array
+          x-go-name: AddTags
+        ara-enabled:
+          description: |-
+            Enable or disable Agentic Runtime Authority rule enforcement for this item.
+            When false, user-defined input/output rules are stored but not enforced;
+            the base security validation still runs.
+
+            AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
+            its wire value (see akl.OptionalBool) so an explicit false survives the
+            curl-proxy relay instead of being dropped like a default-false bool flag.
+          type: boolean
+          x-go-name: AraEnabled
+        authentication-credentials:
+          default: use-user-creds
+          description: The credentials to connect with use-user-creds/use-target-creds
+          type: string
+          x-go-name: RotatorCredsType
+        auto-rotate:
+          type: string
+          x-go-name: AutoRotate
+        delete_protection:
+          description: "Protection from accidental deletion of this object [true/false]"
+          type: string
+          x-go-name: ObjectProtected
+        description:
+          default: default_metadata
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        enable-agentic-runtime-authority:
+          description: |-
+            EnableAra is the documented spelling of AraEnabled. Both set the same
+            field; --ara-enabled shipped first and stays as an undocumented alias
+            so existing scripts and the Terraform provider keep working.
+          type: boolean
+          x-go-name: EnableAra
+        enable-ai-quorum:
+          description: Turns on AI Quorum checks for this item.
+          type: boolean
+          x-go-name: EnableAiQuorum
+        grace-rotation:
+          description: "Enable graceful rotation (keep both versions temporarily).\
+            \ When enabled, a new secret version is created while the previous version\
+            \ is kept for the grace period, so both versions exist for a limited time.\
+            \ [true/false]"
+          type: string
+          x-go-name: GraceRotation
+        grace-rotation-hour:
+          description: The Hour of the grace rotation in UTC
+          format: int32
+          type: integer
+          x-go-name: GraceRotationHour
+        grace-rotation-interval:
+          description: The number of days to wait before deleting the old key (must
+            be bigger than rotation-interval)
+          type: string
+          x-go-name: GraceRotationInterval
+        grace-rotation-timing:
+          description: "When to create the new version relative to the rotation date\
+            \ [after/before]"
+          type: string
+          x-go-name: GraceRotationTiming
+        input-rule:
+          description: "Agentic input rule in name=...,rule=... format (e.g. name=rule1,rule=Sanitize\
+            \ input)"
+          items:
+            type: string
+          type: array
+          x-go-name: InputRules
+        item-custom-fields:
+          additionalProperties:
+            type: string
+          description: Additional custom fields to associate with the item
+          type: object
+          x-go-name: ItemCustomFields
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        keep-prev-version:
+          description: "Whether to keep previous version [true/false]. If not set,\
+            \ use default according to account settings"
+          type: string
+          x-go-name: KeepPrevVersion
+        key:
+          type: string
+          x-go-name: ProtectionKey
+        lock-on-read:
+          description: Lock this secret after each successful value read
+          type: string
+          x-go-name: LockOnRead
+        lock-ttl:
+          description: Lock TTL in minutes
+          type: string
+          x-go-name: LockTTL
+        max-versions:
+          description: "Set the maximum number of versions, limited by the account\
+            \ settings defaults."
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Rotated secret name
+          type: string
+          x-go-name: SecretName
+        new-name:
+          description: New item name
+          type: string
+          x-go-name: NewName
+        output-rule:
+          description: "Agentic output rule in name=...,rule=... format (e.g. name=rule1,rule=Mask\
+            \ secrets)"
+          items:
+            type: string
+          type: array
+          x-go-name: OutputRules
+        password-length:
+          description: The length of the password to be generated
+          type: string
+          x-go-name: PasswordLengthInput
+        rm-tag:
+          description: List of the existent tags that will be removed from this item
+          items:
+            type: string
+          type: array
+          x-go-name: RemoveTags
+        rotate-on-unlock:
+          description: Rotate this secret after it is unlocked
+          type: string
+          x-go-name: RotateOnUnlock
+        rotation-event-in:
+          description: How many days before the rotation of the item would you like
+            to be notified
+          items:
+            type: string
+          type: array
+          x-go-name: RotationEventsInDays
+        rotation-hour:
+          format: int32
+          type: integer
+          x-go-name: RotationHour
+        rotation-interval:
+          type: string
+          x-go-name: RotationInterval
+        skip-dry-run:
+          description: "If set, dry-run will be skipped [true/false]"
+          type: boolean
+          x-go-name: SkipDryRun
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: "The universal identity token, Required only for universal_identity\
+            \ authentication"
+          type: string
+          x-go-name: UIDToken
+        use-capital-letters:
+          description: "Specifies whether the generated temporary password must contain\
+            \ at least one uppercase character from the ISO basic Latin alphabet (A\
+            \ to Z). [true/false]"
+          type: string
+          x-go-name: UseCapitalLettersV2
+        use-lower-letters:
+          description: "Specifies whether the generated temporary password must contain\
+            \ at least one lowercase character from the ISO basic Latin alphabet (a\
+            \ to z). [true/false]"
+          type: string
+          x-go-name: UseLowerLetters
+        use-numbers:
+          description: "Specifies whether the generated temporary password must contain\
+            \ at least one numeric character (0 to 9). [true/false]"
+          type: string
+          x-go-name: UseNumbers
+        use-special-characters:
+          example: "! @ # $. [true/false]"
+          type: string
+          x-go-name: UseSpecialCharacters
+      required:
+      - name
+      title: rotatedSecretUpdateAliCloud is a command that updates an AliCloud rotated
+        secret.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     rotatedSecretUpdateAws:
       properties:
         add-tag:
@@ -127103,7 +128561,7 @@ components:
           x-go-name: ApiKey
         application-id:
           description: Id of the azure app that hold the serect to be rotated (relevant
-            only for rotator-type=api-key & authentication-credentials=use-target-creds)
+            only for rotator-type=api-key)
           type: string
           x-go-name: ApplicationId
         ara-enabled:
@@ -132635,6 +134093,95 @@ components:
       title: targetCreateAerospike is a command that creates a new Aerospike target.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    targetCreateAliCloud:
+      properties:
+        access-key:
+          description: AliCloud RAM access key secret
+          type: string
+          x-go-name: AccessKey
+        access-key-id:
+          description: AliCloud RAM access key ID
+          type: string
+          x-go-name: AccessKeyID
+        delete_protection:
+          description: "Protection from accidental deletion of this object [true/false]"
+          type: string
+          x-go-name: ObjectProtected
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        generate-external-id:
+          description: A unique auto-generated value used in your AliCloud account
+            when configuring the RAM role trust policy to securely delegate access
+            to Akeyless. Relevant only when using GW cloud ID
+          type: boolean
+          x-go-name: EnableExternalId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        key:
+          description: "The name of a key that used to encrypt the target secret value\
+            \ (if empty, the account default protectionKey key will be used)"
+          type: string
+          x-go-name: ProtectionKey
+        lock-on-read:
+          description: Lock this secret after each successful value read
+          type: string
+          x-go-name: LockOnRead
+        lock-ttl:
+          description: Lock TTL in minutes
+          type: string
+          x-go-name: LockTTL
+        max-versions:
+          description: "Set the maximum number of versions, limited by the account\
+            \ settings defaults."
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        region:
+          description: "AliCloud region. Selects the regional STS endpoint. If empty,\
+            \ the global STS endpoint is used"
+          type: string
+          x-go-name: Region
+        role-arn:
+          description: "AliCloud RAM role ARN that the Gateway will assume in your\
+            \ AliCloud account (acs:ram::<account-id>:role/<role-name>), relevant\
+            \ only when using external ID"
+          type: string
+          x-go-name: RoleARN
+        rotate-on-unlock:
+          description: Rotate this secret after it is unlocked
+          type: string
+          x-go-name: RotateOnUnlock
+        session-token:
+          description: Required only for temporary security credentials retrieved
+            using STS
+          type: string
+          x-go-name: SessionToken
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: "The universal identity token, Required only for universal_identity\
+            \ authentication"
+          type: string
+          x-go-name: UIDToken
+        use-gw-cloud-identity:
+          description: Use the Gateway cloud identity
+          type: boolean
+          x-go-name: UseGatewayCloudIdentity
+      required:
+      - name
+      title: targetCreateAliCloud is a command that creates a new AliCloud target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     targetCreateAnthropic:
       description: targetCreateAnthropic is a command that creates a new anthropic
         target
@@ -136110,7 +137657,7 @@ components:
         type:
           description: |-
             The target types list . In case it is empty, all
-            types of targets will be returned. options: [hanadb cassandra aws ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub cloudflare ldap github chef web salesforce postgres]
+            types of targets will be returned. options: [hanadb cassandra aws alicloud ssh gke eks mysql mongodb snowflake mssql redshift artifactory azure rabbitmq k8s venafi gcp oracle dockerhub cloudflare ldap github chef web salesforce postgres]
           items:
             type: string
           type: array
@@ -136260,6 +137807,104 @@ components:
       - name
       title: targetUpdateAerospike is a command that updates an existing Aerospike
         target.
+      type: object
+      x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
+    targetUpdateAliCloud:
+      properties:
+        access-key:
+          description: AliCloud RAM access key secret
+          type: string
+          x-go-name: AccessKey
+        access-key-id:
+          description: AliCloud RAM access key ID
+          type: string
+          x-go-name: AccessKeyID
+        delete_protection:
+          description: "Protection from accidental deletion of this object [true/false]"
+          type: string
+          x-go-name: ObjectProtected
+        description:
+          description: Description of the object
+          type: string
+          x-go-name: Description
+        generate-external-id:
+          description: A unique auto-generated value used in your AliCloud account
+            when configuring the RAM role trust policy to securely delegate access
+            to Akeyless. Relevant only when using GW cloud ID
+          type: boolean
+          x-go-name: EnableExternalId
+        json:
+          default: false
+          description: Set output format to JSON
+          type: boolean
+          x-go-name: Json
+        keep-prev-version:
+          description: "Whether to keep previous version [true/false]. If not set,\
+            \ use default according to account settings"
+          type: string
+          x-go-name: KeepPrevVersion
+        key:
+          description: "The name of a key that used to encrypt the target secret value\
+            \ (if empty, the account default protectionKey key will be used)"
+          type: string
+          x-go-name: ProtectionKey
+        lock-on-read:
+          description: Lock this secret after each successful value read
+          type: string
+          x-go-name: LockOnRead
+        lock-ttl:
+          description: Lock TTL in minutes
+          type: string
+          x-go-name: LockTTL
+        max-versions:
+          description: "Set the maximum number of versions, limited by the account\
+            \ settings defaults."
+          type: string
+          x-go-name: MaxVersions
+        name:
+          description: Target name
+          type: string
+          x-go-name: TargetName
+        new-name:
+          description: New target name
+          type: string
+          x-go-name: NewTargetName
+        region:
+          description: "AliCloud region. Selects the regional STS endpoint. If empty,\
+            \ the global STS endpoint is used"
+          type: string
+          x-go-name: Region
+        role-arn:
+          description: "AliCloud RAM role ARN that the Gateway will assume in your\
+            \ AliCloud account (acs:ram::<account-id>:role/<role-name>), relevant\
+            \ only when using external ID"
+          type: string
+          x-go-name: RoleARN
+        rotate-on-unlock:
+          description: Rotate this secret after it is unlocked
+          type: string
+          x-go-name: RotateOnUnlock
+        session-token:
+          description: Required only for temporary security credentials retrieved
+            using STS
+          type: string
+          x-go-name: SessionToken
+        token:
+          description: Authentication token (see `/auth` and `/configure`)
+          type: string
+          x-go-name: Profile
+        uid-token:
+          description: "The universal identity token, Required only for universal_identity\
+            \ authentication"
+          type: string
+          x-go-name: UIDToken
+        use-gw-cloud-identity:
+          description: Use the Gateway cloud identity
+          type: boolean
+          x-go-name: UseGatewayCloudIdentity
+      required:
+      - name
+      title: targetUpdateAliCloud is a command that updates an existing AliCloud target.
       type: object
       x-go-package: akeyless.io/akeyless-main-repo/go/src/client/commands
     targetUpdateAnthropic:
@@ -144379,6 +146024,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         cert-file-data:
@@ -144408,10 +146054,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         expiration-event-in:
@@ -144516,10 +146164,18 @@ components:
           type: string
           x-go-name: SecureAccessAllowProvidingExternalUser
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access (relevant only
-            for EKS/GKE/K8s Dynamic-Secret)
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
+          nullable: true
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access (relevant only
+            for EKS/GKE/K8s Dynamic-Secret)
+          nullable: true
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-api:
           description: Bastion's SSH control API endpoint. E.g. https://my.sra-server:9900
             (relevant only for ssh cert issuer)
@@ -144531,6 +146187,7 @@ components:
           x-go-name: SecureAccessAccountId
         secure-access-aws-native-cli:
           description: The AWS native cli (relevant only for aws)
+          nullable: true
           type: boolean
           x-go-name: SecureAccessAwsNativeCli
         secure-access-aws-region:
@@ -144577,6 +146234,7 @@ components:
           x-go-name: SecureAccessEnabled
         secure-access-enforce-hosts-restriction:
           description: Enforce connections only to allowed SRA hosts
+          nullable: true
           type: boolean
           x-go-name: EnforceHostsRestriction
         secure-access-gateway:
@@ -144632,18 +146290,22 @@ components:
           x-go-name: SecureAccessURL
         secure-access-use-internal-bastion:
           description: Deprecated. Use secure-access-use-internal-ssh-access
+          nullable: true
           type: boolean
           x-go-name: SecureAccessUseInternalBastion
         secure-access-use-internal-ssh-access:
           description: Use internal SSH Access
+          nullable: true
           type: boolean
           x-go-name: SecureAccessUseInternalSSHAccess
         secure-access-web-browsing:
           description: Secure browser via Akeyless's Secure Remote Access (SRA)
+          nullable: true
           type: boolean
           x-go-name: SecureAccessIsolated
         secure-access-web-proxy:
           description: Web-Proxy via Akeyless's Secure Remote Access (SRA)
+          nullable: true
           type: boolean
           x-go-name: SecureAccessWebProxy
         target:
@@ -144941,6 +146603,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         bearer-token:
@@ -144952,10 +146615,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -145028,6 +146693,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
@@ -145035,10 +146701,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -145137,6 +146805,7 @@ components:
             AraEnabled is tri-state (nil/true/false), not a plain bool: it self-encodes
             its wire value (see akl.OptionalBool) so an explicit false survives the
             curl-proxy relay instead of being dropped like a default-false bool flag.
+          nullable: true
           type: boolean
           x-go-name: AraEnabled
         enable-agentic-runtime-authority:
@@ -145144,10 +146813,12 @@ components:
             EnableAra is the documented spelling of AraEnabled. Both set the same
             field; --ara-enabled shipped first and stays as an undocumented alias
             so existing scripts and the Terraform provider keep working.
+          nullable: true
           type: boolean
           x-go-name: EnableAra
         enable-ai-quorum:
           description: Turns on AI Quorum checks for this item.
+          nullable: true
           type: boolean
           x-go-name: EnableAiQuorum
         input-rule:
@@ -145979,16 +147650,25 @@ components:
           type: string
           x-go-name: SecureAccessAllowProvidingExternalUser
         secure-access-allow-port-forwading:
-          description: Enable Port forwarding while using CLI access (relevant only
-            for EKS/GKE/K8s Dynamic-Secret)
+          description: |-
+            Deprecated: old misspelled param, kept for backwards-compatibility.
+            Hidden from help; use secure-access-allow-port-forwarding instead.
+          nullable: true
           type: boolean
           x-go-name: SecureAccessK8SAllowPortForwading
+        secure-access-allow-port-forwarding:
+          description: Enable Port forwarding while using CLI access (relevant only
+            for EKS/GKE/K8s Dynamic-Secret)
+          nullable: true
+          type: boolean
+          x-go-name: SecureAccessK8SAllowPortForwarding
         secure-access-aws-account-id:
           description: The AWS account id (relevant only for aws)
           type: string
           x-go-name: SecureAccessAccountId
         secure-access-aws-native-cli:
           description: The AWS native cli (relevant only for aws)
+          nullable: true
           type: boolean
           x-go-name: SecureAccessAwsNativeCli
         secure-access-bastion-issuer:
@@ -146018,6 +147698,7 @@ components:
           x-go-name: SecureAccessEnabled
         secure-access-enforce-hosts-restriction:
           description: Enforce connections only to allowed SRA hosts
+          nullable: true
           type: boolean
           x-go-name: EnforceHostsRestriction
         secure-access-host:
@@ -146043,10 +147724,12 @@ components:
           x-go-name: SecureAccessURL
         secure-access-use-internal-bastion:
           description: Deprecated. Use secure-access-use-internal-ssh-access
+          nullable: true
           type: boolean
           x-go-name: SecureAccessUseInternalBastion
         secure-access-use-internal-ssh-access:
           description: Use internal SSH Access
+          nullable: true
           type: boolean
           x-go-name: SecureAccessUseInternalSSHAccess
         secure-access-web:
@@ -146056,10 +147739,12 @@ components:
           x-go-name: SecureAccessWebCategory
         secure-access-web-browsing:
           description: Secure browser via Akeyless's Secure Remote Access (SRA)
+          nullable: true
           type: boolean
           x-go-name: SecureAccessIsolated
         secure-access-web-proxy:
           description: Web-Proxy via Akeyless's Secure Remote Access (SRA)
+          nullable: true
           type: boolean
           x-go-name: SecureAccessWebProxy
         ssh-password:
@@ -147311,6 +148996,11 @@ components:
       description: uscCreate is a command that creates a new secret in a Universal
         Secrets Connector
       properties:
+        aws-account-id:
+          description: The AWS account ID to create the secret in. Required when the
+            connector spans multiple account IDs.
+          type: string
+          x-go-name: Account
         binary-value:
           description: Use this option if the universal secrets value is a base64
             encoded binary
@@ -147345,8 +149035,8 @@ components:
           x-go-name: PfxPassword
         region:
           description: |-
-            Optional, create secret in a specific region (GCP only).
-            If empty, a global secret will be created (provider default).
+            AWS Organization scope region or GCP regional secret location.
+            GCP creates a global secret when empty.
           type: string
           x-go-name: Region
         remote-secret-activation-date:
@@ -147405,6 +149095,11 @@ components:
       description: uscDelete is a command that deletes a secret from a Universal Secrets
         Connector
       properties:
+        aws-account-id:
+          description: The AWS account ID that contains the secret. Required when
+            the connector spans multiple account IDs.
+          type: string
+          x-go-name: Account
         force-delete:
           description: Force delete objects that are soft deleted by default (relavent
             only for Azure target)
@@ -147422,6 +149117,11 @@ components:
         object-type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/external-secrets-manager/base
+        region:
+          description: "The AWS region that contains the secret (AWS only). If empty,\
+            \ uses the target region."
+          type: string
+          x-go-name: Region
         secret-id:
           description: "The universal secrets id (or name, for AWS, Azure, K8s or\
             \ Hashi vault targets) to delete"
@@ -147455,6 +149155,11 @@ components:
       description: uscGet is a command that gets the value and internal details of
         a secret from a Universal Secrets Connector
       properties:
+        aws-account-id:
+          description: The AWS account ID that contains the secret. Required when
+            the connector spans multiple account IDs.
+          type: string
+          x-go-name: Account
         gcp-project-id:
           description: The GCP project the secret resides in (GCP only). Used when
             getting a secret by name in a connector that spans multiple projects or
@@ -147473,6 +149178,11 @@ components:
         object-type:
           type: string
           x-go-package: akeyless.io/akeyless-main-repo/go/src/external-secrets-manager/base
+        region:
+          description: "The AWS region that contains the secret (AWS only). If empty,\
+            \ uses the target region."
+          type: string
+          x-go-name: Region
         secret-id:
           description: "The secret id (or name, for AWS, Azure, K8s or Hashi vault\
             \ targets) to get from the Universal Secrets Connector"
@@ -147510,6 +149220,11 @@ components:
       description: uscList is a command that lists the secrets of a Universal Secrets
         Connector
       properties:
+        aws-account-id:
+          description: The AWS account ID to list secrets from. Required when the
+            connector spans multiple account IDs.
+          type: string
+          x-go-name: Account
         gcp-project-id:
           description: The GCP project to list secrets from (GCP only). Required when
             the connector spans multiple projects or uses folder/organization scope.
@@ -147534,6 +149249,11 @@ components:
             \ --page-size call"
           type: string
           x-go-name: PageToken
+        region:
+          description: "The AWS region to list secrets from (AWS only). If empty,\
+            \ the target's region is used."
+          type: string
+          x-go-name: Region
         search:
           description: Search query used to match secret names and paths.
           type: string
@@ -147559,6 +149279,11 @@ components:
       description: uscUpdate is a command that updates a secret in a Universal Secrets
         Connector
       properties:
+        aws-account-id:
+          description: The AWS account ID that contains the secret. Required when
+            the connector spans multiple account IDs.
+          type: string
+          x-go-name: Account
         binary-value:
           description: Use this option if the universal secrets value is a base64
             encoded binary
@@ -147585,6 +149310,11 @@ components:
             \ the pfx certificate (Relevant only for Azure KV certificates)"
           type: string
           x-go-name: PfxPassword
+        region:
+          description: "The AWS region that contains the secret (AWS only). If empty,\
+            \ uses the target region."
+          type: string
+          x-go-name: Region
         remote-secret-activation-date:
           description: "Activation date for the secret on the remote endpoint, in\
             \ UTC format: YYYY-MM-DDTHH:MM:SSZ"

@@ -25,6 +25,10 @@ authMethodCreateSAML is a command that creates a new auth method that will be av
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
+|**scimBearerAccessId** | **String** | Access ID of the API Key auth method the IdP uses as the SCIM bearer |  [optional] |
+|**scimEnabled** | **String** | Enable SCIM provisioning for this auth method [true/false] |  [optional] |
+|**scimEndpoint** | **String** | Where the IdP reaches the SCIM endpoint [public/private]. public is served by Akeyless, private by your own Akeyless Gateway |  [optional] |
+|**scimGatewayUrl** | **String** | URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example https://gateway.example.com:8000. Required for the private endpoint |  [optional] |
 |**subclaimsDelimiters** | **List&lt;String&gt;** | A list of additional sub claims delimiters (relevant only for SAML, OIDC, OAuth2/JWT) |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |

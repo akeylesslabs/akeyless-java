@@ -54,6 +54,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class CreateUSC {
+  public static final String SERIALIZED_NAME_AWS_ORGANIZATION_ID = "aws-organization-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ORGANIZATION_ID)
+  @javax.annotation.Nullable
+  private String awsOrganizationId;
+
   public static final String SERIALIZED_NAME_AZURE_KV_NAME = "azure-kv-name";
   @SerializedName(SERIALIZED_NAME_AZURE_KV_NAME)
   @javax.annotation.Nullable
@@ -181,6 +186,25 @@ public class CreateUSC {
 
   public CreateUSC() {
   }
+
+  public CreateUSC awsOrganizationId(@javax.annotation.Nullable String awsOrganizationId) {
+    this.awsOrganizationId = awsOrganizationId;
+    return this;
+  }
+
+  /**
+   * The AWS Organization ID to use for a multi-account connector. Requires a target in the AWS Management Account or a delegated administrator account.
+   * @return awsOrganizationId
+   */
+  @javax.annotation.Nullable
+  public String getAwsOrganizationId() {
+    return awsOrganizationId;
+  }
+
+  public void setAwsOrganizationId(@javax.annotation.Nullable String awsOrganizationId) {
+    this.awsOrganizationId = awsOrganizationId;
+  }
+
 
   public CreateUSC azureKvName(@javax.annotation.Nullable String azureKvName) {
     this.azureKvName = azureKvName;
@@ -683,7 +707,8 @@ public class CreateUSC {
       return false;
     }
     CreateUSC createUSC = (CreateUSC) o;
-    return Objects.equals(this.azureKvName, createUSC.azureKvName) &&
+    return Objects.equals(this.awsOrganizationId, createUSC.awsOrganizationId) &&
+        Objects.equals(this.azureKvName, createUSC.azureKvName) &&
         Objects.equals(this.deleteProtection, createUSC.deleteProtection) &&
         Objects.equals(this.description, createUSC.description) &&
         Objects.equals(this.environmentNames, createUSC.environmentNames) &&
@@ -712,13 +737,14 @@ public class CreateUSC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(azureKvName, deleteProtection, description, environmentNames, gcpFolderId, gcpOrganizationId, gcpProjectId, gcpScope, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, uscTags, usePrefixAsFilter, useTagsAsFilter);
+    return Objects.hash(awsOrganizationId, azureKvName, deleteProtection, description, environmentNames, gcpFolderId, gcpOrganizationId, gcpProjectId, gcpScope, gcpSmRegions, githubScope, itemCustomFields, json, k8sNamespace, name, organizationName, repositoryAccess, repositoryNames, tags, targetToAssociate, token, uidToken, uscPrefix, uscTags, usePrefixAsFilter, useTagsAsFilter);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUSC {\n");
+    sb.append("    awsOrganizationId: ").append(toIndentedString(awsOrganizationId)).append("\n");
     sb.append("    azureKvName: ").append(toIndentedString(azureKvName)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -762,7 +788,7 @@ public class CreateUSC {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("azure-kv-name", "delete_protection", "description", "environment-names", "gcp-folder-id", "gcp-organization-id", "gcp-project-id", "gcp-scope", "gcp-sm-regions", "github-scope", "item-custom-fields", "json", "k8s-namespace", "name", "organization-name", "repository-access", "repository-names", "tags", "target-to-associate", "token", "uid-token", "usc-prefix", "usc-tags", "use-prefix-as-filter", "use-tags-as-filter"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws-organization-id", "azure-kv-name", "delete_protection", "description", "environment-names", "gcp-folder-id", "gcp-organization-id", "gcp-project-id", "gcp-scope", "gcp-sm-regions", "github-scope", "item-custom-fields", "json", "k8s-namespace", "name", "organization-name", "repository-access", "repository-names", "tags", "target-to-associate", "token", "uid-token", "usc-prefix", "usc-tags", "use-prefix-as-filter", "use-tags-as-filter"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-to-associate"));
@@ -796,6 +822,9 @@ public class CreateUSC {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws-organization-id") != null && !jsonObj.get("aws-organization-id").isJsonNull()) && !jsonObj.get("aws-organization-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-organization-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-organization-id").toString()));
+      }
       if ((jsonObj.get("azure-kv-name") != null && !jsonObj.get("azure-kv-name").isJsonNull()) && !jsonObj.get("azure-kv-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `azure-kv-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("azure-kv-name").toString()));
       }

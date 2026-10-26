@@ -461,6 +461,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**getRole**](docs/V2Api.md#getRole) | **POST** /get-role | 
 *V2Api* | [**getRotatedSecretValue**](docs/V2Api.md#getRotatedSecretValue) | **POST** /get-rotated-secret-value | 
 *V2Api* | [**getSSHCertificate**](docs/V2Api.md#getSSHCertificate) | **POST** /get-ssh-certificate | 
+*V2Api* | [**getScimStatus**](docs/V2Api.md#getScimStatus) | **POST** /get-scim-status | 
 *V2Api* | [**getSecretValue**](docs/V2Api.md#getSecretValue) | **POST** /get-secret-value | 
 *V2Api* | [**getTags**](docs/V2Api.md#getTags) | **POST** /get-tags | 
 *V2Api* | [**getTarget**](docs/V2Api.md#getTarget) | **POST** /get-target | 
@@ -530,6 +531,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotateOidcClientSecret**](docs/V2Api.md#rotateOidcClientSecret) | **POST** /rotate-oidc-client-secret | 
 *V2Api* | [**rotateSecret**](docs/V2Api.md#rotateSecret) | **POST** /gateway-rotate-secret | 
 *V2Api* | [**rotatedSecretCreateAerospike**](docs/V2Api.md#rotatedSecretCreateAerospike) | **POST** /rotated-secret-create-aerospike | 
+*V2Api* | [**rotatedSecretCreateAliCloud**](docs/V2Api.md#rotatedSecretCreateAliCloud) | **POST** /rotated-secret-create-alicloud | 
 *V2Api* | [**rotatedSecretCreateAws**](docs/V2Api.md#rotatedSecretCreateAws) | **POST** /rotated-secret-create-aws | 
 *V2Api* | [**rotatedSecretCreateAzure**](docs/V2Api.md#rotatedSecretCreateAzure) | **POST** /rotated-secret-create-azure | 
 *V2Api* | [**rotatedSecretCreateCassandra**](docs/V2Api.md#rotatedSecretCreateCassandra) | **POST** /rotated-secret-create-cassandra | 
@@ -559,6 +561,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretList**](docs/V2Api.md#rotatedSecretList) | **POST** /rotated-secret-list | 
 *V2Api* | [**rotatedSecretSync**](docs/V2Api.md#rotatedSecretSync) | **POST** /rotated-secret-sync | 
 *V2Api* | [**rotatedSecretUpdateAerospike**](docs/V2Api.md#rotatedSecretUpdateAerospike) | **POST** /rotated-secret-update-aerospike | 
+*V2Api* | [**rotatedSecretUpdateAliCloud**](docs/V2Api.md#rotatedSecretUpdateAliCloud) | **POST** /rotated-secret-update-alicloud | 
 *V2Api* | [**rotatedSecretUpdateAws**](docs/V2Api.md#rotatedSecretUpdateAws) | **POST** /rotated-secret-update-aws | 
 *V2Api* | [**rotatedSecretUpdateAzure**](docs/V2Api.md#rotatedSecretUpdateAzure) | **POST** /rotated-secret-update-azure | 
 *V2Api* | [**rotatedSecretUpdateCassandra**](docs/V2Api.md#rotatedSecretUpdateCassandra) | **POST** /rotated-secret-update-cassandra | 
@@ -596,6 +599,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**staticSecretDeleteSync**](docs/V2Api.md#staticSecretDeleteSync) | **POST** /static-secret-delete-sync | 
 *V2Api* | [**staticSecretSync**](docs/V2Api.md#staticSecretSync) | **POST** /static-secret-sync | 
 *V2Api* | [**targetCreateAerospike**](docs/V2Api.md#targetCreateAerospike) | **POST** /target-create-aerospike | 
+*V2Api* | [**targetCreateAliCloud**](docs/V2Api.md#targetCreateAliCloud) | **POST** /target-create-alicloud | 
 *V2Api* | [**targetCreateAnthropic**](docs/V2Api.md#targetCreateAnthropic) | **POST** /target-create-anthropic | 
 *V2Api* | [**targetCreateArtifactory**](docs/V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory | 
 *V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
@@ -640,6 +644,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetGetDetails**](docs/V2Api.md#targetGetDetails) | **POST** /target-get-details | 
 *V2Api* | [**targetList**](docs/V2Api.md#targetList) | **POST** /target-list | 
 *V2Api* | [**targetUpdateAerospike**](docs/V2Api.md#targetUpdateAerospike) | **POST** /target-update-aerospike | 
+*V2Api* | [**targetUpdateAliCloud**](docs/V2Api.md#targetUpdateAliCloud) | **POST** /target-update-alicloud | 
 *V2Api* | [**targetUpdateAnthropic**](docs/V2Api.md#targetUpdateAnthropic) | **POST** /target-update-anthropic | 
 *V2Api* | [**targetUpdateArtifactory**](docs/V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory | 
 *V2Api* | [**targetUpdateAws**](docs/V2Api.md#targetUpdateAws) | **POST** /target-update-aws | 
@@ -803,6 +808,7 @@ Class | Method | HTTP request | Description
  - [AiQuorumSetting](docs/AiQuorumSetting.md)
  - [AkeylessGatewayConfig](docs/AkeylessGatewayConfig.md)
  - [AliCloudAccessRules](docs/AliCloudAccessRules.md)
+ - [AliCloudTargetDetails](docs/AliCloudTargetDetails.md)
  - [AliasDetails](docs/AliasDetails.md)
  - [AliasDetailsOutput](docs/AliasDetailsOutput.md)
  - [AllAnalyticsData](docs/AllAnalyticsData.md)
@@ -1450,6 +1456,7 @@ Class | Method | HTTP request | Description
  - [GetRotatedSecretValue](docs/GetRotatedSecretValue.md)
  - [GetSSHCertificate](docs/GetSSHCertificate.md)
  - [GetSSHCertificateOutput](docs/GetSSHCertificateOutput.md)
+ - [GetScimStatus](docs/GetScimStatus.md)
  - [GetSecretValue](docs/GetSecretValue.md)
  - [GetTags](docs/GetTags.md)
  - [GetTarget](docs/GetTarget.md)
@@ -1464,6 +1471,7 @@ Class | Method | HTTP request | Description
  - [GodaddyTargetDetails](docs/GodaddyTargetDetails.md)
  - [GoogleChronicleForwardingConfig](docs/GoogleChronicleForwardingConfig.md)
  - [GoogleTrustTargetDetails](docs/GoogleTrustTargetDetails.md)
+ - [GrantedRole](docs/GrantedRole.md)
  - [GrokTargetDetails](docs/GrokTargetDetails.md)
  - [Group](docs/Group.md)
  - [GwClusterIdentity](docs/GwClusterIdentity.md)
@@ -1675,6 +1683,7 @@ Class | Method | HTTP request | Description
  - [RotateOidcClientSecret](docs/RotateOidcClientSecret.md)
  - [RotateSecret](docs/RotateSecret.md)
  - [RotatedSecretCreateAerospike](docs/RotatedSecretCreateAerospike.md)
+ - [RotatedSecretCreateAliCloud](docs/RotatedSecretCreateAliCloud.md)
  - [RotatedSecretCreateAws](docs/RotatedSecretCreateAws.md)
  - [RotatedSecretCreateAzure](docs/RotatedSecretCreateAzure.md)
  - [RotatedSecretCreateCassandra](docs/RotatedSecretCreateCassandra.md)
@@ -1708,6 +1717,7 @@ Class | Method | HTTP request | Description
  - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
  - [RotatedSecretSync](docs/RotatedSecretSync.md)
  - [RotatedSecretUpdateAerospike](docs/RotatedSecretUpdateAerospike.md)
+ - [RotatedSecretUpdateAliCloud](docs/RotatedSecretUpdateAliCloud.md)
  - [RotatedSecretUpdateAws](docs/RotatedSecretUpdateAws.md)
  - [RotatedSecretUpdateAzure](docs/RotatedSecretUpdateAzure.md)
  - [RotatedSecretUpdateCassandra](docs/RotatedSecretUpdateCassandra.md)
@@ -1744,6 +1754,8 @@ Class | Method | HTTP request | Description
  - [SalesforceTargetDetails](docs/SalesforceTargetDetails.md)
  - [SamlSpConfigPart](docs/SamlSpConfigPart.md)
  - [ScanResults](docs/ScanResults.md)
+ - [ScimSettings](docs/ScimSettings.md)
+ - [ScimStatus](docs/ScimStatus.md)
  - [SecretInfo](docs/SecretInfo.md)
  - [SecretSyncOutput](docs/SecretSyncOutput.md)
  - [SectigoTargetDetails](docs/SectigoTargetDetails.md)
@@ -1795,6 +1807,7 @@ Class | Method | HTTP request | Description
  - [SystemAccessCredsSettings](docs/SystemAccessCredsSettings.md)
  - [Target](docs/Target.md)
  - [TargetCreateAerospike](docs/TargetCreateAerospike.md)
+ - [TargetCreateAliCloud](docs/TargetCreateAliCloud.md)
  - [TargetCreateAnthropic](docs/TargetCreateAnthropic.md)
  - [TargetCreateArtifactory](docs/TargetCreateArtifactory.md)
  - [TargetCreateAws](docs/TargetCreateAws.md)
@@ -1845,6 +1858,7 @@ Class | Method | HTTP request | Description
  - [TargetNameWithHosts](docs/TargetNameWithHosts.md)
  - [TargetTypeDetailsInput](docs/TargetTypeDetailsInput.md)
  - [TargetUpdateAerospike](docs/TargetUpdateAerospike.md)
+ - [TargetUpdateAliCloud](docs/TargetUpdateAliCloud.md)
  - [TargetUpdateAnthropic](docs/TargetUpdateAnthropic.md)
  - [TargetUpdateArtifactory](docs/TargetUpdateArtifactory.md)
  - [TargetUpdateAws](docs/TargetUpdateAws.md)

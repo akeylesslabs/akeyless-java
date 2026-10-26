@@ -142,6 +142,26 @@ public class AuthMethodUpdateSAML {
   @javax.annotation.Nullable
   private List<String> productType = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SCIM_BEARER_ACCESS_ID = "scim-bearer-access-id";
+  @SerializedName(SERIALIZED_NAME_SCIM_BEARER_ACCESS_ID)
+  @javax.annotation.Nullable
+  private String scimBearerAccessId;
+
+  public static final String SERIALIZED_NAME_SCIM_ENABLED = "scim-enabled";
+  @SerializedName(SERIALIZED_NAME_SCIM_ENABLED)
+  @javax.annotation.Nullable
+  private String scimEnabled;
+
+  public static final String SERIALIZED_NAME_SCIM_ENDPOINT = "scim-endpoint";
+  @SerializedName(SERIALIZED_NAME_SCIM_ENDPOINT)
+  @javax.annotation.Nullable
+  private String scimEndpoint;
+
+  public static final String SERIALIZED_NAME_SCIM_GATEWAY_URL = "scim-gateway-url";
+  @SerializedName(SERIALIZED_NAME_SCIM_GATEWAY_URL)
+  @javax.annotation.Nullable
+  private String scimGatewayUrl;
+
   public static final String SERIALIZED_NAME_SUBCLAIMS_DELIMITERS = "subclaims-delimiters";
   @SerializedName(SERIALIZED_NAME_SUBCLAIMS_DELIMITERS)
   @javax.annotation.Nullable
@@ -568,6 +588,82 @@ public class AuthMethodUpdateSAML {
   }
 
 
+  public AuthMethodUpdateSAML scimBearerAccessId(@javax.annotation.Nullable String scimBearerAccessId) {
+    this.scimBearerAccessId = scimBearerAccessId;
+    return this;
+  }
+
+  /**
+   * Access ID of the API Key auth method the IdP uses as the SCIM bearer
+   * @return scimBearerAccessId
+   */
+  @javax.annotation.Nullable
+  public String getScimBearerAccessId() {
+    return scimBearerAccessId;
+  }
+
+  public void setScimBearerAccessId(@javax.annotation.Nullable String scimBearerAccessId) {
+    this.scimBearerAccessId = scimBearerAccessId;
+  }
+
+
+  public AuthMethodUpdateSAML scimEnabled(@javax.annotation.Nullable String scimEnabled) {
+    this.scimEnabled = scimEnabled;
+    return this;
+  }
+
+  /**
+   * Enable SCIM provisioning for this auth method [true/false]
+   * @return scimEnabled
+   */
+  @javax.annotation.Nullable
+  public String getScimEnabled() {
+    return scimEnabled;
+  }
+
+  public void setScimEnabled(@javax.annotation.Nullable String scimEnabled) {
+    this.scimEnabled = scimEnabled;
+  }
+
+
+  public AuthMethodUpdateSAML scimEndpoint(@javax.annotation.Nullable String scimEndpoint) {
+    this.scimEndpoint = scimEndpoint;
+    return this;
+  }
+
+  /**
+   * Where the IdP reaches the SCIM endpoint [public/private]. public is served by Akeyless, private by your own Akeyless Gateway
+   * @return scimEndpoint
+   */
+  @javax.annotation.Nullable
+  public String getScimEndpoint() {
+    return scimEndpoint;
+  }
+
+  public void setScimEndpoint(@javax.annotation.Nullable String scimEndpoint) {
+    this.scimEndpoint = scimEndpoint;
+  }
+
+
+  public AuthMethodUpdateSAML scimGatewayUrl(@javax.annotation.Nullable String scimGatewayUrl) {
+    this.scimGatewayUrl = scimGatewayUrl;
+    return this;
+  }
+
+  /**
+   * URL of the Akeyless Gateway that serves the SCIM endpoint to the IdP, for example https://gateway.example.com:8000. Required for the private endpoint
+   * @return scimGatewayUrl
+   */
+  @javax.annotation.Nullable
+  public String getScimGatewayUrl() {
+    return scimGatewayUrl;
+  }
+
+  public void setScimGatewayUrl(@javax.annotation.Nullable String scimGatewayUrl) {
+    this.scimGatewayUrl = scimGatewayUrl;
+  }
+
+
   public AuthMethodUpdateSAML subclaimsDelimiters(@javax.annotation.Nullable List<String> subclaimsDelimiters) {
     this.subclaimsDelimiters = subclaimsDelimiters;
     return this;
@@ -699,6 +795,10 @@ public class AuthMethodUpdateSAML {
         Objects.equals(this.name, authMethodUpdateSAML.name) &&
         Objects.equals(this.newName, authMethodUpdateSAML.newName) &&
         Objects.equals(this.productType, authMethodUpdateSAML.productType) &&
+        Objects.equals(this.scimBearerAccessId, authMethodUpdateSAML.scimBearerAccessId) &&
+        Objects.equals(this.scimEnabled, authMethodUpdateSAML.scimEnabled) &&
+        Objects.equals(this.scimEndpoint, authMethodUpdateSAML.scimEndpoint) &&
+        Objects.equals(this.scimGatewayUrl, authMethodUpdateSAML.scimGatewayUrl) &&
         Objects.equals(this.subclaimsDelimiters, authMethodUpdateSAML.subclaimsDelimiters) &&
         Objects.equals(this.token, authMethodUpdateSAML.token) &&
         Objects.equals(this.uidToken, authMethodUpdateSAML.uidToken) &&
@@ -708,7 +808,7 @@ public class AuthMethodUpdateSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, productType, scimBearerAccessId, scimEnabled, scimEndpoint, scimGatewayUrl, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
   }
 
   @Override
@@ -733,6 +833,10 @@ public class AuthMethodUpdateSAML {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
+    sb.append("    scimBearerAccessId: ").append(toIndentedString(scimBearerAccessId)).append("\n");
+    sb.append("    scimEnabled: ").append(toIndentedString(scimEnabled)).append("\n");
+    sb.append("    scimEndpoint: ").append(toIndentedString(scimEndpoint)).append("\n");
+    sb.append("    scimGatewayUrl: ").append(toIndentedString(scimGatewayUrl)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -756,7 +860,7 @@ public class AuthMethodUpdateSAML {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "new-name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "new-name", "product-type", "scim-bearer-access-id", "scim-enabled", "scim-endpoint", "scim-gateway-url", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -838,6 +942,18 @@ public class AuthMethodUpdateSAML {
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `product-type` to be an array in the JSON string but got `%s`", jsonObj.get("product-type").toString()));
+      }
+      if ((jsonObj.get("scim-bearer-access-id") != null && !jsonObj.get("scim-bearer-access-id").isJsonNull()) && !jsonObj.get("scim-bearer-access-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim-bearer-access-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim-bearer-access-id").toString()));
+      }
+      if ((jsonObj.get("scim-enabled") != null && !jsonObj.get("scim-enabled").isJsonNull()) && !jsonObj.get("scim-enabled").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim-enabled` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim-enabled").toString()));
+      }
+      if ((jsonObj.get("scim-endpoint") != null && !jsonObj.get("scim-endpoint").isJsonNull()) && !jsonObj.get("scim-endpoint").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim-endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim-endpoint").toString()));
+      }
+      if ((jsonObj.get("scim-gateway-url") != null && !jsonObj.get("scim-gateway-url").isJsonNull()) && !jsonObj.get("scim-gateway-url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim-gateway-url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim-gateway-url").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("subclaims-delimiters") != null && !jsonObj.get("subclaims-delimiters").isJsonNull() && !jsonObj.get("subclaims-delimiters").isJsonArray()) {

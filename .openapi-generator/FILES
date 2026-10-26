@@ -37,6 +37,7 @@ docs/AiModelEntry.md
 docs/AiQuorumSetting.md
 docs/AkeylessGatewayConfig.md
 docs/AliCloudAccessRules.md
+docs/AliCloudTargetDetails.md
 docs/AliasDetails.md
 docs/AliasDetailsOutput.md
 docs/AllAnalyticsData.md
@@ -684,6 +685,7 @@ docs/GetRole.md
 docs/GetRotatedSecretValue.md
 docs/GetSSHCertificate.md
 docs/GetSSHCertificateOutput.md
+docs/GetScimStatus.md
 docs/GetSecretValue.md
 docs/GetTags.md
 docs/GetTarget.md
@@ -698,6 +700,7 @@ docs/GlobalSignGCCTargetDetails.md
 docs/GodaddyTargetDetails.md
 docs/GoogleChronicleForwardingConfig.md
 docs/GoogleTrustTargetDetails.md
+docs/GrantedRole.md
 docs/GrokTargetDetails.md
 docs/Group.md
 docs/GwClusterIdentity.md
@@ -909,6 +912,7 @@ docs/RotateOidcClientOutput.md
 docs/RotateOidcClientSecret.md
 docs/RotateSecret.md
 docs/RotatedSecretCreateAerospike.md
+docs/RotatedSecretCreateAliCloud.md
 docs/RotatedSecretCreateAws.md
 docs/RotatedSecretCreateAzure.md
 docs/RotatedSecretCreateCassandra.md
@@ -942,6 +946,7 @@ docs/RotatedSecretList.md
 docs/RotatedSecretOutput.md
 docs/RotatedSecretSync.md
 docs/RotatedSecretUpdateAerospike.md
+docs/RotatedSecretUpdateAliCloud.md
 docs/RotatedSecretUpdateAws.md
 docs/RotatedSecretUpdateAzure.md
 docs/RotatedSecretUpdateCassandra.md
@@ -978,6 +983,8 @@ docs/SSHTargetDetails.md
 docs/SalesforceTargetDetails.md
 docs/SamlSpConfigPart.md
 docs/ScanResults.md
+docs/ScimSettings.md
+docs/ScimStatus.md
 docs/SecretInfo.md
 docs/SecretSyncOutput.md
 docs/SectigoTargetDetails.md
@@ -1029,6 +1036,7 @@ docs/SystemAccessCredentialsReplyObj.md
 docs/SystemAccessCredsSettings.md
 docs/Target.md
 docs/TargetCreateAerospike.md
+docs/TargetCreateAliCloud.md
 docs/TargetCreateAnthropic.md
 docs/TargetCreateArtifactory.md
 docs/TargetCreateAws.md
@@ -1079,6 +1087,7 @@ docs/TargetList.md
 docs/TargetNameWithHosts.md
 docs/TargetTypeDetailsInput.md
 docs/TargetUpdateAerospike.md
+docs/TargetUpdateAliCloud.md
 docs/TargetUpdateAnthropic.md
 docs/TargetUpdateArtifactory.md
 docs/TargetUpdateAws.md
@@ -1346,6 +1355,7 @@ src/main/java/io/akeyless/client/model/AiModelEntry.java
 src/main/java/io/akeyless/client/model/AiQuorumSetting.java
 src/main/java/io/akeyless/client/model/AkeylessGatewayConfig.java
 src/main/java/io/akeyless/client/model/AliCloudAccessRules.java
+src/main/java/io/akeyless/client/model/AliCloudTargetDetails.java
 src/main/java/io/akeyless/client/model/AliasDetails.java
 src/main/java/io/akeyless/client/model/AliasDetailsOutput.java
 src/main/java/io/akeyless/client/model/AllAnalyticsData.java
@@ -1993,6 +2003,7 @@ src/main/java/io/akeyless/client/model/GetRole.java
 src/main/java/io/akeyless/client/model/GetRotatedSecretValue.java
 src/main/java/io/akeyless/client/model/GetSSHCertificate.java
 src/main/java/io/akeyless/client/model/GetSSHCertificateOutput.java
+src/main/java/io/akeyless/client/model/GetScimStatus.java
 src/main/java/io/akeyless/client/model/GetSecretValue.java
 src/main/java/io/akeyless/client/model/GetTags.java
 src/main/java/io/akeyless/client/model/GetTarget.java
@@ -2007,6 +2018,7 @@ src/main/java/io/akeyless/client/model/GlobalSignGCCTargetDetails.java
 src/main/java/io/akeyless/client/model/GodaddyTargetDetails.java
 src/main/java/io/akeyless/client/model/GoogleChronicleForwardingConfig.java
 src/main/java/io/akeyless/client/model/GoogleTrustTargetDetails.java
+src/main/java/io/akeyless/client/model/GrantedRole.java
 src/main/java/io/akeyless/client/model/GrokTargetDetails.java
 src/main/java/io/akeyless/client/model/Group.java
 src/main/java/io/akeyless/client/model/GwClusterIdentity.java
@@ -2218,6 +2230,7 @@ src/main/java/io/akeyless/client/model/RotateOidcClientOutput.java
 src/main/java/io/akeyless/client/model/RotateOidcClientSecret.java
 src/main/java/io/akeyless/client/model/RotateSecret.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateAerospike.java
+src/main/java/io/akeyless/client/model/RotatedSecretCreateAliCloud.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateAws.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateAzure.java
 src/main/java/io/akeyless/client/model/RotatedSecretCreateCassandra.java
@@ -2251,6 +2264,7 @@ src/main/java/io/akeyless/client/model/RotatedSecretList.java
 src/main/java/io/akeyless/client/model/RotatedSecretOutput.java
 src/main/java/io/akeyless/client/model/RotatedSecretSync.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAerospike.java
+src/main/java/io/akeyless/client/model/RotatedSecretUpdateAliCloud.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAws.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAzure.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateCassandra.java
@@ -2287,6 +2301,8 @@ src/main/java/io/akeyless/client/model/SSHTargetDetails.java
 src/main/java/io/akeyless/client/model/SalesforceTargetDetails.java
 src/main/java/io/akeyless/client/model/SamlSpConfigPart.java
 src/main/java/io/akeyless/client/model/ScanResults.java
+src/main/java/io/akeyless/client/model/ScimSettings.java
+src/main/java/io/akeyless/client/model/ScimStatus.java
 src/main/java/io/akeyless/client/model/SecretInfo.java
 src/main/java/io/akeyless/client/model/SecretSyncOutput.java
 src/main/java/io/akeyless/client/model/SectigoTargetDetails.java
@@ -2338,6 +2354,7 @@ src/main/java/io/akeyless/client/model/SystemAccessCredentialsReplyObj.java
 src/main/java/io/akeyless/client/model/SystemAccessCredsSettings.java
 src/main/java/io/akeyless/client/model/Target.java
 src/main/java/io/akeyless/client/model/TargetCreateAerospike.java
+src/main/java/io/akeyless/client/model/TargetCreateAliCloud.java
 src/main/java/io/akeyless/client/model/TargetCreateAnthropic.java
 src/main/java/io/akeyless/client/model/TargetCreateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetCreateAws.java
@@ -2388,6 +2405,7 @@ src/main/java/io/akeyless/client/model/TargetList.java
 src/main/java/io/akeyless/client/model/TargetNameWithHosts.java
 src/main/java/io/akeyless/client/model/TargetTypeDetailsInput.java
 src/main/java/io/akeyless/client/model/TargetUpdateAerospike.java
+src/main/java/io/akeyless/client/model/TargetUpdateAliCloud.java
 src/main/java/io/akeyless/client/model/TargetUpdateAnthropic.java
 src/main/java/io/akeyless/client/model/TargetUpdateArtifactory.java
 src/main/java/io/akeyless/client/model/TargetUpdateAws.java
@@ -2594,3 +2612,12 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
+src/test/java/io/akeyless/client/model/AliCloudTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/GetScimStatusTest.java
+src/test/java/io/akeyless/client/model/GrantedRoleTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretCreateAliCloudTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretUpdateAliCloudTest.java
+src/test/java/io/akeyless/client/model/ScimSettingsTest.java
+src/test/java/io/akeyless/client/model/ScimStatusTest.java
+src/test/java/io/akeyless/client/model/TargetCreateAliCloudTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateAliCloudTest.java

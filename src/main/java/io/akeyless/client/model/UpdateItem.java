@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -208,6 +209,11 @@ public class UpdateItem {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
   @javax.annotation.Nullable
   private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING = "secure-access-allow-port-forwarding";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessAllowPortForwarding;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_API = "secure-access-api";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_API)
@@ -1009,7 +1015,7 @@ public class UpdateItem {
   }
 
   /**
-   * Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+   * Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
    * @return secureAccessAllowPortForwading
    */
   @javax.annotation.Nullable
@@ -1019,6 +1025,25 @@ public class UpdateItem {
 
   public void setSecureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
     this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public UpdateItem secureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
+    return this;
+  }
+
+  /**
+   * Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+   * @return secureAccessAllowPortForwarding
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessAllowPortForwarding() {
+    return secureAccessAllowPortForwarding;
+  }
+
+  public void setSecureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
   }
 
 
@@ -1714,6 +1739,7 @@ public class UpdateItem {
         Objects.equals(this.secureAccessAddHost, updateItem.secureAccessAddHost) &&
         Objects.equals(this.secureAccessAllowExternalUser, updateItem.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessAllowPortForwading, updateItem.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessAllowPortForwarding, updateItem.secureAccessAllowPortForwarding) &&
         Objects.equals(this.secureAccessApi, updateItem.secureAccessApi) &&
         Objects.equals(this.secureAccessAwsAccountId, updateItem.secureAccessAwsAccountId) &&
         Objects.equals(this.secureAccessAwsNativeCli, updateItem.secureAccessAwsNativeCli) &&
@@ -1749,9 +1775,20 @@ public class UpdateItem {
         Objects.equals(this.useTagsAsFilter, updateItem.useTagsAsFilter);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, accessibility, addTag, araEnabled, certFileData, certificateFormat, changeEvent, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, expirationEventIn, gcpSmRegions, hostProvider, inputRule, itemCustomFields, json, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, newMetadata, newName, outputRule, rmTag, rotateAfterDisconnect, rotateOnUnlock, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, target, token, uidToken, uscTags, useTagsAsFilter);
+    return Objects.hash(providerType, accessibility, addTag, araEnabled, certFileData, certificateFormat, changeEvent, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, expirationEventIn, gcpSmRegions, hostProvider, inputRule, itemCustomFields, json, lockDuringSraSession, lockOnRead, lockTtl, maxVersions, name, newMetadata, newName, outputRule, rmTag, rotateAfterDisconnect, rotateOnUnlock, secureAccessAddHost, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAllowPortForwarding, secureAccessApi, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessAwsRegion, secureAccessBastionApi, secureAccessBastionIssuer, secureAccessBastionSsh, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDbName, secureAccessDbSchema, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessGateway, secureAccessHost, secureAccessRdGatewayServer, secureAccessRdpDomain, secureAccessRdpUser, secureAccessRmHost, secureAccessSsh, secureAccessSshCreds, secureAccessSshCredsUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWebBrowsing, secureAccessWebProxy, target, token, uidToken, uscTags, useTagsAsFilter);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1789,6 +1826,7 @@ public class UpdateItem {
     sb.append("    secureAccessAddHost: ").append(toIndentedString(secureAccessAddHost)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessAllowPortForwarding: ").append(toIndentedString(secureAccessAllowPortForwarding)).append("\n");
     sb.append("    secureAccessApi: ").append(toIndentedString(secureAccessApi)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
     sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
@@ -1840,7 +1878,7 @@ public class UpdateItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "add-tag", "ara-enabled", "cert-file-data", "certificate-format", "change-event", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "expiration-event-in", "gcp-sm-regions", "host-provider", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-metadata", "new-name", "output-rule", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "secure-access-add-host", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-api", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-aws-region", "secure-access-bastion-api", "secure-access-bastion-issuer", "secure-access-bastion-ssh", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-rm-host", "secure-access-ssh", "secure-access-ssh-creds", "secure-access-ssh-creds-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web-browsing", "secure-access-web-proxy", "target", "token", "uid-token", "usc-tags", "use-tags-as-filter"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "accessibility", "add-tag", "ara-enabled", "cert-file-data", "certificate-format", "change-event", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "expiration-event-in", "gcp-sm-regions", "host-provider", "input-rule", "item-custom-fields", "json", "lock-during-sra-session", "lock-on-read", "lock-ttl", "max-versions", "name", "new-metadata", "new-name", "output-rule", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "secure-access-add-host", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-allow-port-forwarding", "secure-access-api", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-aws-region", "secure-access-bastion-api", "secure-access-bastion-issuer", "secure-access-bastion-ssh", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-db-name", "secure-access-db-schema", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-gateway", "secure-access-host", "secure-access-rd-gateway-server", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-rm-host", "secure-access-ssh", "secure-access-ssh-creds", "secure-access-ssh-creds-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web-browsing", "secure-access-web-proxy", "target", "token", "uid-token", "usc-tags", "use-tags-as-filter"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

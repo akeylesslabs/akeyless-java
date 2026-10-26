@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -676,9 +677,20 @@ public class GatewayUpdateProducerCustom {
         Objects.equals(this.userTtl, gatewayUpdateProducerCustom.userTtl);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(adminRotationIntervalDays, araEnabled, createSyncUrl, deleteProtection, enableAdminRotation, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, payload, producerEncryptionKeyName, revokeSyncUrl, rotateSyncUrl, skipDryRun, tags, timeoutSec, token, uidToken, userTtl);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

@@ -361,7 +361,7 @@ public class RotatedSecretCreateAzure {
   }
 
   /**
-   * Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key &amp; authentication-credentials&#x3D;use-target-creds)
+   * Id of the azure app that hold the serect to be rotated (relevant only for rotator-type&#x3D;api-key)
    * @return applicationId
    */
   @javax.annotation.Nullable

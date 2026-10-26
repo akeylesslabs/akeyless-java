@@ -382,7 +382,7 @@ public class EventForwarderCreateEmail {
   }
 
   /**
-   * Override Akeyless default URL with your Gateway url (port 18888)
+   * Override the Akeyless event link with the cluster URL of an active gateway in this account
    * @return overrideUrl
    */
   @javax.annotation.Nullable

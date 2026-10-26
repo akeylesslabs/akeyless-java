@@ -139,6 +139,11 @@ public class DynamicSecretCreateGke {
   @javax.annotation.Nullable
   private Boolean secureAccessAllowPortForwading;
 
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING = "secure-access-allow-port-forwarding";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessAllowPortForwarding;
+
   public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
   @javax.annotation.Nullable
@@ -536,7 +541,7 @@ public class DynamicSecretCreateGke {
   }
 
   /**
-   * Enable Port forwarding while using CLI access
+   * Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
    * @return secureAccessAllowPortForwading
    */
   @javax.annotation.Nullable
@@ -546,6 +551,25 @@ public class DynamicSecretCreateGke {
 
   public void setSecureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
     this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public DynamicSecretCreateGke secureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
+    return this;
+  }
+
+  /**
+   * Enable Port forwarding while using CLI access
+   * @return secureAccessAllowPortForwarding
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessAllowPortForwarding() {
+    return secureAccessAllowPortForwarding;
+  }
+
+  public void setSecureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
   }
 
 
@@ -812,6 +836,7 @@ public class DynamicSecretCreateGke {
         Objects.equals(this.outputRule, dynamicSecretCreateGke.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, dynamicSecretCreateGke.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, dynamicSecretCreateGke.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessAllowPortForwarding, dynamicSecretCreateGke.secureAccessAllowPortForwarding) &&
         Objects.equals(this.secureAccessBastionIssuer, dynamicSecretCreateGke.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, dynamicSecretCreateGke.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessClusterEndpoint, dynamicSecretCreateGke.secureAccessClusterEndpoint) &&
@@ -828,7 +853,7 @@ public class DynamicSecretCreateGke {
 
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
+    return Objects.hash(araEnabled, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, gkeAccountKey, gkeClusterCert, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountEmail, inputRule, itemCustomFields, json, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessAllowPortForwarding, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDelay, secureAccessEnable, secureAccessWeb, skipDryRun, tags, targetName, token, uidToken, userTtl);
   }
 
   @Override
@@ -852,6 +877,7 @@ public class DynamicSecretCreateGke {
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessAllowPortForwarding: ").append(toIndentedString(secureAccessAllowPortForwarding)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
@@ -882,7 +908,7 @@ public class DynamicSecretCreateGke {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip-dry-run", "tags", "target-name", "token", "uid-token", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "gke-account-key", "gke-cluster-cert", "gke-cluster-endpoint", "gke-cluster-name", "gke-service-account-email", "input-rule", "item-custom-fields", "json", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-allow-port-forwarding", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-delay", "secure-access-enable", "secure-access-web", "skip-dry-run", "tags", "target-name", "token", "uid-token", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

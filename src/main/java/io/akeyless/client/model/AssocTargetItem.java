@@ -57,10 +57,20 @@ public class AssocTargetItem {
   @javax.annotation.Nullable
   private List<String> bindSslProfiles = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CERTIFICATE_ARN = "certificate-arn";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_ARN)
+  @javax.annotation.Nullable
+  private String certificateArn;
+
   public static final String SERIALIZED_NAME_CERTIFICATE_FORMAT = "certificate-format";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_FORMAT)
   @javax.annotation.Nullable
   private String certificateFormat = "pem";
+
+  public static final String SERIALIZED_NAME_CERTIFICATE_NAME = "certificate-name";
+  @SerializedName(SERIALIZED_NAME_CERTIFICATE_NAME)
+  @javax.annotation.Nullable
+  private String certificateName;
 
   public static final String SERIALIZED_NAME_CERTIFICATE_PATH = "certificate-path";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_PATH)
@@ -82,6 +92,16 @@ public class AssocTargetItem {
   @javax.annotation.Nullable
   private String externalKeyName;
 
+  public static final String SERIALIZED_NAME_F5_SAVE_CONFIG = "f5-save-config";
+  @SerializedName(SERIALIZED_NAME_F5_SAVE_CONFIG)
+  @javax.annotation.Nullable
+  private Boolean f5SaveConfig = false;
+
+  public static final String SERIALIZED_NAME_F5_SYNC_DEVICE_GROUP = "f5-sync-device-group";
+  @SerializedName(SERIALIZED_NAME_F5_SYNC_DEVICE_GROUP)
+  @javax.annotation.Nullable
+  private String f5SyncDeviceGroup;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
@@ -91,6 +111,11 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
   @javax.annotation.Nullable
   private List<String> keyOperations = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_KEY_VAULT = "key-vault";
+  @SerializedName(SERIALIZED_NAME_KEY_VAULT)
+  @javax.annotation.Nullable
+  private String keyVault;
 
   public static final String SERIALIZED_NAME_KEYRING_NAME = "keyring-name";
   @SerializedName(SERIALIZED_NAME_KEYRING_NAME)
@@ -106,6 +131,11 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_LOCATION_ID)
   @javax.annotation.Nullable
   private String locationId;
+
+  public static final String SERIALIZED_NAME_LOCATION_SCOPE = "location-scope";
+  @SerializedName(SERIALIZED_NAME_LOCATION_SCOPE)
+  @javax.annotation.Nullable
+  private String locationScope;
 
   public static final String SERIALIZED_NAME_MULTI_REGION = "multi-region";
   @SerializedName(SERIALIZED_NAME_MULTI_REGION)
@@ -212,6 +242,25 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem certificateArn(@javax.annotation.Nullable String certificateArn) {
+    this.certificateArn = certificateArn;
+    return this;
+  }
+
+  /**
+   * The ARN of an existing imported ACM certificate to re-import into, which replaces its certificate and key; if empty, a new ACM certificate is created on every provisioning, including after renewal (relevant only for AWS certificate provisioning)
+   * @return certificateArn
+   */
+  @javax.annotation.Nullable
+  public String getCertificateArn() {
+    return certificateArn;
+  }
+
+  public void setCertificateArn(@javax.annotation.Nullable String certificateArn) {
+    this.certificateArn = certificateArn;
+  }
+
+
   public AssocTargetItem certificateFormat(@javax.annotation.Nullable String certificateFormat) {
     this.certificateFormat = certificateFormat;
     return this;
@@ -228,6 +277,25 @@ public class AssocTargetItem {
 
   public void setCertificateFormat(@javax.annotation.Nullable String certificateFormat) {
     this.certificateFormat = certificateFormat;
+  }
+
+
+  public AssocTargetItem certificateName(@javax.annotation.Nullable String certificateName) {
+    this.certificateName = certificateName;
+    return this;
+  }
+
+  /**
+   * The name of the certificate object in the cloud provider (relevant only for AWS, Azure, and GCP certificate provisioning)
+   * @return certificateName
+   */
+  @javax.annotation.Nullable
+  public String getCertificateName() {
+    return certificateName;
+  }
+
+  public void setCertificateName(@javax.annotation.Nullable String certificateName) {
+    this.certificateName = certificateName;
   }
 
 
@@ -307,6 +375,44 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem f5SaveConfig(@javax.annotation.Nullable Boolean f5SaveConfig) {
+    this.f5SaveConfig = f5SaveConfig;
+    return this;
+  }
+
+  /**
+   * Save the F5 running configuration after each successful provisioning, so the certificate survives a reboot. This also saves any other unsaved change on the device (relevant only for F5 BIG-IP certificate provisioning)
+   * @return f5SaveConfig
+   */
+  @javax.annotation.Nullable
+  public Boolean getF5SaveConfig() {
+    return f5SaveConfig;
+  }
+
+  public void setF5SaveConfig(@javax.annotation.Nullable Boolean f5SaveConfig) {
+    this.f5SaveConfig = f5SaveConfig;
+  }
+
+
+  public AssocTargetItem f5SyncDeviceGroup(@javax.annotation.Nullable String f5SyncDeviceGroup) {
+    this.f5SyncDeviceGroup = f5SyncDeviceGroup;
+    return this;
+  }
+
+  /**
+   * Sync the F5 configuration to this device group after each successful provisioning, so the HA peer serves the same certificate. This overwrites unsynced changes on the other members of the group. Implies f5-save-config (relevant only for F5 BIG-IP certificate provisioning)
+   * @return f5SyncDeviceGroup
+   */
+  @javax.annotation.Nullable
+  public String getF5SyncDeviceGroup() {
+    return f5SyncDeviceGroup;
+  }
+
+  public void setF5SyncDeviceGroup(@javax.annotation.Nullable String f5SyncDeviceGroup) {
+    this.f5SyncDeviceGroup = f5SyncDeviceGroup;
+  }
+
+
   public AssocTargetItem json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -350,6 +456,25 @@ public class AssocTargetItem {
 
   public void setKeyOperations(@javax.annotation.Nullable List<String> keyOperations) {
     this.keyOperations = keyOperations;
+  }
+
+
+  public AssocTargetItem keyVault(@javax.annotation.Nullable String keyVault) {
+    this.keyVault = keyVault;
+    return this;
+  }
+
+  /**
+   * The Azure Key Vault name to provision the certificate to (relevant only for Azure certificate provisioning)
+   * @return keyVault
+   */
+  @javax.annotation.Nullable
+  public String getKeyVault() {
+    return keyVault;
+  }
+
+  public void setKeyVault(@javax.annotation.Nullable String keyVault) {
+    this.keyVault = keyVault;
   }
 
 
@@ -407,6 +532,25 @@ public class AssocTargetItem {
 
   public void setLocationId(@javax.annotation.Nullable String locationId) {
     this.locationId = locationId;
+  }
+
+
+  public AssocTargetItem locationScope(@javax.annotation.Nullable String locationScope) {
+    this.locationScope = locationScope;
+    return this;
+  }
+
+  /**
+   * The GCP Certificate Manager location to provision the certificate to: global or a region such as us-central1 (relevant only for GCP certificate provisioning)
+   * @return locationScope
+   */
+  @javax.annotation.Nullable
+  public String getLocationScope() {
+    return locationScope;
+  }
+
+  public void setLocationScope(@javax.annotation.Nullable String locationScope) {
+    this.locationScope = locationScope;
   }
 
 
@@ -714,16 +858,22 @@ public class AssocTargetItem {
     }
     AssocTargetItem assocTargetItem = (AssocTargetItem) o;
     return Objects.equals(this.bindSslProfiles, assocTargetItem.bindSslProfiles) &&
+        Objects.equals(this.certificateArn, assocTargetItem.certificateArn) &&
         Objects.equals(this.certificateFormat, assocTargetItem.certificateFormat) &&
+        Objects.equals(this.certificateName, assocTargetItem.certificateName) &&
         Objects.equals(this.certificatePath, assocTargetItem.certificatePath) &&
         Objects.equals(this.chainPath, assocTargetItem.chainPath) &&
         Objects.equals(this.disablePreviousKeyVersion, assocTargetItem.disablePreviousKeyVersion) &&
         Objects.equals(this.externalKeyName, assocTargetItem.externalKeyName) &&
+        Objects.equals(this.f5SaveConfig, assocTargetItem.f5SaveConfig) &&
+        Objects.equals(this.f5SyncDeviceGroup, assocTargetItem.f5SyncDeviceGroup) &&
         Objects.equals(this.json, assocTargetItem.json) &&
         Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
+        Objects.equals(this.keyVault, assocTargetItem.keyVault) &&
         Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
         Objects.equals(this.kmsAlgorithm, assocTargetItem.kmsAlgorithm) &&
         Objects.equals(this.locationId, assocTargetItem.locationId) &&
+        Objects.equals(this.locationScope, assocTargetItem.locationScope) &&
         Objects.equals(this.multiRegion, assocTargetItem.multiRegion) &&
         Objects.equals(this.name, assocTargetItem.name) &&
         Objects.equals(this.pfxPassword, assocTargetItem.pfxPassword) &&
@@ -743,7 +893,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindSslProfiles, certificateFormat, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, json, keyOperations, keyringName, kmsAlgorithm, locationId, multiRegion, name, pfxPassword, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(bindSslProfiles, certificateArn, certificateFormat, certificateName, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, f5SaveConfig, f5SyncDeviceGroup, json, keyOperations, keyVault, keyringName, kmsAlgorithm, locationId, locationScope, multiRegion, name, pfxPassword, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
@@ -751,16 +901,22 @@ public class AssocTargetItem {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssocTargetItem {\n");
     sb.append("    bindSslProfiles: ").append(toIndentedString(bindSslProfiles)).append("\n");
+    sb.append("    certificateArn: ").append(toIndentedString(certificateArn)).append("\n");
     sb.append("    certificateFormat: ").append(toIndentedString(certificateFormat)).append("\n");
+    sb.append("    certificateName: ").append(toIndentedString(certificateName)).append("\n");
     sb.append("    certificatePath: ").append(toIndentedString(certificatePath)).append("\n");
     sb.append("    chainPath: ").append(toIndentedString(chainPath)).append("\n");
     sb.append("    disablePreviousKeyVersion: ").append(toIndentedString(disablePreviousKeyVersion)).append("\n");
     sb.append("    externalKeyName: ").append(toIndentedString(externalKeyName)).append("\n");
+    sb.append("    f5SaveConfig: ").append(toIndentedString(f5SaveConfig)).append("\n");
+    sb.append("    f5SyncDeviceGroup: ").append(toIndentedString(f5SyncDeviceGroup)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
+    sb.append("    keyVault: ").append(toIndentedString(keyVault)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
     sb.append("    kmsAlgorithm: ").append(toIndentedString(kmsAlgorithm)).append("\n");
     sb.append("    locationId: ").append(toIndentedString(locationId)).append("\n");
+    sb.append("    locationScope: ").append(toIndentedString(locationScope)).append("\n");
     sb.append("    multiRegion: ").append(toIndentedString(multiRegion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    pfxPassword: ").append(toIndentedString(pfxPassword)).append("\n");
@@ -794,7 +950,7 @@ public class AssocTargetItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-format", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "json", "key-operations", "keyring-name", "kms-algorithm", "location-id", "multi-region", "name", "pfx-password", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-arn", "certificate-format", "certificate-name", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "f5-save-config", "f5-sync-device-group", "json", "key-operations", "key-vault", "keyring-name", "kms-algorithm", "location-id", "location-scope", "multi-region", "name", "pfx-password", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -832,8 +988,14 @@ public class AssocTargetItem {
       if (jsonObj.get("bind-ssl-profiles") != null && !jsonObj.get("bind-ssl-profiles").isJsonNull() && !jsonObj.get("bind-ssl-profiles").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `bind-ssl-profiles` to be an array in the JSON string but got `%s`", jsonObj.get("bind-ssl-profiles").toString()));
       }
+      if ((jsonObj.get("certificate-arn") != null && !jsonObj.get("certificate-arn").isJsonNull()) && !jsonObj.get("certificate-arn").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-arn").toString()));
+      }
       if ((jsonObj.get("certificate-format") != null && !jsonObj.get("certificate-format").isJsonNull()) && !jsonObj.get("certificate-format").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-format").toString()));
+      }
+      if ((jsonObj.get("certificate-name") != null && !jsonObj.get("certificate-name").isJsonNull()) && !jsonObj.get("certificate-name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-name").toString()));
       }
       if ((jsonObj.get("certificate-path") != null && !jsonObj.get("certificate-path").isJsonNull()) && !jsonObj.get("certificate-path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `certificate-path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("certificate-path").toString()));
@@ -844,9 +1006,15 @@ public class AssocTargetItem {
       if ((jsonObj.get("external-key-name") != null && !jsonObj.get("external-key-name").isJsonNull()) && !jsonObj.get("external-key-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `external-key-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("external-key-name").toString()));
       }
+      if ((jsonObj.get("f5-sync-device-group") != null && !jsonObj.get("f5-sync-device-group").isJsonNull()) && !jsonObj.get("f5-sync-device-group").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `f5-sync-device-group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("f5-sync-device-group").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("key-operations") != null && !jsonObj.get("key-operations").isJsonNull() && !jsonObj.get("key-operations").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-operations` to be an array in the JSON string but got `%s`", jsonObj.get("key-operations").toString()));
+      }
+      if ((jsonObj.get("key-vault") != null && !jsonObj.get("key-vault").isJsonNull()) && !jsonObj.get("key-vault").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-vault` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-vault").toString()));
       }
       if ((jsonObj.get("keyring-name") != null && !jsonObj.get("keyring-name").isJsonNull()) && !jsonObj.get("keyring-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `keyring-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyring-name").toString()));
@@ -856,6 +1024,9 @@ public class AssocTargetItem {
       }
       if ((jsonObj.get("location-id") != null && !jsonObj.get("location-id").isJsonNull()) && !jsonObj.get("location-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `location-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("location-id").toString()));
+      }
+      if ((jsonObj.get("location-scope") != null && !jsonObj.get("location-scope").isJsonNull()) && !jsonObj.get("location-scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `location-scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("location-scope").toString()));
       }
       if ((jsonObj.get("multi-region") != null && !jsonObj.get("multi-region").isJsonNull()) && !jsonObj.get("multi-region").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `multi-region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("multi-region").toString()));

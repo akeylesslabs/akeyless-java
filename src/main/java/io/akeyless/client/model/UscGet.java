@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscGet {
+  public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws-account-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String awsAccountId;
+
   public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
   @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
   @javax.annotation.Nullable
@@ -69,6 +74,11 @@ public class UscGet {
   @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
   @javax.annotation.Nullable
   private String objectType;
+
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  @javax.annotation.Nullable
+  private String region;
 
   public static final String SERIALIZED_NAME_SECRET_ID = "secret-id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
@@ -102,6 +112,25 @@ public class UscGet {
 
   public UscGet() {
   }
+
+  public UscGet awsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+    return this;
+  }
+
+  /**
+   * The AWS account ID that contains the secret. Required when the connector spans multiple account IDs.
+   * @return awsAccountId
+   */
+  @javax.annotation.Nullable
+  public String getAwsAccountId() {
+    return awsAccountId;
+  }
+
+  public void setAwsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+  }
+
 
   public UscGet gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
@@ -176,6 +205,25 @@ public class UscGet {
 
   public void setObjectType(@javax.annotation.Nullable String objectType) {
     this.objectType = objectType;
+  }
+
+
+  public UscGet region(@javax.annotation.Nullable String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The AWS region that contains the secret (AWS only). If empty, uses the target region.
+   * @return region
+   */
+  @javax.annotation.Nullable
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(@javax.annotation.Nullable String region) {
+    this.region = region;
   }
 
 
@@ -303,10 +351,12 @@ public class UscGet {
       return false;
     }
     UscGet uscGet = (UscGet) o;
-    return Objects.equals(this.gcpProjectId, uscGet.gcpProjectId) &&
+    return Objects.equals(this.awsAccountId, uscGet.awsAccountId) &&
+        Objects.equals(this.gcpProjectId, uscGet.gcpProjectId) &&
         Objects.equals(this.json, uscGet.json) &&
         Objects.equals(this.namespace, uscGet.namespace) &&
         Objects.equals(this.objectType, uscGet.objectType) &&
+        Objects.equals(this.region, uscGet.region) &&
         Objects.equals(this.secretId, uscGet.secretId) &&
         Objects.equals(this.selectedRepositories, uscGet.selectedRepositories) &&
         Objects.equals(this.token, uscGet.token) &&
@@ -317,17 +367,19 @@ public class UscGet {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpProjectId, json, namespace, objectType, secretId, selectedRepositories, token, uidToken, uscName, versionId);
+    return Objects.hash(awsAccountId, gcpProjectId, json, namespace, objectType, region, secretId, selectedRepositories, token, uidToken, uscName, versionId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscGet {\n");
+    sb.append("    awsAccountId: ").append(toIndentedString(awsAccountId)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -352,7 +404,7 @@ public class UscGet {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("gcp-project-id", "json", "namespace", "object-type", "secret-id", "selected-repositories", "token", "uid-token", "usc-name", "version-id"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws-account-id", "gcp-project-id", "json", "namespace", "object-type", "region", "secret-id", "selected-repositories", "token", "uid-token", "usc-name", "version-id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("secret-id", "usc-name"));
@@ -386,6 +438,9 @@ public class UscGet {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws-account-id") != null && !jsonObj.get("aws-account-id").isJsonNull()) && !jsonObj.get("aws-account-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-account-id").toString()));
+      }
       if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
@@ -394,6 +449,9 @@ public class UscGet {
       }
       if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
+      }
+      if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       if (!jsonObj.get("secret-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-id").toString()));

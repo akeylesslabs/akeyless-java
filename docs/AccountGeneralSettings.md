@@ -27,6 +27,7 @@ AccountGeneralSettings describes general settings for an account
 |**emailCustomization** | [**EmailCustomization**](EmailCustomization.md) |  |  [optional] |
 |**enableRequestForAccess** | **Boolean** |  |  [optional] |
 |**enableSearchHistory** | **Boolean** |  |  [optional] |
+|**eventForwarderAllowedEmailDomains** | **List&lt;String&gt;** | EventForwarderAllowedEmailDomains lists extra recipient domains for email event forwarders. The signup email domain is always allowed as well. Account-settings updates leave this field unchanged. |  [optional] |
 |**hidePersonalFolder** | **Boolean** |  |  [optional] |
 |**hideSecretRevealCopy** | **Boolean** |  |  [optional] |
 |**hideStaticPassword** | **Boolean** |  |  [optional] |

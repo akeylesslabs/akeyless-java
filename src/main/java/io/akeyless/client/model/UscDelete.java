@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscDelete {
+  public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws-account-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String awsAccountId;
+
   public static final String SERIALIZED_NAME_FORCE_DELETE = "force-delete";
   @SerializedName(SERIALIZED_NAME_FORCE_DELETE)
   @javax.annotation.Nullable
@@ -69,6 +74,11 @@ public class UscDelete {
   @SerializedName(SERIALIZED_NAME_OBJECT_TYPE)
   @javax.annotation.Nullable
   private String objectType;
+
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  @javax.annotation.Nullable
+  private String region;
 
   public static final String SERIALIZED_NAME_SECRET_ID = "secret-id";
   @SerializedName(SERIALIZED_NAME_SECRET_ID)
@@ -97,6 +107,25 @@ public class UscDelete {
 
   public UscDelete() {
   }
+
+  public UscDelete awsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+    return this;
+  }
+
+  /**
+   * The AWS account ID that contains the secret. Required when the connector spans multiple account IDs.
+   * @return awsAccountId
+   */
+  @javax.annotation.Nullable
+  public String getAwsAccountId() {
+    return awsAccountId;
+  }
+
+  public void setAwsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+  }
+
 
   public UscDelete forceDelete(@javax.annotation.Nullable Boolean forceDelete) {
     this.forceDelete = forceDelete;
@@ -171,6 +200,25 @@ public class UscDelete {
 
   public void setObjectType(@javax.annotation.Nullable String objectType) {
     this.objectType = objectType;
+  }
+
+
+  public UscDelete region(@javax.annotation.Nullable String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The AWS region that contains the secret (AWS only). If empty, uses the target region.
+   * @return region
+   */
+  @javax.annotation.Nullable
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(@javax.annotation.Nullable String region) {
+    this.region = region;
   }
 
 
@@ -279,10 +327,12 @@ public class UscDelete {
       return false;
     }
     UscDelete uscDelete = (UscDelete) o;
-    return Objects.equals(this.forceDelete, uscDelete.forceDelete) &&
+    return Objects.equals(this.awsAccountId, uscDelete.awsAccountId) &&
+        Objects.equals(this.forceDelete, uscDelete.forceDelete) &&
         Objects.equals(this.json, uscDelete.json) &&
         Objects.equals(this.namespace, uscDelete.namespace) &&
         Objects.equals(this.objectType, uscDelete.objectType) &&
+        Objects.equals(this.region, uscDelete.region) &&
         Objects.equals(this.secretId, uscDelete.secretId) &&
         Objects.equals(this.selectedRepositories, uscDelete.selectedRepositories) &&
         Objects.equals(this.token, uscDelete.token) &&
@@ -292,17 +342,19 @@ public class UscDelete {
 
   @Override
   public int hashCode() {
-    return Objects.hash(forceDelete, json, namespace, objectType, secretId, selectedRepositories, token, uidToken, uscName);
+    return Objects.hash(awsAccountId, forceDelete, json, namespace, objectType, region, secretId, selectedRepositories, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscDelete {\n");
+    sb.append("    awsAccountId: ").append(toIndentedString(awsAccountId)).append("\n");
     sb.append("    forceDelete: ").append(toIndentedString(forceDelete)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    secretId: ").append(toIndentedString(secretId)).append("\n");
     sb.append("    selectedRepositories: ").append(toIndentedString(selectedRepositories)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -326,7 +378,7 @@ public class UscDelete {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("force-delete", "json", "namespace", "object-type", "secret-id", "selected-repositories", "token", "uid-token", "usc-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws-account-id", "force-delete", "json", "namespace", "object-type", "region", "secret-id", "selected-repositories", "token", "uid-token", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("secret-id", "usc-name"));
@@ -360,11 +412,17 @@ public class UscDelete {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws-account-id") != null && !jsonObj.get("aws-account-id").isJsonNull()) && !jsonObj.get("aws-account-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-account-id").toString()));
+      }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
       }
       if ((jsonObj.get("object-type") != null && !jsonObj.get("object-type").isJsonNull()) && !jsonObj.get("object-type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `object-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("object-type").toString()));
+      }
+      if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       if (!jsonObj.get("secret-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `secret-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secret-id").toString()));

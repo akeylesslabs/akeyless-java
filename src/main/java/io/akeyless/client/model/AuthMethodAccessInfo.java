@@ -34,6 +34,7 @@ import io.akeyless.client.model.OAuth2AccessRules;
 import io.akeyless.client.model.OCIAccessRules;
 import io.akeyless.client.model.OIDCAccessRules;
 import io.akeyless.client.model.SAMLAccessRules;
+import io.akeyless.client.model.ScimSettings;
 import io.akeyless.client.model.UidExpirationEvent;
 import io.akeyless.client.model.UniversalIdentityAccessRules;
 import java.io.IOException;
@@ -198,6 +199,11 @@ public class AuthMethodAccessInfo {
   @SerializedName(SERIALIZED_NAME_SAML_ACCESS_RULES)
   @javax.annotation.Nullable
   private SAMLAccessRules samlAccessRules;
+
+  public static final String SERIALIZED_NAME_SCIM = "scim";
+  @SerializedName(SERIALIZED_NAME_SCIM)
+  @javax.annotation.Nullable
+  private ScimSettings scim;
 
   public static final String SERIALIZED_NAME_SUB_CLAIMS_DELIMITERS = "sub_claims_delimiters";
   @SerializedName(SERIALIZED_NAME_SUB_CLAIMS_DELIMITERS)
@@ -735,6 +741,25 @@ public class AuthMethodAccessInfo {
   }
 
 
+  public AuthMethodAccessInfo scim(@javax.annotation.Nullable ScimSettings scim) {
+    this.scim = scim;
+    return this;
+  }
+
+  /**
+   * Get scim
+   * @return scim
+   */
+  @javax.annotation.Nullable
+  public ScimSettings getScim() {
+    return scim;
+  }
+
+  public void setScim(@javax.annotation.Nullable ScimSettings scim) {
+    this.scim = scim;
+  }
+
+
   public AuthMethodAccessInfo subClaimsDelimiters(@javax.annotation.Nullable List<String> subClaimsDelimiters) {
     this.subClaimsDelimiters = subClaimsDelimiters;
     return this;
@@ -844,6 +869,7 @@ public class AuthMethodAccessInfo {
         Objects.equals(this.productTypes, authMethodAccessInfo.productTypes) &&
         Objects.equals(this.rulesType, authMethodAccessInfo.rulesType) &&
         Objects.equals(this.samlAccessRules, authMethodAccessInfo.samlAccessRules) &&
+        Objects.equals(this.scim, authMethodAccessInfo.scim) &&
         Objects.equals(this.subClaimsDelimiters, authMethodAccessInfo.subClaimsDelimiters) &&
         Objects.equals(this.uidExpirationEvents, authMethodAccessInfo.uidExpirationEvents) &&
         Objects.equals(this.universalIdentityAccessRules, authMethodAccessInfo.universalIdentityAccessRules);
@@ -851,7 +877,7 @@ public class AuthMethodAccessInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, accessIdAlias, alicloudAccessRules, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, enforceClientType, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
+    return Objects.hash(accessExpires, accessIdAlias, alicloudAccessRules, allowedClientType, apiKeyAccessRules, auditLogsClaims, awsIamAccessRules, azureAdAccessRules, certAccessRules, cidrWhitelist, emailPassAccessRules, enforceClientType, forceSubClaims, gcpAccessRules, gwCidrWhitelist, huaweiAccessRules, jwtTtl, k8sAccessRules, kerberosAccessRules, ldapAccessRules, oauth2AccessRules, ociAccessRules, oidcAccessRules, productTypes, rulesType, samlAccessRules, scim, subClaimsDelimiters, uidExpirationEvents, universalIdentityAccessRules);
   }
 
   @Override
@@ -884,6 +910,7 @@ public class AuthMethodAccessInfo {
     sb.append("    productTypes: ").append(toIndentedString(productTypes)).append("\n");
     sb.append("    rulesType: ").append(toIndentedString(rulesType)).append("\n");
     sb.append("    samlAccessRules: ").append(toIndentedString(samlAccessRules)).append("\n");
+    sb.append("    scim: ").append(toIndentedString(scim)).append("\n");
     sb.append("    subClaimsDelimiters: ").append(toIndentedString(subClaimsDelimiters)).append("\n");
     sb.append("    uidExpirationEvents: ").append(toIndentedString(uidExpirationEvents)).append("\n");
     sb.append("    universalIdentityAccessRules: ").append(toIndentedString(universalIdentityAccessRules)).append("\n");
@@ -905,7 +932,7 @@ public class AuthMethodAccessInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "alicloud_access_rules", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "enforce_client_type", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_expires", "access_id_alias", "alicloud_access_rules", "allowed_client_type", "api_key_access_rules", "audit_logs_claims", "aws_iam_access_rules", "azure_ad_access_rules", "cert_access_rules", "cidr_whitelist", "email_pass_access_rules", "enforce_client_type", "force_sub_claims", "gcp_access_rules", "gw_cidr_whitelist", "huawei_access_rules", "jwt_ttl", "k8s_access_rules", "kerberos_access_rules", "ldap_access_rules", "oauth2_access_rules", "oci_access_rules", "oidc_access_rules", "product_types", "rules_type", "saml_access_rules", "scim", "sub_claims_delimiters", "uid_expiration_events", "universal_identity_access_rules"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1015,6 +1042,10 @@ public class AuthMethodAccessInfo {
       // validate the optional field `saml_access_rules`
       if (jsonObj.get("saml_access_rules") != null && !jsonObj.get("saml_access_rules").isJsonNull()) {
         SAMLAccessRules.validateJsonElement(jsonObj.get("saml_access_rules"));
+      }
+      // validate the optional field `scim`
+      if (jsonObj.get("scim") != null && !jsonObj.get("scim").isJsonNull()) {
+        ScimSettings.validateJsonElement(jsonObj.get("scim"));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("sub_claims_delimiters") != null && !jsonObj.get("sub_claims_delimiters").isJsonNull() && !jsonObj.get("sub_claims_delimiters").isJsonArray()) {

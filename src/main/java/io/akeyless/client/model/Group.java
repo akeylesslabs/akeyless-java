@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.akeyless.client.model.AccessPermissionAssignment;
+import io.akeyless.client.model.GrantedRole;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -69,6 +70,16 @@ public class Group {
   @javax.annotation.Nullable
   private String description;
 
+  public static final String SERIALIZED_NAME_GRANTED_ROLES = "granted_roles";
+  @SerializedName(SERIALIZED_NAME_GRANTED_ROLES)
+  @javax.annotation.Nullable
+  private List<GrantedRole> grantedRoles = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_GRANTED_ROLES_KNOWN = "granted_roles_known";
+  @SerializedName(SERIALIZED_NAME_GRANTED_ROLES_KNOWN)
+  @javax.annotation.Nullable
+  private Boolean grantedRolesKnown;
+
   public static final String SERIALIZED_NAME_GROUP_ALIAS = "group_alias";
   @SerializedName(SERIALIZED_NAME_GROUP_ALIAS)
   @javax.annotation.Nullable
@@ -94,10 +105,30 @@ public class Group {
   @javax.annotation.Nullable
   private OffsetDateTime modificationDate;
 
+  public static final String SERIALIZED_NAME_SCIM_EXTERNAL_ID = "scim_external_id";
+  @SerializedName(SERIALIZED_NAME_SCIM_EXTERNAL_ID)
+  @javax.annotation.Nullable
+  private String scimExternalId;
+
+  public static final String SERIALIZED_NAME_SCIM_MANAGED = "scim_managed";
+  @SerializedName(SERIALIZED_NAME_SCIM_MANAGED)
+  @javax.annotation.Nullable
+  private Boolean scimManaged;
+
+  public static final String SERIALIZED_NAME_SCIM_PROVISIONED_ACCESS_ID = "scim_provisioned_access_id";
+  @SerializedName(SERIALIZED_NAME_SCIM_PROVISIONED_ACCESS_ID)
+  @javax.annotation.Nullable
+  private String scimProvisionedAccessId;
+
   public static final String SERIALIZED_NAME_USER_ASSIGNMENTS = "user_assignments";
   @SerializedName(SERIALIZED_NAME_USER_ASSIGNMENTS)
   @javax.annotation.Nullable
   private List<AccessPermissionAssignment> userAssignments = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_VERSION = "version";
+  @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nullable
+  private String version;
 
   public Group() {
   }
@@ -156,6 +187,52 @@ public class Group {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
+  }
+
+
+  public Group grantedRoles(@javax.annotation.Nullable List<GrantedRole> grantedRoles) {
+    this.grantedRoles = grantedRoles;
+    return this;
+  }
+
+  public Group addGrantedRolesItem(GrantedRole grantedRolesItem) {
+    if (this.grantedRoles == null) {
+      this.grantedRoles = new ArrayList<>();
+    }
+    this.grantedRoles.add(grantedRolesItem);
+    return this;
+  }
+
+  /**
+   * GrantedRoles are the roles a member of this group gets at login, through the group&#39;s akeyless_groups claim. Read-only, and filled only for the SCIM bearer that owns the group: a group name on its own says nothing about the access it carries, which is what a reviewer certifying the entitlement has to judge.
+   * @return grantedRoles
+   */
+  @javax.annotation.Nullable
+  public List<GrantedRole> getGrantedRoles() {
+    return grantedRoles;
+  }
+
+  public void setGrantedRoles(@javax.annotation.Nullable List<GrantedRole> grantedRoles) {
+    this.grantedRoles = grantedRoles;
+  }
+
+
+  public Group grantedRolesKnown(@javax.annotation.Nullable Boolean grantedRolesKnown) {
+    this.grantedRolesKnown = grantedRolesKnown;
+    return this;
+  }
+
+  /**
+   * GrantedRolesKnown is set when GrantedRoles was computed, so an empty list means \&quot;grants no role\&quot; rather than \&quot;not computed\&quot; (another caller, or an older UAM).
+   * @return grantedRolesKnown
+   */
+  @javax.annotation.Nullable
+  public Boolean getGrantedRolesKnown() {
+    return grantedRolesKnown;
+  }
+
+  public void setGrantedRolesKnown(@javax.annotation.Nullable Boolean grantedRolesKnown) {
+    this.grantedRolesKnown = grantedRolesKnown;
   }
 
 
@@ -254,6 +331,63 @@ public class Group {
   }
 
 
+  public Group scimExternalId(@javax.annotation.Nullable String scimExternalId) {
+    this.scimExternalId = scimExternalId;
+    return this;
+  }
+
+  /**
+   * Get scimExternalId
+   * @return scimExternalId
+   */
+  @javax.annotation.Nullable
+  public String getScimExternalId() {
+    return scimExternalId;
+  }
+
+  public void setScimExternalId(@javax.annotation.Nullable String scimExternalId) {
+    this.scimExternalId = scimExternalId;
+  }
+
+
+  public Group scimManaged(@javax.annotation.Nullable Boolean scimManaged) {
+    this.scimManaged = scimManaged;
+    return this;
+  }
+
+  /**
+   * Get scimManaged
+   * @return scimManaged
+   */
+  @javax.annotation.Nullable
+  public Boolean getScimManaged() {
+    return scimManaged;
+  }
+
+  public void setScimManaged(@javax.annotation.Nullable Boolean scimManaged) {
+    this.scimManaged = scimManaged;
+  }
+
+
+  public Group scimProvisionedAccessId(@javax.annotation.Nullable String scimProvisionedAccessId) {
+    this.scimProvisionedAccessId = scimProvisionedAccessId;
+    return this;
+  }
+
+  /**
+   * Get scimProvisionedAccessId
+   * @return scimProvisionedAccessId
+   */
+  @javax.annotation.Nullable
+  public String getScimProvisionedAccessId() {
+    return scimProvisionedAccessId;
+  }
+
+  public void setScimProvisionedAccessId(@javax.annotation.Nullable String scimProvisionedAccessId) {
+    this.scimProvisionedAccessId = scimProvisionedAccessId;
+  }
+
+
   public Group userAssignments(@javax.annotation.Nullable List<AccessPermissionAssignment> userAssignments) {
     this.userAssignments = userAssignments;
     return this;
@@ -281,6 +415,25 @@ public class Group {
   }
 
 
+  public Group version(@javax.annotation.Nullable String version) {
+    this.version = version;
+    return this;
+  }
+
+  /**
+   * Version identifies the member assignments this group was read with. Pass it back as UpdateGroupInput.ExpectedVersion to make the update conditional.
+   * @return version
+   */
+  @javax.annotation.Nullable
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(@javax.annotation.Nullable String version) {
+    this.version = version;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -294,17 +447,23 @@ public class Group {
     return Objects.equals(this.accountId, group.accountId) &&
         Objects.equals(this.creationDate, group.creationDate) &&
         Objects.equals(this.description, group.description) &&
+        Objects.equals(this.grantedRoles, group.grantedRoles) &&
+        Objects.equals(this.grantedRolesKnown, group.grantedRolesKnown) &&
         Objects.equals(this.groupAlias, group.groupAlias) &&
         Objects.equals(this.groupId, group.groupId) &&
         Objects.equals(this.groupName, group.groupName) &&
         Objects.equals(this.isSubclaimsWithOperator, group.isSubclaimsWithOperator) &&
         Objects.equals(this.modificationDate, group.modificationDate) &&
-        Objects.equals(this.userAssignments, group.userAssignments);
+        Objects.equals(this.scimExternalId, group.scimExternalId) &&
+        Objects.equals(this.scimManaged, group.scimManaged) &&
+        Objects.equals(this.scimProvisionedAccessId, group.scimProvisionedAccessId) &&
+        Objects.equals(this.userAssignments, group.userAssignments) &&
+        Objects.equals(this.version, group.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, creationDate, description, groupAlias, groupId, groupName, isSubclaimsWithOperator, modificationDate, userAssignments);
+    return Objects.hash(accountId, creationDate, description, grantedRoles, grantedRolesKnown, groupAlias, groupId, groupName, isSubclaimsWithOperator, modificationDate, scimExternalId, scimManaged, scimProvisionedAccessId, userAssignments, version);
   }
 
   @Override
@@ -314,12 +473,18 @@ public class Group {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    grantedRoles: ").append(toIndentedString(grantedRoles)).append("\n");
+    sb.append("    grantedRolesKnown: ").append(toIndentedString(grantedRolesKnown)).append("\n");
     sb.append("    groupAlias: ").append(toIndentedString(groupAlias)).append("\n");
     sb.append("    groupId: ").append(toIndentedString(groupId)).append("\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
     sb.append("    isSubclaimsWithOperator: ").append(toIndentedString(isSubclaimsWithOperator)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
+    sb.append("    scimExternalId: ").append(toIndentedString(scimExternalId)).append("\n");
+    sb.append("    scimManaged: ").append(toIndentedString(scimManaged)).append("\n");
+    sb.append("    scimProvisionedAccessId: ").append(toIndentedString(scimProvisionedAccessId)).append("\n");
     sb.append("    userAssignments: ").append(toIndentedString(userAssignments)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -338,7 +503,7 @@ public class Group {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account_id", "creation_date", "description", "group_alias", "group_id", "group_name", "is_subclaims_with_operator", "modification_date", "user_assignments"));
+    openapiFields = new HashSet<String>(Arrays.asList("account_id", "creation_date", "description", "granted_roles", "granted_roles_known", "group_alias", "group_id", "group_name", "is_subclaims_with_operator", "modification_date", "scim_external_id", "scim_managed", "scim_provisioned_access_id", "user_assignments", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -371,6 +536,20 @@ public class Group {
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if (jsonObj.get("granted_roles") != null && !jsonObj.get("granted_roles").isJsonNull()) {
+        JsonArray jsonArraygrantedRoles = jsonObj.getAsJsonArray("granted_roles");
+        if (jsonArraygrantedRoles != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("granted_roles").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `granted_roles` to be an array in the JSON string but got `%s`", jsonObj.get("granted_roles").toString()));
+          }
+
+          // validate the optional field `granted_roles` (array)
+          for (int i = 0; i < jsonArraygrantedRoles.size(); i++) {
+            GrantedRole.validateJsonElement(jsonArraygrantedRoles.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("group_alias") != null && !jsonObj.get("group_alias").isJsonNull()) && !jsonObj.get("group_alias").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_alias").toString()));
       }
@@ -379,6 +558,12 @@ public class Group {
       }
       if ((jsonObj.get("group_name") != null && !jsonObj.get("group_name").isJsonNull()) && !jsonObj.get("group_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `group_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group_name").toString()));
+      }
+      if ((jsonObj.get("scim_external_id") != null && !jsonObj.get("scim_external_id").isJsonNull()) && !jsonObj.get("scim_external_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim_external_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim_external_id").toString()));
+      }
+      if ((jsonObj.get("scim_provisioned_access_id") != null && !jsonObj.get("scim_provisioned_access_id").isJsonNull()) && !jsonObj.get("scim_provisioned_access_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `scim_provisioned_access_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scim_provisioned_access_id").toString()));
       }
       if (jsonObj.get("user_assignments") != null && !jsonObj.get("user_assignments").isJsonNull()) {
         JsonArray jsonArrayuserAssignments = jsonObj.getAsJsonArray("user_assignments");
@@ -393,6 +578,9 @@ public class Group {
             AccessPermissionAssignment.validateJsonElement(jsonArrayuserAssignments.get(i));
           };
         }
+      }
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
   }
 

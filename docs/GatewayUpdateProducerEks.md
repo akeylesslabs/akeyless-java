@@ -26,7 +26,8 @@ gatewayUpdateProducerEks is a command that updates eks producer [Deprecated: Use
 |**newName** | **String** | Dynamic secret name |  [optional] |
 |**outputRule** | **List&lt;String&gt;** | Agentic output rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Mask secrets) |  [optional] |
 |**producerEncryptionKeyName** | **String** | Dynamic producer encryption key |  [optional] |
-|**secureAccessAllowPortForwading** | **Boolean** | Enable Port forwarding while using CLI access |  [optional] |
+|**secureAccessAllowPortForwading** | **Boolean** | Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead. |  [optional] |
+|**secureAccessAllowPortForwarding** | **Boolean** | Enable Port forwarding while using CLI access |  [optional] |
 |**secureAccessBastionIssuer** | **String** | Deprecated. use secure-access-certificate-issuer |  [optional] |
 |**secureAccessCertificateIssuer** | **String** | Path to the SSH Certificate Issuer for your Akeyless Secure Access |  [optional] |
 |**secureAccessClusterEndpoint** | **String** | The K8s cluster endpoint URL |  [optional] |

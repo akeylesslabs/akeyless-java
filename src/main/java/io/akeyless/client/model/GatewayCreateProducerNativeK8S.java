@@ -25,6 +25,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -173,6 +174,11 @@ public class GatewayCreateProducerNativeK8S {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
   @javax.annotation.Nullable
   private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING = "secure-access-allow-port-forwarding";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessAllowPortForwarding;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER = "secure-access-bastion-issuer";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_BASTION_ISSUER)
@@ -724,7 +730,7 @@ public class GatewayCreateProducerNativeK8S {
   }
 
   /**
-   * Enable Port forwarding while using CLI access
+   * Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
    * @return secureAccessAllowPortForwading
    */
   @javax.annotation.Nullable
@@ -734,6 +740,25 @@ public class GatewayCreateProducerNativeK8S {
 
   public void setSecureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
     this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public GatewayCreateProducerNativeK8S secureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
+    return this;
+  }
+
+  /**
+   * Enable Port forwarding while using CLI access
+   * @return secureAccessAllowPortForwarding
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessAllowPortForwarding() {
+    return secureAccessAllowPortForwarding;
+  }
+
+  public void setSecureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
   }
 
 
@@ -1083,6 +1108,7 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.outputRule, gatewayCreateProducerNativeK8S.outputRule) &&
         Objects.equals(this.producerEncryptionKeyName, gatewayCreateProducerNativeK8S.producerEncryptionKeyName) &&
         Objects.equals(this.secureAccessAllowPortForwading, gatewayCreateProducerNativeK8S.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessAllowPortForwarding, gatewayCreateProducerNativeK8S.secureAccessAllowPortForwarding) &&
         Objects.equals(this.secureAccessBastionIssuer, gatewayCreateProducerNativeK8S.secureAccessBastionIssuer) &&
         Objects.equals(this.secureAccessCertificateIssuer, gatewayCreateProducerNativeK8S.secureAccessCertificateIssuer) &&
         Objects.equals(this.secureAccessClusterEndpoint, gatewayCreateProducerNativeK8S.secureAccessClusterEndpoint) &&
@@ -1101,9 +1127,20 @@ public class GatewayCreateProducerNativeK8S {
         Objects.equals(this.userTtl, gatewayCreateProducerNativeK8S.userTtl);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+    return Objects.hash(araEnabled, customUsernameTemplate, deleteProtection, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, k8sAllowedNamespaces, k8sClusterCaCert, k8sClusterEndpoint, k8sClusterName, k8sClusterToken, k8sNamespace, k8sPredefinedRoleName, k8sPredefinedRoleType, k8sRolebindingYamlData, k8sRolebindingYamlDef, k8sServiceAccount, k8sServiceAccountType, name, outputRule, producerEncryptionKeyName, secureAccessAllowPortForwading, secureAccessAllowPortForwarding, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessClusterEndpoint, secureAccessDashboardUrl, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, skipDryRun, tags, targetName, token, uidToken, useGwServiceAccount, userTtl);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1134,6 +1171,7 @@ public class GatewayCreateProducerNativeK8S {
     sb.append("    outputRule: ").append(toIndentedString(outputRule)).append("\n");
     sb.append("    producerEncryptionKeyName: ").append(toIndentedString(producerEncryptionKeyName)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessAllowPortForwarding: ").append(toIndentedString(secureAccessAllowPortForwarding)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
     sb.append("    secureAccessCertificateIssuer: ").append(toIndentedString(secureAccessCertificateIssuer)).append("\n");
     sb.append("    secureAccessClusterEndpoint: ").append(toIndentedString(secureAccessClusterEndpoint)).append("\n");
@@ -1168,7 +1206,7 @@ public class GatewayCreateProducerNativeK8S {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "k8s-allowed-namespaces", "k8s-cluster-ca-cert", "k8s-cluster-endpoint", "k8s-cluster-name", "k8s-cluster-token", "k8s-namespace", "k8s-predefined-role-name", "k8s-predefined-role-type", "k8s-rolebinding-yaml-data", "k8s-rolebinding-yaml-def", "k8s-service-account", "k8s-service-account-type", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip-dry-run", "tags", "target-name", "token", "uid-token", "use-gw-service-account", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("ara-enabled", "custom-username-template", "delete_protection", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "k8s-allowed-namespaces", "k8s-cluster-ca-cert", "k8s-cluster-endpoint", "k8s-cluster-name", "k8s-cluster-token", "k8s-namespace", "k8s-predefined-role-name", "k8s-predefined-role-type", "k8s-rolebinding-yaml-data", "k8s-rolebinding-yaml-def", "k8s-service-account", "k8s-service-account-type", "name", "output-rule", "producer-encryption-key-name", "secure-access-allow-port-forwading", "secure-access-allow-port-forwarding", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-cluster-endpoint", "secure-access-dashboard-url", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "skip-dry-run", "tags", "target-name", "token", "uid-token", "use-gw-service-account", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

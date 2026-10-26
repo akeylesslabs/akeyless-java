@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class UscList {
+  public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws-account-id";
+  @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String awsAccountId;
+
   public static final String SERIALIZED_NAME_GCP_PROJECT_ID = "gcp-project-id";
   @SerializedName(SERIALIZED_NAME_GCP_PROJECT_ID)
   @javax.annotation.Nullable
@@ -75,6 +80,11 @@ public class UscList {
   @javax.annotation.Nullable
   private String pageToken;
 
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  @javax.annotation.Nullable
+  private String region;
+
   public static final String SERIALIZED_NAME_SEARCH = "search";
   @SerializedName(SERIALIZED_NAME_SEARCH)
   @javax.annotation.Nullable
@@ -97,6 +107,25 @@ public class UscList {
 
   public UscList() {
   }
+
+  public UscList awsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+    return this;
+  }
+
+  /**
+   * The AWS account ID to list secrets from. Required when the connector spans multiple account IDs.
+   * @return awsAccountId
+   */
+  @javax.annotation.Nullable
+  public String getAwsAccountId() {
+    return awsAccountId;
+  }
+
+  public void setAwsAccountId(@javax.annotation.Nullable String awsAccountId) {
+    this.awsAccountId = awsAccountId;
+  }
+
 
   public UscList gcpProjectId(@javax.annotation.Nullable String gcpProjectId) {
     this.gcpProjectId = gcpProjectId;
@@ -193,6 +222,25 @@ public class UscList {
   }
 
 
+  public UscList region(@javax.annotation.Nullable String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * The AWS region to list secrets from (AWS only). If empty, the target&#39;s region is used.
+   * @return region
+   */
+  @javax.annotation.Nullable
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(@javax.annotation.Nullable String region) {
+    this.region = region;
+  }
+
+
   public UscList search(@javax.annotation.Nullable String search) {
     this.search = search;
     return this;
@@ -279,11 +327,13 @@ public class UscList {
       return false;
     }
     UscList uscList = (UscList) o;
-    return Objects.equals(this.gcpProjectId, uscList.gcpProjectId) &&
+    return Objects.equals(this.awsAccountId, uscList.awsAccountId) &&
+        Objects.equals(this.gcpProjectId, uscList.gcpProjectId) &&
         Objects.equals(this.json, uscList.json) &&
         Objects.equals(this.objectType, uscList.objectType) &&
         Objects.equals(this.pageSize, uscList.pageSize) &&
         Objects.equals(this.pageToken, uscList.pageToken) &&
+        Objects.equals(this.region, uscList.region) &&
         Objects.equals(this.search, uscList.search) &&
         Objects.equals(this.token, uscList.token) &&
         Objects.equals(this.uidToken, uscList.uidToken) &&
@@ -292,18 +342,20 @@ public class UscList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(gcpProjectId, json, objectType, pageSize, pageToken, search, token, uidToken, uscName);
+    return Objects.hash(awsAccountId, gcpProjectId, json, objectType, pageSize, pageToken, region, search, token, uidToken, uscName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UscList {\n");
+    sb.append("    awsAccountId: ").append(toIndentedString(awsAccountId)).append("\n");
     sb.append("    gcpProjectId: ").append(toIndentedString(gcpProjectId)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    objectType: ").append(toIndentedString(objectType)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    search: ").append(toIndentedString(search)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -326,7 +378,7 @@ public class UscList {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("gcp-project-id", "json", "object-type", "page-size", "page-token", "search", "token", "uid-token", "usc-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws-account-id", "gcp-project-id", "json", "object-type", "page-size", "page-token", "region", "search", "token", "uid-token", "usc-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("usc-name"));
@@ -360,6 +412,9 @@ public class UscList {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aws-account-id") != null && !jsonObj.get("aws-account-id").isJsonNull()) && !jsonObj.get("aws-account-id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `aws-account-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws-account-id").toString()));
+      }
       if ((jsonObj.get("gcp-project-id") != null && !jsonObj.get("gcp-project-id").isJsonNull()) && !jsonObj.get("gcp-project-id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `gcp-project-id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("gcp-project-id").toString()));
       }
@@ -368,6 +423,9 @@ public class UscList {
       }
       if ((jsonObj.get("page-token") != null && !jsonObj.get("page-token").isJsonNull()) && !jsonObj.get("page-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `page-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("page-token").toString()));
+      }
+      if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       if ((jsonObj.get("search") != null && !jsonObj.get("search").isJsonNull()) && !jsonObj.get("search").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `search` to be a primitive type in the JSON string but got `%s`", jsonObj.get("search").toString()));

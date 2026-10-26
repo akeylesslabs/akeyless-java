@@ -72,6 +72,7 @@ gatewayCreateMigration is a command that create migration
 |**passwordLength** | **String** | The length of the password to be generated (between 8 and 50). Relevant only for Active Directory migration when enable-password-policy is true. |  [optional] |
 |**portRanges** | **String** | A comma separated list of port ranges Examples: \&quot;80,443\&quot; or \&quot;80,443,8080-8090\&quot; or \&quot;443\&quot; |  [optional] |
 |**protectionKey** | **String** | The name of the key that protects the classic key value (if empty, the account default key will be used) |  [optional] |
+|**scheduleSync** | **String** | Runs the migration automatically on the specified schedule in UTC. Accepts standard cron syntax. Limited to at most once every 24 hours. |  [optional] |
 |**siAutoRotate** | **String** | Enable/Disable automatic/recurrent rotation for migrated secrets. Default is false: only manual rotation is allowed for migrated secrets. If set to true, this command should be combined with --si-rotation-interval and --si-rotation-hour parameters (Relevant only for Server Inventory migration) |  [optional] |
 |**siRotationHour** | **Integer** | The hour of the scheduled rotation in UTC (Relevant only for Server Inventory migration) |  [optional] |
 |**siRotationInterval** | **Integer** | The number of days to wait between every automatic rotation [1-365] (Relevant only for Server Inventory migration) |  [optional] |

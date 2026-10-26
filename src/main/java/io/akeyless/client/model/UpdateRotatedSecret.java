@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -216,6 +217,11 @@ public class UpdateRotatedSecret {
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWADING)
   @javax.annotation.Nullable
   private Boolean secureAccessAllowPortForwading;
+
+  public static final String SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING = "secure-access-allow-port-forwarding";
+  @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_ALLOW_PORT_FORWARDING)
+  @javax.annotation.Nullable
+  private Boolean secureAccessAllowPortForwarding;
 
   public static final String SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID = "secure-access-aws-account-id";
   @SerializedName(SERIALIZED_NAME_SECURE_ACCESS_AWS_ACCOUNT_ID)
@@ -980,7 +986,7 @@ public class UpdateRotatedSecret {
   }
 
   /**
-   * Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+   * Deprecated: old misspelled param, kept for backwards-compatibility. Hidden from help; use secure-access-allow-port-forwarding instead.
    * @return secureAccessAllowPortForwading
    */
   @javax.annotation.Nullable
@@ -990,6 +996,25 @@ public class UpdateRotatedSecret {
 
   public void setSecureAccessAllowPortForwading(@javax.annotation.Nullable Boolean secureAccessAllowPortForwading) {
     this.secureAccessAllowPortForwading = secureAccessAllowPortForwading;
+  }
+
+
+  public UpdateRotatedSecret secureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
+    return this;
+  }
+
+  /**
+   * Enable Port forwarding while using CLI access (relevant only for EKS/GKE/K8s Dynamic-Secret)
+   * @return secureAccessAllowPortForwarding
+   */
+  @javax.annotation.Nullable
+  public Boolean getSecureAccessAllowPortForwarding() {
+    return secureAccessAllowPortForwarding;
+  }
+
+  public void setSecureAccessAllowPortForwarding(@javax.annotation.Nullable Boolean secureAccessAllowPortForwarding) {
+    this.secureAccessAllowPortForwarding = secureAccessAllowPortForwarding;
   }
 
 
@@ -1546,6 +1571,7 @@ public class UpdateRotatedSecret {
         Objects.equals(this.samePassword, updateRotatedSecret.samePassword) &&
         Objects.equals(this.secureAccessAllowExternalUser, updateRotatedSecret.secureAccessAllowExternalUser) &&
         Objects.equals(this.secureAccessAllowPortForwading, updateRotatedSecret.secureAccessAllowPortForwading) &&
+        Objects.equals(this.secureAccessAllowPortForwarding, updateRotatedSecret.secureAccessAllowPortForwarding) &&
         Objects.equals(this.secureAccessAwsAccountId, updateRotatedSecret.secureAccessAwsAccountId) &&
         Objects.equals(this.secureAccessAwsNativeCli, updateRotatedSecret.secureAccessAwsNativeCli) &&
         Objects.equals(this.secureAccessBastionIssuer, updateRotatedSecret.secureAccessBastionIssuer) &&
@@ -1574,9 +1600,20 @@ public class UpdateRotatedSecret {
         Objects.equals(this.userDn, updateRotatedSecret.userDn);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(providerType, addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, graceRotation, hostProvider, json, keepPrevVersion, key, lockDuringSraSession, lockOnRead, lockTtl, name, newMetadata, newName, newVersion, rmTag, rotateAfterDisconnect, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, samePassword, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, target, token, uidToken, userAttribute, userDn);
+    return Objects.hash(providerType, addTag, apiId, apiKey, autoRotate, awsRegion, customPayload, description, gcpKey, graceRotation, hostProvider, json, keepPrevVersion, key, lockDuringSraSession, lockOnRead, lockTtl, name, newMetadata, newName, newVersion, rmTag, rotateAfterDisconnect, rotateOnUnlock, rotatedPassword, rotatedUsername, rotationHour, rotationInterval, rotatorCredsType, rotatorCustomCmd, samePassword, secureAccessAllowExternalUser, secureAccessAllowPortForwading, secureAccessAllowPortForwarding, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDbName, secureAccessDbSchema, secureAccessDisableConcurrentConnections, secureAccessEnable, secureAccessEnforceHostsRestriction, secureAccessHost, secureAccessRdpDomain, secureAccessRdpUser, secureAccessUrl, secureAccessUseInternalBastion, secureAccessUseInternalSshAccess, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sshPassword, sshUsername, storageAccountKeyName, target, token, uidToken, userAttribute, userDn);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1616,6 +1653,7 @@ public class UpdateRotatedSecret {
     sb.append("    samePassword: ").append(toIndentedString(samePassword)).append("\n");
     sb.append("    secureAccessAllowExternalUser: ").append(toIndentedString(secureAccessAllowExternalUser)).append("\n");
     sb.append("    secureAccessAllowPortForwading: ").append(toIndentedString(secureAccessAllowPortForwading)).append("\n");
+    sb.append("    secureAccessAllowPortForwarding: ").append(toIndentedString(secureAccessAllowPortForwarding)).append("\n");
     sb.append("    secureAccessAwsAccountId: ").append(toIndentedString(secureAccessAwsAccountId)).append("\n");
     sb.append("    secureAccessAwsNativeCli: ").append(toIndentedString(secureAccessAwsNativeCli)).append("\n");
     sb.append("    secureAccessBastionIssuer: ").append(toIndentedString(secureAccessBastionIssuer)).append("\n");
@@ -1660,7 +1698,7 @@ public class UpdateRotatedSecret {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "api-id", "api-key", "auto-rotate", "aws-region", "custom-payload", "description", "gcp-key", "grace-rotation", "host-provider", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "name", "new-metadata", "new-name", "new-version", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "same-password", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "target", "token", "uid-token", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("ProviderType", "add-tag", "api-id", "api-key", "auto-rotate", "aws-region", "custom-payload", "description", "gcp-key", "grace-rotation", "host-provider", "json", "keep-prev-version", "key", "lock-during-sra-session", "lock-on-read", "lock-ttl", "name", "new-metadata", "new-name", "new-version", "rm-tag", "rotate-after-disconnect", "rotate-on-unlock", "rotated-password", "rotated-username", "rotation-hour", "rotation-interval", "rotator-creds-type", "rotator-custom-cmd", "same-password", "secure-access-allow-external-user", "secure-access-allow-port-forwading", "secure-access-allow-port-forwarding", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-db-name", "secure-access-db-schema", "secure-access-disable-concurrent-connections", "secure-access-enable", "secure-access-enforce-hosts-restriction", "secure-access-host", "secure-access-rdp-domain", "secure-access-rdp-user", "secure-access-url", "secure-access-use-internal-bastion", "secure-access-use-internal-ssh-access", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "ssh-password", "ssh-username", "storage-account-key-name", "target", "token", "uid-token", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
