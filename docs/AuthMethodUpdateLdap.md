@@ -22,6 +22,7 @@ authMethodUpdateLdap is a command that updates a new auth method that will be ab
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
 |**newName** | **String** | Auth Method new name |  [optional] |
+|**owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it |  [optional] |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
 |**publicKeyData** | **String** | A public key generated for LDAP authentication method on Akeyless in base64 or PEM format [RSA2048] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

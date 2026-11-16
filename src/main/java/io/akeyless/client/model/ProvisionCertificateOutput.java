@@ -63,6 +63,11 @@ public class ProvisionCertificateOutput {
   @javax.annotation.Nullable
   private String successMessage;
 
+  public static final String SERIALIZED_NAME_ASSOCIATION_ID = "association_id";
+  @SerializedName(SERIALIZED_NAME_ASSOCIATION_ID)
+  @javax.annotation.Nullable
+  private String associationId;
+
   public static final String SERIALIZED_NAME_HOST_NAMES = "host_names";
   @SerializedName(SERIALIZED_NAME_HOST_NAMES)
   @javax.annotation.Nullable
@@ -72,6 +77,16 @@ public class ProvisionCertificateOutput {
   @SerializedName(SERIALIZED_NAME_PROVISIONED_AT)
   @javax.annotation.Nullable
   private OffsetDateTime provisionedAt;
+
+  public static final String SERIALIZED_NAME_RESULTS = "results";
+  @SerializedName(SERIALIZED_NAME_RESULTS)
+  @javax.annotation.Nullable
+  private List<ProvisionCertificateOutput> results = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TARGET_NAME = "target_name";
+  @SerializedName(SERIALIZED_NAME_TARGET_NAME)
+  @javax.annotation.Nullable
+  private String targetName;
 
   public ProvisionCertificateOutput() {
   }
@@ -111,6 +126,25 @@ public class ProvisionCertificateOutput {
 
   public void setSuccessMessage(@javax.annotation.Nullable String successMessage) {
     this.successMessage = successMessage;
+  }
+
+
+  public ProvisionCertificateOutput associationId(@javax.annotation.Nullable String associationId) {
+    this.associationId = associationId;
+    return this;
+  }
+
+  /**
+   * AssociationID and TargetName identify the row of a Results entry.
+   * @return associationId
+   */
+  @javax.annotation.Nullable
+  public String getAssociationId() {
+    return associationId;
+  }
+
+  public void setAssociationId(@javax.annotation.Nullable String associationId) {
+    this.associationId = associationId;
   }
 
 
@@ -160,6 +194,52 @@ public class ProvisionCertificateOutput {
   }
 
 
+  public ProvisionCertificateOutput results(@javax.annotation.Nullable List<ProvisionCertificateOutput> results) {
+    this.results = results;
+    return this;
+  }
+
+  public ProvisionCertificateOutput addResultsItem(ProvisionCertificateOutput resultsItem) {
+    if (this.results == null) {
+      this.results = new ArrayList<>();
+    }
+    this.results.add(resultsItem);
+    return this;
+  }
+
+  /**
+   * Results holds one entry per row. It is set only when several rows were handled; the top-level fields then summarize them.
+   * @return results
+   */
+  @javax.annotation.Nullable
+  public List<ProvisionCertificateOutput> getResults() {
+    return results;
+  }
+
+  public void setResults(@javax.annotation.Nullable List<ProvisionCertificateOutput> results) {
+    this.results = results;
+  }
+
+
+  public ProvisionCertificateOutput targetName(@javax.annotation.Nullable String targetName) {
+    this.targetName = targetName;
+    return this;
+  }
+
+  /**
+   * Get targetName
+   * @return targetName
+   */
+  @javax.annotation.Nullable
+  public String getTargetName() {
+    return targetName;
+  }
+
+  public void setTargetName(@javax.annotation.Nullable String targetName) {
+    this.targetName = targetName;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -172,13 +252,16 @@ public class ProvisionCertificateOutput {
     ProvisionCertificateOutput provisionCertificateOutput = (ProvisionCertificateOutput) o;
     return Objects.equals(this.failMessage, provisionCertificateOutput.failMessage) &&
         Objects.equals(this.successMessage, provisionCertificateOutput.successMessage) &&
+        Objects.equals(this.associationId, provisionCertificateOutput.associationId) &&
         Objects.equals(this.hostNames, provisionCertificateOutput.hostNames) &&
-        Objects.equals(this.provisionedAt, provisionCertificateOutput.provisionedAt);
+        Objects.equals(this.provisionedAt, provisionCertificateOutput.provisionedAt) &&
+        Objects.equals(this.results, provisionCertificateOutput.results) &&
+        Objects.equals(this.targetName, provisionCertificateOutput.targetName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(failMessage, successMessage, hostNames, provisionedAt);
+    return Objects.hash(failMessage, successMessage, associationId, hostNames, provisionedAt, results, targetName);
   }
 
   @Override
@@ -187,8 +270,11 @@ public class ProvisionCertificateOutput {
     sb.append("class ProvisionCertificateOutput {\n");
     sb.append("    failMessage: ").append(toIndentedString(failMessage)).append("\n");
     sb.append("    successMessage: ").append(toIndentedString(successMessage)).append("\n");
+    sb.append("    associationId: ").append(toIndentedString(associationId)).append("\n");
     sb.append("    hostNames: ").append(toIndentedString(hostNames)).append("\n");
     sb.append("    provisionedAt: ").append(toIndentedString(provisionedAt)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
+    sb.append("    targetName: ").append(toIndentedString(targetName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -207,7 +293,7 @@ public class ProvisionCertificateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("FailMessage", "SuccessMessage", "host_names", "provisioned_at"));
+    openapiFields = new HashSet<String>(Arrays.asList("FailMessage", "SuccessMessage", "association_id", "host_names", "provisioned_at", "results", "target_name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -240,9 +326,29 @@ public class ProvisionCertificateOutput {
       if ((jsonObj.get("SuccessMessage") != null && !jsonObj.get("SuccessMessage").isJsonNull()) && !jsonObj.get("SuccessMessage").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `SuccessMessage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("SuccessMessage").toString()));
       }
+      if ((jsonObj.get("association_id") != null && !jsonObj.get("association_id").isJsonNull()) && !jsonObj.get("association_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `association_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("association_id").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("host_names") != null && !jsonObj.get("host_names").isJsonNull() && !jsonObj.get("host_names").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host_names` to be an array in the JSON string but got `%s`", jsonObj.get("host_names").toString()));
+      }
+      if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonNull()) {
+        JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
+        if (jsonArrayresults != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("results").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
+          }
+
+          // validate the optional field `results` (array)
+          for (int i = 0; i < jsonArrayresults.size(); i++) {
+            ProvisionCertificateOutput.validateJsonElement(jsonArrayresults.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("target_name") != null && !jsonObj.get("target_name").isJsonNull()) && !jsonObj.get("target_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `target_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target_name").toString()));
       }
   }
 

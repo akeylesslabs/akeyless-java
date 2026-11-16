@@ -208,7 +208,7 @@ public class Connect {
   }
 
   /**
-   * used to override .akeyless-connect.rc in tests
+   * test only: the rc file to read instead of the home rc files
    * @return rcFileOverride
    */
   @javax.annotation.Nullable

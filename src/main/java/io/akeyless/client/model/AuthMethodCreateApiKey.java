@@ -112,6 +112,11 @@ public class AuthMethodCreateApiKey {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -398,6 +403,25 @@ public class AuthMethodCreateApiKey {
   }
 
 
+  public AuthMethodCreateApiKey owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodCreateApiKey productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -485,6 +509,7 @@ public class AuthMethodCreateApiKey {
         Objects.equals(this.json, authMethodCreateApiKey.json) &&
         Objects.equals(this.jwtTtl, authMethodCreateApiKey.jwtTtl) &&
         Objects.equals(this.name, authMethodCreateApiKey.name) &&
+        Objects.equals(this.owner, authMethodCreateApiKey.owner) &&
         Objects.equals(this.productType, authMethodCreateApiKey.productType) &&
         Objects.equals(this.token, authMethodCreateApiKey.token) &&
         Objects.equals(this.uidToken, authMethodCreateApiKey.uidToken);
@@ -492,7 +517,7 @@ public class AuthMethodCreateApiKey {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, owner, productType, token, uidToken);
   }
 
   @Override
@@ -511,6 +536,7 @@ public class AuthMethodCreateApiKey {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -532,7 +558,7 @@ public class AuthMethodCreateApiKey {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "product-type", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "owner", "product-type", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -594,6 +620,9 @@ public class AuthMethodCreateApiKey {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

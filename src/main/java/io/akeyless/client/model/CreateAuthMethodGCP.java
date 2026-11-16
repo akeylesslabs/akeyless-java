@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -141,6 +142,11 @@ public class CreateAuthMethodGCP {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
 
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
@@ -597,6 +603,25 @@ public class CreateAuthMethodGCP {
   }
 
 
+  public CreateAuthMethodGCP owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public CreateAuthMethodGCP productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -747,6 +772,7 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.json, createAuthMethodGCP.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodGCP.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodGCP.name) &&
+        Objects.equals(this.owner, createAuthMethodGCP.owner) &&
         Objects.equals(this.productType, createAuthMethodGCP.productType) &&
         Objects.equals(this.serviceAccountCredsData, createAuthMethodGCP.serviceAccountCredsData) &&
         Objects.equals(this.token, createAuthMethodGCP.token) &&
@@ -755,9 +781,20 @@ public class CreateAuthMethodGCP {
         Objects.equals(this.uniqueIdentifier, createAuthMethodGCP.uniqueIdentifier);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, serviceAccountCredsData, token, type, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundIps, boundLabels, boundProjects, boundRegions, boundServiceAccounts, boundZones, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, owner, productType, serviceAccountCredsData, token, type, uidToken, uniqueIdentifier);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -782,6 +819,7 @@ public class CreateAuthMethodGCP {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    serviceAccountCredsData: ").append(toIndentedString(serviceAccountCredsData)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -806,7 +844,7 @@ public class CreateAuthMethodGCP {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-ips", "bound-labels", "bound-projects", "bound-regions", "bound-service-accounts", "bound-zones", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "product-type", "service-account-creds-data", "token", "type", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-ips", "bound-labels", "bound-projects", "bound-regions", "bound-service-accounts", "bound-zones", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "owner", "product-type", "service-account-creds-data", "token", "type", "uid-token", "unique-identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("audience", "name", "type"));
@@ -891,6 +929,9 @@ public class CreateAuthMethodGCP {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

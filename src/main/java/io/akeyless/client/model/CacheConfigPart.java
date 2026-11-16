@@ -60,6 +60,11 @@ public class CacheConfigPart {
   @javax.annotation.Nullable
   private String cacheEncryptionKey;
 
+  public static final String SERIALIZED_NAME_CACHE_ITEM_METADATA = "cache_item_metadata";
+  @SerializedName(SERIALIZED_NAME_CACHE_ITEM_METADATA)
+  @javax.annotation.Nullable
+  private Boolean cacheItemMetadata;
+
   public static final String SERIALIZED_NAME_CACHE_TTL = "cache_ttl";
   @SerializedName(SERIALIZED_NAME_CACHE_TTL)
   @javax.annotation.Nullable
@@ -123,6 +128,25 @@ public class CacheConfigPart {
 
   public void setCacheEncryptionKey(@javax.annotation.Nullable String cacheEncryptionKey) {
     this.cacheEncryptionKey = cacheEncryptionKey;
+  }
+
+
+  public CacheConfigPart cacheItemMetadata(@javax.annotation.Nullable Boolean cacheItemMetadata) {
+    this.cacheItemMetadata = cacheItemMetadata;
+    return this;
+  }
+
+  /**
+   * Get cacheItemMetadata
+   * @return cacheItemMetadata
+   */
+  @javax.annotation.Nullable
+  public Boolean getCacheItemMetadata() {
+    return cacheItemMetadata;
+  }
+
+  public void setCacheItemMetadata(@javax.annotation.Nullable Boolean cacheItemMetadata) {
+    this.cacheItemMetadata = cacheItemMetadata;
   }
 
 
@@ -233,6 +257,7 @@ public class CacheConfigPart {
     CacheConfigPart cacheConfigPart = (CacheConfigPart) o;
     return Objects.equals(this.cacheEnable, cacheConfigPart.cacheEnable) &&
         Objects.equals(this.cacheEncryptionKey, cacheConfigPart.cacheEncryptionKey) &&
+        Objects.equals(this.cacheItemMetadata, cacheConfigPart.cacheItemMetadata) &&
         Objects.equals(this.cacheTtl, cacheConfigPart.cacheTtl) &&
         Objects.equals(this.newProactiveCacheEnable, cacheConfigPart.newProactiveCacheEnable) &&
         Objects.equals(this.proactiveCacheDumpInterval, cacheConfigPart.proactiveCacheDumpInterval) &&
@@ -242,7 +267,7 @@ public class CacheConfigPart {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cacheEnable, cacheEncryptionKey, cacheTtl, newProactiveCacheEnable, proactiveCacheDumpInterval, proactiveCacheEnable, proactiveCacheMinimumFetchingTime);
+    return Objects.hash(cacheEnable, cacheEncryptionKey, cacheItemMetadata, cacheTtl, newProactiveCacheEnable, proactiveCacheDumpInterval, proactiveCacheEnable, proactiveCacheMinimumFetchingTime);
   }
 
   @Override
@@ -251,6 +276,7 @@ public class CacheConfigPart {
     sb.append("class CacheConfigPart {\n");
     sb.append("    cacheEnable: ").append(toIndentedString(cacheEnable)).append("\n");
     sb.append("    cacheEncryptionKey: ").append(toIndentedString(cacheEncryptionKey)).append("\n");
+    sb.append("    cacheItemMetadata: ").append(toIndentedString(cacheItemMetadata)).append("\n");
     sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
     sb.append("    newProactiveCacheEnable: ").append(toIndentedString(newProactiveCacheEnable)).append("\n");
     sb.append("    proactiveCacheDumpInterval: ").append(toIndentedString(proactiveCacheDumpInterval)).append("\n");
@@ -274,7 +300,7 @@ public class CacheConfigPart {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("cache_enable", "cache_encryption_key", "cache_ttl", "new_proactive_cache_enable", "proactive_cache_dump_interval", "proactive_cache_enable", "proactive_cache_minimum_fetching_time"));
+    openapiFields = new HashSet<String>(Arrays.asList("cache_enable", "cache_encryption_key", "cache_item_metadata", "cache_ttl", "new_proactive_cache_enable", "proactive_cache_dump_interval", "proactive_cache_enable", "proactive_cache_minimum_fetching_time"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

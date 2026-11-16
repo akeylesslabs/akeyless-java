@@ -12,7 +12,7 @@ authMethodUpdateUniversalIdentity is a command that updates a new auth method th
 |**allowedClientType** | **List&lt;String&gt;** | limit the auth method usage for specific client types [cli,ui,gateway-admin,sdk,mobile,extension] |  [optional] |
 |**auditLogsClaims** | **List&lt;String&gt;** | Subclaims to include in audit logs, e.g \&quot;--audit-logs-claims email --audit-logs-claims username\&quot; |  [optional] |
 |**boundIps** | **List&lt;String&gt;** | A CIDR whitelist with the IPs that the access is restricted to |  [optional] |
-|**childTtlLimit** | **Integer** | Maximum child token ttl allowed in uid-create-child-token |  [optional] |
+|**childTtlLimit** | **Integer** | Maximum child token ttl allowed in uid-create-child-token. A struct tag cannot hold a constant, so dft must stay equal to types.UniversalIdentityDefaultTTLChildLimit |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**denyInheritance** | **Boolean** | Deny from root to create children |  [optional] |
 |**denyRotate** | **Boolean** | Deny from the token to rotate |  [optional] |
@@ -24,6 +24,7 @@ authMethodUpdateUniversalIdentity is a command that updates a new auth method th
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
 |**newName** | **String** | Auth Method new name |  [optional] |
+|**owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it |  [optional] |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**treeLength** | **Integer** | Maximum UID tree depth allowed (child of child of ...) |  [optional] |

@@ -51,6 +51,7 @@
 |**passwordLength** | **Long** | Password length between 5 - to 50 characters |  [optional] |
 |**phone** | **String** | Phone number |  [optional] |
 |**postalCode** | **String** | Postal code |  [optional] |
+|**requireAuthMethodOwner** | **String** | Require an owner when creating or updating authentication methods [true/false] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |
 |**uidToken** | **String** | The universal identity token, Required only for universal_identity authentication |  [optional] |
 |**usageEventEnable** | **String** | Enable event for objects that have not been used or changed [true/false] |  [optional] |

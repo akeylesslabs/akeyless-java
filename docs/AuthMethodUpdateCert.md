@@ -29,6 +29,7 @@ authMethodUpdateCert is a command that updates a new auth method that will be ab
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
 |**newName** | **String** | Auth Method new name |  [optional] |
+|**owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it |  [optional] |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
 |**requireCrlDp** | **Boolean** | Require certificate CRL distribution points (CDP) and enforce CRL validation during authentication. |  [optional] |
 |**revokedCertIds** | **List&lt;String&gt;** | A list of revoked cert ids |  [optional] |

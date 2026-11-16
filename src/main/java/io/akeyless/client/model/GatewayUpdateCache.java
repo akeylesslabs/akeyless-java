@@ -55,6 +55,11 @@ public class GatewayUpdateCache {
   @javax.annotation.Nullable
   private String backupInterval = "1";
 
+  public static final String SERIALIZED_NAME_CACHE_ITEM_METADATA = "cache-item-metadata";
+  @SerializedName(SERIALIZED_NAME_CACHE_ITEM_METADATA)
+  @javax.annotation.Nullable
+  private String cacheItemMetadata;
+
   public static final String SERIALIZED_NAME_ENABLE_CACHE = "enable-cache";
   @SerializedName(SERIALIZED_NAME_ENABLE_CACHE)
   @javax.annotation.Nullable
@@ -109,6 +114,25 @@ public class GatewayUpdateCache {
 
   public void setBackupInterval(@javax.annotation.Nullable String backupInterval) {
     this.backupInterval = backupInterval;
+  }
+
+
+  public GatewayUpdateCache cacheItemMetadata(@javax.annotation.Nullable String cacheItemMetadata) {
+    this.cacheItemMetadata = cacheItemMetadata;
+    return this;
+  }
+
+  /**
+   * Serve item metadata (describe-item and classic key details) from an on-demand cache, refreshed after the minimum fetching interval [true/false]
+   * @return cacheItemMetadata
+   */
+  @javax.annotation.Nullable
+  public String getCacheItemMetadata() {
+    return cacheItemMetadata;
+  }
+
+  public void setCacheItemMetadata(@javax.annotation.Nullable String cacheItemMetadata) {
+    this.cacheItemMetadata = cacheItemMetadata;
   }
 
 
@@ -256,6 +280,7 @@ public class GatewayUpdateCache {
     }
     GatewayUpdateCache gatewayUpdateCache = (GatewayUpdateCache) o;
     return Objects.equals(this.backupInterval, gatewayUpdateCache.backupInterval) &&
+        Objects.equals(this.cacheItemMetadata, gatewayUpdateCache.cacheItemMetadata) &&
         Objects.equals(this.enableCache, gatewayUpdateCache.enableCache) &&
         Objects.equals(this.enableProactive, gatewayUpdateCache.enableProactive) &&
         Objects.equals(this.json, gatewayUpdateCache.json) &&
@@ -267,7 +292,7 @@ public class GatewayUpdateCache {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupInterval, enableCache, enableProactive, json, minimumFetchInterval, staleTimeout, token, uidToken);
+    return Objects.hash(backupInterval, cacheItemMetadata, enableCache, enableProactive, json, minimumFetchInterval, staleTimeout, token, uidToken);
   }
 
   @Override
@@ -275,6 +300,7 @@ public class GatewayUpdateCache {
     StringBuilder sb = new StringBuilder();
     sb.append("class GatewayUpdateCache {\n");
     sb.append("    backupInterval: ").append(toIndentedString(backupInterval)).append("\n");
+    sb.append("    cacheItemMetadata: ").append(toIndentedString(cacheItemMetadata)).append("\n");
     sb.append("    enableCache: ").append(toIndentedString(enableCache)).append("\n");
     sb.append("    enableProactive: ").append(toIndentedString(enableProactive)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
@@ -300,7 +326,7 @@ public class GatewayUpdateCache {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("backup-interval", "enable-cache", "enable-proactive", "json", "minimum-fetch-interval", "stale-timeout", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("backup-interval", "cache-item-metadata", "enable-cache", "enable-proactive", "json", "minimum-fetch-interval", "stale-timeout", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -329,6 +355,9 @@ public class GatewayUpdateCache {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("backup-interval") != null && !jsonObj.get("backup-interval").isJsonNull()) && !jsonObj.get("backup-interval").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `backup-interval` to be a primitive type in the JSON string but got `%s`", jsonObj.get("backup-interval").toString()));
+      }
+      if ((jsonObj.get("cache-item-metadata") != null && !jsonObj.get("cache-item-metadata").isJsonNull()) && !jsonObj.get("cache-item-metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cache-item-metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cache-item-metadata").toString()));
       }
       if ((jsonObj.get("enable-cache") != null && !jsonObj.get("enable-cache").isJsonNull()) && !jsonObj.get("enable-cache").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `enable-cache` to be a primitive type in the JSON string but got `%s`", jsonObj.get("enable-cache").toString()));

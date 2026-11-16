@@ -157,6 +157,11 @@ public class AuthMethodUpdateOauth2 {
   @javax.annotation.Nullable
   private String newName;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -632,6 +637,25 @@ public class AuthMethodUpdateOauth2 {
   }
 
 
+  public AuthMethodUpdateOauth2 owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodUpdateOauth2 productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -774,6 +798,7 @@ public class AuthMethodUpdateOauth2 {
         Objects.equals(this.jwtTtl, authMethodUpdateOauth2.jwtTtl) &&
         Objects.equals(this.name, authMethodUpdateOauth2.name) &&
         Objects.equals(this.newName, authMethodUpdateOauth2.newName) &&
+        Objects.equals(this.owner, authMethodUpdateOauth2.owner) &&
         Objects.equals(this.productType, authMethodUpdateOauth2.productType) &&
         Objects.equals(this.subclaimsDelimiters, authMethodUpdateOauth2.subclaimsDelimiters) &&
         Objects.equals(this.token, authMethodUpdateOauth2.token) &&
@@ -783,7 +808,7 @@ public class AuthMethodUpdateOauth2 {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundClientIds, boundIps, cert, certFileData, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, newName, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundClientIds, boundIps, cert, certFileData, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwksJsonData, jwksUri, jwtTtl, name, newName, owner, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -811,6 +836,7 @@ public class AuthMethodUpdateOauth2 {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -834,7 +860,7 @@ public class AuthMethodUpdateOauth2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-client-ids", "bound-ips", "cert", "cert-file-data", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "issuer", "json", "jwks-json-data", "jwks-uri", "jwt-ttl", "name", "new-name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-client-ids", "bound-ips", "cert", "cert-file-data", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "issuer", "json", "jwks-json-data", "jwks-uri", "jwt-ttl", "name", "new-name", "owner", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -924,6 +950,9 @@ public class AuthMethodUpdateOauth2 {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

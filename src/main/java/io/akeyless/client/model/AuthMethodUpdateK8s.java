@@ -142,6 +142,11 @@ public class AuthMethodUpdateK8s {
   @javax.annotation.Nullable
   private String newName;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -571,6 +576,25 @@ public class AuthMethodUpdateK8s {
   }
 
 
+  public AuthMethodUpdateK8s owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodUpdateK8s productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -683,6 +707,7 @@ public class AuthMethodUpdateK8s {
         Objects.equals(this.jwtTtl, authMethodUpdateK8s.jwtTtl) &&
         Objects.equals(this.name, authMethodUpdateK8s.name) &&
         Objects.equals(this.newName, authMethodUpdateK8s.newName) &&
+        Objects.equals(this.owner, authMethodUpdateK8s.owner) &&
         Objects.equals(this.productType, authMethodUpdateK8s.productType) &&
         Objects.equals(this.publicKey, authMethodUpdateK8s.publicKey) &&
         Objects.equals(this.token, authMethodUpdateK8s.token) &&
@@ -691,7 +716,7 @@ public class AuthMethodUpdateK8s {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, deleteProtection, description, expirationEventIn, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, productType, publicKey, token, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundIps, boundNamespaces, boundPodNames, boundSaNames, deleteProtection, description, expirationEventIn, forceSubClaims, genKey, gwBoundIps, json, jwtTtl, name, newName, owner, productType, publicKey, token, uidToken);
   }
 
   @Override
@@ -716,6 +741,7 @@ public class AuthMethodUpdateK8s {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -738,7 +764,7 @@ public class AuthMethodUpdateK8s {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-ips", "bound-namespaces", "bound-pod-names", "bound-sa-names", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gen-key", "gw-bound-ips", "json", "jwt-ttl", "name", "new-name", "product-type", "public-key", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-ips", "bound-namespaces", "bound-pod-names", "bound-sa-names", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gen-key", "gw-bound-ips", "json", "jwt-ttl", "name", "new-name", "owner", "product-type", "public-key", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -821,6 +847,9 @@ public class AuthMethodUpdateK8s {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

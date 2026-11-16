@@ -147,6 +147,11 @@ public class AuthMethodCreateAwsIam {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -632,6 +637,25 @@ public class AuthMethodCreateAwsIam {
   }
 
 
+  public AuthMethodCreateAwsIam owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodCreateAwsIam productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -764,6 +788,7 @@ public class AuthMethodCreateAwsIam {
         Objects.equals(this.json, authMethodCreateAwsIam.json) &&
         Objects.equals(this.jwtTtl, authMethodCreateAwsIam.jwtTtl) &&
         Objects.equals(this.name, authMethodCreateAwsIam.name) &&
+        Objects.equals(this.owner, authMethodCreateAwsIam.owner) &&
         Objects.equals(this.productType, authMethodCreateAwsIam.productType) &&
         Objects.equals(this.stsUrl, authMethodCreateAwsIam.stsUrl) &&
         Objects.equals(this.token, authMethodCreateAwsIam.token) &&
@@ -773,7 +798,7 @@ public class AuthMethodCreateAwsIam {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, stsUrl, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundArn, boundAwsAccountId, boundIps, boundResourceId, boundRoleId, boundRoleName, boundUserId, boundUserName, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, owner, productType, stsUrl, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -799,6 +824,7 @@ public class AuthMethodCreateAwsIam {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    stsUrl: ").append(toIndentedString(stsUrl)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -822,7 +848,7 @@ public class AuthMethodCreateAwsIam {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-arn", "bound-aws-account-id", "bound-ips", "bound-resource-id", "bound-role-id", "bound-role-name", "bound-user-id", "bound-user-name", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "product-type", "sts-url", "token", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-arn", "bound-aws-account-id", "bound-ips", "bound-resource-id", "bound-role-id", "bound-role-name", "bound-user-id", "bound-user-name", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "owner", "product-type", "sts-url", "token", "uid-token", "unique-identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("bound-aws-account-id", "name"));
@@ -914,6 +940,9 @@ public class AuthMethodCreateAwsIam {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

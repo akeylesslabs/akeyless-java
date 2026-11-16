@@ -82,6 +82,11 @@ public class Auth {
   @javax.annotation.Nullable
   private String adminPassword;
 
+  public static final String SERIALIZED_NAME_AUTH_VIA_GATEWAY = "auth-via-gateway";
+  @SerializedName(SERIALIZED_NAME_AUTH_VIA_GATEWAY)
+  @javax.annotation.Nullable
+  private Boolean authViaGateway;
+
   public static final String SERIALIZED_NAME_AZURE_CLOUD = "azure-cloud";
   @SerializedName(SERIALIZED_NAME_AZURE_CLOUD)
   @javax.annotation.Nullable
@@ -326,6 +331,25 @@ public class Auth {
 
   public void setAdminPassword(@javax.annotation.Nullable String adminPassword) {
     this.adminPassword = adminPassword;
+  }
+
+
+  public Auth authViaGateway(@javax.annotation.Nullable Boolean authViaGateway) {
+    this.authViaGateway = authViaGateway;
+    return this;
+  }
+
+  /**
+   * Route the interactive OIDC/SAML browser login through the Gateway (gateway-url) instead of Akeyless Auth (relevant only for access-type&#x3D;saml/oidc)
+   * @return authViaGateway
+   */
+  @javax.annotation.Nullable
+  public Boolean getAuthViaGateway() {
+    return authViaGateway;
+  }
+
+  public void setAuthViaGateway(@javax.annotation.Nullable Boolean authViaGateway) {
+    this.authViaGateway = authViaGateway;
   }
 
 
@@ -847,6 +871,7 @@ public class Auth {
         Objects.equals(this.accountId, auth.accountId) &&
         Objects.equals(this.adminEmail, auth.adminEmail) &&
         Objects.equals(this.adminPassword, auth.adminPassword) &&
+        Objects.equals(this.authViaGateway, auth.authViaGateway) &&
         Objects.equals(this.azureCloud, auth.azureCloud) &&
         Objects.equals(this.certChallenge, auth.certChallenge) &&
         Objects.equals(this.certData, auth.certData) &&
@@ -877,7 +902,7 @@ public class Auth {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, azureCloud, certChallenge, certData, cloudId, debug, disablePafxfast, gatewaySpn, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, kerberosToken, kerberosUsername, keyData, keytabData, krb5ConfData, ldapPassword, ociAuthType, ociGroupOcid, otp, signedCertChallenge, uidToken, useRemoteBrowser, username);
+    return Objects.hash(accessId, accessKey, accessType, accountId, adminEmail, adminPassword, authViaGateway, azureCloud, certChallenge, certData, cloudId, debug, disablePafxfast, gatewaySpn, gatewayUrl, gcpAudience, json, jwt, k8sAuthConfigName, k8sServiceAccountToken, kerberosToken, kerberosUsername, keyData, keytabData, krb5ConfData, ldapPassword, ociAuthType, ociGroupOcid, otp, signedCertChallenge, uidToken, useRemoteBrowser, username);
   }
 
   @Override
@@ -890,6 +915,7 @@ public class Auth {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    adminEmail: ").append(toIndentedString(adminEmail)).append("\n");
     sb.append("    adminPassword: ").append(toIndentedString(adminPassword)).append("\n");
+    sb.append("    authViaGateway: ").append(toIndentedString(authViaGateway)).append("\n");
     sb.append("    azureCloud: ").append(toIndentedString(azureCloud)).append("\n");
     sb.append("    certChallenge: ").append(toIndentedString(certChallenge)).append("\n");
     sb.append("    certData: ").append(toIndentedString(certData)).append("\n");
@@ -934,7 +960,7 @@ public class Auth {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-id", "access-key", "access-type", "account-id", "admin-email", "admin-password", "azure-cloud", "cert-challenge", "cert-data", "cloud-id", "debug", "disable-pafxfast", "gateway-spn", "gateway-url", "gcp-audience", "json", "jwt", "k8s-auth-config-name", "k8s-service-account-token", "kerberos-token", "kerberos-username", "key-data", "keytab-data", "krb5-conf-data", "ldap-password", "oci-auth-type", "oci-group-ocid", "otp", "signed-cert-challenge", "uid-token", "use-remote-browser", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-id", "access-key", "access-type", "account-id", "admin-email", "admin-password", "auth-via-gateway", "azure-cloud", "cert-challenge", "cert-data", "cloud-id", "debug", "disable-pafxfast", "gateway-spn", "gateway-url", "gcp-audience", "json", "jwt", "k8s-auth-config-name", "k8s-service-account-token", "kerberos-token", "kerberos-username", "key-data", "keytab-data", "krb5-conf-data", "ldap-password", "oci-auth-type", "oci-group-ocid", "otp", "signed-cert-challenge", "uid-token", "use-remote-browser", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

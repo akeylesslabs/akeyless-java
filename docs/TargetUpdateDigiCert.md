@@ -9,6 +9,7 @@ targetUpdateDigiCert is a command that updates an existing DigiCert target
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**acmeChallenge** | **String** | ACME challenge type. Options: [dns] |  [optional] |
+|**certCentralApiKey** | **String** | DigiCert CertCentral API key. Optional - when set, certificate renewal reissues the existing DigiCert order instead of placing a new (billable) order. DNS challenge and production endpoints only. On target update pass it again to keep it, omitting it clears it |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
 |**digicertUrl** | **String** | DigiCert ACME endpoint selector. Options: [us-production/eu-production/us-demo/eu-demo] |  [optional] |

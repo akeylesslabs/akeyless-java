@@ -25,6 +25,7 @@ authMethodCreateK8s is a command that creates a new auth method that will be abl
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
+|**owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it |  [optional] |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
 |**publicKey** | **String** | Base64-encoded or PEM formatted public key data for K8S authentication method is required [RSA2048] |  [optional] |
 |**token** | **String** | Authentication token (see &#x60;/auth&#x60; and &#x60;/configure&#x60;) |  [optional] |

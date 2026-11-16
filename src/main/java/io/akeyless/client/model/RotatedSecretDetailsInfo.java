@@ -128,6 +128,11 @@ public class RotatedSecretDetailsInfo {
   @javax.annotation.Nullable
   private Integer numberOfVersionsToSave;
 
+  public static final String SERIALIZED_NAME_PUBLIC_KEY = "public_key";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
+  @javax.annotation.Nullable
+  private String publicKey;
+
   public static final String SERIALIZED_NAME_PUBLIC_KEY_REMOTE_PATH = "public_key_remote_path";
   @SerializedName(SERIALIZED_NAME_PUBLIC_KEY_REMOTE_PATH)
   @javax.annotation.Nullable
@@ -479,6 +484,25 @@ public class RotatedSecretDetailsInfo {
   }
 
 
+  public RotatedSecretDetailsInfo publicKey(@javax.annotation.Nullable String publicKey) {
+    this.publicKey = publicKey;
+    return this;
+  }
+
+  /**
+   * PublicKey is the OpenSSH authorized_keys line for an SSH rotated secret. Stored in the clear on item attributes so describe-item can return it under list permission.
+   * @return publicKey
+   */
+  @javax.annotation.Nullable
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  public void setPublicKey(@javax.annotation.Nullable String publicKey) {
+    this.publicKey = publicKey;
+  }
+
+
   public RotatedSecretDetailsInfo publicKeyRemotePath(@javax.annotation.Nullable String publicKeyRemotePath) {
     this.publicKeyRemotePath = publicKeyRemotePath;
     return this;
@@ -721,6 +745,7 @@ public class RotatedSecretDetailsInfo {
         Objects.equals(this.maxVersions, rotatedSecretDetailsInfo.maxVersions) &&
         Objects.equals(this.nextAutoRotateType, rotatedSecretDetailsInfo.nextAutoRotateType) &&
         Objects.equals(this.numberOfVersionsToSave, rotatedSecretDetailsInfo.numberOfVersionsToSave) &&
+        Objects.equals(this.publicKey, rotatedSecretDetailsInfo.publicKey) &&
         Objects.equals(this.publicKeyRemotePath, rotatedSecretDetailsInfo.publicKeyRemotePath) &&
         Objects.equals(this.rotationHour, rotatedSecretDetailsInfo.rotationHour) &&
         Objects.equals(this.rotationIntervalMin, rotatedSecretDetailsInfo.rotationIntervalMin) &&
@@ -736,7 +761,7 @@ public class RotatedSecretDetailsInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(awsUserName, deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, keyAlgorithm, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
+    return Objects.hash(awsUserName, deletePreviousVersionInDays, enableCustomPasswordPolicy, graceRotation, graceRotationHour, graceRotationInterval, graceRotationTiming, gwClusterId, iisAppsDetails, keyAlgorithm, lastRotationError, managedByAkeyless, maxVersions, nextAutoRotateType, numberOfVersionsToSave, publicKey, publicKeyRemotePath, rotationHour, rotationIntervalMin, rotationStatement, rotatorCredsType, rotatorStatus, rotatorType, samePassword, servicesDetails, skipDryRun, timeoutSeconds);
   }
 
   @Override
@@ -758,6 +783,7 @@ public class RotatedSecretDetailsInfo {
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    nextAutoRotateType: ").append(toIndentedString(nextAutoRotateType)).append("\n");
     sb.append("    numberOfVersionsToSave: ").append(toIndentedString(numberOfVersionsToSave)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    publicKeyRemotePath: ").append(toIndentedString(publicKeyRemotePath)).append("\n");
     sb.append("    rotationHour: ").append(toIndentedString(rotationHour)).append("\n");
     sb.append("    rotationIntervalMin: ").append(toIndentedString(rotationIntervalMin)).append("\n");
@@ -787,7 +813,7 @@ public class RotatedSecretDetailsInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("aws_user_name", "delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "key_algorithm", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
+    openapiFields = new HashSet<String>(Arrays.asList("aws_user_name", "delete_previous_version_in_days", "enable_custom_password_policy", "grace_rotation", "grace_rotation_hour", "grace_rotation_interval", "grace_rotation_timing", "gw_cluster_id", "iis_apps_details", "key_algorithm", "last_rotation_error", "managed_by_akeyless", "max_versions", "next_auto_rotate_type", "number_of_versions_to_save", "public_key", "public_key_remote_path", "rotation_hour", "rotation_interval_min", "rotation_statement", "rotator_creds_type", "rotator_status", "rotator_type", "same_password", "services_details", "skip_dry_run", "timeout_seconds"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -842,6 +868,9 @@ public class RotatedSecretDetailsInfo {
       }
       if ((jsonObj.get("next_auto_rotate_type") != null && !jsonObj.get("next_auto_rotate_type").isJsonNull()) && !jsonObj.get("next_auto_rotate_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `next_auto_rotate_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_auto_rotate_type").toString()));
+      }
+      if ((jsonObj.get("public_key") != null && !jsonObj.get("public_key").isJsonNull()) && !jsonObj.get("public_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
       }
       if ((jsonObj.get("public_key_remote_path") != null && !jsonObj.get("public_key_remote_path").isJsonNull()) && !jsonObj.get("public_key_remote_path").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `public_key_remote_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key_remote_path").toString()));

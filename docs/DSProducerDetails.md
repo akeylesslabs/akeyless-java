@@ -7,6 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**accessKey** | **String** |  |  [optional] |
+|**accessKeyId** | **String** |  |  [optional] |
 |**accessTokenManagerId** | **String** |  |  [optional] |
 |**aclRules** | **List&lt;String&gt;** |  |  [optional] |
 |**active** | **Boolean** |  |  [optional] |
@@ -32,6 +34,17 @@
 |**aerospikeSslConnectionCertificate** | **String** |  |  [optional] |
 |**aerospikeSslConnectionMode** | **Boolean** |  |  [optional] |
 |**agenticRules** | [**AgenticRules**](AgenticRules.md) |  |  [optional] |
+|**alicloudAccessMode** | **String** |  |  [optional] |
+|**alicloudExternalId** | **String** |  |  [optional] |
+|**alicloudRoleArns** | **String** |  |  [optional] |
+|**alicloudSessionPolicy** | **String** |  |  [optional] |
+|**alicloudSetSourceIdentity** | **Boolean** |  |  [optional] |
+|**alicloudSite** | **String** |  |  [optional] |
+|**alicloudUserConsoleAccess** | **Boolean** |  |  [optional] |
+|**alicloudUserGroups** | **String** |  |  [optional] |
+|**alicloudUserInlinePolicy** | **String** |  |  [optional] |
+|**alicloudUserPolicies** | **String** |  |  [optional] |
+|**alicloudUserProgrammaticAccess** | **Boolean** |  |  [optional] |
 |**apiKey** | **String** |  |  [optional] |
 |**apiKeyId** | **String** |  |  [optional] |
 |**artifactoryAdminApikey** | **String** |  |  [optional] |
@@ -260,6 +273,7 @@
 |**rdpFixedUserNameSubClaimKey** | **String** |  |  [optional] |
 |**redirectUris** | **List&lt;String&gt;** |  |  [optional] |
 |**redshiftCreationStatements** | **String** |  |  [optional] |
+|**region** | **String** |  |  [optional] |
 |**restrictedScopes** | **List&lt;String&gt;** |  |  [optional] |
 |**revokeSyncUrl** | **String** |  |  [optional] |
 |**rotateSyncUrl** | **String** |  |  [optional] |

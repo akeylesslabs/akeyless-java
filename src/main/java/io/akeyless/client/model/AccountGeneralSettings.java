@@ -230,6 +230,11 @@ public class AccountGeneralSettings {
   @javax.annotation.Nullable
   private Boolean protectItemsByDefault;
 
+  public static final String SERIALIZED_NAME_REQUIRE_AUTH_METHOD_OWNER = "require_auth_method_owner";
+  @SerializedName(SERIALIZED_NAME_REQUIRE_AUTH_METHOD_OWNER)
+  @javax.annotation.Nullable
+  private Boolean requireAuthMethodOwner;
+
   public static final String SERIALIZED_NAME_ROTATION_SECRET_MAX_INTERVAL = "rotation_secret_max_interval";
   @SerializedName(SERIALIZED_NAME_ROTATION_SECRET_MAX_INTERVAL)
   @javax.annotation.Nullable
@@ -859,6 +864,25 @@ public class AccountGeneralSettings {
   }
 
 
+  public AccountGeneralSettings requireAuthMethodOwner(@javax.annotation.Nullable Boolean requireAuthMethodOwner) {
+    this.requireAuthMethodOwner = requireAuthMethodOwner;
+    return this;
+  }
+
+  /**
+   * RequireAuthMethodOwner makes an owner mandatory when creating auth methods and on general-info updates of auth methods (see AuthMethodGeneralInfoUpdateModes).
+   * @return requireAuthMethodOwner
+   */
+  @javax.annotation.Nullable
+  public Boolean getRequireAuthMethodOwner() {
+    return requireAuthMethodOwner;
+  }
+
+  public void setRequireAuthMethodOwner(@javax.annotation.Nullable Boolean requireAuthMethodOwner) {
+    this.requireAuthMethodOwner = requireAuthMethodOwner;
+  }
+
+
   public AccountGeneralSettings rotationSecretMaxInterval(@javax.annotation.Nullable RotationSecretMaxInterval rotationSecretMaxInterval) {
     this.rotationSecretMaxInterval = rotationSecretMaxInterval;
     return this;
@@ -939,13 +963,14 @@ public class AccountGeneralSettings {
         Objects.equals(this.passwordScore, accountGeneralSettings.passwordScore) &&
         Objects.equals(this.personalFolderGlobalMapping, accountGeneralSettings.personalFolderGlobalMapping) &&
         Objects.equals(this.protectItemsByDefault, accountGeneralSettings.protectItemsByDefault) &&
+        Objects.equals(this.requireAuthMethodOwner, accountGeneralSettings.requireAuthMethodOwner) &&
         Objects.equals(this.rotationSecretMaxInterval, accountGeneralSettings.rotationSecretMaxInterval) &&
         Objects.equals(this.sharingPolicy, accountGeneralSettings.sharingPolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, aiQuorum, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, eventForwarderAllowedEmailDomains, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, rotationSecretMaxInterval, sharingPolicy);
+    return Objects.hash(accountDefaultKeyItemId, accountDefaultKeyName, accountFileBytesUsed, aiInsights, aiQuorum, allowAutoFill, allowPasskeys, allowedClientTypes, allowedClientsIps, allowedGatewaysIps, authUsageEvent, certificateExpirationEvents, dataProtectionSection, defaultAuthMethod, defaultHomePage, dynamicSecretMaxTtl, emailCustomization, enableRequestForAccess, enableSearchHistory, eventForwarderAllowedEmailDomains, hidePersonalFolder, hideSecretRevealCopy, hideStaticPassword, invalidCharacters, itemLocking, itemUsageEvent, lockDefaultKey, passwordExpirationInfo, passwordPolicy, passwordScore, personalFolderGlobalMapping, protectItemsByDefault, requireAuthMethodOwner, rotationSecretMaxInterval, sharingPolicy);
   }
 
   @Override
@@ -984,6 +1009,7 @@ public class AccountGeneralSettings {
     sb.append("    passwordScore: ").append(toIndentedString(passwordScore)).append("\n");
     sb.append("    personalFolderGlobalMapping: ").append(toIndentedString(personalFolderGlobalMapping)).append("\n");
     sb.append("    protectItemsByDefault: ").append(toIndentedString(protectItemsByDefault)).append("\n");
+    sb.append("    requireAuthMethodOwner: ").append(toIndentedString(requireAuthMethodOwner)).append("\n");
     sb.append("    rotationSecretMaxInterval: ").append(toIndentedString(rotationSecretMaxInterval)).append("\n");
     sb.append("    sharingPolicy: ").append(toIndentedString(sharingPolicy)).append("\n");
     sb.append("}");
@@ -1004,7 +1030,7 @@ public class AccountGeneralSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "ai_quorum", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "event_forwarder_allowed_email_domains", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "rotation_secret_max_interval", "sharing_policy"));
+    openapiFields = new HashSet<String>(Arrays.asList("account_default_key_item_id", "account_default_key_name", "account_file_bytes_used", "ai_insights", "ai_quorum", "allow_auto_fill", "allow_passkeys", "allowed_client_types", "allowed_clients_ips", "allowed_gateways_ips", "auth_usage_event", "certificate_expiration_events", "data_protection_section", "default_auth_method", "default_home_page", "dynamic_secret_max_ttl", "email_customization", "enable_request_for_access", "enable_search_history", "event_forwarder_allowed_email_domains", "hide_personal_folder", "hide_secret_reveal_copy", "hide_static_password", "invalid_characters", "item_locking", "item_usage_event", "lock_default_key", "password_expiration_info", "password_policy", "password_score", "personal_folder_global_mapping", "protect_items_by_default", "require_auth_method_owner", "rotation_secret_max_interval", "sharing_policy"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

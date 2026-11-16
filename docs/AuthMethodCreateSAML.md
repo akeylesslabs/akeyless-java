@@ -24,6 +24,7 @@ authMethodCreateSAML is a command that creates a new auth method that will be av
 |**json** | **Boolean** | Set output format to JSON |  [optional] |
 |**jwtTtl** | **Long** | Jwt TTL |  [optional] |
 |**name** | **String** | Auth Method name |  |
+|**owner** | **String** | Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it |  [optional] |
 |**productType** | **List&lt;String&gt;** | Choose the relevant product type for the auth method [sm, sra, pm, dp, ca, ara] |  [optional] |
 |**scimBearerAccessId** | **String** | Access ID of the API Key auth method the IdP uses as the SCIM bearer |  [optional] |
 |**scimEnabled** | **String** | Enable SCIM provisioning for this auth method [true/false] |  [optional] |

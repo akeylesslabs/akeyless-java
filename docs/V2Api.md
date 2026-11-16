@@ -141,6 +141,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**detokenize**](V2Api.md#detokenize) | **POST** /detokenize |  |
 | [**detokenizeBatch**](V2Api.md#detokenizeBatch) | **POST** /detokenize-batch |  |
 | [**dynamicSecretCreateAerospike**](V2Api.md#dynamicSecretCreateAerospike) | **POST** /dynamic-secret-create-aerospike |  |
+| [**dynamicSecretCreateAliCloud**](V2Api.md#dynamicSecretCreateAliCloud) | **POST** /dynamic-secret-create-alicloud |  |
 | [**dynamicSecretCreateArtifactory**](V2Api.md#dynamicSecretCreateArtifactory) | **POST** /dynamic-secret-create-artifactory |  |
 | [**dynamicSecretCreateAws**](V2Api.md#dynamicSecretCreateAws) | **POST** /dynamic-secret-create-aws |  |
 | [**dynamicSecretCreateAzure**](V2Api.md#dynamicSecretCreateAzure) | **POST** /dynamic-secret-create-azure |  |
@@ -177,6 +178,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**dynamicSecretTmpCredsGet**](V2Api.md#dynamicSecretTmpCredsGet) | **POST** /dynamic-secret-tmp-creds-get |  |
 | [**dynamicSecretTmpCredsUpdate**](V2Api.md#dynamicSecretTmpCredsUpdate) | **POST** /dynamic-secret-tmp-creds-update |  |
 | [**dynamicSecretUpdateAerospike**](V2Api.md#dynamicSecretUpdateAerospike) | **POST** /dynamic-secret-update-aerospike |  |
+| [**dynamicSecretUpdateAliCloud**](V2Api.md#dynamicSecretUpdateAliCloud) | **POST** /dynamic-secret-update-alicloud |  |
 | [**dynamicSecretUpdateArtifactory**](V2Api.md#dynamicSecretUpdateArtifactory) | **POST** /dynamic-secret-update-artifactory |  |
 | [**dynamicSecretUpdateAws**](V2Api.md#dynamicSecretUpdateAws) | **POST** /dynamic-secret-update-aws |  |
 | [**dynamicSecretUpdateAzure**](V2Api.md#dynamicSecretUpdateAzure) | **POST** /dynamic-secret-update-azure |  |
@@ -457,6 +459,10 @@ All URIs are relative to *https://api.akeyless.io*
 | [**rotatedSecretDeleteSync**](V2Api.md#rotatedSecretDeleteSync) | **POST** /rotated-secret-delete-sync |  |
 | [**rotatedSecretGetValue**](V2Api.md#rotatedSecretGetValue) | **POST** /rotated-secret-get-value |  |
 | [**rotatedSecretList**](V2Api.md#rotatedSecretList) | **POST** /rotated-secret-list |  |
+| [**rotatedSecretProvisionCreate**](V2Api.md#rotatedSecretProvisionCreate) | **POST** /rotated-secret-provision-create |  |
+| [**rotatedSecretProvisionDelete**](V2Api.md#rotatedSecretProvisionDelete) | **POST** /rotated-secret-provision-delete |  |
+| [**rotatedSecretProvisionPush**](V2Api.md#rotatedSecretProvisionPush) | **POST** /rotated-secret-provision-push |  |
+| [**rotatedSecretProvisionUpdate**](V2Api.md#rotatedSecretProvisionUpdate) | **POST** /rotated-secret-provision-update |  |
 | [**rotatedSecretSync**](V2Api.md#rotatedSecretSync) | **POST** /rotated-secret-sync |  |
 | [**rotatedSecretUpdateAerospike**](V2Api.md#rotatedSecretUpdateAerospike) | **POST** /rotated-secret-update-aerospike |  |
 | [**rotatedSecretUpdateAliCloud**](V2Api.md#rotatedSecretUpdateAliCloud) | **POST** /rotated-secret-update-alicloud |  |
@@ -500,6 +506,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetCreateAliCloud**](V2Api.md#targetCreateAliCloud) | **POST** /target-create-alicloud |  |
 | [**targetCreateAnthropic**](V2Api.md#targetCreateAnthropic) | **POST** /target-create-anthropic |  |
 | [**targetCreateArtifactory**](V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory |  |
+| [**targetCreateAtlassian**](V2Api.md#targetCreateAtlassian) | **POST** /target-create-atlassian |  |
 | [**targetCreateAws**](V2Api.md#targetCreateAws) | **POST** /target-create-aws |  |
 | [**targetCreateAzure**](V2Api.md#targetCreateAzure) | **POST** /target-create-azure |  |
 | [**targetCreateBedrock**](V2Api.md#targetCreateBedrock) | **POST** /target-create-bedrock |  |
@@ -545,6 +552,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetUpdateAliCloud**](V2Api.md#targetUpdateAliCloud) | **POST** /target-update-alicloud |  |
 | [**targetUpdateAnthropic**](V2Api.md#targetUpdateAnthropic) | **POST** /target-update-anthropic |  |
 | [**targetUpdateArtifactory**](V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory |  |
+| [**targetUpdateAtlassian**](V2Api.md#targetUpdateAtlassian) | **POST** /target-update-atlassian |  |
 | [**targetUpdateAws**](V2Api.md#targetUpdateAws) | **POST** /target-update-aws |  |
 | [**targetUpdateAzure**](V2Api.md#targetUpdateAzure) | **POST** /target-update-azure |  |
 | [**targetUpdateBedrock**](V2Api.md#targetUpdateBedrock) | **POST** /target-update-bedrock |  |
@@ -9033,6 +9041,67 @@ No authorization required
 | **201** | dynamicSecretCreateAerospikeResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="dynamicSecretCreateAliCloud"></a>
+# **dynamicSecretCreateAliCloud**
+> DynamicSecretCreateOutput dynamicSecretCreateAliCloud(dynamicSecretCreateAliCloud)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretCreateAliCloud dynamicSecretCreateAliCloud = new DynamicSecretCreateAliCloud(); // DynamicSecretCreateAliCloud | 
+    try {
+      DynamicSecretCreateOutput result = apiInstance.dynamicSecretCreateAliCloud(dynamicSecretCreateAliCloud);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#dynamicSecretCreateAliCloud");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dynamicSecretCreateAliCloud** | [**DynamicSecretCreateAliCloud**](DynamicSecretCreateAliCloud.md)|  | |
+
+### Return type
+
+[**DynamicSecretCreateOutput**](DynamicSecretCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | dynamicSecretCreateAliCloudResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="dynamicSecretCreateArtifactory"></a>
 # **dynamicSecretCreateArtifactory**
 > DynamicSecretCreateOutput dynamicSecretCreateArtifactory(dynamicSecretCreateArtifactory)
@@ -11225,6 +11294,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | dynamicSecretUpdateAerospikeResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="dynamicSecretUpdateAliCloud"></a>
+# **dynamicSecretUpdateAliCloud**
+> DynamicSecretUpdateOutput dynamicSecretUpdateAliCloud(dynamicSecretUpdateAliCloud)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    DynamicSecretUpdateAliCloud dynamicSecretUpdateAliCloud = new DynamicSecretUpdateAliCloud(); // DynamicSecretUpdateAliCloud | 
+    try {
+      DynamicSecretUpdateOutput result = apiInstance.dynamicSecretUpdateAliCloud(dynamicSecretUpdateAliCloud);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#dynamicSecretUpdateAliCloud");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **dynamicSecretUpdateAliCloud** | [**DynamicSecretUpdateAliCloud**](DynamicSecretUpdateAliCloud.md)|  | |
+
+### Return type
+
+[**DynamicSecretUpdateOutput**](DynamicSecretUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | dynamicSecretUpdateAliCloudResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="dynamicSecretUpdateArtifactory"></a>
@@ -28295,6 +28425,250 @@ No authorization required
 | **200** | rotatedSecretListResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="rotatedSecretProvisionCreate"></a>
+# **rotatedSecretProvisionCreate**
+> RotatedSecretProvisionAssocOutput rotatedSecretProvisionCreate(rotatedSecretProvisionCreate)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretProvisionCreate rotatedSecretProvisionCreate = new RotatedSecretProvisionCreate(); // RotatedSecretProvisionCreate | 
+    try {
+      RotatedSecretProvisionAssocOutput result = apiInstance.rotatedSecretProvisionCreate(rotatedSecretProvisionCreate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretProvisionCreate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretProvisionCreate** | [**RotatedSecretProvisionCreate**](RotatedSecretProvisionCreate.md)|  | |
+
+### Return type
+
+[**RotatedSecretProvisionAssocOutput**](RotatedSecretProvisionAssocOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="rotatedSecretProvisionDelete"></a>
+# **rotatedSecretProvisionDelete**
+> RotatedSecretProvisionAssocOutput rotatedSecretProvisionDelete(rotatedSecretProvisionDelete)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretProvisionDelete rotatedSecretProvisionDelete = new RotatedSecretProvisionDelete(); // RotatedSecretProvisionDelete | 
+    try {
+      RotatedSecretProvisionAssocOutput result = apiInstance.rotatedSecretProvisionDelete(rotatedSecretProvisionDelete);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretProvisionDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretProvisionDelete** | [**RotatedSecretProvisionDelete**](RotatedSecretProvisionDelete.md)|  | |
+
+### Return type
+
+[**RotatedSecretProvisionAssocOutput**](RotatedSecretProvisionAssocOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="rotatedSecretProvisionPush"></a>
+# **rotatedSecretProvisionPush**
+> ProvisionSSHRotatedSecretOutput rotatedSecretProvisionPush(rotatedSecretProvisionPush)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretProvisionPush rotatedSecretProvisionPush = new RotatedSecretProvisionPush(); // RotatedSecretProvisionPush | 
+    try {
+      ProvisionSSHRotatedSecretOutput result = apiInstance.rotatedSecretProvisionPush(rotatedSecretProvisionPush);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretProvisionPush");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretProvisionPush** | [**RotatedSecretProvisionPush**](RotatedSecretProvisionPush.md)|  | |
+
+### Return type
+
+[**ProvisionSSHRotatedSecretOutput**](ProvisionSSHRotatedSecretOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="rotatedSecretProvisionUpdate"></a>
+# **rotatedSecretProvisionUpdate**
+> RotatedSecretProvisionAssocOutput rotatedSecretProvisionUpdate(rotatedSecretProvisionUpdate)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    RotatedSecretProvisionUpdate rotatedSecretProvisionUpdate = new RotatedSecretProvisionUpdate(); // RotatedSecretProvisionUpdate | 
+    try {
+      RotatedSecretProvisionAssocOutput result = apiInstance.rotatedSecretProvisionUpdate(rotatedSecretProvisionUpdate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#rotatedSecretProvisionUpdate");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **rotatedSecretProvisionUpdate** | [**RotatedSecretProvisionUpdate**](RotatedSecretProvisionUpdate.md)|  | |
+
+### Return type
+
+[**RotatedSecretProvisionAssocOutput**](RotatedSecretProvisionAssocOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** |  |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="rotatedSecretSync"></a>
 # **rotatedSecretSync**
 > Object rotatedSecretSync(rotatedSecretSync)
@@ -30916,6 +31290,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetCreateArtifactoryResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetCreateAtlassian"></a>
+# **targetCreateAtlassian**
+> TargetCreateOutput targetCreateAtlassian(targetCreateAtlassian)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateAtlassian targetCreateAtlassian = new TargetCreateAtlassian(); // TargetCreateAtlassian | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateAtlassian(targetCreateAtlassian);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateAtlassian");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateAtlassian** | [**TargetCreateAtlassian**](TargetCreateAtlassian.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateAtlassianResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetCreateAws"></a>
@@ -33661,6 +34096,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetUpdateArtifactoryResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetUpdateAtlassian"></a>
+# **targetUpdateAtlassian**
+> TargetUpdateOutput targetUpdateAtlassian(targetUpdateAtlassian)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateAtlassian targetUpdateAtlassian = new TargetUpdateAtlassian(); // TargetUpdateAtlassian | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateAtlassian(targetUpdateAtlassian);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateAtlassian");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateAtlassian** | [**TargetUpdateAtlassian**](TargetUpdateAtlassian.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateAtlassianResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetUpdateAws"></a>

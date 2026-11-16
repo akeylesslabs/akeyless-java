@@ -122,6 +122,11 @@ public class AuthMethodUpdateOCI {
   @javax.annotation.Nullable
   private String newName;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -459,6 +464,25 @@ public class AuthMethodUpdateOCI {
   }
 
 
+  public AuthMethodUpdateOCI owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodUpdateOCI productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -567,6 +591,7 @@ public class AuthMethodUpdateOCI {
         Objects.equals(this.jwtTtl, authMethodUpdateOCI.jwtTtl) &&
         Objects.equals(this.name, authMethodUpdateOCI.name) &&
         Objects.equals(this.newName, authMethodUpdateOCI.newName) &&
+        Objects.equals(this.owner, authMethodUpdateOCI.owner) &&
         Objects.equals(this.productType, authMethodUpdateOCI.productType) &&
         Objects.equals(this.tenantOcid, authMethodUpdateOCI.tenantOcid) &&
         Objects.equals(this.token, authMethodUpdateOCI.token) &&
@@ -575,7 +600,7 @@ public class AuthMethodUpdateOCI {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, productType, tenantOcid, token, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, groupOcid, gwBoundIps, json, jwtTtl, name, newName, owner, productType, tenantOcid, token, uidToken);
   }
 
   @Override
@@ -596,6 +621,7 @@ public class AuthMethodUpdateOCI {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    tenantOcid: ").append(toIndentedString(tenantOcid)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -618,7 +644,7 @@ public class AuthMethodUpdateOCI {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "group-ocid", "gw-bound-ips", "json", "jwt-ttl", "name", "new-name", "product-type", "tenant-ocid", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "group-ocid", "gw-bound-ips", "json", "jwt-ttl", "name", "new-name", "owner", "product-type", "tenant-ocid", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("group-ocid", "name", "tenant-ocid"));
@@ -689,6 +715,9 @@ public class AuthMethodUpdateOCI {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

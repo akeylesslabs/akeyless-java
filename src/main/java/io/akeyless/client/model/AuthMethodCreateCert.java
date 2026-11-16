@@ -152,6 +152,11 @@ public class AuthMethodCreateCert {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -653,6 +658,25 @@ public class AuthMethodCreateCert {
   }
 
 
+  public AuthMethodCreateCert owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodCreateCert productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -813,6 +837,7 @@ public class AuthMethodCreateCert {
         Objects.equals(this.json, authMethodCreateCert.json) &&
         Objects.equals(this.jwtTtl, authMethodCreateCert.jwtTtl) &&
         Objects.equals(this.name, authMethodCreateCert.name) &&
+        Objects.equals(this.owner, authMethodCreateCert.owner) &&
         Objects.equals(this.productType, authMethodCreateCert.productType) &&
         Objects.equals(this.requireCrlDp, authMethodCreateCert.requireCrlDp) &&
         Objects.equals(this.revokedCertIds, authMethodCreateCert.revokedCertIds) &&
@@ -823,7 +848,7 @@ public class AuthMethodCreateCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, productType, requireCrlDp, revokedCertIds, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, allowedCors, auditLogsClaims, boundCommonNames, boundDnsSans, boundEmailSans, boundExtensions, boundIps, boundOrganizationalUnits, boundUriSans, certificateData, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, name, owner, productType, requireCrlDp, revokedCertIds, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -850,6 +875,7 @@ public class AuthMethodCreateCert {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    requireCrlDp: ").append(toIndentedString(requireCrlDp)).append("\n");
     sb.append("    revokedCertIds: ").append(toIndentedString(revokedCertIds)).append("\n");
@@ -874,7 +900,7 @@ public class AuthMethodCreateCert {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-cors", "audit-logs-claims", "bound-common-names", "bound-dns-sans", "bound-email-sans", "bound-extensions", "bound-ips", "bound-organizational-units", "bound-uri-sans", "certificate-data", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "product-type", "require-crl-dp", "revoked-cert-ids", "token", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-cors", "audit-logs-claims", "bound-common-names", "bound-dns-sans", "bound-email-sans", "bound-extensions", "bound-ips", "bound-organizational-units", "bound-uri-sans", "certificate-data", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "name", "owner", "product-type", "require-crl-dp", "revoked-cert-ids", "token", "uid-token", "unique-identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -966,6 +992,9 @@ public class AuthMethodCreateCert {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

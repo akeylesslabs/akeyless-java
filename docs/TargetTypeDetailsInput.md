@@ -11,6 +11,7 @@
 |**alicloudTargetDetails** | [**AliCloudTargetDetails**](AliCloudTargetDetails.md) |  |  [optional] |
 |**anthropicTargetDetails** | [**AnthropicTargetDetails**](AnthropicTargetDetails.md) |  |  [optional] |
 |**artifactoryTargetDetails** | [**ArtifactoryTargetDetails**](ArtifactoryTargetDetails.md) |  |  [optional] |
+|**atlassianTargetDetails** | [**AtlassianTargetDetails**](AtlassianTargetDetails.md) |  |  [optional] |
 |**awsTargetDetails** | [**AWSTargetDetails**](AWSTargetDetails.md) |  |  [optional] |
 |**azureTargetDetails** | [**AzureTargetDetails**](AzureTargetDetails.md) |  |  [optional] |
 |**bedrockTargetDetails** | [**BedrockTargetDetails**](BedrockTargetDetails.md) |  |  [optional] |

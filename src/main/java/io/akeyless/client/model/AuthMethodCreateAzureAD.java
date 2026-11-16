@@ -172,6 +172,11 @@ public class AuthMethodCreateAzureAD {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -755,6 +760,25 @@ public class AuthMethodCreateAzureAD {
   }
 
 
+  public AuthMethodCreateAzureAD owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodCreateAzureAD productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -873,6 +897,7 @@ public class AuthMethodCreateAzureAD {
         Objects.equals(this.jwksUri, authMethodCreateAzureAD.jwksUri) &&
         Objects.equals(this.jwtTtl, authMethodCreateAzureAD.jwtTtl) &&
         Objects.equals(this.name, authMethodCreateAzureAD.name) &&
+        Objects.equals(this.owner, authMethodCreateAzureAD.owner) &&
         Objects.equals(this.productType, authMethodCreateAzureAD.productType) &&
         Objects.equals(this.token, authMethodCreateAzureAD.token) &&
         Objects.equals(this.uidToken, authMethodCreateAzureAD.uidToken) &&
@@ -881,7 +906,7 @@ public class AuthMethodCreateAzureAD {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, productType, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, audience, auditLogsClaims, boundGroupId, boundIps, boundProviders, boundResourceId, boundResourceNames, boundResourceTypes, boundRgId, boundSpid, boundSubId, boundTenantId, deleteProtection, description, expirationEventIn, forceSubClaims, gwBoundIps, issuer, json, jwksUri, jwtTtl, name, owner, productType, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -912,6 +937,7 @@ public class AuthMethodCreateAzureAD {
     sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -934,7 +960,7 @@ public class AuthMethodCreateAzureAD {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-group-id", "bound-ips", "bound-providers", "bound-resource-id", "bound-resource-names", "bound-resource-types", "bound-rg-id", "bound-spid", "bound-sub-id", "bound-tenant-id", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "issuer", "json", "jwks-uri", "jwt-ttl", "name", "product-type", "token", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audience", "audit-logs-claims", "bound-group-id", "bound-ips", "bound-providers", "bound-resource-id", "bound-resource-names", "bound-resource-types", "bound-rg-id", "bound-spid", "bound-sub-id", "bound-tenant-id", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "issuer", "json", "jwks-uri", "jwt-ttl", "name", "owner", "product-type", "token", "uid-token", "unique-identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("bound-tenant-id", "name"));
@@ -1040,6 +1066,9 @@ public class AuthMethodCreateAzureAD {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

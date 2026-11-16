@@ -243,6 +243,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**detokenize**](docs/V2Api.md#detokenize) | **POST** /detokenize | 
 *V2Api* | [**detokenizeBatch**](docs/V2Api.md#detokenizeBatch) | **POST** /detokenize-batch | 
 *V2Api* | [**dynamicSecretCreateAerospike**](docs/V2Api.md#dynamicSecretCreateAerospike) | **POST** /dynamic-secret-create-aerospike | 
+*V2Api* | [**dynamicSecretCreateAliCloud**](docs/V2Api.md#dynamicSecretCreateAliCloud) | **POST** /dynamic-secret-create-alicloud | 
 *V2Api* | [**dynamicSecretCreateArtifactory**](docs/V2Api.md#dynamicSecretCreateArtifactory) | **POST** /dynamic-secret-create-artifactory | 
 *V2Api* | [**dynamicSecretCreateAws**](docs/V2Api.md#dynamicSecretCreateAws) | **POST** /dynamic-secret-create-aws | 
 *V2Api* | [**dynamicSecretCreateAzure**](docs/V2Api.md#dynamicSecretCreateAzure) | **POST** /dynamic-secret-create-azure | 
@@ -279,6 +280,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**dynamicSecretTmpCredsGet**](docs/V2Api.md#dynamicSecretTmpCredsGet) | **POST** /dynamic-secret-tmp-creds-get | 
 *V2Api* | [**dynamicSecretTmpCredsUpdate**](docs/V2Api.md#dynamicSecretTmpCredsUpdate) | **POST** /dynamic-secret-tmp-creds-update | 
 *V2Api* | [**dynamicSecretUpdateAerospike**](docs/V2Api.md#dynamicSecretUpdateAerospike) | **POST** /dynamic-secret-update-aerospike | 
+*V2Api* | [**dynamicSecretUpdateAliCloud**](docs/V2Api.md#dynamicSecretUpdateAliCloud) | **POST** /dynamic-secret-update-alicloud | 
 *V2Api* | [**dynamicSecretUpdateArtifactory**](docs/V2Api.md#dynamicSecretUpdateArtifactory) | **POST** /dynamic-secret-update-artifactory | 
 *V2Api* | [**dynamicSecretUpdateAws**](docs/V2Api.md#dynamicSecretUpdateAws) | **POST** /dynamic-secret-update-aws | 
 *V2Api* | [**dynamicSecretUpdateAzure**](docs/V2Api.md#dynamicSecretUpdateAzure) | **POST** /dynamic-secret-update-azure | 
@@ -559,6 +561,10 @@ Class | Method | HTTP request | Description
 *V2Api* | [**rotatedSecretDeleteSync**](docs/V2Api.md#rotatedSecretDeleteSync) | **POST** /rotated-secret-delete-sync | 
 *V2Api* | [**rotatedSecretGetValue**](docs/V2Api.md#rotatedSecretGetValue) | **POST** /rotated-secret-get-value | 
 *V2Api* | [**rotatedSecretList**](docs/V2Api.md#rotatedSecretList) | **POST** /rotated-secret-list | 
+*V2Api* | [**rotatedSecretProvisionCreate**](docs/V2Api.md#rotatedSecretProvisionCreate) | **POST** /rotated-secret-provision-create | 
+*V2Api* | [**rotatedSecretProvisionDelete**](docs/V2Api.md#rotatedSecretProvisionDelete) | **POST** /rotated-secret-provision-delete | 
+*V2Api* | [**rotatedSecretProvisionPush**](docs/V2Api.md#rotatedSecretProvisionPush) | **POST** /rotated-secret-provision-push | 
+*V2Api* | [**rotatedSecretProvisionUpdate**](docs/V2Api.md#rotatedSecretProvisionUpdate) | **POST** /rotated-secret-provision-update | 
 *V2Api* | [**rotatedSecretSync**](docs/V2Api.md#rotatedSecretSync) | **POST** /rotated-secret-sync | 
 *V2Api* | [**rotatedSecretUpdateAerospike**](docs/V2Api.md#rotatedSecretUpdateAerospike) | **POST** /rotated-secret-update-aerospike | 
 *V2Api* | [**rotatedSecretUpdateAliCloud**](docs/V2Api.md#rotatedSecretUpdateAliCloud) | **POST** /rotated-secret-update-alicloud | 
@@ -602,6 +608,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateAliCloud**](docs/V2Api.md#targetCreateAliCloud) | **POST** /target-create-alicloud | 
 *V2Api* | [**targetCreateAnthropic**](docs/V2Api.md#targetCreateAnthropic) | **POST** /target-create-anthropic | 
 *V2Api* | [**targetCreateArtifactory**](docs/V2Api.md#targetCreateArtifactory) | **POST** /target-create-artifactory | 
+*V2Api* | [**targetCreateAtlassian**](docs/V2Api.md#targetCreateAtlassian) | **POST** /target-create-atlassian | 
 *V2Api* | [**targetCreateAws**](docs/V2Api.md#targetCreateAws) | **POST** /target-create-aws | 
 *V2Api* | [**targetCreateAzure**](docs/V2Api.md#targetCreateAzure) | **POST** /target-create-azure | 
 *V2Api* | [**targetCreateBedrock**](docs/V2Api.md#targetCreateBedrock) | **POST** /target-create-bedrock | 
@@ -647,6 +654,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateAliCloud**](docs/V2Api.md#targetUpdateAliCloud) | **POST** /target-update-alicloud | 
 *V2Api* | [**targetUpdateAnthropic**](docs/V2Api.md#targetUpdateAnthropic) | **POST** /target-update-anthropic | 
 *V2Api* | [**targetUpdateArtifactory**](docs/V2Api.md#targetUpdateArtifactory) | **POST** /target-update-artifactory | 
+*V2Api* | [**targetUpdateAtlassian**](docs/V2Api.md#targetUpdateAtlassian) | **POST** /target-update-atlassian | 
 *V2Api* | [**targetUpdateAws**](docs/V2Api.md#targetUpdateAws) | **POST** /target-update-aws | 
 *V2Api* | [**targetUpdateAzure**](docs/V2Api.md#targetUpdateAzure) | **POST** /target-update-azure | 
 *V2Api* | [**targetUpdateBedrock**](docs/V2Api.md#targetUpdateBedrock) | **POST** /target-update-bedrock | 
@@ -820,6 +828,7 @@ Class | Method | HTTP request | Description
  - [ArtifactoryTargetDetails](docs/ArtifactoryTargetDetails.md)
  - [AssocRoleAuthMethod](docs/AssocRoleAuthMethod.md)
  - [AssocTargetItem](docs/AssocTargetItem.md)
+ - [AtlassianTargetDetails](docs/AtlassianTargetDetails.md)
  - [AttributeTypeAndValue](docs/AttributeTypeAndValue.md)
  - [Auth](docs/Auth.md)
  - [AuthExpirationEvent](docs/AuthExpirationEvent.md)
@@ -1094,6 +1103,7 @@ Class | Method | HTTP request | Description
  - [DigiCertTargetDetails](docs/DigiCertTargetDetails.md)
  - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
  - [DynamicSecretCreateAerospike](docs/DynamicSecretCreateAerospike.md)
+ - [DynamicSecretCreateAliCloud](docs/DynamicSecretCreateAliCloud.md)
  - [DynamicSecretCreateArtifactory](docs/DynamicSecretCreateArtifactory.md)
  - [DynamicSecretCreateAws](docs/DynamicSecretCreateAws.md)
  - [DynamicSecretCreateAzure](docs/DynamicSecretCreateAzure.md)
@@ -1135,6 +1145,7 @@ Class | Method | HTTP request | Description
  - [DynamicSecretTmpCredsGet](docs/DynamicSecretTmpCredsGet.md)
  - [DynamicSecretTmpCredsUpdate](docs/DynamicSecretTmpCredsUpdate.md)
  - [DynamicSecretUpdateAerospike](docs/DynamicSecretUpdateAerospike.md)
+ - [DynamicSecretUpdateAliCloud](docs/DynamicSecretUpdateAliCloud.md)
  - [DynamicSecretUpdateArtifactory](docs/DynamicSecretUpdateArtifactory.md)
  - [DynamicSecretUpdateAws](docs/DynamicSecretUpdateAws.md)
  - [DynamicSecretUpdateAzure](docs/DynamicSecretUpdateAzure.md)
@@ -1654,6 +1665,7 @@ Class | Method | HTTP request | Description
  - [ProducersConfigPart](docs/ProducersConfigPart.md)
  - [ProvisionCertificate](docs/ProvisionCertificate.md)
  - [ProvisionCertificateOutput](docs/ProvisionCertificateOutput.md)
+ - [ProvisionSSHRotatedSecretOutput](docs/ProvisionSSHRotatedSecretOutput.md)
  - [RabbitMQTargetDetails](docs/RabbitMQTargetDetails.md)
  - [RawCreds](docs/RawCreds.md)
  - [RefreshKey](docs/RefreshKey.md)
@@ -1715,6 +1727,11 @@ Class | Method | HTTP request | Description
  - [RotatedSecretGetValue](docs/RotatedSecretGetValue.md)
  - [RotatedSecretList](docs/RotatedSecretList.md)
  - [RotatedSecretOutput](docs/RotatedSecretOutput.md)
+ - [RotatedSecretProvisionAssocOutput](docs/RotatedSecretProvisionAssocOutput.md)
+ - [RotatedSecretProvisionCreate](docs/RotatedSecretProvisionCreate.md)
+ - [RotatedSecretProvisionDelete](docs/RotatedSecretProvisionDelete.md)
+ - [RotatedSecretProvisionPush](docs/RotatedSecretProvisionPush.md)
+ - [RotatedSecretProvisionUpdate](docs/RotatedSecretProvisionUpdate.md)
  - [RotatedSecretSync](docs/RotatedSecretSync.md)
  - [RotatedSecretUpdateAerospike](docs/RotatedSecretUpdateAerospike.md)
  - [RotatedSecretUpdateAliCloud](docs/RotatedSecretUpdateAliCloud.md)
@@ -1810,6 +1827,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateAliCloud](docs/TargetCreateAliCloud.md)
  - [TargetCreateAnthropic](docs/TargetCreateAnthropic.md)
  - [TargetCreateArtifactory](docs/TargetCreateArtifactory.md)
+ - [TargetCreateAtlassian](docs/TargetCreateAtlassian.md)
  - [TargetCreateAws](docs/TargetCreateAws.md)
  - [TargetCreateAzure](docs/TargetCreateAzure.md)
  - [TargetCreateBedrock](docs/TargetCreateBedrock.md)
@@ -1861,6 +1879,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateAliCloud](docs/TargetUpdateAliCloud.md)
  - [TargetUpdateAnthropic](docs/TargetUpdateAnthropic.md)
  - [TargetUpdateArtifactory](docs/TargetUpdateArtifactory.md)
+ - [TargetUpdateAtlassian](docs/TargetUpdateAtlassian.md)
  - [TargetUpdateAws](docs/TargetUpdateAws.md)
  - [TargetUpdateAzure](docs/TargetUpdateAzure.md)
  - [TargetUpdateBedrock](docs/TargetUpdateBedrock.md)

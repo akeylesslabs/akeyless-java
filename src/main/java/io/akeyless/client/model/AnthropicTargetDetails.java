@@ -60,6 +60,41 @@ public class AnthropicTargetDetails {
   @javax.annotation.Nullable
   private String apiKey;
 
+  public static final String SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY = "use_gw_cloud_identity";
+  @SerializedName(SERIALIZED_NAME_USE_GW_CLOUD_IDENTITY)
+  @javax.annotation.Nullable
+  private Boolean useGwCloudIdentity;
+
+  public static final String SERIALIZED_NAME_WIF_AZURE_AUDIENCE = "wif_azure_audience";
+  @SerializedName(SERIALIZED_NAME_WIF_AZURE_AUDIENCE)
+  @javax.annotation.Nullable
+  private String wifAzureAudience;
+
+  public static final String SERIALIZED_NAME_WIF_FEDERATION_RULE_ID = "wif_federation_rule_id";
+  @SerializedName(SERIALIZED_NAME_WIF_FEDERATION_RULE_ID)
+  @javax.annotation.Nullable
+  private String wifFederationRuleId;
+
+  public static final String SERIALIZED_NAME_WIF_IDENTITY_TOKEN_SOURCE = "wif_identity_token_source";
+  @SerializedName(SERIALIZED_NAME_WIF_IDENTITY_TOKEN_SOURCE)
+  @javax.annotation.Nullable
+  private String wifIdentityTokenSource;
+
+  public static final String SERIALIZED_NAME_WIF_ORGANIZATION_ID = "wif_organization_id";
+  @SerializedName(SERIALIZED_NAME_WIF_ORGANIZATION_ID)
+  @javax.annotation.Nullable
+  private String wifOrganizationId;
+
+  public static final String SERIALIZED_NAME_WIF_SERVICE_ACCOUNT_ID = "wif_service_account_id";
+  @SerializedName(SERIALIZED_NAME_WIF_SERVICE_ACCOUNT_ID)
+  @javax.annotation.Nullable
+  private String wifServiceAccountId;
+
+  public static final String SERIALIZED_NAME_WIF_WORKSPACE_ID = "wif_workspace_id";
+  @SerializedName(SERIALIZED_NAME_WIF_WORKSPACE_ID)
+  @javax.annotation.Nullable
+  private String wifWorkspaceId;
+
   public AnthropicTargetDetails() {
   }
 
@@ -101,6 +136,139 @@ public class AnthropicTargetDetails {
   }
 
 
+  public AnthropicTargetDetails useGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+    return this;
+  }
+
+  /**
+   * UseGatewayCloudIdentity authenticates with Anthropic Workload Identity Federation instead of ApiKey: the Gateway exchanges its own identity token for a short-lived Anthropic access token. ApiKey must be empty. See go/src/targets/llm/anthropic_wif_client.go.
+   * @return useGwCloudIdentity
+   */
+  @javax.annotation.Nullable
+  public Boolean getUseGwCloudIdentity() {
+    return useGwCloudIdentity;
+  }
+
+  public void setUseGwCloudIdentity(@javax.annotation.Nullable Boolean useGwCloudIdentity) {
+    this.useGwCloudIdentity = useGwCloudIdentity;
+  }
+
+
+  public AnthropicTargetDetails wifAzureAudience(@javax.annotation.Nullable String wifAzureAudience) {
+    this.wifAzureAudience = wifAzureAudience;
+    return this;
+  }
+
+  /**
+   * WIFAzureAudience is the identifier URI (api://&lt;app-id&gt;) of the Entra app registration that represents the Claude API audience. Required with the azure source, empty with every other source.
+   * @return wifAzureAudience
+   */
+  @javax.annotation.Nullable
+  public String getWifAzureAudience() {
+    return wifAzureAudience;
+  }
+
+  public void setWifAzureAudience(@javax.annotation.Nullable String wifAzureAudience) {
+    this.wifAzureAudience = wifAzureAudience;
+  }
+
+
+  public AnthropicTargetDetails wifFederationRuleId(@javax.annotation.Nullable String wifFederationRuleId) {
+    this.wifFederationRuleId = wifFederationRuleId;
+    return this;
+  }
+
+  /**
+   * WIFFederationRuleID is the federation rule ID (fdrl_...).
+   * @return wifFederationRuleId
+   */
+  @javax.annotation.Nullable
+  public String getWifFederationRuleId() {
+    return wifFederationRuleId;
+  }
+
+  public void setWifFederationRuleId(@javax.annotation.Nullable String wifFederationRuleId) {
+    this.wifFederationRuleId = wifFederationRuleId;
+  }
+
+
+  public AnthropicTargetDetails wifIdentityTokenSource(@javax.annotation.Nullable String wifIdentityTokenSource) {
+    this.wifIdentityTokenSource = wifIdentityTokenSource;
+    return this;
+  }
+
+  /**
+   * WIFIdentityTokenSource selects where the Gateway takes its identity token: file (default, projected Kubernetes or SPIFFE token), gcp (Google Cloud metadata server), aws (STS web identity token) or azure (Microsoft Entra ID).
+   * @return wifIdentityTokenSource
+   */
+  @javax.annotation.Nullable
+  public String getWifIdentityTokenSource() {
+    return wifIdentityTokenSource;
+  }
+
+  public void setWifIdentityTokenSource(@javax.annotation.Nullable String wifIdentityTokenSource) {
+    this.wifIdentityTokenSource = wifIdentityTokenSource;
+  }
+
+
+  public AnthropicTargetDetails wifOrganizationId(@javax.annotation.Nullable String wifOrganizationId) {
+    this.wifOrganizationId = wifOrganizationId;
+    return this;
+  }
+
+  /**
+   * WIFOrganizationID is the UUID of the Anthropic organization.
+   * @return wifOrganizationId
+   */
+  @javax.annotation.Nullable
+  public String getWifOrganizationId() {
+    return wifOrganizationId;
+  }
+
+  public void setWifOrganizationId(@javax.annotation.Nullable String wifOrganizationId) {
+    this.wifOrganizationId = wifOrganizationId;
+  }
+
+
+  public AnthropicTargetDetails wifServiceAccountId(@javax.annotation.Nullable String wifServiceAccountId) {
+    this.wifServiceAccountId = wifServiceAccountId;
+    return this;
+  }
+
+  /**
+   * WIFServiceAccountID is the Claude service account ID (svac_...).
+   * @return wifServiceAccountId
+   */
+  @javax.annotation.Nullable
+  public String getWifServiceAccountId() {
+    return wifServiceAccountId;
+  }
+
+  public void setWifServiceAccountId(@javax.annotation.Nullable String wifServiceAccountId) {
+    this.wifServiceAccountId = wifServiceAccountId;
+  }
+
+
+  public AnthropicTargetDetails wifWorkspaceId(@javax.annotation.Nullable String wifWorkspaceId) {
+    this.wifWorkspaceId = wifWorkspaceId;
+    return this;
+  }
+
+  /**
+   * WIFWorkspaceID is the optional workspace ID (wrkspc_...). Required by Anthropic only when the rule is enabled for more than one workspace.
+   * @return wifWorkspaceId
+   */
+  @javax.annotation.Nullable
+  public String getWifWorkspaceId() {
+    return wifWorkspaceId;
+  }
+
+  public void setWifWorkspaceId(@javax.annotation.Nullable String wifWorkspaceId) {
+    this.wifWorkspaceId = wifWorkspaceId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -112,12 +280,19 @@ public class AnthropicTargetDetails {
     }
     AnthropicTargetDetails anthropicTargetDetails = (AnthropicTargetDetails) o;
     return Objects.equals(this.anthropicUrl, anthropicTargetDetails.anthropicUrl) &&
-        Objects.equals(this.apiKey, anthropicTargetDetails.apiKey);
+        Objects.equals(this.apiKey, anthropicTargetDetails.apiKey) &&
+        Objects.equals(this.useGwCloudIdentity, anthropicTargetDetails.useGwCloudIdentity) &&
+        Objects.equals(this.wifAzureAudience, anthropicTargetDetails.wifAzureAudience) &&
+        Objects.equals(this.wifFederationRuleId, anthropicTargetDetails.wifFederationRuleId) &&
+        Objects.equals(this.wifIdentityTokenSource, anthropicTargetDetails.wifIdentityTokenSource) &&
+        Objects.equals(this.wifOrganizationId, anthropicTargetDetails.wifOrganizationId) &&
+        Objects.equals(this.wifServiceAccountId, anthropicTargetDetails.wifServiceAccountId) &&
+        Objects.equals(this.wifWorkspaceId, anthropicTargetDetails.wifWorkspaceId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(anthropicUrl, apiKey);
+    return Objects.hash(anthropicUrl, apiKey, useGwCloudIdentity, wifAzureAudience, wifFederationRuleId, wifIdentityTokenSource, wifOrganizationId, wifServiceAccountId, wifWorkspaceId);
   }
 
   @Override
@@ -126,6 +301,13 @@ public class AnthropicTargetDetails {
     sb.append("class AnthropicTargetDetails {\n");
     sb.append("    anthropicUrl: ").append(toIndentedString(anthropicUrl)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
+    sb.append("    useGwCloudIdentity: ").append(toIndentedString(useGwCloudIdentity)).append("\n");
+    sb.append("    wifAzureAudience: ").append(toIndentedString(wifAzureAudience)).append("\n");
+    sb.append("    wifFederationRuleId: ").append(toIndentedString(wifFederationRuleId)).append("\n");
+    sb.append("    wifIdentityTokenSource: ").append(toIndentedString(wifIdentityTokenSource)).append("\n");
+    sb.append("    wifOrganizationId: ").append(toIndentedString(wifOrganizationId)).append("\n");
+    sb.append("    wifServiceAccountId: ").append(toIndentedString(wifServiceAccountId)).append("\n");
+    sb.append("    wifWorkspaceId: ").append(toIndentedString(wifWorkspaceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -144,7 +326,7 @@ public class AnthropicTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("anthropic_url", "api_key"));
+    openapiFields = new HashSet<String>(Arrays.asList("anthropic_url", "api_key", "use_gw_cloud_identity", "wif_azure_audience", "wif_federation_rule_id", "wif_identity_token_source", "wif_organization_id", "wif_service_account_id", "wif_workspace_id"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -176,6 +358,24 @@ public class AnthropicTargetDetails {
       }
       if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()) && !jsonObj.get("api_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
+      }
+      if ((jsonObj.get("wif_azure_audience") != null && !jsonObj.get("wif_azure_audience").isJsonNull()) && !jsonObj.get("wif_azure_audience").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wif_azure_audience` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wif_azure_audience").toString()));
+      }
+      if ((jsonObj.get("wif_federation_rule_id") != null && !jsonObj.get("wif_federation_rule_id").isJsonNull()) && !jsonObj.get("wif_federation_rule_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wif_federation_rule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wif_federation_rule_id").toString()));
+      }
+      if ((jsonObj.get("wif_identity_token_source") != null && !jsonObj.get("wif_identity_token_source").isJsonNull()) && !jsonObj.get("wif_identity_token_source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wif_identity_token_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wif_identity_token_source").toString()));
+      }
+      if ((jsonObj.get("wif_organization_id") != null && !jsonObj.get("wif_organization_id").isJsonNull()) && !jsonObj.get("wif_organization_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wif_organization_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wif_organization_id").toString()));
+      }
+      if ((jsonObj.get("wif_service_account_id") != null && !jsonObj.get("wif_service_account_id").isJsonNull()) && !jsonObj.get("wif_service_account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wif_service_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wif_service_account_id").toString()));
+      }
+      if ((jsonObj.get("wif_workspace_id") != null && !jsonObj.get("wif_workspace_id").isJsonNull()) && !jsonObj.get("wif_workspace_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `wif_workspace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wif_workspace_id").toString()));
       }
   }
 

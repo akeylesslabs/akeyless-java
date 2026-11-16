@@ -272,6 +272,11 @@ public class UpdateAccountSettings {
   @javax.annotation.Nullable
   private String postalCode;
 
+  public static final String SERIALIZED_NAME_REQUIRE_AUTH_METHOD_OWNER = "require-auth-method-owner";
+  @SerializedName(SERIALIZED_NAME_REQUIRE_AUTH_METHOD_OWNER)
+  @javax.annotation.Nullable
+  private String requireAuthMethodOwner;
+
   public static final String SERIALIZED_NAME_TOKEN = "token";
   @SerializedName(SERIALIZED_NAME_TOKEN)
   @javax.annotation.Nullable
@@ -1196,6 +1201,25 @@ public class UpdateAccountSettings {
   }
 
 
+  public UpdateAccountSettings requireAuthMethodOwner(@javax.annotation.Nullable String requireAuthMethodOwner) {
+    this.requireAuthMethodOwner = requireAuthMethodOwner;
+    return this;
+  }
+
+  /**
+   * Require an owner when creating or updating authentication methods [true/false]
+   * @return requireAuthMethodOwner
+   */
+  @javax.annotation.Nullable
+  public String getRequireAuthMethodOwner() {
+    return requireAuthMethodOwner;
+  }
+
+  public void setRequireAuthMethodOwner(@javax.annotation.Nullable String requireAuthMethodOwner) {
+    this.requireAuthMethodOwner = requireAuthMethodOwner;
+  }
+
+
   public UpdateAccountSettings token(@javax.annotation.Nullable String token) {
     this.token = token;
     return this;
@@ -1421,6 +1445,7 @@ public class UpdateAccountSettings {
         Objects.equals(this.passwordLength, updateAccountSettings.passwordLength) &&
         Objects.equals(this.phone, updateAccountSettings.phone) &&
         Objects.equals(this.postalCode, updateAccountSettings.postalCode) &&
+        Objects.equals(this.requireAuthMethodOwner, updateAccountSettings.requireAuthMethodOwner) &&
         Objects.equals(this.token, updateAccountSettings.token) &&
         Objects.equals(this.uidToken, updateAccountSettings.uidToken) &&
         Objects.equals(this.usageEventEnable, updateAccountSettings.usageEventEnable) &&
@@ -1434,7 +1459,7 @@ public class UpdateAccountSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableAiQuorum, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemLockingEnabled, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, lockMaxTtl, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
+    return Objects.hash(address, allowedClientType, allowedEmailDomains, boundIps, city, companyName, country, defaultCertificateExpirationNotificationDays, defaultKeyName, defaultShareLinkTtlMinutes, defaultVersioning, dpEnableClassicKeyProtection, dynamicSecretMaxTtl, dynamicSecretMaxTtlEnable, enableAiInsights, enableAiQuorum, enableDefaultCertificateExpirationEvent, enableItemSharing, enablePasswordExpiration, forceNewVersions, gwBoundIps, hidePersonalFolder, hideStaticPassword, invalidCharacters, itemLockingEnabled, itemType, itemsDeletionProtection, json, jwtTtlDefault, jwtTtlMax, jwtTtlMin, lockAllowedClientType, lockBoundIps, lockDefaultKey, lockGwBoundIps, lockMaxTtl, maxRotationInterval, maxRotationIntervalEnable, maxVersions, passwordExpirationDays, passwordExpirationNotificationDays, passwordLength, phone, postalCode, requireAuthMethodOwner, token, uidToken, usageEventEnable, usageEventInterval, usageEventObjectType, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters);
   }
 
   @Override
@@ -1485,6 +1510,7 @@ public class UpdateAccountSettings {
     sb.append("    passwordLength: ").append(toIndentedString(passwordLength)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
     sb.append("    postalCode: ").append(toIndentedString(postalCode)).append("\n");
+    sb.append("    requireAuthMethodOwner: ").append(toIndentedString(requireAuthMethodOwner)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
     sb.append("    usageEventEnable: ").append(toIndentedString(usageEventEnable)).append("\n");
@@ -1512,7 +1538,7 @@ public class UpdateAccountSettings {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("address", "allowed-client-type", "allowed-email-domains", "bound-ips", "city", "company-name", "country", "default-certificate-expiration-notification-days", "default-key-name", "default-share-link-ttl-minutes", "default-versioning", "dp-enable-classic-key-protection", "dynamic-secret-max-ttl", "dynamic-secret-max-ttl-enable", "enable-ai-insights", "enable-ai-quorum", "enable-default-certificate-expiration-event", "enable-item-sharing", "enable-password-expiration", "force-new-versions", "gw-bound-ips", "hide-personal-folder", "hide-static-password", "invalid-characters", "item-locking-enabled", "item-type", "items-deletion-protection", "json", "jwt-ttl-default", "jwt-ttl-max", "jwt-ttl-min", "lock-allowed-client-type", "lock-bound-ips", "lock-default-key", "lock-gw-bound-ips", "lock-max-ttl", "max-rotation-interval", "max-rotation-interval-enable", "max-versions", "password-expiration-days", "password-expiration-notification-days", "password-length", "phone", "postal-code", "token", "uid-token", "usage-event-enable", "usage-event-interval", "usage-event-object-type", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
+    openapiFields = new HashSet<String>(Arrays.asList("address", "allowed-client-type", "allowed-email-domains", "bound-ips", "city", "company-name", "country", "default-certificate-expiration-notification-days", "default-key-name", "default-share-link-ttl-minutes", "default-versioning", "dp-enable-classic-key-protection", "dynamic-secret-max-ttl", "dynamic-secret-max-ttl-enable", "enable-ai-insights", "enable-ai-quorum", "enable-default-certificate-expiration-event", "enable-item-sharing", "enable-password-expiration", "force-new-versions", "gw-bound-ips", "hide-personal-folder", "hide-static-password", "invalid-characters", "item-locking-enabled", "item-type", "items-deletion-protection", "json", "jwt-ttl-default", "jwt-ttl-max", "jwt-ttl-min", "lock-allowed-client-type", "lock-bound-ips", "lock-default-key", "lock-gw-bound-ips", "lock-max-ttl", "max-rotation-interval", "max-rotation-interval-enable", "max-versions", "password-expiration-days", "password-expiration-notification-days", "password-length", "phone", "postal-code", "require-auth-method-owner", "token", "uid-token", "usage-event-enable", "usage-event-interval", "usage-event-object-type", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -1651,6 +1677,9 @@ public class UpdateAccountSettings {
       }
       if ((jsonObj.get("postal-code") != null && !jsonObj.get("postal-code").isJsonNull()) && !jsonObj.get("postal-code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `postal-code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal-code").toString()));
+      }
+      if ((jsonObj.get("require-auth-method-owner") != null && !jsonObj.get("require-auth-method-owner").isJsonNull()) && !jsonObj.get("require-auth-method-owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `require-auth-method-owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("require-auth-method-owner").toString()));
       }
       if ((jsonObj.get("token") != null && !jsonObj.get("token").isJsonNull()) && !jsonObj.get("token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token").toString()));

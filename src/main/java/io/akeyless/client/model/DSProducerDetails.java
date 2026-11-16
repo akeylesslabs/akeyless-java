@@ -62,6 +62,16 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DSProducerDetails {
+  public static final String SERIALIZED_NAME_ACCESS_KEY = "access_key";
+  @SerializedName(SERIALIZED_NAME_ACCESS_KEY)
+  @javax.annotation.Nullable
+  private String accessKey;
+
+  public static final String SERIALIZED_NAME_ACCESS_KEY_ID = "access_key_id";
+  @SerializedName(SERIALIZED_NAME_ACCESS_KEY_ID)
+  @javax.annotation.Nullable
+  private String accessKeyId;
+
   public static final String SERIALIZED_NAME_ACCESS_TOKEN_MANAGER_ID = "access_token_manager_id";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN_MANAGER_ID)
   @javax.annotation.Nullable
@@ -186,6 +196,61 @@ public class DSProducerDetails {
   @SerializedName(SERIALIZED_NAME_AGENTIC_RULES)
   @javax.annotation.Nullable
   private AgenticRules agenticRules;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_ACCESS_MODE = "alicloud_access_mode";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_ACCESS_MODE)
+  @javax.annotation.Nullable
+  private String alicloudAccessMode;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_EXTERNAL_ID = "alicloud_external_id";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_EXTERNAL_ID)
+  @javax.annotation.Nullable
+  private String alicloudExternalId;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_ROLE_ARNS = "alicloud_role_arns";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_ROLE_ARNS)
+  @javax.annotation.Nullable
+  private String alicloudRoleArns;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_SESSION_POLICY = "alicloud_session_policy";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_SESSION_POLICY)
+  @javax.annotation.Nullable
+  private String alicloudSessionPolicy;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_SET_SOURCE_IDENTITY = "alicloud_set_source_identity";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_SET_SOURCE_IDENTITY)
+  @javax.annotation.Nullable
+  private Boolean alicloudSetSourceIdentity;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_SITE = "alicloud_site";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_SITE)
+  @javax.annotation.Nullable
+  private String alicloudSite;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_USER_CONSOLE_ACCESS = "alicloud_user_console_access";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_USER_CONSOLE_ACCESS)
+  @javax.annotation.Nullable
+  private Boolean alicloudUserConsoleAccess;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_USER_GROUPS = "alicloud_user_groups";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_USER_GROUPS)
+  @javax.annotation.Nullable
+  private String alicloudUserGroups;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_USER_INLINE_POLICY = "alicloud_user_inline_policy";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_USER_INLINE_POLICY)
+  @javax.annotation.Nullable
+  private String alicloudUserInlinePolicy;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_USER_POLICIES = "alicloud_user_policies";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_USER_POLICIES)
+  @javax.annotation.Nullable
+  private String alicloudUserPolicies;
+
+  public static final String SERIALIZED_NAME_ALICLOUD_USER_PROGRAMMATIC_ACCESS = "alicloud_user_programmatic_access";
+  @SerializedName(SERIALIZED_NAME_ALICLOUD_USER_PROGRAMMATIC_ACCESS)
+  @javax.annotation.Nullable
+  private Boolean alicloudUserProgrammaticAccess;
 
   public static final String SERIALIZED_NAME_API_KEY = "api_key";
   @SerializedName(SERIALIZED_NAME_API_KEY)
@@ -1327,6 +1392,11 @@ public class DSProducerDetails {
   @javax.annotation.Nullable
   private String redshiftCreationStatements;
 
+  public static final String SERIALIZED_NAME_REGION = "region";
+  @SerializedName(SERIALIZED_NAME_REGION)
+  @javax.annotation.Nullable
+  private String region;
+
   public static final String SERIALIZED_NAME_RESTRICTED_SCOPES = "restricted_scopes";
   @SerializedName(SERIALIZED_NAME_RESTRICTED_SCOPES)
   @javax.annotation.Nullable
@@ -1559,6 +1629,44 @@ public class DSProducerDetails {
 
   public DSProducerDetails() {
   }
+
+  public DSProducerDetails accessKey(@javax.annotation.Nullable String accessKey) {
+    this.accessKey = accessKey;
+    return this;
+  }
+
+  /**
+   * Get accessKey
+   * @return accessKey
+   */
+  @javax.annotation.Nullable
+  public String getAccessKey() {
+    return accessKey;
+  }
+
+  public void setAccessKey(@javax.annotation.Nullable String accessKey) {
+    this.accessKey = accessKey;
+  }
+
+
+  public DSProducerDetails accessKeyId(@javax.annotation.Nullable String accessKeyId) {
+    this.accessKeyId = accessKeyId;
+    return this;
+  }
+
+  /**
+   * Get accessKeyId
+   * @return accessKeyId
+   */
+  @javax.annotation.Nullable
+  public String getAccessKeyId() {
+    return accessKeyId;
+  }
+
+  public void setAccessKeyId(@javax.annotation.Nullable String accessKeyId) {
+    this.accessKeyId = accessKeyId;
+  }
+
 
   public DSProducerDetails accessTokenManagerId(@javax.annotation.Nullable String accessTokenManagerId) {
     this.accessTokenManagerId = accessTokenManagerId;
@@ -2048,6 +2156,215 @@ public class DSProducerDetails {
 
   public void setAgenticRules(@javax.annotation.Nullable AgenticRules agenticRules) {
     this.agenticRules = agenticRules;
+  }
+
+
+  public DSProducerDetails alicloudAccessMode(@javax.annotation.Nullable String alicloudAccessMode) {
+    this.alicloudAccessMode = alicloudAccessMode;
+    return this;
+  }
+
+  /**
+   * Get alicloudAccessMode
+   * @return alicloudAccessMode
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudAccessMode() {
+    return alicloudAccessMode;
+  }
+
+  public void setAlicloudAccessMode(@javax.annotation.Nullable String alicloudAccessMode) {
+    this.alicloudAccessMode = alicloudAccessMode;
+  }
+
+
+  public DSProducerDetails alicloudExternalId(@javax.annotation.Nullable String alicloudExternalId) {
+    this.alicloudExternalId = alicloudExternalId;
+    return this;
+  }
+
+  /**
+   * Get alicloudExternalId
+   * @return alicloudExternalId
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudExternalId() {
+    return alicloudExternalId;
+  }
+
+  public void setAlicloudExternalId(@javax.annotation.Nullable String alicloudExternalId) {
+    this.alicloudExternalId = alicloudExternalId;
+  }
+
+
+  public DSProducerDetails alicloudRoleArns(@javax.annotation.Nullable String alicloudRoleArns) {
+    this.alicloudRoleArns = alicloudRoleArns;
+    return this;
+  }
+
+  /**
+   * Get alicloudRoleArns
+   * @return alicloudRoleArns
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudRoleArns() {
+    return alicloudRoleArns;
+  }
+
+  public void setAlicloudRoleArns(@javax.annotation.Nullable String alicloudRoleArns) {
+    this.alicloudRoleArns = alicloudRoleArns;
+  }
+
+
+  public DSProducerDetails alicloudSessionPolicy(@javax.annotation.Nullable String alicloudSessionPolicy) {
+    this.alicloudSessionPolicy = alicloudSessionPolicy;
+    return this;
+  }
+
+  /**
+   * Get alicloudSessionPolicy
+   * @return alicloudSessionPolicy
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudSessionPolicy() {
+    return alicloudSessionPolicy;
+  }
+
+  public void setAlicloudSessionPolicy(@javax.annotation.Nullable String alicloudSessionPolicy) {
+    this.alicloudSessionPolicy = alicloudSessionPolicy;
+  }
+
+
+  public DSProducerDetails alicloudSetSourceIdentity(@javax.annotation.Nullable Boolean alicloudSetSourceIdentity) {
+    this.alicloudSetSourceIdentity = alicloudSetSourceIdentity;
+    return this;
+  }
+
+  /**
+   * Get alicloudSetSourceIdentity
+   * @return alicloudSetSourceIdentity
+   */
+  @javax.annotation.Nullable
+  public Boolean getAlicloudSetSourceIdentity() {
+    return alicloudSetSourceIdentity;
+  }
+
+  public void setAlicloudSetSourceIdentity(@javax.annotation.Nullable Boolean alicloudSetSourceIdentity) {
+    this.alicloudSetSourceIdentity = alicloudSetSourceIdentity;
+  }
+
+
+  public DSProducerDetails alicloudSite(@javax.annotation.Nullable String alicloudSite) {
+    this.alicloudSite = alicloudSite;
+    return this;
+  }
+
+  /**
+   * Get alicloudSite
+   * @return alicloudSite
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudSite() {
+    return alicloudSite;
+  }
+
+  public void setAlicloudSite(@javax.annotation.Nullable String alicloudSite) {
+    this.alicloudSite = alicloudSite;
+  }
+
+
+  public DSProducerDetails alicloudUserConsoleAccess(@javax.annotation.Nullable Boolean alicloudUserConsoleAccess) {
+    this.alicloudUserConsoleAccess = alicloudUserConsoleAccess;
+    return this;
+  }
+
+  /**
+   * Get alicloudUserConsoleAccess
+   * @return alicloudUserConsoleAccess
+   */
+  @javax.annotation.Nullable
+  public Boolean getAlicloudUserConsoleAccess() {
+    return alicloudUserConsoleAccess;
+  }
+
+  public void setAlicloudUserConsoleAccess(@javax.annotation.Nullable Boolean alicloudUserConsoleAccess) {
+    this.alicloudUserConsoleAccess = alicloudUserConsoleAccess;
+  }
+
+
+  public DSProducerDetails alicloudUserGroups(@javax.annotation.Nullable String alicloudUserGroups) {
+    this.alicloudUserGroups = alicloudUserGroups;
+    return this;
+  }
+
+  /**
+   * Get alicloudUserGroups
+   * @return alicloudUserGroups
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudUserGroups() {
+    return alicloudUserGroups;
+  }
+
+  public void setAlicloudUserGroups(@javax.annotation.Nullable String alicloudUserGroups) {
+    this.alicloudUserGroups = alicloudUserGroups;
+  }
+
+
+  public DSProducerDetails alicloudUserInlinePolicy(@javax.annotation.Nullable String alicloudUserInlinePolicy) {
+    this.alicloudUserInlinePolicy = alicloudUserInlinePolicy;
+    return this;
+  }
+
+  /**
+   * Get alicloudUserInlinePolicy
+   * @return alicloudUserInlinePolicy
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudUserInlinePolicy() {
+    return alicloudUserInlinePolicy;
+  }
+
+  public void setAlicloudUserInlinePolicy(@javax.annotation.Nullable String alicloudUserInlinePolicy) {
+    this.alicloudUserInlinePolicy = alicloudUserInlinePolicy;
+  }
+
+
+  public DSProducerDetails alicloudUserPolicies(@javax.annotation.Nullable String alicloudUserPolicies) {
+    this.alicloudUserPolicies = alicloudUserPolicies;
+    return this;
+  }
+
+  /**
+   * Get alicloudUserPolicies
+   * @return alicloudUserPolicies
+   */
+  @javax.annotation.Nullable
+  public String getAlicloudUserPolicies() {
+    return alicloudUserPolicies;
+  }
+
+  public void setAlicloudUserPolicies(@javax.annotation.Nullable String alicloudUserPolicies) {
+    this.alicloudUserPolicies = alicloudUserPolicies;
+  }
+
+
+  public DSProducerDetails alicloudUserProgrammaticAccess(@javax.annotation.Nullable Boolean alicloudUserProgrammaticAccess) {
+    this.alicloudUserProgrammaticAccess = alicloudUserProgrammaticAccess;
+    return this;
+  }
+
+  /**
+   * Get alicloudUserProgrammaticAccess
+   * @return alicloudUserProgrammaticAccess
+   */
+  @javax.annotation.Nullable
+  public Boolean getAlicloudUserProgrammaticAccess() {
+    return alicloudUserProgrammaticAccess;
+  }
+
+  public void setAlicloudUserProgrammaticAccess(@javax.annotation.Nullable Boolean alicloudUserProgrammaticAccess) {
+    this.alicloudUserProgrammaticAccess = alicloudUserProgrammaticAccess;
   }
 
 
@@ -6463,6 +6780,25 @@ public class DSProducerDetails {
   }
 
 
+  public DSProducerDetails region(@javax.annotation.Nullable String region) {
+    this.region = region;
+    return this;
+  }
+
+  /**
+   * Get region
+   * @return region
+   */
+  @javax.annotation.Nullable
+  public String getRegion() {
+    return region;
+  }
+
+  public void setRegion(@javax.annotation.Nullable String region) {
+    this.region = region;
+  }
+
+
   public DSProducerDetails restrictedScopes(@javax.annotation.Nullable List<String> restrictedScopes) {
     this.restrictedScopes = restrictedScopes;
     return this;
@@ -7379,7 +7715,9 @@ public class DSProducerDetails {
       return false;
     }
     DSProducerDetails dsProducerDetails = (DSProducerDetails) o;
-    return Objects.equals(this.accessTokenManagerId, dsProducerDetails.accessTokenManagerId) &&
+    return Objects.equals(this.accessKey, dsProducerDetails.accessKey) &&
+        Objects.equals(this.accessKeyId, dsProducerDetails.accessKeyId) &&
+        Objects.equals(this.accessTokenManagerId, dsProducerDetails.accessTokenManagerId) &&
         Objects.equals(this.aclRules, dsProducerDetails.aclRules) &&
         Objects.equals(this.active, dsProducerDetails.active) &&
         Objects.equals(this.adminName, dsProducerDetails.adminName) &&
@@ -7404,6 +7742,17 @@ public class DSProducerDetails {
         Objects.equals(this.aerospikeSslConnectionCertificate, dsProducerDetails.aerospikeSslConnectionCertificate) &&
         Objects.equals(this.aerospikeSslConnectionMode, dsProducerDetails.aerospikeSslConnectionMode) &&
         Objects.equals(this.agenticRules, dsProducerDetails.agenticRules) &&
+        Objects.equals(this.alicloudAccessMode, dsProducerDetails.alicloudAccessMode) &&
+        Objects.equals(this.alicloudExternalId, dsProducerDetails.alicloudExternalId) &&
+        Objects.equals(this.alicloudRoleArns, dsProducerDetails.alicloudRoleArns) &&
+        Objects.equals(this.alicloudSessionPolicy, dsProducerDetails.alicloudSessionPolicy) &&
+        Objects.equals(this.alicloudSetSourceIdentity, dsProducerDetails.alicloudSetSourceIdentity) &&
+        Objects.equals(this.alicloudSite, dsProducerDetails.alicloudSite) &&
+        Objects.equals(this.alicloudUserConsoleAccess, dsProducerDetails.alicloudUserConsoleAccess) &&
+        Objects.equals(this.alicloudUserGroups, dsProducerDetails.alicloudUserGroups) &&
+        Objects.equals(this.alicloudUserInlinePolicy, dsProducerDetails.alicloudUserInlinePolicy) &&
+        Objects.equals(this.alicloudUserPolicies, dsProducerDetails.alicloudUserPolicies) &&
+        Objects.equals(this.alicloudUserProgrammaticAccess, dsProducerDetails.alicloudUserProgrammaticAccess) &&
         Objects.equals(this.apiKey, dsProducerDetails.apiKey) &&
         Objects.equals(this.apiKeyId, dsProducerDetails.apiKeyId) &&
         Objects.equals(this.artifactoryAdminApikey, dsProducerDetails.artifactoryAdminApikey) &&
@@ -7632,6 +7981,7 @@ public class DSProducerDetails {
         Objects.equals(this.rdpFixedUserNameSubClaimKey, dsProducerDetails.rdpFixedUserNameSubClaimKey) &&
         Objects.equals(this.redirectUris, dsProducerDetails.redirectUris) &&
         Objects.equals(this.redshiftCreationStatements, dsProducerDetails.redshiftCreationStatements) &&
+        Objects.equals(this.region, dsProducerDetails.region) &&
         Objects.equals(this.restrictedScopes, dsProducerDetails.restrictedScopes) &&
         Objects.equals(this.revokeSyncUrl, dsProducerDetails.revokeSyncUrl) &&
         Objects.equals(this.rotateSyncUrl, dsProducerDetails.rotateSyncUrl) &&
@@ -7682,13 +8032,15 @@ public class DSProducerDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, aerospikeAdminUsername, aerospikeClientCertificate, aerospikeClientId, aerospikeClientPrivateKey, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, aerospikeDbServerName, aerospikeEnableMtls, aerospikeHostname, aerospikeNamespace, aerospikePassword, aerospikePort, aerospikeRoles, aerospikeSkipServerNameValidation, aerospikeSslConnectionCertificate, aerospikeSslConnectionMode, agenticRules, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authMode, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserName, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, blockParentTargetAccess, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, ldapUsername, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oauthAccessToken, oauthAccountId, oauthLastRefresh, oauthRefreshToken, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, passwordPolicyInfo, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, preserveExistingPasswordSettings, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, skipDryRun, skipServerNameValidation, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
+    return Objects.hash(accessKey, accessKeyId, accessTokenManagerId, aclRules, active, adminName, adminPwd, adminRotationIntervalDays, administrativePort, aerospikeAdminUsername, aerospikeClientCertificate, aerospikeClientId, aerospikeClientPrivateKey, aerospikeClientSecret, aerospikeCloud, aerospikeClusterId, aerospikeDbServerName, aerospikeEnableMtls, aerospikeHostname, aerospikeNamespace, aerospikePassword, aerospikePort, aerospikeRoles, aerospikeSkipServerNameValidation, aerospikeSslConnectionCertificate, aerospikeSslConnectionMode, agenticRules, alicloudAccessMode, alicloudExternalId, alicloudRoleArns, alicloudSessionPolicy, alicloudSetSourceIdentity, alicloudSite, alicloudUserConsoleAccess, alicloudUserGroups, alicloudUserInlinePolicy, alicloudUserPolicies, alicloudUserProgrammaticAccess, apiKey, apiKeyId, artifactoryAdminApikey, artifactoryAdminUsername, artifactoryBaseUrl, artifactoryTokenAudience, artifactoryTokenScope, authMode, authorizationPort, awsAccessKeyId, awsAccessMode, awsExternalId, awsRegion, awsRoleArns, awsSecretAccessKey, awsSessionTags, awsSessionToken, awsTransitiveTagKeys, awsUserConsoleAccess, awsUserGroups, awsUserName, awsUserPolicies, awsUserProgrammaticAccess, azureAdministrativeUnit, azureAppObjectId, azureClientId, azureClientSecret, azureCloud, azureFixedUserNameSubClaimKey, azureFixedUserOnly, azureResourceGroupName, azureResourceName, azureSubscriptionId, azureTenantId, azureUserGroupsObjId, azureUserPortalAccess, azureUserProgrammaticAccess, azureUserRolesTemplateId, azureUsername, blockParentTargetAccess, cassandraCreationStatements, chefOrganizations, chefServerAccessMode, chefServerHostName, chefServerKey, chefServerPort, chefServerUrl, chefServerUsername, chefSkipSsl, clientAuthenticationType, clientCertificate, clientKeyPassphrase, clientPrivateKey, cloudServiceProvider, clusterMode, connectionType, createSyncUrl, dbClientId, dbClientSecret, dbHostName, dbIsolationLevel, dbMaxIdleConns, dbMaxOpenConns, dbName, dbPort, dbPrivateKey, dbPrivateKeyPassphrase, dbPwd, dbServerCertificates, dbServerName, dbTenantId, dbUserName, deleteProtection, dynamicSecretId, dynamicSecretKey, dynamicSecretName, dynamicSecretType, eksAccessKeyId, eksAssumeRole, eksClusterCaCertificate, eksClusterEndpoint, eksClusterName, eksRegion, eksSecretAccessKey, enableAdminRotation, enableMtls, enforceReplayPrevention, expirationDate, externallyProvidedUser, failureMessage, fixedUserOnly, gcpAccessType, gcpFixedUserClaimKeyname, gcpKeyAlgo, gcpProjectId, gcpRoleBindings, gcpRoleNames, gcpServiceAccountEmail, gcpServiceAccountKey, gcpServiceAccountKeyBase64, gcpServiceAccountKeyId, gcpServiceAccountType, gcpTmpServiceAccountName, gcpTokenLifetime, gcpTokenScope, gcpTokenType, githubAppId, githubAppPrivateKey, githubBaseUrl, githubInstallationId, githubInstallationTokenPermissions, githubInstallationTokenRepositories, githubInstallationTokenRepositoriesIds, githubOrganizationName, githubRepositoryPath, gitlabAccessToken, gitlabAccessType, gitlabCertificate, gitlabGroupName, gitlabProjectName, gitlabRole, gitlabTokenScope, gitlabUrl, gkeClusterCaCertificate, gkeClusterEndpoint, gkeClusterName, gkeServiceAccountKey, gkeServiceAccountName, googleWorkspaceAccessMode, googleWorkspaceAdminName, googleWorkspaceFixedUserNameSubClaimKey, googleWorkspaceGroupName, googleWorkspaceGroupRole, googleWorkspaceRoleName, googleWorkspaceRoleScope, graceRotatedSecretKey, grantTypes, groups, gwCloudIdentityExternalIdOpt, hanadbCreationStatements, hanadbRevocationStatements, hostName, hostPort, implementationType, isFixedUser, issuer, itemCustomFieldsDetails, itemTargetsAssoc, jwks, jwksUrl, k8sAllowedNamespaces, k8sAuthType, k8sBearerToken, k8sClientCertData, k8sClientKeyData, k8sClusterCaCertificate, k8sClusterEndpoint, k8sClusterName, k8sDynamicMode, k8sMultipleDocYamlTempDefinition, k8sNamespace, k8sRoleName, k8sRoleType, k8sServiceAccount, lastAdminRotation, ldapAudience, ldapBindDn, ldapBindPassword, ldapCertificate, ldapFixedUserNameSubClaimKey, ldapFixedUserType, ldapGroupDn, ldapTokenExpiration, ldapUrl, ldapUserAttr, ldapUserDn, ldapUsername, metadata, mongodbAtlasApiPrivateKey, mongodbAtlasApiPublicKey, mongodbAtlasProjectId, mongodbCustomData, mongodbDbName, mongodbDefaultAuthDb, mongodbHostPort, mongodbIsAtlas, mongodbPassword, mongodbRoles, mongodbScopes, mongodbUriConnection, mongodbUriOptions, mongodbUsername, mssqlAllowedDbNames, mssqlCreationStatements, mssqlRevocationStatements, mysqlCreationStatements, mysqlRevocationStatements, oauthAccessToken, oauthAccountId, oauthLastRefresh, oauthRefreshToken, openaiUrl, oracleCreationStatements, oracleRevocationStatements, oracleWalletDetails, organizationId, password, passwordLength, passwordPolicy, passwordPolicyInfo, payload, pingUrl, postgresCreationStatements, postgresRevocationStatements, preserveExistingPasswordSettings, privilegedUser, projectId, rabbitmqServerPassword, rabbitmqServerUri, rabbitmqServerUser, rabbitmqUserConfPermission, rabbitmqUserReadPermission, rabbitmqUserTags, rabbitmqUserVhost, rabbitmqUserWritePermission, rdpFixedUserNameSubClaimKey, redirectUris, redshiftCreationStatements, region, restrictedScopes, revokeSyncUrl, rotateSyncUrl, scopes, secureRemoteAccessDetails, sessionExtensionWarnIntervalMin, sfAccount, sfAuthMode, sfKeyAlgo, sfUserRole, sfWarehouseName, shouldStop, signingAlgorithm, skipDryRun, skipServerNameValidation, sslConnectionCertificate, sslConnectionMode, subjectDn, tags, timeoutSeconds, useGwCloudIdentity, useGwServiceAccount, userName, userPassword, userPrincipalName, userTtl, usernameLength, usernamePolicy, usernameTemplate, venafiAllowSubdomains, venafiAllowedDomains, venafiApiKey, venafiAutoGeneratedFolder, venafiBaseUrl, venafiRootFirstInChain, venafiSignUsingAkeylessPki, venafiSignerKeyName, venafiStorePrivateKey, venafiTppAccessToken, venafiTppClientId, venafiTppPassword, venafiTppRefreshToken, venafiTppUsername, venafiUseTpp, venafiZone, warnBeforeUserExpirationMin);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DSProducerDetails {\n");
+    sb.append("    accessKey: ").append(toIndentedString(accessKey)).append("\n");
+    sb.append("    accessKeyId: ").append(toIndentedString(accessKeyId)).append("\n");
     sb.append("    accessTokenManagerId: ").append(toIndentedString(accessTokenManagerId)).append("\n");
     sb.append("    aclRules: ").append(toIndentedString(aclRules)).append("\n");
     sb.append("    active: ").append(toIndentedString(active)).append("\n");
@@ -7714,6 +8066,17 @@ public class DSProducerDetails {
     sb.append("    aerospikeSslConnectionCertificate: ").append(toIndentedString(aerospikeSslConnectionCertificate)).append("\n");
     sb.append("    aerospikeSslConnectionMode: ").append(toIndentedString(aerospikeSslConnectionMode)).append("\n");
     sb.append("    agenticRules: ").append(toIndentedString(agenticRules)).append("\n");
+    sb.append("    alicloudAccessMode: ").append(toIndentedString(alicloudAccessMode)).append("\n");
+    sb.append("    alicloudExternalId: ").append(toIndentedString(alicloudExternalId)).append("\n");
+    sb.append("    alicloudRoleArns: ").append(toIndentedString(alicloudRoleArns)).append("\n");
+    sb.append("    alicloudSessionPolicy: ").append(toIndentedString(alicloudSessionPolicy)).append("\n");
+    sb.append("    alicloudSetSourceIdentity: ").append(toIndentedString(alicloudSetSourceIdentity)).append("\n");
+    sb.append("    alicloudSite: ").append(toIndentedString(alicloudSite)).append("\n");
+    sb.append("    alicloudUserConsoleAccess: ").append(toIndentedString(alicloudUserConsoleAccess)).append("\n");
+    sb.append("    alicloudUserGroups: ").append(toIndentedString(alicloudUserGroups)).append("\n");
+    sb.append("    alicloudUserInlinePolicy: ").append(toIndentedString(alicloudUserInlinePolicy)).append("\n");
+    sb.append("    alicloudUserPolicies: ").append(toIndentedString(alicloudUserPolicies)).append("\n");
+    sb.append("    alicloudUserProgrammaticAccess: ").append(toIndentedString(alicloudUserProgrammaticAccess)).append("\n");
     sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
     sb.append("    apiKeyId: ").append(toIndentedString(apiKeyId)).append("\n");
     sb.append("    artifactoryAdminApikey: ").append(toIndentedString(artifactoryAdminApikey)).append("\n");
@@ -7942,6 +8305,7 @@ public class DSProducerDetails {
     sb.append("    rdpFixedUserNameSubClaimKey: ").append(toIndentedString(rdpFixedUserNameSubClaimKey)).append("\n");
     sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
     sb.append("    redshiftCreationStatements: ").append(toIndentedString(redshiftCreationStatements)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    restrictedScopes: ").append(toIndentedString(restrictedScopes)).append("\n");
     sb.append("    revokeSyncUrl: ").append(toIndentedString(revokeSyncUrl)).append("\n");
     sb.append("    rotateSyncUrl: ").append(toIndentedString(rotateSyncUrl)).append("\n");
@@ -8006,7 +8370,7 @@ public class DSProducerDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_token_manager_id", "acl_rules", "active", "admin_name", "admin_pwd", "admin_rotation_interval_days", "administrative_port", "aerospike_admin_username", "aerospike_client_certificate", "aerospike_client_id", "aerospike_client_private_key", "aerospike_client_secret", "aerospike_cloud", "aerospike_cluster_id", "aerospike_db_server_name", "aerospike_enable_mtls", "aerospike_hostname", "aerospike_namespace", "aerospike_password", "aerospike_port", "aerospike_roles", "aerospike_skip_server_name_validation", "aerospike_ssl_connection_certificate", "aerospike_ssl_connection_mode", "agentic_rules", "api_key", "api_key_id", "artifactory_admin_apikey", "artifactory_admin_username", "artifactory_base_url", "artifactory_token_audience", "artifactory_token_scope", "auth_mode", "authorization_port", "aws_access_key_id", "aws_access_mode", "aws_external_id", "aws_region", "aws_role_arns", "aws_secret_access_key", "aws_session_tags", "aws_session_token", "aws_transitive_tag_keys", "aws_user_console_access", "aws_user_groups", "aws_user_name", "aws_user_policies", "aws_user_programmatic_access", "azure_administrative_unit", "azure_app_object_id", "azure_client_id", "azure_client_secret", "azure_cloud", "azure_fixed_user_name_sub_claim_key", "azure_fixed_user_only", "azure_resource_group_name", "azure_resource_name", "azure_subscription_id", "azure_tenant_id", "azure_user_groups_obj_id", "azure_user_portal_access", "azure_user_programmatic_access", "azure_user_roles_template_id", "azure_username", "block_parent_target_access", "cassandra_creation_statements", "chef_organizations", "chef_server_access_mode", "chef_server_host_name", "chef_server_key", "chef_server_port", "chef_server_url", "chef_server_username", "chef_skip_ssl", "client_authentication_type", "client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "create_sync_url", "db_client_id", "db_client_secret", "db_host_name", "db_isolation_level", "db_max_idle_conns", "db_max_open_conns", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "delete_protection", "dynamic_secret_id", "dynamic_secret_key", "dynamic_secret_name", "dynamic_secret_type", "eks_access_key_id", "eks_assume_role", "eks_cluster_ca_certificate", "eks_cluster_endpoint", "eks_cluster_name", "eks_region", "eks_secret_access_key", "enable_admin_rotation", "enable_mtls", "enforce_replay_prevention", "expiration_date", "externally_provided_user", "failure_message", "fixed_user_only", "gcp_access_type", "gcp_fixed_user_claim_keyname", "gcp_key_algo", "gcp_project_id", "gcp_role_bindings", "gcp_role_names", "gcp_service_account_email", "gcp_service_account_key", "gcp_service_account_key_base64", "gcp_service_account_key_id", "gcp_service_account_type", "gcp_tmp_service_account_name", "gcp_token_lifetime", "gcp_token_scope", "gcp_token_type", "github_app_id", "github_app_private_key", "github_base_url", "github_installation_id", "github_installation_token_permissions", "github_installation_token_repositories", "github_installation_token_repositories_ids", "github_organization_name", "github_repository_path", "gitlab_access_token", "gitlab_access_type", "gitlab_certificate", "gitlab_group_name", "gitlab_project_name", "gitlab_role", "gitlab_token_scope", "gitlab_url", "gke_cluster_ca_certificate", "gke_cluster_endpoint", "gke_cluster_name", "gke_service_account_key", "gke_service_account_name", "google_workspace_access_mode", "google_workspace_admin_name", "google_workspace_fixed_user_name_sub_claim_key", "google_workspace_group_name", "google_workspace_group_role", "google_workspace_role_name", "google_workspace_role_scope", "grace_rotated_secret_key", "grant_types", "groups", "gw_cloud_identity_external_id_opt", "hanadb_creation_statements", "hanadb_revocation_statements", "host_name", "host_port", "implementation_type", "is_fixed_user", "issuer", "item_custom_fields_details", "item_targets_assoc", "jwks", "jwks_url", "k8s_allowed_namespaces", "k8s_auth_type", "k8s_bearer_token", "k8s_client_cert_data", "k8s_client_key_data", "k8s_cluster_ca_certificate", "k8s_cluster_endpoint", "k8s_cluster_name", "k8s_dynamic_mode", "k8s_multiple_doc_yaml_temp_definition", "k8s_namespace", "k8s_role_name", "k8s_role_type", "k8s_service_account", "last_admin_rotation", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_fixed_user_name_sub_claim_key", "ldap_fixed_user_type", "ldap_group_dn", "ldap_token_expiration", "ldap_url", "ldap_user_attr", "ldap_user_dn", "ldap_username", "metadata", "mongodb_atlas_api_private_key", "mongodb_atlas_api_public_key", "mongodb_atlas_project_id", "mongodb_custom_data", "mongodb_db_name", "mongodb_default_auth_db", "mongodb_host_port", "mongodb_is_atlas", "mongodb_password", "mongodb_roles", "mongodb_scopes", "mongodb_uri_connection", "mongodb_uri_options", "mongodb_username", "mssql_allowed_db_names", "mssql_creation_statements", "mssql_revocation_statements", "mysql_creation_statements", "mysql_revocation_statements", "oauth_access_token", "oauth_account_id", "oauth_last_refresh", "oauth_refresh_token", "openai_url", "oracle_creation_statements", "oracle_revocation_statements", "oracle_wallet_details", "organization_id", "password", "password_length", "password_policy", "password_policy_info", "payload", "ping_url", "postgres_creation_statements", "postgres_revocation_statements", "preserve_existing_password_settings", "privileged_user", "project_id", "rabbitmq_server_password", "rabbitmq_server_uri", "rabbitmq_server_user", "rabbitmq_user_conf_permission", "rabbitmq_user_read_permission", "rabbitmq_user_tags", "rabbitmq_user_vhost", "rabbitmq_user_write_permission", "rdp_fixed_user_name_sub_claim_key", "redirect_uris", "redshift_creation_statements", "restricted_scopes", "revoke_sync_url", "rotate_sync_url", "scopes", "secure_remote_access_details", "session_extension_warn_interval_min", "sf_account", "sf_auth_mode", "sf_key_algo", "sf_user_role", "sf_warehouse_name", "should_stop", "signing_algorithm", "skip_dry_run", "skip_server_name_validation", "ssl_connection_certificate", "ssl_connection_mode", "subject_dn", "tags", "timeout_seconds", "use_gw_cloud_identity", "use_gw_service_account", "user_name", "user_password", "user_principal_name", "user_ttl", "username_length", "username_policy", "username_template", "venafi_allow_subdomains", "venafi_allowed_domains", "venafi_api_key", "venafi_auto_generated_folder", "venafi_base_url", "venafi_root_first_in_chain", "venafi_sign_using_akeyless_pki", "venafi_signer_key_name", "venafi_store_private_key", "venafi_tpp_access_token", "venafi_tpp_client_id", "venafi_tpp_password", "venafi_tpp_refresh_token", "venafi_tpp_username", "venafi_use_tpp", "venafi_zone", "warn_before_user_expiration_min"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_key", "access_key_id", "access_token_manager_id", "acl_rules", "active", "admin_name", "admin_pwd", "admin_rotation_interval_days", "administrative_port", "aerospike_admin_username", "aerospike_client_certificate", "aerospike_client_id", "aerospike_client_private_key", "aerospike_client_secret", "aerospike_cloud", "aerospike_cluster_id", "aerospike_db_server_name", "aerospike_enable_mtls", "aerospike_hostname", "aerospike_namespace", "aerospike_password", "aerospike_port", "aerospike_roles", "aerospike_skip_server_name_validation", "aerospike_ssl_connection_certificate", "aerospike_ssl_connection_mode", "agentic_rules", "alicloud_access_mode", "alicloud_external_id", "alicloud_role_arns", "alicloud_session_policy", "alicloud_set_source_identity", "alicloud_site", "alicloud_user_console_access", "alicloud_user_groups", "alicloud_user_inline_policy", "alicloud_user_policies", "alicloud_user_programmatic_access", "api_key", "api_key_id", "artifactory_admin_apikey", "artifactory_admin_username", "artifactory_base_url", "artifactory_token_audience", "artifactory_token_scope", "auth_mode", "authorization_port", "aws_access_key_id", "aws_access_mode", "aws_external_id", "aws_region", "aws_role_arns", "aws_secret_access_key", "aws_session_tags", "aws_session_token", "aws_transitive_tag_keys", "aws_user_console_access", "aws_user_groups", "aws_user_name", "aws_user_policies", "aws_user_programmatic_access", "azure_administrative_unit", "azure_app_object_id", "azure_client_id", "azure_client_secret", "azure_cloud", "azure_fixed_user_name_sub_claim_key", "azure_fixed_user_only", "azure_resource_group_name", "azure_resource_name", "azure_subscription_id", "azure_tenant_id", "azure_user_groups_obj_id", "azure_user_portal_access", "azure_user_programmatic_access", "azure_user_roles_template_id", "azure_username", "block_parent_target_access", "cassandra_creation_statements", "chef_organizations", "chef_server_access_mode", "chef_server_host_name", "chef_server_key", "chef_server_port", "chef_server_url", "chef_server_username", "chef_skip_ssl", "client_authentication_type", "client_certificate", "client_key_passphrase", "client_private_key", "cloud_service_provider", "cluster_mode", "connection_type", "create_sync_url", "db_client_id", "db_client_secret", "db_host_name", "db_isolation_level", "db_max_idle_conns", "db_max_open_conns", "db_name", "db_port", "db_private_key", "db_private_key_passphrase", "db_pwd", "db_server_certificates", "db_server_name", "db_tenant_id", "db_user_name", "delete_protection", "dynamic_secret_id", "dynamic_secret_key", "dynamic_secret_name", "dynamic_secret_type", "eks_access_key_id", "eks_assume_role", "eks_cluster_ca_certificate", "eks_cluster_endpoint", "eks_cluster_name", "eks_region", "eks_secret_access_key", "enable_admin_rotation", "enable_mtls", "enforce_replay_prevention", "expiration_date", "externally_provided_user", "failure_message", "fixed_user_only", "gcp_access_type", "gcp_fixed_user_claim_keyname", "gcp_key_algo", "gcp_project_id", "gcp_role_bindings", "gcp_role_names", "gcp_service_account_email", "gcp_service_account_key", "gcp_service_account_key_base64", "gcp_service_account_key_id", "gcp_service_account_type", "gcp_tmp_service_account_name", "gcp_token_lifetime", "gcp_token_scope", "gcp_token_type", "github_app_id", "github_app_private_key", "github_base_url", "github_installation_id", "github_installation_token_permissions", "github_installation_token_repositories", "github_installation_token_repositories_ids", "github_organization_name", "github_repository_path", "gitlab_access_token", "gitlab_access_type", "gitlab_certificate", "gitlab_group_name", "gitlab_project_name", "gitlab_role", "gitlab_token_scope", "gitlab_url", "gke_cluster_ca_certificate", "gke_cluster_endpoint", "gke_cluster_name", "gke_service_account_key", "gke_service_account_name", "google_workspace_access_mode", "google_workspace_admin_name", "google_workspace_fixed_user_name_sub_claim_key", "google_workspace_group_name", "google_workspace_group_role", "google_workspace_role_name", "google_workspace_role_scope", "grace_rotated_secret_key", "grant_types", "groups", "gw_cloud_identity_external_id_opt", "hanadb_creation_statements", "hanadb_revocation_statements", "host_name", "host_port", "implementation_type", "is_fixed_user", "issuer", "item_custom_fields_details", "item_targets_assoc", "jwks", "jwks_url", "k8s_allowed_namespaces", "k8s_auth_type", "k8s_bearer_token", "k8s_client_cert_data", "k8s_client_key_data", "k8s_cluster_ca_certificate", "k8s_cluster_endpoint", "k8s_cluster_name", "k8s_dynamic_mode", "k8s_multiple_doc_yaml_temp_definition", "k8s_namespace", "k8s_role_name", "k8s_role_type", "k8s_service_account", "last_admin_rotation", "ldap_audience", "ldap_bind_dn", "ldap_bind_password", "ldap_certificate", "ldap_fixed_user_name_sub_claim_key", "ldap_fixed_user_type", "ldap_group_dn", "ldap_token_expiration", "ldap_url", "ldap_user_attr", "ldap_user_dn", "ldap_username", "metadata", "mongodb_atlas_api_private_key", "mongodb_atlas_api_public_key", "mongodb_atlas_project_id", "mongodb_custom_data", "mongodb_db_name", "mongodb_default_auth_db", "mongodb_host_port", "mongodb_is_atlas", "mongodb_password", "mongodb_roles", "mongodb_scopes", "mongodb_uri_connection", "mongodb_uri_options", "mongodb_username", "mssql_allowed_db_names", "mssql_creation_statements", "mssql_revocation_statements", "mysql_creation_statements", "mysql_revocation_statements", "oauth_access_token", "oauth_account_id", "oauth_last_refresh", "oauth_refresh_token", "openai_url", "oracle_creation_statements", "oracle_revocation_statements", "oracle_wallet_details", "organization_id", "password", "password_length", "password_policy", "password_policy_info", "payload", "ping_url", "postgres_creation_statements", "postgres_revocation_statements", "preserve_existing_password_settings", "privileged_user", "project_id", "rabbitmq_server_password", "rabbitmq_server_uri", "rabbitmq_server_user", "rabbitmq_user_conf_permission", "rabbitmq_user_read_permission", "rabbitmq_user_tags", "rabbitmq_user_vhost", "rabbitmq_user_write_permission", "rdp_fixed_user_name_sub_claim_key", "redirect_uris", "redshift_creation_statements", "region", "restricted_scopes", "revoke_sync_url", "rotate_sync_url", "scopes", "secure_remote_access_details", "session_extension_warn_interval_min", "sf_account", "sf_auth_mode", "sf_key_algo", "sf_user_role", "sf_warehouse_name", "should_stop", "signing_algorithm", "skip_dry_run", "skip_server_name_validation", "ssl_connection_certificate", "ssl_connection_mode", "subject_dn", "tags", "timeout_seconds", "use_gw_cloud_identity", "use_gw_service_account", "user_name", "user_password", "user_principal_name", "user_ttl", "username_length", "username_policy", "username_template", "venafi_allow_subdomains", "venafi_allowed_domains", "venafi_api_key", "venafi_auto_generated_folder", "venafi_base_url", "venafi_root_first_in_chain", "venafi_sign_using_akeyless_pki", "venafi_signer_key_name", "venafi_store_private_key", "venafi_tpp_access_token", "venafi_tpp_client_id", "venafi_tpp_password", "venafi_tpp_refresh_token", "venafi_tpp_username", "venafi_use_tpp", "venafi_zone", "warn_before_user_expiration_min"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -8033,6 +8397,12 @@ public class DSProducerDetails {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("access_key") != null && !jsonObj.get("access_key").isJsonNull()) && !jsonObj.get("access_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_key").toString()));
+      }
+      if ((jsonObj.get("access_key_id") != null && !jsonObj.get("access_key_id").isJsonNull()) && !jsonObj.get("access_key_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_key_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_key_id").toString()));
+      }
       if ((jsonObj.get("access_token_manager_id") != null && !jsonObj.get("access_token_manager_id").isJsonNull()) && !jsonObj.get("access_token_manager_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `access_token_manager_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_token_manager_id").toString()));
       }
@@ -8095,6 +8465,30 @@ public class DSProducerDetails {
       // validate the optional field `agentic_rules`
       if (jsonObj.get("agentic_rules") != null && !jsonObj.get("agentic_rules").isJsonNull()) {
         AgenticRules.validateJsonElement(jsonObj.get("agentic_rules"));
+      }
+      if ((jsonObj.get("alicloud_access_mode") != null && !jsonObj.get("alicloud_access_mode").isJsonNull()) && !jsonObj.get("alicloud_access_mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_access_mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_access_mode").toString()));
+      }
+      if ((jsonObj.get("alicloud_external_id") != null && !jsonObj.get("alicloud_external_id").isJsonNull()) && !jsonObj.get("alicloud_external_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_external_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_external_id").toString()));
+      }
+      if ((jsonObj.get("alicloud_role_arns") != null && !jsonObj.get("alicloud_role_arns").isJsonNull()) && !jsonObj.get("alicloud_role_arns").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_role_arns` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_role_arns").toString()));
+      }
+      if ((jsonObj.get("alicloud_session_policy") != null && !jsonObj.get("alicloud_session_policy").isJsonNull()) && !jsonObj.get("alicloud_session_policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_session_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_session_policy").toString()));
+      }
+      if ((jsonObj.get("alicloud_site") != null && !jsonObj.get("alicloud_site").isJsonNull()) && !jsonObj.get("alicloud_site").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_site` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_site").toString()));
+      }
+      if ((jsonObj.get("alicloud_user_groups") != null && !jsonObj.get("alicloud_user_groups").isJsonNull()) && !jsonObj.get("alicloud_user_groups").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_user_groups` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_user_groups").toString()));
+      }
+      if ((jsonObj.get("alicloud_user_inline_policy") != null && !jsonObj.get("alicloud_user_inline_policy").isJsonNull()) && !jsonObj.get("alicloud_user_inline_policy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_user_inline_policy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_user_inline_policy").toString()));
+      }
+      if ((jsonObj.get("alicloud_user_policies") != null && !jsonObj.get("alicloud_user_policies").isJsonNull()) && !jsonObj.get("alicloud_user_policies").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `alicloud_user_policies` to be a primitive type in the JSON string but got `%s`", jsonObj.get("alicloud_user_policies").toString()));
       }
       if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull()) && !jsonObj.get("api_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
@@ -8741,6 +9135,9 @@ public class DSProducerDetails {
       }
       if ((jsonObj.get("redshift_creation_statements") != null && !jsonObj.get("redshift_creation_statements").isJsonNull()) && !jsonObj.get("redshift_creation_statements").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `redshift_creation_statements` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redshift_creation_statements").toString()));
+      }
+      if ((jsonObj.get("region") != null && !jsonObj.get("region").isJsonNull()) && !jsonObj.get("region").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `region` to be a primitive type in the JSON string but got `%s`", jsonObj.get("region").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("restricted_scopes") != null && !jsonObj.get("restricted_scopes").isJsonNull() && !jsonObj.get("restricted_scopes").isJsonArray()) {

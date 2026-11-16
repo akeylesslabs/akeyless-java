@@ -62,6 +62,11 @@ public class AuthMethodList {
   @javax.annotation.Nullable
   private Boolean json = false;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PAGINATION_TOKEN = "pagination-token";
   @SerializedName(SERIALIZED_NAME_PAGINATION_TOKEN)
   @javax.annotation.Nullable
@@ -120,6 +125,25 @@ public class AuthMethodList {
 
   public void setJson(@javax.annotation.Nullable Boolean json) {
     this.json = json;
+  }
+
+
+  public AuthMethodList owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Filter by auth method owner or part of it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
   }
 
 
@@ -219,6 +243,7 @@ public class AuthMethodList {
     AuthMethodList authMethodList = (AuthMethodList) o;
     return Objects.equals(this.filter, authMethodList.filter) &&
         Objects.equals(this.json, authMethodList.json) &&
+        Objects.equals(this.owner, authMethodList.owner) &&
         Objects.equals(this.paginationToken, authMethodList.paginationToken) &&
         Objects.equals(this.token, authMethodList.token) &&
         Objects.equals(this.type, authMethodList.type) &&
@@ -227,7 +252,7 @@ public class AuthMethodList {
 
   @Override
   public int hashCode() {
-    return Objects.hash(filter, json, paginationToken, token, type, uidToken);
+    return Objects.hash(filter, json, owner, paginationToken, token, type, uidToken);
   }
 
   @Override
@@ -236,6 +261,7 @@ public class AuthMethodList {
     sb.append("class AuthMethodList {\n");
     sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    paginationToken: ").append(toIndentedString(paginationToken)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
@@ -258,7 +284,7 @@ public class AuthMethodList {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("filter", "json", "pagination-token", "token", "type", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("filter", "json", "owner", "pagination-token", "token", "type", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -287,6 +313,9 @@ public class AuthMethodList {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("filter") != null && !jsonObj.get("filter").isJsonNull()) && !jsonObj.get("filter").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `filter` to be a primitive type in the JSON string but got `%s`", jsonObj.get("filter").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       if ((jsonObj.get("pagination-token") != null && !jsonObj.get("pagination-token").isJsonNull()) && !jsonObj.get("pagination-token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `pagination-token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pagination-token").toString()));

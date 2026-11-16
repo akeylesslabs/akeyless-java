@@ -172,6 +172,11 @@ public class AuthMethodCreateKerberos {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -706,6 +711,25 @@ public class AuthMethodCreateKerberos {
   }
 
 
+  public AuthMethodCreateKerberos owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodCreateKerberos productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -889,6 +913,7 @@ public class AuthMethodCreateKerberos {
         Objects.equals(this.ldapCaCert, authMethodCreateKerberos.ldapCaCert) &&
         Objects.equals(this.ldapUrl, authMethodCreateKerberos.ldapUrl) &&
         Objects.equals(this.name, authMethodCreateKerberos.name) &&
+        Objects.equals(this.owner, authMethodCreateKerberos.owner) &&
         Objects.equals(this.productType, authMethodCreateKerberos.productType) &&
         Objects.equals(this.subclaimsDelimiters, authMethodCreateKerberos.subclaimsDelimiters) &&
         Objects.equals(this.token, authMethodCreateKerberos.token) &&
@@ -900,7 +925,7 @@ public class AuthMethodCreateKerberos {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, bindDn, bindDnPassword, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, groupAttr, groupDn, groupFilter, gwBoundIps, json, jwtTtl, keytabFileData, keytabFilePath, krb5ConfData, krb5ConfPath, ldapAnonymousSearch, ldapCaCert, ldapUrl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, userAttribute, userDn);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, bindDn, bindDnPassword, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, groupAttr, groupDn, groupFilter, gwBoundIps, json, jwtTtl, keytabFileData, keytabFilePath, krb5ConfData, krb5ConfPath, ldapAnonymousSearch, ldapCaCert, ldapUrl, name, owner, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, userAttribute, userDn);
   }
 
   @Override
@@ -931,6 +956,7 @@ public class AuthMethodCreateKerberos {
     sb.append("    ldapCaCert: ").append(toIndentedString(ldapCaCert)).append("\n");
     sb.append("    ldapUrl: ").append(toIndentedString(ldapUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -956,7 +982,7 @@ public class AuthMethodCreateKerberos {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bind-dn", "bind-dn-password", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "group-attr", "group-dn", "group-filter", "gw-bound-ips", "json", "jwt-ttl", "keytab-file-data", "keytab-file-path", "krb5-conf-data", "krb5-conf-path", "ldap-anonymous-search", "ldap-ca-cert", "ldap-url", "name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "user-attribute", "user-dn"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bind-dn", "bind-dn-password", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "group-attr", "group-dn", "group-filter", "gw-bound-ips", "json", "jwt-ttl", "keytab-file-data", "keytab-file-path", "krb5-conf-data", "krb5-conf-path", "ldap-anonymous-search", "ldap-ca-cert", "ldap-url", "name", "owner", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "user-attribute", "user-dn"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -1051,6 +1077,9 @@ public class AuthMethodCreateKerberos {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

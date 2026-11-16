@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -131,6 +132,11 @@ public class CreateAuthMethodSAML {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
 
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
@@ -517,6 +523,25 @@ public class CreateAuthMethodSAML {
   }
 
 
+  public CreateAuthMethodSAML owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public CreateAuthMethodSAML productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -673,6 +698,7 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.json, createAuthMethodSAML.json) &&
         Objects.equals(this.jwtTtl, createAuthMethodSAML.jwtTtl) &&
         Objects.equals(this.name, createAuthMethodSAML.name) &&
+        Objects.equals(this.owner, createAuthMethodSAML.owner) &&
         Objects.equals(this.productType, createAuthMethodSAML.productType) &&
         Objects.equals(this.subclaimsDelimiters, createAuthMethodSAML.subclaimsDelimiters) &&
         Objects.equals(this.token, createAuthMethodSAML.token) &&
@@ -681,9 +707,20 @@ public class CreateAuthMethodSAML {
         Objects.equals(this.useDedicatedSamlUrls, createAuthMethodSAML.useDedicatedSamlUrls);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, owner, productType, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -706,6 +743,7 @@ public class CreateAuthMethodSAML {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    subclaimsDelimiters: ").append(toIndentedString(subclaimsDelimiters)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
@@ -730,7 +768,7 @@ public class CreateAuthMethodSAML {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "owner", "product-type", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -805,6 +843,9 @@ public class CreateAuthMethodSAML {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

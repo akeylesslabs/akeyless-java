@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**accountKeyPem** | **String** | ACME Account Private Key (PEM-encoded). Supports ECDSA (P-256, P-384, P-521), RSA (2048+), and Ed25519. Auto-generated as ECDSA P-256 during first certificate issuance bootstrap. Stored encrypted, required for certificate operations and revocation. |  [optional] |
 |**accountUrl** | **String** | ACME Account URL (returned after registration with DigiCert ACME). Used to retrieve existing account instead of re-registering. |  [optional] |
+|**certCentralApiKey** | **String** | DigiCert CertCentral API key (X-DC-DEVKEY). Optional. When set, renewals look up the DigiCert order of the existing certificate and ask DigiCert to reissue it (free, uses the existing order) instead of placing a new, billable ACME order. |  [optional] |
 |**challengeType** | **String** | ACMEChallengeType defines ACME challenge type for Let&#39;s Encrypt |  [optional] |
 |**digicertDirectoryType** | **String** |  |  [optional] |
 |**dnsPropagationWait** | **Long** | A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years. |  [optional] |

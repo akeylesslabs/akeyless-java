@@ -57,6 +57,11 @@ public class TargetCreateDigiCert {
   @javax.annotation.Nullable
   private String acmeChallenge = "dns";
 
+  public static final String SERIALIZED_NAME_CERT_CENTRAL_API_KEY = "cert-central-api-key";
+  @SerializedName(SERIALIZED_NAME_CERT_CENTRAL_API_KEY)
+  @javax.annotation.Nullable
+  private String certCentralApiKey;
+
   public static final String SERIALIZED_NAME_DELETE_PROTECTION = "delete_protection";
   @SerializedName(SERIALIZED_NAME_DELETE_PROTECTION)
   @javax.annotation.Nullable
@@ -201,6 +206,25 @@ public class TargetCreateDigiCert {
 
   public void setAcmeChallenge(@javax.annotation.Nullable String acmeChallenge) {
     this.acmeChallenge = acmeChallenge;
+  }
+
+
+  public TargetCreateDigiCert certCentralApiKey(@javax.annotation.Nullable String certCentralApiKey) {
+    this.certCentralApiKey = certCentralApiKey;
+    return this;
+  }
+
+  /**
+   * DigiCert CertCentral API key. Optional - when set, certificate renewal reissues the existing DigiCert order instead of placing a new (billable) order. DNS challenge and production endpoints only. On target update pass it again to keep it, omitting it clears it
+   * @return certCentralApiKey
+   */
+  @javax.annotation.Nullable
+  public String getCertCentralApiKey() {
+    return certCentralApiKey;
+  }
+
+  public void setCertCentralApiKey(@javax.annotation.Nullable String certCentralApiKey) {
+    this.certCentralApiKey = certCentralApiKey;
   }
 
 
@@ -698,6 +722,7 @@ public class TargetCreateDigiCert {
     }
     TargetCreateDigiCert targetCreateDigiCert = (TargetCreateDigiCert) o;
     return Objects.equals(this.acmeChallenge, targetCreateDigiCert.acmeChallenge) &&
+        Objects.equals(this.certCentralApiKey, targetCreateDigiCert.certCentralApiKey) &&
         Objects.equals(this.deleteProtection, targetCreateDigiCert.deleteProtection) &&
         Objects.equals(this.description, targetCreateDigiCert.description) &&
         Objects.equals(this.digicertUrl, targetCreateDigiCert.digicertUrl) &&
@@ -727,7 +752,7 @@ public class TargetCreateDigiCert {
 
   @Override
   public int hashCode() {
-    return Objects.hash(acmeChallenge, deleteProtection, description, digicertUrl, dnsPropagationWait, dnsResolvers, dnsSkipPrecheck, dnsTargetCreds, dnsTimeout, dnsZone, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, key, lockOnRead, lockTtl, maxVersions, name, resourceGroup, rotateOnUnlock, timeout, token, uidToken);
+    return Objects.hash(acmeChallenge, certCentralApiKey, deleteProtection, description, digicertUrl, dnsPropagationWait, dnsResolvers, dnsSkipPrecheck, dnsTargetCreds, dnsTimeout, dnsZone, eabHmacKey, eabKeyId, email, gcpProject, hostedZone, json, key, lockOnRead, lockTtl, maxVersions, name, resourceGroup, rotateOnUnlock, timeout, token, uidToken);
   }
 
   @Override
@@ -735,6 +760,7 @@ public class TargetCreateDigiCert {
     StringBuilder sb = new StringBuilder();
     sb.append("class TargetCreateDigiCert {\n");
     sb.append("    acmeChallenge: ").append(toIndentedString(acmeChallenge)).append("\n");
+    sb.append("    certCentralApiKey: ").append(toIndentedString(certCentralApiKey)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    digicertUrl: ").append(toIndentedString(digicertUrl)).append("\n");
@@ -778,7 +804,7 @@ public class TargetCreateDigiCert {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("acme-challenge", "delete_protection", "description", "digicert-url", "dns-propagation-wait", "dns-resolvers", "dns-skip-precheck", "dns-target-creds", "dns-timeout", "dns-zone", "eab-hmac-key", "eab-key-id", "email", "gcp-project", "hosted-zone", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "resource-group", "rotate-on-unlock", "timeout", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("acme-challenge", "cert-central-api-key", "delete_protection", "description", "digicert-url", "dns-propagation-wait", "dns-resolvers", "dns-skip-precheck", "dns-target-creds", "dns-timeout", "dns-zone", "eab-hmac-key", "eab-key-id", "email", "gcp-project", "hosted-zone", "json", "key", "lock-on-read", "lock-ttl", "max-versions", "name", "resource-group", "rotate-on-unlock", "timeout", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "name"));
@@ -814,6 +840,9 @@ public class TargetCreateDigiCert {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("acme-challenge") != null && !jsonObj.get("acme-challenge").isJsonNull()) && !jsonObj.get("acme-challenge").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `acme-challenge` to be a primitive type in the JSON string but got `%s`", jsonObj.get("acme-challenge").toString()));
+      }
+      if ((jsonObj.get("cert-central-api-key") != null && !jsonObj.get("cert-central-api-key").isJsonNull()) && !jsonObj.get("cert-central-api-key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `cert-central-api-key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cert-central-api-key").toString()));
       }
       if ((jsonObj.get("delete_protection") != null && !jsonObj.get("delete_protection").isJsonNull()) && !jsonObj.get("delete_protection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `delete_protection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("delete_protection").toString()));

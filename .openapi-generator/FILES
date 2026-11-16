@@ -49,6 +49,7 @@ docs/AnthropicTargetDetails.md
 docs/ArtifactoryTargetDetails.md
 docs/AssocRoleAuthMethod.md
 docs/AssocTargetItem.md
+docs/AtlassianTargetDetails.md
 docs/AttributeTypeAndValue.md
 docs/Auth.md
 docs/AuthExpirationEvent.md
@@ -323,6 +324,7 @@ docs/DetokenizeOutput.md
 docs/DigiCertTargetDetails.md
 docs/DockerhubTargetDetails.md
 docs/DynamicSecretCreateAerospike.md
+docs/DynamicSecretCreateAliCloud.md
 docs/DynamicSecretCreateArtifactory.md
 docs/DynamicSecretCreateAws.md
 docs/DynamicSecretCreateAzure.md
@@ -364,6 +366,7 @@ docs/DynamicSecretTmpCredsDelete.md
 docs/DynamicSecretTmpCredsGet.md
 docs/DynamicSecretTmpCredsUpdate.md
 docs/DynamicSecretUpdateAerospike.md
+docs/DynamicSecretUpdateAliCloud.md
 docs/DynamicSecretUpdateArtifactory.md
 docs/DynamicSecretUpdateAws.md
 docs/DynamicSecretUpdateAzure.md
@@ -883,6 +886,7 @@ docs/Producer.md
 docs/ProducersConfigPart.md
 docs/ProvisionCertificate.md
 docs/ProvisionCertificateOutput.md
+docs/ProvisionSSHRotatedSecretOutput.md
 docs/RabbitMQTargetDetails.md
 docs/RawCreds.md
 docs/RefreshKey.md
@@ -944,6 +948,11 @@ docs/RotatedSecretDetailsInfo.md
 docs/RotatedSecretGetValue.md
 docs/RotatedSecretList.md
 docs/RotatedSecretOutput.md
+docs/RotatedSecretProvisionAssocOutput.md
+docs/RotatedSecretProvisionCreate.md
+docs/RotatedSecretProvisionDelete.md
+docs/RotatedSecretProvisionPush.md
+docs/RotatedSecretProvisionUpdate.md
 docs/RotatedSecretSync.md
 docs/RotatedSecretUpdateAerospike.md
 docs/RotatedSecretUpdateAliCloud.md
@@ -1039,6 +1048,7 @@ docs/TargetCreateAerospike.md
 docs/TargetCreateAliCloud.md
 docs/TargetCreateAnthropic.md
 docs/TargetCreateArtifactory.md
+docs/TargetCreateAtlassian.md
 docs/TargetCreateAws.md
 docs/TargetCreateAzure.md
 docs/TargetCreateBedrock.md
@@ -1090,6 +1100,7 @@ docs/TargetUpdateAerospike.md
 docs/TargetUpdateAliCloud.md
 docs/TargetUpdateAnthropic.md
 docs/TargetUpdateArtifactory.md
+docs/TargetUpdateAtlassian.md
 docs/TargetUpdateAws.md
 docs/TargetUpdateAzure.md
 docs/TargetUpdateBedrock.md
@@ -1367,6 +1378,7 @@ src/main/java/io/akeyless/client/model/AnthropicTargetDetails.java
 src/main/java/io/akeyless/client/model/ArtifactoryTargetDetails.java
 src/main/java/io/akeyless/client/model/AssocRoleAuthMethod.java
 src/main/java/io/akeyless/client/model/AssocTargetItem.java
+src/main/java/io/akeyless/client/model/AtlassianTargetDetails.java
 src/main/java/io/akeyless/client/model/AttributeTypeAndValue.java
 src/main/java/io/akeyless/client/model/Auth.java
 src/main/java/io/akeyless/client/model/AuthExpirationEvent.java
@@ -1641,6 +1653,7 @@ src/main/java/io/akeyless/client/model/DetokenizeOutput.java
 src/main/java/io/akeyless/client/model/DigiCertTargetDetails.java
 src/main/java/io/akeyless/client/model/DockerhubTargetDetails.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAerospike.java
+src/main/java/io/akeyless/client/model/DynamicSecretCreateAliCloud.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateArtifactory.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAws.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAzure.java
@@ -1682,6 +1695,7 @@ src/main/java/io/akeyless/client/model/DynamicSecretTmpCredsDelete.java
 src/main/java/io/akeyless/client/model/DynamicSecretTmpCredsGet.java
 src/main/java/io/akeyless/client/model/DynamicSecretTmpCredsUpdate.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateAerospike.java
+src/main/java/io/akeyless/client/model/DynamicSecretUpdateAliCloud.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateArtifactory.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateAws.java
 src/main/java/io/akeyless/client/model/DynamicSecretUpdateAzure.java
@@ -2201,6 +2215,7 @@ src/main/java/io/akeyless/client/model/Producer.java
 src/main/java/io/akeyless/client/model/ProducersConfigPart.java
 src/main/java/io/akeyless/client/model/ProvisionCertificate.java
 src/main/java/io/akeyless/client/model/ProvisionCertificateOutput.java
+src/main/java/io/akeyless/client/model/ProvisionSSHRotatedSecretOutput.java
 src/main/java/io/akeyless/client/model/RabbitMQTargetDetails.java
 src/main/java/io/akeyless/client/model/RawCreds.java
 src/main/java/io/akeyless/client/model/RefreshKey.java
@@ -2262,6 +2277,11 @@ src/main/java/io/akeyless/client/model/RotatedSecretDetailsInfo.java
 src/main/java/io/akeyless/client/model/RotatedSecretGetValue.java
 src/main/java/io/akeyless/client/model/RotatedSecretList.java
 src/main/java/io/akeyless/client/model/RotatedSecretOutput.java
+src/main/java/io/akeyless/client/model/RotatedSecretProvisionAssocOutput.java
+src/main/java/io/akeyless/client/model/RotatedSecretProvisionCreate.java
+src/main/java/io/akeyless/client/model/RotatedSecretProvisionDelete.java
+src/main/java/io/akeyless/client/model/RotatedSecretProvisionPush.java
+src/main/java/io/akeyless/client/model/RotatedSecretProvisionUpdate.java
 src/main/java/io/akeyless/client/model/RotatedSecretSync.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAerospike.java
 src/main/java/io/akeyless/client/model/RotatedSecretUpdateAliCloud.java
@@ -2357,6 +2377,7 @@ src/main/java/io/akeyless/client/model/TargetCreateAerospike.java
 src/main/java/io/akeyless/client/model/TargetCreateAliCloud.java
 src/main/java/io/akeyless/client/model/TargetCreateAnthropic.java
 src/main/java/io/akeyless/client/model/TargetCreateArtifactory.java
+src/main/java/io/akeyless/client/model/TargetCreateAtlassian.java
 src/main/java/io/akeyless/client/model/TargetCreateAws.java
 src/main/java/io/akeyless/client/model/TargetCreateAzure.java
 src/main/java/io/akeyless/client/model/TargetCreateBedrock.java
@@ -2408,6 +2429,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateAerospike.java
 src/main/java/io/akeyless/client/model/TargetUpdateAliCloud.java
 src/main/java/io/akeyless/client/model/TargetUpdateAnthropic.java
 src/main/java/io/akeyless/client/model/TargetUpdateArtifactory.java
+src/main/java/io/akeyless/client/model/TargetUpdateAtlassian.java
 src/main/java/io/akeyless/client/model/TargetUpdateAws.java
 src/main/java/io/akeyless/client/model/TargetUpdateAzure.java
 src/main/java/io/akeyless/client/model/TargetUpdateBedrock.java
@@ -2612,12 +2634,14 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AliCloudTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/GetScimStatusTest.java
-src/test/java/io/akeyless/client/model/GrantedRoleTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretCreateAliCloudTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretUpdateAliCloudTest.java
-src/test/java/io/akeyless/client/model/ScimSettingsTest.java
-src/test/java/io/akeyless/client/model/ScimStatusTest.java
-src/test/java/io/akeyless/client/model/TargetCreateAliCloudTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateAliCloudTest.java
+src/test/java/io/akeyless/client/model/AtlassianTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretCreateAliCloudTest.java
+src/test/java/io/akeyless/client/model/DynamicSecretUpdateAliCloudTest.java
+src/test/java/io/akeyless/client/model/ProvisionSSHRotatedSecretOutputTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretProvisionAssocOutputTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretProvisionCreateTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretProvisionDeleteTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretProvisionPushTest.java
+src/test/java/io/akeyless/client/model/RotatedSecretProvisionUpdateTest.java
+src/test/java/io/akeyless/client/model/TargetCreateAtlassianTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateAtlassianTest.java

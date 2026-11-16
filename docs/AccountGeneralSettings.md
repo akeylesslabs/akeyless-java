@@ -40,6 +40,7 @@ AccountGeneralSettings describes general settings for an account
 |**passwordScore** | [**PasswordScoreSetting**](PasswordScoreSetting.md) |  |  [optional] |
 |**personalFolderGlobalMapping** | [**PersonalFolderGlobalMappingSettings**](PersonalFolderGlobalMappingSettings.md) |  |  [optional] |
 |**protectItemsByDefault** | **Boolean** |  |  [optional] |
+|**requireAuthMethodOwner** | **Boolean** | RequireAuthMethodOwner makes an owner mandatory when creating auth methods and on general-info updates of auth methods (see AuthMethodGeneralInfoUpdateModes). |  [optional] |
 |**rotationSecretMaxInterval** | [**RotationSecretMaxInterval**](RotationSecretMaxInterval.md) |  |  [optional] |
 |**sharingPolicy** | [**SharingPolicyInfo**](SharingPolicyInfo.md) |  |  [optional] |
 

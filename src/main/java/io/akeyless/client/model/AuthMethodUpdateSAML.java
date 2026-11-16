@@ -137,6 +137,11 @@ public class AuthMethodUpdateSAML {
   @javax.annotation.Nullable
   private String newName;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -561,6 +566,25 @@ public class AuthMethodUpdateSAML {
   }
 
 
+  public AuthMethodUpdateSAML owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodUpdateSAML productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -794,6 +818,7 @@ public class AuthMethodUpdateSAML {
         Objects.equals(this.jwtTtl, authMethodUpdateSAML.jwtTtl) &&
         Objects.equals(this.name, authMethodUpdateSAML.name) &&
         Objects.equals(this.newName, authMethodUpdateSAML.newName) &&
+        Objects.equals(this.owner, authMethodUpdateSAML.owner) &&
         Objects.equals(this.productType, authMethodUpdateSAML.productType) &&
         Objects.equals(this.scimBearerAccessId, authMethodUpdateSAML.scimBearerAccessId) &&
         Objects.equals(this.scimEnabled, authMethodUpdateSAML.scimEnabled) &&
@@ -808,7 +833,7 @@ public class AuthMethodUpdateSAML {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, productType, scimBearerAccessId, scimEnabled, scimEndpoint, scimGatewayUrl, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, auditLogsClaims, boundIps, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, idpMetadataUrl, idpMetadataXmlData, json, jwtTtl, name, newName, owner, productType, scimBearerAccessId, scimEnabled, scimEndpoint, scimGatewayUrl, subclaimsDelimiters, token, uidToken, uniqueIdentifier, useDedicatedSamlUrls);
   }
 
   @Override
@@ -832,6 +857,7 @@ public class AuthMethodUpdateSAML {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    scimBearerAccessId: ").append(toIndentedString(scimBearerAccessId)).append("\n");
     sb.append("    scimEnabled: ").append(toIndentedString(scimEnabled)).append("\n");
@@ -860,7 +886,7 @@ public class AuthMethodUpdateSAML {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "new-name", "product-type", "scim-bearer-access-id", "scim-enabled", "scim-endpoint", "scim-gateway-url", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audit-logs-claims", "bound-ips", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "idp-metadata-url", "idp-metadata-xml-data", "json", "jwt-ttl", "name", "new-name", "owner", "product-type", "scim-bearer-access-id", "scim-enabled", "scim-endpoint", "scim-gateway-url", "subclaims-delimiters", "token", "uid-token", "unique-identifier", "use-dedicated-saml-urls"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -938,6 +964,9 @@ public class AuthMethodUpdateSAML {
       }
       if ((jsonObj.get("new-name") != null && !jsonObj.get("new-name").isJsonNull()) && !jsonObj.get("new-name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `new-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("new-name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

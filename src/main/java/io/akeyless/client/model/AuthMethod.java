@@ -148,6 +148,11 @@ public class AuthMethod {
   @javax.annotation.Nullable
   private OffsetDateTime modificationDate;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_UID_EXPIRATION_EVENTS = "uid_expiration_events";
   @SerializedName(SERIALIZED_NAME_UID_EXPIRATION_EVENTS)
   @javax.annotation.Nullable
@@ -530,6 +535,25 @@ public class AuthMethod {
   }
 
 
+  public AuthMethod owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Get owner
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethod uidExpirationEvents(@javax.annotation.Nullable List<UidExpirationEvent> uidExpirationEvents) {
     this.uidExpirationEvents = uidExpirationEvents;
     return this;
@@ -585,12 +609,13 @@ public class AuthMethod {
         Objects.equals(this.expirationEvents, authMethod.expirationEvents) &&
         Objects.equals(this.isApproved, authMethod.isApproved) &&
         Objects.equals(this.modificationDate, authMethod.modificationDate) &&
+        Objects.equals(this.owner, authMethod.owner) &&
         Objects.equals(this.uidExpirationEvents, authMethod.uidExpirationEvents);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodId, authMethodName, authMethodRolesAssoc, bookmarkLoginUrlTemplate, clientPermissions, creationDate, deleteProtection, description, expirationEvents, isApproved, modificationDate, uidExpirationEvents);
+    return Objects.hash(accessDate, accessDateDisplay, accessInfo, accountId, associatedGwIds, authMethodAccessId, authMethodAdditionalData, authMethodId, authMethodName, authMethodRolesAssoc, bookmarkLoginUrlTemplate, clientPermissions, creationDate, deleteProtection, description, expirationEvents, isApproved, modificationDate, owner, uidExpirationEvents);
   }
 
   @Override
@@ -615,6 +640,7 @@ public class AuthMethod {
     sb.append("    expirationEvents: ").append(toIndentedString(expirationEvents)).append("\n");
     sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
     sb.append("    modificationDate: ").append(toIndentedString(modificationDate)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    uidExpirationEvents: ").append(toIndentedString(uidExpirationEvents)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -634,7 +660,7 @@ public class AuthMethod {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "bookmark_login_url_template", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date", "uid_expiration_events"));
+    openapiFields = new HashSet<String>(Arrays.asList("access_date", "access_date_display", "access_info", "account_id", "associated_gw_ids", "auth_method_access_id", "auth_method_additional_data", "auth_method_id", "auth_method_name", "auth_method_roles_assoc", "bookmark_login_url_template", "client_permissions", "creation_date", "delete_protection", "description", "expiration_events", "is_approved", "modification_date", "owner", "uid_expiration_events"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -722,6 +748,9 @@ public class AuthMethod {
             AuthExpirationEvent.validateJsonElement(jsonArrayexpirationEvents.get(i));
           };
         }
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       if (jsonObj.get("uid_expiration_events") != null && !jsonObj.get("uid_expiration_events").isJsonNull()) {
         JsonArray jsonArrayuidExpirationEvents = jsonObj.getAsJsonArray("uid_expiration_events");

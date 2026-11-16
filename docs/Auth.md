@@ -13,6 +13,7 @@
 |**accountId** | **String** | Account id (relevant only for access-type&#x3D;password where the email address is associated with more than one account) |  [optional] |
 |**adminEmail** | **String** | Email (relevant only for access-type&#x3D;password) |  [optional] |
 |**adminPassword** | **String** | Password (relevant only for access-type&#x3D;password) |  [optional] |
+|**authViaGateway** | **Boolean** | Route the interactive OIDC/SAML browser login through the Gateway (gateway-url) instead of Akeyless Auth (relevant only for access-type&#x3D;saml/oidc) |  [optional] |
 |**azureCloud** | **String** | Azure cloud environment to use. Values: AzureCloud (default), AzureUSGovernment, AzureChinaCloud. |  [optional] |
 |**certChallenge** | **String** | Certificate challenge encoded in base64. (relevant only for access-type&#x3D;cert) |  [optional] |
 |**certData** | **String** | Certificate data encoded in base64. Used if file was not provided. (relevant only for access-type&#x3D;cert) |  [optional] |

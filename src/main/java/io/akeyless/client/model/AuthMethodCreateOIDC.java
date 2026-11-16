@@ -142,6 +142,11 @@ public class AuthMethodCreateOIDC {
   @javax.annotation.Nonnull
   private String name;
 
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
+
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
   @javax.annotation.Nullable
@@ -590,6 +595,25 @@ public class AuthMethodCreateOIDC {
   }
 
 
+  public AuthMethodCreateOIDC owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public AuthMethodCreateOIDC productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -851,6 +875,7 @@ public class AuthMethodCreateOIDC {
         Objects.equals(this.json, authMethodCreateOIDC.json) &&
         Objects.equals(this.jwtTtl, authMethodCreateOIDC.jwtTtl) &&
         Objects.equals(this.name, authMethodCreateOIDC.name) &&
+        Objects.equals(this.owner, authMethodCreateOIDC.owner) &&
         Objects.equals(this.productType, authMethodCreateOIDC.productType) &&
         Objects.equals(this.requiredScopes, authMethodCreateOIDC.requiredScopes) &&
         Objects.equals(this.requiredScopesPrefix, authMethodCreateOIDC.requiredScopesPrefix) &&
@@ -866,7 +891,7 @@ public class AuthMethodCreateOIDC {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwtTtl, name, productType, requiredScopes, requiredScopesPrefix, scimBearerAccessId, scimEnabled, scimEndpoint, scimGatewayUrl, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
+    return Objects.hash(accessExpires, allowedClientType, allowedRedirectUri, audience, auditLogsClaims, boundIps, clientId, clientSecret, deleteProtection, description, expirationEventIn, forceSubClaims, gatewayUrl, gwBoundIps, issuer, json, jwtTtl, name, owner, productType, requiredScopes, requiredScopesPrefix, scimBearerAccessId, scimEnabled, scimEndpoint, scimGatewayUrl, subclaimsDelimiters, token, uidToken, uniqueIdentifier);
   }
 
   @Override
@@ -891,6 +916,7 @@ public class AuthMethodCreateOIDC {
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    requiredScopes: ").append(toIndentedString(requiredScopes)).append("\n");
     sb.append("    requiredScopesPrefix: ").append(toIndentedString(requiredScopesPrefix)).append("\n");
@@ -920,7 +946,7 @@ public class AuthMethodCreateOIDC {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audience", "audit-logs-claims", "bound-ips", "client-id", "client-secret", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "issuer", "json", "jwt-ttl", "name", "product-type", "required-scopes", "required-scopes-prefix", "scim-bearer-access-id", "scim-enabled", "scim-endpoint", "scim-gateway-url", "subclaims-delimiters", "token", "uid-token", "unique-identifier"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "allowed-redirect-uri", "audience", "audit-logs-claims", "bound-ips", "client-id", "client-secret", "delete_protection", "description", "expiration-event-in", "force-sub-claims", "gateway-url", "gw-bound-ips", "issuer", "json", "jwt-ttl", "name", "owner", "product-type", "required-scopes", "required-scopes-prefix", "scim-bearer-access-id", "scim-enabled", "scim-endpoint", "scim-gateway-url", "subclaims-delimiters", "token", "uid-token", "unique-identifier"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "unique-identifier"));
@@ -1001,6 +1027,9 @@ public class AuthMethodCreateOIDC {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {

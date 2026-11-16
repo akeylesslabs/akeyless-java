@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -126,6 +127,11 @@ public class CreateAuthMethodEmail {
   @SerializedName(SERIALIZED_NAME_NAME)
   @javax.annotation.Nonnull
   private String name;
+
+  public static final String SERIALIZED_NAME_OWNER = "owner";
+  @SerializedName(SERIALIZED_NAME_OWNER)
+  @javax.annotation.Nullable
+  private String owner;
 
   public static final String SERIALIZED_NAME_PRODUCT_TYPE = "product-type";
   @SerializedName(SERIALIZED_NAME_PRODUCT_TYPE)
@@ -470,6 +476,25 @@ public class CreateAuthMethodEmail {
   }
 
 
+  public CreateAuthMethodEmail owner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+    return this;
+  }
+
+  /**
+   * Auth Method owner (free text, up to 255 characters). On update, omit to keep the current owner and pass an empty value to clear it
+   * @return owner
+   */
+  @javax.annotation.Nullable
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(@javax.annotation.Nullable String owner) {
+    this.owner = owner;
+  }
+
+
   public CreateAuthMethodEmail productType(@javax.annotation.Nullable List<String> productType) {
     this.productType = productType;
     return this;
@@ -560,14 +585,26 @@ public class CreateAuthMethodEmail {
         Objects.equals(this.jwtTtl, createAuthMethodEmail.jwtTtl) &&
         Objects.equals(this.mfaType, createAuthMethodEmail.mfaType) &&
         Objects.equals(this.name, createAuthMethodEmail.name) &&
+        Objects.equals(this.owner, createAuthMethodEmail.owner) &&
         Objects.equals(this.productType, createAuthMethodEmail.productType) &&
         Objects.equals(this.token, createAuthMethodEmail.token) &&
         Objects.equals(this.uidToken, createAuthMethodEmail.uidToken);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, description, email, enableMfa, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, mfaType, name, productType, token, uidToken);
+    return Objects.hash(accessExpires, allowedClientType, auditLogsClaims, boundIps, deleteProtection, description, email, enableMfa, expirationEventIn, forceSubClaims, gwBoundIps, json, jwtTtl, mfaType, name, owner, productType, token, uidToken);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -589,6 +626,7 @@ public class CreateAuthMethodEmail {
     sb.append("    jwtTtl: ").append(toIndentedString(jwtTtl)).append("\n");
     sb.append("    mfaType: ").append(toIndentedString(mfaType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
     sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    uidToken: ").append(toIndentedString(uidToken)).append("\n");
@@ -610,7 +648,7 @@ public class CreateAuthMethodEmail {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "delete_protection", "description", "email", "enable-mfa", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "mfa-type", "name", "product-type", "token", "uid-token"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-expires", "allowed-client-type", "audit-logs-claims", "bound-ips", "delete_protection", "description", "email", "enable-mfa", "expiration-event-in", "force-sub-claims", "gw-bound-ips", "json", "jwt-ttl", "mfa-type", "name", "owner", "product-type", "token", "uid-token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("email", "name"));
@@ -681,6 +719,9 @@ public class CreateAuthMethodEmail {
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("product-type") != null && !jsonObj.get("product-type").isJsonNull() && !jsonObj.get("product-type").isJsonArray()) {
