@@ -2642,7 +2642,3 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/CustomLLMTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/DomainCoverageTest.java
-src/test/java/io/akeyless/client/model/TargetCreateCustomLLMTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateCustomLLMTest.java
