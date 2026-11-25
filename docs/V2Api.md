@@ -512,6 +512,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetCreateBedrock**](V2Api.md#targetCreateBedrock) | **POST** /target-create-bedrock |  |
 | [**targetCreateCloudflare**](V2Api.md#targetCreateCloudflare) | **POST** /target-create-cloudflare |  |
 | [**targetCreateCustomDns**](V2Api.md#targetCreateCustomDns) | **POST** /target-create-custom-dns |  |
+| [**targetCreateCustomLLM**](V2Api.md#targetCreateCustomLLM) | **POST** /target-create-custom-llm |  |
 | [**targetCreateDB**](V2Api.md#targetCreateDB) | **POST** /target-create-db |  |
 | [**targetCreateDigiCert**](V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert |  |
 | [**targetCreateDockerhub**](V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub |  |
@@ -558,6 +559,7 @@ All URIs are relative to *https://api.akeyless.io*
 | [**targetUpdateBedrock**](V2Api.md#targetUpdateBedrock) | **POST** /target-update-bedrock |  |
 | [**targetUpdateCloudflare**](V2Api.md#targetUpdateCloudflare) | **POST** /target-update-cloudflare |  |
 | [**targetUpdateCustomDns**](V2Api.md#targetUpdateCustomDns) | **POST** /target-update-custom-dns |  |
+| [**targetUpdateCustomLLM**](V2Api.md#targetUpdateCustomLLM) | **POST** /target-update-custom-llm |  |
 | [**targetUpdateDB**](V2Api.md#targetUpdateDB) | **POST** /target-update-db |  |
 | [**targetUpdateDigiCert**](V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert |  |
 | [**targetUpdateDockerhub**](V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub |  |
@@ -31658,6 +31660,67 @@ No authorization required
 | **201** | targetCreateCustomDnsResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
+<a id="targetCreateCustomLLM"></a>
+# **targetCreateCustomLLM**
+> TargetCreateOutput targetCreateCustomLLM(targetCreateCustomLLM)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetCreateCustomLLM targetCreateCustomLLM = new TargetCreateCustomLLM(); // TargetCreateCustomLLM | 
+    try {
+      TargetCreateOutput result = apiInstance.targetCreateCustomLLM(targetCreateCustomLLM);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetCreateCustomLLM");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetCreateCustomLLM** | [**TargetCreateCustomLLM**](TargetCreateCustomLLM.md)|  | |
+
+### Return type
+
+[**TargetCreateOutput**](TargetCreateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetCreateCustomLLMResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
 <a id="targetCreateDB"></a>
 # **targetCreateDB**
 > TargetCreateOutput targetCreateDB(targetCreateDB)
@@ -34462,6 +34525,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | targetUpdateCustomDnsResponse wraps response body. |  -  |
+| **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
+
+<a id="targetUpdateCustomLLM"></a>
+# **targetUpdateCustomLLM**
+> TargetUpdateOutput targetUpdateCustomLLM(targetUpdateCustomLLM)
+
+
+
+### Example
+```java
+// Import classes:
+import io.akeyless.client.ApiClient;
+import io.akeyless.client.ApiException;
+import io.akeyless.client.Configuration;
+import io.akeyless.client.models.*;
+import io.akeyless.client.api.V2Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.akeyless.io");
+
+    V2Api apiInstance = new V2Api(defaultClient);
+    TargetUpdateCustomLLM targetUpdateCustomLLM = new TargetUpdateCustomLLM(); // TargetUpdateCustomLLM | 
+    try {
+      TargetUpdateOutput result = apiInstance.targetUpdateCustomLLM(targetUpdateCustomLLM);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling V2Api#targetUpdateCustomLLM");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **targetUpdateCustomLLM** | [**TargetUpdateCustomLLM**](TargetUpdateCustomLLM.md)|  | |
+
+### Return type
+
+[**TargetUpdateOutput**](TargetUpdateOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | targetUpdateCustomLLMResponse wraps response body. |  -  |
 | **0** | errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. |  -  |
 
 <a id="targetUpdateDB"></a>

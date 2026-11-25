@@ -54,11 +54,6 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class DynamicSecretUpdateAliCloud {
-  public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin-rotation-interval-days";
-  @SerializedName(SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS)
-  @javax.annotation.Nullable
-  private Long adminRotationIntervalDays = 0l;
-
   public static final String SERIALIZED_NAME_ALICLOUD_ACCESS_KEY_ID = "alicloud-access-key-id";
   @SerializedName(SERIALIZED_NAME_ALICLOUD_ACCESS_KEY_ID)
   @javax.annotation.Nullable
@@ -148,11 +143,6 @@ public class DynamicSecretUpdateAliCloud {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
-
-  public static final String SERIALIZED_NAME_ENABLE_ADMIN_ROTATION = "enable-admin-rotation";
-  @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
-  @javax.annotation.Nullable
-  private Boolean enableAdminRotation = false;
 
   public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
   @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
@@ -256,25 +246,6 @@ public class DynamicSecretUpdateAliCloud {
 
   public DynamicSecretUpdateAliCloud() {
   }
-
-  public DynamicSecretUpdateAliCloud adminRotationIntervalDays(@javax.annotation.Nullable Long adminRotationIntervalDays) {
-    this.adminRotationIntervalDays = adminRotationIntervalDays;
-    return this;
-  }
-
-  /**
-   * Admin credentials rotation interval (days)
-   * @return adminRotationIntervalDays
-   */
-  @javax.annotation.Nullable
-  public Long getAdminRotationIntervalDays() {
-    return adminRotationIntervalDays;
-  }
-
-  public void setAdminRotationIntervalDays(@javax.annotation.Nullable Long adminRotationIntervalDays) {
-    this.adminRotationIntervalDays = adminRotationIntervalDays;
-  }
-
 
   public DynamicSecretUpdateAliCloud alicloudAccessKeyId(@javax.annotation.Nullable String alicloudAccessKeyId) {
     this.alicloudAccessKeyId = alicloudAccessKeyId;
@@ -615,25 +586,6 @@ public class DynamicSecretUpdateAliCloud {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
-  }
-
-
-  public DynamicSecretUpdateAliCloud enableAdminRotation(@javax.annotation.Nullable Boolean enableAdminRotation) {
-    this.enableAdminRotation = enableAdminRotation;
-    return this;
-  }
-
-  /**
-   * Automatic admin credentials rotation
-   * @return enableAdminRotation
-   */
-  @javax.annotation.Nullable
-  public Boolean getEnableAdminRotation() {
-    return enableAdminRotation;
-  }
-
-  public void setEnableAdminRotation(@javax.annotation.Nullable Boolean enableAdminRotation) {
-    this.enableAdminRotation = enableAdminRotation;
   }
 
 
@@ -1059,8 +1011,7 @@ public class DynamicSecretUpdateAliCloud {
       return false;
     }
     DynamicSecretUpdateAliCloud dynamicSecretUpdateAliCloud = (DynamicSecretUpdateAliCloud) o;
-    return Objects.equals(this.adminRotationIntervalDays, dynamicSecretUpdateAliCloud.adminRotationIntervalDays) &&
-        Objects.equals(this.alicloudAccessKeyId, dynamicSecretUpdateAliCloud.alicloudAccessKeyId) &&
+    return Objects.equals(this.alicloudAccessKeyId, dynamicSecretUpdateAliCloud.alicloudAccessKeyId) &&
         Objects.equals(this.alicloudAccessMode, dynamicSecretUpdateAliCloud.alicloudAccessMode) &&
         Objects.equals(this.alicloudAccessSecretKey, dynamicSecretUpdateAliCloud.alicloudAccessSecretKey) &&
         Objects.equals(this.alicloudExternalId, dynamicSecretUpdateAliCloud.alicloudExternalId) &&
@@ -1078,7 +1029,6 @@ public class DynamicSecretUpdateAliCloud {
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateAliCloud.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateAliCloud.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateAliCloud.description) &&
-        Objects.equals(this.enableAdminRotation, dynamicSecretUpdateAliCloud.enableAdminRotation) &&
         Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateAliCloud.enableAgenticRuntimeAuthority) &&
         Objects.equals(this.enableAiQuorum, dynamicSecretUpdateAliCloud.enableAiQuorum) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateAliCloud.inputRule) &&
@@ -1103,14 +1053,13 @@ public class DynamicSecretUpdateAliCloud {
 
   @Override
   public int hashCode() {
-    return Objects.hash(adminRotationIntervalDays, alicloudAccessKeyId, alicloudAccessMode, alicloudAccessSecretKey, alicloudExternalId, alicloudRegion, alicloudRoleArns, alicloudSessionPolicy, alicloudSetSourceIdentity, alicloudSite, alicloudUserConsoleAccess, alicloudUserGroups, alicloudUserInlinePolicy, alicloudUserPolicies, alicloudUserProgrammaticAccess, araEnabled, customUsernameTemplate, deleteProtection, description, enableAdminRotation, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(alicloudAccessKeyId, alicloudAccessMode, alicloudAccessSecretKey, alicloudExternalId, alicloudRegion, alicloudRoleArns, alicloudSessionPolicy, alicloudSetSourceIdentity, alicloudSite, alicloudUserConsoleAccess, alicloudUserGroups, alicloudUserInlinePolicy, alicloudUserPolicies, alicloudUserProgrammaticAccess, araEnabled, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, skipDryRun, tags, targetName, token, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateAliCloud {\n");
-    sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
     sb.append("    alicloudAccessKeyId: ").append(toIndentedString(alicloudAccessKeyId)).append("\n");
     sb.append("    alicloudAccessMode: ").append(toIndentedString(alicloudAccessMode)).append("\n");
     sb.append("    alicloudAccessSecretKey: ").append(toIndentedString(alicloudAccessSecretKey)).append("\n");
@@ -1129,7 +1078,6 @@ public class DynamicSecretUpdateAliCloud {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
     sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -1168,7 +1116,7 @@ public class DynamicSecretUpdateAliCloud {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("admin-rotation-interval-days", "alicloud-access-key-id", "alicloud-access-mode", "alicloud-access-secret-key", "alicloud-external-id", "alicloud-region", "alicloud-role-arns", "alicloud-session-policy", "alicloud-set-source-identity", "alicloud-site", "alicloud-user-console-access", "alicloud-user-groups", "alicloud-user-inline-policy", "alicloud-user-policies", "alicloud-user-programmatic-access", "ara-enabled", "custom-username-template", "delete_protection", "description", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "skip-dry-run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("alicloud-access-key-id", "alicloud-access-mode", "alicloud-access-secret-key", "alicloud-external-id", "alicloud-region", "alicloud-role-arns", "alicloud-session-policy", "alicloud-set-source-identity", "alicloud-site", "alicloud-user-console-access", "alicloud-user-groups", "alicloud-user-inline-policy", "alicloud-user-policies", "alicloud-user-programmatic-access", "ara-enabled", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "skip-dry-run", "tags", "target-name", "token", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

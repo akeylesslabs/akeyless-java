@@ -208,7 +208,7 @@ public class CreateClassicKey {
   }
 
   /**
-   * Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG]
+   * Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG, MLDSA44, MLDSA65, MLDSA87, MLKEM768, MLKEM1024, MLKEM768X25519]
    * @return alg
    */
   @javax.annotation.Nonnull

@@ -797,6 +797,7 @@ import io.akeyless.client.model.TargetCreateAzure;
 import io.akeyless.client.model.TargetCreateBedrock;
 import io.akeyless.client.model.TargetCreateCloudflare;
 import io.akeyless.client.model.TargetCreateCustomDns;
+import io.akeyless.client.model.TargetCreateCustomLLM;
 import io.akeyless.client.model.TargetCreateDB;
 import io.akeyless.client.model.TargetCreateDigiCert;
 import io.akeyless.client.model.TargetCreateDockerhub;
@@ -844,6 +845,7 @@ import io.akeyless.client.model.TargetUpdateAzure;
 import io.akeyless.client.model.TargetUpdateBedrock;
 import io.akeyless.client.model.TargetUpdateCloudflare;
 import io.akeyless.client.model.TargetUpdateCustomDns;
+import io.akeyless.client.model.TargetUpdateCustomLLM;
 import io.akeyless.client.model.TargetUpdateDB;
 import io.akeyless.client.model.TargetUpdateDigiCert;
 import io.akeyless.client.model.TargetUpdateDockerhub;
@@ -67447,6 +67449,137 @@ public class V2Api {
         return localVarCall;
     }
     /**
+     * Build call for targetCreateCustomLLM
+     * @param targetCreateCustomLLM  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateCustomLLMCall(@javax.annotation.Nonnull TargetCreateCustomLLM targetCreateCustomLLM, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetCreateCustomLLM;
+
+        // create path and map variables
+        String localVarPath = "/target-create-custom-llm";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetCreateCustomLLMValidateBeforeCall(@javax.annotation.Nonnull TargetCreateCustomLLM targetCreateCustomLLM, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetCreateCustomLLM' is set
+        if (targetCreateCustomLLM == null) {
+            throw new ApiException("Missing the required parameter 'targetCreateCustomLLM' when calling targetCreateCustomLLM(Async)");
+        }
+
+        return targetCreateCustomLLMCall(targetCreateCustomLLM, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateCustomLLM  (required)
+     * @return TargetCreateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetCreateOutput targetCreateCustomLLM(@javax.annotation.Nonnull TargetCreateCustomLLM targetCreateCustomLLM) throws ApiException {
+        ApiResponse<TargetCreateOutput> localVarResp = targetCreateCustomLLMWithHttpInfo(targetCreateCustomLLM);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetCreateCustomLLM  (required)
+     * @return ApiResponse&lt;TargetCreateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetCreateOutput> targetCreateCustomLLMWithHttpInfo(@javax.annotation.Nonnull TargetCreateCustomLLM targetCreateCustomLLM) throws ApiException {
+        okhttp3.Call localVarCall = targetCreateCustomLLMValidateBeforeCall(targetCreateCustomLLM, null);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetCreateCustomLLM  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetCreateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetCreateCustomLLMAsync(@javax.annotation.Nonnull TargetCreateCustomLLM targetCreateCustomLLM, final ApiCallback<TargetCreateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetCreateCustomLLMValidateBeforeCall(targetCreateCustomLLM, _callback);
+        Type localVarReturnType = new TypeToken<TargetCreateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for targetCreateDB
      * @param targetCreateDB  (required)
      * @param _callback Callback for upload/download progress
@@ -73468,6 +73601,137 @@ public class V2Api {
     public okhttp3.Call targetUpdateCustomDnsAsync(@javax.annotation.Nonnull TargetUpdateCustomDns targetUpdateCustomDns, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = targetUpdateCustomDnsValidateBeforeCall(targetUpdateCustomDns, _callback);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for targetUpdateCustomLLM
+     * @param targetUpdateCustomLLM  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateCustomLLMCall(@javax.annotation.Nonnull TargetUpdateCustomLLM targetUpdateCustomLLM, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = targetUpdateCustomLLM;
+
+        // create path and map variables
+        String localVarPath = "/target-update-custom-llm";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call targetUpdateCustomLLMValidateBeforeCall(@javax.annotation.Nonnull TargetUpdateCustomLLM targetUpdateCustomLLM, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'targetUpdateCustomLLM' is set
+        if (targetUpdateCustomLLM == null) {
+            throw new ApiException("Missing the required parameter 'targetUpdateCustomLLM' when calling targetUpdateCustomLLM(Async)");
+        }
+
+        return targetUpdateCustomLLMCall(targetUpdateCustomLLM, _callback);
+
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateCustomLLM  (required)
+     * @return TargetUpdateOutput
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TargetUpdateOutput targetUpdateCustomLLM(@javax.annotation.Nonnull TargetUpdateCustomLLM targetUpdateCustomLLM) throws ApiException {
+        ApiResponse<TargetUpdateOutput> localVarResp = targetUpdateCustomLLMWithHttpInfo(targetUpdateCustomLLM);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * 
+     * @param targetUpdateCustomLLM  (required)
+     * @return ApiResponse&lt;TargetUpdateOutput&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TargetUpdateOutput> targetUpdateCustomLLMWithHttpInfo(@javax.annotation.Nonnull TargetUpdateCustomLLM targetUpdateCustomLLM) throws ApiException {
+        okhttp3.Call localVarCall = targetUpdateCustomLLMValidateBeforeCall(targetUpdateCustomLLM, null);
+        Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * 
+     * @param targetUpdateCustomLLM  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table border="1">
+       <caption>Response Details</caption>
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> targetUpdateCustomLLMResponse wraps response body. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> errorResponse wraps any error to return it as a JSON object with one \&quot;error\&quot; field. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call targetUpdateCustomLLMAsync(@javax.annotation.Nonnull TargetUpdateCustomLLM targetUpdateCustomLLM, final ApiCallback<TargetUpdateOutput> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = targetUpdateCustomLLMValidateBeforeCall(targetUpdateCustomLLM, _callback);
         Type localVarReturnType = new TypeToken<TargetUpdateOutput>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

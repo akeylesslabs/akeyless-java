@@ -267,6 +267,7 @@ docs/CreateWindowsTargetOutput.md
 docs/CreateZeroSSLTarget.md
 docs/CreateZeroSSLTargetOutput.md
 docs/CustomDnsTargetDetails.md
+docs/CustomLLMTargetDetails.md
 docs/CustomTargetDetails.md
 docs/CustomerFragmentConfig.md
 docs/CustomerFragmentsConfigJson.md
@@ -323,6 +324,7 @@ docs/Detokenize.md
 docs/DetokenizeOutput.md
 docs/DigiCertTargetDetails.md
 docs/DockerhubTargetDetails.md
+docs/DomainCoverage.md
 docs/DynamicSecretCreateAerospike.md
 docs/DynamicSecretCreateAliCloud.md
 docs/DynamicSecretCreateArtifactory.md
@@ -1054,6 +1056,7 @@ docs/TargetCreateAzure.md
 docs/TargetCreateBedrock.md
 docs/TargetCreateCloudflare.md
 docs/TargetCreateCustomDns.md
+docs/TargetCreateCustomLLM.md
 docs/TargetCreateDB.md
 docs/TargetCreateDigiCert.md
 docs/TargetCreateDockerhub.md
@@ -1106,6 +1109,7 @@ docs/TargetUpdateAzure.md
 docs/TargetUpdateBedrock.md
 docs/TargetUpdateCloudflare.md
 docs/TargetUpdateCustomDns.md
+docs/TargetUpdateCustomLLM.md
 docs/TargetUpdateDB.md
 docs/TargetUpdateDigiCert.md
 docs/TargetUpdateDockerhub.md
@@ -1596,6 +1600,7 @@ src/main/java/io/akeyless/client/model/CreateWindowsTargetOutput.java
 src/main/java/io/akeyless/client/model/CreateZeroSSLTarget.java
 src/main/java/io/akeyless/client/model/CreateZeroSSLTargetOutput.java
 src/main/java/io/akeyless/client/model/CustomDnsTargetDetails.java
+src/main/java/io/akeyless/client/model/CustomLLMTargetDetails.java
 src/main/java/io/akeyless/client/model/CustomTargetDetails.java
 src/main/java/io/akeyless/client/model/CustomerFragmentConfig.java
 src/main/java/io/akeyless/client/model/CustomerFragmentsConfigJson.java
@@ -1652,6 +1657,7 @@ src/main/java/io/akeyless/client/model/Detokenize.java
 src/main/java/io/akeyless/client/model/DetokenizeOutput.java
 src/main/java/io/akeyless/client/model/DigiCertTargetDetails.java
 src/main/java/io/akeyless/client/model/DockerhubTargetDetails.java
+src/main/java/io/akeyless/client/model/DomainCoverage.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAerospike.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateAliCloud.java
 src/main/java/io/akeyless/client/model/DynamicSecretCreateArtifactory.java
@@ -2383,6 +2389,7 @@ src/main/java/io/akeyless/client/model/TargetCreateAzure.java
 src/main/java/io/akeyless/client/model/TargetCreateBedrock.java
 src/main/java/io/akeyless/client/model/TargetCreateCloudflare.java
 src/main/java/io/akeyless/client/model/TargetCreateCustomDns.java
+src/main/java/io/akeyless/client/model/TargetCreateCustomLLM.java
 src/main/java/io/akeyless/client/model/TargetCreateDB.java
 src/main/java/io/akeyless/client/model/TargetCreateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetCreateDockerhub.java
@@ -2435,6 +2442,7 @@ src/main/java/io/akeyless/client/model/TargetUpdateAzure.java
 src/main/java/io/akeyless/client/model/TargetUpdateBedrock.java
 src/main/java/io/akeyless/client/model/TargetUpdateCloudflare.java
 src/main/java/io/akeyless/client/model/TargetUpdateCustomDns.java
+src/main/java/io/akeyless/client/model/TargetUpdateCustomLLM.java
 src/main/java/io/akeyless/client/model/TargetUpdateDB.java
 src/main/java/io/akeyless/client/model/TargetUpdateDigiCert.java
 src/main/java/io/akeyless/client/model/TargetUpdateDockerhub.java
@@ -2634,14 +2642,7 @@ src/main/java/io/akeyless/client/model/WindowsService.java
 src/main/java/io/akeyless/client/model/WindowsServiceAttributes.java
 src/main/java/io/akeyless/client/model/WindowsTargetDetails.java
 src/main/java/io/akeyless/client/model/ZeroSSLTargetDetails.java
-src/test/java/io/akeyless/client/model/AtlassianTargetDetailsTest.java
-src/test/java/io/akeyless/client/model/DynamicSecretCreateAliCloudTest.java
-src/test/java/io/akeyless/client/model/DynamicSecretUpdateAliCloudTest.java
-src/test/java/io/akeyless/client/model/ProvisionSSHRotatedSecretOutputTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretProvisionAssocOutputTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretProvisionCreateTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretProvisionDeleteTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretProvisionPushTest.java
-src/test/java/io/akeyless/client/model/RotatedSecretProvisionUpdateTest.java
-src/test/java/io/akeyless/client/model/TargetCreateAtlassianTest.java
-src/test/java/io/akeyless/client/model/TargetUpdateAtlassianTest.java
+src/test/java/io/akeyless/client/model/CustomLLMTargetDetailsTest.java
+src/test/java/io/akeyless/client/model/DomainCoverageTest.java
+src/test/java/io/akeyless/client/model/TargetCreateCustomLLMTest.java
+src/test/java/io/akeyless/client/model/TargetUpdateCustomLLMTest.java

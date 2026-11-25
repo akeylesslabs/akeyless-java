@@ -9,7 +9,6 @@ gatewayUpdateProducerAws is a command that Updates aws producer [Deprecated: Use
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**accessMode** | **String** |  |  [optional] |
-|**adminRotationIntervalDays** | **Long** | Admin credentials rotation interval (days) |  [optional] |
 |**araEnabled** | **Boolean** | Enable or disable Agentic Runtime Authority rule enforcement for this item. Mirrors commands.AgenticRulesParams.AraEnabled. |  [optional] |
 |**awsAccessKeyId** | **String** | Access Key ID |  [optional] |
 |**awsAccessSecretKey** | **String** | Secret Access Key |  [optional] |
@@ -21,7 +20,6 @@ gatewayUpdateProducerAws is a command that Updates aws producer [Deprecated: Use
 |**awsUserProgrammaticAccess** | **Boolean** | Enable AWS User programmatic access |  [optional] |
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
-|**enableAdminRotation** | **Boolean** | Automatic admin credentials rotation |  [optional] |
 |**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. |  [optional] |
 |**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |

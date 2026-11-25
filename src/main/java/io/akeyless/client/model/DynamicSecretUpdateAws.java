@@ -59,11 +59,6 @@ public class DynamicSecretUpdateAws {
   @javax.annotation.Nullable
   private String accessMode;
 
-  public static final String SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS = "admin-rotation-interval-days";
-  @SerializedName(SERIALIZED_NAME_ADMIN_ROTATION_INTERVAL_DAYS)
-  @javax.annotation.Nullable
-  private Long adminRotationIntervalDays = 0l;
-
   public static final String SERIALIZED_NAME_ARA_ENABLED = "ara-enabled";
   @SerializedName(SERIALIZED_NAME_ARA_ENABLED)
   @javax.annotation.Nullable
@@ -123,11 +118,6 @@ public class DynamicSecretUpdateAws {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   @javax.annotation.Nullable
   private String description;
-
-  public static final String SERIALIZED_NAME_ENABLE_ADMIN_ROTATION = "enable-admin-rotation";
-  @SerializedName(SERIALIZED_NAME_ENABLE_ADMIN_ROTATION)
-  @javax.annotation.Nullable
-  private Boolean enableAdminRotation = false;
 
   public static final String SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY = "enable-agentic-runtime-authority";
   @SerializedName(SERIALIZED_NAME_ENABLE_AGENTIC_RUNTIME_AUTHORITY)
@@ -308,25 +298,6 @@ public class DynamicSecretUpdateAws {
 
   public void setAccessMode(@javax.annotation.Nullable String accessMode) {
     this.accessMode = accessMode;
-  }
-
-
-  public DynamicSecretUpdateAws adminRotationIntervalDays(@javax.annotation.Nullable Long adminRotationIntervalDays) {
-    this.adminRotationIntervalDays = adminRotationIntervalDays;
-    return this;
-  }
-
-  /**
-   * Admin credentials rotation interval (days)
-   * @return adminRotationIntervalDays
-   */
-  @javax.annotation.Nullable
-  public Long getAdminRotationIntervalDays() {
-    return adminRotationIntervalDays;
-  }
-
-  public void setAdminRotationIntervalDays(@javax.annotation.Nullable Long adminRotationIntervalDays) {
-    this.adminRotationIntervalDays = adminRotationIntervalDays;
   }
 
 
@@ -555,25 +526,6 @@ public class DynamicSecretUpdateAws {
 
   public void setDescription(@javax.annotation.Nullable String description) {
     this.description = description;
-  }
-
-
-  public DynamicSecretUpdateAws enableAdminRotation(@javax.annotation.Nullable Boolean enableAdminRotation) {
-    this.enableAdminRotation = enableAdminRotation;
-    return this;
-  }
-
-  /**
-   * Automatic admin credentials rotation
-   * @return enableAdminRotation
-   */
-  @javax.annotation.Nullable
-  public Boolean getEnableAdminRotation() {
-    return enableAdminRotation;
-  }
-
-  public void setEnableAdminRotation(@javax.annotation.Nullable Boolean enableAdminRotation) {
-    this.enableAdminRotation = enableAdminRotation;
   }
 
 
@@ -1228,7 +1180,6 @@ public class DynamicSecretUpdateAws {
     }
     DynamicSecretUpdateAws dynamicSecretUpdateAws = (DynamicSecretUpdateAws) o;
     return Objects.equals(this.accessMode, dynamicSecretUpdateAws.accessMode) &&
-        Objects.equals(this.adminRotationIntervalDays, dynamicSecretUpdateAws.adminRotationIntervalDays) &&
         Objects.equals(this.araEnabled, dynamicSecretUpdateAws.araEnabled) &&
         Objects.equals(this.awsAccessKeyId, dynamicSecretUpdateAws.awsAccessKeyId) &&
         Objects.equals(this.awsAccessSecretKey, dynamicSecretUpdateAws.awsAccessSecretKey) &&
@@ -1241,7 +1192,6 @@ public class DynamicSecretUpdateAws {
         Objects.equals(this.customUsernameTemplate, dynamicSecretUpdateAws.customUsernameTemplate) &&
         Objects.equals(this.deleteProtection, dynamicSecretUpdateAws.deleteProtection) &&
         Objects.equals(this.description, dynamicSecretUpdateAws.description) &&
-        Objects.equals(this.enableAdminRotation, dynamicSecretUpdateAws.enableAdminRotation) &&
         Objects.equals(this.enableAgenticRuntimeAuthority, dynamicSecretUpdateAws.enableAgenticRuntimeAuthority) &&
         Objects.equals(this.enableAiQuorum, dynamicSecretUpdateAws.enableAiQuorum) &&
         Objects.equals(this.inputRule, dynamicSecretUpdateAws.inputRule) &&
@@ -1278,7 +1228,7 @@ public class DynamicSecretUpdateAws {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessMode, adminRotationIntervalDays, araEnabled, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, description, enableAdminRotation, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, skipDryRun, tags, targetName, token, transitiveTagKeys, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
+    return Objects.hash(accessMode, araEnabled, awsAccessKeyId, awsAccessSecretKey, awsExternalId, awsRoleArns, awsUserConsoleAccess, awsUserGroups, awsUserPolicies, awsUserProgrammaticAccess, customUsernameTemplate, deleteProtection, description, enableAgenticRuntimeAuthority, enableAiQuorum, inputRule, itemCustomFields, json, name, newName, outputRule, passwordLength, producerEncryptionKeyName, region, secureAccessAwsAccountId, secureAccessAwsNativeCli, secureAccessBastionIssuer, secureAccessCertificateIssuer, secureAccessDelay, secureAccessEnable, secureAccessWeb, secureAccessWebBrowsing, secureAccessWebProxy, sessionTags, skipDryRun, tags, targetName, token, transitiveTagKeys, uidToken, useCapitalLetters, useLowerLetters, useNumbers, useSpecialCharacters, userTtl);
   }
 
   @Override
@@ -1286,7 +1236,6 @@ public class DynamicSecretUpdateAws {
     StringBuilder sb = new StringBuilder();
     sb.append("class DynamicSecretUpdateAws {\n");
     sb.append("    accessMode: ").append(toIndentedString(accessMode)).append("\n");
-    sb.append("    adminRotationIntervalDays: ").append(toIndentedString(adminRotationIntervalDays)).append("\n");
     sb.append("    araEnabled: ").append(toIndentedString(araEnabled)).append("\n");
     sb.append("    awsAccessKeyId: ").append(toIndentedString(awsAccessKeyId)).append("\n");
     sb.append("    awsAccessSecretKey: ").append(toIndentedString(awsAccessSecretKey)).append("\n");
@@ -1299,7 +1248,6 @@ public class DynamicSecretUpdateAws {
     sb.append("    customUsernameTemplate: ").append(toIndentedString(customUsernameTemplate)).append("\n");
     sb.append("    deleteProtection: ").append(toIndentedString(deleteProtection)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    enableAdminRotation: ").append(toIndentedString(enableAdminRotation)).append("\n");
     sb.append("    enableAgenticRuntimeAuthority: ").append(toIndentedString(enableAgenticRuntimeAuthority)).append("\n");
     sb.append("    enableAiQuorum: ").append(toIndentedString(enableAiQuorum)).append("\n");
     sb.append("    inputRule: ").append(toIndentedString(inputRule)).append("\n");
@@ -1350,7 +1298,7 @@ public class DynamicSecretUpdateAws {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "admin-rotation-interval-days", "ara-enabled", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "description", "enable-admin-rotation", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip-dry-run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
+    openapiFields = new HashSet<String>(Arrays.asList("access-mode", "ara-enabled", "aws-access-key-id", "aws-access-secret-key", "aws-external-id", "aws-role-arns", "aws-user-console-access", "aws-user-groups", "aws-user-policies", "aws-user-programmatic-access", "custom-username-template", "delete_protection", "description", "enable-agentic-runtime-authority", "enable-ai-quorum", "input-rule", "item-custom-fields", "json", "name", "new-name", "output-rule", "password-length", "producer-encryption-key-name", "region", "secure-access-aws-account-id", "secure-access-aws-native-cli", "secure-access-bastion-issuer", "secure-access-certificate-issuer", "secure-access-delay", "secure-access-enable", "secure-access-web", "secure-access-web-browsing", "secure-access-web-proxy", "session-tags", "skip-dry-run", "tags", "target-name", "token", "transitive-tag-keys", "uid-token", "use-capital-letters", "use-lower-letters", "use-numbers", "use-special-characters", "user-ttl"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));

@@ -8,7 +8,7 @@ CreateClassicKey is a command that creates classic key
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**alg** | **String** | Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG] |  |
+|**alg** | **String** | Classic Key type; options: [AES128GCM, AES256GCM, AES128SIV, AES256SIV, RSA1024, RSA2048, RSA3072, RSA4096, EC256, EC384, GPG, MLDSA44, MLDSA65, MLDSA87, MLKEM768, MLKEM1024, MLKEM768X25519] |  |
 |**autoRotate** | **String** | Whether to automatically rotate every rotation_interval days, or disable existing automatic rotation [true/false] |  [optional] |
 |**certFileData** | **String** | Certificate in a PEM format. |  [optional] |
 |**certificateCommonName** | **String** | Common name for the generated certificate. Relevant only for generate-self-signed-certificate. |  [optional] |

@@ -8,7 +8,6 @@ dynamicSecretUpdateAliCloud is a command that updates AliCloud dynamic secret
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**adminRotationIntervalDays** | **Long** | Admin credentials rotation interval (days) |  [optional] |
 |**alicloudAccessKeyId** | **String** | AliCloud RAM access key ID |  [optional] |
 |**alicloudAccessMode** | **String** |  |  [optional] |
 |**alicloudAccessSecretKey** | **String** | AliCloud RAM access key secret |  [optional] |
@@ -27,7 +26,6 @@ dynamicSecretUpdateAliCloud is a command that updates AliCloud dynamic secret
 |**customUsernameTemplate** | **String** | Customize how temporary usernames are generated using go template |  [optional] |
 |**deleteProtection** | **String** | Protection from accidental deletion of this object [true/false] |  [optional] |
 |**description** | **String** | Description of the object |  [optional] |
-|**enableAdminRotation** | **Boolean** | Automatic admin credentials rotation |  [optional] |
 |**enableAgenticRuntimeAuthority** | **Boolean** | EnableAra is the documented spelling of AraEnabled; --ara-enabled shipped first and stays as an undocumented alias. |  [optional] |
 |**enableAiQuorum** | **Boolean** | Turns on AI Quorum checks for this item. |  [optional] |
 |**inputRule** | **List&lt;String&gt;** | Agentic input rule in name&#x3D;...,rule&#x3D;... format (e.g. name&#x3D;rule1,rule&#x3D;Sanitize input) Mirrors commands.AgenticRulesParams — kept separate because ResourceDS cannot embed it (different package, different struct layout). |  [optional] |

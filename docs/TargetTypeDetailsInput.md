@@ -18,6 +18,7 @@
 |**chefTargetDetails** | [**ChefTargetDetails**](ChefTargetDetails.md) |  |  [optional] |
 |**cloudflareTargetDetails** | [**CloudflareTargetDetails**](CloudflareTargetDetails.md) |  |  [optional] |
 |**customDnsTargetDetails** | [**CustomDnsTargetDetails**](CustomDnsTargetDetails.md) |  |  [optional] |
+|**customLlmTargetDetails** | [**CustomLLMTargetDetails**](CustomLLMTargetDetails.md) |  |  [optional] |
 |**customTargetDetails** | [**CustomTargetDetails**](CustomTargetDetails.md) |  |  [optional] |
 |**dbTargetDetails** | [**DbTargetDetails**](DbTargetDetails.md) |  |  [optional] |
 |**digicertTargetDetails** | [**DigiCertTargetDetails**](DigiCertTargetDetails.md) |  |  [optional] |

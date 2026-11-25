@@ -102,10 +102,50 @@ public class AssocTargetItem {
   @javax.annotation.Nullable
   private String f5SyncDeviceGroup;
 
+  public static final String SERIALIZED_NAME_IIS_BINDING_HOSTNAME = "iis-binding-hostname";
+  @SerializedName(SERIALIZED_NAME_IIS_BINDING_HOSTNAME)
+  @javax.annotation.Nullable
+  private String iisBindingHostname;
+
+  public static final String SERIALIZED_NAME_IIS_BINDING_IP_ADDRESS = "iis-binding-ip-address";
+  @SerializedName(SERIALIZED_NAME_IIS_BINDING_IP_ADDRESS)
+  @javax.annotation.Nullable
+  private String iisBindingIpAddress;
+
+  public static final String SERIALIZED_NAME_IIS_BINDING_PORT = "iis-binding-port";
+  @SerializedName(SERIALIZED_NAME_IIS_BINDING_PORT)
+  @javax.annotation.Nullable
+  private Long iisBindingPort;
+
+  public static final String SERIALIZED_NAME_IIS_CREATE_BINDING = "iis-create-binding";
+  @SerializedName(SERIALIZED_NAME_IIS_CREATE_BINDING)
+  @javax.annotation.Nullable
+  private Boolean iisCreateBinding = false;
+
+  public static final String SERIALIZED_NAME_IIS_RESTART_WEBSITE = "iis-restart-website";
+  @SerializedName(SERIALIZED_NAME_IIS_RESTART_WEBSITE)
+  @javax.annotation.Nullable
+  private Boolean iisRestartWebsite = false;
+
+  public static final String SERIALIZED_NAME_IIS_WEBSITE_NAME = "iis-website-name";
+  @SerializedName(SERIALIZED_NAME_IIS_WEBSITE_NAME)
+  @javax.annotation.Nullable
+  private String iisWebsiteName;
+
+  public static final String SERIALIZED_NAME_JKS_PASSWORD = "jks-password";
+  @SerializedName(SERIALIZED_NAME_JKS_PASSWORD)
+  @javax.annotation.Nullable
+  private String jksPassword;
+
   public static final String SERIALIZED_NAME_JSON = "json";
   @SerializedName(SERIALIZED_NAME_JSON)
   @javax.annotation.Nullable
   private Boolean json = false;
+
+  public static final String SERIALIZED_NAME_KEY_ALIAS = "key-alias";
+  @SerializedName(SERIALIZED_NAME_KEY_ALIAS)
+  @javax.annotation.Nullable
+  private String keyAlias;
 
   public static final String SERIALIZED_NAME_KEY_OPERATIONS = "key-operations";
   @SerializedName(SERIALIZED_NAME_KEY_OPERATIONS)
@@ -171,6 +211,16 @@ public class AssocTargetItem {
   @SerializedName(SERIALIZED_NAME_PROTECTION_LEVEL)
   @javax.annotation.Nullable
   private String protectionLevel = "software";
+
+  public static final String SERIALIZED_NAME_PROVISIONING_SCHEDULE_DAYS = "provisioning-schedule-days";
+  @SerializedName(SERIALIZED_NAME_PROVISIONING_SCHEDULE_DAYS)
+  @javax.annotation.Nullable
+  private String provisioningScheduleDays;
+
+  public static final String SERIALIZED_NAME_PROVISIONING_SCHEDULE_TIME = "provisioning-schedule-time";
+  @SerializedName(SERIALIZED_NAME_PROVISIONING_SCHEDULE_TIME)
+  @javax.annotation.Nullable
+  private String provisioningScheduleTime;
 
   public static final String SERIALIZED_NAME_PURPOSE = "purpose";
   @SerializedName(SERIALIZED_NAME_PURPOSE)
@@ -267,7 +317,7 @@ public class AssocTargetItem {
   }
 
   /**
-   * The format the certificate will be provisioned with, available options: pem,pfx (relevant only for certificate provisioning)
+   * The format the certificate will be provisioned with, available options: pem,pfx,jks (jks uses --jks-password); pfx requires gateway version 5.5.0 or higher, and jks and pfx for Azure Key Vault require 5.8.0 or higher, or the association is rejected (relevant only for certificate provisioning)
    * @return certificateFormat
    */
   @javax.annotation.Nullable
@@ -413,6 +463,139 @@ public class AssocTargetItem {
   }
 
 
+  public AssocTargetItem iisBindingHostname(@javax.annotation.Nullable String iisBindingHostname) {
+    this.iisBindingHostname = iisBindingHostname;
+    return this;
+  }
+
+  /**
+   * The optional host name of the IIS binding, which enables SNI for a binding that is created (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\&lt;store&gt;, for example Cert:\\LocalMachine\\My)
+   * @return iisBindingHostname
+   */
+  @javax.annotation.Nullable
+  public String getIisBindingHostname() {
+    return iisBindingHostname;
+  }
+
+  public void setIisBindingHostname(@javax.annotation.Nullable String iisBindingHostname) {
+    this.iisBindingHostname = iisBindingHostname;
+  }
+
+
+  public AssocTargetItem iisBindingIpAddress(@javax.annotation.Nullable String iisBindingIpAddress) {
+    this.iisBindingIpAddress = iisBindingIpAddress;
+    return this;
+  }
+
+  /**
+   * Comma-separated IP addresses of the IIS bindings to update (or create with --iis-create-binding), one binding per address, or * for all unassigned addresses; required with --iis-website-name (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\&lt;store&gt;, for example Cert:\\LocalMachine\\My)
+   * @return iisBindingIpAddress
+   */
+  @javax.annotation.Nullable
+  public String getIisBindingIpAddress() {
+    return iisBindingIpAddress;
+  }
+
+  public void setIisBindingIpAddress(@javax.annotation.Nullable String iisBindingIpAddress) {
+    this.iisBindingIpAddress = iisBindingIpAddress;
+  }
+
+
+  public AssocTargetItem iisBindingPort(@javax.annotation.Nullable Long iisBindingPort) {
+    this.iisBindingPort = iisBindingPort;
+    return this;
+  }
+
+  /**
+   * The port of the IIS binding, 443 when omitted (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\&lt;store&gt;, for example Cert:\\LocalMachine\\My)
+   * @return iisBindingPort
+   */
+  @javax.annotation.Nullable
+  public Long getIisBindingPort() {
+    return iisBindingPort;
+  }
+
+  public void setIisBindingPort(@javax.annotation.Nullable Long iisBindingPort) {
+    this.iisBindingPort = iisBindingPort;
+  }
+
+
+  public AssocTargetItem iisCreateBinding(@javax.annotation.Nullable Boolean iisCreateBinding) {
+    this.iisCreateBinding = iisCreateBinding;
+    return this;
+  }
+
+  /**
+   * Create the IIS https binding if the website has none matching the given IP addresses, port and host name; without it the run fails when such a binding does not exist (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\&lt;store&gt;, for example Cert:\\LocalMachine\\My)
+   * @return iisCreateBinding
+   */
+  @javax.annotation.Nullable
+  public Boolean getIisCreateBinding() {
+    return iisCreateBinding;
+  }
+
+  public void setIisCreateBinding(@javax.annotation.Nullable Boolean iisCreateBinding) {
+    this.iisCreateBinding = iisCreateBinding;
+  }
+
+
+  public AssocTargetItem iisRestartWebsite(@javax.annotation.Nullable Boolean iisRestartWebsite) {
+    this.iisRestartWebsite = iisRestartWebsite;
+    return this;
+  }
+
+  /**
+   * Restart the IIS website after the certificate is bound (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\&lt;store&gt;, for example Cert:\\LocalMachine\\My)
+   * @return iisRestartWebsite
+   */
+  @javax.annotation.Nullable
+  public Boolean getIisRestartWebsite() {
+    return iisRestartWebsite;
+  }
+
+  public void setIisRestartWebsite(@javax.annotation.Nullable Boolean iisRestartWebsite) {
+    this.iisRestartWebsite = iisRestartWebsite;
+  }
+
+
+  public AssocTargetItem iisWebsiteName(@javax.annotation.Nullable String iisWebsiteName) {
+    this.iisWebsiteName = iisWebsiteName;
+    return this;
+  }
+
+  /**
+   * The IIS website to bind the provisioned certificate to (requires gateway version 5.8.0 or higher, or the association is rejected; relevant only for Windows certificate provisioning, requires --certificate-format pfx and a --certificate-path of the form Cert:\\LocalMachine\\&lt;store&gt;, for example Cert:\\LocalMachine\\My)
+   * @return iisWebsiteName
+   */
+  @javax.annotation.Nullable
+  public String getIisWebsiteName() {
+    return iisWebsiteName;
+  }
+
+  public void setIisWebsiteName(@javax.annotation.Nullable String iisWebsiteName) {
+    this.iisWebsiteName = iisWebsiteName;
+  }
+
+
+  public AssocTargetItem jksPassword(@javax.annotation.Nullable String jksPassword) {
+    this.jksPassword = jksPassword;
+    return this;
+  }
+
+  /**
+   * JKS file password; required when certificate-format is jks (relevant only for certificate provisioning)
+   * @return jksPassword
+   */
+  @javax.annotation.Nullable
+  public String getJksPassword() {
+    return jksPassword;
+  }
+
+  public void setJksPassword(@javax.annotation.Nullable String jksPassword) {
+    this.jksPassword = jksPassword;
+  }
+
+
   public AssocTargetItem json(@javax.annotation.Nullable Boolean json) {
     this.json = json;
     return this;
@@ -429,6 +612,25 @@ public class AssocTargetItem {
 
   public void setJson(@javax.annotation.Nullable Boolean json) {
     this.json = json;
+  }
+
+
+  public AssocTargetItem keyAlias(@javax.annotation.Nullable String keyAlias) {
+    this.keyAlias = keyAlias;
+    return this;
+  }
+
+  /**
+   * Alias the entry is stored under in the JKS file, default certificate (max 128 characters). Only relevant when --certificate-format&#x3D;jks
+   * @return keyAlias
+   */
+  @javax.annotation.Nullable
+  public String getKeyAlias() {
+    return keyAlias;
+  }
+
+  public void setKeyAlias(@javax.annotation.Nullable String keyAlias) {
+    this.keyAlias = keyAlias;
   }
 
 
@@ -598,7 +800,7 @@ public class AssocTargetItem {
   }
 
   /**
-   * Password used to protect the provisioned PFX file. Required when --certificate-format&#x3D;pfx (relevant only for certificate provisioning)
+   * PFX file password; required when certificate-format is pfx (relevant only for certificate provisioning)
    * @return pfxPassword
    */
   @javax.annotation.Nullable
@@ -684,6 +886,44 @@ public class AssocTargetItem {
 
   public void setProtectionLevel(@javax.annotation.Nullable String protectionLevel) {
     this.protectionLevel = protectionLevel;
+  }
+
+
+  public AssocTargetItem provisioningScheduleDays(@javax.annotation.Nullable String provisioningScheduleDays) {
+    this.provisioningScheduleDays = provisioningScheduleDays;
+    return this;
+  }
+
+  /**
+   * Comma-separated UTC weekdays (sun,mon,tue,wed,thu,fri,sat) on which the certificate is provisioned after a renewal, together with provisioning-schedule-time. Provisioning is not run when the association is created. Without a schedule, provisioning runs right away (relevant only for certificate provisioning)
+   * @return provisioningScheduleDays
+   */
+  @javax.annotation.Nullable
+  public String getProvisioningScheduleDays() {
+    return provisioningScheduleDays;
+  }
+
+  public void setProvisioningScheduleDays(@javax.annotation.Nullable String provisioningScheduleDays) {
+    this.provisioningScheduleDays = provisioningScheduleDays;
+  }
+
+
+  public AssocTargetItem provisioningScheduleTime(@javax.annotation.Nullable String provisioningScheduleTime) {
+    this.provisioningScheduleTime = provisioningScheduleTime;
+    return this;
+  }
+
+  /**
+   * The UTC time of day, as HH:MM, at which the certificate is provisioned on the scheduled days. A renewed certificate waits for the first such time (relevant only for certificate provisioning)
+   * @return provisioningScheduleTime
+   */
+  @javax.annotation.Nullable
+  public String getProvisioningScheduleTime() {
+    return provisioningScheduleTime;
+  }
+
+  public void setProvisioningScheduleTime(@javax.annotation.Nullable String provisioningScheduleTime) {
+    this.provisioningScheduleTime = provisioningScheduleTime;
   }
 
 
@@ -867,7 +1107,15 @@ public class AssocTargetItem {
         Objects.equals(this.externalKeyName, assocTargetItem.externalKeyName) &&
         Objects.equals(this.f5SaveConfig, assocTargetItem.f5SaveConfig) &&
         Objects.equals(this.f5SyncDeviceGroup, assocTargetItem.f5SyncDeviceGroup) &&
+        Objects.equals(this.iisBindingHostname, assocTargetItem.iisBindingHostname) &&
+        Objects.equals(this.iisBindingIpAddress, assocTargetItem.iisBindingIpAddress) &&
+        Objects.equals(this.iisBindingPort, assocTargetItem.iisBindingPort) &&
+        Objects.equals(this.iisCreateBinding, assocTargetItem.iisCreateBinding) &&
+        Objects.equals(this.iisRestartWebsite, assocTargetItem.iisRestartWebsite) &&
+        Objects.equals(this.iisWebsiteName, assocTargetItem.iisWebsiteName) &&
+        Objects.equals(this.jksPassword, assocTargetItem.jksPassword) &&
         Objects.equals(this.json, assocTargetItem.json) &&
+        Objects.equals(this.keyAlias, assocTargetItem.keyAlias) &&
         Objects.equals(this.keyOperations, assocTargetItem.keyOperations) &&
         Objects.equals(this.keyVault, assocTargetItem.keyVault) &&
         Objects.equals(this.keyringName, assocTargetItem.keyringName) &&
@@ -881,6 +1129,8 @@ public class AssocTargetItem {
         Objects.equals(this.privateKeyPath, assocTargetItem.privateKeyPath) &&
         Objects.equals(this.projectId, assocTargetItem.projectId) &&
         Objects.equals(this.protectionLevel, assocTargetItem.protectionLevel) &&
+        Objects.equals(this.provisioningScheduleDays, assocTargetItem.provisioningScheduleDays) &&
+        Objects.equals(this.provisioningScheduleTime, assocTargetItem.provisioningScheduleTime) &&
         Objects.equals(this.purpose, assocTargetItem.purpose) &&
         Objects.equals(this.regions, assocTargetItem.regions) &&
         Objects.equals(this.sraAssociation, assocTargetItem.sraAssociation) &&
@@ -893,7 +1143,7 @@ public class AssocTargetItem {
 
   @Override
   public int hashCode() {
-    return Objects.hash(bindSslProfiles, certificateArn, certificateFormat, certificateName, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, f5SaveConfig, f5SyncDeviceGroup, json, keyOperations, keyVault, keyringName, kmsAlgorithm, locationId, locationScope, multiRegion, name, pfxPassword, postProvisionCommand, privateKeyPath, projectId, protectionLevel, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
+    return Objects.hash(bindSslProfiles, certificateArn, certificateFormat, certificateName, certificatePath, chainPath, disablePreviousKeyVersion, externalKeyName, f5SaveConfig, f5SyncDeviceGroup, iisBindingHostname, iisBindingIpAddress, iisBindingPort, iisCreateBinding, iisRestartWebsite, iisWebsiteName, jksPassword, json, keyAlias, keyOperations, keyVault, keyringName, kmsAlgorithm, locationId, locationScope, multiRegion, name, pfxPassword, postProvisionCommand, privateKeyPath, projectId, protectionLevel, provisioningScheduleDays, provisioningScheduleTime, purpose, regions, sraAssociation, targetName, tenantSecretType, token, uidToken, vaultName);
   }
 
   @Override
@@ -910,7 +1160,15 @@ public class AssocTargetItem {
     sb.append("    externalKeyName: ").append(toIndentedString(externalKeyName)).append("\n");
     sb.append("    f5SaveConfig: ").append(toIndentedString(f5SaveConfig)).append("\n");
     sb.append("    f5SyncDeviceGroup: ").append(toIndentedString(f5SyncDeviceGroup)).append("\n");
+    sb.append("    iisBindingHostname: ").append(toIndentedString(iisBindingHostname)).append("\n");
+    sb.append("    iisBindingIpAddress: ").append(toIndentedString(iisBindingIpAddress)).append("\n");
+    sb.append("    iisBindingPort: ").append(toIndentedString(iisBindingPort)).append("\n");
+    sb.append("    iisCreateBinding: ").append(toIndentedString(iisCreateBinding)).append("\n");
+    sb.append("    iisRestartWebsite: ").append(toIndentedString(iisRestartWebsite)).append("\n");
+    sb.append("    iisWebsiteName: ").append(toIndentedString(iisWebsiteName)).append("\n");
+    sb.append("    jksPassword: ").append(toIndentedString(jksPassword)).append("\n");
     sb.append("    json: ").append(toIndentedString(json)).append("\n");
+    sb.append("    keyAlias: ").append(toIndentedString(keyAlias)).append("\n");
     sb.append("    keyOperations: ").append(toIndentedString(keyOperations)).append("\n");
     sb.append("    keyVault: ").append(toIndentedString(keyVault)).append("\n");
     sb.append("    keyringName: ").append(toIndentedString(keyringName)).append("\n");
@@ -924,6 +1182,8 @@ public class AssocTargetItem {
     sb.append("    privateKeyPath: ").append(toIndentedString(privateKeyPath)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
     sb.append("    protectionLevel: ").append(toIndentedString(protectionLevel)).append("\n");
+    sb.append("    provisioningScheduleDays: ").append(toIndentedString(provisioningScheduleDays)).append("\n");
+    sb.append("    provisioningScheduleTime: ").append(toIndentedString(provisioningScheduleTime)).append("\n");
     sb.append("    purpose: ").append(toIndentedString(purpose)).append("\n");
     sb.append("    regions: ").append(toIndentedString(regions)).append("\n");
     sb.append("    sraAssociation: ").append(toIndentedString(sraAssociation)).append("\n");
@@ -950,7 +1210,7 @@ public class AssocTargetItem {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-arn", "certificate-format", "certificate-name", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "f5-save-config", "f5-sync-device-group", "json", "key-operations", "key-vault", "keyring-name", "kms-algorithm", "location-id", "location-scope", "multi-region", "name", "pfx-password", "post-provision-command", "private-key-path", "project-id", "protection-level", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
+    openapiFields = new HashSet<String>(Arrays.asList("bind-ssl-profiles", "certificate-arn", "certificate-format", "certificate-name", "certificate-path", "chain-path", "disable-previous-key-version", "external-key-name", "f5-save-config", "f5-sync-device-group", "iis-binding-hostname", "iis-binding-ip-address", "iis-binding-port", "iis-create-binding", "iis-restart-website", "iis-website-name", "jks-password", "json", "key-alias", "key-operations", "key-vault", "keyring-name", "kms-algorithm", "location-id", "location-scope", "multi-region", "name", "pfx-password", "post-provision-command", "private-key-path", "project-id", "protection-level", "provisioning-schedule-days", "provisioning-schedule-time", "purpose", "regions", "sra-association", "target-name", "tenant-secret-type", "token", "uid-token", "vault-name"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "target-name"));
@@ -1009,6 +1269,21 @@ public class AssocTargetItem {
       if ((jsonObj.get("f5-sync-device-group") != null && !jsonObj.get("f5-sync-device-group").isJsonNull()) && !jsonObj.get("f5-sync-device-group").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `f5-sync-device-group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("f5-sync-device-group").toString()));
       }
+      if ((jsonObj.get("iis-binding-hostname") != null && !jsonObj.get("iis-binding-hostname").isJsonNull()) && !jsonObj.get("iis-binding-hostname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `iis-binding-hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iis-binding-hostname").toString()));
+      }
+      if ((jsonObj.get("iis-binding-ip-address") != null && !jsonObj.get("iis-binding-ip-address").isJsonNull()) && !jsonObj.get("iis-binding-ip-address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `iis-binding-ip-address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iis-binding-ip-address").toString()));
+      }
+      if ((jsonObj.get("iis-website-name") != null && !jsonObj.get("iis-website-name").isJsonNull()) && !jsonObj.get("iis-website-name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `iis-website-name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iis-website-name").toString()));
+      }
+      if ((jsonObj.get("jks-password") != null && !jsonObj.get("jks-password").isJsonNull()) && !jsonObj.get("jks-password").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `jks-password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jks-password").toString()));
+      }
+      if ((jsonObj.get("key-alias") != null && !jsonObj.get("key-alias").isJsonNull()) && !jsonObj.get("key-alias").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-alias` to be a primitive type in the JSON string but got `%s`", jsonObj.get("key-alias").toString()));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("key-operations") != null && !jsonObj.get("key-operations").isJsonNull() && !jsonObj.get("key-operations").isJsonArray()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `key-operations` to be an array in the JSON string but got `%s`", jsonObj.get("key-operations").toString()));
@@ -1048,6 +1323,12 @@ public class AssocTargetItem {
       }
       if ((jsonObj.get("protection-level") != null && !jsonObj.get("protection-level").isJsonNull()) && !jsonObj.get("protection-level").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `protection-level` to be a primitive type in the JSON string but got `%s`", jsonObj.get("protection-level").toString()));
+      }
+      if ((jsonObj.get("provisioning-schedule-days") != null && !jsonObj.get("provisioning-schedule-days").isJsonNull()) && !jsonObj.get("provisioning-schedule-days").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provisioning-schedule-days` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provisioning-schedule-days").toString()));
+      }
+      if ((jsonObj.get("provisioning-schedule-time") != null && !jsonObj.get("provisioning-schedule-time").isJsonNull()) && !jsonObj.get("provisioning-schedule-time").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provisioning-schedule-time` to be a primitive type in the JSON string but got `%s`", jsonObj.get("provisioning-schedule-time").toString()));
       }
       if ((jsonObj.get("purpose") != null && !jsonObj.get("purpose").isJsonNull()) && !jsonObj.get("purpose").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `purpose` to be a primitive type in the JSON string but got `%s`", jsonObj.get("purpose").toString()));

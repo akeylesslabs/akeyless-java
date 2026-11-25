@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -74,6 +76,11 @@ public class RenewCertificateOutput {
   @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
   @javax.annotation.Nullable
   private String privateKey;
+
+  public static final String SERIALIZED_NAME_PROVISIONING_SCHEDULE_ERRORS = "provisioning_schedule_errors";
+  @SerializedName(SERIALIZED_NAME_PROVISIONING_SCHEDULE_ERRORS)
+  @javax.annotation.Nullable
+  private List<String> provisioningScheduleErrors = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_READING_TOKEN = "reading_token";
   @SerializedName(SERIALIZED_NAME_READING_TOKEN)
@@ -178,6 +185,33 @@ public class RenewCertificateOutput {
   }
 
 
+  public RenewCertificateOutput provisioningScheduleErrors(@javax.annotation.Nullable List<String> provisioningScheduleErrors) {
+    this.provisioningScheduleErrors = provisioningScheduleErrors;
+    return this;
+  }
+
+  public RenewCertificateOutput addProvisioningScheduleErrorsItem(String provisioningScheduleErrorsItem) {
+    if (this.provisioningScheduleErrors == null) {
+      this.provisioningScheduleErrors = new ArrayList<>();
+    }
+    this.provisioningScheduleErrors.add(provisioningScheduleErrorsItem);
+    return this;
+  }
+
+  /**
+   * ProvisioningScheduleErrors lists the targets whose provisioning could not be scheduled, as \&quot;&lt;target&gt;: &lt;error&gt;\&quot;. The renewal itself succeeded.
+   * @return provisioningScheduleErrors
+   */
+  @javax.annotation.Nullable
+  public List<String> getProvisioningScheduleErrors() {
+    return provisioningScheduleErrors;
+  }
+
+  public void setProvisioningScheduleErrors(@javax.annotation.Nullable List<String> provisioningScheduleErrors) {
+    this.provisioningScheduleErrors = provisioningScheduleErrors;
+  }
+
+
   public RenewCertificateOutput readingToken(@javax.annotation.Nullable String readingToken) {
     this.readingToken = readingToken;
     return this;
@@ -212,12 +246,13 @@ public class RenewCertificateOutput {
         Objects.equals(this.itemId, renewCertificateOutput.itemId) &&
         Objects.equals(this.parentCert, renewCertificateOutput.parentCert) &&
         Objects.equals(this.privateKey, renewCertificateOutput.privateKey) &&
+        Objects.equals(this.provisioningScheduleErrors, renewCertificateOutput.provisioningScheduleErrors) &&
         Objects.equals(this.readingToken, renewCertificateOutput.readingToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cert, certDisplayId, itemId, parentCert, privateKey, readingToken);
+    return Objects.hash(cert, certDisplayId, itemId, parentCert, privateKey, provisioningScheduleErrors, readingToken);
   }
 
   @Override
@@ -229,6 +264,7 @@ public class RenewCertificateOutput {
     sb.append("    itemId: ").append(toIndentedString(itemId)).append("\n");
     sb.append("    parentCert: ").append(toIndentedString(parentCert)).append("\n");
     sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
+    sb.append("    provisioningScheduleErrors: ").append(toIndentedString(provisioningScheduleErrors)).append("\n");
     sb.append("    readingToken: ").append(toIndentedString(readingToken)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -248,7 +284,7 @@ public class RenewCertificateOutput {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("cert", "cert_display_id", "item_id", "parent_cert", "private_key", "reading_token"));
+    openapiFields = new HashSet<String>(Arrays.asList("cert", "cert_display_id", "item_id", "parent_cert", "private_key", "provisioning_schedule_errors", "reading_token"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -289,6 +325,10 @@ public class RenewCertificateOutput {
       }
       if ((jsonObj.get("private_key") != null && !jsonObj.get("private_key").isJsonNull()) && !jsonObj.get("private_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `private_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("private_key").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("provisioning_schedule_errors") != null && !jsonObj.get("provisioning_schedule_errors").isJsonNull() && !jsonObj.get("provisioning_schedule_errors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `provisioning_schedule_errors` to be an array in the JSON string but got `%s`", jsonObj.get("provisioning_schedule_errors").toString()));
       }
       if ((jsonObj.get("reading_token") != null && !jsonObj.get("reading_token").isJsonNull()) && !jsonObj.get("reading_token").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `reading_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reading_token").toString()));

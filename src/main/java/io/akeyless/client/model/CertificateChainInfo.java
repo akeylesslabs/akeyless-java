@@ -146,6 +146,11 @@ public class CertificateChainInfo {
   @javax.annotation.Nullable
   private String leafCertificatePem;
 
+  public static final String SERIALIZED_NAME_NEXT_AUTO_RENEWAL_DATE = "next_auto_renewal_date";
+  @SerializedName(SERIALIZED_NAME_NEXT_AUTO_RENEWAL_DATE)
+  @javax.annotation.Nullable
+  private OffsetDateTime nextAutoRenewalDate;
+
   public static final String SERIALIZED_NAME_NOT_BEFORE = "not_before";
   @SerializedName(SERIALIZED_NAME_NOT_BEFORE)
   @javax.annotation.Nullable
@@ -522,6 +527,25 @@ public class CertificateChainInfo {
   }
 
 
+  public CertificateChainInfo nextAutoRenewalDate(@javax.annotation.Nullable OffsetDateTime nextAutoRenewalDate) {
+    this.nextAutoRenewalDate = nextAutoRenewalDate;
+    return this;
+  }
+
+  /**
+   * NextAutoRenewalDate is when auto-renewal will next renew the certificate. It is worked out when the certificate is described and never stored, and it is empty when the certificate will not be auto-renewed.
+   * @return nextAutoRenewalDate
+   */
+  @javax.annotation.Nullable
+  public OffsetDateTime getNextAutoRenewalDate() {
+    return nextAutoRenewalDate;
+  }
+
+  public void setNextAutoRenewalDate(@javax.annotation.Nullable OffsetDateTime nextAutoRenewalDate) {
+    this.nextAutoRenewalDate = nextAutoRenewalDate;
+  }
+
+
   public CertificateChainInfo notBefore(@javax.annotation.Nullable OffsetDateTime notBefore) {
     this.notBefore = notBefore;
     return this;
@@ -607,6 +631,7 @@ public class CertificateChainInfo {
         Objects.equals(this.externalCaId, certificateChainInfo.externalCaId) &&
         Objects.equals(this.issuanceStatus, certificateChainInfo.issuanceStatus) &&
         Objects.equals(this.leafCertificatePem, certificateChainInfo.leafCertificatePem) &&
+        Objects.equals(this.nextAutoRenewalDate, certificateChainInfo.nextAutoRenewalDate) &&
         Objects.equals(this.notBefore, certificateChainInfo.notBefore) &&
         Objects.equals(this.renewBeforeExpirationInDays, certificateChainInfo.renewBeforeExpirationInDays) &&
         Objects.equals(this.splitCertificateChain, certificateChainInfo.splitCertificateChain);
@@ -614,7 +639,7 @@ public class CertificateChainInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterId, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, commonName, csrPem, errorMessage, expirationDate, expirationEvents, externalCaId, issuanceStatus, leafCertificatePem, notBefore, renewBeforeExpirationInDays, splitCertificateChain);
+    return Objects.hash(autoRenewCertificate, certificateChain, certificateFormat, certificateHasPrivateKey, certificateIssuerGwClusterId, certificateIssuerGwClusterUrl, certificateIssuerItemId, certificateIssuerName, certificatePem, certificateStatus, commonName, csrPem, errorMessage, expirationDate, expirationEvents, externalCaId, issuanceStatus, leafCertificatePem, nextAutoRenewalDate, notBefore, renewBeforeExpirationInDays, splitCertificateChain);
   }
 
   @Override
@@ -639,6 +664,7 @@ public class CertificateChainInfo {
     sb.append("    externalCaId: ").append(toIndentedString(externalCaId)).append("\n");
     sb.append("    issuanceStatus: ").append(toIndentedString(issuanceStatus)).append("\n");
     sb.append("    leafCertificatePem: ").append(toIndentedString(leafCertificatePem)).append("\n");
+    sb.append("    nextAutoRenewalDate: ").append(toIndentedString(nextAutoRenewalDate)).append("\n");
     sb.append("    notBefore: ").append(toIndentedString(notBefore)).append("\n");
     sb.append("    renewBeforeExpirationInDays: ").append(toIndentedString(renewBeforeExpirationInDays)).append("\n");
     sb.append("    splitCertificateChain: ").append(toIndentedString(splitCertificateChain)).append("\n");
@@ -660,7 +686,7 @@ public class CertificateChainInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("auto_renew_certificate", "certificate_chain", "certificate_format", "certificate_has_private_key", "certificate_issuer_gw_cluster_id", "certificate_issuer_gw_cluster_url", "certificate_issuer_item_id", "certificate_issuer_name", "certificate_pem", "certificate_status", "common_name", "csr_pem", "error_message", "expiration_date", "expiration_events", "external_ca_id", "issuance_status", "leaf_certificate_pem", "not_before", "renew_before_expiration_in_days", "split_certificate_chain"));
+    openapiFields = new HashSet<String>(Arrays.asList("auto_renew_certificate", "certificate_chain", "certificate_format", "certificate_has_private_key", "certificate_issuer_gw_cluster_id", "certificate_issuer_gw_cluster_url", "certificate_issuer_item_id", "certificate_issuer_name", "certificate_pem", "certificate_status", "common_name", "csr_pem", "error_message", "expiration_date", "expiration_events", "external_ca_id", "issuance_status", "leaf_certificate_pem", "next_auto_renewal_date", "not_before", "renew_before_expiration_in_days", "split_certificate_chain"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

@@ -614,6 +614,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetCreateBedrock**](docs/V2Api.md#targetCreateBedrock) | **POST** /target-create-bedrock | 
 *V2Api* | [**targetCreateCloudflare**](docs/V2Api.md#targetCreateCloudflare) | **POST** /target-create-cloudflare | 
 *V2Api* | [**targetCreateCustomDns**](docs/V2Api.md#targetCreateCustomDns) | **POST** /target-create-custom-dns | 
+*V2Api* | [**targetCreateCustomLLM**](docs/V2Api.md#targetCreateCustomLLM) | **POST** /target-create-custom-llm | 
 *V2Api* | [**targetCreateDB**](docs/V2Api.md#targetCreateDB) | **POST** /target-create-db | 
 *V2Api* | [**targetCreateDigiCert**](docs/V2Api.md#targetCreateDigiCert) | **POST** /target-create-digicert | 
 *V2Api* | [**targetCreateDockerhub**](docs/V2Api.md#targetCreateDockerhub) | **POST** /target-create-dockerhub | 
@@ -660,6 +661,7 @@ Class | Method | HTTP request | Description
 *V2Api* | [**targetUpdateBedrock**](docs/V2Api.md#targetUpdateBedrock) | **POST** /target-update-bedrock | 
 *V2Api* | [**targetUpdateCloudflare**](docs/V2Api.md#targetUpdateCloudflare) | **POST** /target-update-cloudflare | 
 *V2Api* | [**targetUpdateCustomDns**](docs/V2Api.md#targetUpdateCustomDns) | **POST** /target-update-custom-dns | 
+*V2Api* | [**targetUpdateCustomLLM**](docs/V2Api.md#targetUpdateCustomLLM) | **POST** /target-update-custom-llm | 
 *V2Api* | [**targetUpdateDB**](docs/V2Api.md#targetUpdateDB) | **POST** /target-update-db | 
 *V2Api* | [**targetUpdateDigiCert**](docs/V2Api.md#targetUpdateDigiCert) | **POST** /target-update-digicert | 
 *V2Api* | [**targetUpdateDockerhub**](docs/V2Api.md#targetUpdateDockerhub) | **POST** /target-update-dockerhub | 
@@ -1046,6 +1048,7 @@ Class | Method | HTTP request | Description
  - [CreateZeroSSLTarget](docs/CreateZeroSSLTarget.md)
  - [CreateZeroSSLTargetOutput](docs/CreateZeroSSLTargetOutput.md)
  - [CustomDnsTargetDetails](docs/CustomDnsTargetDetails.md)
+ - [CustomLLMTargetDetails](docs/CustomLLMTargetDetails.md)
  - [CustomTargetDetails](docs/CustomTargetDetails.md)
  - [CustomerFragmentConfig](docs/CustomerFragmentConfig.md)
  - [CustomerFragmentsConfigJson](docs/CustomerFragmentsConfigJson.md)
@@ -1102,6 +1105,7 @@ Class | Method | HTTP request | Description
  - [DetokenizeOutput](docs/DetokenizeOutput.md)
  - [DigiCertTargetDetails](docs/DigiCertTargetDetails.md)
  - [DockerhubTargetDetails](docs/DockerhubTargetDetails.md)
+ - [DomainCoverage](docs/DomainCoverage.md)
  - [DynamicSecretCreateAerospike](docs/DynamicSecretCreateAerospike.md)
  - [DynamicSecretCreateAliCloud](docs/DynamicSecretCreateAliCloud.md)
  - [DynamicSecretCreateArtifactory](docs/DynamicSecretCreateArtifactory.md)
@@ -1833,6 +1837,7 @@ Class | Method | HTTP request | Description
  - [TargetCreateBedrock](docs/TargetCreateBedrock.md)
  - [TargetCreateCloudflare](docs/TargetCreateCloudflare.md)
  - [TargetCreateCustomDns](docs/TargetCreateCustomDns.md)
+ - [TargetCreateCustomLLM](docs/TargetCreateCustomLLM.md)
  - [TargetCreateDB](docs/TargetCreateDB.md)
  - [TargetCreateDigiCert](docs/TargetCreateDigiCert.md)
  - [TargetCreateDockerhub](docs/TargetCreateDockerhub.md)
@@ -1885,6 +1890,7 @@ Class | Method | HTTP request | Description
  - [TargetUpdateBedrock](docs/TargetUpdateBedrock.md)
  - [TargetUpdateCloudflare](docs/TargetUpdateCloudflare.md)
  - [TargetUpdateCustomDns](docs/TargetUpdateCustomDns.md)
+ - [TargetUpdateCustomLLM](docs/TargetUpdateCustomLLM.md)
  - [TargetUpdateDB](docs/TargetUpdateDB.md)
  - [TargetUpdateDigiCert](docs/TargetUpdateDigiCert.md)
  - [TargetUpdateDockerhub](docs/TargetUpdateDockerhub.md)

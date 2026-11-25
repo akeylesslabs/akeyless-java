@@ -55,6 +55,11 @@ public class ImporterInfo {
   @javax.annotation.Nullable
   private String externalItemId;
 
+  public static final String SERIALIZED_NAME_SOURCE_VERSION = "source_version";
+  @SerializedName(SERIALIZED_NAME_SOURCE_VERSION)
+  @javax.annotation.Nullable
+  private Long sourceVersion;
+
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
   @javax.annotation.Nullable
@@ -79,6 +84,25 @@ public class ImporterInfo {
 
   public void setExternalItemId(@javax.annotation.Nullable String externalItemId) {
     this.externalItemId = externalItemId;
+  }
+
+
+  public ImporterInfo sourceVersion(@javax.annotation.Nullable Long sourceVersion) {
+    this.sourceVersion = sourceVersion;
+    return this;
+  }
+
+  /**
+   * SourceVersion is the last version imported from the source system (Vault KV v2). 0 means not tracked.
+   * @return sourceVersion
+   */
+  @javax.annotation.Nullable
+  public Long getSourceVersion() {
+    return sourceVersion;
+  }
+
+  public void setSourceVersion(@javax.annotation.Nullable Long sourceVersion) {
+    this.sourceVersion = sourceVersion;
   }
 
 
@@ -112,12 +136,13 @@ public class ImporterInfo {
     }
     ImporterInfo importerInfo = (ImporterInfo) o;
     return Objects.equals(this.externalItemId, importerInfo.externalItemId) &&
+        Objects.equals(this.sourceVersion, importerInfo.sourceVersion) &&
         Objects.equals(this.version, importerInfo.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalItemId, version);
+    return Objects.hash(externalItemId, sourceVersion, version);
   }
 
   @Override
@@ -125,6 +150,7 @@ public class ImporterInfo {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImporterInfo {\n");
     sb.append("    externalItemId: ").append(toIndentedString(externalItemId)).append("\n");
+    sb.append("    sourceVersion: ").append(toIndentedString(sourceVersion)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -144,7 +170,7 @@ public class ImporterInfo {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("external_item_id", "version"));
+    openapiFields = new HashSet<String>(Arrays.asList("external_item_id", "source_version", "version"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);

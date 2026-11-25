@@ -50,6 +50,11 @@ import io.akeyless.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.22.0")
 public class SSHTargetDetails {
+  public static final String SERIALIZED_NAME_AUTH_TYPE = "auth_type";
+  @SerializedName(SERIALIZED_NAME_AUTH_TYPE)
+  @javax.annotation.Nullable
+  private String authType;
+
   public static final String SERIALIZED_NAME_HOST = "host";
   @SerializedName(SERIALIZED_NAME_HOST)
   @javax.annotation.Nullable
@@ -82,6 +87,25 @@ public class SSHTargetDetails {
 
   public SSHTargetDetails() {
   }
+
+  public SSHTargetDetails authType(@javax.annotation.Nullable String authType) {
+    this.authType = authType;
+    return this;
+  }
+
+  /**
+   * AuthType is a non-secret auth indication (password | private_key). Prefer Target.Attributes[auth_type] for list responses; this field may be populated on get-target-details for convenience.
+   * @return authType
+   */
+  @javax.annotation.Nullable
+  public String getAuthType() {
+    return authType;
+  }
+
+  public void setAuthType(@javax.annotation.Nullable String authType) {
+    this.authType = authType;
+  }
+
 
   public SSHTargetDetails host(@javax.annotation.Nullable String host) {
     this.host = host;
@@ -207,7 +231,8 @@ public class SSHTargetDetails {
       return false;
     }
     SSHTargetDetails ssHTargetDetails = (SSHTargetDetails) o;
-    return Objects.equals(this.host, ssHTargetDetails.host) &&
+    return Objects.equals(this.authType, ssHTargetDetails.authType) &&
+        Objects.equals(this.host, ssHTargetDetails.host) &&
         Objects.equals(this.password, ssHTargetDetails.password) &&
         Objects.equals(this.port, ssHTargetDetails.port) &&
         Objects.equals(this.privateKey, ssHTargetDetails.privateKey) &&
@@ -217,13 +242,14 @@ public class SSHTargetDetails {
 
   @Override
   public int hashCode() {
-    return Objects.hash(host, password, port, privateKey, privateKeyPassword, username);
+    return Objects.hash(authType, host, password, port, privateKey, privateKeyPassword, username);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SSHTargetDetails {\n");
+    sb.append("    authType: ").append(toIndentedString(authType)).append("\n");
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
@@ -248,7 +274,7 @@ public class SSHTargetDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("host", "password", "port", "private_key", "private_key_password", "username"));
+    openapiFields = new HashSet<String>(Arrays.asList("auth_type", "host", "password", "port", "private_key", "private_key_password", "username"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -275,6 +301,9 @@ public class SSHTargetDetails {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("auth_type") != null && !jsonObj.get("auth_type").isJsonNull()) && !jsonObj.get("auth_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `auth_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("auth_type").toString()));
+      }
       if ((jsonObj.get("host") != null && !jsonObj.get("host").isJsonNull()) && !jsonObj.get("host").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `host` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host").toString()));
       }

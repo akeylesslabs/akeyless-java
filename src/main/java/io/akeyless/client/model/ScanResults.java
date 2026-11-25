@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.akeyless.client.model.DomainCoverage;
 import io.akeyless.client.model.TargetError;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -77,6 +78,11 @@ public class ScanResults {
   @SerializedName(SERIALIZED_NAME_COUNT_SUBDOMAINS)
   @javax.annotation.Nullable
   private Long countSubdomains;
+
+  public static final String SERIALIZED_NAME_DOMAIN_COVERAGE = "DomainCoverage";
+  @SerializedName(SERIALIZED_NAME_DOMAIN_COVERAGE)
+  @javax.annotation.Nullable
+  private List<DomainCoverage> domainCoverage = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ERROR = "Error";
   @SerializedName(SERIALIZED_NAME_ERROR)
@@ -191,6 +197,33 @@ public class ScanResults {
   }
 
 
+  public ScanResults domainCoverage(@javax.annotation.Nullable List<DomainCoverage> domainCoverage) {
+    this.domainCoverage = domainCoverage;
+    return this;
+  }
+
+  public ScanResults addDomainCoverageItem(DomainCoverage domainCoverageItem) {
+    if (this.domainCoverage == null) {
+      this.domainCoverage = new ArrayList<>();
+    }
+    this.domainCoverage.add(domainCoverageItem);
+    return this;
+  }
+
+  /**
+   * DomainCoverage says, per public domain, how much of it subdomain discovery managed to cover. Clients that predate it ignore it, and a scan with no public domain omits it.
+   * @return domainCoverage
+   */
+  @javax.annotation.Nullable
+  public List<DomainCoverage> getDomainCoverage() {
+    return domainCoverage;
+  }
+
+  public void setDomainCoverage(@javax.annotation.Nullable List<DomainCoverage> domainCoverage) {
+    this.domainCoverage = domainCoverage;
+  }
+
+
   public ScanResults error(@javax.annotation.Nullable String error) {
     this.error = error;
     return this;
@@ -279,6 +312,7 @@ public class ScanResults {
         Objects.equals(this.countHosts, scanResults.countHosts) &&
         Objects.equals(this.countNew, scanResults.countNew) &&
         Objects.equals(this.countSubdomains, scanResults.countSubdomains) &&
+        Objects.equals(this.domainCoverage, scanResults.domainCoverage) &&
         Objects.equals(this.error, scanResults.error) &&
         Objects.equals(this.failedTargets, scanResults.failedTargets) &&
         Objects.equals(this.itemNames, scanResults.itemNames);
@@ -286,7 +320,7 @@ public class ScanResults {
 
   @Override
   public int hashCode() {
-    return Objects.hash(countExisting, countFailed, countHosts, countNew, countSubdomains, error, failedTargets, itemNames);
+    return Objects.hash(countExisting, countFailed, countHosts, countNew, countSubdomains, domainCoverage, error, failedTargets, itemNames);
   }
 
   @Override
@@ -298,6 +332,7 @@ public class ScanResults {
     sb.append("    countHosts: ").append(toIndentedString(countHosts)).append("\n");
     sb.append("    countNew: ").append(toIndentedString(countNew)).append("\n");
     sb.append("    countSubdomains: ").append(toIndentedString(countSubdomains)).append("\n");
+    sb.append("    domainCoverage: ").append(toIndentedString(domainCoverage)).append("\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    failedTargets: ").append(toIndentedString(failedTargets)).append("\n");
     sb.append("    itemNames: ").append(toIndentedString(itemNames)).append("\n");
@@ -319,7 +354,7 @@ public class ScanResults {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("CountExisting", "CountFailed", "CountHosts", "CountNew", "CountSubdomains", "Error", "FailedTargets", "ItemNames"));
+    openapiFields = new HashSet<String>(Arrays.asList("CountExisting", "CountFailed", "CountHosts", "CountNew", "CountSubdomains", "DomainCoverage", "Error", "FailedTargets", "ItemNames"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -346,6 +381,20 @@ public class ScanResults {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("DomainCoverage") != null && !jsonObj.get("DomainCoverage").isJsonNull()) {
+        JsonArray jsonArraydomainCoverage = jsonObj.getAsJsonArray("DomainCoverage");
+        if (jsonArraydomainCoverage != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("DomainCoverage").isJsonArray()) {
+            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `DomainCoverage` to be an array in the JSON string but got `%s`", jsonObj.get("DomainCoverage").toString()));
+          }
+
+          // validate the optional field `DomainCoverage` (array)
+          for (int i = 0; i < jsonArraydomainCoverage.size(); i++) {
+            DomainCoverage.validateJsonElement(jsonArraydomainCoverage.get(i));
+          };
+        }
+      }
       if ((jsonObj.get("Error") != null && !jsonObj.get("Error").isJsonNull()) && !jsonObj.get("Error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `Error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("Error").toString()));
       }
